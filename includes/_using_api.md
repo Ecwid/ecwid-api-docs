@@ -1,10 +1,9 @@
 # ---Using Ecwid REST API---
 
-# Version
 # API Version
 This document describes *Ecwid REST API v.3* which is currently in **beta** stage. Please contact us if you want to participate in beta testing or find any bug in the API or the documentation. Thank you. 
 
-For the information on *Ecwid API v.1*, please refer to the [Ecwid knowledge base](http://kb.ecwid.com/w/page/25232810/API)
+For the information on *Ecwid API v.1*, please refer to the [Ecwid API v.1 documentation](http://kb.ecwid.com/w/page/25232810/API)
 
 # Overview
 Ecwid provides a REST API that you can use to develop applications interacting with Ecwid stores from outside. By means of Ecwid REST API, your application can read, update, create and delete store data such as products, combinations, orders, customers, discount coupons etc. As any RESTful service, Ecwid REST API use the standard HTTP codes in requests: 
