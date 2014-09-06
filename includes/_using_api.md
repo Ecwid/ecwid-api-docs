@@ -1,6 +1,7 @@
 # ---Using Ecwid REST API---
 
 # Version
+# API Version
 This document describes *Ecwid REST API v.3* which is currently in **beta** stage. Please contact us if you want to participate in beta testing or find any bug in the API or the documentation. Thank you. 
 
 For the information on *Ecwid API v.1*, please refer to the [Ecwid knowledge base](http://kb.ecwid.com/w/page/25232810/API)

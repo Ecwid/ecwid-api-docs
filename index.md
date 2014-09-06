@@ -6,6 +6,7 @@ language_tabs:
 
 toc_footers:
  - <a href='http://help.ecwid.com'>Ecwid Help</a>
+ - <a href='https://github.com/Ecwid/ecwid-api-docs'>Suggest an edit</a>
 
 includes:
   - using_api
