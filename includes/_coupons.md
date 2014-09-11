@@ -19,12 +19,14 @@ Host: app.ecwid.com
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/discount_coupons?code={code}&discount_type={discount_type}&availability={availability}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/discount_coupons?code={code}&discount_type={discount_type}&availability={availability}&limit={limit}&offset={offset}&token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
+offset | number | Offset from the beginning of the returned items list (for paging)
+limit | number | Maximum number of returned items in one batch. Maximum allowed value: `100`. Default value: `10`
 code | string | Coupon code
 discount_type | string | Comma separated list of discount types. Supported values: `ABS`, `PERCENT`, `SHIPPING`
 availability |  string | Comma separated list of coupon states. Supported values: `ACTIVE`, `PAUSED`, `EXPIRED`, `USEDUP`

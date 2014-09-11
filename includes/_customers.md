@@ -53,7 +53,7 @@ Parameters in bold are mandatory
     "count": 3,
     "limit": 10,
     "offset": 0,
-    "customers": [
+    "items": [
         {
             "id": 14145238,
             "name": "John Darling",

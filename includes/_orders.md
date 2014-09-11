@@ -1,41 +1,39 @@
-# Products
+# Orders
 
 
 <!--
 ---------------------------------------------------------------------------------------------------------
-    Product search
+    Search orders
 ---------------------------------------------------------------------------------------------------------
 -->
 
-## Search products
+## Search orders
 
-Search/filter store products
+Search/filter orders
 
-### Request
-
-> Request examples
+> Request example
 
 ```http
-GET /api/v3/4870020/products?keyword=apple&token=1234567890qwqeertt HTTP/1.1
+GET /api/v3/4870020/orders?customer=johnsmith@example.com&paymentStatus=PAID,AWAITING_PAYMENT&token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&attributeQuery={attributeQuery}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/orders?keyword={keyword}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&offset={offset}&limit={limit}&token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
+offset | number | Offset from the beginning of the returned items list (for paging)
+limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
 keyword |  string | Search term. Ecwid searches products over multiple fields: title, description, SKU, product options, category name, gallery image descriptions, values of attributes
 priceFrom |  number | Minimum product price
 priceTo | number | Maximum product price
 category | number | Category ID
 withSubcategories |  boolean | `true`/`false`: defines whether Ecwid should search in subcategories of the category you set in `category` field. Ignored if `category` field is not set . `fales` is the default value
 sortBy |  string | Sort order. Supported values: <ul><li>`RELEVANCE` *default*</li> <li>`ADDED_TIME_DESC`</li> <li>`ADDED_TIME_ASC`</li> <li>`NAME_ASC`</li> <li>`NAME_DESC`</li> <li>`PRICE_ASC`</li> <li>`PRICE_DESC`</li></ul>
-offset | number | Offset from the beginning of the returned items list (for paging)
-limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
 createdFrom | string | Product creation date (lower bound) Format: YYYY-MM-DD
 createdTo | string | Product creation date (upper bound) Format: YYYY-MM-DD
 updatedFrom | string | Product last update date (lower bound) Format: YYYY-MM-DD
@@ -58,10 +56,7 @@ Parameters in bold are mandatory
 
 ```json
 {
-    "total": 2,
-    "count": 2,
-    "offset": 0,
-    "limit": 100,
+    "allProducts": 2,
     "items": [
         {
             "id": 37208338,
@@ -111,7 +106,6 @@ A JSON object of type 'SearchResult' with the following fields:
 Field | Type | Description
 ----- | ---- | -----------
 total | number | The total number of found items (might be more than the number of returned items)
-count | number | The total number of the items returned in this batch
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
 items | Array<ProductEntry> | The items list
