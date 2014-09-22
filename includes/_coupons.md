@@ -105,8 +105,8 @@ discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
 launchDate | string | The date of coupon launch
-expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`
-totalLimit | number *nullable* | The minimum order subtotal the coupon applies to
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`
+totalLimit | number | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
 creationDate |  string | Coupon creation date
@@ -211,7 +211,7 @@ status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDU
 discount | number | Discount amount
 launchDate | string | The date of coupon launch
 expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`
-totalLimit | number *nullable* | The minimum order subtotal the coupon applies to
+totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
 creationDate |  string | Coupon creation date
@@ -303,7 +303,7 @@ status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDU
 discount | number | Discount amount . `0` is default
 launchDate | string | The date of coupon launch
 expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`
-totalLimit | number *nullable* | The minimum order subtotal the coupon applies to
+totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE` . `UNLIMITED` is default
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers. `false` is default
 creationDate |  string | Coupon creation date
@@ -432,7 +432,7 @@ status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDU
 discount | number | Discount amount .
 launchDate | string | The date of coupon launch
 expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`
-totalLimit | number *nullable* | The minimum order subtotal the coupon applies to
+totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE` . 
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers.
 creationDate |  string | Coupon creation date

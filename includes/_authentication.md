@@ -17,7 +17,7 @@ Your application sends the user to Ecwid authorization dialog available on the E
 > Request example
 
 ```shell
-curl "http://app.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=https%3A%2F%2Fwww%2Eexample%2Ecom%2Fmyapp&response_type=code"
+curl "https://app.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=https%3A%2F%2Fwww%2Eexample%2Ecom%2Fmyapp&response_type=code"
 ```
 
 `GET https://my.ecwid.com/api/oauth/authorize`

@@ -15,4 +15,9 @@ includes:
   - products
   - customers
   - coupons
+  - orders
+  - store_profile
+  - categories
+  - combinations
+  - product_classes
 ---
