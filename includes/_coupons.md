@@ -135,7 +135,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
-500 | Cannot retrieve the coupons info because of an error on the server
+500 | Cannot retrieve the coupon info because of an error on the server
 
 #### Error response body (optional)
 

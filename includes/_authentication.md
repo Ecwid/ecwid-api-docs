@@ -64,6 +64,7 @@ curl "https://my.ecwid.com/api/oauth/token" \
 -d client_id=abcd0123 \
 -d client_secret=01234567890abcdefg \
 -d code=987654321hgfdsa \
+-d redirect_uri=https://www.example.com/myapp
 -d grant_type=authorization_code
 ```
 
@@ -74,6 +75,7 @@ Parameter | Required | Description
 client_id | required | Application ID
 client_secret | required | Application secret key
 code | required | The temporary code received on the step #2
+redirect_uri | conditional | If the `redirect_uri` parameter was included in the authorization request, you must include it in the token request and their values must be identical.
 grant_type | required | Must be `authorization_code`
 
 > Response example
