@@ -1019,11 +1019,72 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-
 ## Delete order
-<aside class="notice">
-The documentation is in process...
-</aside>
+
+> Request example
+
+```http
+DELETE /api/v3/4870020/orders/39847403?token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+```
+
+`DELETE https://app.ecwid.com/api/v3/{storeId}/orders/{id}?token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**id** | number | Order internal ID
+**token** |  string |  oAuth token
+
+### Response
+
+> Response example
+
+```json
+{
+    "deleteCount": 1,
+    "success": true
+}
+```
+
+A JSON object of type 'DeleteStatus' with the following fields:
+
+#### DeleteStatus
+
+Field | Type |  Description
+----- | ---- | --------------
+deleteCount | number | The number of deleted orders (`1` or `0` depending on whether the request was successful)
+success | boolean | `true` if the order has been deleted, `false` otherwise
+
+
+### Errors
+
+> Error response example
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description.
+
+#### HTTP codes
+
+**HTTP Status** | **Response JSON** | Description
+-------------- | -------------- | --------------
+400 | Request parameters are malformed
+404 | The order with given ID is not found
+500 | The delete request failed because of an error on the server
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+
+
 
 ## Create order
 <aside class="notice">
