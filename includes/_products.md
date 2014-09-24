@@ -1104,7 +1104,7 @@ errorMessage | string | Error message
 
 ## Upload gallery image
 
-Add image to the product images gallery.
+Add image to the product images gallery. Request parameters specify which product should be updated and what title should the uploaded image have. Request body is the image file itself (binary data).
 
 > Request example
 

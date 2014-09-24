@@ -1010,7 +1010,7 @@ HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are invalid
 404 | The order is not found
-500 | Cannot retrieve the order info because of an error on the server
+500 | Cannot update the order info because of an error on the server
 
 #### Error response body (optional)
 
@@ -1087,6 +1087,393 @@ errorMessage | string | Error message
 
 
 ## Create order
-<aside class="notice">
-The documentation is in process...
-</aside>
+
+> Request example
+
+```http
+POST /api/v3/4870020/orders?token=1234567890qwqeertt HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+{
+        "subtotal": 30,
+        "total": 40,
+        "email": "example@example.com",
+        "paymentMethod": "Phone order",
+        "tax": 0,
+        "paymentStatus": "PAID",
+        "fulfillmentStatus": "AWAITING_PROCESSING",
+        "items": [
+            {
+                "price": 15,
+                "weight": 0.32,
+                "sku": "00004",
+                "quantity": 2,
+                "name": "Cherry",
+            }
+        ],
+        "billingPerson": {
+            "name": "Eugene K",
+            "companyName": "Hedgehog and Bucket",
+            "street": "My Street",
+            "city": "San Diego",
+            "countryCode": "US",
+            "postalCode": "90002",
+            "stateOrProvinceCode": "CA",
+            "phone": "123141321"
+        },
+        "shippingPerson": {
+            "name": "Eugene K",
+            "companyName": "Hedgehog and Bucket",
+            "street": "My Street",
+            "city": "San Diego",
+            "countryCode": "US",
+            "postalCode": "90002",
+            "stateOrProvinceCode": "CA",
+            "phone": "123141321"
+        },
+        "shippingOption": {
+            "shippingMethodName": "Fast Delivery",
+            "shippingRate": 10
+        }
+    }
+```
+
+`POST https://app.ecwid.com/api/v3/{storeId}/orders?token={token}`
+
+Name | Type    | Description
+---- | ------- | --------------
+**storeId** |  number | Ecwid store ID
+**token** |  string | oAuth token
+
+### Request body
+
+A JSON object of type 'Order' with the following fields:
+
+#### Order
+Field | Type |  Description
+------| -----| ------------
+subtotal |  number | Order subtotal
+total | number | Order total cost
+email | string  | Customer email address
+paymentMethod | string |  Payment method name
+paymentModule | string | Payment processor name
+tax | number | Tax total
+ipAddress | string  | Customer IP
+couponDiscount | number | Discount applied with a coupon
+paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
+fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
+refererUrl | string | URL of the page that the order was placed on
+orderComments | string  | Order comments
+volumeDiscount | number | Subtotal based discount sum
+customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
+membershipBasedDiscount | number | Customer group based discount sum
+totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
+discount | number | The total sum of applied discounts
+usdTotal | number | Order total in USD
+globalReferer | string | URL that the customer came to the store from
+createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0400`
+updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0400`
+customerGroup | string | The name of group (membership) the customer belongs to
+discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
+items | Array\<*OrderItem*\> | Order items
+billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
+shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
+shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
+additionalInfo | Map\<*string,string*\> | Additional order information (if any)
+paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
+discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
+trackingNumber |  string | Shipping tracking code
+paymentMessage | string | Message from the payment processor if any
+extTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
+affiliateId |   string  | Affiliate ID
+creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
+
+#### OrderItem
+**Field** | **Type** |  **Description**
+--------- | -----------| -----------
+**quantity** |  number | Amount purchased
+**name** |  string | Product name
+productId | number | Store product ID
+categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
+price | number | Price of ordered item in the cart
+productPrice | number | Product price
+weight |  number | Product weight
+sku |   string | Product SKU
+shortDescription | string | Product description truncated to 120 characters
+tax | number | Tax amount applied to the item
+shipping | number| Order item shipping cost 
+quantityInStock | number | The number of products in stock in the store
+tangible | boolean | `true`/`false`: shows whether the item requires shipping
+trackQuantity | boolean | `true`/`false`: shows whether the store admin set to track the quantity of this product and get low stock notifications
+fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shipping rate is set for the product
+imageId | number | Product image internal ID
+fixedShippingRate | number| Fixed shipping rate for the product
+digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
+productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
+couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
+selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
+taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
+
+#### OrderItemTax
+**Field** | **Type** |  **Description**
+--------- | -----------| -----------
+name |  string | Tax name
+value | number | Tax value in percent
+total | number | Tax amount for the item
+
+#### OrderItemOption
+**Field** | **Type** |  **Description**
+--------- | -----------| -----------
+**name** |  string | Option name
+**type** |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
+value | string | Selected/entered value
+files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILE`)
+
+#### PersonInfo
+**Field** | **Type** |  **Description**
+--------- | -----------| -----------
+name |  string  | Full name
+companyName |   string  | Company name
+street |    string  | Address
+city |  string  | City
+countryCode | string  | Two-letter country code
+postalCode | string  | Postal/ZIP code
+stateOrProvinceCode |   string  | State code, e.g. `NY`
+phone | string  | Phone number
+
+#### DiscountCouponInfo
+Field | Type  | Description
+----- | ----- | -----------
+name |  string | Coupon title in store control panel
+code |  string | Coupon code
+discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`
+status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
+discount | number | Discount amount
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`
+totalLimit | number| The minimum order subtotal the coupon applies to
+usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
+repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+creationDate |  string | Coupon creation date
+orderCount | number | Number of uses
+catalogLimit |  \<*DiscountCouponCatalogLimit*\> | Products and categories the coupon can be applied to
+
+#### DiscountCouponCatalogLimit
+Field | Type | Description
+----- | ---- | -----------
+products | Array\<number\> | The list of product IDs the coupon can be applied to
+categories | Array\<number\> | The list of category IDs the coupon can be applied to
+
+#### ShippingOptionInfo
+Field | Type | Description
+----- | ---- | -----------
+shippingMethodId | string | Shipping method internal ID
+shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
+shippingMethodName | string | Shipping option name
+shippingRate | number | Rate
+estimatedTransitTime | number | Delivery time estimation
+
+#### DiscountInfo
+Field | Type | Description
+----- | ---- | -----------
+value | number | Discount value
+type | string | Discount type: `ABS` or `PERCENT`
+base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`
+order_total | number | Minimum order subtotal the discount applies to
+
+#### CreditCardStatus
+Field | Type | Description
+----- | ---- | -----------
+avsMessage | string  | Address verification status returned by the payment system.
+cvvMessage | string  | Credit card verification status returned by the payment system.
+
+### Response
+
+
+> Response example (JSON)
+
+```json
+{
+    "orderNumber": 17764093,
+    "success": true
+}
+```
+
+A JSON object of type 'CreateStatus' with the following fields:
+
+#### CreateStatus
+
+Field | Type |  Description
+-------------- | -------------- | --------------
+orderNumber | number | The ID(number) of created order in the store
+success | boolean | `true` if the order has been created, `false` otherwise
+
+### Errors
+
+> Error response example
+
+```http
+HTTP/1.1 400 Field OrderItem.quantity is absent
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+HTTP Status | Meaning
+------------|--------
+400 | Request parameters are invalid
+404 | The customer or any other linked object is not found in the store
+500 | Cannot create an order because of an error on the server
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+
+
+## Upload item option file
+
+Using this method, you can attach a file to an order item (implying that the order item has a 'file upload' option). Request parameters specify which order, item and option should be updated. Request body is the file itself (binary data).
+
+> Request example
+
+```http
+POST /api/v3/4870020/orders/1234657/items/987653/options/Attach+your+image?fileName=my_photo.jpg&token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json
+Cache-Control: no-cache
+
+binary data
+```
+
+`POST https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName}?fileName={fileName}token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**orderNumber** | number | Order number
+**itemId** | number | Order item ID
+**optionName** | string | Item product option name, e.g. `Upload your photo`
+fileName |  string |  Uploaded file name
+**token** |  string |  oAuth token
+
+### Response
+
+> Response example
+
+```json
+{
+    "id": 6005003
+}
+```
+
+A JSON object of type 'UploadStatus' with the following fields:
+
+#### UploadStatus
+Field | Type |  Description
+--------- | ---------| -----------
+id | number | Internal file ID
+
+### Errors
+
+> Error response example 
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and JSON-formatted body containing error description
+
+#### HTTP codes
+
+**HTTP Status** | Description
+--------- | -----------| -----------
+500 | Uploading of the file failed or there was an internal server error while processing a file
+404 | Order, order item or item option is not found
+413 | The file is too large
+400 | Request parameters are malformed
+402 | The functionality/method is not available on the merchant plan
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+
+
+## Delete item option file
+
+Using this method, you can remove a file attached to an order item by customer.
+
+> Request example
+
+```http
+DELETE /api/v3/4870020/orders/1234657/items/987653/options/Attach+your+image/files/{fileId}&token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json
+Cache-Control: no-cache
+
+binary data
+```
+
+`DELETE https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName}?fileName={fileName}token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**orderNumber** | number | Order number
+**itemId** | number | Order item ID
+**optionName** | string | Item product option name, e.g. `Upload your photo`
+**fileId** | number | Option file's internal ID
+**token** |  string |  oAuth token
+
+### Response
+
+> Response example
+
+```json
+{
+    "deleteCount": 1,
+    "success": true
+}
+```
+
+A JSON object of type 'DeleteStatus' with the following fields:
+
+#### DeleteStatus
+Field | Type |  Description
+----- | ---- | --------------
+deleteCount | number | The number of deleted files (`1` or `0` depending on whether the request was successful)
+success | boolean | `true` if the file has been deleted, `false` otherwise
+
+### Errors
+
+> Error response example 
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and JSON-formatted body containing error description
+
+#### HTTP codes
+
+**HTTP Status** | Description
+--------- | -----------| -----------
+500 | Request failed -- there was an internal server error
+404 | Order, order item or item option is not found
+400 | Request parameters are malformed
+402 | The functionality/method is not available on the merchant plan
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+
