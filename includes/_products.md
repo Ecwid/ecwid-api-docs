@@ -1192,7 +1192,7 @@ Content-Type: application/json
 Cache-Control: no-cache
 ```
 
-`DELETE https://app.ecwid.com/api/v3/{storeId}/products/{productId}/gllery/{fileId}/?token={token}`
+`DELETE https://app.ecwid.com/api/v3/{storeId}/products/{productId}/gallery/{fileId}/?token={token}`
 
 Name | Type    | Description
 ---- | ------- | -----------
