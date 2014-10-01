@@ -145,7 +145,7 @@ On the [Step #1](#retrieveing-access-token) (app requests a temporarily authoriz
 
 The rest of request parameters are the same as for web services.
 
-<aside class="notice"> In case of Web services, if the app has been already authorized by user before current authorization attempt, Ecwid will simply redirect user back to the application with the code in request parameters (i.e. Ecwid will not ask user to authorize the app second time). In case of an installed application, Ecwid will ask user to provide permission every time a user is directed by teh app to Ecwid authorization endpoint. </aside>
+<aside class="notice"> In case of Web services, if the app has been already authorized by user before current authorization attempt, Ecwid will simply redirect user back to the application with the code in request parameters (i.e. Ecwid will not ask user to authorize the app second time). In case of an installed application, Ecwid will ask user to provide permission every time a user is directed by the app to Ecwid authorization endpoint. </aside>
 
 
 ###Changes in Step #2
