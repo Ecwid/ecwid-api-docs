@@ -13,11 +13,11 @@ includes:
   - authentication
   - rest_api_reference
   - products
+  - categories
   - customers
   - coupons
   - orders
-  - store_profile
-  - categories
+  - store_profile  
   - combinations
   - product_classes
 ---
