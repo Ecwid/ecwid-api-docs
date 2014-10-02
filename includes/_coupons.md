@@ -11,7 +11,7 @@
 
 ### Request
 
-> Request examples
+> Request example
 
 ```http
 GET /api/v3/4870020/discount_coupons?discount_type=ABS%2CPERCENT&availability=ACTIVE%2CEXPIRED&token=123abcd HTTP/1.1
@@ -466,9 +466,9 @@ All fields are optional
 
 A JSON object of type 'UpdateStatus' with the following fields:
 
-#### CreateStatus
+#### UpdateStatus
 Field | Type |  Description
--------------- | -------------- | --------------
+------| ---- | --------------
 message | string | Status message
 updateCount | number | The number of updated coupons (`1` or `0` depending on whether the update was successful)
 success | boolean | `true` if the coupon has been updated, `false` otherwise
@@ -538,9 +538,9 @@ Name | Type    | Description
 
 ```json
 {
-    message: "",
-    deleteCount: 1,
-    success: true
+    "message": "",
+    "deleteCount": 1,
+    "success": true
 }
 ```
 
