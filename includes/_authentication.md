@@ -1,5 +1,5 @@
 # Authentication
-All Ecwid API requests require authentication. Ecwid supports oAuth2 protocol to provide external applications with an easy way to authenticate and access store data on behalf of the user. Ecwid user grants or denies access to certain data in their store for the particular application - the application gets its own secure access token upon authorization and uses that token as a key to make API calls to Ecwid.
+All Ecwid API requests require authentication. Ecwid supports **oAuth2** protocol to provide external applications with an easy way to authenticate and access store data on behalf of the user. Ecwid user grants or denies access to certain data in their store for the particular application - the application gets its own secure access token upon authorization and uses that token as a key to make API calls to Ecwid.
 
 ##Retrieveing access token
 
