@@ -25,5 +25,6 @@ includes:
   - product_classes
   - storage
   - customize_storefront
+  - api_playground
 
 ---

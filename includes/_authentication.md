@@ -123,7 +123,7 @@ Scopes are permissions that identifies the scope of access your application requ
 * create_discount_coupons
 * read_discount_coupons
 * update_discount_coupons
-* customize_storefront *(in development)*
+* customize_storefront
 * add_to_cp *(in development)*
 
 
