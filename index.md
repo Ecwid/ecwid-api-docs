@@ -20,9 +20,10 @@ includes:
   - customers
   - coupons
   - orders
-  - storage
   - store_profile  
   - combinations
   - product_classes
+  - storage
+  - customize_storefront
 
 ---

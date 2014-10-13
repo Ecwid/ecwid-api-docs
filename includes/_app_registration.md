@@ -4,4 +4,4 @@ To use Ecwid oAuth and REST API, your application needs to be registered in Ecwi
 1. Application description that will be displayed to your users
 2. Technical parameters that will be used in [oAuth flow](#Authentication)
 
-To register you app with us, fill [this form](https://ecwid.wufoo.com/forms/m1yelani0pbblcr/).
+To register you app in Ecwid, fill [this form](https://ecwid.wufoo.com/forms/m1yelani0pbblcr/) and we will contact you in a few days. 
