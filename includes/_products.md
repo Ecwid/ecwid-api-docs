@@ -99,7 +99,16 @@ Parameters in bold are mandatory
             "productClassId": 0,
             "enabled": true,
             "description": "<h5>Orange</h5>\n<p>An orange—specifically, the sweet orange—is the citrus Citrus ×sinensis (syn. Citrus aurantium L. var. dulcis L., or Citrus aurantium Risso) and its fruit. The orange is a hybrid of ancient cultivated origin, possibly between pomelo (Citrus maxima) and tangerine (Citrus reticulata). It is a small flowering tree growing to about 10 m tall with evergreen leaves, which are arranged alternately, of ovate shape with crenulate margins and 4–10 cm long. The orange fruit is a hesperidium, a type of berry.</p>\n<p>Oranges originated in Southeast Asia. The fruit of Citrus sinensis is called sweet orange to distinguish it from Citrus aurantium, the bitter orange. The name is thought to ultimately derive from the Dravidian and Telugu word for the orange tree, with its final form developing after passing through numerous intermediate languages.</p>\n<p>In a number of languages, it is known as a \"Chinese apple\" (e.g. Dutch Sinaasappel, \"China's apple\", or \"Apfelsine\" in German).</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
-            "descriptionTruncated": false
+            "descriptionTruncated": false,
+            "categoryIds": [
+                1234567,
+                39303939
+            ],
+            "defaultCategoryId": 1234567,
+            "favorites": {
+                "count":3201,
+                "displayedCount":"3K"
+            }
         }
     ]
 }
@@ -138,7 +147,15 @@ imageUrl |  string  | URL of the product image resized to fit 500x500. *The orig
 smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 80x80. *The original uploaded product image is available in the `originalImageUrl` field.*
 description | string  | Product description *in HTML* TODO: limit
 descriptionTruncated | boolean | Identifies whether the returned description has been truncated
+categoryIds | Array\<number\> | List of the categories, which the product belongs to
+defaultCategoryId | number  | Identifier of the default category of the product
+favorites | <\FavoritesStats\>  | Product favorites stats
 
+#### FavoritesStats
+Field | Type  | Description
+----- | ----- | -----------
+count | number | The actual number of 'likes' of this product
+displayedCount | number | The displayed number of likes. May differ from the `count` if, for example, the value is more than 1000 -- it will show 1K instead of precise number
 
 ### Errors
 
@@ -415,10 +432,17 @@ description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
 defaultCategoryId | number  | Identifier of the default category of the product
+favorites | <\FavoritesStats\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
 relatedProducts | [RelatedProducts*  | Related or "You may also like" products of the product
 combinations | Array\<*Combination*\> | List of the product combinations
+
+#### FavoritesStats
+Field | Type  | Description
+----- | ----- | -----------
+count | number | The actual number of 'likes' of this product
+displayedCount | number | The displayed number of likes. May differ from the `count` if, for example, the value is more than 1000 -- it will show 1K instead of precise number
 
 #### WholesalePrice
 Field | Type  | Description

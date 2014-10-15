@@ -56,7 +56,6 @@ Parameters in bold are mandatory
     "items": [
         {
             "vendorOrderNumber": "18",
-            "id": 17684167,
             "subtotal": 29.95,
             "total": 37.39,
             "email": "johnsmith@example.com",
@@ -390,19 +389,19 @@ errorMessage | string | Error message
 > Request example
 
 ```http
-GET /api/v3/4870020/orders/123456780?token=1234567890qwqeertt HTTP/1.1
+GET /api/v3/4870020/orders/20?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/orders/{id}?token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**id** | number | Order internal ID
+**orderNumber** | number | Order number
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -414,8 +413,7 @@ Parameters in bold are mandatory
 
 ```json
 {
-    "vendorOrderNumber": "18",
-    "id": 17684167,
+    "vendorOrderNumber": "20",
     "subtotal": 29.95,
     "total": 37.39,
     "email": "johnsmith@example.com",
@@ -426,7 +424,7 @@ Parameters in bold are mandatory
     "couponDiscount": 1.5,
     "paymentStatus": "PAID",
     "fulfillmentStatus": "AWAITING_PROCESSING",
-    "orderNumber": 18,
+    "orderNumber": 20,
     "refererUrl": "http://mysuperstore.ecwid.com/",
     "orderComments": "Test order comments",
     "volumeDiscount": 0,
@@ -563,7 +561,6 @@ Field | Type |  Description
 ------| -----| ------------
 orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
 vendorNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
-id | number | Order internal ID
 subtotal |  number | Order subtotal
 total | number | Order total cost
 email | string  | Customer email address
@@ -741,7 +738,7 @@ errorMessage | string | Error message
 > Request example
 
 ```http
-PUT /api/v3/4870020/orders/123456780?token=1234567890qwqeertt HTTP/1.1
+PUT /api/v3/4870020/orders/20?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -819,13 +816,13 @@ Cache-Control: no-cache
     }
 ```
 
-`PUT https://app.ecwid.com/api/v3/{storeId}/orders/{id}?token={token}`
+`PUT https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**id** | number | Order internal ID
+**orderNumber** | number | Order number
 
 ### Request body
 
@@ -1022,18 +1019,18 @@ errorMessage | string | Error message
 > Request example
 
 ```http
-DELETE /api/v3/4870020/orders/39847403?token=123456789abcd HTTP/1.1
+DELETE /api/v3/4870020/orders/20?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`DELETE https://app.ecwid.com/api/v3/{storeId}/orders/{id}?token={token}`
+`DELETE https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | -----------
 **storeId** |  number | Ecwid store ID
-**id** | number | Order internal ID
+**orderNumber** | number | Order number
 **token** |  string |  oAuth token
 
 ### Response
@@ -1073,7 +1070,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 **HTTP Status** | **Response JSON** | Description
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
-404 | The order with given ID is not found
+404 | The order with given number is not found
 500 | The delete request failed because of an error on the server
 
 #### Error response body (optional)
@@ -1293,7 +1290,7 @@ cvvMessage | string  | Credit card verification status returned by the payment s
 
 ```json
 {
-    "orderNumber": 17764093,
+    "id": 20,
     "success": true
 }
 ```
@@ -1304,7 +1301,7 @@ A JSON object of type 'CreateStatus' with the following fields:
 
 Field | Type |  Description
 -------------- | -------------- | --------------
-orderNumber | number | The ID(number) of created order in the store
+orderNumber | number | The number of created order in the store
 success | boolean | `true` if the order has been created, `false` otherwise
 
 ### Errors
@@ -1340,7 +1337,7 @@ Using this method, you can attach a file to an order item (implying that the ord
 > Request example
 
 ```http
-POST /api/v3/4870020/orders/1234657/items/987653/options/Attach+your+image?fileName=my_photo.jpg&token=123456789abcd HTTP/1.1
+POST /api/v3/4870020/orders/20/items/987653/options/Attach+your+image?fileName=my_photo.jpg&token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
@@ -1411,7 +1408,7 @@ Using this method, you can remove a file attached to an order item by customer.
 > Request example
 
 ```http
-DELETE /api/v3/4870020/orders/1234657/items/987653/options/Attach+your+image/files/{fileId}&token=123456789abcd HTTP/1.1
+DELETE /api/v3/4870020/orders/20/items/987653/options/Attach+your+image/files/{fileId}&token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
