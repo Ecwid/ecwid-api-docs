@@ -130,7 +130,7 @@ Field | Type | Description
 ----- | ---- | -----------
 storeId | number | Ecwid Store ID
 storeUrl | string | Storefront URL
-starterSite | <\StarterSiteInfo\> | Starter Site settings
+starterSite | \<StarterSiteInfo\> | Starter Site settings
 
 #### Account
 Field | Type | Description
@@ -166,9 +166,9 @@ phone | string  | Company phone number
 
 Field | Type | Description
 ----- | ---- | -----------
-currency | string | Currency code, used in this store, as in ISO 4217 (`USD`, `CAD` etc.).
-currencyPrefix | string |  Prefix of the currency notation (e.g. $)
-currencySuffix | string | Suffix of the currency notation
+currency | string | 3-letters code of the store currency (ISO 4217). Examples: `USD`, `CAD`
+currencyPrefix | string |  Currency prefix (e.g. $)
+currencySuffix | string | Currency suffix
 currencyPrecision | number  | Numbers of digits after decimal point in the store prices. E.g. `2` ($2.99) or `0` (¥500).
 currencyGroupSeparator | string | Price thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``.
 currencyDecimalSeparator |  string | Price decimal separator. Possible values: `.` or `,` 
@@ -254,6 +254,224 @@ HTTP Status | Meaning
 500 | Cannot retrieve the coupon info because of an error on the server
 
 ## Update store profile
+
+> Request example -- update general info
+
+```http
+PUT /api/v3/4870020/profile?token=123abcd HTTP/1.1
+Host: app.ecwid.com
+Cache-Control: no-cache
+
+{
+    generalInfo: {
+        storeUrl: "http://www.example.com/store/"
+    },
+    settings: {
+        closed: false,
+        storeName: "My Cool Store"
+    },
+    company: {
+      companyName: "My Company, Inc",
+      email: "store@example.com",
+      street: "144 West D Street",
+      city: "Encinitas",
+      countryCode: "US",
+      postalCode: "92024",
+      stateOrProvinceCode: "CA",
+      phone: "1(800)5555555"
+    }
+}
+```
+
+> Request example -- create destination zones
+
+```http
+PUT /api/v3/4870020/profile?token=123abcd HTTP/1.1
+Host: app.ecwid.com
+Cache-Control: no-cache
+
+{
+    "zones": [
+        {
+            
+            "name": "United States - California",
+            "countryCodes": [
+                "US"
+            ],
+            "stateOrProvinceCodes": [
+                "US-CA"
+            ]      
+        }
+    ]
+}
+```
+
+`PUT https://app.ecwid.com/api/v3/{storeId}/profile?token={token}`
+
+Name | Type    | Description
+---- | ------- | --------------
+**storeId** |  number | Ecwid store ID
+**token** |  string | oAuth token
+
+### Request body
+
+A JSON object of type 'Profile' with the following fields:
+
+#### Profile
+Field | Type | Description
+----- | ---- | -----------
+generalInfo | \<GeneralInfo\> | Store's basic data
+account | \<Account\> | Seller's account data
+settings | \<Settings\> | Store's general settings
+company | \<Company\> | Company info
+formatsAndUnits | \<FormatsAndUnits\> | Store's formats/untis settings
+languages | \<Languages\> | Store's language settings
+taxes | Array\<Tax\> | Store's taxes settings
+zones | Array\<Zone\> | Store's destination zones
+
 <aside class="notice">
-The documentation is in progress...
+All fields are optional. Omitted field will not be affected
 </aside>
+
+#### GeneralInfo
+Field | Type | Description
+----- | ---- | -----------
+storeUrl | string | Storefront URL
+starterSite | \<StarterSiteInfo\> | Starter Site settings
+
+#### Account
+Field | Type | Description
+----- | ---- | -----------
+accountName | string | Full user name
+accountNickName | string | User nickname on the Ecwid forums
+accountEmail | string | User email
+
+
+#### Settings
+Field | Type | Description
+----- | ---- | -----------
+closed | string | Full user name
+storeName | string | The store name displayed in Starter Site
+
+#### Company
+*System Settings → General → Store Profile*
+
+Field | Type | Description
+----- | ---- | -----------
+companyName | string | The company name displayed on the invoice
+email | string | Company (store administrator) email
+street | string | Company address. 1 or 2 lines separated by a new line character
+city    | string  | Company city
+countryCode | string  | A two-letter ISO code of the country
+postalCode  | string  | Postal code or ZIP code
+stateOrProvinceCode | string  | State code (e.g. `NY`) or a region name
+phone | string  | Company phone number
+
+#### FormatsAndUnits
+*System settings → General → Formats & Units.*
+
+Field | Type | Description
+----- | ---- | -----------
+currency | string | 3-letters code of the store currency (ISO 4217). Examples: `USD`, `CAD`
+currencyPrefix | string |  Currency prefix (e.g. $)
+currencySuffix | string | Currency suffix
+currencyPrecision | number  | Numbers of digits after decimal point in the store prices. E.g. `2` ($2.99) or `0` (¥500).
+currencyGroupSeparator | string | Price thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``.
+currencyDecimalSeparator |  string | Price decimal separator. Possible values: `.` or `,` 
+currencyTruncateZeroFractional | boolean | Hide zero fractional part of the prices in storefront. `true` or `false` . 
+currencyRate | number | Currency rate in U.S. dollars, as set in the 
+weightUnit |    string |    Weight unit. Supported values: `CARAT`, `GRAM`, `OUNCE`, `POUND`, `KILOGRAM`
+weightPrecision | number | Numbers of digits after decimal point in weights displayed in the store
+weightGroupSeparator | string | Weight thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``
+weightDecimalSeparator | string | Weight decimal separator. Possible values: `.` or `,` 
+weightTruncateZeroFractional |  boolean | Hide zero fractional part of the weight values in storefront. `true` or `false` . 
+dateFormat | string | Date format, e.g. `MMM d, yyyy`
+timeFormat | string | Time format, e.g. `hh:mm a`
+timezone | string | Store timezone, e.g. `Europe/Moscow`
+
+#### Languages
+*System Settings → General → Languages*
+
+Field | Type | Description
+----- | ---- | -----------
+enabledLanguages | Array\<string\> | A list of enabled languages in the storefront
+
+#### Tax
+*System Settings → Taxes*
+
+Field | Type | Description
+----- | ---- | -----------
+id | number | Unique internal ID of the tax
+name |  string | Displayed tax name
+enabled | boolean | Whether tax is enabled `true` / `false` 
+includeInPrice | boolean | `true` if the tax rate is included in product prices. More details: [Taxes in Ecwid](http://help.ecwid.com/customer/portal/articles/1182159-taxes)
+useShippingAddress | boolean | `true` if the tax is calculated based on shipping address, `false` if billing address is used
+taxShipping | boolean | `true` is the tax applies to subtotal+shipping cost . `false` if the tax is applied to subtotal only
+appliedByDefault | boolean | `true` if the tax is applied to all products. `false` is the tax is only applied to thos product that have this tax enabled
+defaultTax | number | Tax value, in %, when none of the destination zones match
+rules | Array\<TaxRule\>  | Tax rates
+
+#### TaxRule
+Field | Type | Description
+----- | ---- | -----------
+**zoneId** | number | Destination zone ID
+**tax** | number | Tax rate for this zone
+
+#### Zone
+*System Settings → Zones*
+
+Field | Type | Description
+----- | ---- | -----------
+id | string | Unique internal zone ID
+**name** | string | Zone displayed name
+countryCodes | Array\<string\> | Country codes this zone includes . 
+stateOrProvinceCodes |  Array\<string\> | State or province codes the zone includes
+postCodes | Array\<string\> |   Postcode (or zipcode) templates this zone includes. More details: [Destination zones in Ecwid](http://help.ecwid.com/customer/portal/articles/1163922-destination-zones)
+
+#### StarterSiteInfo
+*System Settings → General → Starter site*
+
+Field | Type | Description
+----- | ---- | -----------
+ecwidSubdomain | string | Store subdomain on ecwid.com domain, e.g. `mysuperstore.ecwid.com`
+customDomain | string | Custom Starter site domain, e.g. `www.mysuperstore.com`
+
+### Response
+
+> Response example (JSON)
+
+```json
+{
+    "updateCount": 1,
+    "success": true
+}
+```
+
+A JSON object of type 'UpdateStatus' with the following fields:
+
+#### UpdateStatus
+Field | Type |  Description
+------| ---- | --------------
+updateCount | number | The number of updated entities (`1` or `0` depending on whether the update was successful)
+success | boolean | `true` if the coupon has been updated, `false` otherwise
+
+
+### Errors
+
+> Error response example
+
+```http
+HTTP/1.1 409 Conflict
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code
+
+#### HTTP codes
+
+HTTP Status | Meaning
+------------|--------
+400 | Request parameters are malformed
+409 | Cannot update profile because such nickname or email is already registered in the system
+402 | Cannot update settings because the limit of number of zones or taxes is reached
+500 | Cannot retrieve the coupon info because of an error on the server
