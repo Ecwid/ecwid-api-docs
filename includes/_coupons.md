@@ -340,7 +340,7 @@ A JSON object of type 'CreateStatus' with the following fields:
 #### CreateStatus
 Field | Type |  Description
 -------------- | -------------- | --------------
-id | number | ID of the created coupon
+code | number | Code of the created coupon
 success | boolean | `true` if the coupon has been created, `false` otherwise
 message | string | Status message
 
@@ -500,19 +500,6 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-
-
-
-
-
-
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Delete coupon
----------------------------------------------------------------------------------------------------------
--->
-
 ## Delete coupon
 
 > Request example
@@ -551,7 +538,7 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | ------------
 message | string | Status message
-deleteCount | number | The number of deleted coupons (`1` or `0` depending on whether the request was successful)
+deleteCount | number | The number of deleted coupons (`1` or `0` depending on whether the request was successful). It returns `0` when the coupon with the given code is not found
 success | boolean | `true` if the coupon has been deleted, `false` otherwise
 
 
@@ -560,7 +547,7 @@ success | boolean | `true` if the coupon has been deleted, `false` otherwise
 > Error response example
 
 ```http
-HTTP/1.1 404 Not Found
+HTTP/1.1 500 Server Error
 Content-Type application/json; charset=utf-8
 ```
 
@@ -571,7 +558,6 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 **HTTP Status** | **Response JSON** | Description
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
-404 | The coupon with given code is not found
 500 | The request failed because of an error on the server
 
 #### Error response body (optional)

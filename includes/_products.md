@@ -1,12 +1,5 @@
 # Products
 
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Product search
----------------------------------------------------------------------------------------------------------
--->
-
 ## Search products
 
 Search/filter store products
@@ -131,6 +124,7 @@ Field | Type  | Description
 id |  number |  Unique integer product identifier
 sku | string |  Product SKU. Items with options can have several SKUs specified in the product combinations.
 quantity |  number | Amount of product items in stock. *This field is omitted for the products with unlimited stock*
+unlimited | boolean | `true` if the product has unlimited stock
 inStock | boolean | `true` if the product or any of its combinations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
 price | number |  Base product price
@@ -310,7 +304,6 @@ Parameters in bold are mandatory
     "files": [],
     "relatedProducts": {
         "productIds": [
-            37208340,
             37208340
         ],
         "relatedCategory": {
@@ -407,6 +400,7 @@ Field | Type  | Description
 id |  number |  Unique integer product identifier
 sku | string |  Product SKU. Items with options can have several SKUs specified in the product combinations.
 quantity |  number | Amount of product items in stock. *This field is omitted for the products with unlimited stock*
+unlimited | boolean | `true` if the product has unlimited stock
 inStock | boolean | `true` if the product or any of its combinations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
 price | number |  Base product price
@@ -508,7 +502,7 @@ thumbnailUrl |  string  | URL of the combination thumbnail displayed on the prod
 imageUrl |  string  | URL of the combination image resized to fit 500x500. `null` means the combinations inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 originalImageUrl |  string  | URL of the original not resized combination image. `null` means the combinations inherits the base product's image.
 quantity |  number  | Amount of the combination items in stock. `null` means the combinations inherits the base product's quantity.
-unlimited | boolean | `true` if the combination is unlimited (that is, never runs out)
+unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
 price | number  | Combination price. `null` means the combinations inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). `null` means the combinations inherits the base product's tiered price settings. 
 weight |  number  |  Combination weight in the units defined in store settings. `null` means the combinations inherits the base product's weight.
@@ -551,12 +545,6 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-<!--
----------------------------------------------------------------------------------------------------------
-    Create product
----------------------------------------------------------------------------------------------------------
--->
-
 ## Add a product
 
 ### Request
@@ -572,7 +560,6 @@ Cache-Control: no-cache
 {
   "sku": "000012199",
   "quantity": 10,
-  "inStock": true,
   "name": "New Product",
   "price": 20.99,
   "compareToPrice": 24.99,
@@ -728,12 +715,6 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Edit product
----------------------------------------------------------------------------------------------------------
--->
 
 ## Update a product
 
@@ -969,13 +950,6 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Upload product image
----------------------------------------------------------------------------------------------------------
--->
-
 ## Upload product image
 
 Upload product image: if the product already has an image attached, the uploaded image will replace the existing one.
@@ -1013,8 +987,9 @@ A JSON object of type 'UploadStatus' with the following fields:
 
 #### UploadStatus
 Field | Type |  Description
---------- | ---------| -----------
-id |    number | Internal image ID
+----- | -----| ------------
+id | number | Internal image ID
+
 
 ### Errors
 
@@ -1047,12 +1022,6 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Delete product image
----------------------------------------------------------------------------------------------------------
--->
 
 ## Delete product image
 

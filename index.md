@@ -20,7 +20,7 @@ includes:
   - customers
   - coupons
   - orders
-  - store_profile  
+  - store_profile
   - combinations
   - product_classes
   - storage
