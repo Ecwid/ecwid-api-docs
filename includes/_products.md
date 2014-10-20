@@ -15,7 +15,7 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&attributeQuery={attributeQuery}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -35,7 +35,8 @@ updatedFrom | string | Product last update date (lower bound) Format: YYYY-MM-DD
 updatedTo | string | Product last update date (upper bound) Format: YYYY-MM-DD
 enabled | boolean | `true` to get only enabled products, `false` to get only disabled products
 inStock | boolean | `true` to get only products in stock, `false` to get out of stock products
-attributeQuery | string | Filter by product attribute values. Format: JSON <br />`{"attributeId1":["value1","value2"],"attributeId2":["value3"]}`
+field{attributeName} | string | Filter by product attribute values. Format: field{attributeName}=param[,param], where "attributeName" is the attribute name and "param" is the attribute value. You can place several values separated by comma. In that case values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `fieldBrand=Apple&fieldCapacity=32GB,64GB`
+field{attributeId} | string | Filter by product attribute values. Works the same as the filter by `field{attributeName}` but attribute IDs are used instead of attribute names. This way is insensitive to attributes renaming.
 
 <aside class="notice">
 If no filters are set in the URL, API will return all products
