@@ -177,15 +177,6 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-
-
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Get product details
----------------------------------------------------------------------------------------------------------
--->
-
 ## Get a product
 
 ### Request
@@ -302,7 +293,22 @@ Parameters in bold are mandatory
             "value": "SuperVegetables"
         }
     ],
-    "files": [],
+    "files": [
+        {
+            "id": 7215101,
+            "name": "pic_200_200.jpg",
+            "description": "",
+            "size": 54492,
+            "adminUrl": "https://app.ecwid.com/api/v3/4870020/products/37208340/files/7215101?token=abcd123456"
+        },
+        {
+            "id": 7215102,
+            "name": "14293004.zip",
+            "description": "Files archive",
+            "size": 18955,
+            "adminUrl": "https://app.ecwid.com/api/v3/4870020/products/37208340/files/7215102?token=abcd1234"
+        }
+    ],
     "relatedProducts": {
         "productIds": [
             37208340
@@ -477,6 +483,7 @@ id |  number |  Internal ID of the file
 name |  string |  File name
 description | string |  File description defined by the store administrator
 size |  number |  File size, bytes (64-bit integer)
+adminUrl | string | Link to the file. Be careful: the link contains the API access token so make sure the link is not displayed as is in your application
 
 #### RelatedProducts
 Field | Type  | Description
