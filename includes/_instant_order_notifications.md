@@ -8,8 +8,9 @@ A developer can use this API to extend and customize your checkout process. For 
 All you have to do is provide a URL and Ecwid will call this URL (via HTTP POST request) as soon as things happen.
 
 The following events are supported:
-- New order has been placed.
-- Order status has been changed.
+
+* New order has been placed.
+* Order status has been changed.
 
 ##How to configure
 
@@ -40,12 +41,13 @@ If the request fails to connect (wrong URL or problems on your server), Ecwid wi
 The request is considered successful if an endpoint/URL returns HTTP 200 or HTTP 201 status header. 
 
 
-##Securing Instant Order Notifications and correct Wwrkflow
+##Securing Instant Order Notifications and correct Workflow
 
 The correct workflow is as follows: 
 
-Your script gets a notification about an event. Only the necessary information like order status, order and store IDs is sent. No private sensitive information is sent.
-Then your script should use Order API to validate and get more information about this event. I.e. check that the placed/updated order exists and gets necessary sensitive order details. If no such order exists in a database or it exists, but its current order status doesn't match a status in the notification, then the notification should be ignored as a fake one. 
+- Your script gets a notification about an event. Only the necessary information like order status, order and store IDs is sent. No private sensitive information is sent.
+- Then your script should use the [Orders API endpoint](#orders) to validate and get more information about this event. I.e. check that the placed/updated order exists and gets necessary sensitive order details. If no such order exists in a database or it exists, but its current order status doesn't match a status in the notification, then the notification should be ignored as a fake one. 
+
 This approach makes the whole process to be secure by design. For example:
 
 1) If you set the incorrect endpoint URL or use a 3d-party URL to test notifications, they will not get a private information about your customers, because they don't know your API access token.
@@ -56,4 +58,4 @@ This approach makes the whole process to be secure by design. For example:
 
 For testing notifications use the "Test endpoint" link on the "API" page in the control panel. It allows to send custom notifications with any data you want, so it simplifies testing of your scripts.
 
-Also we suggest to use the RequestBin tool: http://requestb.in/ It is an awesome utility to help see data come across as events happen in your system. Make a new bin and use its URL as the endpoint one. All notifications will appear in the same RequestBin page.
+Also we suggest to use the [RequestBin tool](http://requestb.in/). It is an awesome utility to help see data come across as events happen in your system. Make a new bin and use its URL as the endpoint one. All notifications will appear in the same RequestBin page.
