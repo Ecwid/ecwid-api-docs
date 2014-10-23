@@ -67,6 +67,7 @@ Parameters in bold are mandatory
             "inStock": true,
             "name": "Apple",
             "price": 1.99,
+            "priceInProductList": 1.99,
             "weight": 0.32,
             "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208338",
             "created": "2014-06-06 18:57:19 +0400",
@@ -86,6 +87,7 @@ Parameters in bold are mandatory
             "inStock": true,
             "name": "Orange",
             "price": 2.99,
+            "priceInProductList": 3.39,
             "weight": 0.32,
             "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208344",
             "created": "2014-06-06 18:57:19 +0400",
@@ -129,7 +131,7 @@ unlimited | boolean | `true` if the product has unlimited stock
 inStock | boolean | `true` if the product or any of its combinations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
 price | number |  Base product price
-listPrice | number |  Product price displayed in the product list. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
+priceInProductList | number |  Product price displayed in the product list. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store
@@ -214,7 +216,7 @@ Parameters in bold are mandatory
     "inStock": true,
     "name": "Radish",
     "price": 1.15,
-    "listPrice": 1.15,
+    "priceInProductList": 1.15,
     "wholesalePrices": [
         {
             "quantity": 10,
@@ -411,7 +413,7 @@ unlimited | boolean | `true` if the product has unlimited stock
 inStock | boolean | `true` if the product or any of its combinations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
 price | number |  Base product price
-listPrice | number |  Product price displayed in the product list. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
+priceInProductList | number |  Product price displayed in the product list. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
