@@ -114,6 +114,19 @@ Parameters in bold are mandatory
                     "digital": true,
                     "productAvailable": true,
                     "couponApplied": false,
+                    "files": [
+                        {
+                            "productFileId": 7215101,
+                            "maxDownloads": 0,
+                            "remainingDownloads": 0,
+                            "expire": "2014-10-26 20:34:34 +0400",
+                            "name": "myfile.jpg",
+                            "description": "Sunflower",
+                            "size": 54492,
+                            "adminUrl": "https://app.ecwid.com/api/v3/4870020/products/37208340/files/7215101?token=123123123",
+                            "customerUrl": "http://mysuperstore.ecwid.com/download/4870020/a2678e7d1d1c557c804c37e4/myfile.jpg"
+                        }
+                    ],
                     "selectedOptions": [
                         {
                             "name": "Size",
@@ -251,7 +264,7 @@ affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 
 #### OrderItem
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 id | number | Order item ID
 productId | number | Store product ID
@@ -279,14 +292,27 @@ taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
 
 #### OrderItemTax
-**Field** | **Type** |  **Description**
---------- | -----------| -----------
+Field | Type | Description
+----- | -----| -----------
 name |  string | Tax name
 value | number | Tax value in percent
 total | number | Tax amount for the item
 
+#### OrderItemProductFile
+Field | Type | Description
+----- | -----| -----------
+productFileId | number | Internal unique file ID
+maxDownloads | number | Max allowed number of file downloads. See [E-goods article](http://help.ecwid.com/customer/portal/articles/1163931?q=egoods) in Ecwid Help center for the details
+remainingDownloads | number | Remaining number of download attempts
+expire | string | Date/time of the customer download link expiration
+name |  string |  File name
+description | string |  File description defined by the store administrator
+size |  number |  File size, bytes (64-bit integer)
+adminUrl | string | Link to the file. Be careful: the link contains the API access token. Make sure you do not display the link as is in your application and not give it to a customer.
+customerUrl | string | File download link that is sent to the customer when the order is paid
+
 #### OrderItemOption
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Option name
 type |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
@@ -294,7 +320,7 @@ value | string | Selected/entered value
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILE`)
 
 #### OrderItemOptionFile
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 id | number | File ID
 name |  string | File name
@@ -302,7 +328,7 @@ size |  number | File size in bytes
 url |   string | File URL
 
 #### PersonInfo
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 name |  string  | Full name
 companyName |   string  | Company name
@@ -472,6 +498,19 @@ Parameters in bold are mandatory
             "digital": true,
             "productAvailable": true,
             "couponApplied": false,
+            "files": [
+                {
+                    "productFileId": 7215101,
+                    "maxDownloads": 0,
+                    "remainingDownloads": 0,
+                    "expire": "2014-10-26 20:34:34 +0400",
+                    "name": "myfile.jpg",
+                    "description": "Sunflower",
+                    "size": 54492,
+                    "adminUrl": "https://app.ecwid.com/api/v3/4870020/products/37208340/files/7215101?token=123123123",
+                    "customerUrl": "http://mysuperstore.ecwid.com/download/4870020/a2678e7d1d1c557c804c37e4/myfile.jpg"
+                }
+            ],
             "selectedOptions": [
                 {
                     "name": "Size",
@@ -598,7 +637,7 @@ affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 
 #### OrderItem
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 id | number | Order item ID
 productId | number | Store product ID
@@ -626,14 +665,27 @@ taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
 
 #### OrderItemTax
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Tax name
 value | number | Tax value in percent
 total | number | Tax amount for the item
 
+#### OrderItemProductFile
+Field | Type | Description
+----- | -----| -----------
+productFileId | number | Internal unique file ID
+maxDownloads | number | Max allowed number of file downloads. See [E-goods article](http://help.ecwid.com/customer/portal/articles/1163931?q=egoods) in Ecwid Help center for the details
+remainingDownloads | number | Remaining number of download attempts
+expire | string | Date/time of the customer download link expiration
+name |  string |  File name
+description | string |  File description defined by the store administrator
+size |  number |  File size, bytes (64-bit integer)
+adminUrl | string | Link to the file. Be careful: the link contains the API access token. Make sure you do not display the link as is in your application and not give it to a customer.
+customerUrl | string | File download link that is sent to the customer when the order is paid
+
 #### OrderItemOption
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Option name
 type |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
@@ -641,7 +693,7 @@ value | string | Selected/entered value
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILE`)
 
 #### OrderItemOptionFile
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 id | number | File ID
 name |  string | File name
@@ -649,7 +701,7 @@ size |  number | File size in bytes
 url |   string | File URL
 
 #### PersonInfo
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 name |  string  | Full name
 companyName |   string  | Company name
@@ -868,7 +920,7 @@ affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 
 #### OrderItem
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 **id** | number | Order item ID
 **quantity** |  number | Amount purchased
@@ -895,22 +947,22 @@ selectedOptions | Array\<*OrderItemOption*\> | Product options values selected b
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 
 #### OrderItemTax
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Tax name
 value | number | Tax value in percent
 total | number | Tax amount for the item
 
 #### OrderItemOption
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 **name** |  string | Option name
-**type** |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
+Type |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
 value | string | Selected/entered value
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILE`)
 
 #### PersonInfo
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 name |  string  | Full name
 companyName |   string  | Company name
@@ -1185,7 +1237,7 @@ affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 
 #### OrderItem
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 **quantity** |  number | Amount purchased
 **name** |  string | Product name
@@ -1211,22 +1263,22 @@ selectedOptions | Array\<*OrderItemOption*\> | Product options values selected b
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 
 #### OrderItemTax
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Tax name
 value | number | Tax value in percent
 total | number | Tax amount for the item
 
 #### OrderItemOption
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 **name** |  string | Option name
-**type** |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
+Type |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
 value | string | Selected/entered value
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILE`)
 
 #### PersonInfo
-**Field** | **Type** |  **Description**
+Field | Type |  Description
 --------- | -----------| -----------
 name |  string  | Full name
 companyName |   string  | Company name
