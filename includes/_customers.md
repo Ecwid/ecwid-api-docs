@@ -1,12 +1,5 @@
 # Customers
 
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Search customers
----------------------------------------------------------------------------------------------------------
--->
-
 ## Search customers
 
 ### Request
@@ -58,22 +51,19 @@ Parameters in bold are mandatory
             "id": 14145238,
             "name": "John Darling",
             "email": "demo4@ecwid.com",
-            "totalOrderCount": 1,
-            "activeOrderCount": 0
+            "totalOrderCount": 1
         },
         {
             "id": 14145239,
             "name": "Michael Darling",
             "email": "demo5@ecwid.com",
-            "totalOrderCount": 1,
-            "activeOrderCount": 0
+            "totalOrderCount": 1
         },
         {
             "id": 14145235,
             "name": "Wendy Darling",
             "email": "demo1@ecwid.com",
-            "totalOrderCount": 0,
-            "activeOrderCount": 0
+            "totalOrderCount": 0
         }
     ]
 }
@@ -97,7 +87,6 @@ id |  number |  Unique internal customer ID
 email | string |  Customer email
 name | string | Customer full name
 totalOrderCount | number | Number of customer's orders
-activeOrderCount | number | Number of customer's active orders
 
 ### Errors
 
@@ -122,14 +111,6 @@ HTTP Status | Meaning
 Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
-
-
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Get customers details
----------------------------------------------------------------------------------------------------------
--->
 
 ## Get customer
 

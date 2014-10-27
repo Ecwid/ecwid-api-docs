@@ -186,7 +186,6 @@ Parameters in bold are mandatory
                 "phone": "+1234567890"
             },
             "shippingOption": {
-                "shippingMethodId": "12017-1411120444150",
                 "shippingMethodName": "2nd day delivery",
                 "shippingRate": 10,
                 "estimatedTransitTime": "5"
@@ -270,9 +269,9 @@ id | number | Order item ID
 productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
-productPrice | number | Product price
+productPrice | number | Basic product price without options markups, wholesale discounts etc.
 weight |  number | Product weight
-sku |   string | Product SKU
+sku | string | Product SKU
 quantity |  number | Amount purchased
 shortDescription | string | Product description truncated to 120 characters
 tax | number | Tax amount applied to the item
@@ -365,7 +364,6 @@ categories | Array\<number\> | The list of category IDs the coupon can be applie
 #### ShippingOptionInfo
 Field | Type | Description
 ----- | ---- | -----------
-shippingMethodId | string | Shipping method internal ID
 shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
@@ -570,7 +568,6 @@ Parameters in bold are mandatory
         "phone": "+1234567890"
     },
     "shippingOption": {
-        "shippingMethodId": "12017-1411120444150",
         "shippingMethodName": "2nd day delivery",
         "shippingRate": 10,
         "estimatedTransitTime": "5"
@@ -643,7 +640,7 @@ id | number | Order item ID
 productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
-productPrice | number | Product price
+productPrice | number | Basic product price without options markups, wholesale discounts etc.
 weight |  number | Product weight
 sku |   string | Product SKU
 quantity |  number | Amount purchased
@@ -738,7 +735,6 @@ categories | Array\<number\> | The list of category IDs the coupon can be applie
 #### ShippingOptionInfo
 Field | Type | Description
 ----- | ---- | -----------
-shippingMethodId | string | Shipping method internal ID
 shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
@@ -900,7 +896,6 @@ customerId | number  | Unique customer internal ID (if the order is placed by a 
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
 discount | number | The total sum of applied discounts
-usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0400`
 updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0400`
@@ -928,7 +923,7 @@ Field | Type |  Description
 productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
-productPrice | number | Product price
+productPrice | number | Basic product price without options markups, wholesale discounts etc.
 weight |  number | Product weight
 sku |   string | Product SKU
 shortDescription | string | Product description truncated to 120 characters
@@ -999,7 +994,6 @@ categories | Array\<number\> | The list of category IDs the coupon can be applie
 #### ShippingOptionInfo
 Field | Type | Description
 ----- | ---- | -----------
-shippingMethodId | string | Shipping method internal ID
 shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
@@ -1217,7 +1211,6 @@ customerId | number  | Unique customer internal ID (if the order is placed by a 
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
 discount | number | The total sum of applied discounts
-usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0400`
 updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0400`
@@ -1244,7 +1237,7 @@ Field | Type |  Description
 productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
-productPrice | number | Product price
+productPrice | number | Basic product price without options markups, wholesale discounts etc.
 weight |  number | Product weight
 sku |   string | Product SKU
 shortDescription | string | Product description truncated to 120 characters
@@ -1315,7 +1308,6 @@ categories | Array\<number\> | The list of category IDs the coupon can be applie
 #### ShippingOptionInfo
 Field | Type | Description
 ----- | ---- | -----------
-shippingMethodId | string | Shipping method internal ID
 shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
@@ -1405,7 +1397,7 @@ Name | Type    | Description
 **orderNumber** | number | Order number
 **itemId** | number | Order item ID
 **optionName** | string | Item product option name, e.g. `Upload your photo`
-fileName |  string |  Uploaded file name
+**fileName** |  string |  Uploaded file name
 **token** |  string |  oAuth token
 
 ### Response
@@ -1455,12 +1447,12 @@ errorMessage | string | Error message
 
 ## Delete item option file
 
-Using this method, you can remove a file attached to an order item by customer.
+Using this method, you can remove a file attached to an order item option by customer.
 
 > Request example
 
 ```http
-DELETE /api/v3/4870020/orders/20/items/987653/options/Attach+your+image/files/{fileId}&token=123456789abcd HTTP/1.1
+DELETE /api/v3/4870020/orders/20/items/987653/options/Attach+your+image/files/1838839292388?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
@@ -1468,7 +1460,7 @@ Cache-Control: no-cache
 binary data
 ```
 
-`DELETE https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName}?fileName={fileName}token={token}`
+`DELETE https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName}/files/{fileId}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | -----------
@@ -1524,3 +1516,73 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
+
+## Delete all item option's files
+
+Using this method, you can remove all files attached to an order item option by customer.
+
+> Request example
+
+```http
+DELETE /api/v3/4870020/orders/20/items/987653/options/Attach+your+image/files?token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json
+Cache-Control: no-cache
+
+binary data
+```
+
+`DELETE https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName}/files?token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**orderNumber** | number | Order number
+**itemId** | number | Order item ID
+**optionName** | string | Item product option name, e.g. `Upload your photo`
+**token** |  string |  oAuth token
+
+### Response
+
+> Response example
+
+```json
+{
+    "deleteCount": 2,
+    "success": true
+}
+```
+
+A JSON object of type 'DeleteStatus' with the following fields:
+
+#### DeleteStatus
+Field | Type |  Description
+----- | ---- | --------------
+deleteCount | number | The number of deleted files
+success | boolean | `true` if the operation was successful, `false` otherwise
+
+### Errors
+
+> Error response example 
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+**HTTP Status** | Description
+--------- | -----------| -----------
+500 | Request failed -- there was an internal server error
+404 | Order, order item or item option is not found
+400 | Request parameters are malformed
+402 | The functionality/method is not available on the merchant plan
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message

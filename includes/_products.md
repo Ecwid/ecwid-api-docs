@@ -227,7 +227,7 @@ Parameters in bold are mandatory
     "weight": 0.31,
     "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208339",
     "created": "2009-07-23 17:22:37 +0400",
-    "lastUpdateTime": "2014-07-30 10:32:37 +0400",
+    "updated": "2014-07-30 10:32:37 +0400",
     "productClassId": 0,
     "enabled": true,
     "options": [
@@ -277,6 +277,7 @@ Parameters in bold are mandatory
     "description": "<h5>Radish</h5>\n<p>The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in Europe in pre-Roman times. They are grown and consumed throughout the world. Radishes have numerous varieties, varying in size, color and duration of required cultivation time. There are some radishes that are grown for their seeds; oilseed radishes are grown, as the name implies, for oil production.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
     "galleryImages": [
         {
+            "id": 18276483,
             "alt": "Radish with friends",
             "url": "http://images-cdn.ecwid.com/images/4870020/237132118.jpg",
             "thumbnail": "http://images-cdn.ecwid.com/images/4870020/237132119.jpg",
@@ -419,7 +420,7 @@ compareToPrice |  number | Product's sale price displayed strike-out in the cust
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0400`
-lastUpdateTime |  string | Product last update date/time
+updated |  string | Product last update date/time
 productClassId |  number | Id of the class (type) that this product belongs to. `0` value means the product is of the default 'General' class. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
 enabled | boolean | `true` if product is enabled, `false` otherwise. Disabled products are not displayed in the store front.
 options | Array\<*ProductOption*\> | A list of the product options. Empty (`[]`) if no options are specified for the product. 
@@ -449,13 +450,13 @@ displayedCount | number | The displayed number of likes. May differ from the `co
 
 #### WholesalePrice
 Field | Type  | Description
--------------- | -------------- | --------------
+----- | ----- | -----------
 quantity |  number |  Number of product items on this wholesale tier
 price | number |  Product price on the tier
 
 #### ProductOption
 Field | Type  | Description
--------------- | -------------- | --------------
+----- | ----- | -----------
 type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
 name |  string |  Product option name, e.g. `Color`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
@@ -464,7 +465,8 @@ required |  boolean | `true` if this option is required, `false` otherwise. Defa
 
 #### GalleryImage
 Field | Type  | Description
--------------- | -------------- | --------------
+----- | ----- | -----------
+id | number | Internal gallery image ID
 alt | string |  Image description, displayed in the image tag's *alt* attribute
 url | string |  Image URL
 thumbnail | string  | Image thumbnail URL resized to fit 46x42px box
@@ -1337,7 +1339,7 @@ errorMessage | string | Error message
 > Request example
 
 ```http
-POST /api/v3/4870020/products/1234567/files?token=123456789abcd&fileName=photo+large.psd HTTP/1.1
+POST /api/v3/4870020/products/1234567/files?token=123456789abcd&fileName=photo+large.psd&description=Item+photo+in+psd+format HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -1355,7 +1357,8 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **productId** | number | Product ID
 **token** |  string |  oAuth token
-fileName | string | Name of the file that customers will see
+**fileName** | string | Name of the file that customers will see
+description | string | A short description of the uploaded file
 
 
 ### Response
