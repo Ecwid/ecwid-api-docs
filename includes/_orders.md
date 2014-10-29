@@ -171,8 +171,10 @@ Parameters in bold are mandatory
                 "street": "W 3d st",
                 "city": "New York",
                 "countryCode": "US",
+                "countryName": "United States",
                 "postalCode": "10001",
                 "stateOrProvinceCode": "NY",
+                "stateOrProvinceName": "New York",
                 "phone": "+1234567890"
             },
             "shippingPerson": {
@@ -181,8 +183,10 @@ Parameters in bold are mandatory
                 "street": "W 3d st",
                 "city": "New York",
                 "countryCode": "US",
+                "countryName": "United States",
                 "postalCode": "10001",
                 "stateOrProvinceCode": "NY",
+                "stateOrProvinceName": "New York",
                 "phone": "+1234567890"
             },
             "shippingOption": {
@@ -334,8 +338,10 @@ companyName |   string  | Company name
 street |    string  | Address
 city |  string  | City
 countryCode | string  | Two-letter country code
+countryName | string | Country name
 postalCode | string  | Postal/ZIP code
 stateOrProvinceCode |   string  | State code, e.g. `NY`
+stateOrProvinceName | string | State/province name
 phone | string  | Phone number
 
 #### DiscountCouponInfo
@@ -553,8 +559,10 @@ Parameters in bold are mandatory
         "street": "W 3d st",
         "city": "New York",
         "countryCode": "US",
+        "countryName": "United States",
         "postalCode": "10001",
         "stateOrProvinceCode": "NY",
+        "stateOrProvinceName": "New York",
         "phone": "+1234567890"
     },
     "shippingPerson": {
@@ -563,8 +571,10 @@ Parameters in bold are mandatory
         "street": "W 3d st",
         "city": "New York",
         "countryCode": "US",
+        "countryName": "United States",
         "postalCode": "10001",
         "stateOrProvinceCode": "NY",
+        "stateOrProvinceName": "New York",
         "phone": "+1234567890"
     },
     "shippingOption": {
@@ -705,8 +715,10 @@ companyName |   string  | Company name
 street |    string  | Address
 city |  string  | City
 countryCode | string  | Two-letter country code
+countryName | string | Country name
 postalCode | string  | Postal/ZIP code
 stateOrProvinceCode |   string  | State code, e.g. `NY`
+stateOrProvinceName | string | State/province name, e.g. `New York`
 phone | string  | Phone number
 
 #### DiscountCouponInfo

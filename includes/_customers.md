@@ -148,8 +148,10 @@ Name | Type    | Description
         "street": "W 3d st",
         "city": "New York",
         "countryCode": "US",
+        "countryName": "United States",
         "postalCode": "10001",
         "stateOrProvinceCode": "NY",
+        "stateOrProvinceName": "New York",
         "phone": "+1234567890"
     },
     "shippingAddresses": [
@@ -160,6 +162,7 @@ Name | Type    | Description
             "street": "W 3d st",
             "city": "New York",
             "countryCode": "US",
+            "countryName": "United States",
             "postalCode": "10001",
             "stateOrProvinceCode": "NY",
             "phone": "123567890"
@@ -171,8 +174,10 @@ Name | Type    | Description
             "street": "1733 W Madison St",
             "city": "Chicago",
             "countryCode": "US",
+            "countryName": "United States",
             "postalCode": "60612",
             "stateOrProvinceCode": "IL",
+            "stateOrProvinceName": "Illinois",
             "phone": ""
         }
     ]
@@ -198,9 +203,11 @@ name | string | Customer full name
 companyName | string | Customer company name
 street | string | Street
 city | string | City
-countryCode | string | Country (2-digits code)
+countryCode | string | Country code (2-digits code)
+countryName | string | Country name
 postalCode | string | Postal code (zip code)
 stateOrProvinceCode | string | State/province code
+stateOrProvinceName | string | State/province name
 phone | string | Phone number
 
 #### ShippingAddress
@@ -212,8 +219,10 @@ companyName | string | Customer company name
 street | string | Street
 city | string | City
 countryCode | string | Country (2-digits code)
+countryName | string | Country name
 postalCode | string | Postal code (zip code)
 stateOrProvinceCode | string | State/province code
+stateOrProvinceName | string | State/province name
 phone | string | Phone number
 
 ### Errors
