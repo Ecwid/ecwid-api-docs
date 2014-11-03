@@ -203,7 +203,7 @@ name | string | Customer full name
 companyName | string | Customer company name
 street | string | Street
 city | string | City
-countryCode | string | Country code (2-digits code)
+countryCode | string | Country code (2-letter code)
 countryName | string | Country name
 postalCode | string | Postal code (zip code)
 stateOrProvinceCode | string | State/province code

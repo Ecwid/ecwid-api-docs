@@ -84,7 +84,16 @@ Name | Type    | Description
             "taxShipping": false,
             "appliedByDefault": true,
             "defaultTax": 7,
-            "rules": []
+            "rules": [
+                {
+                    "zoneId": "3",
+                    "tax": 8
+                },
+                {
+                    "zoneId": "2",
+                    "tax": 5
+                }
+            ]
         }
     ],
     "zones": [
@@ -106,7 +115,40 @@ Name | Type    | Description
                 "UM",
                 "VI"
             ]
-        }
+        },
+        {
+            "id": "3",
+            "name": "Europe (EC)",
+            "countryCodes": [
+                "AT",
+                "BE",
+                "BG",
+                "CY",
+                "CZ",
+                "DK",
+                "EE",
+                "FI",
+                "FR",
+                "DE",
+                "GR",
+                "HU",
+                "IE",
+                "IT",
+                "LV",
+                "LT",
+                "LU",
+                "MT",
+                "NL",
+                "PL",
+                "PT",
+                "RO",
+                "SK",
+                "SI",
+                "ES",
+                "SE",
+                "GB"
+            ]
+        },
     ]
 }
 ```

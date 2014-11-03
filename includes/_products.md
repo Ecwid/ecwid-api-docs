@@ -17,15 +17,15 @@ Cache-Control: no-cache
 
 `GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&token={token}`
 
-Name | Type    | Description
----- | ------- | --------------
+Name | Type | Description
+---- | ---- | -----------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 keyword |  string | Search term. Ecwid searches products over multiple fields: title, description, SKU, product options, category name, gallery image descriptions, values of attributes
 priceFrom |  number | Minimum product price
 priceTo | number | Maximum product price
 category | number | Category ID
-withSubcategories |  boolean | `true`/`false`: defines whether Ecwid should search in subcategories of the category you set in `category` field. Ignored if `category` field is not set . `fales` is the default value
+withSubcategories |  boolean | `true`/`false`: defines whether Ecwid should search in subcategories of the category you set in `category` field. Ignored if `category` field is not set . `false` is the default value
 sortBy |  string | Sort order. Supported values: <ul><li>`RELEVANCE` *default*</li> <li>`ADDED_TIME_DESC`</li> <li>`ADDED_TIME_ASC`</li> <li>`NAME_ASC`</li> <li>`NAME_DESC`</li> <li>`PRICE_ASC`</li> <li>`PRICE_DESC`</li></ul>
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
@@ -146,7 +146,7 @@ description | string  | Product description *in HTML* TODO: limit
 descriptionTruncated | boolean | Identifies whether the returned description has been truncated
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
 defaultCategoryId | number  | Identifier of the default category of the product
-favorites | <\FavoritesStats\>  | Product favorites stats
+favorites | \<FavoritesStats\>  | Product favorites stats
 
 #### FavoritesStats
 Field | Type  | Description
@@ -436,10 +436,10 @@ description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
 defaultCategoryId | number  | Identifier of the default category of the product
-favorites | <\FavoritesStats\>  | Product favorites stats
+favorites | \<FavoritesStats\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
-relatedProducts | [RelatedProducts*  | Related or "You may also like" products of the product
+relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Combination*\> | List of the product combinations
 
 #### FavoritesStats
@@ -504,7 +504,7 @@ productCount |  number |  Number of random products from the given category to b
 
 #### Combination
 Field | Type  | Description
--------------- | -------------- | --------------
+------| ----- | -----------
 id |  number |  Combination ID
 combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
@@ -622,7 +622,7 @@ description | string  | Product description *in HTML*
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
 defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
-relatedProducts | [RelatedProducts*  | Related or "You may also like" products of the product
+relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 
 
 #### WholesalePrice
@@ -780,7 +780,7 @@ description | string  | Product description *in HTML*
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
 defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
-relatedProducts | [RelatedProducts*  | Related or "You may also like" products of the product
+relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 
 <aside class="notice">
 All fields are optional
@@ -886,12 +886,6 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Delete product
----------------------------------------------------------------------------------------------------------
--->
 
 ## Delete a product
 
