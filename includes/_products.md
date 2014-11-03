@@ -1093,14 +1093,6 @@ errorMessage | string | Error message
 
 
 
-
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Upload product gallery image
----------------------------------------------------------------------------------------------------------
--->
-
 ## Upload gallery image
 
 Add image to the product images gallery. Request parameters specify which product should be updated and what title should the uploaded image have. Request body is the image file itself (binary data).
@@ -1174,11 +1166,8 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-<!--
----------------------------------------------------------------------------------------------------------
-    Delete product image
----------------------------------------------------------------------------------------------------------
--->
+
+
 
 ## Delete gallery image
 
@@ -1249,11 +1238,6 @@ errorMessage | string | Error message
 
 
 
-<!--
----------------------------------------------------------------------------------------------------------
-    Delete all product gallery images
----------------------------------------------------------------------------------------------------------
--->
 
 ## Delete all gallery images
 
@@ -1322,11 +1306,63 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-<!--
----------------------------------------------------------------------------------------------------------
-    Upload product file
----------------------------------------------------------------------------------------------------------
--->
+
+## Download product file
+
+Download a product file by file ID. 
+
+> Request example
+
+```http
+GET /api/v3/4870020/products/1234657/files/193639?token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+`GET https://app.ecwid.com/api/v3/{storeId}/products/{productId}/files/{fileId}?token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**productId** | number | Product ID
+**fileId** | number | Internal file ID
+**token** |  string |  oAuth token
+
+### Response
+
+Response is the file in binary format. 
+
+
+### Errors
+
+> Error response example 
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and JSON-formatted body containing error description
+
+#### HTTP codes
+
+**HTTP Status** | Description
+--------- | -----------| -----------
+500 | Request failed or there was an internal server error
+404 | Product/file is not found
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+
+
+
+
+
+
 
 ## Upload product file
 
@@ -1405,12 +1441,6 @@ errorMessage | string | Error message
 
 
 
-<!--
----------------------------------------------------------------------------------------------------------
-    Delete product egoods file
----------------------------------------------------------------------------------------------------------
--->
-
 ## Delete product file
 
 > Request example
@@ -1476,13 +1506,6 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Delete all product egoods files
----------------------------------------------------------------------------------------------------------
--->
 
 ## Delete all product files
 
