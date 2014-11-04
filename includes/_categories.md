@@ -416,7 +416,7 @@ HTTP Status | Meaning
 
 ## Upload category image
 
-Upload category image: if the category already has an image attached, the uploaded image will replace the existing one.
+Upload category image: if the category already has an image attached, the uploaded image will replace the existing one. Maximum allowed file size is 20Mb.
 
 > Request example
 
@@ -475,7 +475,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 --------- | -----------| -----------
 400 | Request parameters are malformed
 404 | Category is not found
-413 | The image file is too large
+413 | The image file is too large (Maximum allowed size is 20Mb)
 500 | Uploading of the image file failed or there was an internal server error while processing a file. On of possible reasons is image 
 
 

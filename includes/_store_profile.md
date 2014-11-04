@@ -522,7 +522,7 @@ HTTP Status | Meaning
 ## Upload store logo
 
 Upload store logo displayed on Starter Site. 
-The logo itself is to be placed in the request body
+The logo itself is to be placed in the request body. Maximum allowed file size is 20Mb.
 
 > Request example
 
@@ -575,7 +575,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 **HTTP Status** | Description
 --------- | -----------| -----------
 500 | Uploading of the image file failed or there was an internal server error while processing a file
-413 | The image file is too large
+413 | The image file is too large (Maximum allowed file size is 20Mb)
 400 | Request parameters are malformed
 
 #### Error response body (optional)
@@ -651,7 +651,7 @@ errorMessage | string | Error message
 
 ## Upload invoice logo
 
-Upload store logo displayed on order invoices. The logo itself is to be placed in the request body
+Upload store logo displayed on order invoices. The logo itself is to be placed in the request body. Maximum allowed file size is 20Mb.
 
 > Request example
 
@@ -704,7 +704,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 **HTTP Status** | Description
 --------- | -----------| -----------
 500 | Uploading of the image file failed or there was an internal server error while processing a file
-413 | The image file is too large
+413 | The image file is too large. Maximum allowed file size is 20Mb.
 400 | Request parameters are malformed
 
 #### Error response body (optional)

@@ -712,7 +712,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 --------- | -----------| -----------
 500 | Uploading of the image file failed or there was an internal server error while processing a file
 404 | Product or combination in request are not found
-413 | The image file is too large
+413 | The image file is too large (Maximum allowed file size is 20Mb)
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
 

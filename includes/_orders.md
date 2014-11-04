@@ -1388,7 +1388,7 @@ errorMessage | string | Error message
 
 ## Upload item option file
 
-Using this method, you can attach a file to an order item (implying that the order item has a 'file upload' option). Request parameters specify which order, item and option should be updated. Request body is the file itself (binary data).
+Using this method, you can attach a file to an order item (implying that the order item has a 'file upload' option). Request parameters specify which order, item and option should be updated. Request body is the file itself (binary data). Maximum allowed file size is 100Mb.
 
 > Request example
 
@@ -1446,7 +1446,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 --------- | -----------| -----------
 500 | Uploading of the file failed or there was an internal server error while processing a file
 404 | Order, order item or item option is not found
-413 | The file is too large
+413 | The file is too large.  Maximum allowed file size is 100Mb.
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
 
@@ -1467,9 +1467,6 @@ Using this method, you can remove a file attached to an order item option by cus
 DELETE /api/v3/4870020/orders/20/items/987653/options/Attach+your+image/files/1838839292388?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
-Cache-Control: no-cache
-
-binary data
 ```
 
 `DELETE https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName}/files/{fileId}?token={token}`
@@ -1540,8 +1537,6 @@ DELETE /api/v3/4870020/orders/20/items/987653/options/Attach+your+image/files?to
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
-
-binary data
 ```
 
 `DELETE https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName}/files?token={token}`

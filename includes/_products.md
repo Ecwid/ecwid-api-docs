@@ -801,7 +801,7 @@ type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, 
 **name** |  string |  Product option name, e.g. `Color`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *Omit this field for product options with no selection (e.g. text, datepicker or upload file options)*
 defaultChoice | number  | The number, starting from `0`, of the option's default selection for the options types `SELECT`, `CHECKBOX` or `RADIO`.
-required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
+required |  boolean | `true` if this option is mandatory, `false` otherwise. Default is `false`
 
 
 #### AttributeValue
@@ -958,7 +958,7 @@ errorMessage | string | Error message
 
 ## Upload product image
 
-Upload product image: if the product already has an image attached, the uploaded image will replace the existing one.
+Upload product image: if the product already has an image attached, the uploaded image will replace the existing one. Maximum allowed file size is 20Mb.
 
 > Request example
 
@@ -1018,7 +1018,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 --------- | -----------| -----------
 500 | Uploading of the image file failed or there was an internal server error while processing a file
 404 | Product is not found
-413 | The image file is too large
+413 | The image file is too large (Maximum allowed size is 20Mb)
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
 
@@ -1095,7 +1095,7 @@ errorMessage | string | Error message
 
 ## Upload gallery image
 
-Add image to the product images gallery. Request parameters specify which product should be updated and what title should the uploaded image have. Request body is the image file itself (binary data).
+Add image to the product images gallery. Request parameters specify which product should be updated and what title should the uploaded image have. Request body is the image file itself (binary data). Maximum allowed file size is 20Mb.
 
 > Request example
 
@@ -1155,7 +1155,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 --------- | -----------| -----------
 500 | Uploading of the image file failed or there was an internal server error while processing a file
 404 | Product is not found
-413 | The image file is too large
+413 | The image file is too large (Maximum allowed size is 20Mb)
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
 
@@ -1429,7 +1429,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 --------- | -----------| -----------
 500 | Uploading of the file failed or there was an internal server error while processing a file
 404 | Product is not found
-413 | The file is too large
+413 | The file is too large (Maximum allowed size is 100Mb)
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
 
