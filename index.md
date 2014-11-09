@@ -17,13 +17,13 @@ includes:
   - rest_api_reference
   - products
   - categories
+  - combinations
+  - product_classes
   - customers
   - coupons
   - orders
   - instant_order_notifications
-  - store_profile
-  - combinations
-  - product_classes
+  - store_profile  
   - storage
   - customize_storefront
   - api_playground

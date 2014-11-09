@@ -185,7 +185,7 @@ accountEmail | string | User email
 #### Settings
 Field | Type | Description
 ----- | ---- | -----------
-closed | string | Full user name
+closed | boolean | `true` if the store is closed for maintenance, `false` otherwise
 storeName | string | The store name displayed in Starter Site
 invoiceLogoUrl | string | Company logo displayed on the invoice
 
