@@ -24,7 +24,7 @@ couponId | number | The code of coupon applied to order
 totalFrom |  number | Minimum product price
 totalTo | number | Maximum product price
 number | number | Order number
-vendorNumber | string | Order number with prefix/suffix defined by admin
+vendorOrderNumber | string | Order number with prefix/suffix defined by admin
 customer | string | Customer search term (searches by customer)
 createdFrom | string | Order placemen date (lower bound) Format: YYYY-MM-DD
 createdTo | string | Order placemen date (upper bound) Format: YYYY-MM-DD
@@ -229,7 +229,7 @@ items | Array\<*OrderEntry*\> | The items list
 Field | Type |  Description
 ------| -----| ------------
 orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
-vendorNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
+vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
 subtotal |  number | Order subtotal
 total | number | Order total cost
 email | string  | Customer email address
