@@ -20,10 +20,10 @@ Name | Type    | Description
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
 keywords |  string | Search term
-couponId | number | The code of coupon applied to order
+couponCode | number | The code of coupon applied to order
 totalFrom |  number | Minimum product price
 totalTo | number | Maximum product price
-number | number | Order number
+orderNumber | number | Order number
 vendorOrderNumber | string | Order number with prefix/suffix defined by admin
 customer | string | Customer search term (searches by customer)
 createdFrom | string | Order placemen date (lower bound) Format: YYYY-MM-DD
@@ -61,7 +61,6 @@ Parameters in bold are mandatory
             "email": "johnsmith@example.com",
             "paymentMethod": "Purchase order",
             "tax": 1.79,
-            "ticket": -385349778,
             "ipAddress": "83.217.8.241",
             "couponDiscount": 1.5,
             "paymentStatus": "PAID",
@@ -109,7 +108,7 @@ Parameters in bold are mandatory
                     "tangible": true,
                     "trackQuantity": true,
                     "fixedShippingRateOnly": false,
-                    "imageId": 231131360,
+                    "imageUrl": "http://app.ecwid.com/default-store/00006-sq.jpg",
                     "fixedShippingRate": 1,
                     "digital": true,
                     "productAvailable": true,
@@ -257,12 +256,12 @@ items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
-additionalInfo | Map\<*string,string*\> | Additional order information (if any)
+additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
 paymentMessage | string | Message from the payment processor if any
-extTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
+externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 
@@ -285,7 +284,7 @@ name |  string | Product name
 tangible | boolean | `true`/`false`: shows whether the item requires shipping
 trackQuantity | boolean | `true`/`false`: shows whether the store admin set to track the quantity of this product and get low stock notifications
 fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shipping rate is set for the product
-imageId | number | Product image internal ID
+imageUrl | string | Product image URL
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
 productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
@@ -449,7 +448,6 @@ Parameters in bold are mandatory
     "email": "johnsmith@example.com",
     "paymentMethod": "Purchase order",
     "tax": 1.79,
-    "ticket": -385349778,
     "ipAddress": "83.217.8.241",
     "couponDiscount": 1.5,
     "paymentStatus": "PAID",
@@ -497,7 +495,7 @@ Parameters in bold are mandatory
             "tangible": true,
             "trackQuantity": true,
             "fixedShippingRateOnly": false,
-            "imageId": 231131360,
+            "imageUrl": "http://app.ecwid.com/default-store/00006-sq.jpg",
             "fixedShippingRate": 1,
             "digital": true,
             "productAvailable": true,
@@ -634,12 +632,12 @@ items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
-additionalInfo | Map\<*string,string*\> | Additional order information (if any)
+additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
 paymentMessage | string | Message from the payment processor if any
-extTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
+externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 
@@ -662,7 +660,7 @@ name |  string | Product name
 tangible | boolean | `true`/`false`: shows whether the item requires shipping
 trackQuantity | boolean | `true`/`false`: shows whether the store admin set to track the quantity of this product and get low stock notifications
 fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shipping rate is set for the product
-imageId | number | Product image internal ID
+imageUrl | string | Product image URL
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
 productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
@@ -795,6 +793,8 @@ errorMessage | string | Error message
 
 ## Update order
 
+This request allows you to update existing orders in the store. When updating order information, you can omit unchanged fields – they will be ignored so the resulting order will keep the corresponding information unchanged. However, please mind that if you want to update the ordered items, you should submit all the items in the request. The omitted items will be removed. This is done this way to let you remove some purchased items from the order. 
+
 > Request example
 
 ```http
@@ -917,12 +917,12 @@ items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
-additionalInfo | Map\<*string,string*\> | Additional order information (if any)
+additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
 paymentMessage | string | Message from the payment processor if any
-extTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
+externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 
@@ -930,8 +930,8 @@ creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 Field | Type |  Description
 --------- | -----------| -----------
 **id** | number | Order item ID
-**quantity** |  number | Amount purchased
-**name** |  string | Product name
+quantity |  number | Amount purchased
+name |  string | Product name
 productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
@@ -945,7 +945,6 @@ quantityInStock | number | The number of products in stock in the store
 tangible | boolean | `true`/`false`: shows whether the item requires shipping
 trackQuantity | boolean | `true`/`false`: shows whether the store admin set to track the quantity of this product and get low stock notifications
 fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shipping rate is set for the product
-imageId | number | Product image internal ID
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
 productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
@@ -1194,8 +1193,8 @@ Cache-Control: no-cache
 
 `POST https://app.ecwid.com/api/v3/{storeId}/orders?token={token}`
 
-Name | Type    | Description
----- | ------- | --------------
+Field | Type | Description
+----- | ---- | -----------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
@@ -1232,20 +1231,20 @@ items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
-additionalInfo | Map\<*string,string*\> | Additional order information (if any)
+additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
 paymentMessage | string | Message from the payment processor if any
-extTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
+externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 
 #### OrderItem
-Field | Type |  Description
---------- | -----------| -----------
-**quantity** |  number | Amount purchased
-**name** |  string | Product name
+Field | Type | Description
+----- | ---- | -----------
+**name** | string | Product name
+quantity | number | Amount purchased
 productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
@@ -1259,7 +1258,6 @@ quantityInStock | number | The number of products in stock in the store
 tangible | boolean | `true`/`false`: shows whether the item requires shipping
 trackQuantity | boolean | `true`/`false`: shows whether the store admin set to track the quantity of this product and get low stock notifications
 fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shipping rate is set for the product
-imageId | number | Product image internal ID
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
 productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
@@ -1268,23 +1266,23 @@ selectedOptions | Array\<*OrderItemOption*\> | Product options values selected b
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 
 #### OrderItemTax
-Field | Type |  Description
---------- | -----------| -----------
+Field | Type | Description
+----- | ---- | -----------
 name |  string | Tax name
 value | number | Tax value in percent
 total | number | Tax amount for the item
 
 #### OrderItemOption
-Field | Type |  Description
---------- | -----------| -----------
+Field | Type | Description
+----- | ---- | -----------
 **name** |  string | Option name
 Type |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
 value | string | Selected/entered value
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILE`)
 
 #### PersonInfo
-Field | Type |  Description
---------- | -----------| -----------
+Field | Type | Description
+----- | ---- | -----------
 name |  string  | Full name
 companyName |   string  | Company name
 street |    string  | Address

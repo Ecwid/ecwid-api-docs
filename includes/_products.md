@@ -508,17 +508,17 @@ Field | Type  | Description
 id |  number |  Combination ID
 combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. `null` means the combinations inherits the base product's SKU
-smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. `null` means the combinations inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
-thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. `null` means the combinations inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the combination image resized to fit 500x500. `null` means the combinations inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
-originalImageUrl |  string  | URL of the original not resized combination image. `null` means the combinations inherits the base product's image.
-quantity |  number  | Amount of the combination items in stock. `null` means the combinations inherits the base product's quantity.
+sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
+smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
+thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the combination image resized to fit 500x500. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
+originalImageUrl | string | URL of the original not resized combination image. Omitted if the combination inherits the base product's image.
+quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
 unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
-price | number  | Combination price. `null` means the combinations inherits the base product's price.
-wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). `null` means the combinations inherits the base product's tiered price settings. 
-weight |  number  |  Combination weight in the units defined in store settings. `null` means the combinations inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. `null` means the combinations inherits the base product's settings.
+price | number | Combination price. Omitted if the combination inherits the base product's price.
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
+weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
 
 
 #### OptionValue
@@ -1350,7 +1350,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 **HTTP Status** | Description
 --------- | -----------| -----------
 500 | Request failed or there was an internal server error
-404 | Product/file is not found
+404 | Product or file is not found
 
 #### Error response body (optional)
 

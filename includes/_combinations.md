@@ -135,12 +135,12 @@ Field | Type  | Description
 id |  number |  Combination ID
 combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. Omitted if the combinations inherits the base product's SKU
+sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
 smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the combination image resized to fit 500x500. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 originalImageUrl | string | URL of the original not resized combination image. Omitted if the combination inherits the base product's image.
-quantity | number | Amount of the combination items in stock. Omitted if the combinations inherits the base product's quantity.
+quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
 unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
 price | number | Combination price. Omitted if the combination inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
@@ -248,12 +248,12 @@ Field | Type  | Description
 id |  number |  Combination ID
 combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. Omitted if the combinations inherits the base product's SKU
+sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
 smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the combination image resized to fit 500x500. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 originalImageUrl | string | URL of the original not resized combination image. Omitted if the combination inherits the base product's image.
-quantity | number | Amount of the combination items in stock. Omitted if the combinations inherits the base product's quantity.
+quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
 unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
 price | number | Combination price. Omitted if the combination inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
@@ -340,8 +340,8 @@ A JSON object of type 'Combination' with the following fields:
 Field | Type  | Description
 ------| ----- | -----------
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. Omitted if the combinations inherits the base product's SKU
-quantity | number | Amount of the combination items in stock. Omitted if the combinations inherits the base product's quantity.
+sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
+quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
 unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
 price | number | Combination price. Omitted if the combination inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
@@ -440,8 +440,8 @@ A JSON object of type 'Combination' with the following fields:
 Field | Type  | Description
 ------| ----- | -----------
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. Omitted if the combinations inherits the base product's SKU
-quantity | number | Amount of the combination items in stock. Omitted if the combinations inherits the base product's quantity.
+sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
+quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
 unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
 price | number | Combination price. Omitted if the combination inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
