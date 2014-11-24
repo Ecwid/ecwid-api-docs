@@ -149,7 +149,11 @@ Name | Type    | Description
                 "GB"
             ]
         },
-    ]
+    ],
+    "businessRegistrationID": {
+        "name": "VAT Reg No",
+        "value": "GB999 9999 73"
+    }
 }
 ```
 
@@ -166,6 +170,7 @@ formatsAndUnits | \<FormatsAndUnits\> | Store's formats/untis settings
 languages | \<Languages\> | Store's language settings
 taxes | Array\<Tax\> | Store's taxes settings
 zones | Array\<Zone\> | Store's destination zones
+businessRegistrationID | \<BusinessRegistrationID\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
 
 #### GeneralInfo
 Field | Type | Description
@@ -215,7 +220,7 @@ currencyPrecision | number  | Numbers of digits after decimal point in the store
 currencyGroupSeparator | string | Price thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``.
 currencyDecimalSeparator |  string | Price decimal separator. Possible values: `.` or `,` 
 currencyTruncateZeroFractional | boolean | Hide zero fractional part of the prices in storefront. `true` or `false` . 
-currencyRate | number | Currency rate in U.S. dollars, as set in the 
+currencyRate | number | Currency rate in U.S. dollars, as set in the merchant control panel
 weightUnit |    string |    Weight unit. Supported values: `CARAT`, `GRAM`, `OUNCE`, `POUND`, `KILOGRAM`
 weightPrecision | number | Numbers of digits after decimal point in weights displayed in the store
 weightGroupSeparator | string | Weight thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``
@@ -265,6 +270,12 @@ name | string | Zone displayed name
 countryCodes | Array\<string\> | Country codes this zone includes . 
 stateOrProvinceCodes |  Array\<string\> | State or province codes the zone includes
 postCodes | Array\<string\> |   Postcode (or zipcode) templates this zone includes. More details: [Destination zones in Ecwid](http://help.ecwid.com/customer/portal/articles/1163922-destination-zones)
+
+#### BusinessRegistrationID
+Field | Type | Description
+----- | ---- | -----------
+name | string | ID name, e.g. `Vat ID`, `P.IVA`, `ABN` 
+value | string | ID value
 
 #### StarterSiteInfo
 *System Settings → General → Starter site*
@@ -370,6 +381,7 @@ formatsAndUnits | \<FormatsAndUnits\> | Store's formats/untis settings
 languages | \<Languages\> | Store's language settings
 taxes | Array\<Tax\> | Store's taxes settings
 zones | Array\<Zone\> | Store's destination zones
+businessRegistrationID | \<BusinessRegistrationID\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
 
 <aside class="notice">
 All fields are optional. Omitted field will not be affected
@@ -421,7 +433,7 @@ currencyPrecision | number  | Numbers of digits after decimal point in the store
 currencyGroupSeparator | string | Price thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``.
 currencyDecimalSeparator |  string | Price decimal separator. Possible values: `.` or `,` 
 currencyTruncateZeroFractional | boolean | Hide zero fractional part of the prices in storefront. `true` or `false` . 
-currencyRate | number | Currency rate in U.S. dollars, as set in the 
+currencyRate | number | Currency rate in U.S. dollars, as set in the merchant control panel
 weightUnit |    string |    Weight unit. Supported values: `CARAT`, `GRAM`, `OUNCE`, `POUND`, `KILOGRAM`
 weightPrecision | number | Numbers of digits after decimal point in weights displayed in the store
 weightGroupSeparator | string | Weight thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``
@@ -469,6 +481,12 @@ id | string | Unique internal zone ID
 countryCodes | Array\<string\> | Country codes this zone includes . 
 stateOrProvinceCodes |  Array\<string\> | State or province codes the zone includes
 postCodes | Array\<string\> |   Postcode (or zipcode) templates this zone includes. More details: [Destination zones in Ecwid](http://help.ecwid.com/customer/portal/articles/1163922-destination-zones)
+
+#### BusinessRegistrationID
+Field | Type | Description
+----- | ---- | -----------
+name | string | ID name, e.g. `Vat ID`, `P.IVA`, `ABN` 
+value | string | ID value
 
 #### StarterSiteInfo
 *System Settings → General → Starter site*
