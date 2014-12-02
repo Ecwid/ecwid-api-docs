@@ -153,7 +153,7 @@ The rest of request parameters are the same as for web services.
 > Step #2. User grants permission
 
 ```html
-<title>oauth_response:code=54xgQHmbZrrLTqzCiHPywwEGQNtAFLG7&amp;state=code</title>
+<title>oauth_response:code=54xgQHmbZrrLTqzCiHPyw&amp;state=code</title>
 ```
 
 > Step #2. User denies to provide the app with access

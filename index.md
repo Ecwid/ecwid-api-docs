@@ -1,9 +1,6 @@
 ---
 title: Ecwid REST API
 
-language_tabs:
-  - http
-
 toc_footers:
  - <a href='https://ecwid.wufoo.com/forms/m1yelani0pbblcr/'>Register you application</a>
  - <a href='https://github.com/Ecwid/ecwid-api-docs'>Suggest an edit</a>
