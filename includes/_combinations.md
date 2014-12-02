@@ -366,9 +366,7 @@ Field | Type  | Description
 
 ```json
 {
-    "id": 397662764,
-    "message": "Successfully created",
-    "success": true
+    "id": 397662764
 }
 ```
 
@@ -378,8 +376,6 @@ A JSON object of type 'CreateStatus' with the following fields:
 Field | Type  | Description
 ----- | ----- | -----------
 id | number | ID of the created combination
-message | string | Status message 
-success | boolean | `true` if the combination has been created, `false` otherwise
 
 
 ### Errors
@@ -470,9 +466,7 @@ Field | Type  | Description
 
 ```json
 {
-    "message": "Combination was successfully updated",
-    "updateCount": 1,
-    "success": true
+    "updateCount": 1
 }
 ```
 
@@ -482,9 +476,7 @@ A JSON object of type 'UpdateStatus' with the following fields:
 
 Field | Type | Description
 ----- | ---- | -----------
-message | string | Status message 
 updateCount | number | The number of updated combinations (`1` or `0` depending on whether the update was successful)
-success | boolean | `true` if the combination has been updated, `false` otherwise
 
 ### Errors
 
@@ -536,8 +528,7 @@ Name | Type | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -548,7 +539,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted combinations (`1` or `0` depending on whether the request was successful)
-success | boolean | `true` if the combination has been deleted, `false` otherwise
 
 
 ### Errors
@@ -608,8 +598,7 @@ Name | Type | Description
 
 ```json
 {
-    "deleteCount": 4,
-    "success": true
+    "deleteCount": 4
 }
 ```
 
@@ -620,7 +609,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted combinations
-success | boolean | `true` if the operation has been successful, `false` otherwise
 
 
 ### Errors
@@ -753,8 +741,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -765,7 +752,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted images (`1` if the image has been removed, `0` otherwise)
-success | boolean | `true` if the operation has been successful, `false` otherwise
 
 
 ### Errors

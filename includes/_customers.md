@@ -355,8 +355,7 @@ Parameters in bold are mandatory
 
 ```json
 {
-    "id": 15319442,
-    "success": true
+    "id": 15319442
 }
 ```
 
@@ -366,7 +365,6 @@ A JSON object of type 'CreateStatus' with the following fields:
 Field | Type |  Description
 -------------- | -------------- | --------------
 id | number | ID of the created customer
-success | boolean | `true` if the customer has been created, `false` otherwise
 
 
 ### Errors
@@ -501,8 +499,7 @@ All fields are optional
 
 ```json
 {
-    "updateCount": 1,
-    "success": true
+    "updateCount": 1
 }
 ```
 
@@ -512,7 +509,6 @@ A JSON object of type 'UpdateStatus' with the following fields:
 Field | Type |  Description
 -------------- | -------------- | --------------
 updateCount | number | The number of update customers (`0` or `1` depending on whether the request was successful)
-success | boolean | `true` if the customer has been updated, `false` otherwise
 
 
 ### Errors
@@ -582,8 +578,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -594,7 +589,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | ------------
 deleteCount | number | The number of deleted customers (`1` or `0` depending on whether the request was successful)
-success | boolean | `true` if the customer has been deleted, `false` otherwise
 
 
 ### Errors

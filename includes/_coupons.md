@@ -308,9 +308,7 @@ Parameters in bold are mandatory
 
 ```json
 {
-    "id": 9698215,
-    "message": "Successfully created",
-    "success": true
+    "code": 9698215
 }
 ```
 
@@ -321,8 +319,6 @@ A JSON object of type 'CreateStatus' with the following fields:
 Field | Type |  Description
 -------------- | -------------- | --------------
 code | number | Code of the created coupon
-success | boolean | `true` if the coupon has been created, `false` otherwise
-message | string | Status message
 
 
 ### Errors
@@ -431,9 +427,7 @@ All fields are optional
 
 ```json
 {
-    "message": "Coupon was successfully updated",
-    "updateCount": 1,
-    "success": true
+    "updateCount": 1
 }
 ```
 
@@ -443,9 +437,7 @@ A JSON object of type 'UpdateStatus' with the following fields:
 #### UpdateStatus
 Field | Type |  Description
 ------| ---- | --------------
-message | string | Status message
 updateCount | number | The number of updated coupons (`1` or `0` depending on whether the update was successful)
-success | boolean | `true` if the coupon has been updated, `false` otherwise
 
 
 ### Errors
@@ -499,9 +491,7 @@ Name | Type    | Description
 
 ```json
 {
-    "message": "",
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -511,9 +501,7 @@ A JSON object of type 'DeleteStatus' with the following fields:
 
 Field | Type |  Description
 ----- | ---- | ------------
-message | string | Status message
 deleteCount | number | The number of deleted coupons (`1` or `0` depending on whether the request was successful). It returns `0` when the coupon with the given code is not found
-success | boolean | `true` if the coupon has been deleted, `false` otherwise
 
 
 ### Errors

@@ -263,8 +263,7 @@ show | string | Defines how and where to display the product attribute value: `N
 
 ```json
 {
-    "updateCount": 1,
-    "success": true
+    "updateCount": 1
 }
 ```
 
@@ -275,7 +274,6 @@ A JSON object of type 'UpdateStatus' with the following fields:
 Field | Type |  Description
 ------| ---- | --------------
 updateCount | number | The number of updated types (`1` or `0` depending on whether the update was successful)
-success | boolean | `true` if the type has been updated, `false` otherwise
 
 
 ### Errors
@@ -376,8 +374,7 @@ show | string | Defines how and where to display the product attribute value: `N
 
 ```json
 {
-    "id": 4528008,
-    "success": true
+    "id": 4528008
 }
 ```
 
@@ -388,7 +385,6 @@ A JSON object of type 'CreateStatus' with the following fields:
 Field | Type |  Description
 ------| ---- | --------------
 id | number | The internal ID of the just created product type
-success | boolean | `true` if the type has been created, `false` otherwise
 
 
 ### Errors
@@ -447,8 +443,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -460,7 +455,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | ------------
 deleteCount | number | The number of deleted types (`1` or `0` depending on whether the request was successful). It returns `0` when the type with the given ID is not found
-success | boolean | `true` if the type has been deleted, `false` otherwise
 
 
 ### Errors

@@ -1031,8 +1031,7 @@ cvvMessage | string  | Credit card verification status returned by the payment s
 
 ```json
 {
-    "updateCount": 1,
-    "success": true
+    "updateCount": 1
 }
 ```
 
@@ -1043,7 +1042,6 @@ A JSON object of type 'UpdateStatus' with the following fields:
 Field | Type |  Description
 -------------- | -------------- | --------------
 updateCount | number | The number of updated orders (`1` or `0` depending on whether the update was successful)
-success | boolean | `true` if the order has been updated, `false` otherwise
 
 ### Errors
 
@@ -1096,8 +1094,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -1108,7 +1105,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted orders (`1` or `0` depending on whether the request was successful)
-success | boolean | `true` if the order has been deleted, `false` otherwise
 
 
 ### Errors
@@ -1344,8 +1340,7 @@ cvvMessage | string  | Credit card verification status returned by the payment s
 
 ```json
 {
-    "id": 20,
-    "success": true
+    "orderNumber": 20
 }
 ```
 
@@ -1356,7 +1351,6 @@ A JSON object of type 'CreateStatus' with the following fields:
 Field | Type |  Description
 -------------- | -------------- | --------------
 orderNumber | number | The number of created order in the store
-success | boolean | `true` if the order has been created, `false` otherwise
 
 ### Errors
 
@@ -1484,8 +1478,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -1495,7 +1488,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted files (`1` or `0` depending on whether the request was successful)
-success | boolean | `true` if the file has been deleted, `false` otherwise
 
 ### Errors
 
@@ -1553,8 +1545,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 2,
-    "success": true
+    "deleteCount": 2
 }
 ```
 
@@ -1564,7 +1555,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted files
-success | boolean | `true` if the operation was successful, `false` otherwise
 
 ### Errors
 

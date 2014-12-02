@@ -220,8 +220,7 @@ productIds | Array\<number\>  | IDs of the products to assign to the category
 
 ```json
 {
-    "id": 10869029,
-    "success": true
+    "id": 10869029
 }
 ```
 
@@ -233,7 +232,6 @@ A JSON object of type 'CreateStatus' with the following fields:
 Field | Type |  Description
 -------------- | -------------- | --------------
 id | number | ID of the created category
-success | boolean | `true` if the category has been created, `false` otherwise
 
 
 ### Errors
@@ -316,8 +314,7 @@ productIds | Array\<number\>  | IDs of the products to assign to the category
 
 ```json
 {
-    "updateCount": 1,
-    "success": true
+    "updateCount": 1
 }
 ```
 
@@ -328,7 +325,6 @@ A JSON object of type 'UpdateStatus' with the following fields:
 Field | Type |  Description
 ------| ---- | --------------
 updateCount | number | The number of updated categories (`1` or `0` depending on whether the update was successful)
-success | boolean | `true` if the category has been updated, `false` otherwise
 
 
 ### Errors
@@ -379,8 +375,7 @@ Query field | Type    | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -391,7 +386,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | ------------
 deleteCount | number | The number of deleted categories (`1` or `0` depending on whether the request was successful)
-success | boolean | `true` if the category has been deleted, `false` otherwise
 
 ### Errors
 
@@ -512,8 +506,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -523,7 +516,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted images (`1` or `0` depending on whether the request was successful)
-success | boolean | `true` if the image has been deleted, `false` otherwise
 
 ### Errors
 

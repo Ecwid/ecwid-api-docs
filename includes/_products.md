@@ -686,9 +686,7 @@ Parameters in bold are mandatory
 
 ```json
 {
-    "id": 39766764,
-    "message": "Successfully created",
-    "success": true
+    "id": 39766764
 }
 ```
 
@@ -698,9 +696,6 @@ A JSON object of type 'CreateStatus' with the following fields:
 Field | Type |  Description
 -------------- | -------------- | --------------
 id | number | ID of the created product
-message | string | Status message 
-success | boolean | `true` if the product has been created, `false` otherwise
-
 
 ### Errors
 
@@ -845,9 +840,7 @@ priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOL
 
 ```json
 {
-  "message": "Product was successfully updated",
-  "updateCount": 1,
-  "success": true
+  "updateCount": 1
 }
 ```
 
@@ -857,9 +850,7 @@ A JSON object of type 'UpdateStatus' with the following fields:
 
 Field | Type |  Description
 -------------- | -------------- | --------------
-message | string | Status message 
 updateCount | number | The number of updated products (`1` or `0` depending on whether the update was successful)
-success | boolean | `true` if the product has been updated, `false` otherwise
 
 ### Errors
 
@@ -913,9 +904,7 @@ Name | Type    | Description
 
 ```json
 {
-    "message":"",
-    "deleteCount":1,
-    "success":true
+    "deleteCount":1
 }
 ```
 
@@ -925,9 +914,7 @@ A JSON object of type 'DeleteStatus' with the following fields:
 
 Field | Type |  Description
 ----- | ---- | --------------
-message | string | Status message 
 deleteCount | number | The number of deleted products (`1` or `0` depending on whether the request was successful)
-success | boolean | `true` if the product has been deleted, `false` otherwise
 
 
 ### Errors
@@ -1054,8 +1041,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -1065,7 +1051,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted images (`1` or `0` depending on whether the request was successful)
-success | boolean | `true` if the image has been deleted, `false` otherwise
 
 ### Errors
 
@@ -1195,8 +1180,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -1206,7 +1190,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted images (`1` or `0` depending on whether the request was successful)
-success | boolean | `true` if the image has been deleted, `false` otherwise
 
 ### Errors
 
@@ -1266,8 +1249,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 4,
-    "success": true
+    "deleteCount": 4
 }
 ```
 
@@ -1278,7 +1260,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted gallery images
-success | boolean | `true` if the deletion was successful, `false` otherwise
 
 ### Errors
 
@@ -1469,8 +1450,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 1,
-    "success": true
+    "deleteCount": 1
 }
 ```
 
@@ -1480,7 +1460,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted files (`1` or `0` depending on whether the request was successful)
-success | boolean | `true` if the file has been deleted, `false` otherwise
 
 ### Errors
 
@@ -1534,8 +1513,7 @@ Name | Type    | Description
 
 ```json
 {
-    "deleteCount": 3,
-    "success": true
+    "deleteCount": 3
 }
 ```
 
@@ -1546,7 +1524,6 @@ A JSON object of type 'DeleteStatus' with the following fields:
 Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted files
-success | boolean | `true` if the deletion was successful, `false` otherwise
 
 ### Errors
 
