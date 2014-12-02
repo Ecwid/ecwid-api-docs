@@ -82,8 +82,9 @@ Here you can find a starter template that you can use as a skeleton of your own 
 
 ### User authentication inside iframe
 In your application, you will likely show some user-specific data, for example the store order list. To do that, your iframe application will need to know:
-1) The ID of the store using your application at the moment
-2) The token that allows to access the store data
+
+* The ID of the store using your application at the moment
+* The token that allows to access the store data
 
 Ecwid will pass this data to your application as soon as it is opened in Ecwid Control panel. The way data is passed to your application and the way you should decrypt the received data depends on whether you process it on a client or a server side of your application. Below, you will find how you can do that in either case.
 
@@ -115,6 +116,7 @@ cache-killer | string | Random string preventing caching on your server
 ```
 
 The payload parameter is encrypted JSON string, which, when decrypted, has the following format:
+
 Name | Type | Description
 ---- | ---- | -----------
 store_id | number | Ecwid store ID
@@ -124,6 +126,7 @@ access_token | string | oAuth token
 permissions | array of strings | List of permissions (API access levels) given to the app, separated by space
 
 *Decryption on a server*
+
 Ecwid uses AES-128 encryption. The key is the first 16 symbols (128 bit) of your application secret key. The key (**client_secret**) is provided when you register an app with us. See a PHP example of decryption to get better idea on how to get and decrypt the payload.
 
 
