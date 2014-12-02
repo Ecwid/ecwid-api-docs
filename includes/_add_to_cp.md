@@ -61,7 +61,8 @@ As the regular oAuth flow implies, you can get the access token right after the 
   </script>
 
   <!-- Include Ecwid CSS SDK -->
-  ..TODO
+  <link rel="stylesheet" href="https://d3so0jchpginli.cloudfront.net/gz/16.7-290-gf7d9ee9/ecwid-app-ui.css"/>
+  
 </head>
 
 <body>
@@ -142,73 +143,3 @@ Ecwid uses AES-128 encryption. The key is the first 16 symbols (128 bit) of your
 Ecwid allows your application to fully reside on client side and not use server side at all, i.e. you can authenticate the user, get store ID and access token and manage the store data via Ecwid API right inside your app in Control panel without calling your server scripts. For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is included, you can use the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example.
 
 So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. See also: [Ecwid JS SDK](#js-sdk) .
-
-
-
-
-
-
-
-Ecwid allows your application to 
-https://order-editor.ecwid.com/app#7b2273746f72655f6964223a3830353035362c226163636573735f746f6b656e223a22776d656a4b414b66444550745862574358664a4b644b69674446625067753151227d
-
-
-It works the same way for the applications that you want to embed in Ecwid Control panel. The only difference is the access scope you ask permission for. If you want user to allow your app appear in their Control panel, include the `add_to_cp` scope to the list of requested scopes. See also: [Access Scopes](#Access_scopes)
-
-
-Ecwid provides 
-
-<aside class="notice">
-Permission required: `customize_storefront` (see [Access scopes](#access-scopes))
-</aside>
-
-Starter template / skeleton 
-
-
-
-
-When a user authorizes 
-When an application is embedded into user Control panel, it will appear in a separate tab in one of the following sections:
-- Sales
-- Products
-- Promotions
-
-
-https://my.ecwid.com/ecwid-app.js -- SDK
-https://my.ecwid.com/styles/ecwid-app-ui.css
-https://d3so0jchpginli.cloudfront.net/gz/16.7-290-gf7d9ee9/ecwid-app-ui.css
-
-Depending on the kind of application you integrate with Ecwid, you may want to customize user storefront in some way. For example:
-
-* apply custom styles to the store elements (buttons, fonts, pictures etc.)
-* add extra widgets, e.g. customer reviews, comments, image magnifier
-* modify Ecwid widgets look and behavior
-* add tracking pixels or any other third party conversion-tracking scripts at checkout page
-
-Ecwid API allows you to attach external JavaScript and CSS scripts and load them automatically in a user storefront. Basically, it works as follows:
-
-1. When [registering of your app in Ecwid](#register-your-app-in-ecwid), you specify URL of the .css or .js file (or both) you'd like to be loaded in user storefront. 
-2. When asking user to authorize your application, you add `customize_storefront` scope in the request to let user know your application is going to change their storefront. 
-3. If the user grants your application with access to their store, the next time their storefront is loaded in any browser, the specified external JS/CSS files will be automatically loaded and executed on the page. 
-
-<aside class="notice">
-Permission required: `customize_storefront` (see [Access scopes](#access-scopes))
-</aside>
-
-Below, you will find more information on how to create custom JS/CSS.
-
-## Custom JavaScript
-
-> Example of custom JavaScript to modify storefront
-
-```js
-
-```
-
-As soon as your script is loaded on the page with Ecwid storefront, you can access the page DOM and do pretty much everything you want by means of native JavaScript or whatever framework you want. If you use a JS framework, please make sure it's already loaded on the page by the moment you start using it. 
-
-In addition, Ecwid provides a [JavaScript API](http://kb.ecwid.com/w/page/41188517/JavaScript%20API) that you can use to retrieve store information and track Ecwid events on the page. For example:
-
-* `Ecwid.getOwnerId()` returns the store ID. You may want to use it to identify which store your script is loaded in now
-* `Ecwid.OnPageLoad()` and `Ecwid.OnPageLoaded()` help you to track store page switch and identify which page is opened
-* `Ecwid.Cart` object and its methods allow to manage the customer cart
