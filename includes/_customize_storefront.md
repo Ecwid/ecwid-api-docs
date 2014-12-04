@@ -1,6 +1,6 @@
 # Customize storefront
 
-## Load external JS/CSS files
+# Overview
 
 Depending on the kind of application you integrate with Ecwid, you may want to customize user storefront in some way. For example:
 
@@ -21,7 +21,7 @@ Permission required: `customize_storefront` (see [Access scopes](#access-scopes)
 
 Below, you will find more information on how to create custom JS/CSS.
 
-## Custom JavaScript
+# Custom JavaScript
 
 > Example of custom JavaScript to modify storefront
 
@@ -65,7 +65,36 @@ In addition, Ecwid provides a [JavaScript API](http://kb.ecwid.com/w/page/411885
 
 More details: [Ecwid JavaScript API](http://kb.ecwid.com/w/page/41188517/JavaScript%20API)
 
-## Custom CSS
+## Store-specific custom JS
+
+In most cases, your application behavior will vary depending on the store it is opened in. Although Ecwid API allows you to specify only one JS file per application, your application can detect the current Ecwid store ID and act correspondingly. Use the `Ecwid.getOwnerId()` method to detect the user store ID in your script. 
+
+For example, let's say you need to dynamically add a store-specific configuration to your script when it's executed in some particular storefront. You can detect the store ID in your script and call a script on your server containing the store-specific code. 
+
+> Example of the script that dynamically loads store-specific code
+
+```js
+// Load external script with store
+function loadConfig(ecwidStoreId, callback) {
+  var script = document.createElement("script");
+  script.setAttribute("src", '//example.com/myapp/store' + ecwidStoreId + '.js');
+  script.charset = "utf-8";
+  script.setAttribute("type", "text/javascript");
+  script.onreadystatechange = script.onload = callback;
+  document.body.appendChild(script);
+}
+
+// Application functionality
+function doCoolStuff() {
+  //...
+}
+
+// Get Ecwid store ID and start working
+loadConfig(Ecwid.getOwnerId(), doCoolStuff);
+```
+
+
+# Custom CSS
 
 > Example of custom CSS to modify storefront
 
@@ -96,3 +125,8 @@ div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-backgrounde
 Ecwid provides a merchant with a built-in CSS customization tool in their control panel in the 'Design' section: Ecwid automatically loads the CSS code entered by user in their storefront. This allows merchants to customize their store look and feel flexibly. See also ["How to change Ecwid design"](http://help.ecwid.com/customer/portal/articles/1083332-how-to-change-ecwid-design) article in our knowledge base.
 
 Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom CSS code and Ecwid automatically loads that code in the user storefront. So you don't need to put the CSS on user site manually or ask them to do that. 
+
+## Store-specific custom CSS
+You may want to apply different CSS codes depending on the store your application is loaded. For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
+
+In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#custom-javascript) for details.

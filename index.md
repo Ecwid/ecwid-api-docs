@@ -9,9 +9,8 @@ toc_footers:
 includes:
   - using_api
   - overview
-  - app_registration
   - authentication
-  - rest_api_reference
+  - api_reference
   - products
   - categories
   - combinations
@@ -22,7 +21,8 @@ includes:
   - instant_order_notifications
   - store_profile  
   - storage
-  - customize_storefront
-  - api_playground
+  - add_to_cp
+  - customize_storefront  
+  - libraries
 
 ---

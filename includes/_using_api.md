@@ -1,1 +1,1 @@
-# ---Using Ecwid API---
+# Using Ecwid API

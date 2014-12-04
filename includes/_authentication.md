@@ -1,8 +1,17 @@
 # Authentication
 All Ecwid API requests require authentication. Ecwid supports **oAuth2** protocol to provide external applications with an easy way to authenticate and access store data on behalf of the user. Ecwid user grants or denies access to certain data in their store for the particular application - the application gets its own secure access token upon authorization and uses that token as a key to make API calls to Ecwid.
 
-##Retrieveing access token
+## Register your app in Ecwid
+To use Ecwid oAuth and REST API, your application needs to be registered in Ecwid. The registration is easy: you will just need to provide us with information about your application and we will send you app ID and app credentials that you will then use to get access to API. The information we're asking is:
 
+1. Application description and logo that will be displayed to your users
+2. Technical parameters that will be used in oAuth flow
+3. Application details for displaying in Ecwid Control panel
+
+To register you app in Ecwid, fill [this form](https://ecwid.wufoo.com/forms/m1yelani0pbblcr/) and we will contact you in a few days. 
+
+
+## Get access token
 Retrieving an access token includes the following steps:
 1. Your application sends the user to Ecwid authorization dialog available on the Ecwid's oAuth endpoint.
 2. Upon authorization, Ecwid redirects the user to the application's redirect URL specified in the request.
@@ -24,7 +33,7 @@ curl "https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=h
 
 Parameter | Required | Description
 --------- | -------- | -----------
-client_id | required | application ID
+client_id | required | Application ID
 redirect_uri | required | URI in your app where users will be sent after authorization. It must match the domain/URL of the registered return_url specified in the app settings. I.e. if the registered return_url is `http://www.example.com`, the redirect_uri in request might be `http://www.example.com/oauth/callback.php` , but not `http://www.example2.com/`
 response_type | required | `code` (must always be `code`)
 scope | optional | Scope of access that your app requests from the user, separated by space. See details in [Scopes](#access-scopes) section below
@@ -107,7 +116,7 @@ For security reasons, a temporary code can be exchanged to an access token only 
 
 
 ##Access scopes
-Scopes are permissions that identifies the scope of access your application requests from the user. 
+Scopes are permissions that identifies the scope of access your application requests from the user. You should pass the required scopes along with the authorization request to Ecwid oAuth server when a user installs your application. See details above: [Get access token](#get-access-token).
 
 * read_store_profile (requested in all cases even if not specified)
 * update_store_profile
@@ -123,8 +132,8 @@ Scopes are permissions that identifies the scope of access your application requ
 * create_discount_coupons
 * read_discount_coupons
 * update_discount_coupons
-* customize_storefront
-* add_to_cp *(in development)*
+* customize_storefront (see [Customizing storefront](#customize-storefront))
+* add_to_cp (see [Embedding apps](#embedded-apps))
 
 
 ##Authentication of installed applications
