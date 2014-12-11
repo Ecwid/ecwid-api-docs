@@ -12,7 +12,7 @@ Host: app.ecwid.com
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/categories?parent={parent}&hidden_categories={hidden_categories}&productIds={productIds}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/categories?parent={parent}&hidden_categories={hidden_categories}&offset={offset}&limit={limit}&productIds={productIds}&token={token}`
 
 Query field | Type    | Description
 ----------- | ------- | --------------
