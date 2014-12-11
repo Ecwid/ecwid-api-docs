@@ -67,10 +67,6 @@ More details: [Ecwid JavaScript API](http://kb.ecwid.com/w/page/41188517/JavaScr
 
 ## Store-specific custom JS
 
-In most cases, your application behavior will vary depending on the store it is opened in. Although Ecwid API allows you to specify only one JS file per application, your application can detect the current Ecwid store ID and act correspondingly. Use the `Ecwid.getOwnerId()` method to detect the user store ID in your script. 
-
-For example, let's say you need to dynamically add a store-specific configuration to your script when it's executed in some particular storefront. You can detect the store ID in your script and call a script on your server containing the store-specific code. 
-
 > Example of the script that dynamically loads store-specific code
 
 ```js
@@ -93,6 +89,9 @@ function doCoolStuff() {
 loadConfig(Ecwid.getOwnerId(), doCoolStuff);
 ```
 
+In most cases, your application behavior will vary depending on the store it is opened in. Although Ecwid API allows you to specify only one JS file per application, your application can detect the current Ecwid store ID and act correspondingly. Use the `Ecwid.getOwnerId()` method to detect the user store ID in your script. 
+
+For example, let's say you need to dynamically add a store-specific configuration to your script when it's executed in some particular storefront. You can detect the store ID in your script and call a script on your server containing the store-specific code. 
 
 # Custom CSS
 

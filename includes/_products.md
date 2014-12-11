@@ -1007,7 +1007,8 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 404 | Product is not found
 413 | The image file is too large (Maximum allowed size is 20Mb)
 400 | Request parameters are malformed
-402 | The functionality/method is not available on the merchant plan
+402 | The functionality/method is not available on the merchant 
+422 | The uploaded file is not an image
 
 #### Error response body (optional)
 
@@ -1143,6 +1144,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 413 | The image file is too large (Maximum allowed size is 20Mb)
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
+422 | The uploaded file is not an image
 
 #### Error response body (optional)
 

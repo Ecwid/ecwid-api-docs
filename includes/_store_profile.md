@@ -594,6 +594,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 --------- | -----------| -----------
 500 | Uploading of the image file failed or there was an internal server error while processing a file
 413 | The image file is too large (Maximum allowed file size is 20Mb)
+422 | The uploaded file is not an image
 400 | Request parameters are malformed
 
 #### Error response body (optional)
@@ -724,6 +725,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 500 | Uploading of the image file failed or there was an internal server error while processing a file
 413 | The image file is too large. Maximum allowed file size is 20Mb.
 400 | Request parameters are malformed
+422 | The uploaded file is not an image
 
 #### Error response body (optional)
 

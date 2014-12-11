@@ -18,6 +18,8 @@ Query field | Type    | Description
 ----------- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
+offset | number | Offset from the beginning of the returned items list (for paging)
+limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
 parent | number | ID of the parent category. Set to `0` to get the list of root categories. Leave empty to get all store categories.
 hidden_categories | boolean | By default, Ecwid returns only enabled categories. Set this parameter to `true` if you want hidden (disabled) categories to be returned. `false` is default
 productIds | boolean | Set to `true` if you want the results to contain a list of product IDs assigned to category. `false` is default
@@ -27,30 +29,47 @@ productIds | boolean | Set to `true` if you want the results to contain a list o
 > Response example
 
 ```json
-[
-  {
-    "id":9691095,
-    "orderBy":20,
-    "thumbnailUrl":"http://app.ecwid.com/default-store/vegetables-230-sq.jpg",
-    "name":"Vegetables",
-    "url":"http://app.ecwid.com/store/4870020#!/Vegetables/c/9691095",
-    "productCount":4,
-    "enabled":true
-  },
-  {
-    "id":9691094,
-    "orderBy":10,
-    "thumbnailUrl":"http://app.ecwid.com/default-store/fruit-230-sq.jpg",
-    "name":"Fruit",
-    "url":"http://app.ecwid.com/store/4870020#!/Fruit/c/9691094",
-    "productCount":6,
-    "description":"",
-    "enabled":true
-  }
-]
+{
+    "total": 2,
+    "count": 2,
+    "offset": 0,
+    "limit": 100,
+    "items": [
+        {
+            "id": 9691094,
+            "orderBy": 10,
+            "thumbnailUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
+            "originalImageUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
+            "name": "Fruit",
+            "url": "http://app.ecwid.com/store/4870020#!/Fruit/c/9691094",
+            "productCount": 6,
+            "description": "",
+            "enabled": true
+        },
+        {
+            "id": 9691095,
+            "orderBy": 20,
+            "thumbnailUrl": "https://app.ecwid.com/default-store/vegetables-230-sq.jpg",
+            "originalImageUrl": "https://app.ecwid.com/default-store/vegetables-230-sq.jpg",
+            "name": "Vegetables",
+            "url": "http://app.ecwid.com/store/4870020#!/Vegetables/c/9691095",
+            "productCount": 4,
+            "enabled": true
+        }
+    ]
+}
 ```
 
-A JSON array of objects of type 'Category' with the following fields:
+A JSON object of type 'SearchResult' with the following fields:
+
+#### SearchResult
+Field | Type | Description
+----- | ---- | -----------
+total | number | The total number of found items (might be more than the number of returned items)
+count | number | The total number of the items returned in this batch
+offset | number | Offset from the beginning of the returned items list (for paging)
+limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
+items | Array<Category> | The categories list
 
 #### Category
 Field | Type | Description
@@ -453,12 +472,7 @@ id | number | Internal image ID
 > Error response example 
 
 ```http
-HTTP/1.1 500 Server Error
-Content-Type application/json; charset=utf-8
-
-{
-    "errorMessage": "Internal server error"
-}
+HTTP/1.1 422 Uploaded file cannot be processed. Please make sure you upload an image file
 ```
 
 In case of error, Ecwid responds with an error HTTP status code and JSON-formatted body containing error description
@@ -470,6 +484,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 400 | Request parameters are malformed
 404 | Category is not found
 413 | The image file is too large (Maximum allowed size is 20Mb)
+422 | The uploaded file is not an image
 500 | Uploading of the image file failed or there was an internal server error while processing a file. On of possible reasons is image 
 
 
