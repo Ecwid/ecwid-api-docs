@@ -145,7 +145,7 @@ In case of applications that are installed on a device (such as a computer, a ce
 > Step #1. Request example
 
 ```shell
-curl "http://app.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code"
+curl "http://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code"
 ```
 
 On the [Step #1](#retrieveing-access-token) (app requests a temporarily authorization code), application needs to send the following value as redirect_uri:

@@ -5,6 +5,7 @@
 Ecwid API allows your application to be embedded right into user Control panel and work like it is built into Ecwid. Although this is not necessary and you can use Ecwid API without embedding an application into Control panel, we highly recommend this approach. Being integrated with Ecwid this way, your app will get a way more user engagement as it will be a part of a merchant store backend.
 
 At high level, it works this way:
+
 - When registering an app with us, you specify an URL of an iframe application page on your server
 - When installing the app, user authorizes your app and allows it to appear in their Control panel
 - As soon as the access is granted, an additional tab with your application will appear in the user Control panel

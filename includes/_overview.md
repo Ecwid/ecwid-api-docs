@@ -1,7 +1,7 @@
 # Overview
 
 ## Why you need Ecwid API
-With the help of Ecwid API, you can create an application that will extend Ecwid functionality in various ways. You're welcome to be a part of [Ecwid App Market](http://www.ecwid.com/apps) and acquire 600,000 potential users around the world. 
+With the help of Ecwid API, you can create an application that will extend Ecwid functionality in various ways. You're welcome to be a part of [Ecwid App Market](http://www.ecwid.com/apps) and get 600,000 potential users around the world. 
 
 ### What you can do with the help of Ecwid API:
 

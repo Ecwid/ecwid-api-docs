@@ -476,7 +476,7 @@ height |  number |  Image height
 #### AttributeValue
 Field | Type  | Description
 -------------- | -------------- | --------------
-id |  number |  Unique attribute ID. See [Product Classes](#product-classes) for the information on attribute IDs
+id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
 name |  string |  Attribute displayed name
 value | string  | Attribute value
 
@@ -645,7 +645,7 @@ required |  boolean | `true` if this option is required, `false` otherwise. Defa
 #### AttributeValue
 Field | Type  | Description
 -------------- | -------------- | --------------
-**id** |  number |  Unique attribute ID. See [Product Classes](#product-classes) for the information on attribute IDs. <br /> **Note**: to set values of the general attributes UPC and BRAND, it's possible to specify `UPC` and `BRAND` correspondingly in this field. This allows you to add/update the values for these attributes even without numeric IDs.
+**id** |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs. <br /> **Note**: to set values of the general attributes UPC and BRAND, it's possible to specify `UPC` and `BRAND` correspondingly in this field. This allows you to add/update the values for these attributes even without numeric IDs.
 value | string  | Attribute value
 
 #### RelatedProducts
@@ -802,7 +802,7 @@ required |  boolean | `true` if this option is mandatory, `false` otherwise. Def
 #### AttributeValue
 Field | Type  | Description
 -------------- | -------------- | --------------
-**id** |  number |  Unique attribute ID. See [Product Classes](#product-classes) for the information on attribute IDs. <br /> **Note**: to set values of the general product attributes UPC and BRAND, it's possible to specify `UPC` and `BRAND` correspondingly in this field. This allows you to add/update the values for these attributes even without numeric IDs.
+**id** |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs. <br /> **Note**: to set values of the general product attributes UPC and BRAND, it's possible to specify `UPC` and `BRAND` correspondingly in this field. This allows you to add/update the values for these attributes even without numeric IDs.
 value | string  | Attribute value
 
 #### RelatedProducts
