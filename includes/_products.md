@@ -1290,6 +1290,9 @@ errorMessage | string | Error message
 
 
 
+
+
+
 ## Download product file
 
 Download a product file by file ID. 
@@ -1421,6 +1424,87 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
+
+
+
+
+
+
+## Update product file description
+
+> Request example
+
+```http
+PUT /api/v3/4870020/products/1234567/files/4838228377?token=123456789abcd&fileName=photo+large.psd&description=Item+photo+in+psd+format HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+
+{
+    description: "new description"
+}
+```
+
+This request allows to edit the file description that is shown to customer when they purchase the product
+
+`PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/files/{fileId}?token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**productId** | number | Product ID
+**fileId** | string | Internal file ID
+**token** |  string |  oAuth token
+
+### Request body
+
+Name | Type    | Description
+---- | ------- | -----------
+description | string | New file description
+
+### Response
+
+> Response example
+
+```json
+{
+    "updateCount": 1
+}
+```
+
+A JSON object of type 'UpdateStatus' with the following fields:
+
+#### UpdateStatus
+Field | Type |  Description
+----- | ---- | --------------
+updateCount | number | The number of updated entities (`1` or `0` depending on whether the request was successful)
+
+### Errors
+
+> Error response example 
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and JSON-formatted body containing error description
+
+#### HTTP codes
+
+**HTTP Status** | Description
+--------- | -----------| -----------
+400 | Request parameters are malformed
+404 | Product is not found
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+
+
+
 
 
 
