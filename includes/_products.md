@@ -605,8 +605,8 @@ A JSON object of type 'Product' with the following fields:
 #### Product
 Field | Type |  Description
 ------| ---- | ------------
-**sku** | string |  Product SKU
 **name** |  string |  Product title
+sku | string |  Product SKU
 quantity |  number | Amount of product items in stock. Leave empty for the products with unlimited stock
 price | number |  Base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
@@ -1007,7 +1007,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 404 | Product is not found
 413 | The image file is too large (Maximum allowed size is 20Mb)
 400 | Request parameters are malformed
-402 | The functionality/method is not available on the merchant 
+402 | The functionality/method is not available on the merchant plan
 422 | The uploaded file is not an image
 
 #### Error response body (optional)
