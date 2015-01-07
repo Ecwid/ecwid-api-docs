@@ -62,7 +62,7 @@ As the regular oAuth flow implies, you can get the access token right after the 
   </script>
 
   <!-- Include Ecwid CSS SDK -->
-  <link rel="stylesheet" href="https://d3fi9i0jj23cau.cloudfront.net/gz/16.9-335-gf17ce14/ecwid-app-ui.css"/>
+  <link rel="stylesheet" href="https://d3fi9i0jj23cau.cloudfront.net/gz/17.0-117-gf439c8d/ecwid-app-ui.css"/>
   
 </head>
 
