@@ -189,16 +189,16 @@ A JSON object of type 'Customer' with the following fields:
 
 #### Customer
 Field | Type  | Description
--------------- | -------------- | --------------
+----- | ----- | -----------
 id |  number |  Unique internal customer ID
 email | string |  Customer email
 registered | string | Registration date, e.g `2014-06-06 18:57:19 +0400`
-billingPerson | <Person> | Customer's billing name/address
-shippingAddresses | Array<ShippingAddress> | Customer address book items
+billingPerson | *Person* | Customer's billing name/address
+shippingAddresses | *ShippingAddress* | Customer address book items
 
 #### Person
 Field | Type  | Description
--------------- | -------------- | --------------
+----- | ----- | -----------
 name | string | Customer full name
 companyName | string | Customer company name
 street | string | Street
@@ -249,12 +249,6 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Create customer
----------------------------------------------------------------------------------------------------------
--->
 
 ## Create customer
 
@@ -314,7 +308,7 @@ A JSON object of type 'Customer' with the following fields:
 Field | Type  | Description
 -------------- | -------------- | --------------
 **email** | string |  Customer email
-**password** | string |  Customer email
+**password** | string |  Customer password
 billingPerson | <Person> | Customer's billing name/address
 shippingAddresses | Array<ShippingAddress> | Customer address book items
 

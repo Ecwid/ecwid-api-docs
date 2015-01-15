@@ -1,4 +1,4 @@
-# Instant Order Notifications
+# Instant order notifications
 Ecwid can notify another application about important store events as they happen in near real-time.  
 
 A developer can use this API to extend and customize your checkout process. For example send a custom e-mail notification, inform your supplier about a sale, generate a pin code or a license key for a sold software, notify your IM client when you are offline, send a text message, add a new order to your accounting software or subscribe a new customer to your newsletter.

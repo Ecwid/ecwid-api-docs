@@ -1,5 +1,5 @@
 ---
-title: Ecwid REST API
+title: Ecwid API
 
 toc_footers:
  - <a href='https://ecwid.wufoo.com/forms/m1yelani0pbblcr/'>Register your application</a>
@@ -11,18 +11,19 @@ includes:
   - overview
   - authentication
   - api_reference
+  - store_profile
   - products
   - categories
   - combinations
   - product_classes
+  - orders
   - customers
   - coupons
-  - orders
   - instant_order_notifications
-  - store_profile  
   - storage
   - add_to_cp
-  - customize_storefront  
+  - customize_storefront
+  - sso
   - libraries
 
 ---
