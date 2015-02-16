@@ -14,8 +14,8 @@ The following events are supported:
 
 ##How to configure
 
-- Log into your Ecwid account.
-- Go to the System settings → API page. 
+- Log in to your Ecwid Control panel.
+- Go to the [Settings → Apps → Legacy API](https://my.ecwid.com/cp/CP.html#apps:view=legacy_api) page. 
 - Find the Instant Order Notifications section.
 - Enter a valid URL for Ecwid to contact. Ecwid will send a request to this URL each time a supported event occurs. 
 - Please note, that API is available for paid users only. 
