@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##February 16, 2015
+- Added mailNotifications field in the store settings. Now you can get and update the mail notifications settings over API
+- Added Legacy API links in the Overview section
+
 ##January 15, 2015
 - Added Single Sign-on API description
 

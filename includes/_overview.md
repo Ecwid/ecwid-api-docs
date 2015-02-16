@@ -41,6 +41,9 @@ All data received from API and submitted to API is JSON.
 Date/time values returned by Ecwid API are in the UTC.
 
 ### API Version
-This document describes *Ecwid REST API v.3* which is currently in **beta** stage. Please contact us if you want to participate in beta testing or find any bug in the API or the documentation. Thank you. 
+This document describes *Ecwid REST API v.3* 
 
-For the information on *Ecwid API v.1*, please refer to the [Ecwid API v.1 documentation](http://kb.ecwid.com/w/page/25232810/API)
+For the information on the *Ecwid API v.1* (legacy version), please refer to the Ecwid API v.1 documentation:
+
+- [Legacy Product API](http://help.ecwid.com/customer/portal/articles/1163920-product-api)
+- [Legacy Order API](http://help.ecwid.com/customer/portal/articles/1166917-order-api)

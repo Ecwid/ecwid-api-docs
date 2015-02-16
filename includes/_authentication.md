@@ -13,6 +13,7 @@ To register you app in Ecwid, fill [this form](https://ecwid.wufoo.com/forms/m1y
 
 ## Get access token
 Retrieving an access token includes the following steps:
+
 1. Your application sends the user to Ecwid authorization dialog available on the Ecwid's oAuth endpoint.
 2. Upon authorization, Ecwid redirects the user to the application's redirect URL specified in the request.
 3. The application requests an access token from Ecwid. This access_token will be used as API key in all API calls.
@@ -73,7 +74,7 @@ curl "https://my.ecwid.com/api/oauth/token" \
 -d client_id=abcd0123 \
 -d client_secret=01234567890abcdefg \
 -d code=987654321hgfdsa \
--d redirect_uri=https://www.example.com/myapp
+-d redirect_uri=https://www.example.com/myapp \
 -d grant_type=authorization_code
 ```
 

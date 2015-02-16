@@ -40,6 +40,13 @@ Name | Type    | Description
         "closed": false,
         "storeName": "My Super Store"
     },
+    "mailNotifications": {
+        "adminNotificationEmails": [
+            "john@example.com",
+            "steve@example.com",
+        ],
+        "customerNotificationFromEmail": "john@example.com"
+    },
     "company": {
         "companyName": "My Super Store",
         "email": "example@example.com",
@@ -57,6 +64,7 @@ Name | Type    | Description
         "currencyGroupSeparator": " ",
         "currencyDecimalSeparator": ".",
         "currencyTruncateZeroFractional": false,
+        "currencyPrecision": 2,
         "currencyRate": 1,
         "weightUnit": "KILOGRAM",
         "weightGroupSeparator": " ",
@@ -165,6 +173,7 @@ Field | Type | Description
 generalInfo | \<GeneralInfo\> | Store's basic data
 account | \<Account\> | Seller's account data
 settings | \<Settings\> | Store's general settings
+mailNotifications | \<MailNotifications\> | Mail notifications settings
 company | \<Company\> | Company info
 formatsAndUnits | \<FormatsAndUnits\> | Store's formats/untis settings
 languages | \<Languages\> | Store's language settings
@@ -193,6 +202,12 @@ Field | Type | Description
 closed | boolean | `true` if the store is closed for maintenance, `false` otherwise
 storeName | string | The store name displayed in Starter Site
 invoiceLogoUrl | string | Company logo displayed on the invoice
+
+#### MailNotifications
+Field | Type | Description
+----- | ---- | -----------
+adminNotificationEmails | Array\<string\> | Email addresses, which the store admin notifications are sent to
+customerNotificationFromEmail | string | The email address used as the 'reply-to' field in the notifications to customers
 
 #### Company
 *System Settings → General → Store Profile*
@@ -376,6 +391,7 @@ Field | Type | Description
 generalInfo | \<GeneralInfo\> | Store's basic data
 account | \<Account\> | Seller's account data
 settings | \<Settings\> | Store's general settings
+mailNotifications | \<MailNotifications\> | Mail notifications settings
 company | \<Company\> | Company info
 formatsAndUnits | \<FormatsAndUnits\> | Store's formats/untis settings
 languages | \<Languages\> | Store's language settings
@@ -407,6 +423,12 @@ Field | Type | Description
 closed | string | Full user name
 storeName | string | The store name displayed in Starter Site
 
+#### MailNotifications
+Field | Type | Description
+----- | ---- | -----------
+adminNotificationEmails | Array\<string\> | Email addresses, which the store admin notifications are sent to
+customerNotificationFromEmail | string | The email address used as the 'reply-to' field in the notifications to customers
+
 #### Company
 *System Settings → General → Store Profile*
 
@@ -429,7 +451,6 @@ Field | Type | Description
 currency | string | 3-letters code of the store currency (ISO 4217). Examples: `USD`, `CAD`
 currencyPrefix | string |  Currency prefix (e.g. $)
 currencySuffix | string | Currency suffix
-currencyPrecision | number  | Numbers of digits after decimal point in the store prices. E.g. `2` ($2.99) or `0` (¥500).
 currencyGroupSeparator | string | Price thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``.
 currencyDecimalSeparator |  string | Price decimal separator. Possible values: `.` or `,` 
 currencyTruncateZeroFractional | boolean | Hide zero fractional part of the prices in storefront. `true` or `false` . 
