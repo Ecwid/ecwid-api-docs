@@ -11,6 +11,7 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 ##February 16, 2015
 - Added mailNotifications field in the store settings. Now you can get and update the mail notifications settings over API
 - Added Legacy API links in the Overview section
+- The default items limit in the products search response is changed from 10 to 100
 
 ##January 15, 2015
 - Added Single Sign-on API description
