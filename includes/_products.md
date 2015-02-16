@@ -28,7 +28,7 @@ category | number | Category ID
 withSubcategories |  boolean | `true`/`false`: defines whether Ecwid should search in subcategories of the category you set in `category` field. Ignored if `category` field is not set . `false` is the default value
 sortBy |  string | Sort order. Supported values: <ul><li>`RELEVANCE` *default*</li> <li>`ADDED_TIME_DESC`</li> <li>`ADDED_TIME_ASC`</li> <li>`NAME_ASC`</li> <li>`NAME_DESC`</li> <li>`PRICE_ASC`</li> <li>`PRICE_DESC`</li></ul>
 offset | number | Offset from the beginning of the returned items list (for paging)
-limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
+limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
 createdFrom | string | Product creation date (lower bound) Format: YYYY-MM-DD
 createdTo | string | Product creation date (upper bound) Format: YYYY-MM-DD
 updatedFrom | string | Product last update date (lower bound) Format: YYYY-MM-DD
@@ -118,7 +118,7 @@ Field | Type | Description
 total | number | The total number of found items (might be more than the number of returned items)
 count | number | The total number of the items returned in this batch
 offset | number | Offset from the beginning of the returned items list (for paging)
-limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
+limit | number | Maximum possible number of returned items in this request. 
 items | Array<ProductEntry> | The items list
 
 #### ProductEntry
