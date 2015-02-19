@@ -412,7 +412,7 @@ deleteCount | number | The number of deleted categories (`1` or `0` depending on
 > Error response example
 
 ```http
-HTTP/1.1 404 Not Found
+HTTP/1.1 400 Bad request
 Content-Type application/json; charset=utf-8
 ```
 
@@ -423,7 +423,6 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Malformed request parameters
-404 | Category is not found
 449 | Store catalog cannot be modified at the moment because import is in progress. Retry later.
 500 | Server error
 

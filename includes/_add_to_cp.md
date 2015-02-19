@@ -92,16 +92,57 @@ Ecwid will pass this data to your application as soon as it is opened in Ecwid C
 Let's say, you process user input and prepare the data to display in your app on your server and then pass this information to your application UI to be displayed in the user Control panel. In this case, you will need to authenticate user on server side of your application. Ecwid sends an auth data to your app in a payload while requesting your iframe URL as follows:
 `https://www.example.com/my-app-iframe-page?payload={payload}&cache-killer={cache-killer}`
 
+
+> Example of the iframe URL call
+
 ```
 https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&cache-killer=13532
 ```
 
-Name | Type | Description
----- | ---- | -----------
-payload | string | Encrypted JSON string containing the authentication information (see the details below)
-cache-killer | string | Random string preventing caching on your server
 
-#### Payload
+> Example of payload decryption (PHP)
+
+```php
+
+<?php
+function getEcwidPayload($app_secret_key, $data) {
+  // Get the encryption key (16 first bytes of the app's client_secret key)
+  $encryption_key = substr($app_secret_key, 0, 16);
+ 
+  // Decrypt payload
+  $json_data = aes_128_decrypt($encryption_key, $data);
+ 
+  // Decode json
+  $json_decoded = json_decode($json_data, true);
+  return $json_decoded;
+}
+ 
+function aes_128_decrypt($key, $data) {
+  // Ecwid sends data in url-safe base64. Convert the raw data to the original base64 first
+  $base64_original = str_replace(array('-', '_'), array('+', '/'), $data);
+ 
+  // Get binary data
+  $decoded = base64_decode($base64_original);
+ 
+  // Initialization vector is the first 16 bytes of the received data
+  $iv = substr($decoded, 0, 16);
+ 
+  // The payload itself is is the rest of the received data
+  $payload = substr($decoded, 16);
+ 
+  // Decrypt raw binary payload
+  $json = openssl_decrypt($payload, "aes-128-cbc", $key, OPENSSL_RAW_DATA, $iv);
+  //$json = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $payload, MCRYPT_MODE_CBC, $iv); // You can use this instead of openssl_decrupt, if mcrypt is enabled in your system
+ 
+  return $json;
+}
+
+// Get payload from the GET and process it
+$ecwid_payload = $_GET['payload'];
+$client_secret = "0123abcd4567efgh1234567890";
+$result = getEcwidPayload($client_secret, $ecwid_payload);
+?>
+```
 
 > Example of decrypted payload
 
@@ -115,6 +156,13 @@ cache-killer | string | Random string preventing caching on your server
 }
 ```
 
+Name | Type | Description
+---- | ---- | -----------
+payload | string | Encrypted JSON string containing the authentication information (see the details below)
+cache-killer | string | Random string preventing caching on your server
+
+#### Payload
+
 The payload parameter is encrypted JSON string, which, when decrypted, has the following format:
 
 Name | Type | Description
@@ -127,18 +175,12 @@ permissions | array of strings | List of permissions (API access levels) given t
 
 #### Decryption of payload on your server
 
-> Example of payload decryption (PHP)
-
-```php
-// An example will be added soon
-```
-
 Ecwid uses *AES-128* to encrypt the payload. The key is the first 16 symbols (128 bit) of your application secret key (**client_secret**). It is provided when you register an app with us. See a PHP example of decryption to get better idea on how to receive and decrypt the payload.
 
 
 ### User authentication on client side
 
-> Retrieving of the store ID and access token using Ecwid JavaScript SDK
+> Retrieving payload on client side using Ecwid JavaScript SDK 
 
 ```js
 ...
