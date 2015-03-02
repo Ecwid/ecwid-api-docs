@@ -195,8 +195,20 @@ Ecwid allows your application to fully reside on client side and not use server 
 
 So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. See also: [Ecwid JS SDK](#js-css-sdk) .
 
+## Troubleshooting
+
+### A new tab inside Ecwid Control Panel is not appearing
+You created an app and installed it on your test store, but the new tab is not appearing when you open your store. There are several possible reasons:
+
+* **The application is not configured properly** to be displayed inside Control Panel. E.g. during registration, you forgot to mention that your app will embed itself into Control Panel, or did not choose exact section inside Control Panel where Ecwid needs to display your app. See ["Set up your application"](#set-up-your-application) for the details.
+* **You didn't include the `add_to_cp` access scope** to the list of requested scopes while authorizing the app
+* **Ecwid cannot reach the iframe URL** that you set up for your application either because it's unavailable or because it has restricted access
+* **You're testing it in an Ecwid store which is on Free plan**. Ecwid API functionality including embedding apps is available on paid Ecwid plans only. 
+
 # JS/CSS SDK
 
 <aside class="notice">
 Documentation is in progress...
 </aside>
+
+
