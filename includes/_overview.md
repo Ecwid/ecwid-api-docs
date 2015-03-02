@@ -47,3 +47,16 @@ For the information on the *Ecwid API v.1* (legacy version), please refer to the
 
 - [Legacy Product API](http://help.ecwid.com/customer/portal/articles/1163920-product-api)
 - [Legacy Order API](http://help.ecwid.com/customer/portal/articles/1166917-order-api)
+
+
+## API availability on Ecwid plans
+[Ecwid pricing](http://www.ecwid.com/pricing) includes four tiers: Free, Venture, Business, Unlimited. The API is available on **paid** Ecwid plans, i.e. on Venture, Business and Unlimited. Merchants on Free plans cannot use Ecwid API. This means that, if the user is on Free plan, all API functions will fail including requests to read or update store data, embedding of the app interfaces into Ecwid Control Panel and customizing storefront. 
+
+API feature | Free | Venture | Business | Unlimited
+----------- | ---- | ------- | -------- | ---------
+Access store data | - | ✓ | ✓ | ✓ |
+Instant Order Notifications | - | ✓ | ✓ | ✓ |
+Application storage | - | ✓ | ✓ | ✓ |
+Embedding application into Control Panel | - | ✓ | ✓ | ✓ |
+Customize storefront via API | - | ✓ | ✓ | ✓ |
+Single Sign On | - | ✓ | ✓ | ✓ |

@@ -33,8 +33,8 @@ Cache-Control: no-cache
 Mind the `v2` in the endpoints URL. Application storage API methods are not available in API v3 yet. You can use the same token for the v2 endpoints though.
 </aside>
 
-Name | Type    | Description
----- | ------- | --------------
+Name | Type | Description
+---- | ---- | -----------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 

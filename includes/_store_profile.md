@@ -420,7 +420,7 @@ accountEmail | string | User email
 #### Settings
 Field | Type | Description
 ----- | ---- | -----------
-closed | string | Full user name
+closed | string | `true` if the store is closed for maintenance, `false` otherwise
 storeName | string | The store name displayed in Starter Site
 
 #### MailNotifications

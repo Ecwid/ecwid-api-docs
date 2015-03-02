@@ -1571,7 +1571,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Request failed -- there was an internal server error
+500 | Request failed – there was an internal server error
 404 | Order, order item or item option is not found
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan

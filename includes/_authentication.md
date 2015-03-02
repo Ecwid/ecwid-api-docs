@@ -119,22 +119,24 @@ For security reasons, a temporary code can be exchanged to an access token only 
 ##Access scopes
 Scopes are permissions that identifies the scope of access your application requests from the user. You should pass the required scopes along with the authorization request to Ecwid oAuth server when a user installs your application. See details above: [Get access token](#get-access-token).
 
-* read_store_profile (requested in all cases even if not specified)
-* update_store_profile
-* read_catalog
-* update_catalog
-* create_catalog
-* read_orders
-* update_orders
-* create_orders
-* read_customers
-* update_customers
-* create_customers
-* create_discount_coupons
-* read_discount_coupons
-* update_discount_coupons
-* customize_storefront (see [Customizing storefront](#customize-storefront))
-* add_to_cp (see [Embedding apps](#embedded-apps))
+Access scope | Notes
+------------ | -----
+read_store_profile | Get store name and general settings, get store admin email, get updates statistics etc. *Requested in all cases even if not specified*
+update_store_profile | Set taxes, update invoice logo, change Starter Site domain, close store for maintenance etc.
+read_catalog | Search products, get product options/combinations etc.
+update_catalog | Update product prices, upload images and e-goods, modify product attributes etc.
+create_catalog | Create new products
+read_orders | Get sales for a given period, retrieve order details etc.
+update_orders | Change order totals, switch order status, cancel orders etc.
+create_orders | Place a new order in the store
+read_customers | Search customers or retrieve some particular customer data
+update_customers | Change customer profile data, add items to the customer address book etc.
+create_customers | Add a new customer to the store's Customers list
+read_discount_coupons | Get the list of discount coupons or retrieve some particular coupon details
+update_discount_coupons | Change the coupon expiration date or limit its number of use, update coupon code etc.
+create_discount_coupons | Add a new discount coupon
+customize_storefront | Attach a custom JS/CSS to the storefront on the fly to modify its look and feel (see [Customizing storefront](#customize-storefront))
+add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
 
 
 ##Authentication of installed applications
