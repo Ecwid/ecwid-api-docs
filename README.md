@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##March 2, 2015
+- Added the "API availability on Ecwid plans" paragraph to the Overview section to explain which merchants are allowed to use the API 
+- Added clarifications to the access scopes list in the Authentication section
+
 ##February 19, 2015
 - Added PHP example of Ecwid payload decryption in embedded apps
 
