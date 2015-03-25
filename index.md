@@ -2,7 +2,7 @@
 title: Ecwid API
 
 toc_footers:
- - <a href='https://ecwid.wufoo.com/forms/m1yelani0pbblcr/'>Register your application</a>
+ - <a href='https://ecwidcom.typeform.com/to/tRyWJ6'>Register your application</a>
  - <a href='https://github.com/Ecwid/ecwid-api-docs'>Suggest an edit</a>
  - <a href='https://github.com/Ecwid/ecwid-api-docs#changelog'>Changelog</a>
  - <a href='http://help.ecwid.com'>Ecwid Help</a>

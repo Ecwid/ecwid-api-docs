@@ -604,7 +604,7 @@ A JSON object of type 'Order' with the following fields:
 Field | Type |  Description
 ------| -----| ------------
 orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
-vendorNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
+vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
 subtotal |  number | Order subtotal
 total | number | Order total cost
 email | string  | Customer email address
