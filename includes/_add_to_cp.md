@@ -149,6 +149,7 @@ $result = getEcwidPayload($client_secret, $ecwid_payload);
 ```json
 {
   "store_id": 1003,
+  "lang": "en_US",
   "sign_date": 1336914487311,
   "app_id": "aff5016d29144d",
   "access_token":"xxxxxxxxxxxxxxxx",
@@ -168,6 +169,7 @@ The payload parameter is encrypted JSON string, which, when decrypted, has the f
 Name | Type | Description
 ---- | ---- | -----------
 store_id | number | Ecwid store ID
+lang | string | User language (which is currently set in their Control Panel)
 sign_date | number | Payload generation date/time (UNIX timestamp)
 app_id | string | Application ID
 access_token | string | oAuth token

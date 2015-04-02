@@ -5,7 +5,7 @@ toc_footers:
  - <a href='https://ecwidcom.typeform.com/to/tRyWJ6'>Register your application</a>
  - <a href='https://github.com/Ecwid/ecwid-api-docs'>Suggest an edit</a>
  - <a href='https://github.com/Ecwid/ecwid-api-docs#changelog'>Changelog</a>
- - <a href='http://help.ecwid.com'>Ecwid Help</a>
+ - <a href='http://developers.ecwid.com'>Ecwid Developers Site</a>
 
 includes:
   - using_api
