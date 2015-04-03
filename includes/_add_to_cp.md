@@ -207,7 +207,27 @@ You created an app and installed it on your test store, but the new tab is not a
 * **Ecwid cannot reach the iframe URL** that you set up for your application either because it's unavailable or because it has restricted access
 * **You're testing it in an Ecwid store which is on Free plan**. Ecwid API functionality including embedding apps is available on paid Ecwid plans only. 
 
-# JS/CSS SDK
+# Ecwid CSS Framework
+
+[Go to the CSS framework documentation →](http://api.ecwid.com/ecwid-css-framework/)
+
+We provide a set of ready UI components in a form of CSS framework to help you easily design your application embedded into Ecwid Control Panel. The framework includes buttons, links, messages, forms in a nice and consistent design. 
+
+### How to use it?
+
+```html
+<link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.0.0/ecwid-app-ui.css"/>
+```
+
+1. Add this CSS file to your app embedded into Ecwid Control Panel: 
+`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.0.0/ecwid-app-ui.css`
+
+2. Use this guide to find the elements and CSS classes you need: [http://api.ecwid.com/ecwid-css-framework/](http://api.ecwid.com/ecwid-css-framework/)
+
+<img src="http://take.ms/uXxvy"></img>
+
+
+# JS SDK
 
 <aside class="notice">
 Documentation is in progress...

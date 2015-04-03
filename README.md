@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##April 3, 2015
+- Added Ecwid CSS Framework documentation (http://api.ecwid.com/ecwid-css-framework/)
+
+
 ##April 2, 2015
 - Added ability to get the user language in embedded applications ("lang" parameter in the payload)
 - Added a link to the new Developers site (http://developers.ecwid.com)
