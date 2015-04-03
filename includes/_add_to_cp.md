@@ -169,7 +169,7 @@ The payload parameter is encrypted JSON string, which, when decrypted, has the f
 Name | Type | Description
 ---- | ---- | -----------
 store_id | number | Ecwid store ID
-lang | string | User language (which is currently set in their Control Panel)
+lang | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
 sign_date | number | Payload generation date/time (UNIX timestamp)
 app_id | string | Application ID
 access_token | string | oAuth token
@@ -193,9 +193,9 @@ Ecwid uses *AES-128* to encrypt the payload. The key is the first 16 symbols (12
 ...
 ```
 
-Ecwid allows your application to fully reside on client side and not use server side at all, i.e. you can authenticate the user, get store ID and access token and manage the store data via Ecwid API right inside your app in Control panel without calling your server scripts. For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is included, you can use the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example.
+Ecwid allows your application to fully reside on client side and not use server side at all, i.e. you can authenticate the user, get store ID and access token and manage the store data via Ecwid API right inside your app in Control panel without calling your server scripts. For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](#ecwidapp-getpayload) method specification.
 
-So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. See also: [Ecwid JS SDK](#js-css-sdk) .
+So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. See also: [Ecwid Javascript SDK](#ecwid-javascript-sdk) .
 
 ## Troubleshooting
 
@@ -227,10 +227,129 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 <img src="http://take.ms/uXxvy"></img>
 
 
-# JS SDK
+# Ecwid Javascript SDK
 
-<aside class="notice">
-Documentation is in progress...
-</aside>
+```html
+<!-- Include Ecwid JS SDK -->
+<script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.0.0/ecwid-app.js"></script>
+```
+
+Ecwid Javascript SDK is a simple JS framework with a set of basic JS functions that will help you to embed your app to Ecwid Control Panel and interact with Ecwid from within your application.
+
+To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.0.0/ecwid-app.js` .
+
+
+## init
+
+> Example of using EcwidApp.init() method
+
+```js
+// Initialize the application
+EcwidApp.init({
+  app_id: "my-super-app", // your application namespace
+  autoloadedflag: true, 
+  autoheight: true
+});
+```
+
+
+The `EcwidApp.init()` method initializes your app inside Ecwid Control Panel. Call it once at the beginning of executable code in your app.
+
+### Parameters
+
+The only parameter is a JS object with the following fields:
+
+Name | Type | Description
+---- | ---- | -----------
+**app_id** | string | Namespace of your application (as set in the application settings)
+autoloadedflag | boolean | Define how Ecwid should detect when your app is loaded. Set as `true`, if you want Ecwid to automatically detect the fact that you your app is loaded. Ecwid uses the window.onload event of your application document. If you want to contol when Ecwid should start displaying your app and inform it of your app's ready state, you should set this flag as `false` and use the [`EcwidApp.ready()`](#ready) method. As soon as the app is loaded, Ecwid hides the 'Loading' animation and shows the app content.
+autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust your app iframe height depending on your app content. If you want to control the iframe size yourself, set this flag as `false` and use the [`EcwidApp.setSize()`](#setsize) method.
+
+
+## getPayload
+
+> Retrieving store ID and access token using Ecwid JavaScript SDK 
+
+```js
+...
+    var storeData = EcwidApp.getPayload();
+    var storeId = storeData.store_id;
+    var accessToken = storeData.access_token;
+    // now you know the user you interact with and can access Ecwid API on their behalf
+...
+```
+
+`EcwidApp.getPayload()`
+
+Above, we explained how your app can be a client-side HTML/JS application and still access Ecwid API right from Ecwid Control Panel (see [Authentication in embedded apps](#authentication-in-embedded-apps) section). There, we used the `EcwidApp.getPayload()` method to get the store ID and API access token. 
+
+
+> Payload example
+
+```json
+{
+  "store_id": 1003,
+  "lang": "en_US",
+  "sign_date": 1336914487311,
+  "app_id": "aff5016d29144d",
+  "access_token":"xxxxxxxxxxxxxxxx",
+  "permissions": ["add_to_cp", "read_store_profile", "read_orders"]
+}
+```
+
+
+The payload is a JSON with the following fields:
+
+Name | Type | Description
+---- | ---- | -----------
+store_id | number | Ecwid store ID
+lang | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
+sign_date | number | Payload generation date/time (UNIX timestamp)
+app_id | string | Application ID
+access_token | string | oAuth token
+permissions | array of strings | List of permissions (API access levels) given to the app, separated by space
+
+
+
+## openPage
+
+> Open some page inside Control Panel from your application
+
+```js
+EcwidApp.openPage('products');
+```
+
+The `EcwidApp.openPage()` method allows you to direct the user to some particular page in the Control Panel
+
+### Parameters
+Name | Type | Description
+---- | ---- | -----------
+page | string | Hash part of of the page URL in the Control Panel. Examples: `billing` will open the Billing page, `products` will open the Catalog page.
+
+
+## ready
+
+You can use the `EcwidApp.ready()` method in your application to inform Ecwid of ready state of your application. For example, you may need to make a few API calls or load some additional assets before your app UI should be displayed to the user. In this way, pass `false` in the `autoloadedflag` parameter in the [`EcwidApp.init()`](#init) method and call the `.ready()` function when you are ready. 
+
+
+## setSize
+
+> Set your app iframe size from within the app
+
+```js
+EcwidApp.setSize({height: 800});
+```
+
+We recommend using the `autoheight` parameter set as `true` in [`EcwidApp.init()`](#init) function to let Ecwid dynamically adjust your app iframe size depending on your application content size. But if you want to control the iframe size yourself, set that flag as `false` and use this `EcwidApp.setSize()` method.
+
+
+### Parameters
+
+The only parameter is a JSON object with the `height` field:
+
+Name | Type | Description
+---- | ---- | -----------
+height | number | The iframe height in pixels
+
 
 
