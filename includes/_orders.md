@@ -19,7 +19,7 @@ Name | Type    | Description
 **token** |  string | oAuth token
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
-keywords |  string | Search term
+keywords |  string | Search term. Ecwid will look for this term in order number, ordered items and customer details. 
 couponCode | number | The code of coupon applied to order
 totalFrom |  number | Minimum product price
 totalTo | number | Maximum product price
