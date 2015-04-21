@@ -60,3 +60,7 @@ Application storage | - | ✓ | ✓ | ✓ |
 Embedding application into Control Panel | - | ✓ | ✓ | ✓ |
 Customize storefront via API | - | ✓ | ✓ | ✓ |
 Single Sign On | - | ✓ | ✓ | ✓ |
+
+
+### Q: I need to test my application before marketing it. How can I get a paid account?
+If you're building an app for Ecwid App Market, we would ve happy to provide you with a paid Ecwid account for free for testing purposes. Please [contact us](http://developers.ecwid.com/contact) and we will help you.

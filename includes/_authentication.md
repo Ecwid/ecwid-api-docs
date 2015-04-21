@@ -60,7 +60,7 @@ Upon authorization, Ecwid redirects the user to the application's `redirect_uri`
 
 Parameter | Description
 --------- | -----------
-code | If the user successfully authorizes the application, the query contains the code parameter. That is a temporary key that the app will exchange to its own access token on the next step
+code | If the user successfully authorizes the application, the query will contain the `code` parameter. That is a temporary code that your app should exchange to an access token. This code can be used only once and lives for a few minutes so your app should request the token as soon as it gets the code. See the Authorization step #3 for the details.
 error | If the user does not allow authorization to the application, query parameters indicate the user canceled authorization in error field
 
 
@@ -105,7 +105,7 @@ Ecwid responds with a JSON-formatted data containing the access token and additi
 
 Field | Description
 ----- | -----------
-access_token | Authorization token
+access_token | Authorization token. This is a key your app will use to access Ecwid API on behalf of the user. It doesn't expires so there is no need to refresh it unless the user removes (de-authorizes) your application and then decides to instal it again.
 token_type | `bearer` (it's always `bearer`)
 scope | List of permissions (API access levels) given to the app, separated by space
 store_id | Ecwid store ID (a unique Ecwid account identificator)

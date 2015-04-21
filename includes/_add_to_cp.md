@@ -79,6 +79,7 @@ Here you can find a starter template that you can use as a skeleton of your own 
 * `EcwidApp.init()` method initialize the application within Ecwid Control panel.
 * `EcwidApp.getPayload()` method allows you to simply get the store ID and API access token. See details in the further sections
 
+See the detailed description of the init() and getPayload() functions here: [Ecwid JS SDK](http://api.ecwid.com/#ecwid-javascript-sdk) .
 
 ## Authentication in embedded apps
 In your application, you will likely show some user-specific data, for example the store order list. To do that, your iframe application will need to know:
@@ -212,6 +213,7 @@ You created an app and installed it on your test store. The new tab appears in y
 * **Ecwid cannot reach the iframe URL** that you set up for your application either because it's unavailable or because it has restricted access.
 * **Browser blocks the document in iframe** because it loads over HTTP while the Control Panel is working over HTTPS (the ["mixed content"](https://developer.mozilla.org/en-US/docs/Security/MixedContent) issue). Please make sure you set an HTTPS URL as the iframe URL in the app settings.
 * **Ecwid Control Panel is restricted to load your app in iframe** because your app server responds with the "SAMEORIGIN" value in [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) header. 
+* **The application in the tab is not initialized**. Make sure you initialized the app with the proper namespace using the .init() method of [Ecwid JS SDK](http://api.ecwid.com/#ecwid-javascript-sdk). 
 
 
 # Ecwid CSS Framework
