@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##April 27, 2015
+- Added ability to add embedded applications to the "Settings" and "Design" tabs (http://api.ecwid.com/#embedded-apps)
+
 ##April 3, 2015
 - Added Ecwid CSS Framework documentation (http://api.ecwid.com/ecwid-css-framework/)
 - Added Ecwid JS SDK documentation
