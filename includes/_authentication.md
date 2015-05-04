@@ -95,7 +95,7 @@ grant_type | required | Must be `authorization_code`
  "access_token":"12345",
  "token_type":"bearer",
  "scope":"read_store_profile update_catalog",
- "store_id":"1003"
+ "store_id":1003
 }
 ```
 
