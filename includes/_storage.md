@@ -8,7 +8,7 @@ birth_date: 18.11.1987 | birth_date: 07.02.1981 | ...
 sex: male | sex: female | ...
 
 <aside class="notice">
-Scope required: *update_profile*
+Scope required: *update_store_profile*
 </aside>
 
 
@@ -30,7 +30,7 @@ Cache-Control: no-cache
 `GET https://app.ecwid.com/api/v2/{storeId}/storage?token={token}`
 
 <aside class="notice">
-Mind the `v2` in the endpoints URL. Application storage API methods are not available in API v3 yet. You can use the same token for the v2 endpoints though.
+Mind the `v2` in the endpoint URL. You can use the same API v3 token for the v2 endpoints.
 </aside>
 
 Name | Type | Description

@@ -272,7 +272,7 @@ rules | Array\<TaxRule\>  | Tax rates
 #### TaxRule
 Field | Type | Description
 ----- | ---- | -----------
-zoneId | number | Destination zone ID
+zoneId | string | Destination zone ID
 tax | number | Tax rate for this zone
 
 #### Zone
@@ -489,7 +489,7 @@ rules | Array\<TaxRule\>  | Tax rates
 #### TaxRule
 Field | Type | Description
 ----- | ---- | -----------
-**zoneId** | number | Destination zone ID
+**zoneId** | string | Destination zone ID
 **tax** | number | Tax rate for this zone
 
 #### Zone
@@ -499,7 +499,7 @@ Field | Type | Description
 ----- | ---- | -----------
 id | string | Unique internal zone ID
 **name** | string | Zone displayed name
-countryCodes | Array\<string\> | Country codes this zone includes . 
+countryCodes | Array\<string\> | Country codes this zone includes
 stateOrProvinceCodes |  Array\<string\> | State or province codes the zone includes
 postCodes | Array\<string\> |   Postcode (or zipcode) templates this zone includes. More details: [Destination zones in Ecwid](http://help.ecwid.com/customer/portal/articles/1163922-destination-zones)
 
