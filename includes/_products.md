@@ -29,10 +29,10 @@ withSubcategories |  boolean | `true`/`false`: defines whether Ecwid should sear
 sortBy |  string | Sort order. Supported values: <ul><li>`RELEVANCE` *default*</li> <li>`ADDED_TIME_DESC`</li> <li>`ADDED_TIME_ASC`</li> <li>`NAME_ASC`</li> <li>`NAME_DESC`</li> <li>`PRICE_ASC`</li> <li>`PRICE_DESC`</li></ul>
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
-createdFrom | string | Product creation date (lower bound) Format: YYYY-MM-DD
-createdTo | string | Product creation date (upper bound) Format: YYYY-MM-DD
-updatedFrom | string | Product last update date (lower bound) Format: YYYY-MM-DD
-updatedTo | string | Product last update date (upper bound) Format: YYYY-MM-DD
+createdFrom | string | Product creation date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
+createdTo | string | Product creation date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+updatedFrom | string | Product last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+updatedTo | string | Product last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
 enabled | boolean | `true` to get only enabled products, `false` to get only disabled products
 inStock | boolean | `true` to get only products in stock, `false` to get out of stock products
 field{attributeName} | string | Filter by product attribute values. Format: field{attributeName}=param[,param], where "attributeName" is the attribute name and "param" is the attribute value. You can place several values separated by comma. In that case values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `fieldBrand=Apple&fieldCapacity=32GB,64GB`
@@ -641,11 +641,11 @@ choices | Array\<*ProductOptionChoice*\> | All possible option selections for th
 defaultChoice | number  | The number, starting from `0`, of the option's default selection for the options types `SELECT`, `CHECKBOX` or `RADIO`.
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
 
-
 #### AttributeValue
 Field | Type  | Description
 -------------- | -------------- | --------------
-**id** |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs. <br /> **Note**: to set values of the general attributes UPC and BRAND, it's possible to specify `UPC` and `BRAND` correspondingly in this field. This allows you to add/update the values for these attributes even without numeric IDs.
+id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs. 
+alias | string | One of `UPC` , `BRAND` . This can be used instead of id to quickly set the basic product attributes values without numeric id: UPC and brand 
 value | string  | Attribute value
 
 #### RelatedProducts
@@ -802,7 +802,8 @@ required |  boolean | `true` if this option is mandatory, `false` otherwise. Def
 #### AttributeValue
 Field | Type  | Description
 -------------- | -------------- | --------------
-**id** |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs. <br /> **Note**: to set values of the general product attributes UPC and BRAND, it's possible to specify `UPC` and `BRAND` correspondingly in this field. This allows you to add/update the values for these attributes even without numeric IDs.
+id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs. 
+alias | string | One of `UPC` , `BRAND` . This can be used instead of id to quickly update the basic product attributes without numeric id: UPC and brand 
 value | string  | Attribute value
 
 #### RelatedProducts

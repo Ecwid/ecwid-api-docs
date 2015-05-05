@@ -26,14 +26,14 @@ totalTo | number | Maximum product price
 orderNumber | number | Order number
 vendorOrderNumber | string | Order number with prefix/suffix defined by admin
 customer | string | Customer search term (searches by customer)
-createdFrom | string | Order placemen date (lower bound) Format: YYYY-MM-DD
-createdTo | string | Order placemen date (upper bound) Format: YYYY-MM-DD
+createdFrom | string | Order placement date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
+createdTo | string | Order placement date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+updatedFrom | string | Order last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+updatedTo | string | Order last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
 paymentMethod | string | Payment method used by customer
 shippingMethod | string | Shipping method chosen by customer
 paymentStatus | string | Comma separated list of order payment statuses to search. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string | Comma separated list of order fulfilment statuses to search. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
-updatedFrom | string | Order last update date (lower bound) Format: YYYY-MM-DD
-updatedTo | string | Order last update date (upper bound) Format: YYYY-MM-DD
 
 <aside class="notice">
 If no filters are set in the URL, API will return all orders **except for incomplete orders**

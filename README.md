@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##May 5, 2015
+- Added description of how to define date and time ranges in the "Search products" and "Search orders filters (http://api.ecwid.com/#search-products)
+- Fixed an error in the "Update product" endpoint spec: to update UPC and Brand product attributes, it's possible to use the 'alias' field in the AttributeValue object.
+
 ##April 27, 2015
 - Added ability to add embedded applications to the "Settings" and "Design" tabs (http://api.ecwid.com/#embedded-apps)
 

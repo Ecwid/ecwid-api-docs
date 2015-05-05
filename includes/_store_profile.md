@@ -928,8 +928,8 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-from_date | string | Item deletion date lower bound. Format: `YYYY-MM-DD`
-to_date | string | Item deletion date upper bound. Format: `YYYY-MM-DD`
+from_date | string | Item deletion date lower bound. Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
+to_date | string | Item deletion date upper bound. Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Default value: `100`
 
