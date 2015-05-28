@@ -123,7 +123,7 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}?&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}?token={token}`
 
 Query field | Type    | Description
 ----------- | ------- | --------------
@@ -381,7 +381,7 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`DELETE https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}?&token={token}`
+`DELETE https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}?token={token}`
 
 Query field | Type    | Description
 ----------- | ------- | --------------

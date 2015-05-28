@@ -46,6 +46,9 @@ For the information on the *Ecwid API v.1* (legacy version), please refer to the
 - [Legacy Order API](http://help.ecwid.com/customer/portal/articles/1166917-order-api)
 
 
+### API calls limits
+You are free to build your app with as many API calls as you need to make your service awesome for Ecwid merchants, but keep in mind the [usage policy](#usage-policy).
+
 ## API availability on Ecwid plans
 [Ecwid pricing](http://www.ecwid.com/pricing) includes four tiers: Free, Venture, Business, Unlimited. The API is available on **paid** Ecwid plans, i.e. on Venture, Business and Unlimited. Merchants on Free plans cannot use Ecwid API. This means that, if the user is on Free plan, all API functions will fail including requests to read or update store data, embedding of the app interfaces into Ecwid Control Panel and customizing storefront. 
 
@@ -61,3 +64,12 @@ Single Sign On | - | ✓ | ✓ | ✓ |
 
 ### Q: I need to test my application before marketing it. How can I get a paid account?
 If you're building an app for Ecwid App Market, we would ve happy to provide you with a paid Ecwid account for free for testing purposes. Please [contact us](http://developers.ecwid.com/contact) and we will help you.
+
+
+## Usage policy
+By default, we do not limit API usage for applications. You are free to build your app with as many calls as you need to make your service awesome for Ecwid merchants. However, to protect us and our users from abusing, we ask you to optimize your app code to make fewer API requests. For example:
+
+- Cache store data locally if you need to use or display it many times in your app. 
+- If you need to synchronize store data with your database, use the store update stats endpoint to synchronize only updated products/orders instead of copying everything. More details: [Getting store update statistics](#get-store-update-statistics)
+
+We constantly monitor API activity and servers load on our side to make sure every application uses API properly. In case an app abuses Ecwid API by generating huge amount of requests every day, we'll attempt to get in touch with the developer to talk about the issue. Don't worry, you will unlikely face such trouble and even if you do, we will advice on how to fix that. But of course, if the usage is high enough to significantly affect other users of the platform and you don't react on our warnings, we can temporarily disable your application. 
