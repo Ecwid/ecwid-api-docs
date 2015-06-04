@@ -297,7 +297,7 @@ HTTP Status | Meaning
 
 ## Create product combination
 
-You can create a new product combination using this method. Please make sure the product options your refer to when creating a combo exist. You can create product options using the [Update product](#update-a-product) call
+You can create a new product combination using this method. If the options you specify in request don't exist, they will be created automatically with the type of dropdown. If you want to create options explicitly, use the [Update product](#update-a-product) call to create them. 
 
 > Request example
 
