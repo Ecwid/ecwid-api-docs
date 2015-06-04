@@ -70,8 +70,10 @@ Parameters in bold are mandatory
             "priceInProductList": 1.99,
             "weight": 0.32,
             "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208338",
-            "created": "2014-06-06 18:57:19 +0400",
-            "updated": "2014-06-06 18:57:19 +0400",
+            "created": "2014-06-06 18:57:19 +0000",
+            "updated": "2014-06-06 18:57:19 +0000",
+            "createTimestamp": 1248340746,
+            "updateTimestamp": 1428313104,
             "productClassId": 0,
             "enabled": true,
             "description": "<h5>Apple</h5>\n<p>The apple is the pomaceous fruit of the apple tree, species Malus domestica in the rose family Rosaceae. It is one of the most widely cultivated tree fruits. The tree is small and deciduous, reaching 3 to 12 metres (9.8 to 39 ft) tall, with a broad, often densely twiggy crown. The leaves are alternately arranged simple ovals 5 to 12 cm long and 3–6 centimetres (1.2–2.4 in) broad on a 2 to 5 centimetres (0.79 to 2.0 in) petiole with an acute tip, serrated margin and a slightly downy underside. Blossoms are produced in spring simultaneously with the budding of the leaves. The flowers are white with a pink tinge that gradually fades, five petaled, and 2.5 to 3.5 centimetres (0.98 to 1.4 in) in diameter. The fruit matures in autumn, and is typically 5 to 9 centimetres (2.0 to 3.5 in) diameter. The center of the fruit contains five carpels arranged in a five-point star, each carpel containing one to three seeds.</p>\n<p>The tree originated from Central Asia, where its wild ancestor is still found today. There are more than 7,500 known cultivars of apples resulting in a range of desired characteristics. Cultivars vary in their yield and the ultimate size of the tree, even when grown on the same rootstock.</p>\n<p>vAt least 55 million tonnes of apples were grown worldwide in 2005, with a value of about $10 billion. China produced about 35% of this total. The United States is the second leading producer, with more than 7.5% of the world production. Turkey, France, Italy, and Iran are also among the leading apple exporters.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
@@ -90,8 +92,10 @@ Parameters in bold are mandatory
             "priceInProductList": 3.39,
             "weight": 0.32,
             "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208344",
-            "created": "2014-06-06 18:57:19 +0400",
-            "updated": "2014-06-06 18:57:19 +0400",
+            "created": "2014-06-06 18:57:19 +0000",
+            "updated": "2014-06-06 18:57:19 +0000",
+            "createTimestamp": 1248340781,
+            "updateTimestamp": 1428313104,
             "productClassId": 0,
             "enabled": true,
             "description": "<h5>Orange</h5>\n<p>An orange—specifically, the sweet orange—is the citrus Citrus ×sinensis (syn. Citrus aurantium L. var. dulcis L., or Citrus aurantium Risso) and its fruit. The orange is a hybrid of ancient cultivated origin, possibly between pomelo (Citrus maxima) and tangerine (Citrus reticulata). It is a small flowering tree growing to about 10 m tall with evergreen leaves, which are arranged alternately, of ovate shape with crenulate margins and 4–10 cm long. The orange fruit is a hesperidium, a type of berry.</p>\n<p>Oranges originated in Southeast Asia. The fruit of Citrus sinensis is called sweet orange to distinguish it from Citrus aurantium, the bitter orange. The name is thought to ultimately derive from the Dravidian and Telugu word for the orange tree, with its final form developing after passing through numerous intermediate languages.</p>\n<p>In a number of languages, it is known as a \"Chinese apple\" (e.g. Dutch Sinaasappel, \"China's apple\", or \"Apfelsine\" in German).</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
@@ -135,8 +139,10 @@ priceInProductList | number |  Product price displayed in the product list. May 
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store
-created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0400`
+created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
 updated |  string | Product last update date/time
+createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`
+updateTimestamp | number | Product last update date in UNIX Timestamp format, e.g `1427268654`
 productClassId |  number | Id of the class (type) that this product belongs to. `0` value means the product is of the default 'General' class. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
 enabled | boolean | `true` if product is enabled, `false` otherwise. Disabled products are not displayed in the store front.
 thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. *The original uploaded product image is available in the `originalImageUrl` field.*
@@ -226,8 +232,10 @@ Parameters in bold are mandatory
     "compareToPrice": 1.34,
     "weight": 0.31,
     "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208339",
-    "created": "2009-07-23 17:22:37 +0400",
-    "updated": "2014-07-30 10:32:37 +0400",
+    "created": "2009-07-23 17:22:37 +0000",
+    "updated": "2014-07-30 10:32:37 +0000",
+    "createTimestamp": 1248340746,
+    "updateTimestamp": 1428313104,
     "productClassId": 0,
     "enabled": true,
     "options": [
@@ -419,8 +427,10 @@ wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price t
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store
-created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0400`
+created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
 updated |  string | Product last update date/time
+createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`
+updateTimestamp | number | Product last update date in UNIX Timestamp format, e.g `1427268654`
 productClassId |  number | Id of the class (type) that this product belongs to. `0` value means the product is of the default 'General' class. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
 enabled | boolean | `true` if product is enabled, `false` otherwise. Disabled products are not displayed in the store front.
 options | Array\<*ProductOption*\> | A list of the product options. Empty (`[]`) if no options are specified for the product. 

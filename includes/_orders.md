@@ -75,8 +75,10 @@ Parameters in bold are mandatory
             "discount": 2.85,
             "usdTotal": 37.39,
             "globalReferer": "",
-            "createDate": "2014-09-20 19:59:43 +0400",
-            "updateDate": "2014-09-21 00:00:12 +0400",
+            "createDate": "2014-09-20 19:59:43 +0000",
+            "updateDate": "2014-09-21 00:00:12 +0000",
+            "createTimestamp": 1427268654,
+            "updateTimestamp": 1427272209,
             "customerGroup": "Gold",
             "discountCoupon": {
                 "name": "Coupon # 3",
@@ -84,10 +86,10 @@ Parameters in bold are mandatory
                 "discountType": "PERCENT",
                 "status": "ACTIVE",
                 "discount": 5,
-                "launchDate": "2014-06-06 00:00:00 +0400",
+                "launchDate": "2014-06-06 00:00:00 +0000",
                 "usesLimit": "UNLIMITED",
                 "repeatCustomerOnly": false,
-                "creationDate": "2014-09-20 19:58:49 +0400",
+                "creationDate": "2014-09-20 19:58:49 +0000",
                 "orderCount": 0
             },
             "items": [
@@ -118,7 +120,7 @@ Parameters in bold are mandatory
                             "productFileId": 7215101,
                             "maxDownloads": 0,
                             "remainingDownloads": 0,
-                            "expire": "2014-10-26 20:34:34 +0400",
+                            "expire": "2014-10-26 20:34:34 +0000",
                             "name": "myfile.jpg",
                             "description": "Sunflower",
                             "size": 54492,
@@ -248,8 +250,10 @@ totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal
 discount | number | The total sum of applied discounts
 usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
-createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0400`
-updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0400`
+createDate | date | The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
+updateDate | date | The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
+createTimestamp | number | The date of order placement in UNIX Timestamp format, e.g `1427268654`
+updateTimestamp | number | The date of the last order change in UNIX Timestamp format, e.g `1427268654`
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 items | Array\<*OrderItem*\> | Order items
@@ -351,8 +355,8 @@ code |  string | Coupon code
 discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
-launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`
-expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000`
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0000`
 totalLimit | number| The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
@@ -462,8 +466,10 @@ Parameters in bold are mandatory
     "discount": 2.85,
     "usdTotal": 37.39,
     "globalReferer": "",
-    "createDate": "2014-09-20 19:59:43 +0400",
-    "updateDate": "2014-09-21 00:00:12 +0400",
+    "createDate": "2014-09-20 19:59:43 +0000",
+    "updateDate": "2014-09-21 00:00:12 +0000",
+    "createTimestamp": 1427268654,
+    "updateTimestamp": 1427272209,
     "customerGroup": "Gold",
     "discountCoupon": {
         "name": "Coupon # 3",
@@ -471,10 +477,10 @@ Parameters in bold are mandatory
         "discountType": "PERCENT",
         "status": "ACTIVE",
         "discount": 5,
-        "launchDate": "2014-06-06 00:00:00 +0400",
+        "launchDate": "2014-06-06 00:00:00 +0000",
         "usesLimit": "UNLIMITED",
         "repeatCustomerOnly": false,
-        "creationDate": "2014-09-20 19:58:49 +0400",
+        "creationDate": "2014-09-20 19:58:49 +0000",
         "orderCount": 0
     },
     "items": [
@@ -505,7 +511,7 @@ Parameters in bold are mandatory
                     "productFileId": 7215101,
                     "maxDownloads": 0,
                     "remainingDownloads": 0,
-                    "expire": "2014-10-26 20:34:34 +0400",
+                    "expire": "2014-10-26 20:34:34 +0000",
                     "name": "myfile.jpg",
                     "description": "Sunflower",
                     "size": 54492,
@@ -624,8 +630,10 @@ totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal
 discount | number | The total sum of applied discounts
 usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
-createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0400`
-updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0400`
+createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
+updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
+createTimestamp | number | The date of order placement in UNIX Timestamp format, e.g `1427268654`
+updateTimestamp | number | The date of the last order change in UNIX Timestamp format, e.g `1427268654`
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 items | Array\<*OrderItem*\> | Order items
@@ -727,8 +735,8 @@ code |  string | Coupon code
 discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
-launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`
-expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000`
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0000`
 totalLimit | number| The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
@@ -909,8 +917,6 @@ membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
 discount | number | The total sum of applied discounts
 globalReferer | string | URL that the customer came to the store from
-createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0400`
-updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0400`
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 items | Array\<*OrderItem*\> | Order items
@@ -987,8 +993,8 @@ code |  string | Coupon code
 discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
-launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`
-expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000`
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0000`
 totalLimit | number| The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
@@ -1219,8 +1225,6 @@ membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
 discount | number | The total sum of applied discounts
 globalReferer | string | URL that the customer came to the store from
-createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0400`
-updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0400`
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 items | Array\<*OrderItem*\> | Order items
@@ -1296,8 +1300,8 @@ code |  string | Coupon code
 discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
-launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`
-expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000`
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0000`
 totalLimit | number| The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers

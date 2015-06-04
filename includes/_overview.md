@@ -37,6 +37,9 @@ Ecwid API works with UTF-8 encoded data. Please make sure everything you send ov
 ### JSON
 All data received from API and submitted to API is JSON.
 
+### UTC
+Date/time values returned by Ecwid API are in UTC.
+
 ### API Version
 This document describes *Ecwid REST API v.3* 
 
