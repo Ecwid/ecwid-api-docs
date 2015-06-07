@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##June 7, 2015
+- All dates are returned in UTC now
+- Timestamp is now returned for orders and products
+- Options are now automatically created when you create a combination
+- Added a short usage policy text
+
 ##May 5, 2015
 - Added description of how to define date and time ranges in the "Search products" and "Search orders filters (http://api.ecwid.com/#search-products)
 - Fixed an error in the "Update product" endpoint spec: to update UPC and Brand product attributes, it's possible to use the 'alias' field in the AttributeValue object.
