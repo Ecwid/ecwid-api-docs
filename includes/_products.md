@@ -21,7 +21,7 @@ Name | Type | Description
 ---- | ---- | -----------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-keyword |  string | Search term. Ecwid searches products over multiple fields: title, description, SKU, product options, category name, gallery image descriptions, values of attributes
+keyword |  string | Search term. Ecwid searches products over multiple fields: <ul><li>title</li><li>description</li><li>SKU</li><li>product options</li><li>category name</li><li>gallery image descriptions</li><li>attribute values (except for hidden attributes)
 priceFrom |  number | Minimum product price
 priceTo | number | Maximum product price
 category | number | Category ID
@@ -35,7 +35,7 @@ updatedFrom | string | Product last update date/time (lower bound). Supported fo
 updatedTo | string | Product last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
 enabled | boolean | `true` to get only enabled products, `false` to get only disabled products
 inStock | boolean | `true` to get only products in stock, `false` to get out of stock products
-field{attributeName} | string | Filter by product attribute values. Format: field{attributeName}=param[,param], where "attributeName" is the attribute name and "param" is the attribute value. You can place several values separated by comma. In that case values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `fieldBrand=Apple&fieldCapacity=32GB,64GB`
+field{attributeName} | string | Filter by product attribute values. Format: field{attributeName}=param[,param], where "attributeName" is the attribute name and "param" is the attribute value. You can place several values separated by comma. In that case values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `fieldBrand=Apple&fieldCapacity=32GB,64GB` 
 field{attributeId} | string | Filter by product attribute values. Works the same as the filter by `field{attributeName}` but attribute IDs are used instead of attribute names. This way is insensitive to attributes renaming.
 
 <aside class="notice">
@@ -301,7 +301,14 @@ Parameters in bold are mandatory
         {
             "id": 5029057,
             "name": "Brand",
-            "value": "SuperVegetables"
+            "value": "SuperVegetables",
+            "show": "DESCR"
+        },
+        {
+            "id": 5029059,
+            "name": "Hidden Attribute",
+            "value": "Secret Value",
+            "show": "NOTSHOW"
         }
     ],
     "files": [
@@ -489,6 +496,7 @@ Field | Type  | Description
 id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
 name |  string |  Attribute displayed name
 value | string  | Attribute value
+show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` . 
 
 #### ProductFile
 Field | Type  | Description
