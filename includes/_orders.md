@@ -194,7 +194,7 @@ Parameters in bold are mandatory
                 "shippingMethodName": "2nd day delivery",
                 "shippingRate": 10,
                 "estimatedTransitTime": "5"
-            },
+            },            
             "additionalInfo": {},
             "paymentParams": {
                 "Company name": "Unreal Company",
@@ -260,6 +260,7 @@ items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
+handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
@@ -377,6 +378,13 @@ shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | number | Delivery time estimation
+
+#### HandlingFeeInfo
+Field | Type | Description
+----- | ---- | -----------
+name | string | Handling fee name set by store admin. E.g. `Wrapping`
+value | number | Handling fee value
+description | string | Handling fee description for customer
 
 #### DiscountInfo
 Field | Type | Description
@@ -586,6 +594,11 @@ Parameters in bold are mandatory
         "shippingRate": 10,
         "estimatedTransitTime": "5"
     },
+    "handlingFee": {
+        "name": "Wrapping",
+        "value": 2,
+        "description": "Silk paper wrapping"
+    },
     "additionalInfo": {},
     "paymentParams": {
         "Company name": "Unreal Company",
@@ -640,6 +653,7 @@ items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
+handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
@@ -757,6 +771,13 @@ shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | number | Delivery time estimation
+
+#### HandlingFeeInfo
+Field | Type | Description
+----- | ---- | -----------
+name | string | Handling fee name set by store admin. E.g. `Wrapping`
+value | number | Handling fee value
+description | string | Handling fee description for customer
 
 #### DiscountInfo
 Field | Type | Description
@@ -923,6 +944,7 @@ items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
+handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
@@ -1015,6 +1037,13 @@ shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | number | Delivery time estimation
+
+#### HandlingFeeInfo
+Field | Type | Description
+----- | ---- | -----------
+name | string | Handling fee name set by store admin. E.g. `Wrapping`
+value | number | Handling fee value
+description | string | Handling fee description for customer
 
 #### DiscountInfo
 Field | Type | Description
@@ -1231,6 +1260,7 @@ items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
+handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
@@ -1322,6 +1352,13 @@ shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | number | Delivery time estimation
+
+#### HandlingFeeInfo
+Field | Type | Description
+----- | ---- | -----------
+name | string | Handling fee name set by store admin. E.g. `Wrapping`
+value | number | Handling fee value
+description | string | Handling fee description for customer
 
 #### DiscountInfo
 Field | Type | Description

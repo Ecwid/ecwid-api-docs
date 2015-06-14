@@ -82,6 +82,13 @@ Name | Type    | Description
         ],
         "facebookPreferredLocale": "en_US"
     },
+    "shipping": {
+        "handlingFee": {
+            "name": "Handling Fee",
+            "value": 5,
+            "description": "Silk paper wrapping"
+        }
+    },
     "taxes": [
         {
             "id": 1485869949,
@@ -170,15 +177,16 @@ A JSON object of type 'Profile' with the following fields:
 #### Profile
 Field | Type | Description
 ----- | ---- | -----------
-generalInfo | \<GeneralInfo\> | Store's basic data
+generalInfo | \<GeneralInfo\> | Store basic data
 account | \<Account\> | Seller's account data
-settings | \<Settings\> | Store's general settings
+settings | \<Settings\> | Store general settings
 mailNotifications | \<MailNotifications\> | Mail notifications settings
 company | \<Company\> | Company info
-formatsAndUnits | \<FormatsAndUnits\> | Store's formats/untis settings
-languages | \<Languages\> | Store's language settings
-taxes | Array\<Tax\> | Store's taxes settings
-zones | Array\<Zone\> | Store's destination zones
+formatsAndUnits | \<FormatsAndUnits\> | Store formats/untis settings
+languages | \<Languages\> | Store language settings
+shipping | \<Shipping\> | Store shipping settings (only handling fee is included at the moment)
+taxes | Array\<Tax\> | Store taxes settings
+zones | Array\<Zone\> | Store destination zones
 businessRegistrationID | \<BusinessRegistrationID\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
 
 #### GeneralInfo
@@ -252,6 +260,22 @@ Field | Type | Description
 ----- | ---- | -----------
 enabledLanguages | Array\<string\> | A list of enabled languages in the storefront
 facebookPreferredLocale | string | Language automatically chosen be default in Facebook storefront (if any)
+
+#### Shipping
+*System Settings → Shipping*
+
+Field | Type | Description
+----- | ---- | -----------
+handlingFee | \<HandlingFee\> | Handling fee settings
+
+#### HandlingFee
+*System Settings → Shipping → Handling Fee*
+
+Field | Type | Description
+----- | ---- | -----------
+name | string | Handling fee name set by store admin. E.g. `Wrapping`
+value | number | Hndling fee value
+description | string | Handling fee description for customer
 
 
 #### Tax
@@ -388,15 +412,16 @@ A JSON object of type 'Profile' with the following fields:
 #### Profile
 Field | Type | Description
 ----- | ---- | -----------
-generalInfo | \<GeneralInfo\> | Store's basic data
+generalInfo | \<GeneralInfo\> | Store basic data
 account | \<Account\> | Seller's account data
-settings | \<Settings\> | Store's general settings
+settings | \<Settings\> | Store general settings
 mailNotifications | \<MailNotifications\> | Mail notifications settings
 company | \<Company\> | Company info
-formatsAndUnits | \<FormatsAndUnits\> | Store's formats/untis settings
-languages | \<Languages\> | Store's language settings
-taxes | Array\<Tax\> | Store's taxes settings
-zones | Array\<Zone\> | Store's destination zones
+formatsAndUnits | \<FormatsAndUnits\> | Store formats/untis settings
+languages | \<Languages\> | Store language settings
+shipping | \<Shipping\> | Store shipping settings (only handling fee is included at the moment)
+taxes | Array\<Tax\> | Store taxes settings
+zones | Array\<Zone\> | Store destination zones
 businessRegistrationID | \<BusinessRegistrationID\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
 
 <aside class="notice">
@@ -406,7 +431,7 @@ All fields are optional. Omitted field will not be affected
 #### GeneralInfo
 Field | Type | Description
 ----- | ---- | -----------
-storeUrl | string | Storefront URL
+storeUrl | string | Storefront URL. If this field is empty in the store settings and omitted in the request, it will be automatically copied from the current Starter Site URL
 starterSite | \<StarterSiteInfo\> | Starter Site settings
 
 #### Account
@@ -470,6 +495,22 @@ timezone | string | Store timezone, e.g. `Europe/Moscow`
 Field | Type | Description
 ----- | ---- | -----------
 enabledLanguages | Array\<string\> | A list of enabled languages in the storefront
+
+#### Shipping
+*System Settings → Shipping*
+
+Field | Type | Description
+----- | ---- | -----------
+handlingFee | \<HandlingFee\> | Handling fee settings
+
+#### HandlingFee
+*System Settings → Shipping → Handling Fee*
+
+Field | Type | Description
+----- | ---- | -----------
+name | string | Handling fee name set by store admin. E.g. `Wrapping`
+value | number | Handling fee value. If handling fee is `0` then it's disabled.
+description | string | Handling fee description for customer
 
 #### Tax
 *System Settings → Taxes*
