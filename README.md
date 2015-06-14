@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##June 14, 2015
+- Added handling fee options to the "Store profile" and "Orders" endpoints
+- Improved behavior of hidden product attributes in responses from "Products" endpoints
+
 ##June 7, 2015
 - All dates are returned in UTC now
 - Timestamp is now returned for orders and products
