@@ -238,16 +238,18 @@ paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
 tax | number | Tax total
 ipAddress | string  | Customer IP
-couponDiscount | number | Discount applied with a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
 refererUrl | string | URL of the page that the order was placed on
 orderComments | string  | Order comments
+couponDiscount | number | Discount applied with a coupon
 volumeDiscount | number | Subtotal based discount sum
-customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
+discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
-discount | number | The total sum of applied discounts
+discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
+discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
+customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
 createDate | date | The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
@@ -255,7 +257,6 @@ updateDate | date | The date/time of the last order change, e.g `2014-06-06 18:5
 createTimestamp | number | The date of order placement in UNIX Timestamp format, e.g `1427268654`
 updateTimestamp | number | The date of the last order change in UNIX Timestamp format, e.g `1427268654`
 customerGroup | string | The name of group (membership) the customer belongs to
-discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
@@ -263,7 +264,6 @@ shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping 
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
-discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
 paymentMessage | string | Message from the payment processor if any
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
@@ -640,7 +640,7 @@ volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
-discount | number | The total sum of applied discounts
+discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
 usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
@@ -936,7 +936,7 @@ volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
-discount | number | The total sum of applied discounts
+discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
 globalReferer | string | URL that the customer came to the store from
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
@@ -1252,7 +1252,7 @@ volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
-discount | number | The total sum of applied discounts
+discount | number | The sum of applied discounts without coupon discount. 
 globalReferer | string | URL that the customer came to the store from
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
