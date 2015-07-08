@@ -57,13 +57,13 @@ Ecwid.OnPageLoaded.add(function(page) {
 
 As soon as your script is loaded on the page with Ecwid storefront, you can access the page DOM and do pretty much everything you want by means of native JavaScript or whatever framework you want. If you use a JS framework, please make sure it's already loaded on the page by the moment you start using it. 
 
-In addition, Ecwid provides a [JavaScript API](http://kb.ecwid.com/w/page/41188517/JavaScript%20API) that you can use to retrieve store information and track Ecwid events on the page. For example:
+In addition, Ecwid provides a [JavaScript API](http://help.ecwid.com/customer/portal/articles/1169548-javascript-api) that you can use to retrieve store information and track Ecwid events on the page. For example:
 
 * `Ecwid.getOwnerId()` returns the store ID. You may want to use it to identify which store your script is loaded in now
 * `Ecwid.OnPageLoad()` and `Ecwid.OnPageLoaded()` help you to track store page switch and identify which page is opened
 * `Ecwid.Cart` object and its methods allow to manage the customer cart
 
-More details: [Ecwid JavaScript API](http://kb.ecwid.com/w/page/41188517/JavaScript%20API)
+More details: [Ecwid JavaScript API](http://help.ecwid.com/customer/portal/articles/1169548-javascript-api)
 
 ## Store-specific custom JS
 

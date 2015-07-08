@@ -11,7 +11,7 @@ Using the playground is easy. All you will need is:
 
 To get more details and install the playground, please open this page: [api-playground.ecwid.com](https://api-playground.ecwid.com/)
 
-<img src="https://api-playground.ecwid.com/static/images/icon.png"></img>
+<img src="https://api-playground.ecwid.com/static/18.7-436-g182fad9/images/icon.png"></img>
 
 
 # Community libraries

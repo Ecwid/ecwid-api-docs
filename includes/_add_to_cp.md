@@ -151,10 +151,7 @@ $result = getEcwidPayload($client_secret, $ecwid_payload);
 {
   "store_id": 1003,
   "lang": "en_US",
-  "sign_date": 1336914487311,
-  "app_id": "aff5016d29144d",
-  "access_token":"xxxxxxxxxxxxxxxx",
-  "permissions": ["add_to_cp", "read_store_profile", "read_orders"]
+  "access_token":"xxxxxxxxxxxxxxxx"
 }
 ```
 
@@ -171,10 +168,7 @@ Name | Type | Description
 ---- | ---- | -----------
 store_id | number | Ecwid store ID
 lang | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
-sign_date | number | Payload generation date/time (UNIX timestamp)
-app_id | string | Application ID
 access_token | string | oAuth token
-permissions | array of strings | List of permissions (API access levels) given to the app, separated by space
 
 #### Decryption of payload on your server
 
@@ -299,10 +293,7 @@ Above, we explained how your app can be a client-side HTML/JS application and st
 {
   "store_id": 1003,
   "lang": "en_US",
-  "sign_date": 1336914487311,
-  "app_id": "aff5016d29144d",
-  "access_token":"xxxxxxxxxxxxxxxx",
-  "permissions": ["add_to_cp", "read_store_profile", "read_orders"]
+  "access_token":"xxxxxxxxxxxxxxxx"
 }
 ```
 
@@ -313,10 +304,7 @@ Name | Type | Description
 ---- | ---- | -----------
 store_id | number | Ecwid store ID
 lang | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
-sign_date | number | Payload generation date/time (UNIX timestamp)
-app_id | string | Application ID
 access_token | string | oAuth token
-permissions | array of strings | List of permissions (API access levels) given to the app, separated by space
 
 
 

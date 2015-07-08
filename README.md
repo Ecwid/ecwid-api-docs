@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##July 8, 2015
+- Added description of how to use Ecwid oAuth in self hosted web apps, e.g. CMS plugins.
+- Introduced hosted app details pages in Ecwid Control Panel.
+
 ##June 14, 2015
 - Added handling fee options to the "Store profile" and "Orders" endpoints
 - Improved behavior of hidden product attributes in responses from "Products" endpoints
