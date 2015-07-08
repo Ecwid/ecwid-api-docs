@@ -48,7 +48,7 @@ As the regular oAuth flow implies, you can get the access token right after the 
   <script>
     // Initialize the application
     EcwidApp.init({
-      app_id: "my-super-app", // your application namespace
+      app_id: "my-super-app", // your application namespace (not clientID)
       autoloadedflag: true, 
       autoheight: true
     });
@@ -255,7 +255,7 @@ To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfro
 ```js
 // Initialize the application
 EcwidApp.init({
-  app_id: "my-super-app", // your application namespace
+  app_id: "my-super-app", // your application namespace (this is not clientId)
   autoloadedflag: true, 
   autoheight: true
 });
@@ -270,7 +270,7 @@ The only parameter is a JS object with the following fields:
 
 Name | Type | Description
 ---- | ---- | -----------
-**app_id** | string | Namespace of your application (as set in the application settings)
+**app_id** | string | Namespace of your application (as set in the application settings). This is not the same as clientId. 
 autoloadedflag | boolean | Define how Ecwid should detect when your app is loaded. Set as `true`, if you want Ecwid to automatically detect the fact that you your app is loaded. Ecwid uses the window.onload event of your application document. If you want to contol when Ecwid should start displaying your app and inform it of your app's ready state, you should set this flag as `false` and use the [`EcwidApp.ready()`](#ready) method. As soon as the app is loaded, Ecwid hides the 'Loading' animation and shows the app content.
 autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust your app iframe height depending on your app content. If you want to control the iframe size yourself, set this flag as `false` and use the [`EcwidApp.setSize()`](#setsize) method.
 

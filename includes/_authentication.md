@@ -40,6 +40,9 @@ response_type | required | `code` (must always be `code`)
 scope | optional | Scope of access that your app requests from the user, separated by space. See details in [Scopes](#access-scopes) section below
 
 
+<aside class="notice">
+This step is omitted if the application is installed from the app details page inside Ecwid Control Panel. See details: <a href="#installation-from-hosted-app-details-page">Installation from hosted app details page</a>
+</aside>
 
 
 ###Step 2. Ecwid redirects the user back to your application
@@ -139,7 +142,7 @@ customize_storefront | Attach a custom JS/CSS to the storefront on the fly to mo
 add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
 
 
-##Authentication of installed applications
+##Applications installed on device
 
 In case of applications that are installed on a device (such as a computer, a cell phone, or a tablet), the application client_secret is in general less protected than in case of web services. Thus the process of [retrieving access token](#retrieveing-access-token) is changed as described below.
 
@@ -182,3 +185,21 @@ On the [Step #2](#retrieveing-access-token) (Ecwid provides the app with a tempo
 
 ###Changes in Step #3
 The [Step #3](#retrieveing-access-token) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
+
+
+## Selfhosted web apps
+Some applications requires user to download and install them on their site rather than providing a hosted solution. For example, plugins for Wordpress, Joomla or other CMS systems do that. Every instance of such application resides on different domain and thus has different Return URL. To implement oAuth flow in such an app, you will need to pass the `redirect_uri` security check oultined in the [step #1](#get-access-token) of the authorization flow. [Contact us](http://developers.ecwid.com/contact) if your application is of this kind and we will mark it as "selfhosted web app" in the app settings – in this case the redirect URL security requirements will be removed for your application. 
+
+
+## Installation from hosted app details page
+Every public application, which is accessible in Ecwid App Market, has a dedicated app information page inside Ecwid Control Panel. Ecwid merchants can find and install the application without leaving their Control Panel. Example: [Order Editor app details page](https://my.ecwid.com/cp/?place=apps:view=app%26name=ecwid-edit-orders) (you will need to log in to your Ecwid account see this page) . 
+
+In this case, the user is already authorized and thus the first step of ["Getting token"](#get-access-token) process ("Send user to ecwid authorization dialog") is omitted. Once the user clicks the "Install" button, Ecwid sends a user to your app Return URL along with the temporary code as outlined in the [authorization step #2](#get-access-token) "Ecwid redirects the user back to your application". Mind that in this case the installation process starts on Ecwid side and the moment when user gets to your application "Return" endpoint might be the first time they open your site. Make sure your page on the return URL onboards users well – this is a landing page for them in your service. 
+
+This is the most popular or even the only way Ecwid merchants install the applications to their stores. So please make sure your application supports this. 
+
+Notes:
+
+- When the app cannot be installed from the app details page, the app details page contains the "Get" button instead of "Install". The "Get" button simply redirects yser to your app web site. Examples of such apps are the apps installed on device (iOS, Android, Desktop applications). More details about such apps: [Applications installed on device](#applications-installed-on-device)
+- If an app creates a separate tab inside user's Ecwid Control Panel, Ecwid will redirects user to the new created tab after installation. The redirect URL setting is ignored in this case. This is done this way because the app embedded in a separate Control Panel tab can get the access token without temporary code. More details: [Authentication in embedded apps](#authentication-in-embedded-apps). 
+
