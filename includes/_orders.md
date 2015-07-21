@@ -322,9 +322,9 @@ customerUrl | string | File download link that is sent to the customer when the 
 Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Option name
-type |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
+type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 value | string | Selected/entered value
-files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILE`)
+files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### OrderItemOptionFile
 Field | Type |  Description
@@ -715,9 +715,9 @@ customerUrl | string | File download link that is sent to the customer when the 
 Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Option name
-type |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
+type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 value | string | Selected/entered value
-files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILE`)
+files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### OrderItemOptionFile
 Field | Type |  Description
@@ -991,9 +991,9 @@ total | number | Tax amount for the item
 Field | Type |  Description
 --------- | -----------| -----------
 **name** |  string | Option name
-Type |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
+type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 value | string | Selected/entered value
-files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILE`)
+files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### PersonInfo
 Field | Type |  Description
@@ -1306,9 +1306,9 @@ total | number | Tax amount for the item
 Field | Type | Description
 ----- | ---- | -----------
 **name** |  string | Option name
-Type |  string | Option type. One of `SELECT`, `CHECKBOX`, `TEXT`, `DATE`, `FILE`.
+type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 value | string | Selected/entered value
-files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILE`)
+files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### PersonInfo
 Field | Type | Description
