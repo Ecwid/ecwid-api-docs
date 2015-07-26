@@ -62,7 +62,7 @@ As the regular oAuth flow implies, you can get the access token right after the 
   </script>
 
   <!-- Include Ecwid CSS SDK -->
-  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.0.0/ecwid-app-ui.css"/>  
+  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.0/ecwid-app-ui.css"/>  
 </head>
 
 <body>
@@ -219,11 +219,11 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 ### How to use it?
 
 ```html
-<link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.0.0/ecwid-app-ui.css"/>
+<link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.0/ecwid-app-ui.css"/>
 ```
 
 1. Add this CSS file to your app embedded into Ecwid Control Panel: 
-`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.0.0/ecwid-app-ui.css`
+`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.0/ecwid-app-ui.css`
 
 2. Use this guide to find the elements and CSS classes you need: [http://api.ecwid.com/ecwid-css-framework/](http://api.ecwid.com/ecwid-css-framework/)
 
