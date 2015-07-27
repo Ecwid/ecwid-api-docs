@@ -21,7 +21,7 @@ Name | Type | Description
 ---- | ---- | -----------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-keyword |  string | Search term. Ecwid searches products over multiple fields: <ul><li>title</li><li>description</li><li>SKU</li><li>product options</li><li>category name</li><li>gallery image descriptions</li><li>attribute values (except for hidden attributes)
+keyword |  string | Search term. Use quotes to search for exact match. Ecwid searches products over multiple fields: <ul><li>title</li><li>description</li><li>SKU</li><li>product options</li><li>category name</li><li>gallery image descriptions</li><li>attribute values (except for hidden attributes)
 priceFrom |  number | Minimum product price
 priceTo | number | Maximum product price
 category | number | Category ID
@@ -43,7 +43,7 @@ If no filters are set in the URL, API will return all products
 </aside>
 
 <aside class="notice">
-Parameters in bold are mandatory
+To search for exact match, put the keyword in quotes like this: "ABC123". For example, you can use this to get a product by SKU. 
 </aside>
 
 ### Response

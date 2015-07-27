@@ -8,6 +8,13 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##July 27, 2015
+- Added a tip on how to search products for exact match using a keyword in quotes, e.g. `"keyword"`. This is useful, for example, to get a product by SKU
+- Added `emailLogoUrl` and `availableFeatures` fields description in the Store profile endpoint section
+
+##July 25, 2015
+- Added two code examples to the Library (A simple Ecwid oAuth client on PHP and a Laravel app template)
+
 ##July 8, 2015
 - Added description of how to use Ecwid oAuth in self hosted web apps, e.g. CMS plugins.
 - Introduced hosted app details pages in Ecwid Control Panel.

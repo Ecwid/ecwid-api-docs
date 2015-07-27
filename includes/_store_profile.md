@@ -38,7 +38,9 @@ Name | Type    | Description
     },
     "settings": {
         "closed": false,
-        "storeName": "My Super Store"
+        "storeName": "My Super Store",
+        "invoiceLogoUrl": "https://dpbfm6h358sh7.cloudfront.net/images/4870020/253584290.jpg",
+        "emailLogoUrl": "https://dpbfm6h358sh7.cloudfront.net/images/4870020/298177033.jpg"
     },
     "mailNotifications": {
         "adminNotificationEmails": [
@@ -202,6 +204,7 @@ Field | Type | Description
 accountName | string | Full user name
 accountNickName | string | User nickname on the Ecwid forums
 accountEmail | string | User email
+availableFeatures | Array\<string\> | A list of the premium features available on the user pricing plan
 
 
 #### Settings
@@ -210,6 +213,7 @@ Field | Type | Description
 closed | boolean | `true` if the store is closed for maintenance, `false` otherwise
 storeName | string | The store name displayed in Starter Site
 invoiceLogoUrl | string | Company logo displayed on the invoice
+emailLogoUrl | string | Company logo displayed in the store email notifications
 
 #### MailNotifications
 Field | Type | Description
