@@ -625,7 +625,8 @@ Field | Type |  Description
 ------| ---- | ------------
 **name** |  string |  Product title
 sku | string |  Product SKU
-quantity |  number | Amount of product items in stock. Leave empty for the products with unlimited stock
+quantity |  number | Amount of product items in stock. 
+unlimited | boolean | Set as `true` to make Unlimited stock for the product and to not track product inventory. 
 price | number |  Base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
@@ -778,7 +779,8 @@ Field | Type |  Description
 ------| ---- | ------------
 sku | string |  Product SKU
 name |  string |  Product title
-quantity |  number | Amount of product items in stock. Leave empty for the products with unlimited stock
+quantity |  number | Amount of product items in stock.
+unlimited | boolean | Set as `true` to make Unlimited stock for the product and to not track product inventory. 
 price | number |  Base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
