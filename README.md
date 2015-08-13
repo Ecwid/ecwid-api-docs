@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##August 13, 2015
+- Added Single Sign On code examples
+
+
 ##July 27, 2015
 - Added a tip on how to search products for exact match using a keyword in quotes, e.g. `"keyword"`. This is useful, for example, to get a product by SKU
 - Added `emailLogoUrl` and `availableFeatures` fields description in the Store profile endpoint section

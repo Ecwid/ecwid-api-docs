@@ -193,9 +193,7 @@ Field | Type  | Description
 - Never change your appId! Changing appId of an existing authentication system will result in inability of registered customers to sign on your website, because new customers will have different appId/userId combination and conflict with existing database records with the same email.
 
 
-## Example
-
-See the example on the right side of the page
+## SSO implementation examples
 
 > Ecwid SSO API implementation example
 
@@ -242,3 +240,12 @@ function logout() {
 <a href="javascript: logout()">Log out</a>
 </body></html>
 ```
+
+### PHP
+See the example here on the right side of the page
+
+### VB.Net
+Find an example here: [https://github.com/balajiselcom/Ecwid](https://github.com/balajiselcom/Ecwid) (thanks to Balaji Sridharan)
+
+### Wordpress
+Ecwid official Wordpress plugins uses SSO to sync Wordpress site users with customers in an Ecwid store. You can find the code here: [https://github.com/Ecwid/ecwid-wordpress-plugin](https://github.com/Ecwid/ecwid-wordpress-plugin)
