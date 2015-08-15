@@ -290,7 +290,8 @@ Parameters in bold are mandatory
             "url": "http://images-cdn.ecwid.com/images/4870020/237132118.jpg",
             "thumbnail": "http://images-cdn.ecwid.com/images/4870020/237132119.jpg",
             "width": 220,
-            "height": 293
+            "height": 293,
+            "orderby": 10
         }
     ],
     "categoryIds": [
@@ -489,6 +490,7 @@ url | string |  Image URL
 thumbnail | string  | Image thumbnail URL resized to fit 46x42px box
 width | number |  Image width
 height |  number |  Image height
+orderby |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
 
 #### AttributeValue
 Field | Type  | Description
@@ -742,6 +744,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
+
 ## Update a product
 
 > Request example
@@ -796,6 +799,7 @@ categoryIds | Array\<number\> | List of the categories, which the product belong
 defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
+galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images (for updating alt tags and sort order)
 
 <aside class="notice">
 All fields are optional
@@ -853,6 +857,13 @@ Field | Type  | Description
 **text** |  string | Option selection text, e.g. 'Green'.
 priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
 priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
+
+#### GalleryImage
+Field | Type  | Description
+----- | ----- | -----------
+id | number | Internal gallery image ID
+alt | string |  Image description, displayed in the image tag's *alt* attribute
+orderby |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
 
 
 ### Response
