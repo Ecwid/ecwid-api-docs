@@ -48,7 +48,7 @@ As the regular oAuth flow implies, you can get the access token right after the 
   <script>
     // Initialize the application
     EcwidApp.init({
-      app_id: "my-super-app", // your application namespace (not clientID)
+      app_id: "my-super-app", // place your application namespace here (not clientID)
       autoloadedflag: true, 
       autoheight: true
     });
@@ -140,7 +140,7 @@ function aes_128_decrypt($key, $data) {
 
 // Get payload from the GET and process it
 $ecwid_payload = $_GET['payload'];
-$client_secret = "0123abcd4567efgh1234567890";
+$client_secret = "0123abcd4567efgh1234567890"; // this is a dummy value. Please place your app secret key here
 $result = getEcwidPayload($client_secret, $ecwid_payload);
 ?>
 ```

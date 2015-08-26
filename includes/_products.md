@@ -158,7 +158,7 @@ favorites | \<FavoritesStats\>  | Product favorites stats
 Field | Type  | Description
 ----- | ----- | -----------
 count | number | The actual number of 'likes' of this product
-displayedCount | number | The displayed number of likes. May differ from the `count` if, for example, the value is more than 1000 -- it will show 1K instead of precise number
+displayedCount | string | The displayed number of likes. May differ from the `count` if, for example, the value is more than 1000 -- it will show 1K instead of precise number
 
 ### Errors
 
@@ -464,7 +464,7 @@ combinations | Array\<*Combination*\> | List of the product combinations
 Field | Type  | Description
 ----- | ----- | -----------
 count | number | The actual number of 'likes' of this product
-displayedCount | number | The displayed number of likes. May differ from the `count` if, for example, the value is more than 1000 -- it will show 1K instead of precise number
+displayedCount | string | The displayed number of likes. May differ from the `count` if, for example, the value is more than 1000, than it will show 1K instead of the precise number
 
 #### WholesalePrice
 Field | Type  | Description
