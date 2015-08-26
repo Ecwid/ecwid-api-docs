@@ -161,7 +161,9 @@ Parameters in bold are mandatory
                         {
                             "name": "Tax X",
                             "value": 7,
-                            "total": 1.79
+                            "total": 1.79,
+                            "taxOnDiscountedSubtotal": 1.79,
+                            "taxOnShipping": 0
                         }
                     ]
                 }
@@ -304,6 +306,8 @@ Field | Type | Description
 name |  string | Tax name
 value | number | Tax value in percent
 total | number | Tax amount for the item
+taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
+taxOnShipping | number | Tax on item shipping
 
 #### OrderItemProductFile
 Field | Type | Description
@@ -560,7 +564,9 @@ Parameters in bold are mandatory
                 {
                     "name": "Tax X",
                     "value": 7,
-                    "total": 1.79
+                    "total": 1.79,
+                    "taxOnDiscountedSubtotal": 1.79,
+                    "taxOnShipping": 0
                 }
             ]
         }
@@ -697,6 +703,8 @@ Field | Type |  Description
 name |  string | Tax name
 value | number | Tax value in percent
 total | number | Tax amount for the item
+taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
+taxOnShipping | number | Tax on item shipping
 
 #### OrderItemProductFile
 Field | Type | Description
