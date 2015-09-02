@@ -66,7 +66,9 @@ Single Sign On | - | ✓ | ✓ | ✓ |
 
 
 ### Q: I need to test my application before marketing it. How can I get a paid account?
-If you're building an app for Ecwid App Market, we would ve happy to provide you with a paid Ecwid account for free for testing purposes. Please [contact us](http://developers.ecwid.com/contact), provide the details of your application and we will help you. 
+If you’re building an app for Ecwid App Market, we would be happy to provide you with a paid Ecwid account for free for development and testing purposes. Feel free to [contact us](http://developers.ecwid.com/contact), provide the details of your application and we will help you.
+
+Please note that this account must not be used for selling the application or any other products to real customers.
 
 
 ## Usage policy
