@@ -357,7 +357,7 @@ Field | Type  | Description
 ----- | ----- | -----------
 name |  string | Coupon title in store control panel
 code |  string | Coupon code
-discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`
+discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
 launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000`
@@ -754,7 +754,7 @@ Field | Type  | Description
 ----- | ----- | -----------
 name |  string | Coupon title in store control panel
 code |  string | Coupon code
-discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`
+discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
 launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000`
@@ -1020,7 +1020,7 @@ Field | Type  | Description
 ----- | ----- | -----------
 name |  string | Coupon title in store control panel
 code |  string | Coupon code
-discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`
+discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
 launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000`
@@ -1335,7 +1335,7 @@ Field | Type  | Description
 ----- | ----- | -----------
 name |  string | Coupon title in store control panel
 code |  string | Coupon code
-discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`
+discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
 launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000`
