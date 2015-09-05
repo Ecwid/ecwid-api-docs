@@ -21,7 +21,7 @@ Name | Type    | Description
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items in one batch. Maximum allowed value: `100`. Default value: `10`
 code | string | Coupon code
-discount_type | string | Comma separated list of discount types. Supported values: `ABS`, `PERCENT`, `SHIPPING`
+discount_type | string | Comma separated list of discount types. Supported values: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 availability |  string | Comma separated list of coupon states. Supported values: `ACTIVE`, `PAUSED`, `EXPIRED`, `USEDUP`
 
 <aside class="notice">
@@ -94,7 +94,7 @@ Field | Type  | Description
 ----- | ----- | -----------
 name |  string | Coupon title
 code |  string | Unique coupon code
-discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`, `ABS_AND_SHIPPING` and `PERCENT_AND_SHIPPING`
+discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
 launchDate | string | The date of coupon launch
@@ -192,7 +192,7 @@ Field | Type  | Description
 ----- | ----- | -----------
 name |  string | Coupon title
 code |  string | Unique coupon code
-discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`, `ABS_AND_SHIPPING` and `PERCENT_AND_SHIPPING`
+discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
 launchDate | string | The date of coupon launch
@@ -278,7 +278,7 @@ Field | Type  | Description
 ----- | ----- | -----------
 **name** |  string | Coupon title
 **code** |  string | Unique coupon code
-discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`, `ABS_AND_SHIPPING` and `PERCENT_AND_SHIPPING` . Default is `ABS`
+discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING` . Default is `ABS`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP` . Default is `ACTIVE`
 discount | number | Discount amount . `0` is default
 launchDate | string | The date of coupon launch
@@ -397,7 +397,7 @@ Field | Type  | Description
 ----- | ----- | -----------
 name |  string | Coupon title
 code |  string | Unique coupon code
-discountType | string | Discount type: `ABS`, `PERCENT` or `SHIPPING`, `ABS_AND_SHIPPING` and `PERCENT_AND_SHIPPING` . 
+discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING` . 
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP` .
 discount | number | Discount amount .
 launchDate | string | The date of coupon launch
