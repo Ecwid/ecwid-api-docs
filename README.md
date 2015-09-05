@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##September 5, 2015
+- Updated discountType field. Added mixed type of coupon (absolute discount AND free shipping, percentage discount AND free shipping)
+
 ##August 26, 2015
 - Added tax details to order items (taxOnDiscountedSubtotal and taxOnShipping fields)
 

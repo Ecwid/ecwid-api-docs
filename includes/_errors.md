@@ -37,7 +37,7 @@ It's very important to properly handle those Ecwid users who are on free plan.
 
 
 ### How to handle Free Ecwid users in your application
-Ecwid pricing currently include four tiers: Free, Venture, Business, Unlimited. Unlike many other services, Ecwid doesn't provide a trial – instead, there is a Free plan which stays free forever. Plus it is quite powerful and thus very popular among Ecwid users, even long-time ones. So, in your application, you should be ready that some of your users will be on Ecwid's Free plan and handle them properly. Here are the key points and best practices on how to do that:
+[Ecwid pricing](http://www.ecwid.com/pricing) currently include four tiers: Free, Venture, Business, Unlimited. Unlike many other services, Ecwid doesn't provide a trial – instead, there is a Free plan which stays free forever. Plus it is quite powerful and thus very popular among Ecwid users, even long-time ones. So, in your application, you should be ready that some of your users will be on Ecwid's Free plan and handle them properly. Here are the key points:
 
 1. Ecwid 
 Ecwid API is not available on free Ecwid plan.  paid plans and is not available on free Ecwid plan. 
@@ -59,7 +59,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 #### HTTP codes
 
-**HTTP Status** | **Response JSON** | Description
+HTTP Status | **Response JSON** | Description
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
 409 | The product with such SKU already exists
