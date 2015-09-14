@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##September 14, 2015
+- New minor version of Ecwid JS SDK is released (v 1.0.1). It contains a fix for the bug that caused layout issues in embedded apps (glitchy footer)
+
 ##September 5, 2015
 - Updated discountType field. Added mixed type of coupon (absolute discount AND free shipping, percentage discount AND free shipping)
 
