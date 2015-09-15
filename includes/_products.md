@@ -909,6 +909,91 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
+## Adjust product inventory
+
+> Request example
+
+```http
+PUT /api/v3/4870020/products/39766764/inventory?token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+
+{
+    "quantityDelta": -10
+}
+```
+
+`PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/inventory?token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**productId** | number | Product ID
+**token** |  string |  oAuth token
+
+<aside class="notice">
+Parameters marked with * are mandatory.
+</aside>
+
+### Request body
+
+A JSON object of type 'Product' with the following fields:
+
+#### Inventory
+Field | Type |  Description
+------| ---- | ------------
+quantityDelta | number | Delta value used to update product quantity. Negative value will decrease quantity, positive one will increase it.
+
+<aside class="notice">
+Fields marked with * are mandatory.
+</aside>
+
+### Response
+
+> Response example (JSON)
+
+```json
+{
+  "updateCount": 1
+}
+```
+
+A JSON object of type 'InventoryAdjustmentStatus' with the following fields:
+
+#### UpdateStatus
+
+Field | Type |  Description
+-------------- | -------------- | --------------
+updateCount | number | The number of updated products (`1` or `0` depending on whether the update was successful)
+warning | string(nullable) | Inventory update warning. For example, the warning will display if the stock became negative
+
+<aside class="notice">
+Some fields can have null value or be absent, in which case they are marked as nullable.
+</aside>
+
+### Errors
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+HTTP Status | Description
+-------------- | --------------
+400 | Request parameters are malformed
+404 | Product not found
+500 | Could not process the request, internal server error
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
 
 ## Delete a product
 
