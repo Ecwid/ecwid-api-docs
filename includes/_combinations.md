@@ -443,7 +443,6 @@ price | number | Combination price. Omitted if the combination inherits the base
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
 weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
 warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
-inventoryDelta | number | Amount by which to increase the combination inventory. A negative number decreases inventory.
 
 #### OptionValue
 Field | Type | Description
@@ -632,7 +631,93 @@ HTTP Status | Meaning
 
 
 
+## Adjust combination inventory
 
+> Request example
+
+```http
+PUT /api/v3/4870020/products/8383892837/combinations/772828388/inventory?token=1234567890qwqeertt HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+
+{
+    "quantityDelta": -10
+}
+```
+
+`PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}/inventory?token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**productId** | number | Product ID
+**combinationId** | number | Combination ID
+**token** |  string |  oAuth token
+
+<aside class="notice">
+Parameters marked with * are mandatory.
+</aside>
+
+### Request body
+
+A JSON object of type 'Product' with the following fields:
+
+#### Inventory
+Field | Type |  Description
+------| ---- | ------------
+quantityDelta | number | Delta value used to update product quantity. Negative value will decrease quantity, positive one will increase it.
+
+<aside class="notice">
+Fields marked with * are mandatory.
+</aside>
+
+### Response
+
+> Response example (JSON)
+
+```json
+{
+  "updateCount": 1
+}
+```
+
+A JSON object of type 'InventoryAdjustmentStatus' with the following fields:
+
+#### UpdateStatus
+
+Field | Type |  Description
+-------------- | -------------- | --------------
+updateCount | number | The number of updated products (`1` or `0` depending on whether the update was successful)
+warning | string(nullable) | Inventory update warning. For example, the warning will display if the stock became negative
+
+<aside class="notice">
+Some fields can have null value or be absent, in which case they are marked as nullable.
+</aside>
+
+### Errors
+
+```http
+HTTP/1.1 400 Bad Request
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+HTTP Status | Description
+-------------- | --------------
+400 | Request parameters are malformed
+402 | This functionality is not available on this plan
+404 | Product not found
+500 | Could not process the request, internal server error
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
 
 
 
