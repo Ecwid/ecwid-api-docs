@@ -645,6 +645,7 @@ Cache-Control: no-cache
     "quantityDelta": -10
 }
 ```
+You can increase or decrease the product combination's stock quantity using this method. For example, if you need to update the combination's inventory so that it is decreased by 10 items, you can use this method.
 
 `PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}/inventory?token={token}`
 
@@ -655,22 +656,14 @@ Name | Type    | Description
 **combinationId** | number | Combination ID
 **token** |  string |  oAuth token
 
-<aside class="notice">
-Parameters marked with * are mandatory.
-</aside>
-
 ### Request body
 
-A JSON object of type 'Product' with the following fields:
+A JSON object of type 'Inventory' with the following fields:
 
 #### Inventory
 Field | Type |  Description
 ------| ---- | ------------
-quantityDelta | number | Delta value used to update product quantity. Negative value will decrease quantity, positive one will increase it.
-
-<aside class="notice">
-Fields marked with * are mandatory.
-</aside>
+**quantityDelta** | number | Delta value used to update product quantity. Negative value will decrease quantity, positive one will increase it.
 
 ### Response
 
@@ -684,16 +677,12 @@ Fields marked with * are mandatory.
 
 A JSON object of type 'InventoryAdjustmentStatus' with the following fields:
 
-#### UpdateStatus
+#### InventoryAdjustmentStatus
 
 Field | Type |  Description
 -------------- | -------------- | --------------
 updateCount | number | The number of updated products (`1` or `0` depending on whether the update was successful)
-warning | string(nullable) | Inventory update warning. For example, the warning will display if the stock became negative
-
-<aside class="notice">
-Some fields can have null value or be absent, in which case they are marked as nullable.
-</aside>
+warning | string | Inventory update warning(optional). For example, the warning will display if the stock became negative
 
 ### Errors
 
