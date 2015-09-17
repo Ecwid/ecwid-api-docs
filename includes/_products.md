@@ -136,7 +136,7 @@ inStock | boolean | `true` if the product or any of its combinations is in stock
 name |  string |  Product title
 price | number |  Base product price
 priceInProductList | number |  Product price displayed in the product list. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
-compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
+compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend. Will be returned if any value is present for the product.
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
@@ -432,7 +432,7 @@ name |  string |  Product title
 price | number |  Base product price
 priceInProductList | number |  Product price displayed in the product list. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
-compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
+compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend. Will be returned if any value is present for the product.
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
