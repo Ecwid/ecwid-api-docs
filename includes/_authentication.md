@@ -126,10 +126,10 @@ Access scope | Notes
 ------------ | -----
 read_store_profile | Get store name and general settings, get store admin email, get updates statistics etc. *Requested in all cases even if not specified*
 update_store_profile | Set taxes, update invoice logo, change Starter Site domain, close store for maintenance etc.
-read_catalog | Search products, get product options/combinations etc.
+read_catalog | Search products, get product options/combinations etc. Also allows to receive push updates (webhooks) about changes in store products.
 update_catalog | Update product prices, upload images and e-goods, modify product attributes etc.
 create_catalog | Create new products
-read_orders | Get sales for a given period, retrieve order details etc.
+read_orders | Get sales for a given period, retrieve order details etc. Also allows to receive push updates (webhooks) about changes in store orders.
 update_orders | Change order totals, switch order status, cancel orders etc.
 create_orders | Place a new order in the store
 read_customers | Search customers or retrieve some particular customer data
