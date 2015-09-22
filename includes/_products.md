@@ -136,7 +136,7 @@ inStock | boolean | `true` if the product or any of its combinations is in stock
 name |  string |  Product title
 price | number |  Base product price
 priceInProductList | number |  Product price displayed in the product list. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
-compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
+compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
@@ -432,7 +432,7 @@ name |  string |  Product title
 price | number |  Base product price
 priceInProductList | number |  Product price displayed in the product list. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
-compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
+compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
@@ -923,7 +923,11 @@ Cache-Control: no-cache
     "quantityDelta": -10
 }
 ```
-You can increase or decrease the product's stock quantity using this method. For example, if you need to update the product's inventory so that it is decreased by 10 items, you can use this method.
+When your integration changes in stock quantity of products in a store pretty often, it becomes harder and harder to keep track of how many items are actually in stock. For example, when at one point of time you have 3 items in stock and 5 in the very next second, then using the specific values can result in incorrect stock quantity.
+
+This method solves this very problem: you can increase or decrease the product's stock quantity by a delta quantity. For example, if you need to decrease quantity by 10 items, you can use this method. 
+
+This method is also available for the [product combinations](#adjust-combination-inventory).
 
 `PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/inventory?token={token}`
 

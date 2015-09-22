@@ -645,7 +645,11 @@ Cache-Control: no-cache
     "quantityDelta": -10
 }
 ```
-You can increase or decrease the product combination's stock quantity using this method. For example, if you need to update the combination's inventory so that it is decreased by 10 items, you can use this method.
+When your integration changes in stock quantity of product combination in a store pretty often, it becomes harder and harder to keep track of how many items are actually in stock. For example, when at one point of time you have 3 items in stock and 5 in the very next second, then using the specific values can result in incorrect stock quantity.
+
+This method solves this very problem: you can increase or decrease the product combination's stock quantity by a delta quantity. For example, if you need to decrease quantity by 10 items, you can use this method. 
+
+This method is also available for [products](#adjust-product-inventory).
 
 `PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}/inventory?token={token}`
 
