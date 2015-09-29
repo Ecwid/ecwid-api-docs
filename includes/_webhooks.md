@@ -1,4 +1,4 @@
-# Webhooks [work in progress]
+# Webhooks
 
 # What is webhook
 
@@ -11,7 +11,7 @@ This is how your application can use webhooks:
 * Get notified about every new order in the store to send a custom email or text message, or generate a custom receipt or subscribe the customer to your newsletter.
 
 <aside class="notice">
-Don't use webhooks themselves as actionable items – please see the ["Webhooks security"](#webhooks-security) notes below for details on working with webhooks.
+Don't use webhooks themselves as actionable items – please see the "Webhooks security" notes below for details on working with webhooks.
 </aside>
 
 ## How it works in Ecwid
@@ -37,12 +37,12 @@ The following events are supported:
 * Product is deleted
 
 
-# Setting up webhooks
+## Setting up webhooks
 
 Setup process is easy. Once your application has a webhook URL specified in the settings and has a token with appropriate access level for the store, it will receive notifications automatically. More details on these are below.
 
 
-## Set webhook URL
+### Set webhook URL
 When you [register your application](#register-your-app-in-ecwid) with Ecwid, please specify a webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable webhooks for existing application, please contact us. 
 
 <aside class="notice">
@@ -50,7 +50,7 @@ This must be an HTTPS URL.
 </aside>
 
 
-## Get access
+### Get access
 Each application has scope of access that controls the set of store resources and operations permitted for the application. The same set of access scopes is used to determine which events your application can be notified of. To be notified of the product updates, make sure your app has `read_catalog` access to the store. The `read_orders` scope allows to get order webhooks. See [Access scopes](#access-scopes) for more details. 
 
 
@@ -66,11 +66,11 @@ Each application has scope of access that controls the set of store resources an
 POST https://www.myapp.com/callback?eventType=product.updated
 
 {
-	"eventId": 12345,
-	"eventType": "product.updated",
-	"eventCreated": 1230329329,
-	"storeId": 1003,
-	"entityId": 130030039,
+  "eventId": 12345,
+  "eventType": "product.updated",
+  "eventCreated": 1230329329,
+  "storeId": 1003,
+  "entityId": 130030039,
 }
 ```
 
@@ -80,13 +80,12 @@ Name | Type | Description
 ---- | -----| -----------
 eventId | number | Unique webhook ID
 eventType | string | Type of the occurred event.
-eventCreated | Unix Timestamp | Unix timestamp of the occurred event.
+eventCreated | timestamp | Unix timestamp of the occurred event.
 storeId | number | Store ID of the store where the event occured.
 entityId | number | Id of the updated entity. For example, if a product was updated, then the entityId will be the ID of that product
 
-<aside class="notice">
+
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
-</aside>
 
 
 ## Request headers
@@ -99,8 +98,7 @@ Your app should return a `200 OK` HTTP status code in reply to a webhook. This a
 
 
 
-
-## Webhooks security
+# Webhooks security
 
 <aside class="notice">
 The documentation is in progress
