@@ -46,7 +46,7 @@ Setup process is easy. Once your application has a webhook URL specified in the 
 When you [register your application](#register-your-app-in-ecwid) with Ecwid, please specify a webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable webhooks for existing application, please contact us. 
 
 <aside class="notice">
-This must be a valid HTTPS URL. 
+This must be an HTTPS URL. 
 </aside>
 
 
@@ -85,7 +85,7 @@ storeId | number | Store ID of the store where the event occured.
 entityId | number | Id of the updated entity. For example, if a product was updated, then the entityId will be the ID of that product
 
 <aside class="notice">
-The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`
+The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
 </aside>
 
 
@@ -93,28 +93,19 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](#webhooks-security) below.
 
 
-## Retries
-If the request fails to connect (wrong URL or problems on your server) in the time span of 30 seconds, Ecwid will attempt to re-send it every 15 minutes. If all attempts were not successful, a message gets removed from the queue as an undelivered one.
+# Responding to webhooks
 
-The request is considered successful if an endpoint/URL returns HTTP 200 or HTTP 201 status header. 
-
+Your app should return a `200 OK` HTTP status code in reply to a webhook. This acknowledges Ecwid that you received the webhook. Any other response (e.g. `3xx`), will indicate that the webhook is not received. In this case, we will re-send a webhook every 15 minutes the maximum retry limit is reached. Once the limit is reached, the webhook is removed from the queue and will not be send again.
 
 
 
 
 ## Webhooks security
 
-**Workflow of a webhook**
+<aside class="notice">
+The documentation is in progress
+</aside>
 
-Your script gets a notification about an event. Only the necessary information like order number, date and store ID is sent. Ecwid will not send any private and sensitive information.
+### Verifying webhook signature
 
-Then your script should use the [Order API endpoint](#orders) or [Product API endpoint](#products) to validate and get more information about this event. I.e. check that the placed/updated order exists and get necessary sensitive order details. If no such order exists in a database or it exists, but its current order status doesn't match a status in the notification, then the notification should be ignored as a fake one. 
-
-
-**Security**
-
-This approach makes the whole process to be secure by design. For example:
-
-1) If you set the incorrect endpoint URL or use a 3d-party URL to test notifications, they will not get a private information about your customers, because they don't know your API access token.
-
-2) This design forces application to always verify each notification request which comes to the endpoint. So even if somebody tries to "fake" a notification, it will not be validated and will be ignored. This is a great approach, which enhances the security of the app greatly. 
+### Best practices
