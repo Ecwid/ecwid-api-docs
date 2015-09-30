@@ -154,7 +154,7 @@ In case of applications that are installed on a device (such as a computer, a ce
 curl "http://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code"
 ```
 
-On the [Step #1](#retrieveing-access-token) (app requests a temporarily authorization code), application needs to send the following value as redirect_uri:
+On the [Step #1](#get-access-token) (app requests a temporarily authorization code), application needs to send the following value as redirect_uri:
 
 `urn:ietf:wg:oauth:2.0:oob`
 
@@ -177,14 +177,14 @@ The rest of request parameters are the same as for web services.
 <title>oauth_response:error=access_denied</title>
 ```
 
-On the [Step #2](#retrieveing-access-token) (Ecwid provides the app with a temporary authorization code), Ecwid will not direct a user to `redirect_uri` after the user agrees or disagrees to provide the application with permissions. Instead, Ecwid opens an empty page and provides the code in the page's `<title>` tag. I.e., all the data is sent to application in the page title tag and no data is sent in GET request to the application. The format of data provided in the `<title>` tag is the following:
+On the [Step #2](#get-access-token) (Ecwid provides the app with a temporary authorization code), Ecwid will not direct a user to `redirect_uri` after the user agrees or disagrees to provide the application with permissions. Instead, Ecwid opens an empty page and provides the code in the page's `<title>` tag. I.e., all the data is sent to application in the page title tag and no data is sent in GET request to the application. The format of data provided in the `<title>` tag is the following:
 
 `oauth_response:GET-query-as-it-would-be-transferred-via-redirect`
 
 <aside class="notice">On this step, the app needs to react on the changes in the title tag content and parse it the same way as it would parse GET request query. So it is required that the application has access to the system browser or the ability to embed a browser control in the application.</aside>
 
 ###Changes in Step #3
-The [Step #3](#retrieveing-access-token) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
+The [Step #3](#get-access-token) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
 
 
 ## Selfhosted web apps
