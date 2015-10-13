@@ -275,8 +275,8 @@ creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 #### OrderItem
 Field | Type |  Description
 --------- | -----------| -----------
-id | number | Order item ID. Can be used to [edit orders](#update-order), if there is no such product in store
-productId | number | Store product ID. Can be used to [get product details](#get-a-product) if there is still that product in store
+id | number | Order item ID
+productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
 productPrice | number | Basic product price without options markups, wholesale discounts etc.
@@ -672,8 +672,8 @@ creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 #### OrderItem
 Field | Type |  Description
 --------- | -----------| -----------
-id | number | Order item ID. Can be used to [edit orders](#update-order), if there is no such product in store
-productId | number | Store product ID. Can be used to [get product details](#get-a-product) if there is still that product in store
+id | number | Order item ID
+productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
 productPrice | number | Basic product price without options markups, wholesale discounts etc.
@@ -965,10 +965,10 @@ creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 #### OrderItem
 Field | Type |  Description
 --------- | -----------| -----------
-**id** | number | Order item ID. Can be used to [edit orders](#update-order), if there is no such product in store 
+**id** | number | Order item ID
 quantity |  number | Amount purchased
 name |  string | Product name
-productId | number | Store product ID. Can be used to [get product details](#get-a-product) if there is still that product in store
+productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
 productPrice | number | Basic product price without options markups, wholesale discounts etc.
@@ -1283,7 +1283,7 @@ Field | Type | Description
 ----- | ---- | -----------
 **name** | string | Product name
 quantity | number | Amount purchased
-productId | number | Store product ID. Can be used to [get product details](#get-a-product) if there is still that product in store
+productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
 productPrice | number | Basic product price without options markups, wholesale discounts etc.
