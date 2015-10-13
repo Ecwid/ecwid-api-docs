@@ -107,32 +107,3 @@ The documentation is in progress
 ### Verifying webhook signature
 
 ### Best practices
-
-So now that you have specified a URL for your application, it is time to start working on accepting Webooks of Ecwid users' stores.
-
-The standard workflow for using Webhooks in Ecwid is the following: 
-1. Something changes in Ecwid store
-2. Ecwid sends a Webhook to your application
-3. Application sends a reply to that request and verifies that this webhook is from Ecwid
-4. Application checks for the updated data
-5. Application reacts to changes based on the type of event and other factors
-
-Let's break down each step in more detail:
-1. Someting changes in Ecwid store
-These changes can be initiated by many parties: store admin that changes the stock of items, a customer who places a new order in the store, or a 3rd party application that has changed something in a store.
-
-2. Ecwid sends a Webhook to your application
-This step is pretty simple, as Ecwid is just sending webhook to the URL that you specified for your application. 
-
-3. Application sends a reply to that request and verifies that this webhook is from Ecwid
-Every notification request will include a header called `X-Ecwid-Webhook-Signature` that includes an HMAC-SHA256 signature of the request body. To decrypt it, you will need to use your clientSecret, which we sent you upon app registration, as the signing key. This lets your app verify that the notification really came from Ecwid. It's not a required step, however we highly recommend that you check the validity of the signature before processing the notification.
-
-4. Application checks for the updated data
-The body of a Webhook does not include the actual file changes. It only informs your app of which entities (orders or products) were updated and how: a new element is created, existing element update or something was deleted from the store. 
-
-So your app will need to dive into the details of the changes by using either [get order details](#get-order-details) or [get a product](#get-a-product) methods.
-
-5. Application reacts to changes, based on the type of event and other factors
-As a result of getting the exact entity that has changed (product or order) your app can do various actions. For example, send a push notification to a user who is actively browsing Ecwid storefront, update only one product in your local database or send a new info to your fulfilment center, send an email to a new customer offering them a discount and many more.
-
-Once the app is done making changes, it will be ready to accept further updates from Ecwid, when the process will begin all over again.
