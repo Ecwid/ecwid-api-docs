@@ -1195,7 +1195,6 @@ Cache-Control: no-cache
         "paymentStatus": "PAID",
         "fulfillmentStatus": "AWAITING_PROCESSING",
         "createDate": "2015-09-20 19:59:43 +0000",
-        "updateDate": "2015-09-21 00:00:12 +0000",
         "items": [
             {
                 "price": 15,
@@ -1265,7 +1264,6 @@ totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal
 discount | number | The sum of applied discounts without coupon discount. 
 globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
-updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 items | Array\<*OrderItem*\> | Order items
