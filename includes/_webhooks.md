@@ -100,74 +100,6 @@ Your app should return a `200 OK` HTTP status code in reply to a webhook. This a
 
 # Webhooks security
 
-> Webhooks processing PHP example
-
-```
-<?php 
-//get contents of POST request
-$content = @file_get_contents('php://input');
-
-//put contents of POST request into an array
-$array = json_decode($content, true);
-
-//create variables for future use
-$eventId = $array['eventId'];
-$eventCreated = $array['eventCreated'];
-$storeId = $array['storeId'];
-$entityId = $array['entityId'];
-$eventType = $array['eventType'];
-
-$client_secret = 'wtaFGLiZnJHoKuASdaswglh';
-
-//start the string for a text file 
-$webhookLog = "Header: \n";
-
-//get request headers
-foreach (getallheaders() as $name => $value) {
-
-	//check if the webhook is indeed from Ecwid
-
-    if ($name == "X-Ecwid-Webhook-Signature") {
-    	//print signature from Ecwid POST request
-    	$webhookLog .= "$name: $value\n";
-
-    	//encode eventCreated and eventId to create our own signature
-    	$hmac_result = hash_hmac("sha256", "$eventCreated.$eventId", $client_secret, true);
-    	$decoded = base64_encode($hmac_result);
-
-    	//print the generated signature to compare 
-    	$webhookLog .= "Encode result: $decoded\n";
-	}
-}
-
-//print POST request fields
-$webhookLog .= "\neventId: $eventId \n";
-$webhookLog .= "eventCreated: $eventCreated \n";
-$webhookLog .= "storeId: $storeId \n";
-$webhookLog .= "entityId: $entityId \n";
-$webhookLog .= "eventType: $eventType";
-
-//add the info above into a text file fot testing
-$file = "text.txt"; 
-$Saved_File = fopen($file, 'w'); 
-fwrite($Saved_File, $webhookLog); 
-fclose($Saved_File); 
-?>
-```
-
-> Contents of text.txt file
-
-```
-Header: 
-X-Ecwid-Webhook-Signature: aabcde12357
-Encode result: aabcde12357
-
-eventId: 2a191f49-1fy3-aq13-ba5f-cc1b23qfc4y2 
-eventCreated: 123456789 
-storeId: 1003 
-entityId: 52442233 
-eventType: product.updated
-```
 <aside class="notice">
 The documentation is in progress
 </aside>
@@ -175,25 +107,3 @@ The documentation is in progress
 ### Verifying webhook signature
 
 ### Best practices
-So now that you have specified a URL for your application, it is time to start working on accepting Webooks of Ecwid users' stores.
-
-The standard workflow for using Webhooks in Ecwid is the following: 
-1. Changes occur in a store and Ecwid sends a webhook to your app
-2. Application sends a reply to that request
-3. Application verifies that this webhook is from Ecwid
-4. Application checks for the updated data
-
-Let's break down each step in more detail:
-**1. Changes occur in a store and Ecwid sends a webhook to your app**
-Changes in a store can be initiated by many parties: store admin that changes the stock of items, a customer who places a new order in the store, or a 3rd party application that has changed something in a store. After these changes occur, Ecwid will send a webhook to your app.
-
-**2. Application sends a reply to that request**
-It is important that your application sends a 200OK reply to a webhook, because Ecwid will be trying to deliver it to your server until the limit of retries is reached. 
-
-**3. Application verifies that the webhook came from Ecwid**
-To verify the webhook, your app will need to compare the signature that came in headers of the POST request with the signature created by an app. For more details, see ["Webhooks security"](#webhooks-security) section.
-
-**4. Application checks for the updated data**
-Webhooks inform your app about which entities (orders or products) were updated and how: a new element is created, existing element was updated or something was deleted from the store. Go ahead and get the most recent details of your [product](get-a-product) or [order](#get-order-details). 
-
-Now that you processed the webhook, the app continues performing its usual tasks and waits for the next webhook to process it accordingly.
