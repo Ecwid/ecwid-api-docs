@@ -8,11 +8,6 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
-##October 29, 2015
-- Added best practices for Webhooks
-- Added PHP example for processing Webhooks
-- Updated URL for Ecwid Javascript SDK
-
 ##September 22, 2015
 - Updated description text for adjustProductInventory and adjustCombinationInventory
 - Updated text for compareToPrice field description
