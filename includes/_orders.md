@@ -275,7 +275,7 @@ creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 #### OrderItem
 Field | Type |  Description
 --------- | -----------| -----------
-id | number | Order item ID. Can be used to access product item in orders.
+id | number | Order item ID. Can be used to address the item in the order, e.g. to manage ordered items.
 productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
@@ -672,7 +672,7 @@ creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 #### OrderItem
 Field | Type |  Description
 --------- | -----------| -----------
-id | number | Order item ID. Can be used to access product item in orders.
+id | number | Order item ID. Can be used to address the item in the order, e.g. to manage ordered items.
 productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
@@ -965,7 +965,7 @@ creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 #### OrderItem
 Field | Type |  Description
 --------- | -----------| -----------
-**id** | number | Order item ID. Can be used to access product item in orders.
+**id** | number | Order item ID. 
 quantity |  number | Amount purchased
 name |  string | Product name
 productId | number | Store product ID
