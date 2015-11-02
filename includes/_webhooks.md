@@ -107,3 +107,56 @@ The documentation is in progress
 ### Verifying webhook signature
 
 ### Best practices
+
+> Webhooks processing PHP example
+
+```
+<?php 
+//get contents of webhook request
+$requestBody = @file_get_contents('php://input');
+$client_secret = 'abcde123456789';
+​
+//parse webhook data
+$decodedBody = json_decode($requestBody, true);
+​
+$eventId = $decodedBody['eventId'];
+$eventCreated = $decodedBody['eventCreated'];
+$storeId = $decodedBody['storeId'];
+$entityId = $decodedBody['entityId'];
+$eventType = $decodedBody['eventType'];
+​
+//reply with 200OK to Ecwid
+http_response_code(200);
+​
+//continue if eventType is product.updated
+if ($eventType == 'product.updated'){
+​
+//check if the webhook is indeed from Ecwid
+foreach (getallheaders() as $name => $value) {
+    if ($name == "X-Ecwid-Webhook-Signature") {
+    	$headerSignature = "$value";
+    	
+    	$hmac_result = hash_hmac("sha256", "$eventCreated.$eventId", $client_secret, true);
+    	$generatedSignature = base64_encode($hmac_result);
+​
+    	if ($generatedSignature == $headerSignature) {
+    		echo 'Signature verified';
+    	}
+    	else {
+    		echo 'Signatures do not match';
+    	}
+	}
+}
+​
+//Put your logic here
+​
+///....
+​
+else {
+	//if it's not product.updated, exit the script
+	exit;
+}
+?>
+```
+
+
