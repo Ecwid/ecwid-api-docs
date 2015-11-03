@@ -672,7 +672,7 @@ value | string  | Attribute value
 #### RelatedProducts
 Field | Type  | Description
 -------------- | -------------- | --------------
-**productIds** | Array\<number\>  | IDs of the related products
+**productIds** | Array\<number\>  | IDs of the related products, sort order is taken into the account
 relatedCategory | *RelatedCategory*  | Describes the "N random related products from a category" option
 
 #### RelatedCategory
