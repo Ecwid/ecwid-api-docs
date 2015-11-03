@@ -13,12 +13,14 @@ To register you app in Ecwid, fill [this form](https://ecwidcom.typeform.com/to/
 
 ## Get access token
 
-### Applications for Ecwid App market
-If your application is going to be published in Ecwid App market, then the process of getting access token is pretty simple - user goes to [app details page](https://my.ecwid.com/cp/CP.html#apps:view=app&name=ecwid-edit-orders) and upon successful installation you can retrieve the access token using either [Ecwid Javascript SDK](getpayload) on your applicaiton tab in Ecwid control panel or starting from **Step #2** of the instructions below. More details on this process in [Installation from hosted app details page](#installation-from-hosted-app-details-page) section.
+If your application is going to be published in Ecwid App market then the process of getting the access token is pretty simple. The process is initiated by the user on the app details page in their store Control Panel – as soon as the user installs the app, you can retrieve the access token one of the following ways:
 
-In case if your app doesn't have an app details page for you to test the flow from, just [let us know](http://developers.ecwid.com/contact).
+* Using [Ecwid JavaScript SDK](#getpayload) when the user opens the application tab in their Ecwid control panel (see [Embedded apps](#embedded-apps))
+* Using the standard oAuth flow described below starting from the **Step #2**. More details on this process in [Installation from hosted app details page](#installation-from-hosted-app-details-page) section.
 
-### Applications for a single store
+In case if your app doesn't have an app details page for you to test the flow, just [let us know](http://developers.ecwid.com/contact).
+
+### Standard oAuth flow
 
 Retrieving an access token includes the following steps:
 
