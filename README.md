@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##November 3, 2015
+- Added a PHP code example to the webhooks documentation
+
+
 ##September 22, 2015
 - Updated description text for adjustProductInventory and adjustCombinationInventory
 - Updated text for compareToPrice field description
