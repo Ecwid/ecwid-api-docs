@@ -10,7 +10,7 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ##November 3, 2015
 - Added a PHP code example to the webhooks documentation
-
+- New minor version of Ecwid JS SDK is released (v 1.0.2). It contains a fix for the layout issues of embedded apps in some browsers.
 
 ##September 22, 2015
 - Updated description text for adjustProductInventory and adjustCombinationInventory
