@@ -108,15 +108,17 @@ The documentation is in progress
 
 ### Best practices
 
+### Code example
+
 > Webhooks processing PHP example
 
-```
+```php
 <?php 
-//get contents of webhook request
+// Get contents of webhook request
 $requestBody = @file_get_contents('php://input');
 $client_secret = 'abcde123456789';
 ​
-//parse webhook data
+// Parse webhook data
 $decodedBody = json_decode($requestBody, true);
 ​
 $eventId = $decodedBody['eventId'];
@@ -125,38 +127,33 @@ $storeId = $decodedBody['storeId'];
 $entityId = $decodedBody['entityId'];
 $eventType = $decodedBody['eventType'];
 ​
-//reply with 200OK to Ecwid
+// Reply with 200OK to Ecwid
 http_response_code(200);
 ​
-//continue if eventType is product.updated
-if ($eventType == 'product.updated'){
+// Filter out the events we're not interested in
+if ($eventType != 'product.updated') {
+    exit;
+}
 ​
-//check if the webhook is indeed from Ecwid
+// Continue if eventType is product.updated
+// Verify the webhook (check that it is sent by Ecwid)
 foreach (getallheaders() as $name => $value) {
     if ($name == "X-Ecwid-Webhook-Signature") {
-    	$headerSignature = "$value";
-    	
-    	$hmac_result = hash_hmac("sha256", "$eventCreated.$eventId", $client_secret, true);
-    	$generatedSignature = base64_encode($hmac_result);
-​
-    	if ($generatedSignature == $headerSignature) {
-    		echo 'Signature verified';
-    	}
-    	else {
-    		echo 'Signatures do not match';
-    	}
-	}
+        $headerSignature = "$value";
+        
+        $hmac_result = hash_hmac("sha256", "$eventCreated.$eventId", $client_secret, true);
+        $generatedSignature = base64_encode($hmac_result);
+  ​
+        if ($generatedSignature != $headerSignature) {
+            echo 'Signature verified';
+            exit;
+        }
+  }
 }
 ​
-//Put your logic here
+// Handle the event
+// ...
 ​
-///....
-​
-else {
-	//if it's not product.updated, exit the script
-	exit;
-}
 ?>
 ```
-
 
