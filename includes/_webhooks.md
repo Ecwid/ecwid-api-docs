@@ -145,7 +145,7 @@ foreach (getallheaders() as $name => $value) {
         $generatedSignature = base64_encode($hmac_result);
   ​
         if ($generatedSignature != $headerSignature) {
-            echo 'Signature verified';
+            echo 'Signature verification failed';
             exit;
         }
   }
