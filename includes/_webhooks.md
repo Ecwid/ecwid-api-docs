@@ -114,9 +114,34 @@ The documentation is in progress
 
 ### Verifying webhook signature
 
+In order to understand whether you can trust the information that you received in a webhook, you need to check if it came from Ecwid. This is a great security measure against the misinformation from any 3rd parties and it's pretty simple to set up as well. 
+
+**What is a webhook signature?**
+
+Webhook signature is a encoded string that consits two values: eventCreated and eventId, separated with a comma like this: *'{eventCreated}.{eventId}'*. That string is encoded using HMAC SHA-256 construction which after that is also encoded using base64 binary-to-text encoding method. 
+
+This string will be a unique set of characters for each webhook which only Ecwid can provide correctly for your store, since Ecwid is the origin of the eventCreated and eventId values when a webhook is sent. 
+
+This signature is sent in each webhook's header under the title *'X-Ecwid-Webhook-Signature'* so to get the webhook signature, your app needs to check the headers of that request. 
+
+**How to verify webhooks in your app**
+
+To verify a webhook, your appliciation will need to:
+1. Get the signature that came with that request
+2. Get *eventCreated* and *eventId* values from the request
+3. Encode the string *'{eventCreated}.{eventId}'* using HMAC SHA256 construction
+4. Encode result of step #3 with Base64 method
+5. Compare your resut with the value from the request headers
+
+In case if values are the same - webhook is verified and your can continue processing information further. However if the values do not match, then this webhook must be ingored as misleading. 
+
+You can see the example of such verification in the [code example](#code-example) section.
+
 ### Best practices
 
 ### Code example
+
+Here's an example of implementing all of the above described guidelines and recommendations in order to process webhooks from Ecwid in the most efficient way.
 
 > Webhooks processing PHP example
 
