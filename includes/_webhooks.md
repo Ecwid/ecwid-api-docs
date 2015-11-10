@@ -70,7 +70,7 @@ POST https://www.myapp.com/callback?eventType=product.updated
   "eventType": "product.updated",
   "eventCreated": 1230329329,
   "storeId": 1003,
-  "entityId": 130030039,
+  "entityId": 130030039
 }
 ```
 
@@ -87,6 +87,14 @@ entityId | number | Id of the updated entity. For example, if a product was upda
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
 
+### Event types
+
+* `order.created` New order is placed
+* `order.updated` Order is changed
+* `order.deleted` Order is deleted
+* `product.created` New product is created
+* `product.updated` Product is updated
+* `product.deleted` Product is deleted
 
 ## Request headers
 Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](#webhooks-security) below.
