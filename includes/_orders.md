@@ -211,7 +211,8 @@ Parameters in bold are mandatory
                     "base": "ON_TOTAL_AND_MEMBERSHIP",
                     "orderTotal": 15
                 }
-            ]
+            ],
+            "hidden": false
         }
     ]
 }
@@ -252,6 +253,7 @@ totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
+hidden | boolean | Determines if order is hidden in sales records
 usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
 createDate | date | The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
@@ -619,7 +621,8 @@ Parameters in bold are mandatory
             "base": "ON_TOTAL_AND_MEMBERSHIP",
             "orderTotal": 15
         }
-    ]
+    ],
+    "hidden": false
 }
 ```
 
@@ -644,6 +647,7 @@ refererUrl | string | URL of the page that the order was placed on
 orderComments | string  | Order comments
 volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
+hidden | boolean | Determines if order is hidden in sales records
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
 discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
@@ -909,7 +913,8 @@ Cache-Control: no-cache
                     }
                 ]
             }
-        ]
+        ],
+        "hidden": false
     }
 ```
 
@@ -942,6 +947,7 @@ refererUrl | string | URL of the page that the order was placed on
 orderComments | string  | Order comments
 volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
+hidden | boolean | Determines if order is hidden in sales records. Will be updated for orders with `INCOMPLETE` payment status only
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
 discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
@@ -1227,7 +1233,8 @@ Cache-Control: no-cache
         "shippingOption": {
             "shippingMethodName": "Fast Delivery",
             "shippingRate": 10
-        }
+        },
+        "hidden": false
     }
 ```
 
@@ -1259,6 +1266,7 @@ refererUrl | string | URL of the page that the order was placed on
 orderComments | string  | Order comments
 volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
+hidden | boolean | Determines if order is hidden in sales records. Will be updated for orders with `INCOMPLETE` payment status only
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
 discount | number | The sum of applied discounts without coupon discount. 
