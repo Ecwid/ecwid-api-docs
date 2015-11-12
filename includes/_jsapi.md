@@ -4,7 +4,7 @@ The described Javascript API is available in Ecwid version 8.0 and up. The API i
 
 > Access Page object to find the current page type
 
-```
+```javascript
 Ecwid.OnPageLoad.add(function(page) {
         alert("My page load handler: "+page.type);
 });
@@ -30,7 +30,7 @@ This extension point contains callback functions that receive the changes in the
 
 > Ecwid.OnSetProfile code example
 
-```
+```html
 <script src="//app.ecwid.com/script.js?1003" type="text/javascript" charset="UTF-8"></script>
 <script>
 function dump(arr,level) {
@@ -71,7 +71,7 @@ This extension point contains callback functions that get called each time when 
 
 > The callbacks are added as follows:
 
-```
+```javascript
 Ecwid.OnCartChanged.add(function(cart){
      // your code here
 }) 
@@ -100,7 +100,7 @@ These extension points contain callbacks that get called each time when product 
 
 This extension point works for following options type: dropdown list, radio button and checkbox. Input, textarea and upload files types are not supported yet.
 
-```
+```javascript
 Ecwid.OnProductOptionsChanged.add(function(productid) {
    window.alert("Options changed, product id:"+productid);    
 })
@@ -134,7 +134,8 @@ Converts the given currency value to a human-readable string according to the st
 This function allows to add a product to shopping cart, modifying the cart on behalf of customer thus. 
 
 > Add a product to cart 
-```
+
+```javascript
 Ecwid.Cart.addProduct(product)
 ```
 
@@ -142,14 +143,16 @@ There are 2 possible ways to call this function.
 
 **Adding by product ID**
 addProduct() can accept 2 arguments:
-```
+
+```javascript
 Ecwid.Cart.addProduct(productID, callback)
 ```
 productID: **Integer** — the Ecwid’s internal product ID to be added to cart (can be retrieved from Product API or seen in the URL of the product page)
 callback: **Function** — the callback function to be called once the operation is complete (either succeeded or failed). See below for details.
 
-The most simple call to Ecwid.Cart.addProduct only requires to pass the numeric product ID. Example:
-```
+The most simple call to Ecwid.Cart.addProduct only requires to pass the numeric product ID. See example code on the right.
+
+```javascript
 var productId = 10;
 Ecwid.Cart.addProduct(productId); 
 ```
@@ -160,7 +163,7 @@ If this product contains combinations and the base product is out of stock, the 
 **Adding with extended options**
 If it is necessary to specify options or quantity to be added to cart, the product parameter needs to be passed as an object.
 
-```
+```javascript
 var product = {
   id: 10,
   quantity: 3,
@@ -184,14 +187,14 @@ Since this method allows to specify the exact options to be added to cart, only 
 **Callback**
 Adding to cart is done asynchronously, so if it is important to know the result of adding, the callback function can be passed as the second agrument of the function:
 
-```
+```javascript
 Ecwid.Cart.addProduct(productID, function(success, product, cart){
         console.log(success); // true or false
         console.log(product.name);
     })
 ```
 
-```
+```javascript
     Ecwid.Cart.addProduct({
         id: 10, 
         quantity: 3, 
@@ -216,7 +219,7 @@ Clears the cart contents.
 
 Retrieves the cart contents asynchronously and passes it as an argument of type Cart to the callback.
 
-```
+```javascript
 Ecwid.Cart.get(function(cart) {
      alert(cart.productsQuantity + " products in cart now");
 });
@@ -229,7 +232,7 @@ Calculates the cart aggregates asynchronously and passes the result as an argume
 Cart calculation involves a request to server, so this method should be called only occasionally. Calling it frequently, e.g. from loops or by timer, is not acceptable.
 
 Since the calculation needs a server connection, it might fail due to network conditions. In this case, null is passed into the callback instead of Order object.
-```
+```javascript
 Ecwid.Cart.calculateTotal(function(order) {
     if (!order)
         alert('An error occurred!')
