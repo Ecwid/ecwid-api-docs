@@ -93,6 +93,38 @@ In most cases, your application behavior will vary depending on the store it is 
 
 For example, let's say you need to dynamically add a store-specific configuration to your script when it's executed in some particular storefront. You can detect the store ID in your script and call a script on your server containing the store-specific code. 
 
+## Get values from application storage
+
+> Get values for keys stored in app storage
+
+```js
+Ecwid.getAppStorage('appId', function(publicData) {
+    // prints smth like {'public_key' : 'value'}
+    console.log(publicData);
+});
+
+Ecwid.getAppStorage('appId', 'public_key', function(publicData) {
+    // prints smth like 'value'
+    console.log(publicData);
+});
+
+Ecwid.getAppStorage('non-existing-appId', function(publicData) {
+    // prints null
+    console.log(publicData);
+});
+
+Ecwid.getAppStorage('existing-appId-without-data', function(publicData) {
+    // prints {}
+    console.log(publicData);
+});
+```
+
+If your application is embedded into Ecwid control panel, for example as a simple settings page for your app, you may wanto get those values in a simple secure way using Javascript API when a customer opens up a storefront of that store. Using the code on the right you can get values from your app storage that the user has saved in the application's tab in Ecwid control panel. 
+
+To successfully access that data, you will need to use the endpoint `Ecwid.getAppStorage(appId[, key])` and pass your appId (the one you are using for [initializing an app](#build-your-application) in Ecwid control panel) and provide a key value as a optional second parameter, in case if you want to get just the value for your request. The results will be returned as a string in a publicData variable.
+
+Ecwid Javascript SDK allows you to store the `'key' : 'value'` information inside your application's tab, see more information about it [here](#ecwid-javascript-sdk).
+
 # Custom CSS
 
 > Example of custom CSS to modify storefront
