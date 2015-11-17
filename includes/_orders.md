@@ -253,7 +253,7 @@ totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
-hidden | boolean | Determines if order is hidden in sales records
+hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unsfinished orders only.
 usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
 createDate | date | The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
@@ -647,7 +647,7 @@ refererUrl | string | URL of the page that the order was placed on
 orderComments | string  | Order comments
 volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
-hidden | boolean | Determines if order is hidden in sales records
+hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
 discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
@@ -947,7 +947,7 @@ refererUrl | string | URL of the page that the order was placed on
 orderComments | string  | Order comments
 volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
-hidden | boolean | Determines if order is hidden in sales records. Will be updated for orders with `INCOMPLETE` payment status only
+hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
 discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
@@ -1266,7 +1266,7 @@ refererUrl | string | URL of the page that the order was placed on
 orderComments | string  | Order comments
 volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
-hidden | boolean | Determines if order is hidden in sales records. Will be updated for orders with `INCOMPLETE` payment status only
+hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
 membershipBasedDiscount | number | Customer group based discount sum
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
 discount | number | The sum of applied discounts without coupon discount. 
