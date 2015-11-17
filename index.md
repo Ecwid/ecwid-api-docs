@@ -22,6 +22,7 @@ includes:
   - coupons
   - instant_order_notifications
   - storage
+  - application
   - webhooks
   - add_to_cp
   - customize_storefront

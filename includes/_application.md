@@ -1,6 +1,6 @@
 # Application
 
-One of the most important things about applications in Ecwid app market is to know the exact status of it in a specific Ecwid store. You can do that using the Applcation endpoint.
+This endpoint allows you to get the status of the app in a specific Ecwid store. It's now only identifying the billing state (subscription status) of the application. We will be adding more information to this endpoint in the future.
 
 ## Get application status 
 
@@ -11,6 +11,7 @@ GET /api/v3/4870020/application?token=123abcd HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
 ```
+
 `GET https://app.ecwid.com/api/v3/{storeId}/application?token={token}`
 
 Name | Type    | Description
@@ -26,7 +27,7 @@ A JSON object of type 'Application' with the following fields:
 
 Field | Type | Description
 ------| ------| -----------
-subscriptionStatus | string | Application status in Ecwid store
+subscriptionStatus | string | Application status in Ecwid store. One of `ACTIVE`, `SUSPENDED`
 
 > Response example
 
@@ -38,20 +39,9 @@ subscriptionStatus | string | Application status in Ecwid store
 
 This endpoint works in a following way: 
 
-**Free apps** 
-Ecwid will always return `ACTIVE`
+**Free apps**: Ecwid will always return `ACTIVE` unless the app is uninstalled. 
 
-**Apps that use Ecwid billing scheme**
-Ecwid will return `ACTIVE` if the app is paid by the user and it is active in their store. Also `ACTIVE` will be returned if the user is on a grace period. 
+**Paid apps with external billing**: Ecwid will always return `ACTIVE` unless the app is uninstalled. 
+
+**Paid apps with Ecwid billing**: Ecwid will return `ACTIVE` if the app is paid by the user and it is active in their store.
 Ecwid will return `SUSPENDED` if there was an issue with prolongating of the subscription of this app
-
-### How can I know if the app was uninstalled?
-
-You can get such information when your applicaiton makes any requests to Ecwid API, for example [Get product](#get-a-product) or [Search Orders](#search-orders)
-
-Status code | Applicaiton status 
-------------| ------------------
-200 | Application is installed and active
-402 | Store doesn't have access to Ecwid API or didn't pay for application
-403 | Application was unistalled by the user
-
