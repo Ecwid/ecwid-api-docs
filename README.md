@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##November 17, 2015
+- Added "Application" endpoint
+
 ##November 3, 2015
 - Added a PHP code example to the webhooks documentation
 - New minor version of Ecwid JS SDK is released (v 1.0.2). It contains a fix for the layout issues of embedded apps in some browsers.
