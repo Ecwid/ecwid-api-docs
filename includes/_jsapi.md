@@ -1,6 +1,6 @@
 # Javascript API
 
-The described Javascript API is available in Ecwid version 8.0 and up. The API is intended for better integrating Ecwid with the surrounding web site. All most useful stuff is located in the **window.Ecwid** top-level object, e.g. **window.Ecwid.formatCurrency**. The API is based on two concepts: objects and extension points. Objects are simple containers for methods, while extension points are containers for the user-supplied callbacks (or extensions). Extensions are added to the extension points using the add() method, for example:
+The described Javascript API is available for all Ecwid users. The API is intended for better integrating Ecwid with the surrounding web site. All most useful stuff is located in the `window.Ecwid` top-level object, e.g. `window.Ecwid.formatCurrency`. The API is based on two concepts: objects and extension points. Objects are simple containers for methods, while extension points are containers for the user-supplied callbacks (or extensions). 
 
 > Access Page object to find the current page type
 
@@ -9,14 +9,17 @@ Ecwid.OnPageLoad.add(function(page) {
         alert("My page load handler: "+page.type);
 });
 ```
+Extensions are added to the extension points using the `add()` method, see example code on the right.
 
 This sample adds a function that is called every time a new page is loading in the product browser. Callbacks may be objects with multiple functions instead of just one function as shown in the example above, which may return useful values. The form of the extensions, their parameters and the need of a return value depends on the extension point as described below.
 
-Note that the add() method call follows the script.js script of the standard Ecwid integration HTML code. It is important to include script.js before any use of the API methods. Moreover, because of the staged loading of Ecwid, only few of API functions are available during the page load. Most of the Ecwid Javascript API is available after Ecwid is loaded completely. This moment when you can use Javascript API can be caught by the Ecwid.OnAPILoaded extension point, as shown below.
+Note that the `add()` method call follows the script.js script of the standard Ecwid integration HTML code. It is important to include script.js before any use of the API methods. Moreover, because of the staged loading of Ecwid, only few of API functions are available during the page load. Most of the Ecwid Javascript API is available after Ecwid is loaded completely. This moment when you can use Javascript API can be caught by the `Ecwid.OnAPILoaded` extension point, as shown below.
 
 # Extension Point Reference
+
 **Ecwid.OnAPILoaded**
-This extension point contains callback functions that get called exactly once when the Ecwid Javascript API loads and become available under the **window.Ecwid** top-level object. Functions supplied to this extension point as extensions do not accept any parameters and do not require to return any value.
+
+This extension point contains callback functions that get called exactly once when the Ecwid Javascript API loads and become available under the `window.Ecwid` top-level object. Functions supplied to this extension point as extensions do not accept any parameters and do not require to return any value.
 
 **Ecwid.OnPageLoad/Ecwid.OnPageLoaded**
 
@@ -26,38 +29,36 @@ The callback functions accept one parameter of type **Page** specifying which pa
 
 **Ecwid.OnSetProfile**
 
-This extension point contains callback functions that receive the changes in the current customer profile. If no customer is logged in, these functions receive **null**. Whenever a customer logs in/out, the callback functions are called with either the corresponding parameter of type **Customer** or **null**. Example code can be seen on the right.
-
 > Ecwid.OnSetProfile code example
 
 ```html
 <script src="//app.ecwid.com/script.js?1003" type="text/javascript" charset="UTF-8"></script>
 <script>
 function dump(arr,level) {
-	var dumped_text = "";
-		if (!level) level = 0;
-		// The padding given at the beginning of the line.
-			var level_padding = "";
-			for (var j=0;j<level+1;j++) level_padding += " ";
-				if (typeof(arr) == 'object') { // Array/Hashes/Objects
-					for (var item in arr) {
-					var value = arr[item];
-						if (typeof(value) == 'object') { // If it is an array,
-						dumped_text += level_padding + "'" + item + "' ...\n";
-						dumped_text += dump(value,level+1);
-						} else {
-						dumped_text += level_padding + "'" + item + "' => \"" + value + "\"\n";
-						}	
-					}
-				} else { // Stings/Chars/Numbers etc.
-				dumped_text = "===>"+arr+"<===("+typeof(arr)+")";
-			}
-			return dumped_text;
-	}
+  var dumped_text = "";
+    if (!level) level = 0;
+    // The padding given at the beginning of the line.
+      var level_padding = "";
+      for (var j=0;j<level+1;j++) level_padding += " ";
+        if (typeof(arr) == 'object') { // Array/Hashes/Objects
+          for (var item in arr) {
+          var value = arr[item];
+            if (typeof(value) == 'object') { // If it is an array,
+            dumped_text += level_padding + "'" + item + "' ...\n";
+            dumped_text += dump(value,level+1);
+            } else {
+            dumped_text += level_padding + "'" + item + "' => \"" + value + "\"\n";
+            } 
+          }
+        } else { // Stings/Chars/Numbers etc.
+        dumped_text = "===>"+arr+"<===("+typeof(arr)+")";
+      }
+      return dumped_text;
+  }
 
 Ecwid.OnSetProfile.add(function(profile) {
-	if (profile == null) document.getElementById('CUSTOMER').innerHTML = 'not logged in';
-		else document.getElementById('CUSTOMER').innerHTML = dump(profile);
+  if (profile == null) document.getElementById('CUSTOMER').innerHTML = 'not logged in';
+    else document.getElementById('CUSTOMER').innerHTML = dump(profile);
 });
 </script>
 <div><pre id='CUSTOMER'/></div>
@@ -66,7 +67,10 @@ xProductBrowser();
 </script>
 ```
 
+This extension point contains callback functions that receive the changes in the current customer profile. If no customer is logged in, these functions receive **null**. Whenever a customer logs in/out, the callback functions are called with either the corresponding parameter of type **Customer** or **null**. Example code can be seen on the right.
+
 **Ecwid.OnCartChanged**
+
 This extension point contains callback functions that get called each time when a shopping cart is changed — either by the customer or due to system events.
 
 > The callbacks are added as follows:
@@ -79,7 +83,7 @@ Ecwid.OnCartChanged.add(function(cart){
 
 The callback function receives in an argument the Cart object, that holds the new shopping cart state after the change is applied.
 
-The callbacks added to Ecwid.OnCartChanged will be called when the shopping cart is initialized and on every occasion when either of the properties of the passed Cart object is changed. These occasions include:
+The callbacks added to `Ecwid.OnCartChanged` will be called when the shopping cart is initialized and on every occasion when either of the properties of the passed **Cart** object is changed. These occasions include:
 
 - Cart initialization 
 - Adding a product to cart
@@ -92,19 +96,19 @@ The callbacks added to Ecwid.OnCartChanged will be called when the shopping cart
 - Syncing the cart contents, if there are a few browser tabs with the store are opened
 - Clearing the cart upon user’s logout — in this occasion the callback receives **null** as an argument.
 
-The passed Cart object represents only the basic properties of the shopping cart. It contains the data coming from the customer’s actions (like products, coupons, payment and shipping methods) and **might not contain the calculated aggregates** (like order totals, shipping costs, the discounted amounts or taxes). For the calculated aggregates, it is rather recommended to use the 'Ecwid.Cart.calculateTotal()' method.
+The passed Cart object represents only the basic properties of the shopping cart. It contains the data coming from the customer’s actions (like products, coupons, payment and shipping methods) and **might not contain the calculated aggregates** (like order totals, shipping costs, the discounted amounts or taxes). For the calculated aggregates, it is rather recommended to use the `Ecwid.Cart.calculateTotal()` method.
 
 **Ecwid.OnProductOptionsChanged**
 
-These extension points contain callbacks that get called each time when product option was changed. The callback functions accept one parameter of type **productid specifying ID of the product that was changed**
-
-This extension point works for following options type: dropdown list, radio button and checkbox. Input, textarea and upload files types are not supported yet.
-
 ```javascript
 Ecwid.OnProductOptionsChanged.add(function(productid) {
-   window.alert("Options changed, product id:"+productid);    
+   window.alert("Options changed, product id:" + productid);    
 })
 ```
+
+These extension points contain callbacks that get called each time when product option was changed. The callback functions accept one parameter: **productid**, specifying ID of the product that was changed.
+
+This extension point works for following options type: dropdown list, radio button and checkbox. Input, textarea and upload files types are not supported yet.
 
 # API Object Reference
 
@@ -112,9 +116,10 @@ This section describes all possible objects involved in the Javascript API.
 
 ## Ecwid
 
-The top-level object window.Ecwid itself provides some useful functions, besides references to other objects like 'Ecwid.OnPageLoad':
+The top-level object `window.Ecwid` itself provides some useful functions, besides references to other objects like `Ecwid.OnPageLoad`:
 
 **Ecwid.getStaticBaseUrl()**
+
 Returns the base URL for static Ecwid files, like images and CSS, with the ’/’ at the end.
 
 **Ecwid.getOwnerId()**
@@ -127,11 +132,11 @@ Converts the given currency value to a human-readable string according to the st
 
 **Ecwid.Cart**
 
-'Ecwid.Cart' is a namespace for cart-related functions of JavaScript API.
+`Ecwid.Cart` is a namespace for cart-related functions of JavaScript API.
 
 **Ecwid.Cart.addProduct**
 
-This function allows to add a product to shopping cart, modifying the cart on behalf of customer thus. 
+This function allows to add a product to shopping cart, modifying the cart on behalf of customer.
 
 > Add a product to cart 
 
@@ -142,25 +147,28 @@ Ecwid.Cart.addProduct(product)
 There are 2 possible ways to call this function.
 
 **Adding by product ID**
-addProduct() can accept 2 arguments:
+
+`addProduct()` can accept 2 arguments: **productId** and **callback**.
 
 ```javascript
 Ecwid.Cart.addProduct(productID, callback)
 ```
-productID: **Integer** — the Ecwid’s internal product ID to be added to cart (can be retrieved from Product API or seen in the URL of the product page)
-callback: **Function** — the callback function to be called once the operation is complete (either succeeded or failed). See below for details.
 
-The most simple call to Ecwid.Cart.addProduct only requires to pass the numeric product ID. See example code on the right.
+Name | Type | Description
+---- | ---- | -----------|
+productID | Integer | the Ecwid’s internal product ID to be added to cart (can be retrieved from Product API or seen in the URL of the product page)
+callback | Function | the callback function to be called once the operation is complete (either succeeded or failed). See below for details.
 
 ```javascript
 var productId = 10;
 Ecwid.Cart.addProduct(productId); 
 ```
-This code adds 1 item of the given product ID to cart.
+The most simple call to `Ecwid.Cart.addProduct` only requires to pass the numeric product ID. See example code on the right. This code adds 1 item of the given product ID to cart.
 
 If this product contains combinations and the base product is out of stock, the first combination that is in stock will be added to cart instead. If the product is out of stock (and there are no combinations in stock for this product), nothing is added to cart.
 
 **Adding with extended options**
+
 If it is necessary to specify options or quantity to be added to cart, the product parameter needs to be passed as an object.
 
 ```javascript
@@ -185,7 +193,8 @@ Ecwid.Cart.addProduct(product);
 Since this method allows to specify the exact options to be added to cart, only the base product or combination matching those options will be added to cart. So, if the base product or matching combination is out of stock, the addProduct call will not add anything to cart, even if there are other combinations in stock.
 
 **Callback**
-Adding to cart is done asynchronously, so if it is important to know the result of adding, the callback function can be passed as the second agrument of the function:
+
+Adding to cart is done asynchronously, so if it is important to know the result of adding, the callback function can be passed as the second agrument of the function.
 
 ```javascript
 Ecwid.Cart.addProduct(productID, function(success, product, cart){
@@ -205,11 +214,13 @@ Ecwid.Cart.addProduct(productID, function(success, product, cart){
     })
 ```
 
-Callback receives 3 arguments:
+Callback receives 3 arguments: **success**, **product**, **cart**
 
-'success': **Boolean** (true/false) — indicates the overall status of addintion (succeeded or failed)
-'product': **Object** (Product) — conatins the object representation of the product added to cart, or null if adding to cart failed (wrong product ID or product is out of stock).
-'cart': Object (Cart) — contains the object representation of the shopping cart after addition (same as in Ecwid.OnCartChanged event)
+Name | Type | Description
+---- | ---- | -----------
+success | Boolean | indicates the overall status of addintion (succeeded or failed)
+product | Object (Product) | conatins the object representation of the product added to cart, or null if adding to cart failed (wrong product ID or product is out of stock).
+cart | Object (Cart) | contains the object representation of the shopping cart after addition (same as in Ecwid.OnCartChanged event)
 
 **Ecwid.Cart.clear()**
 
@@ -217,21 +228,16 @@ Clears the cart contents.
 
 **Ecwid.Cart.get()**
 
-Retrieves the cart contents asynchronously and passes it as an argument of type Cart to the callback.
-
 ```javascript
 Ecwid.Cart.get(function(cart) {
      alert(cart.productsQuantity + " products in cart now");
 });
 ```
 
+Retrieves the cart contents asynchronously and passes it as an argument of type Cart to the callback.
+
 **Ecwid.Cart.calculateTotal()**
 
-Calculates the cart aggregates asynchronously and passes the result as an argument of type Order to the callback. 
-
-Cart calculation involves a request to server, so this method should be called only occasionally. Calling it frequently, e.g. from loops or by timer, is not acceptable.
-
-Since the calculation needs a server connection, it might fail due to network conditions. In this case, null is passed into the callback instead of Order object.
 ```javascript
 Ecwid.Cart.calculateTotal(function(order) {
     if (!order)
@@ -241,17 +247,24 @@ Ecwid.Cart.calculateTotal(function(order) {
 }); 
 ```
 
+Calculates the cart aggregates asynchronously and passes the result as an argument of type **Order** to the callback. 
+
+Cart calculation involves a request to server, so this method should be called only occasionally. Calling it frequently, e.g. from loops or by timer, is not acceptable.
+
+Since the calculation needs a server connection, it might fail due to network conditions. In this case, null is passed into the callback instead of Order object.
+
 ## Customer
 
 The object describing the customer’s profile.
 
 **Fields:**
+
 Name | Type | Description
 ---- | ----- | -----------
 id | integer | The unique id of the customer
 email | string | Customer’s email
-billingPerson | Person | Customer’s name along with his/her billing address, as entered in the last order.
-shippingAddresses | [ShippingAddress] | A list of addresses in the customer’s address book
+billingPerson | Object (Person) | Customer’s name along with his/her billing address, as entered in the last order.
+shippingAddresses | Object (ShippingAddress) | A list of addresses in the customer’s address book
 registered | integer timestamp | The UNIX timestamp when the customer registered
 
 ## Person
@@ -259,6 +272,7 @@ registered | integer timestamp | The UNIX timestamp when the customer registered
 Describes the person name, company and address.
 
 **Fields:**
+
 Name | Type | Description
 ---- | ----- | -----------
 name | string | The first and the last name of the person, separated by a space.
@@ -276,6 +290,7 @@ phone | string, optional | Phone number, if applicable
 Describes the page displaying inside the product browser.
 
 **Fields:**
+
 Name | Type | Description
 ---- | ----- | -----------
 type | one of the following: ‘ACCOUNT_SETTINGS’, ‘ADDRESS_BOOK’, ‘ORDERS’, ‘CATEGORY’, ‘CART’, ‘CHECKOUT_ADDRESS_BOOK’, ‘CHECKOUT_PAYMENT_DETAILS’, ‘CHECKOUT_PLACE_ORDER’, ‘CHECKOUT_SHIPPING_ADDRESS’, ‘ORDER_CONFIRMATION’, ‘ORDER_FAILURE’, ‘CHECKOUT_RESULT’, ‘DOWNLOAD_ERROR’, ‘PRODUCT’, ‘SEARCH’, 'FAVORITES' | The type of the page. Some pages may have parameters like for example product id of the viewing product. Those parameters are described below.
@@ -299,10 +314,11 @@ orderVendorNumber | integer | for type==’CHECKOUT_RESULT’ and type==’ORDER
 The customer’s address as stored in the address book.
 
 **Fields:**
+
 Name | Type | Description
 ---- | ----- | -----------
 id | integer | The unique address id Ecwid database
-person | Person | The object describing the address along with the person’s name and phone number.
+person | Object (Person) | The object describing the address along with the person’s name and phone number.
 
 ## Cart
 
@@ -331,4 +347,5 @@ options | Obejct with option names and values | Map of the product options (opti
 
 # Examples of using Ecwid Javascript API
 
-Redirect Ecwid Paypal Orders to Custom “Thank You” Page: [http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/](http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/)
+Redirect Ecwid Paypal Orders to Custom “Thank You” Page:
+[http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/](http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/)
