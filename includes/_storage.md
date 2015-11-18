@@ -21,17 +21,13 @@ Retrieves all stored data for the given store ID.
 > Request example
 
 ```http
-GET /api/v2/805056/storage?token=487487437834aasdfd HTTP/1.1
+GET /api/v3/805056/storage?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v2/{storeId}/storage?token={token}`
-
-<aside class="notice">
-Mind the `v2` in the endpoint URL. You can use the same API v3 token for the v2 endpoints.
-</aside>
+`GET https://app.ecwid.com/api/v3/{storeId}/storage?token={token}`
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -77,13 +73,13 @@ Retrieves the stored data for the given store ID by the given key
 > Request example
 
 ```http
-GET /api/v2/805056/storage/birth_date?token=487487437834aasdfd HTTP/1.1
+GET /api/v3/805056/storage/birth_date?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v2/{storeId}/storage/{key}?token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/storage/{key}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -156,7 +152,7 @@ Use this method to put a new data into the storage. If the key you specify in th
 > Request example
 
 ```http
-POST /api/v2/805056/storage/my_key?token=487487437834aasdfd HTTP/1.1
+POST /api/v3/805056/storage/my_key?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -164,7 +160,7 @@ Cache-Control: no-cache
 Value of the new stored parameter
 ```
 
-`POST https://app.ecwid.com/api/v2/{storeId}/storage/{key}?token={token}`
+`POST https://app.ecwid.com/api/v3/{storeId}/storage/{key}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -205,7 +201,7 @@ Use this method to update data in the storage. If the key you specify in the req
 > Request example
 
 ```http
-PUT /api/v2/805056/storage/my_key?token=487487437834aasdfd HTTP/1.1
+PUT /api/v3/805056/storage/my_key?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -213,7 +209,7 @@ Cache-Control: no-cache
 Updated value of the new stored parameter
 ```
 
-`PUT https://app.ecwid.com/api/v2/{storeId}/storage/{key}?token={token}`
+`PUT https://app.ecwid.com/api/v3/{storeId}/storage/{key}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -254,13 +250,13 @@ Use this method to delete data in the storage by key.
 > Request example
 
 ```http
-DELETE /api/v2/805056/storage/my_key?token=487487437834aasdfd HTTP/1.1
+DELETE /api/v3/805056/storage/my_key?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`DELETE https://app.ecwid.com/api/v2/{storeId}/storage/{key}?token={token}`
+`DELETE https://app.ecwid.com/api/v3/{storeId}/storage/{key}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
