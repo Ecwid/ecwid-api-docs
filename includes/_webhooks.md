@@ -130,6 +130,7 @@ The resulting string is encoded using HMAC SHA-256.
 **How to validate the signature**
 
 To verify a webhook in your appliciation:
+
 1. Get the signature from the request headers
 2. Get `eventCreated` and `eventId` values from the request body
 3. Encode the string *'{eventCreated}.{eventId}'* using HMAC SHA256 and pass it through Base64 encoding
@@ -140,8 +141,6 @@ See the example in the [webhook processing example code](#webhook-processing-exa
 
 
 ## Webhook processing example
-
-Here's an example of implementing all of the above described guidelines and recommendations in order to process webhooks from Ecwid in the most efficient way.
 
 > Webhooks processing PHP example
 
@@ -190,3 +189,4 @@ foreach (getallheaders() as $name => $value) {
 ?>
 ```
 
+Here's an example of implementing all of the above described guidelines and recommendations in order to process webhooks from Ecwid in the most efficient way.

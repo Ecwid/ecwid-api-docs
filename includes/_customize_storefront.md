@@ -16,7 +16,7 @@ Ecwid API allows you to attach external JavaScript and CSS scripts and load them
 3. If the user grants your application with access to their store, the next time their storefront is loaded in any browser, the specified external JS/CSS files will be automatically loaded and executed on the page. 
 
 <aside class="notice">
-Permission required: `customize_storefront` (see <a href="#access-scopes">Access scopes</a>)
+Permission required: customize_storefront (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
 Below, you will find more information on how to create custom JS/CSS.
