@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##November 19, 2015
+- Moved JS API documentation from Ecwid Help Center to api.ecwid.com
+
 ##November 17, 2015
 - Added "Application" endpoint
 
