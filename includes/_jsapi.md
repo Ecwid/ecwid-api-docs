@@ -1,4 +1,4 @@
-# Javascript API
+# Storefront JS API
 
 The described Javascript API is available for all Ecwid users. The API is intended for better integrating Ecwid with the surrounding web site. All most useful stuff is located in the `window.Ecwid` top-level object, e.g. `window.Ecwid.formatCurrency`. The API is based on two concepts: objects and extension points. Objects are simple containers for methods, while extension points are containers for the user-supplied callbacks (or extensions). 
 
@@ -316,7 +316,7 @@ The customer’s address as stored in the address book.
 **Fields:**
 
 Name | Type | Description
----- | ----- | -----------
+---- | ---- | -----------
 id | integer | The unique address id Ecwid database
 person | Object (Person) | The object describing the address along with the person’s name and phone number.
 
@@ -325,8 +325,9 @@ person | Object (Person) | The object describing the address along with the pers
 Cart object is a snapshot of essential shopping cart properties, passed via various callbacks. Cart object does not provide direct memory access to the actual cart that Ecwid uses — i.e. changing this exact objectwill not alter the actual cart Ecwid uses for placing the order.
 
 **Fields:**
+
 Name | Type | Description
----- | ----- | -----------
+---- | ---- | -----------
 items | Array of <CartItem> | Enlists all items currently present in customer’s cart
 productsQuantity | Integer | Total number of product varieties in cart
 couponName | String | The name of the coupon (if any) applied to the cart. If no coupon was applied, will contain undefined. Does not contain the actual code of coupon, just the name.
@@ -339,8 +340,9 @@ shippingMethod | String | The name of the selected shipping method (if any)
 CartItem represents a single item (product variety) in cart.
 
 **Fields:**
+
 Name | Type | Description
----- | ----- | -----------
+---- | ---- | -----------
 quantity | Integer | Quantity of the given product variety in cart
 product | Array of <Product> | The map of product properties (combination properties, if the combination is added to cart)
 options | Obejct with option names and values | Map of the product options (option name as a key and option value as a value). For listboxes and radio buttons value will be the string value of the selected option. For checkboxes — names of the selected options, comma separated. For date options — string representing the selected date according to the shop’s format (Ecwid control panel > System settings > General > Formats and Units). For textboxes и textareas — the text given by the customer. For file upload options — string in the form of „4 files”

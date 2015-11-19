@@ -26,6 +26,7 @@ includes:
   - webhooks
   - add_to_cp
   - customize_storefront
+  - jsapi
   - sso
   - libraries
 
