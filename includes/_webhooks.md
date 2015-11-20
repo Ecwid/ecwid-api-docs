@@ -62,7 +62,7 @@ Each application has scope of access that controls the set of store resources an
 
 > Webhook body example
 
-```json
+```http
 POST https://www.myapp.com/callback?eventType=product.updated
 
 {
