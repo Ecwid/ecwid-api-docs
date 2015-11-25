@@ -1,11 +1,13 @@
 # Application storage
 
-Ecwid API allows your application to store application data with us in a simple key-value format. You may want to use this to keep user profile data, application settings etc specific to a particular store ID. For example, let's say you ask users to enter their birth date and sex in your application. Ecwid Storage API allows you to save the data on our side as follows:
+Ecwid API allows your application to store application data with us in a simple key-value format. You may want to use this to keep user profile data, application settings, etc. specific to a particular store ID. For example, let's say you ask users to enter their birth date and sex in your application. Ecwid Storage API allows you to save the data on our side as follows:
 
 store ID: 11111 | store ID: 22222 | ...
 --- | ---- | ---
 birth_date: 18.11.1987 | birth_date: 07.02.1981 | ...
 sex: male | sex: female | ...
+
+This endpoint will be useful when your application is working via client-side only, i.e. makes changes to Ecwid storefront or you need to store some settings for your application's tab in Ecwid control panel. To operate with Ecwid Storage API in the storefront use [Ecwid Javascript API](#storefront-js-api) and to do the same in Ecwid control panel, use [Ecwid Javascript SDK](#ecwid-javascript-sdk).
 
 <aside class="notice">
 Scope required: *update_store_profile*

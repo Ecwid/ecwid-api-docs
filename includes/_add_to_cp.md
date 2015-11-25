@@ -81,7 +81,7 @@ Here you can find a starter template that you can use as a skeleton of your own 
 
 See the detailed description of the init() and getPayload() functions here: [Ecwid JS SDK](http://api.ecwid.com/#ecwid-javascript-sdk) .
 
-## Authentication in embedded apps
+## Authentication on client side
 In your application, you will likely show some user-specific data, for example the store order list. To do that, your iframe application will need to know:
 
 * The ID of the store using your application at the moment
@@ -89,12 +89,34 @@ In your application, you will likely show some user-specific data, for example t
 
 Ecwid will pass this data to your application as soon as it is opened in Ecwid Control panel. The way data is passed to your application and the way you should decrypt the received data depends on whether you process it on a client or a server side of your application. Below, you will find how you can do that in either case.
 
-### User authentication on server side
+> Example of the iframe URL call in client-side apps
+
+```
+https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e223a22776d6
+```
+
+> Retrieving payload on client side using Ecwid JavaScript SDK 
+
+```js
+    var storeData = EcwidApp.getPayload();
+    var storeId = storeData.store_id;
+    var accessToken = storeData.access_token;
+    // now you know the user you interact with and can access Ecwid API on their behalf
+```
+
+Ecwid allows your application to fully reside on client side and not use server side at all, i.e. you can authenticate the user, get store ID and access token and manage the store data via Ecwid API right inside your app in Control panel without calling your server scripts. By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. 
+
+For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](#ecwidapp-getpayload) method specification. So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. 
+
+If your application is going to store some user specified information, like background color, page IDs or something else, you can use [Ecwid Javascript SDK](#ecwid-javascript-sdk) to access [Storage endpoint](#application-storage) to easily store this data there.
+
+## Authentication on server side
+
 Let's say, you process user input and prepare the data to display in your app on your server and then pass this information to your application UI to be displayed in the user Control panel. In this case, you will need to authenticate user on server side of your application. Ecwid sends an auth data to your app in a payload while requesting your iframe URL as follows:
 `https://www.example.com/my-app-iframe-page?payload={payload}&cache-killer={cache-killer}`
 
 
-> Example of the iframe URL call
+> Example of the iframe URL call in server-side apps
 
 ```
 https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&cache-killer=13532
@@ -174,24 +196,6 @@ access_token | string | oAuth token
 
 Ecwid uses *AES-128* to encrypt the payload. The key is the first 16 symbols (128 bit) of your application secret key (**client_secret**). It is provided when you register an app with us. See a PHP example of decryption to get better idea on how to receive and decrypt the payload.
 
-
-### User authentication on client side
-
-> Retrieving payload on client side using Ecwid JavaScript SDK 
-
-```js
-...
-    var storeData = EcwidApp.getPayload();
-    var storeId = storeData.store_id;
-    var accessToken = storeData.access_token;
-    // now you know the user you interact with and can access Ecwid API on their behalf
-...
-```
-
-Ecwid allows your application to fully reside on client side and not use server side at all, i.e. you can authenticate the user, get store ID and access token and manage the store data via Ecwid API right inside your app in Control panel without calling your server scripts. For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](#ecwidapp-getpayload) method specification.
-
-So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. See also: [Ecwid Javascript SDK](#ecwid-javascript-sdk) .
-
 ## Troubleshooting
 
 ### A new tab inside Ecwid Control Panel is not appearing
@@ -234,12 +238,12 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 
 ```html
 <!-- Include Ecwid JS SDK -->
-<script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.0.2/ecwid-app.js"></script>
+<script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.1.0/ecwid-app.js"></script>
 ```
 
 Ecwid Javascript SDK is a simple JS framework with a set of basic JS functions that will help you to embed your app to Ecwid Control Panel and interact with Ecwid from within your application.
 
-To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.0.2/ecwid-app.js` .
+To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.1.0/ecwid-app.js` .
 
 ## init
 
@@ -347,5 +351,42 @@ Name | Type | Description
 ---- | ---- | -----------
 height | number | The iframe height in pixels
 
+## EcwidApp.setAppPublicConfig 
 
+> Save data you need to app storage
 
+```js
+var pageId = 12345;
+var data = '{ "color" : "black", "pageId" : ' + pageId + ' }';
+EcwidApp.setAppPublicConfig(data, callback);
+```
+
+### Parameters
+
+EcwidApp.setAppPublicConfig accepts two parameters: 
+
+Name | Type | Description
+---- | ---- | -----------
+**data** | string | Place data you want to add in storage
+callback | Function | Specify your callback function if needed
+
+<aside class="notice">
+The data you save will be available via requests to <a href="#application-storage">app storage</a> in the 'public' key.
+</aside>
+
+## EcwidApp.getAppStorage
+
+> Get data from application storage
+
+```js
+EcwidApp.getAppStorage(key, callback);
+```
+
+### Parameters
+
+EcwidApp.setAppPublicConfig accepts two parameters: 
+
+Name | Type | Description
+---- | ---- | -----------
+**key** | string | Specify key that you need to get value from
+**callback** | Function | Specify your callback function if needed

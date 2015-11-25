@@ -253,6 +253,47 @@ Cart calculation involves a request to server, so this method should be called o
 
 Since the calculation needs a server connection, it might fail due to network conditions. In this case, null is passed into the callback instead of Order object.
 
+## EcwidApp
+
+**EcwidApp** object provides a function that your applciation can use in storefront area of your app.
+
+> Usage
+
+```js
+Ecwid.getAppPublicConfig(appId);
+```
+
+> Example values from app storage
+
+```
+  {
+    "key": "public",
+    "value": "{ \"color\" : \"black\", \"pageId\" : 12345 }"
+  }
+```
+
+> Example of usage
+
+```js
+Ecwid.OnAPILoaded.add(function(page){
+  var dataString = Ecwid.getAppPublicConfig(appId);
+  var data = JSON.parse(data);
+
+  // prints 'black'
+  console.log(data.color);
+})
+```
+
+**EcwidApp.setAppPublicConfig**
+
+Returns value for `'public'` key from Ecwid Storage endpoint
+
+**EcwidApp.setAppPublicConfig** receives one argument: 
+
+Name | Type | Description
+---- | ---- | -----------
+appId | String | Namespace of your application (as set in the application settings).
+
 ## Customer
 
 The object describing the customer’s profile.
