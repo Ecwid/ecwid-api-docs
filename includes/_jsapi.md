@@ -276,23 +276,23 @@ Ecwid.getAppPublicConfig(appId);
 
 ```js
 Ecwid.OnAPILoaded.add(function(page){
-  var dataString = Ecwid.getAppPublicConfig(appId);
-  var data = JSON.parse(data);
+  var data = Ecwid.getAppPublicConfig(appId);
+  data = JSON.parse(data);
 
   // prints 'black'
   console.log(data.color);
 })
 ```
 
-**EcwidApp.setAppPublicConfig**
+**EcwidApp.getAppPublicConfig**
 
-Returns value for `'public'` key from Ecwid Storage endpoint
+Returns value for `public` key from Ecwid Storage endpoint.
 
-**EcwidApp.setAppPublicConfig** receives one argument: 
+**EcwidApp.getAppPublicConfig** receives one argument: 
 
 Name | Type | Description
 ---- | ---- | -----------
-appId | String | Namespace of your application (as set in the application settings).
+**appId** | String | Namespace of your application (as set in the application settings).
 
 ## Customer
 

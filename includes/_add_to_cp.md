@@ -351,13 +351,46 @@ Name | Type | Description
 ---- | ---- | -----------
 height | number | The iframe height in pixels
 
-## EcwidApp.setAppPublicConfig 
+## EcwidApp.setAppStorage
 
-> Save data you need to app storage
+> Save multiple 'key' : 'value' data to app storage
 
 ```js
 var pageId = 12345;
-var data = '{ "color" : "black", "pageId" : ' + pageId + ' }';
+
+var data = { 
+  'color' : "red",
+  'size' : 'big',
+  'page_id' : '' + pageId
+};
+
+EcwidApp.setAppStorage(data, callback);
+```
+
+### Parameters
+
+EcwidApp.setAppStorage accepts two parameters: 
+
+Name | Type | Description
+---- | ---- | -----------
+**data** | Object | Place object you want to add in storage
+callback | Function | Specify your callback function if needed
+
+Your object data as specified in example will be stored as corresponding keys in your application storage in `'key' : 'value'` format.
+This method accepts only string type values in your data object, so make sure all values in your object, such as 'red', are of type `string`.
+
+<aside class="notice">
+  This method function is available for client-side applications only.
+</aside>
+
+## EcwidApp.setAppPublicConfig
+
+> Save a string to 'public' key in application storage
+
+```js
+var pageId = 12345;
+var data = '{ "color" : "red", "page_id" : ' + pageId + ' }';
+
 EcwidApp.setAppPublicConfig(data, callback);
 ```
 
@@ -367,11 +400,13 @@ EcwidApp.setAppPublicConfig accepts two parameters:
 
 Name | Type | Description
 ---- | ---- | -----------
-**data** | string | Place data you want to add in storage
+**data** | String | Place json string you want to add in public storage
 callback | Function | Specify your callback function if needed
 
+The string that you provide in `data` variable will be specified for `public` key in application storage. You will be able to retrieve it using Ecwid Javascript API in storefront. If you need to pass more than one value, you can specify your data in a json string and parse that string in Ecwid storefront. This method accepts only string type values in your data object, so make sure all values in your object, such as 'red', are of type `string`.
+
 <aside class="notice">
-The data you save will be available via requests to <a href="#application-storage">app storage</a> in the 'public' key.
+  This method function is available for client-side applications only.
 </aside>
 
 ## EcwidApp.getAppStorage
@@ -382,11 +417,26 @@ The data you save will be available via requests to <a href="#application-storag
 EcwidApp.getAppStorage(key, callback);
 ```
 
+> Example
+
+```js
+EcwidApp.getAppStorage('color', function(value){
+  //prints 'red' from data in example above
+  console.log(value);
+})
+```
+
 ### Parameters
 
-EcwidApp.setAppPublicConfig accepts two parameters: 
+EcwidApp.getAppStorage accepts two parameters: 
 
 Name | Type | Description
 ---- | ---- | -----------
 **key** | string | Specify key that you need to get value from
 **callback** | Function | Specify your callback function if needed
+
+Using this method you can retrieve value for any key that is located in your application storage.
+
+<aside class="notice">
+  This method function is available for client-side applications only.
+</aside>
