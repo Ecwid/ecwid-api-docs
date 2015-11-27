@@ -132,6 +132,9 @@ Parameters in bold are mandatory
                         {
                             "name": "Size",
                             "value": "Big",
+                            "valuesArray" : [
+                            "Big"
+                            ],
                             "type": "CHOICE"
                         },
                         {
@@ -330,6 +333,7 @@ Field | Type |  Description
 name |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 value | string | Selected/entered value
+valuesArray | Array | Product option values selected by customer. Will return more than 1 value if option type is `CHOICES`
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### OrderItemOptionFile
@@ -537,6 +541,9 @@ Parameters in bold are mandatory
                 {
                     "name": "Size",
                     "value": "Big",
+                    "valuesArray" : [
+                    "Big"
+                    ],
                     "type": "CHOICE"
                 },
                 {
@@ -729,6 +736,7 @@ Field | Type |  Description
 name |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 value | string | Selected/entered value
+valuesArray | Array | Product option values selected by customer. Will return more than 1 value if option type is `CHOICES`
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### OrderItemOptionFile
@@ -897,6 +905,9 @@ Cache-Control: no-cache
                     {
                         "name": "Size",
                         "value": "Big",
+                        "valuesArray" : [
+                        "Big"
+                        ],
                         "type": "CHOICE"
                     },                  
                     {
@@ -1006,7 +1017,8 @@ Field | Type |  Description
 --------- | -----------| -----------
 **name** |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
-value | string | Selected/entered value
+**value** | string | Selected/entered value
+valuesArray | Array | Product option values selected by customer. Will accept more than 1 value if option type is `CHOICES`
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### PersonInfo
@@ -1326,6 +1338,7 @@ Field | Type | Description
 **name** |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 value | string | Selected/entered value
+valuesArray | Array | Product option values selected by customer. Will accept more than 1 value if option type is `CHOICES`
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### PersonInfo
