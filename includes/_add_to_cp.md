@@ -379,10 +379,6 @@ callback | Function | Specify your callback function if needed
 Your object data as specified in example will be stored as corresponding keys in your application storage in `'key' : 'value'` format.
 This method accepts only string type values in your data object, so make sure all values in your object, such as 'red', are of type `string`.
 
-<aside class="notice">
-  This method function is available for client-side applications only.
-</aside>
-
 ## EcwidApp.setAppPublicConfig
 
 > Save a string to 'public' key in application storage
@@ -405,9 +401,6 @@ callback | Function | Specify your callback function if needed
 
 The string that you provide in `data` variable will be specified for `public` key in application storage. You will be able to retrieve it using Ecwid Javascript API in storefront. If you need to pass more than one value, you can specify your data in a json string and parse that string in Ecwid storefront. This method accepts only string type values in your data object, so make sure all values in your object, such as 'red', are of type `string`.
 
-<aside class="notice">
-  This method function is available for client-side applications only.
-</aside>
 
 ## EcwidApp.getAppStorage
 
@@ -437,6 +430,3 @@ Name | Type | Description
 
 Using this method you can retrieve value for any key that is located in your application storage.
 
-<aside class="notice">
-  This method function is available for client-side applications only.
-</aside>

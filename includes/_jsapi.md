@@ -253,9 +253,9 @@ Cart calculation involves a request to server, so this method should be called o
 
 Since the calculation needs a server connection, it might fail due to network conditions. In this case, null is passed into the callback instead of Order object.
 
-## EcwidApp
+## Ecwid
 
-**EcwidApp** object provides a function that your applciation can use in storefront area of your app.
+**Ecwid** object provides a function that your applciation can use in storefront area of your app.
 
 > Usage
 
@@ -284,11 +284,11 @@ Ecwid.OnAPILoaded.add(function(page){
 })
 ```
 
-**EcwidApp.getAppPublicConfig**
+**Ecwid.getAppPublicConfig**
 
 Returns value for `public` key from Ecwid Storage endpoint.
 
-**EcwidApp.getAppPublicConfig** receives one argument: 
+**Ecwid.getAppPublicConfig** receives one argument: 
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -312,7 +312,7 @@ registered | integer timestamp | The UNIX timestamp when the customer registered
 
 Describes the person name, company and address.
 
-**Fields:**
+**Fields**
 
 Name | Type | Description
 ---- | ----- | -----------

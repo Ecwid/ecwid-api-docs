@@ -7,12 +7,16 @@ store ID: 11111 | store ID: 22222 | ...
 birth_date: 18.11.1987 | birth_date: 07.02.1981 | ...
 sex: male | sex: female | ...
 
-This endpoint will be useful when your application is working via client-side only, i.e. makes changes to Ecwid storefront or you need to store some settings for your application's tab in Ecwid control panel. To operate with Ecwid Storage API in the storefront use [Ecwid Javascript API](#storefront-js-api) and to do the same in Ecwid control panel, use [Ecwid Javascript SDK](#ecwid-javascript-sdk).
+The application storage can be accessed either via REST API or client-side Javascript code. The latter will be especially useful for client-side applications workin with Ecwid storefront or Ecwid control panel. 
+
+* To use the Storage API in the storefront, refer to the "EcwidApp.getAppPublicConfig" method in the [Ecwid Javascript API](#storefront-js-api). 
+* To manage the storage from the application tab in Ecwid control panel, use [Ecwid Javascript SDK](#ecwid-javascript-sdk).
+
+The HTTP ednpoints below describe the storage REST API.
 
 <aside class="notice">
 Scope required: *update_store_profile*
 </aside>
-
 
 ## Get all storage data
 
