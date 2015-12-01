@@ -432,12 +432,10 @@ height | number | The iframe height in pixels
 > Save multiple 'key' : 'value' data to app storage
 
 ```js
-var pageId = 12345;
-
 var data = { 
-  'color' : "red",
+  'color' : 'red',
   'size' : 'big',
-  'page_id' : '' + pageId
+  'page_id' : '123456'
 };
 
 EcwidApp.setAppStorage(data, callback);
@@ -460,8 +458,7 @@ This method accepts only string type values in your data object, so make sure al
 > Save a string to 'public' key in application storage
 
 ```js
-var pageId = 12345;
-var data = '{ "color" : "red", "page_id" : ' + pageId + ' }';
+var data = '{ "color" : "red", "page_id" : "123456" }';
 
 EcwidApp.setAppPublicConfig(data, callback);
 ```
