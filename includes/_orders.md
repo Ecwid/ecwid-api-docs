@@ -332,8 +332,8 @@ Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
-value | string | Selected/entered value
-valuesArray | Array | Product option values selected by customer. Will return more than 1 value if option type is `CHOICES`
+value | string | Selected/entered value(s) by customer. Used to get all values of a product option separated by comma in a single string
+valuesArray | Array | Selected/entered value(s) by customer. Used to get a specific value of a product option as an element of array, if option type is `CHOICES`
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### OrderItemOptionFile
@@ -735,8 +735,8 @@ Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
-value | string | Selected/entered value
-valuesArray | Array | Product option values selected by customer. Will return more than 1 value if option type is `CHOICES`
+value | string | Selected/entered value(s) by customer. Used to get all values of a product option separated by comma in a single string
+valuesArray | Array | Selected/entered value(s) by customer. Used to get a specific value of a product option as an element of array, if option type is `CHOICES`
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### OrderItemOptionFile
@@ -1017,8 +1017,8 @@ Field | Type |  Description
 --------- | -----------| -----------
 **name** |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
-**value** | string | Selected/entered value
-valuesArray | Array | Product option values selected by customer. Will accept more than 1 value if option type is `CHOICES`
+**value** | string | Selected/entered value by customer. Multiple values separated by comma in a single string
+valuesArray | Array | Product option values selected by customer. If option type is `CHOICES`, specify each value as a separate element of array
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### PersonInfo
@@ -1337,8 +1337,8 @@ Field | Type | Description
 ----- | ---- | -----------
 **name** |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
-value | string | Selected/entered value
-valuesArray | Array | Product option values selected by customer. Will accept more than 1 value if option type is `CHOICES`
+**value** | string | Selected/entered value by customer. Multiple values separated by comma in a single string
+valuesArray | Array | Product option values selected by customer. If option type is `CHOICES`, specify each value as a separate element of array
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### PersonInfo
