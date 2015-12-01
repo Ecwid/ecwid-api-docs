@@ -480,7 +480,21 @@ The string that you provide in `data` variable will be specified for `public` ke
 
 ## getAppStorage
 
-> Get data from application storage
+> Get all data from application storage
+
+```js
+EcwidApp.getAppStorage(callback);
+```
+
+> Example
+
+```js
+EcwidApp.getAppStorage(function(allKeys) {
+  // returns an array of objects, containing all keys and their values in your app storage
+});
+```
+
+> Get data from application storage by key
 
 ```js
 EcwidApp.getAppStorage(key, callback);
@@ -490,7 +504,7 @@ EcwidApp.getAppStorage(key, callback);
 
 ```js
 EcwidApp.getAppStorage('color', function(value){
-  //prints 'red' from data in example above
+  //prints 'red' 
   console.log(value);
 })
 ```
@@ -501,8 +515,7 @@ EcwidApp.getAppStorage accepts two parameters:
 
 Name | Type | Description
 ---- | ---- | -----------
-**key** | string | Specify key that you need to get value from
-**callback** | Function | Specify your callback function if needed
+key | string | Specify key that you need to get value from. If no key specified, all data will be returned
+**callback** | Function | Specify your callback function
 
-Using this method you can retrieve value for any key that is located in your application storage.
-
+Using this method you can retrieve either all keys and their values that are located in your application storage or get the value of a specific key.
