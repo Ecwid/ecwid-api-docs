@@ -53,6 +53,9 @@ Ecwid.OnPageLoaded.add(function(page) {
     });
   }
 });
+
+// Get color value for the message and store it in color variable
+var color = Ecwid.getAppPublicConfig(appId);
 ```
 
 As soon as your script is loaded on the page with Ecwid storefront, you can access the page DOM and do pretty much everything you want by means of native JavaScript or whatever framework you want. If you use a JS framework, please make sure it's already loaded on the page by the moment you start using it. 
@@ -62,18 +65,9 @@ In addition, Ecwid provides a [JavaScript API](#storefront-js-api) that you can 
 * `Ecwid.getOwnerId()` returns the store ID. You may want to use it to identify which store your script is loaded in now
 * `Ecwid.OnPageLoad()` and `Ecwid.OnPageLoaded()` help you to track store page switch and identify which page is opened
 * `Ecwid.Cart` object and its methods allow to manage the customer cart
+* `EcwidApp.getAppPublicConfig` will return store-specific data from application storage
 
 More details: [Ecwid JavaScript API](#storefront-js-api)
-
-## Client-side vs server-side approach
-
-Applications that change storefront can be as simple as adding some custom Javascript code to a page to the ones that involve server side actions, like creating a discount coupon via [Coupons endpoint](#discount-coupons) and then passing that information to the script in the storefornt.
-
-In case if your aplication is partly client-side, for example, it stores user data in [Storage endpoint](#application-storage) and you get that information in your storefront Javascript code, then you can access public data using `EcwidApp.getAppPublicConfig` function of [Ecwid Javascript API](#storefront-js-api) without using server side functionality.
-
-In some cases you may want to store user data somewhere and simultaneously get that information for your storefront Javascript code. You can do that as well using these two functions from [Ecwid Javascript SDK](#ecwid-javascript-sdk): `EcwidApp.setAppStorage` to store data and `EcwidApp.getAppStorage` to retrieve it in Ecwid control panel. To store data for public use in storefront, use `EcwidApp.setAppPublicConfig` and you can access it afterwards using the `EcwidApp.getAppPublicConfig` function of Ecwid Javascript API in storefront.
-
-Server-side applications on the other hand work in a different way: new user registers in a database of that application, so both in Ecwid Control panel and in storefront that application requests required data from its server, which makes calls to Ecwid API. These apps can still utilize Storage endpoint for storing user data, see [Storage endpoint](#application-storage) for details.
 
 ## Store-specific custom JS
 
@@ -95,6 +89,9 @@ function doCoolStuff() {
   //...
 }
 
+// Get color value for the message and store it in color variable
+var color = Ecwid.getAppPublicConfig(appId);
+
 // Get Ecwid store ID and start working
 loadConfig(Ecwid.getOwnerId(), doCoolStuff);
 ```
@@ -102,6 +99,8 @@ loadConfig(Ecwid.getOwnerId(), doCoolStuff);
 In most cases, your application behavior will vary depending on the store it is opened in. Although Ecwid API allows you to specify only one JS file per application, your application can detect the current Ecwid store ID and act correspondingly. Use the `Ecwid.getOwnerId()` method to detect the user store ID in your script. 
 
 For example, let's say you need to dynamically add a store-specific configuration to your script when it's executed in some particular storefront. You can detect the store ID in your script and call a script on your server containing the store-specific code. 
+
+To get information for that specific store you can use `Ecwid.getAppPublicConfig` function in [Ecwid Javascript API](#storefront-js-api). See more details on how to access that data in **Application data** section of documentation.
 
 # Custom CSS
 

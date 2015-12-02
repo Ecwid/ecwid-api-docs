@@ -448,7 +448,7 @@ EcwidApp.setAppStorage(data, callback);
 
 ### Parameters
 
-EcwidApp.setAppStorage accepts two parameters: 
+`EcwidApp.setAppStorage` accepts two parameters: 
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -470,7 +470,7 @@ EcwidApp.setAppPublicConfig(data, callback);
 
 ### Parameters
 
-EcwidApp.setAppPublicConfig accepts two parameters: 
+`EcwidApp.setAppPublicConfig` accepts two parameters: 
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -479,6 +479,9 @@ callback | Function | Specify your callback function if needed
 
 The string that you provide in `data` variable will be specified for `public` key in application storage. You will be able to retrieve it using Ecwid Javascript API in storefront. If you need to pass more than one value, you can specify your data in a json string and parse that string in Ecwid storefront. This method accepts only string type values in your data object, so make sure all values in your object, such as 'red', are of type `string`.
 
+<aside class="notice">
+Data that you save for public access can't exceed <strong>8Kb</strong>
+</aside>
 
 ## getAppStorage
 
@@ -514,7 +517,7 @@ EcwidApp.getAppStorage('color', function(value){
 
 ### Parameters
 
-EcwidApp.getAppStorage accepts two parameters: 
+`EcwidApp.getAppStorage` accepts two parameters: 
 
 Name | Type | Description
 ---- | ---- | -----------

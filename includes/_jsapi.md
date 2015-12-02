@@ -253,10 +253,6 @@ Cart calculation involves a request to server, so this method should be called o
 
 Since the calculation needs a server connection, it might fail due to network conditions. In this case, null is passed into the callback instead of Order object.
 
-## Ecwid
-
-**Ecwid** object provides a function that your applciation can use in storefront area of your app.
-
 > Usage
 
 ```js
@@ -293,6 +289,10 @@ Returns value for `public` key from Ecwid Storage endpoint.
 Name | Type | Description
 ---- | ---- | -----------
 **appId** | String | Namespace of your application (as set in the application settings).
+
+<aside class="notice">
+Data in public storage of your app must not exceed <strong>8Kb</strong>
+</aside>
 
 ## Customer
 
