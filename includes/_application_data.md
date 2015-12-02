@@ -1,8 +1,12 @@
 # Application data
 
+# Overview
+
 Applications work with Ecwid stores and each store is unique in its own way. So each of those stores can have different settings and data for your application. Using [Application Storage](#application-storage) you can save and get data for a specific store for your application's needs.
 
-# Embedded apps
+The methods vary depending on the type of your application, so check out the following details on how to do that in your application.
+
+# Accessing data in embedded apps
 
 Embedded applications are adding a new tab in Ecwid control panel of a store, to provide quick settings for an application itself as well as containing application functionality in that tab. To find out more about such applications and how they work, see [Embedded apps](#embedded-apps) section.
 
@@ -63,7 +67,7 @@ EcwidApp.getAppStorage('color', function(value){
 
 If you need to know the value of a specific key in your application storage, pass the key name as a first parameter of `EcwidApp.getAppStorage` function and you will receive the value for that key in a callback function. 
 
-# Storefront apps
+# Accessing data in storefront apps
 
 Using Ecwid Javascript API, applcations can change storefront of Ecwid stores and add completely new functionality to it, using the power of Javascript. See [Customize Storefront](#customize-storefront) section for more details on how it works. 
 
