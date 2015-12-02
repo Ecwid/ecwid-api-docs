@@ -24,6 +24,7 @@ includes:
   - storage
   - application
   - webhooks
+  - application_data
   - add_to_cp
   - customize_storefront
   - jsapi
