@@ -107,11 +107,14 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
     var accessToken = storeData.access_token;
 
     // get store specific data
-    var backgroundColor = EcwidApp.getAppStorage('color', function(value) {
+    var backgroundColor;
+    EcwidApp.getAppStorage('color', function(value) {
       if (value !== null) {
         // do something
+        backgroundColor = 'black';
       } else {
         // do something else
+        backgrountColor = value;
       } 
     });
 
@@ -121,6 +124,7 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
 Ecwid allows your application to fully reside on client side and not use server side at all, i.e. you can authenticate the user, get store ID and access token and manage the store data via Ecwid API right inside your app in Control panel without calling your server scripts. By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. 
 
 The workflow can be described into the following several steps: 
+
 1. Get store details
 2. Get store specific data
 3. Start the flow of your app
@@ -142,6 +146,7 @@ So once you know the store you are working with and you have the settings and ot
 ## Server-side applications
 
 The workflow of such applications can be divided into several steps: 
+
 1. Decrypt the payload from Ecwid control panel
 2. Get store specific data (optional)
 3. Start the flow of your app
@@ -433,9 +438,9 @@ height | number | The iframe height in pixels
 
 ```js
 var data = { 
-  'color' : 'red',
-  'size' : 'big',
-  'page_id' : '123456'
+  color : 'red',
+  size : 'big',
+  page_id : '123456'
 };
 
 EcwidApp.setAppStorage(data, callback);
@@ -488,6 +493,7 @@ EcwidApp.getAppStorage(callback);
 ```js
 EcwidApp.getAppStorage(function(allKeys) {
   // returns an array of objects, containing all keys and their values in your app storage
+  console.log(allKeys);
 });
 ```
 
