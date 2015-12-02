@@ -44,8 +44,6 @@ In the first parameter of that function you will need to pass a string with the 
 
 ## Get storage data
 
-There are two ways to get data from your application storage: get all keys and their values at once, or get value of a specific key. To use any of these methods, you will need to use `EcwidApp.getAppStorage` function of Ecwid Javascript SDK
-
 > Get all data from application storage
 
 ```js
@@ -65,6 +63,8 @@ EcwidApp.getAppStorage('color', function(value){
 })
 ```
 
+There are two ways to get data from your application storage: get all keys and their values at once, or get value of a specific key. To use any of these methods, you will need to use `EcwidApp.getAppStorage` function of Ecwid Javascript SDK
+
 If you need to know the value of a specific key in your application storage, pass the key name as a first parameter of `EcwidApp.getAppStorage` function and you will receive the value for that key in a callback function. 
 
 # Accessing data in storefront apps
@@ -73,11 +73,9 @@ Using Ecwid Javascript API, applcations can change storefront of Ecwid stores an
 
 ## Save public data
 
-There are two ways on how you can save data to application storage: using `setAppPublicConfig` in Ecwid Javascript SDK (for embedded client-side applications) or through [Storage endpoint](#application-storage) of Ecwid API. The one you choose depends on how exactly your application operates, so feel free to explore all the options and find out which one suits you more.
+There are two ways on how you can save data to application storage: using `setAppPublicConfig` in Ecwid [Javascript SDK](#setapppublicconfig) (for embedded client-side applications) or through [Storage endpoint](#application-storage) of Ecwid API. The one you choose depends on how exactly your application operates, so feel free to explore all the options and find out which one suits you more.
 
 ## Get public data
-
-Applications that change storefront can be as simple as adding some custom Javascript code to a page to the ones that involve server side actions, like creating a discount coupon via [Coupons endpoint](#discount-coupons) and then passing that information to the script in the storefornt.
 
 > Example values from app storage
 
@@ -100,11 +98,13 @@ Ecwid.OnAPILoaded.add(function(page){
 })
 ```
 
+Applications that change storefront can be as simple as adding some custom Javascript code to a page to the ones that involve server side actions, like creating a discount coupon via [Coupons endpoint](#discount-coupons) and then passing that information to the script in the storefornt.
+
 In case if your aplication is partly client-side, for example, it stores user data in [Storage endpoint](#application-storage) and you get that information in your storefront via Javascript code, then you can access that information using `EcwidApp.getAppPublicConfig` function of Ecwid Javascript API.
 
 That function allows you to get the value of `public` key in storage, so, for example, you can either store a simple value like `blue` or `enabled` and get that information in storefront area. Alternatively, if you need access to more than one value, you can store a JSON string as a value of `public` key in your app storage and then parse it using JSON.parse function to get specific keys and values of that string in user's storefront. See example code on how to get public data for your application from storage on the right.
 
-## Ecwid API
+# Ecwid REST API
 
 To access and modify data in application storage using Ecwid API, see [Application storage](#application-storage) endpoint for more details.
 
