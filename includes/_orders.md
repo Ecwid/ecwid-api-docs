@@ -79,6 +79,7 @@ Parameters in bold are mandatory
             "updateDate": "2014-09-21 00:00:12 +0000",
             "createTimestamp": 1427268654,
             "updateTimestamp": 1427272209,
+            "customerGroupId": 12345,
             "customerGroup": "Gold",
             "discountCoupon": {
                 "name": "Coupon # 3",
@@ -263,6 +264,7 @@ createDate | date | The date/time of order placement, e.g `2014-06-06 18:57:19 +
 updateDate | date | The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
 createTimestamp | number | The date of order placement in UNIX Timestamp format, e.g `1427268654`
 updateTimestamp | number | The date of the last order change in UNIX Timestamp format, e.g `1427268654`
+customerGroupId | number | Customer group ID
 customerGroup | string | The name of group (membership) the customer belongs to
 items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
@@ -488,6 +490,7 @@ Parameters in bold are mandatory
     "updateDate": "2014-09-21 00:00:12 +0000",
     "createTimestamp": 1427268654,
     "updateTimestamp": 1427272209,
+    "customerGroupId": 12345,
     "customerGroup": "Gold",
     "discountCoupon": {
         "name": "Coupon # 3",
@@ -664,6 +667,7 @@ createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 
 updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
 createTimestamp | number | The date of order placement in UNIX Timestamp format, e.g `1427268654`
 updateTimestamp | number | The date of the last order change in UNIX Timestamp format, e.g `1427268654`
+customerGroupId | number | Customer group ID
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 items | Array\<*OrderItem*\> | Order items

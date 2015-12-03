@@ -19,6 +19,7 @@ includes:
   - product_classes
   - orders
   - customers
+  - customer_groups
   - coupons
   - instant_order_notifications
   - storage

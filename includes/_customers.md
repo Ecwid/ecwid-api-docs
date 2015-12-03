@@ -13,7 +13,7 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/customers?keyword={keyword}&name={name}&email={email}&minOrderCount={minOrderCount}&maxOrderCount={maxOrderCount}&sortBy={sortBy}&offset={offset}&limit={limit}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/customers?keyword={keyword}&name={name}&email={email}&customerGroup={groupId}&minOrderCount={minOrderCount}&maxOrderCount={maxOrderCount}&sortBy={sortBy}&offset={offset}&limit={limit}&token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -22,6 +22,7 @@ Name | Type    | Description
 keyword |  string | Search term that Ecwid looks for in all customer fields
 name | string | Customer name
 email | string | Customer email
+groupId | number | Customer group ID
 minOrderCount |  number | Minimum number of order a customer placed
 maxOrderCount | number | Maximum number of order a customer placed
 sortBy |  string | Sort order. Supported values: <ul><li>`NAME_ASC` *default*</li> <li>`NAME_DESC`</li> <li>`EMAIL_ASC`</li> <li>`EMAIL_DESC`</li> <li>`ORDER_COUNT_ASC`</li> <li>`ORDER_COUNT_DESC`</li><li>`REGISTERED_DATE_DESC`</li><li>`REGISTERED_DATE_ASC`</li></ul>
@@ -52,6 +53,8 @@ Parameters in bold are mandatory
             "name": "John Darling",
             "email": "demo4@ecwid.com",
             "totalOrderCount": 1
+            "customerGroupId": 12345,
+            "customerGroupName": "Extra Gold",
         },
         {
             "id": 14145239,
@@ -64,6 +67,8 @@ Parameters in bold are mandatory
             "name": "Wendy Darling",
             "email": "demo1@ecwid.com",
             "totalOrderCount": 0
+            "customerGroupId": 0,
+            "customerGroupName": "General",
         }
     ]
 }
@@ -87,6 +92,8 @@ id |  number |  Unique internal customer ID
 email | string |  Customer email
 name | string | Customer full name
 totalOrderCount | number | Number of customer's orders
+customerGroupId | number | Customer group ID
+customerGroupName | string | Customer group name
 
 ### Errors
 
@@ -142,6 +149,8 @@ Name | Type    | Description
     "id": 15319410,
     "email": "johnsmith@example.com",
     "registered": "2014-09-01 23:25:27 +0400",
+    "customerGroupId": 12345,
+    "customerGroupName": "Extra Gold",
     "billingPerson": {
         "name": "John Smith",
         "companyName": "Unreal Company",
@@ -195,6 +204,8 @@ email | string |  Customer email
 registered | string | Registration date, e.g `2014-06-06 18:57:19 +0400`
 billingPerson | *Person* | Customer's billing name/address
 shippingAddresses | *ShippingAddress* | Customer address book items
+customerGroupId | number | Customer group ID
+customerGroupName | string | Customer group name
 
 #### Person
 Field | Type  | Description
@@ -265,6 +276,7 @@ Cache-Control: no-cache
 {
     "email": "example@example.com",
     "password": "ecwidiscool",
+    "customerGroupId": 12345,
     "billingPerson": {
         "name": "John Smith",
         "companyName": "Imaginary Company",
@@ -309,6 +321,7 @@ Field | Type  | Description
 -------------- | -------------- | --------------
 **email** | string |  Customer email
 **password** | string |  Customer password
+customerGroupId | number | Customer group ID
 billingPerson | <Person> | Customer's billing name/address
 shippingAddresses | Array<ShippingAddress> | Customer address book items
 
@@ -408,6 +421,7 @@ Cache-Control: no-cache
 {
     "email": "new-email@example.com",
     "password":"newpassword",
+    "customerGroupId": 12345,
     "billingPerson": {
         "name": "New Name",
         "companyName": "Ecwid",
@@ -453,6 +467,7 @@ Field | Type  | Description
 -------------- | -------------- | --------------
 email | string |  Customer email
 password | string |  Customer email
+customerGroupId | number | Customer group ID
 billingPerson | <Person> | Customer's billing name/address
 shippingAddresses | Array<ShippingAddress> | Customer address book items
 
