@@ -332,8 +332,8 @@ Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
-value | string | Selected/entered value(s) by customer. Used to get all values of a product option separated by comma in a single string
-valuesArray | Array | Selected/entered value(s) by customer. Used to get a specific value of a product option as an element of array, if option type is `CHOICES`
+value | string | Selected/entered option value(s) as a string. For the `CHOICES` type, provides a string with all chosen values (comma-separated). You can use this to simply print out all selected values.
+valuesArray | Array | Selected option values as an array. For the `CHOICES` type, provides an array with the chosen values so you can iterate through them in your app.
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### OrderItemOptionFile
@@ -542,7 +542,7 @@ Parameters in bold are mandatory
                     "name": "Size",
                     "value": "Big",
                     "valuesArray" : [
-                    "Big"
+                      "Big"
                     ],
                     "type": "CHOICE"
                 },
@@ -735,8 +735,8 @@ Field | Type |  Description
 --------- | -----------| -----------
 name |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
-value | string | Selected/entered value(s) by customer. Used to get all values of a product option separated by comma in a single string
-valuesArray | Array | Selected/entered value(s) by customer. Used to get a specific value of a product option as an element of array, if option type is `CHOICES`
+value | string | Selected/entered option value(s) as a string. For the `CHOICES` type, provides a string with all chosen values (comma-separated). You can use this to simply print out all selected values.
+valuesArray | Array | Selected option values as an array. For the `CHOICES` type, provides an array with the chosen values so you can iterate through them in your app.
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### OrderItemOptionFile
@@ -905,9 +905,6 @@ Cache-Control: no-cache
                     {
                         "name": "Size",
                         "value": "Big",
-                        "valuesArray" : [
-                        "Big"
-                        ],
                         "type": "CHOICE"
                     },                  
                     {
@@ -1018,7 +1015,6 @@ Field | Type |  Description
 **name** |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 **value** | string | Selected/entered value by customer. Multiple values separated by comma in a single string
-valuesArray | Array | Product option values selected by customer. If option type is `CHOICES`, specify each value as a separate element of array
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### PersonInfo
