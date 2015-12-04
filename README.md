@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##December 2, 2015
+- **NEW** Enhanced application storage with easy access from JS APIs. Use this to store, manage and access your users preferences and other app data
+- **NEW** Customer groups (membserhips) can now be managed over the REST API. Need an idea on how to use that in an application? Here is one: track customer sales and automatically provide them with a membership based on the money they have spent in your store.
+
 ##November 19, 2015
 - Moved JS API documentation from Ecwid Help Center to api.ecwid.com
 
