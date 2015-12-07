@@ -45,7 +45,7 @@ Parameters in bold are mandatory
             "id": 12345,
             "name": "VIP"
         }
-    ]}
+    ]
 }
 ```
 

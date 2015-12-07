@@ -1338,7 +1338,6 @@ Field | Type | Description
 **name** |  string | Option name
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 **value** | string | Selected/entered value by customer. Multiple values separated by comma in a single string
-valuesArray | Array | Product option values selected by customer. If option type is `CHOICES`, specify each value as a separate element of array
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
 
 #### PersonInfo
