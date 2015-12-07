@@ -1,5 +1,9 @@
 # Customer groups
 
+In Ecwid stores merchants assign customers to specific groups in order to treat them differently. For example, for some group of people, that purchased a membership in their store, they would like to provide a discount based on subtotal at all times. Another way of using customer groups is to to show them a hidden content of a store, in case if these customers are wholesalers.
+
+To manage customer groups in Ecwid stores, use this endpoint described below and to find out more about customer groups in Ecwid stores, check out [this page](https://help.ecwid.com/customer/en/portal/articles/1345509-customer-groups)
+
 ## Get all customer groups
 
 ### Request
@@ -82,7 +86,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
-402 | Store doesn't have access to customer groups feature
+402 | Store doesn't have access to customer groups feature, it's available on Business plan an higher
 500 | Cannot retrieve the customer groups info because of an error on the server
 
 #### Error response body (optional)
@@ -147,7 +151,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 HTTP Status | Meaning
 ------------|--------
-402 | Store doesn't have access to customer groups feature
+402 | Store doesn't have access to customer groups feature, it's available on Business plan and higher
 404 | Customer group is not found
 500 | Cannot retrieve the customer info because of an error on the server
 
@@ -219,7 +223,7 @@ id | number | ID of the created customer group
 > Error response example
 
 ```http
-HTTP/1.1 409 Conflict
+HTTP/1.1 400 Field CustomerMembership.name is absent
 Content-Type application/json; charset=utf-8
 ```
 
@@ -230,6 +234,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 **HTTP Status** | **Response JSON** | Description
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
+402 | Store doesn't have access to customer groups feature, it's available on Business plan and higher
 500 | The creation request failed because of an error on the server
 
 #### Error response body (optional)
@@ -309,6 +314,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 **HTTP Status** | **Response JSON** | Description
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
+402 | Store doesn't have access to customer groups feature, it's available on Business plan and higher
 404 | The customer group with given ID is not found
 500 | The update request failed because of an error on the server
 
@@ -376,6 +382,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 **HTTP Status** | **Response JSON** | Description
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
+402 | Store doesn't have access to customer groups feature, it's available on Business plan and higher
 404 | The customer group with given ID is not found
 500 | The update request failed because of an error on the server
 
