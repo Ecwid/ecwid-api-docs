@@ -13,14 +13,24 @@ To register you app in Ecwid, fill [this form](https://ecwidcom.typeform.com/to/
 
 ## Get access token
 
-If your application is going to be published in Ecwid App market then the process of getting the access token is pretty simple. The process is initiated by the user on the app details page in their store Control Panel – as soon as the user installs the app, you can retrieve the access token one of the following ways:
+### Get access token for an application
 
-* Using [Ecwid JavaScript SDK](#getpayload) when the user opens the application tab in their Ecwid control panel (see [Embedded apps](#embedded-apps))
-* Using the standard oAuth flow described below starting from the **Step #2**. More details on this process in [Installation from hosted app details page](#installation-from-hosted-app-details-page) section.
+Applications for Ecwid stores are installed from app details page, like [this one](http://take.ms/kTXWl). This page allows both users and developers to provide quick and easy way to install and access applications right from Ecwid control panel.
 
-In case if your app doesn't have an app details page for you to test the flow, just [let us know](http://developers.ecwid.com/contact).
+The process is initiated by a user and there are two options of what is going to happen in the process of installation: 
 
-### Standard oAuth flow
+1. If your application adds a new tab to Ecwid Control Panel, user will be automatically directed to that new tab after app is installed (see [Embedded apps](#embedded-apps))
+2. In any other way, user will be directed to an external page to proceed with installation of application
+
+For both these options, getting the oAuth token is simple: 
+
+**For option 1:** Use [Ecwid JavaScript SDK](#getpayload) to get access token when user opens your application tab in Ecwid Control Panel
+
+**For option 2:** Using the standard oAuth flow described below starting from the **Step #2**. More details on this process in [Installation from hosted app details page](#installation-from-hosted-app-details-page) section.
+
+In case if your app doesn't have an app details page for you to test the flow, just [let us know](http://developers.ecwid.com/contact). If you are building an custom solution for your specific store, please see the next section for more details.
+
+### Standard oAuth flow for custom solutions
 
 Retrieving an access token includes the following steps:
 
@@ -28,11 +38,13 @@ Retrieving an access token includes the following steps:
 2. Upon authorization, Ecwid redirects the user to the application's redirect URL specified in the request.
 3. The application requests an access token from Ecwid. This access_token will be used as API key in all API calls.
 
+User needs to go through all these steps only once in order for your app to get and store access token for that user. This token will be user in any call you make to Ecwid API on behalf of the user.
+
 Below you will find the details on each of these steps. If you are still not sure how to get the token, please [contact us](http://developers.ecwid.com/contact) and we will help you.
 
 ###Step 1. Send user to Ecwid authorization dialog
 
-Your application sends the user to Ecwid authorization dialog available on the Ecwid's oAuth endpoint
+Your application sends the user to Ecwid authorization dialog available on the Ecwid's oAuth endpoint. 
 
 > Request example
 
@@ -118,7 +130,7 @@ Ecwid responds with a JSON-formatted data containing the access token and additi
 
 Field | Description
 ----- | -----------
-access_token | Authorization token. This is a key your app will use to access Ecwid API on behalf of the user. It doesn't expires so there is no need to refresh it unless the user removes (de-authorizes) your application and then decides to instal it again.
+access_token | Authorization token. This is a key your app will use to access Ecwid API on behalf of the user. 
 token_type | `bearer` (it's always `bearer`)
 scope | List of permissions (API access levels) given to the app, separated by space
 store_id | Ecwid store ID (a unique Ecwid account identificator)
@@ -128,6 +140,11 @@ store_id | Ecwid store ID (a unique Ecwid account identificator)
 For security reasons, a temporary code can be exchanged to an access token only once. In case of second attempt, the previously provided access token is automatically disabled.
 </aside>
 
+### How does access token work? 
+
+Access token provides access to Ecwid API on behalf of the user that installed your application in their store. It doesn't expire, so is available to you at all times. You will only need to get a new access token in case a user uninstalls the application from their store and installs your application back again. 
+
+After a user goes through installation of your app, it can store that token securely in your database for that user, so it's not necessary to go through the standard oAuth flow each time you need to make a request to Ecwid API.
 
 ##Access scopes
 Scopes are permissions that identifies the scope of access your application requests from the user. You should pass the required scopes along with the authorization request to Ecwid oAuth server when a user installs your application. See details above: [Get access token](#get-access-token).
@@ -212,4 +229,3 @@ Notes:
 
 - When the app cannot be installed from the app details page, the app details page contains the "Get" button instead of "Install". The "Get" button simply redirects yser to your app web site. Examples of such apps are the apps installed on device (iOS, Android, Desktop applications). More details about such apps: [Applications installed on device](#applications-installed-on-device)
 - If an app creates a separate tab inside user's Ecwid Control Panel, Ecwid will redirects user to the new created tab after installation. The redirect URL setting is ignored in this case. This is done this way because the app embedded in a separate Control Panel tab can get the access token without temporary code. More details: [Authentication in embedded apps](#authentication-in-embedded-apps). 
-

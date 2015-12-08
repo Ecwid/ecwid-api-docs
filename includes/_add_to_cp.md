@@ -13,6 +13,10 @@ At high level, it works this way:
 
 Below, you'll find more details on how to build an app.
 
+<aside class="notice">
+Permission required: add_to_cp (see <a href="#access-scopes">Access scopes</a>)
+</aside>
+
 # Building an embedded app
 
 ## Set up your application

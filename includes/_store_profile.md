@@ -626,6 +626,8 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string |  oAuth token
 
+When uploading a store logo, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+
 ### Response
 
 > Response example
@@ -755,6 +757,8 @@ Name | Type    | Description
 ---- | ------- | -----------
 **storeId** |  number | Ecwid store ID
 **token** |  string |  oAuth token
+
+When uploading an invoice logo, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
 ### Response
 

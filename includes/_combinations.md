@@ -738,6 +738,8 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 **combinationId** | number | Internal combination ID
 
+When uploading an image for a combination, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+
 ### Response
 
 > Response example

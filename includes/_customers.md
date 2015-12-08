@@ -52,9 +52,9 @@ Parameters in bold are mandatory
             "id": 14145238,
             "name": "John Darling",
             "email": "demo4@ecwid.com",
-            "totalOrderCount": 1
+            "totalOrderCount": 1,
             "customerGroupId": 12345,
-            "customerGroupName": "Extra Gold",
+            "customerGroupName": "Extra Gold"
         },
         {
             "id": 14145239,
@@ -66,9 +66,9 @@ Parameters in bold are mandatory
             "id": 14145235,
             "name": "Wendy Darling",
             "email": "demo1@ecwid.com",
-            "totalOrderCount": 0
+            "totalOrderCount": 0,
             "customerGroupId": 0,
-            "customerGroupName": "General",
+            "customerGroupName": "General"
         }
     ]
 }

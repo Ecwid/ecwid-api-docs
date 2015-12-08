@@ -1475,6 +1475,8 @@ Name | Type    | Description
 **fileName** |  string |  Uploaded file name
 **token** |  string |  oAuth token
 
+When uploading an item option file, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+
 ### Response
 
 > Response example
