@@ -22,13 +22,16 @@ In a nustshell, webhooks in Ecwid work this way:
 * When a user (merchant) installs your application, the webhooks for this store are automatically enabled
 * Each supported event in the store (e.g. new order is placed) triggers an HTTP POST request to the URL your specified
 * Your application receives the requests and replies with `200 OK` to identify that it's received
-* Then your app processes the webhook request and perform additional API pull requests to detect what was changed in the store
+* Then your app processes the webhook request and performs further steps to handle the event
 
 
 ## Supported events
 
 The following events are supported:
 
+* Unfinished order is created
+* Unfinished order is updated
+* Unfinished order is deleted
 * New order is placed
 * Order is changed
 * Order is deleted
@@ -50,7 +53,7 @@ This must be an HTTPS URL.
 </aside>
 
 ### Set webhook events
-There are several types of events in the store that Ecwid can notify your application about, check out **Supported events** section for more details. 
+There are several types of events in the store that Ecwid can notify your application about, check out **Event type** section of webhook structure for more details. 
 
 Please specify the exact event types you wish to be notified about upon registering your application or [contact us](http://developers.ecwid.com/contact) if you already have an app.
 
@@ -163,7 +166,7 @@ See the example in the [webhook processing example code](#webhook-processing-exa
 ```php
 <?php 
 // Get contents of webhook request
-$requestBody = @file_get_contents('php://input');
+$requestBody = file_get_contents('php://input');
 $client_secret = 'abcde123456789';
 ​
 // Parse webhook data
