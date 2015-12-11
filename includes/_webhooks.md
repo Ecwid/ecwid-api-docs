@@ -49,6 +49,10 @@ When you [register your application](#register-your-app-in-ecwid) with Ecwid, pl
 This must be an HTTPS URL. 
 </aside>
 
+### Set webhook events
+There are several types of events in the store that Ecwid can notify your application about, check out **Supported events** section for more details. 
+
+Please specify the exact event types you wish to be notified about upon registering your application or [contact us](http://developers.ecwid.com/contact) if you already have an app.
 
 ### Get access
 Each application has scope of access that controls the set of store resources and operations permitted for the application. The same set of access scopes is used to determine which events your application can be notified of. To be notified of the product updates, make sure your app has `read_catalog` access to the store. The `read_orders` scope allows to get order webhooks. See [Access scopes](#access-scopes) for more details. 
@@ -63,14 +67,23 @@ Each application has scope of access that controls the set of store resources an
 > Webhook body example
 
 ```http
-POST https://www.myapp.com/callback?eventType=product.updated
+POST https://www.myapp.com/callback?eventType=order.updated HTTP/1.1
+Host: www.myapp.com
+Content-Type: application/json; charset=UTF-8
+Cache-Control: no-cache
 
 {
-  "eventId": 12345,
-  "eventType": "product.updated",
-  "eventCreated": 1230329329,
-  "storeId": 1003,
-  "entityId": 130030039
+"eventId":"123456-1234-1234-1234-123412341234",
+"eventCreated":1234567,
+"storeId":1003,
+"entityId":103,
+"eventType":"order.updated",
+"data":{
+  "oldPaymentStatus":"PAID",
+  "newPaymentStatus":"PAID",
+  "oldFulfillmentStatus":"DELIVERED",
+  "newFulfillmentStatus":"SHIPPED"
+  }
 }
 ```
 
@@ -83,12 +96,15 @@ eventType | string | Type of the occurred event.
 eventCreated | timestamp | Unix timestamp of the occurred event.
 storeId | number | Store ID of the store where the event occured.
 entityId | number | Id of the updated entity. For example, if a product was updated, then the entityId will be the ID of that product
+data | array | Describes changes made to order. Applies to `order.updated` event type only regarding order statuses
 
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
 
 ### Event types
-
+* `unfinished_order.created` Unfinished order is created
+* `unfinished_order.updated` Unfinished order is updated
+* `unfinished_order.deleted` Unfinished order is deleted
 * `order.created` New order is placed
 * `order.updated` Order is changed
 * `order.deleted` Order is deleted
@@ -158,16 +174,17 @@ $eventCreated = $decodedBody['eventCreated'];
 $storeId = $decodedBody['storeId'];
 $entityId = $decodedBody['entityId'];
 $eventType = $decodedBody['eventType'];
-​
+$data = ​$decodedBody['data'];
+
 // Reply with 200OK to Ecwid
 http_response_code(200);
 ​
 // Filter out the events we're not interested in
-if ($eventType != 'product.updated') {
+if ($eventType != 'order.updated') {
     exit;
 }
 ​
-// Continue if eventType is product.updated
+// Continue if eventType is order.updated
 // Verify the webhook (check that it is sent by Ecwid)
 foreach (getallheaders() as $name => $value) {
     if ($name == "X-Ecwid-Webhook-Signature") {
