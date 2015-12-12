@@ -99,7 +99,7 @@ eventType | string | Type of the occurred event.
 eventCreated | timestamp | Unix timestamp of the occurred event.
 storeId | number | Store ID of the store where the event occured.
 entityId | number | Id of the updated entity. For example, if a product was updated, then the entityId will be the ID of that product
-data | array | Describes changes made to order. Applies to `order.updated` event type only regarding order statuses
+data | object | Describes changes made to order. Is provided for `order.updated` event type only, regarding order statuses
 
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
@@ -115,13 +115,23 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `product.updated` Product is updated
 * `product.deleted` Product is deleted
 
+### Unfinished order events
+`unfinished_order.*` webhook event types are providing timely updates about [unfinished orders](https://help.ecwid.com/customer/en/portal/articles/1163955-orders#Unfinishedsales) in Ecwid store. These orders happen when a customer didn't complete their order and left the store without making a payment.
+
+Using webhooks for these event types can be really helpful for applications, which goal is to decrease cart abandonment among customers of a store. 
+
+### Q: How can I know if order status was changed?
+Webhooks in Ecwid have a specific field for that: `data`. This field provides information about changes to both payment and fulfilment status of the order. 
+
+Contents of `data` field also lets you know the details about old status (before the changes) and the new one (after the changes) at all times. For example, your application can send a note to your warehouse if it received a webhook about order payment status changes from `Awaiting payment` to `Paid`.
+
 ## Request headers
 Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](#webhooks-security) below.
 
 
 # Responding to webhooks
 
-Your app should return a `200 OK` HTTP status code in reply to a webhook. This acknowledges Ecwid that you received the webhook. Any other response (e.g. `3xx`), will indicate that the webhook is not received. In this case, we will re-send a webhook every 15 minutes the maximum retry limit is reached. Once the limit is reached, the webhook is removed from the queue and will not be send again.
+Your app should return a `200 OK` HTTP status code in reply to a webhook. This acknowledges Ecwid that you received the webhook. Any other response (e.g. `3xx`), will indicate that the webhook is not received. In this case, we will re-send a webhook every 15 minutes the maximum retry limit is reached. Once the limit is reached, the webhook is removed from the queue and will not be sent again.
 
 
 
