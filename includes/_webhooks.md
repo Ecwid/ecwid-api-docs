@@ -99,8 +99,16 @@ eventType | string | Type of the occurred event.
 eventCreated | timestamp | Unix timestamp of the occurred event.
 storeId | number | Store ID of the store where the event occured.
 entityId | number | Id of the updated entity. For example, if a product was updated, then the entityId will be the ID of that product
-data | object | Describes changes made to order. Is provided for `order.updated` event type only, regarding order statuses
+data | Array\<OrderStatuses\> | Describes changes made to order. Is provided for `order.updated` event type only, regarding order statuses
 
+#### OrderStatuses
+
+Name | Type | Description
+---- | -----| -----------
+oldPaymentStatus | string | Payment status of order before changes occurred
+newPaymentStatus | string | Payment status of order after changes occurred
+oldFulfillmentStatus | string | Fulfillment status of order before changes occurred
+newFulfillmentStatus | string | Fulfillment status of order after changes occurred
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
 
@@ -115,10 +123,18 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `product.updated` Product is updated
 * `product.deleted` Product is deleted
 
-### Unfinished order events
-`unfinished_order.*` webhook event types are providing timely updates about [unfinished orders](https://help.ecwid.com/customer/en/portal/articles/1163955-orders#Unfinishedsales) in Ecwid store. These orders happen when a customer didn't complete their order and left the store without making a payment.
+### Q: What is an unfinished order? 
 
-Using webhooks for these event types can be really helpful for applications, which goal is to decrease cart abandonment among customers of a store. 
+The typical process of ordering in Ecwid store is:
+
+- customer adds products to cart
+- goes to the checkout pages
+- fills in shipping and billing details
+- goes to payment processor and pays for order
+
+An [unfinished order](https://help.ecwid.com/customer/en/portal/articles/1163955-orders#Unfinishedsales) occurs when a customer doesn't make the last step and leaves the ordering process. There is a separate tab in Ecwid control panel > My Sales > Unfinished orders where merchants can see all those orders and their details.
+
+`unfinished_order.*` webhook event types are providing timely updates about unfinished orders in Ecwid store. They are a great help for applications, which goal is track cart abandonment and get back those sales.
 
 ### Q: How can I know if order status was changed?
 Webhooks in Ecwid have a specific field for that: `data`. This field provides information about changes to both payment and fulfilment status of the order. 
