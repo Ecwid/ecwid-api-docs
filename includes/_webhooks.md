@@ -84,7 +84,7 @@ Cache-Control: no-cache
 "data":{
   "oldPaymentStatus":"PAID",
   "newPaymentStatus":"PAID",
-  "oldFulfillmentStatus":"DELIVERED",
+  "oldFulfillmentStatus":"PROCESSING",
   "newFulfillmentStatus":"SHIPPED"
   }
 }
@@ -99,7 +99,7 @@ eventType | string | Type of the occurred event.
 eventCreated | timestamp | Unix timestamp of the occurred event.
 storeId | number | Store ID of the store where the event occured.
 entityId | number | Id of the updated entity. For example, if a product was updated, then the entityId will be the ID of that product
-data | Array\<OrderStatuses\> | Describes changes made to order. Is provided for `order.updated` event type only, regarding order statuses
+data | Array\<OrderStatuses\> | Describes changes made to order. Is provided for `order.updated` and `order.created` event types, regarding order statuses
 
 #### OrderStatuses
 
