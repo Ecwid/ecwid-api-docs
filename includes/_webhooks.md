@@ -99,7 +99,7 @@ eventType | string | Type of the occurred event.
 eventCreated | timestamp | Unix timestamp of the occurred event.
 storeId | number | Store ID of the store where the event occured.
 entityId | number | Id of the updated entity. For example, if a product was updated, then the entityId will be the ID of that product
-data | Array\<OrderStatuses\> | Describes changes made to order. Is provided for `order.updated` and `order.created` event types, regarding order statuses
+data | \<OrderStatuses\> | Describes changes made to order. Is provided for `order.updated` and `order.created` event types, regarding order statuses
 
 #### OrderStatuses
 
@@ -123,7 +123,7 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `product.updated` Product is updated
 * `product.deleted` Product is deleted
 
-### Q: What is an unfinished order? 
+### Q: What is an unfinished order and how it works? 
 
 The typical process of ordering in Ecwid store is:
 
@@ -131,13 +131,36 @@ The typical process of ordering in Ecwid store is:
 - goes to the checkout pages
 - fills in shipping and billing details
 - goes to payment processor and pays for order
+- customer returns to store
 
-An [unfinished order](https://help.ecwid.com/customer/en/portal/articles/1163955-orders#Unfinishedsales) occurs when a customer doesn't make the last step and leaves the ordering process. There is a separate tab in Ecwid control panel > My Sales > Unfinished orders where merchants can see all those orders and their details.
+An [unfinished order](https://help.ecwid.com/customer/en/portal/articles/1163955-orders#Unfinishedsales) is created when a customer goes to payment processor or order confirmation page. In case if customer pays for their order, then it is placed among other successful orders in store sales history. However, if customer fails to make a payment and never completes the order, then it will stay as unfinished order. 
 
-`unfinished_order.*` webhook event types are providing timely updates about unfinished orders in Ecwid store. They are a great help for applications, which goal is track cart abandonment and get back those sales.
+There is a separate tab in Ecwid control panel > My Sales > Unfinished orders where merchants can see all those orders and their details.
+
+`unfinished_order.*` webhook event types are providing timely updates about unfinished orders in Ecwid store. Here's how the process works in technical terms:
+ 
+- when customer goes to payment processor, `unfinished_order.created` webhook is sent
+(if customer was able to pay for an order within **1 second** of that,`order.created` is sent instead)
+
+- if customer paid later for their order, Ecwid sends `order.created` webhook after it happens
+
+Webhooks about unfinished orders can be a great help for applications, which goal is track cart abandonment and get back those lost sales. 
+
+We recommend the following workflow: 
+- app recieves `unfinished_order.created` webhook about order A
+- app waits for `order.created` webhook about order A for 5-10 minutes
+- in case if there was no `order.created` webhook received, consider this order unfinished
+
+After that, application can send an email to that person, following up on that unfinished order or provide some other functionality.
+
+### Q: When 'unfinished_order.deleted' event type is sent?
+
+When a merchant deletes an unfinished order in their Ecwid control panel, this order is marked as `hidden: true`. After that update `unfinished_order.updated` webhook is sent. So the details of this order are still available to be accessed [via Ecwid API](#get-order-details).
+
+To completely delete an unfinished order, make a delete order request to Ecwid API. If your app is set up to receive `unfinished_order.deleted` webhooks, Ecwid will send that webhook to endpoint of your application.
 
 ### Q: How can I know if order status was changed?
-Webhooks in Ecwid have a specific field for that: `data`. This field provides information about changes to both payment and fulfilment status of the order. 
+Webhooks in Ecwid have a specific field for that: `data`. This field provides information about changes to both payment and fulfilment status of orders. 
 
 Contents of `data` field also lets you know the details about old status (before the changes) and the new one (after the changes) at all times. For example, your application can send a note to your warehouse if it received a webhook about order payment status changes from `Awaiting payment` to `Paid`.
 
