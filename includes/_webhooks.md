@@ -147,6 +147,7 @@ There is a separate tab in Ecwid control panel > My Sales > Unfinished orders wh
 Webhooks about unfinished orders can be a great help for applications, which goal is track cart abandonment and get back those lost sales. 
 
 We recommend the following workflow: 
+
 - app recieves `unfinished_order.created` webhook about order A
 - app waits for `order.created` webhook about order A for 5-10 minutes
 - in case if there was no `order.created` webhook received, consider this order unfinished
@@ -155,7 +156,7 @@ After that, application can send an email to that person, following up on that u
 
 ### Q: When 'unfinished_order.deleted' event type is sent?
 
-When a merchant deletes an unfinished order in their Ecwid control panel, this order is marked as `hidden: true`. After that update `unfinished_order.updated` webhook is sent. So the details of this order are still available to be accessed [via Ecwid API](#get-order-details).
+When a merchant deletes an unfinished order in their Ecwid control panel, `hidden` field in order details becomes `true`. After that update `unfinished_order.updated` webhook is sent. So the details of this order are still available to be accessed [via Ecwid API](#get-order-details).
 
 To completely delete an unfinished order, make a delete order request to Ecwid API. If your app is set up to receive `unfinished_order.deleted` webhooks, Ecwid will send that webhook to endpoint of your application.
 
