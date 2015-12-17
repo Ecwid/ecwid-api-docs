@@ -626,7 +626,7 @@ A JSON object of type 'Product' with the following fields:
 Field | Type |  Description
 ------| ---- | ------------
 **name** |  string |  Product title
-sku | string |  Product SKU
+sku | string |  Product SKU. If this field is empty, Ecwid will generate new unique SKU automatically.
 quantity |  number | Amount of product items in stock. 
 unlimited | boolean | Set as `true` to make Unlimited stock for the product and to not track product inventory. 
 price | number |  Base product price
