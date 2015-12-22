@@ -19,6 +19,8 @@ Note that the `add()` method call follows the script.js script of the standard E
 
 The top-level object `window.Ecwid` itself provides some useful functions for getting information about storefront on a page, besides references to other objects like `Ecwid.OnAPILoaded`.
 
+## Ecwid.OnAPILoaded
+
 > OnAPILoaded usage example
 
 ```javascript
@@ -27,9 +29,9 @@ Ecwid.OnAPILoaded.add(function() {
 });
 ```
 
-## Ecwid.OnAPILoaded
-
 This extension point contains callback functions that get called exactly once when the Ecwid Javascript API loads and become available under the `window.Ecwid` top-level object. Functions supplied to this extension point as extensions do not accept any parameters and do not require to return any value.
+
+## Ecwid.getStaticBaseUrl
 
 > Get Static Base Url code example
 
@@ -42,9 +44,9 @@ console.log(StaticBaseUrl)
 "https://d3fi9i0jj23cau.cloudfront.net/gz/"
 ```
 
-## Ecwid.getStaticBaseUrl
-
 Returns the base URL for static Ecwid files, like images and CSS, with the ’/’ at the end.
+
+## Ecwid.getOwnerId
 
 > Get store ID code example
 
@@ -57,9 +59,9 @@ console.log(storeId);
 1003
 ```
 
-## Ecwid.getOwnerId
-
 Returns the store ID.
+
+## Ecwid.formatCurrency
 
 > Format a number using currency format of a store
 
@@ -72,9 +74,9 @@ console.log(currencyFormat)
 "$12.99"
 ```
 
-## Ecwid.formatCurrency
-
 Converts the given currency value to a human-readable string according to the store settings.
+
+## Ecwid.getAppPublicConfig
 
 > Get app public config function usage
 
@@ -101,8 +103,6 @@ Ecwid.OnAPILoaded.add(function(page){
   console.log(pageId);
 })
 ```
-
-## Ecwid.getAppPublicConfig
 
 Returns value for `public` key from Ecwid Application Storage endpoint.
 
@@ -175,7 +175,7 @@ email | String | Email address of a customer
 id | Number | Unique customer ID in Ecwid
 ownerId | number | Store ID this customer belongs to
 registered | UNIX Timestamp | Registration date of this customer
-shippingAddresses | Array of /<ShippingAddress/> | A list of addresses in the customer’s address book
+shippingAddresses | Array of \<*ShippingAddress*\> | A list of addresses in the customer’s address book
 
 ## ShippingAddress Object
 
@@ -212,8 +212,6 @@ In this section you will find all cart-related functionality available in Javasc
 
 ## Ecwid.OnCartChanged
 
-This extension point contains callback functions that get called each time when a shopping cart is changed — either by the customer or due to system events.
-
 > Specify a callback function when cart is changed in storefront
 
 ```javascript
@@ -221,6 +219,8 @@ Ecwid.OnCartChanged.add(function(cart){
      // your code here
 }) 
 ```
+
+This extension point contains callback functions that get called each time when a shopping cart is changed — either by the customer or due to system events.
 
 The callback function receives in an argument the Cart object, that holds the new shopping cart state after the change is applied.
 
@@ -239,6 +239,8 @@ The callbacks added to `Ecwid.OnCartChanged` will be called when the shopping ca
 
 The passed Cart object represents only the basic properties of the shopping cart. It contains the data coming from the customer’s actions (like products, coupons, payment and shipping methods) and **might not contain the calculated aggregates** (like order totals, shipping costs, the discounted amounts or taxes). For the calculated aggregates, it is rather recommended to use the `Ecwid.Cart.calculateTotal()` method.
 
+## Ecwid.OnProductOptionsChanged
+
 > Show an alert if product options were changed
 
 ```javascript
@@ -246,8 +248,6 @@ Ecwid.OnProductOptionsChanged.add(function(productid) {
    window.alert("Options changed, product id:" + productid);    
 })
 ```
-
-## Ecwid.OnProductOptionsChanged
 
 This extension point executes callback function each time when product option was changed. The callback functions accept one parameter: **productid**, specifying ID of the product that was changed. 
 
@@ -263,13 +263,13 @@ This function allows to add a product to shopping cart, modifying the cart on be
 
 There are 2 possible ways to call this function.
 
-> Add a product to cart using product ID
+### Adding by product ID
+
+> Add product function
 
 ```javascript
 Ecwid.Cart.addProduct(productID, callback)
 ```
-
-### Adding by product ID
 
 `addProduct()` can accept 2 arguments: **productId** and **callback**.
 
@@ -287,6 +287,8 @@ Ecwid.Cart.addProduct(productId);
 The most simple call to `Ecwid.Cart.addProduct` only requires to pass the numeric product ID. See example code on the right. This code adds 1 item of the given product ID to cart.
 
 If this product contains combinations and the base product is out of stock, the first combination that is in stock will be added to cart instead. If the product is out of stock (and there are no combinations in stock for this product), nothing is added to cart.
+
+### Adding with extended options
 
 > Add product to cart with extended options
  
@@ -308,8 +310,6 @@ var product = {
 
 Ecwid.Cart.addProduct(product);
 ```
-
-### Adding with extended options
 
 If it is necessary to specify options or quantity of product to be added to cart, the product parameter needs to be passed as an object.
 
@@ -349,15 +349,17 @@ success | Boolean | indicates the overall status of addition (succeeded or faile
 product | Object (Product) | conatins the object representation of the product added to cart, or null if adding to cart failed (wrong product ID or product is out of stock).
 cart | Object (Cart) | contains the object representation of the shopping cart after addition (same as in `Ecwid.OnCartChanged` event)
 
+## Ecwid.Cart.clear
+
 > Clear cart contents
 
 ```js
 Ecwid.Cart.clear()
 ```
 
-## Ecwid.Cart.clear
-
 Clears the cart contents.
+
+## Ecwid.Cart.get
 
 > Get total number of products in cart code example
 
@@ -367,9 +369,9 @@ Ecwid.Cart.get(function(cart) {
 });
 ```
 
-## Ecwid.Cart.get
-
 Retrieves the cart contents asynchronously and passes it as an argument of type Cart to the callback.
+
+## Ecwid.Cart.calculateTotal
 
 > Calculate cart total example
 
@@ -381,8 +383,6 @@ Ecwid.Cart.calculateTotal(function(order) {
         alert('Order total: ' + order.total);    
 }); 
 ```
-
-## Ecwid.Cart.calculateTotal
 
 Calculates the cart asynchronously and passes the result as an argument of type **Order** to the callback. 
 
@@ -398,7 +398,7 @@ Cart object is a snapshot of essential shopping cart properties, passed via vari
 
 Name | Type | Description
 ---- | ---- | -----------
-items | Array of /<CartItem/> | Enlists all items currently present in customer’s cart
+items | Array of \<*CartItem*\> | Enlists all items currently present in customer’s cart
 productsQuantity | Integer | Total number of product varieties in cart
 couponName | String | The name of the coupon (if any) applied to the cart. If no coupon was applied, will contain undefined. Does not contain the actual code of coupon, just the name.
 weight | Number | Total weight of the items in cart
@@ -434,7 +434,7 @@ CartItem represents a single item (product variety) in cart.
 Name | Type | Description
 ---- | ---- | -----------
 quantity | Integer | Quantity of the given product variety in cart
-product | Array of /<Product/> | The map of product properties (combination properties, if the combination is added to cart)
+product | Array of \<*Product*\> | The map of product properties (combination properties, if the combination is added to cart)
 options | Obejct with option names and values | Map of the product options (option name as a key and option value as a value). For listboxes and radio buttons value will be the string value of the selected option. For checkboxes — names of the selected options, comma separated. For date options — string representing the selected date according to the shop’s format (Ecwid control panel > System settings > General > Formats and Units). For textboxes и textareas — the text given by the customer. For file upload options — string in the form of „4 files”
 
 ## Product Object
@@ -457,6 +457,8 @@ weight | Integer | Weight of a product
 
 In this section you will find all page-related functionality available in Javascript API.
 
+## Ecwid.OnPageLoad/Ecwid.OnPageLoaded
+
 > If user visits cart page, do domething
 
 ```javascript
@@ -466,8 +468,6 @@ Ecwid.OnPageLoaded.add(function(page) {
   }
 });
 ```
-
-## Ecwid.OnPageLoad/Ecwid.OnPageLoaded
 
 These extension points contain callbacks that get called on each page change inside the product browser. The difference between **OnPageLoad** and **OnPageLoaded** is that the former is called when the page is changed (e.g. a link is clicked), while the later is called later when the corresponding page is loaded inside the product browser.
 

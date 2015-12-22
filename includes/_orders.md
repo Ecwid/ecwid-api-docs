@@ -36,7 +36,7 @@ paymentStatus | string | Comma separated list of order payment statuses to searc
 fulfillmentStatus | string | Comma separated list of order fulfilment statuses to search. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
 
 <aside class="notice">
-If no filters are set in the URL, API will return all orders **except for incomplete orders**
+If no filters are set in the URL, API will return all orders <strong>except for unfinished orders</strong>. To get unfinished orders, use <i>INCOMPLETE</i> value for <strong>paymentStatus</strong> parameter.
 </aside>
 
 <aside class="notice">
