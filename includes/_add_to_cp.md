@@ -47,7 +47,7 @@ As the regular oAuth flow implies, you can get the access token right after the 
 
 <head>
   <!-- Include Ecwid JS SDK -->
-  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.0.1/ecwid-app.js"></script>
+  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.1.0/ecwid-app.js"></script>
 
   <script>
     // Initialize the application

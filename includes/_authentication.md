@@ -38,7 +38,9 @@ Retrieving an access token includes the following steps:
 2. Upon authorization, Ecwid redirects the user to the application's redirect URL specified in the request.
 3. The application requests an access token from Ecwid. This access_token will be used as API key in all API calls.
 
-User needs to go through all these steps only once in order for your app to get and store access token for that user. This token will be user in any call you make to Ecwid API on behalf of the user.
+<aside class="notice">
+User needs to go through all these steps only **once** in order for your app to get and store access token for that user. This token will be used in any call you make to Ecwid API on behalf of the user.
+</aside>
 
 Below you will find the details on each of these steps. If you are still not sure how to get the token, please [contact us](http://developers.ecwid.com/contact) and we will help you.
 
