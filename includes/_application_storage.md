@@ -59,7 +59,7 @@ EcwidApp.setAppStorage(data, function(){
 });
 ```
 
-To save data to storage, create a Javascript object with all fields and values for them specified there. Once it’s ready, send it to app storage using EcwidApp.setAppStorage function to store them for future use. 
+To save data to storage, create a Javascript object with all fields and values for them specified there. Once it’s ready, send it to app storage using `EcwidApp.setAppStorage` function to store them for future use. 
 
 This function supports object as an incoming data type only, so make sure that you send object as a first parameter of that function. The example code is available on the right.
 
@@ -421,7 +421,9 @@ Check out examples on how to save data to app public config on the right. To fin
 ```js
 var data = '{ "color" : "red", "page_id" : "123456", “text” : “Get 10% off on checkout with this code: ABCDEFG” }';
 
-EcwidApp.setAppPublicConfig(data, callback);
+EcwidApp.setAppPublicConfig(data, function(){
+  console.log('Public app config saved!');
+});
 ```
 
 ### Q: How can I save key/value data to use in storefront?
@@ -437,12 +439,14 @@ Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in store
 
 var script_id = '12345';
 
-EcwidApp.setAppPublicConfig(script_id, callback);
+EcwidApp.setAppPublicConfig(script_id, function(){
+  console.log('Public app config saved!');
+});
 
-// Get data from app public config in storefront: example
+// Get data from app public config in storefront example
 
-Ecwid.OnAPILoaded.add(function(page){
-  var script_id = Ecwid.getAppPublicConfig(“ecwid-example-app”);
+Ecwid.OnPageLoaded.add(function(page){
+  var script_id = Ecwid.getAppPublicConfig('ecwid-example-app');
 
   var script = document.createElement("script");
   script.setAttribute("src", '//example.com/myapp/script' + script_id + '.js');
@@ -460,17 +464,19 @@ Ecwid.OnAPILoaded.add(function(page){
 ```js
 // Save data to app public config in native client-side app
 
-var data = '{ "color" : "red", "page_id" : "123456", “text” : “Get 10% off on checkout with this code: ABCDEFG” }';
+var data = '{ "color" : "red", "page_id" : "123456", "text" : "Get 10% off on checkout with this code: ABCDEFG" }';
 
-EcwidApp.setAppPublicConfig(script_id, callback);
+EcwidApp.setAppPublicConfig(data, function(){
+  console.log('App public config saved!');
+});
 
 // Get data from app public config and parse it in storefront
 
-Ecwid.OnAPILoaded.add(function(page){
+Ecwid.OnPageLoaded.add(function(page){
   var data = Ecwid.getAppPublicConfig(appId);
   data = JSON.parse(data);
 
-  // prints ‘red’
+  // prints 'red'
   console.log(data.color);
 })
 ```

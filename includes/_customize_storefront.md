@@ -139,7 +139,7 @@ You may want to apply different CSS codes depending on the store your applicatio
 
 In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#custom-javascript) for details.
 
-## Access users’ data in storefront
+# Access users’ data in storefront
 
 Applications can work and look differently in various stores, so you can provide tailored user experience to the store owner and a website they have in your application.
 
