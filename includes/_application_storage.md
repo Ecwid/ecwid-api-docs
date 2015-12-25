@@ -17,17 +17,17 @@ Each data entry is stored as a pair: a key and its value and you can get a speci
 
 # Benefits
 
-## Client side applications
+## For client-side applications
 
 Many Ecwid applications are client-side, which are created completely in Javascript and don’t require any backend interface or server-side functionality for a developer. 
 
 These apps don’t require their own database on a dedicated server to manage user specific data and access it when it’s needed. To access that data, apps make calls to Ecwid API, where this data is stored.
 
-Ecwid API is got you covered on two main aspects of developing client-side applications: private data can be stored securely on Ecwid servers and all the hosting for that data is provided by Ecwid as well. This allows for a secure and fast storage for your application’s needs.
+Ecwid API has got you covered on two main aspects of developing client-side applications: private data can be stored securely on Ecwid servers and all the hosting for that data is provided by Ecwid as well. This allows for a secure and fast storage for your application’s needs.
 
 Your application can also utilize storage as a primary key-value database using the Ecwid API. Ecwid provides all the tools to operate with that storage – you can manage storage either through REST API or using simple functions provided by the Javascript SDK. 
 
-## Server side applications
+## For server-side applications
 
 Sometimes server-side applications need to store user’s data as well as the client-side ones. Usually developers create mySQL or PostgreSQL databases or store data locally on a file system. 
 
@@ -414,77 +414,93 @@ There are two ways to save user’s data to app public config:
 
 If any other 3rd party obtains your appId, they will have access to public user data of your application in storefront. Please make sure not to store any user sensitive data in app public config.
 
-Check out examples on how to save data to app public config on the right. To find out more details on how to access app storage via REST API, please see this page. 
-
-> Save key : value data to use in storefront example in native client-side app
-
-```js
-var data = '{ "color" : "red", "page_id" : "123456", “text” : “Get 10% off on checkout with this code: ABCDEFG” }';
-
-EcwidApp.setAppPublicConfig(data, function(){
-  console.log('Public app config saved!');
-});
-```
-
-### Q: How can I save key/value data to use in storefront?
-
-Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in storefront. To save more than one value and utilize it as a key / value storage, you can save a JSON string to app public config. That string can be parsed as an object in storefront area using standard Javascript function JSON.parse.
+Check out example on how to save data to app public config on the right. To find out more details on how to access app storage via REST API, please see [this page](#rest-storage-api). 
 
 ## Get public data
+
+> Initialize app on a specific category page
+
+```js
+Ecwid.OnPageLoaded.add(function(page){
+  var category_id = Ecwid.getAppPublicConfig('ecwid-example-app');
+  category_id = parseInt(category_id);
+
+  if (page.categoryId == category_id) {
+    // initialize your app
+  } else {
+    return;
+  }
+})
+```
+
+If your app customizes Ecwid storefront, you can get public config of your app using Ecwid JS API. 
+
+In your Javascript file, which is executed when a storefront is loaded, you should get config using this API call: `Ecwid.getAppPublicConfig(appId)`. It will return a string value that you saved previously.
+
+To get the value, specify your `appId` (app namespace) as its parameter and store the result of this function in a variable. If you are not sure on what your appId is, please [contact us](http://developers.ecwid.com/contact).
+
+App public config is available to your app as soon as storefront starts to load. 
+
+## Examples and best practices
 
 > Example of getting unique ID to include other script
 
 ```js
 // Save data to app public config in native client-side app
 
-var script_id = '12345';
+var widget_enabled = 'true';
 
-EcwidApp.setAppPublicConfig(script_id, function(){
+EcwidApp.setAppPublicConfig(widget_enabled, function(){
   console.log('Public app config saved!');
 });
 
 // Get data from app public config in storefront example
 
 Ecwid.OnPageLoaded.add(function(page){
-  var script_id = Ecwid.getAppPublicConfig('ecwid-example-app');
+  var widget_enabled = Ecwid.getAppPublicConfig('ecwid-example-app');
 
-  var script = document.createElement("script");
-  script.setAttribute("src", '//example.com/myapp/script' + script_id + '.js');
-  script.charset = "utf-8";
-  script.setAttribute("type", "text/javascript");
-  script.onreadystatechange = script.onload = callback;
-  document.body.appendChild(script);
+  if (widget_enabled == 'true') {
+    // initialize your app
+  } else {
+    return;
+  }
+})
+```
+
+Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in storefront. For example, you can store the status of your widget (enabled / disabled) based on user preferences in your application tab in Ecwid control panel.
+
+> Save various user data in native client-side app example
+
+```js
+var data = '{ "color" : "red", "page_id" : "123456", "text" : "Get 10% off on checkout with this code: ABCDEFG" }';
+
+EcwidApp.setAppPublicConfig(data, function(){
+  console.log('Public app config saved!');
+});
+```
+
+> Get saved user data in storefront in an object
+
+```js
+Ecwid.OnPageLoaded.add(function(page){
+  var data = Ecwid.getAppPublicConfig('my-cool-app');
+  data = JSON.parse(data);
+
+var color = data.color;
+var page_id = data.page_id;
+var text = data.text;
+
+  // prints 'red'
+  console.log(color);
 
   // your code here ...
 })
 ```
 
-> Parse JSON string from app public config in storefront example
+Sometimes applications require more user information and it's possible to do that in Ecwid as well.
 
-```js
-// Save data to app public config in native client-side app
+To save more than one value and utilize it as a key : value storage within app public config, you can save your data in a JSON string format using `EcwidApp.setAppPublicConfig`.
 
-var data = '{ "color" : "red", "page_id" : "123456", "text" : "Get 10% off on checkout with this code: ABCDEFG" }';
+After that, you can access this data in storefront using standard Javascript function JSON.parse, which will present your data in a JavaScript object. Check out example on the right to find out how it works.
 
-EcwidApp.setAppPublicConfig(data, function(){
-  console.log('App public config saved!');
-});
-
-// Get data from app public config and parse it in storefront
-
-Ecwid.OnPageLoaded.add(function(page){
-  var data = Ecwid.getAppPublicConfig(appId);
-  data = JSON.parse(data);
-
-  // prints 'red'
-  console.log(data.color);
-})
-```
-
-If your app customizes Ecwid storefront, you can get public config of your app using Ecwid JS API. 
-
-In your Javascript file, which is executed when a storefront is loaded, you should get config using this API call: `Ecwid.getAppPublicConfig(appId)` 
-
-To get the value, specify your `appId` (app namespace) as its parameter and store the result of this function in a variable. If you are not sure on what your appId is, please [contact us](http://developers.ecwid.com/contact).
-
-App public config is available to your app as soon as storefront starts to load. 
+<aside class='notice'>App public config can accept any string with the size less than 8Kb. Please make sure to store the required data only.</aside>
