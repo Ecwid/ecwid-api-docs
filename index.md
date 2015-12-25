@@ -21,10 +21,9 @@ includes:
   - customers
   - customer_groups
   - coupons
-  - storage
   - application
   - webhooks
-  - application_data
+  - application_storage
   - add_to_cp
   - customize_storefront
   - jsapi

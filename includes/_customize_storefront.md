@@ -138,3 +138,19 @@ Ecwid API allows you to do the same in more convenient way: you simply specify t
 You may want to apply different CSS codes depending on the store your application is loaded. For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
 
 In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#custom-javascript) for details.
+
+## Access users’ data in storefront
+
+Applications can work and look differently in various stores, so you can provide tailored user experience to the store owner and a website they have in your application.
+
+App public config allows apps to access user specific data in storefront as soon as it starts to load, so no calls to external servers are required and result is available right away. It’s recommended that you use app storage to access public user data in storefront area of your application.
+
+**How it works:**
+
+1. App saves public data in public storage in backend
+2. App gets public data from public storage in storefront
+3. App tailors user experience to merchant settings
+
+For example, using this method you can pass store ID to a storefront, category or product ID where the changes need to apply or whether your widget needs to be shown in storefront. 
+
+To find out more about this process, please check app public config section.

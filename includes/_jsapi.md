@@ -120,6 +120,8 @@ Data in public storage of your app must not exceed <strong>8Kb</strong>
 
 In this section you will find all customer-related functionality available in Javascript API.
 
+## Ecwid.OnSetProfile
+
 > Ecwid.OnSetProfile code example
 
 ```html
@@ -157,8 +159,6 @@ Ecwid.OnSetProfile.add(function(customer) {
 xProductBrowser();
 </script>
 ```
-
-## Ecwid.OnSetProfile
 
 This extension point contains callback functions that receive the changes in the current customer profile. If no customer is logged in, these functions receive **null**. Whenever a customer logs in/out, the callback functions are called with either the corresponding parameter of type **Customer** or **null**. Example code can be seen on the right.
 
