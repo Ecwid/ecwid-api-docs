@@ -12,7 +12,7 @@ Each data entry is stored as a pair: a key and its value and you can get a speci
 
 **Important**: Application storage of each app is isolated from each other, so user data of your application is not available to other apps and vice versa.
 
-<aside class="notice">Access scope required: update store profile. See more information in <a href="#access-scopes">access scopes section</a>
+<aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
 </aside>
 
 # Benefits
@@ -469,13 +469,17 @@ Ecwid.OnPageLoaded.add(function(page){
 })
 ```
 
-Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in storefront. For example, you can store the status of your widget (enabled / disabled) based on user preferences in [native applications](#embedded-apps) using `EcwidApp.setAppPublicConfig`.
+Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in storefront. For example, you can store the status of your widget (enabled / disabled) based on user preferences in [native applications](#embedded-apps) and then access it in storefront using `Ecwid.getAppPublicConfig`.
 
 ### Access multiple public user data
 
-> Save multiple public user data in native client-side app
+> Add custom text to category page and change its color
 
 ```js
+//
+// Save multiple public user data in native client-side app using JavaScript SDK
+//
+
 var data = '{ "color" : "red", "page_id" : "123456", "text" : "Get 10% off on checkout with this code: ABCDEFG" }';
 
 EcwidApp.setAppPublicConfig(data, function(){
@@ -483,9 +487,11 @@ EcwidApp.setAppPublicConfig(data, function(){
 });
 ```
 
-> Get multiple public user data in storefront and display user text on specific category page
-
 ```js
+//
+// Get multiple public user data in storefront and display user text on specific category page using JavaScript API
+// 
+
 Ecwid.OnPageLoaded.add(function(page){
   var data = Ecwid.getAppPublicConfig('my-cool-app');
   data = JSON.parse(data);
@@ -503,7 +509,7 @@ Ecwid.OnPageLoaded.add(function(page){
     
     // customize text style using color 
     // ...
-    
+
     added = true;
   }
   else {
@@ -516,6 +522,6 @@ Sometimes applications require more user information in storefront and it's poss
 
 To save more than one value and utilize it as a key : value storage within app public config, you can save your data in a JSON format in a single string using `EcwidApp.setAppPublicConfig`.
 
-After that, you can access this data in storefront using standard Javascript function JSON.parse, which will present your data in a JavaScript object. Check out example on the right to find out how it works.
+After that, you can access this data in storefront using `Ecwid.getAppPublicConfig` and then parse it via standard Javascript function JSON.parse, which will present your data in a JavaScript object. Check out example on the right to find out how it works.
 
-<aside class='notice'>App public config can accept any string with the size less than 8Kb. Please make sure to store the required data only.</aside>
+<aside class='notice'>App public config can accept any string with the size <strong>less than 8Kb</strong>. Please make sure to store the required data only.</aside>

@@ -133,17 +133,17 @@ The workflow can be described into the following several steps:
 2. Get store specific data
 3. Start the flow of your app
 
-#### 1. Get store details
+### 1. Get store details
 
 For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](#ecwidapp-getpayload) method specification. So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. 
 
-#### 2. Get store specific data
+### 2. Get store specific data
 
 If your application is going to store some user specified information, like background color, page IDs or something else, you can use [Ecwid Javascript SDK](#ecwid-javascript-sdk) to access [Storage endpoint](#application-storage) to easily store and access this data there without saving this information on your server.
 
 See functions `EcwidApp.getAppStorage`, `EcwidApp.setAppStorage` and `EcwidApp.setAppPublicConfig` in [Ecwid Javascript SDK](#ecwid-javascript-sdk) for more details.
 
-#### 3. Start the flow of your app
+### 3. Start the flow of your app
 
 So once you know the store you are working with and you have the settings and other data specific to that store, you can use that information in your embedded application to start is stndard workflow.
 
@@ -157,7 +157,7 @@ The workflow of such applications can be divided into several steps:
 
 So let's look a little closer on how to create a your embedded server-side application:
 
-#### 1. Decrypt the payload from Ecwid control panel
+### 1. Decrypt the payload from Ecwid control panel
 
 Let's say, you process user input and prepare the data to display in your app on your server and then pass this information to your application UI to be displayed in the user Control panel. In this case, you will need to authenticate user on server side of your application. Ecwid sends an auth data to your app in a payload while requesting your iframe URL as follows:
 `https://www.example.com/my-app-iframe-page?payload={payload}&cache-killer={cache-killer}`
@@ -269,7 +269,7 @@ access_token | string | oAuth token
 
 Ecwid uses *AES-128* to encrypt the payload. The key is the first 16 symbols (128 bit) of your application secret key (**client_secret**). It is provided when you register an app with us. See a PHP example of decryption to get better idea on how to receive and decrypt the payload.
 
-#### 2. Get store specific data (optional)
+### 2. Get store specific data (optional)
 
 Now that you have successfully got store details and have access to it using Ecwid API, you can get store-specific information from the storage endpoint or from your local database. 
 
@@ -277,7 +277,7 @@ The result of the payload decryption will be provided in an array `$result`, whi
 
 To store and get store-specific data in storage endpoint, you can use cURL functionality in PHP or any other way that you prefer to access REST API endpoints. You can see the example code on how to retrieve the value of `'color'` key in application storage using cURL and process the result on the right based on a response from API.
 
-#### 3. Start the flow of your app
+### 3. Start the flow of your app
 
 Once you got all details that you need, you can start the standard planned workflow for your app and operate with Ecwid API using the details you got earlier.
 
