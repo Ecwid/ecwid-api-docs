@@ -441,9 +441,11 @@ To get the value, specify your `appId` (app namespace) as its parameter and stor
 
 App public config is available to your app as soon as storefront starts to load. 
 
-## Examples and best practices
+## Examples
 
-> Example of getting unique ID to include other script
+### Access a single public value
+
+> Check whether widget needs to be shown
 
 ```js
 // Save data to app public config in native client-side app
@@ -467,9 +469,11 @@ Ecwid.OnPageLoaded.add(function(page){
 })
 ```
 
-Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in storefront. For example, you can store the status of your widget (enabled / disabled) based on user preferences in your application tab in Ecwid control panel.
+Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in storefront. For example, you can store the status of your widget (enabled / disabled) based on user preferences in [native applications](#embedded-apps) using `EcwidApp.setAppPublicConfig`.
 
-> Save various user data in native client-side app example
+### Access multiple public user data
+
+> Save multiple public user data in native client-side app
 
 ```js
 var data = '{ "color" : "red", "page_id" : "123456", "text" : "Get 10% off on checkout with this code: ABCDEFG" }';
@@ -479,27 +483,38 @@ EcwidApp.setAppPublicConfig(data, function(){
 });
 ```
 
-> Get saved user data in storefront in an object
+> Get multiple public user data in storefront and display user text on specific category page
 
 ```js
 Ecwid.OnPageLoaded.add(function(page){
   var data = Ecwid.getAppPublicConfig('my-cool-app');
   data = JSON.parse(data);
 
-var color = data.color;
-var page_id = data.page_id;
-var text = data.text;
+  var color = data.color;
+  var page_id = data.page_id;
+  var text = data.text;
+  var added;
 
-  // prints 'red'
-  console.log(color);
+  page_id = parseInt(page_id);
 
-  // your code here ...
+  if (page.categoryId == page_id && added !== true) {
+    div = document.getElementsByClassName("ecwid-productBrowser")[0];
+    div.innerHTML = text + div.innerHTML;
+    
+    // customize text style using color 
+    // ...
+    
+    added = true;
+  }
+  else {
+    return;
+  }
 })
 ```
 
-Sometimes applications require more user information and it's possible to do that in Ecwid as well.
+Sometimes applications require more user information in storefront and it's possible to access it as well as a simple value.
 
-To save more than one value and utilize it as a key : value storage within app public config, you can save your data in a JSON string format using `EcwidApp.setAppPublicConfig`.
+To save more than one value and utilize it as a key : value storage within app public config, you can save your data in a JSON format in a single string using `EcwidApp.setAppPublicConfig`.
 
 After that, you can access this data in storefront using standard Javascript function JSON.parse, which will present your data in a JavaScript object. Check out example on the right to find out how it works.
 
