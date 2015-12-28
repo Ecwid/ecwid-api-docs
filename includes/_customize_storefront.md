@@ -83,14 +83,15 @@ More details: [Ecwid JavaScript API](#storefront-js-api)
 
 ### Q: How to know what Ecwid widgets are on a page?
 
-Ecwid widgets can be embedded in many ways: 
+If your applcation customizes storefront, your script will be loaded at **all times** when `app.ecwid.com/script.js?{store_id}` is on a page. It means that if a simple search widget is present on a page, your script will be executed. 
+
+Ecwid widgets can be also embedded in many ways: 
+
 - as a part of a website page
 - in an iframe
 - certain widgets are displayed only (like search and minicart, no storefront) 
 
-If your applcation customizes storefront, your script will be loaded at *all times* when `script.js?{store_id}` is on a page. It means that if a simple search widget is present on a page, your script will be executed. 
-
-So, it is important to know where exactly your application is loaded: if there is a storefront present on a page or if it's just a search widget. To check that, use `Ecwid.getInitializedWidgets()` function of [Ecwid Javascript API](#storefront-js-api).
+So, it is important to know where exactly your application is loaded: if there is a storefront present on a page or if it's just a search widget. To check that, use `Ecwid.getInitializedWidgets()` function of [Ecwid Javascript API](#storefront-js-api). Using it, you can determine whether your app functionality needs to be initialized or not.
 
 ## Store-specific custom JS
 
