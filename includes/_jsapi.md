@@ -41,7 +41,7 @@ var StaticBaseUrl = Ecwid.getStaticBaseUrl()
 console.log(StaticBaseUrl)
 
 // prints
-"https://d3fi9i0jj23cau.cloudfront.net/gz/"
+// "https://d3fi9i0jj23cau.cloudfront.net/gz/"
 ```
 
 Returns the base URL for static Ecwid files, like images and CSS, with the ’/’ at the end.
@@ -56,10 +56,30 @@ var storeId = Ecwid.getOwnerId()
 console.log(storeId);
 
 // prints
-1003
+// 1003
 ```
 
 Returns the store ID.
+
+## Ecwid.getInitializedWidgets
+
+> Get all widgets to be displayed when page loads
+
+```js
+var widgets = Ecwid.getInitializedWidgets();
+
+console.log(widgets);
+
+// prints 
+// ["Minicart", "SearchPanel", "ProductBrowser"]
+```
+
+Returns array containing widget types present on a page. There are four types available: 
+
+* Minicart - Minicart widget
+* SearchPanel - Search widget
+* ProductBrowser - Storefront widget
+* Categories - Categories widget
 
 ## Ecwid.formatCurrency
 
@@ -71,7 +91,7 @@ var currencyFormat = Ecwid.formatCurrency(12.99)
 console.log(currencyFormat)
 
 // prints
-"$12.99"
+// "$12.99"
 ```
 
 Converts the given currency value to a human-readable string according to the store settings.
@@ -99,7 +119,9 @@ Ecwid.getAppPublicConfig(appId);
 Ecwid.OnAPILoaded.add(function(page){
   var pageId = Ecwid.getAppPublicConfig(appId);
 
-  // prints '12345'
+  // prints 
+  // '12345'
+
   console.log(pageId);
 })
 ```

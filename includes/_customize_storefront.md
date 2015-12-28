@@ -32,8 +32,10 @@ Below, you will find more information on how to create custom JS/CSS.
  * informing them that they will qualify for free shipping if their 
  * order is more than $99
  */
+
 var promoMessage = "Orders $99 and up ship free!";
 var minSubtotal = 99;
+var widgets;
 
 // Calculating subtotal and displaying the message
 var checkSubtotal = function(order) {
@@ -47,15 +49,25 @@ var checkSubtotal = function(order) {
 
 // Detecting whether we're on the cart page and get the cart info
 Ecwid.OnPageLoaded.add(function(page) {
-  if ('CART' == page.type) {
-    Ecwid.Cart.calculateTotal(function(order) {
-      checkSubtotal(order);
-    });
+  widgets = Ecwid.getInitializedWidgets();
+
+  // if storefront widget is present on this page
+  for (i = 0; i < widgets.length ; i++) {
+    if (widgets[i] == "ProductBrowser") {
+      
+      if ('CART' == page.type) {
+        Ecwid.Cart.calculateTotal(function(order) {
+          checkSubtotal(order);
+      });
+    }
   }
 });
 
 // Get color value for the message and store it in color variable
 var color = Ecwid.getAppPublicConfig(appId);
+
+// your code here
+// ...
 ```
 
 As soon as your script is loaded on the page with Ecwid storefront, you can access the page DOM and do pretty much everything you want by means of native JavaScript or whatever framework you want. If you use a JS framework, please make sure it's already loaded on the page by the moment you start using it. 
@@ -68,6 +80,17 @@ In addition, Ecwid provides a [JavaScript API](#storefront-js-api) that you can 
 * `EcwidApp.getAppPublicConfig` will return store-specific data from application storage
 
 More details: [Ecwid JavaScript API](#storefront-js-api)
+
+### Q: How to know what Ecwid widgets are on a page?
+
+Ecwid widgets can be embedded in many ways: 
+- as a part of a website page
+- in an iframe
+- certain widgets are displayed only (like search and minicart, no storefront) 
+
+If your applcation customizes storefront, your script will be loaded at *all times* when `script.js?{store_id}` is on a page. It means that if a simple search widget is present on a page, your script will be executed. 
+
+So, it is important to know where exactly your application is loaded: if there is a storefront present on a page or if it's just a search widget. To check that, use `Ecwid.getInitializedWidgets()` function of [Ecwid Javascript API](#storefront-js-api).
 
 ## Store-specific custom JS
 
@@ -135,6 +158,7 @@ Ecwid provides a merchant with a built-in CSS customization tool in their contro
 Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom CSS code and Ecwid automatically loads that code in the user storefront. So you don't need to put the CSS on user site manually or ask them to do that. 
 
 ## Store-specific custom CSS
+
 You may want to apply different CSS codes depending on the store your application is loaded. For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
 
 In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#custom-javascript) for details.
