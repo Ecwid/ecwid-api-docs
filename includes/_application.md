@@ -27,7 +27,7 @@ A JSON object of type 'Application' with the following fields:
 
 Field | Type | Description
 ------| ------| -----------
-subscriptionStatus | string | Application status in Ecwid store. One of `ACTIVE`, `SUSPENDED`
+subscriptionStatus | string | Application status in Ecwid store. One of `ACTIVE`, `SUSPENDED` or `TRIAL`
 
 > Response example
 
@@ -37,11 +37,29 @@ subscriptionStatus | string | Application status in Ecwid store. One of `ACTIVE`
 }
 ```
 
-This endpoint works in a following way: 
+### How it works
 
-**Free apps**: Ecwid will always return `ACTIVE` unless the app is uninstalled. 
+**Free apps**: 
 
-**Paid apps with external billing**: Ecwid will always return `ACTIVE` unless the app is uninstalled. 
+- Ecwid will always return `ACTIVE` unless application is uninstalled. 
 
-**Paid apps with Ecwid billing**: Ecwid will return `ACTIVE` if the app is paid by the user and it is active in their store.
-Ecwid will return `SUSPENDED` if there was an issue with prolongating of the subscription of this app
+**Paid apps using external billing**: 
+
+- Ecwid will always return `ACTIVE` unless application is uninstalled. 
+
+**Paid apps using Ecwid billing**: 
+
+- Ecwid will return `ACTIVE` if application is successfully installed and paid by a user. 
+- Ecwid will return `SUSPENDED` if there was an issue with prolongating subscription of this app.
+
+**Paid apps using Ecwid billing with free trial**: 
+
+- Ecwid will return `TRIAL` if this Ecwid store uses free trial of your application at the moment. 
+- Ecwid will return `ACTIVE` if application is successfully installed and paid by a user. 
+- Ecwid will return `SUSPENDED` if there was an issue with prolongating subscription of this app.
+
+### What is Ecwid billing and how do I use it? 
+
+Ecwid billing is a feature that allows to accept payments for applications. It works out of the box, so no additional development is required to use it. 
+
+You can specify free trial period for new installs and active users pay on a monthly basis. To find out more details and how to use it, please visit: [http://developers.ecwid.com/make-money](http://developers.ecwid.com/make-money)
