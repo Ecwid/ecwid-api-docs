@@ -117,12 +117,12 @@ Ecwid.getAppPublicConfig(appId);
 
 ```js
 Ecwid.OnAPILoaded.add(function(page){
-  var pageId = Ecwid.getAppPublicConfig(appId);
-
-  // prints 
-  // '12345'
+  var pageId = Ecwid.getAppPublicConfig("my-cool-app");
 
   console.log(pageId);
+  // prints 
+  // '12345'
+  
 })
 ```
 
@@ -172,7 +172,7 @@ function dump(arr,level) {
   }
 
 Ecwid.OnSetProfile.add(function(customer) {
-  if (profile == null) document.getElementById('CUSTOMER').innerHTML = 'not logged in';
+  if (customer == null) document.getElementById('CUSTOMER').innerHTML = 'not logged in';
     else document.getElementById('CUSTOMER').innerHTML = dump(customer);
 });
 </script>
@@ -520,7 +520,7 @@ productId | integer | for type==’PRODUCT’: the internal id of the displaying
 orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
 orderVendorNumber | integer | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
 
-# Examples of using Ecwid Javascript API
+# Examples
 
 Redirect Ecwid Paypal Orders to Custom “Thank You” Page:
 [http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/](http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/)

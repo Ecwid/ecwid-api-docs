@@ -21,14 +21,6 @@ Name | Type    | Description
 
 ### Response
 
-A JSON object of type 'Application' with the following fields:
-
-#### Application
-
-Field | Type | Description
-------| ------| -----------
-subscriptionStatus | string | Application status in Ecwid store. One of `ACTIVE`, `SUSPENDED` or `TRIAL`
-
 > Response example
 
 ```json
@@ -36,6 +28,14 @@ subscriptionStatus | string | Application status in Ecwid store. One of `ACTIVE`
   "subscriptionStatus":"ACTIVE"
 }
 ```
+
+A JSON object of type 'Application' with the following fields:
+
+#### Application
+
+Field | Type | Description
+------| ------| -----------
+subscriptionStatus | string | Application status in Ecwid store. One of `ACTIVE`, `SUSPENDED` or `TRIAL`
 
 ### How it works
 
