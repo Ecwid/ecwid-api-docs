@@ -12,13 +12,36 @@ To register you app in Ecwid, fill [this form](https://ecwidcom.typeform.com/to/
 
 ## Install your application
 
-Every public application, which is accessible in Ecwid App Market, has a dedicated app information page inside Ecwid Control Panel. Ecwid merchants can find and install the application without leaving their Control Panel. Example: [Import customers app details page](https://my.ecwid.com/cp/CP.html#apps:view=app&name=ecwid-customers-import) (you will need to log in to your Ecwid account see this page) . 
+Every public application, which is accessible in Ecwid App Market, has a dedicated app information page inside Ecwid Control Panel. Ecwid merchants can find and install the application without leaving their Control Panel. Example: [Import customers app details page](https://my.ecwid.com/cp/CP.html#apps:view=app&name=ecwid-customers-import) (you will need to log in to your Ecwid account see this page). 
 
 After user installs an application, Ecwid will redirect user to the new created tab. The redirect URL setting is ignored in this case. It works this way because app can get the access token without temporary code. More details on how to get access token in application's tab: [Authentication in embedded apps](#authentication-in-embedded-apps). 
 
 This is the most popular or even the only way Ecwid merchants install public applications to their stores, so please make sure your application supports this. 
 
-If your app doesn't create a new tab in Ecwid control panel, the installation continues from Step #2 of [getting access token](#get-access-token) section. In case if your app doesn't have an app details page for you to test the flow, please contact us.
+If your app doesn't create a new tab in Ecwid control panel, please check out [this section](#installation-for-custom-solutions-and-external-apps). In case if your app doesn't have an app details page for you to test the flow, please contact us.
+
+## Installation for custom solutions and external apps
+
+Access token allows you to interact with a store through Ecwid API. You will need to retrieve it with the help of a user in two cases: 
+
+1. You are building a custom solution for specific Ecwid store(s)
+2. Your public app is an integration with external service
+
+Let's see each situation in more details:
+
+**Case #1 - Custom solution**
+
+When you are building a custom solution just for your store, you know what stores will use this functionality. Therefore, you will just need to get access token once and use it in your code to access store data via Ecwid API. Please see the steps outlined in [Get access token](#get-access-token) for more details on how to do that.
+
+**Case #2 - Integration with external service**
+
+In this case, a user is already authorized and thus the **Step #1** of getting token process ("Send user to Ecwid authorization dialog") is omitted. Once the user clicks the "Install" button, Ecwid sends a user to your app Return URL along with the temporary code as outlined in the **Step #2** "Ecwid redirects the user back to your application". 
+
+Mind that in this case the installation process starts on Ecwid side and the moment when user gets to your application "Return" endpoint might be the first time they open your site. Make sure your page on the return URL onboards users well – this is a landing page for them in your service. We recommend prefilling user details like: Name, email, Store name, Store ID and other fields that your service needs.
+
+*Important*
+
+When the app cannot be installed from the app details page, it displays the "Get" button instead of "Install". The "Get" button simply redirects yser to your app web site. Examples of such apps are the apps installed on device (iOS, Android, Desktop applications). More details about such apps: [Applications installed on device](#applications-installed-on-device).
 
 ## Access scopes
 Scopes are permissions that identifies the scope of access your application requests from the user. You should pass the required scopes along with the authorization request to Ecwid oAuth server when a user installs your application. See details above: [Get access token](#get-access-token).
@@ -42,79 +65,9 @@ create_discount_coupons | Add a new discount coupon
 customize_storefront | Attach a custom JS/CSS to the storefront on the fly to modify its look and feel (see [Customizing storefront](#customize-storefront))
 add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
 
-
-## Applications installed on device
-
-In case of applications that are installed on a device (such as a computer, a cell phone, or a tablet), the application client_secret is in general less protected than in case of web services. Thus the process of [retrieving access token](#retrieveing-access-token) is changed as described below.
-
-### Changes in Step #1
-
-> Step #1. Request example
-
-```shell
-curl "http://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code"
-```
-
-On the [Step #1](#get-access-token) (app requests a temporarily authorization code), application needs to send the following value as redirect_uri:
-
-`urn:ietf:wg:oauth:2.0:oob`
-
-The rest of request parameters are the same as for web services.
-
-<aside class="notice"> In case of Web services, if the app has been already authorized by user before current authorization attempt, Ecwid will simply redirect user back to the application with the code in request parameters (i.e. Ecwid will not ask user to authorize the app second time). In case of an installed application, Ecwid will ask user to provide permission every time a user is directed by the app to Ecwid authorization endpoint. </aside>
-
-
-### Changes in Step #2
-
-> Step #2. User grants permission
-
-```html
-<title>oauth_response:code=54xgQHmbZrrLTqzCiHPyw&amp;state=code</title>
-```
-
-> Step #2. User denies to provide the app with access
-
-```html
-<title>oauth_response:error=access_denied</title>
-```
-
-On the [Step #2](#get-access-token) (Ecwid provides the app with a temporary authorization code), Ecwid will not direct a user to `redirect_uri` after the user agrees or disagrees to provide the application with permissions. Instead, Ecwid opens an empty page and provides the code in the page's `<title>` tag. I.e., all the data is sent to application in the page title tag and no data is sent in GET request to the application. The format of data provided in the `<title>` tag is the following:
-
-`oauth_response:GET-query-as-it-would-be-transferred-via-redirect`
-
-<aside class="notice">On this step, the app needs to react on the changes in the title tag content and parse it the same way as it would parse GET request query. So it is required that the application has access to the system browser or the ability to embed a browser control in the application.</aside>
-
-### Changes in Step #3
-The [Step #3](#get-access-token) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
-
-
-## Selfhosted web apps
-Some applications requires user to download and install them on their site rather than providing a hosted solution. For example, plugins for Wordpress, Joomla or other CMS systems do that. Every instance of such application resides on different domain and thus has different Return URL. To implement oAuth flow in such an app, you will need to pass the `redirect_uri` security check oultined in the [step #1](#get-access-token) of the authorization flow. [Contact us](http://developers.ecwid.com/contact) if your application is of this kind and we will mark it as "selfhosted web app" in the app settings – in this case the redirect URL security requirements will be removed for your application. 
-
 ## Get access token
 
-Access token allows you to interact with a store through Ecwid API. You will need to retrieve it with the help of a user in two cases: 
-
-1. You are building a custom solution for specific Ecwid store(s)
-2. Your public app is an integration with external service
-
-Let's see each situation in more details:
-
-**Case #1 - Integration with external service**
-
-In this case the user is already authorized and thus the **Step #1** of getting token process ("Send user to Ecwid authorization dialog") is omitted. Once the user clicks the "Install" button, Ecwid sends a user to your app Return URL along with the temporary code as outlined in the **Step #2** "Ecwid redirects the user back to your application". 
-
-Mind that in this case the installation process starts on Ecwid side and the moment when user gets to your application "Return" endpoint might be the first time they open your site. Make sure your page on the return URL onboards users well – this is a landing page for them in your service. We recommend prefilling user details like: Name, email, Store name, Store ID and other fields that your service needs.
-
-*Important*
-
-When the app cannot be installed from the app details page, the app details page contains the "Get" button instead of "Install". The "Get" button simply redirects yser to your app web site. Examples of such apps are the apps installed on device (iOS, Android, Desktop applications). More details about such apps: [Applications installed on device](#applications-installed-on-device)
-
-To get the access token, use the standard oAuth flow described below starting from the **Step #2**.
-
-**Case #2 - Custom solution**
-
-In this situation would just need to get access token once and use it in your app. Please see the steps below to get an access token for your development purposes.  
+Access token allows you to interact with a store through Ecwid API on behalf of a user. 
 
 ### Standard oAuth flow
 
@@ -230,3 +183,53 @@ For security reasons, a temporary code can be exchanged to an access token only 
 Access token provides access to Ecwid API on behalf of the user that installed your application in their store. It doesn't expire, so is available to you at all times. You will only need to get a new access token in case a user uninstalls the application from their store and installs your application back again. 
 
 After a user goes through installation of your app, it can store that token securely in your database for that user, so it's not necessary to go through the standard oAuth flow each time you need to make a request to Ecwid API.
+
+
+## Applications installed on device
+
+In case of applications that are installed on a device (such as a computer, a cell phone, or a tablet), the application client_secret is in general less protected than in case of web services. Thus the process of [retrieving access token](#get-access-token) is changed as described below.
+
+### Changes in Step #1
+
+> Step #1. Request example
+
+```shell
+curl "http://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code"
+```
+
+On the [Step #1](#get-access-token) (app requests a temporarily authorization code), application needs to send the following value as redirect_uri:
+
+`urn:ietf:wg:oauth:2.0:oob`
+
+The rest of request parameters are the same as for web services.
+
+<aside class="notice"> In case of Web services, if the app has been already authorized by user before current authorization attempt, Ecwid will simply redirect user back to the application with the code in request parameters (i.e. Ecwid will not ask user to authorize the app second time). In case of an installed application, Ecwid will ask user to provide permission every time a user is directed by the app to Ecwid authorization endpoint. </aside>
+
+
+### Changes in Step #2
+
+> Step #2. User grants permission
+
+```html
+<title>oauth_response:code=54xgQHmbZrrLTqzCiHPyw&amp;state=code</title>
+```
+
+> Step #2. User denies to provide the app with access
+
+```html
+<title>oauth_response:error=access_denied</title>
+```
+
+On the [Step #2](#get-access-token) (Ecwid provides the app with a temporary authorization code), Ecwid will not direct a user to `redirect_uri` after the user agrees or disagrees to provide the application with permissions. Instead, Ecwid opens an empty page and provides the code in the page's `<title>` tag. I.e., all the data is sent to application in the page title tag and no data is sent in GET request to the application. The format of data provided in the `<title>` tag is the following:
+
+`oauth_response:GET-query-as-it-would-be-transferred-via-redirect`
+
+<aside class="notice">On this step, the app needs to react on the changes in the title tag content and parse it the same way as it would parse GET request query. So it is required that the application has access to the system browser or the ability to embed a browser control in the application.</aside>
+
+### Changes in Step #3
+The [Step #3](#get-access-token) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
+
+
+## Selfhosted web apps
+
+Some applications requires user to download and install them on their site rather than providing a hosted solution. For example, plugins for Wordpress, Joomla or other CMS systems do that. Every instance of such application resides on different domain and thus has different Return URL. To implement oAuth flow in such an app, you will need to pass the `redirect_uri` security check oultined in the [step #1](#get-access-token) of the authorization flow. [Contact us](http://developers.ecwid.com/contact) if your application is of this kind and we will mark it as "selfhosted web app" in the app settings – in this case the redirect URL security requirements will be removed for your application. 
