@@ -1,4 +1,5 @@
-# Authentication
+# Get started
+
 All Ecwid API requests require authentication. Ecwid supports **oAuth2** protocol to provide external applications with an easy way to authenticate and access store data on behalf of the user. Ecwid user grants or denies access to certain data in their store for the particular application - the application gets its own secure access token upon authorization and uses that token as a key to make API calls to Ecwid.
 
 ## Register your app in Ecwid
@@ -22,7 +23,7 @@ If your app doesn't create a new tab in Ecwid control panel, please check out [t
 
 ## Installation for custom solutions and external apps
 
-Access token allows you to interact with a store through Ecwid API. You will need to retrieve it with the help of a user in two cases: 
+In order to interact with a store via Ecwid API, your code will need an access token. Access token is a unique string of characters, which works as an authentication. You will need to retrieve it with the help of a user in two cases: 
 
 1. You are building a custom solution for specific Ecwid store(s)
 2. Your public app is an integration with external service
@@ -35,7 +36,7 @@ When you are building a custom solution just for your store, you know what store
 
 **Case #2 - Integration with external service**
 
-In this case, a user is already authorized and thus the **Step #1** of getting token process ("Send user to Ecwid authorization dialog") is omitted. Once the user clicks the "Install" button, Ecwid sends a user to your app Return URL along with the temporary code as outlined in the **Step #2** "Ecwid redirects the user back to your application". 
+In this case, a user is located on an app details page and is already authorized in Ecwid Control Panel. Thus the process of getting an access token starts with the **Step #2** and the **Step #1** of getting token process ("Send user to Ecwid authorization dialog") is omitted. Once the user clicks the "Install" button, Ecwid sends a user to your app Return URL along with the temporary code as outlined in the **Step #2** "Ecwid redirects the user back to your application". 
 
 Mind that in this case the installation process starts on Ecwid side and the moment when user gets to your application "Return" endpoint might be the first time they open your site. Make sure your page on the return URL onboards users well – this is a landing page for them in your service. We recommend prefilling user details like: Name, email, Store name, Store ID and other fields that your service needs.
 
