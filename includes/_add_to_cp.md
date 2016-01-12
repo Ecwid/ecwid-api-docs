@@ -105,6 +105,7 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
 > Workflow of client-side applications
 
 ```js
+...
     // get store details
     var storeData = EcwidApp.getPayload();
     var storeId = storeData.store_id;
@@ -123,6 +124,7 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
     });
 
     // now you know the user you interact with and their store specific details to start the flow of your app
+...
 ```
 
 Ecwid allows your application to fully reside on client side and not use server side at all, i.e. you can authenticate the user, get store ID and access token and manage the store data via Ecwid API right inside your app in Control panel without calling your server scripts. By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. 
@@ -335,14 +337,15 @@ To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfro
 > Example of using EcwidApp.init() method
 
 ```js
+...
 // Initialize the application
 EcwidApp.init({
-  app_id: "my-super-app", // your application namespace (this is not clientId)
+  app_id: "my-super-app", // use your application namespace
   autoloadedflag: true, 
   autoheight: true
 });
+...
 ```
-
 
 The `EcwidApp.init()` method initializes your app inside Ecwid Control Panel. Call it once at the beginning of executable code in your app.
 
