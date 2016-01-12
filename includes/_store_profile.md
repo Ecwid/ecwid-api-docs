@@ -40,7 +40,9 @@ Name | Type    | Description
         "closed": false,
         "storeName": "My Super Store",
         "invoiceLogoUrl": "https://dpbfm6h358sh7.cloudfront.net/images/4870020/253584290.jpg",
-        "emailLogoUrl": "https://dpbfm6h358sh7.cloudfront.net/images/4870020/298177033.jpg"
+        "emailLogoUrl": "https://dpbfm6h358sh7.cloudfront.net/images/4870020/298177033.jpg",
+        "googleRemarketingEnabled": true,
+        "googleAnalyticsId": "UA-123456-1"
     },
     "mailNotifications": {
         "adminNotificationEmails": [
@@ -214,6 +216,8 @@ closed | boolean | `true` if the store is closed for maintenance, `false` otherw
 storeName | string | The store name displayed in Starter Site
 invoiceLogoUrl | string | Company logo displayed on the invoice
 emailLogoUrl | string | Company logo displayed in the store email notifications
+googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
+googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/customer/en/portal/articles/1170264-google-analytics) connected to a store
 
 #### MailNotifications
 Field | Type | Description
@@ -364,7 +368,9 @@ Cache-Control: no-cache
     },
     settings: {
         closed: false,
-        storeName: "My Cool Store"
+        storeName: "My Cool Store",
+        "googleRemarketingEnabled": false,
+        "googleAnalyticsId": "UA-654321-1"
     },
     company: {
       companyName: "My Company, Inc",
@@ -389,7 +395,6 @@ Cache-Control: no-cache
 {
     "zones": [
         {
-            
             "name": "United States - California",
             "countryCodes": [
                 "US"
@@ -451,6 +456,8 @@ Field | Type | Description
 ----- | ---- | -----------
 closed | string | `true` if the store is closed for maintenance, `false` otherwise
 storeName | string | The store name displayed in Starter Site
+googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
+googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/customer/en/portal/articles/1170264-google-analytics) connected to a store
 
 #### MailNotifications
 Field | Type | Description
