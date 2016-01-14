@@ -247,7 +247,7 @@ tax | number | Tax total
 ipAddress | string  | Customer IP
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
-refererUrl | string | URL of the page that the order was placed on
+refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
 couponDiscount | number | Discount applied with a coupon
 volumeDiscount | number | Subtotal based discount sum
@@ -653,7 +653,7 @@ ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied with a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <nobr><ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul></nobr>
-refererUrl | string | URL of the page that the order was placed on
+refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
 volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
@@ -955,7 +955,7 @@ ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied with a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
-refererUrl | string | URL of the page that the order was placed on
+refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
 volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
@@ -1274,7 +1274,7 @@ ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied with a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
-refererUrl | string | URL of the page that the order was placed on
+refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
 volumeDiscount | number | Subtotal based discount sum
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)

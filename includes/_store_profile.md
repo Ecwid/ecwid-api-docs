@@ -305,7 +305,7 @@ rules | Array\<TaxRule\>  | Tax rates
 Field | Type | Description
 ----- | ---- | -----------
 zoneId | string | Destination zone ID
-tax | number | Tax rate for this zone
+tax | number | Tax rate for this zone in %
 
 #### Zone
 *System Settings → Zones*
@@ -542,7 +542,7 @@ rules | Array\<TaxRule\>  | Tax rates
 Field | Type | Description
 ----- | ---- | -----------
 **zoneId** | string | Destination zone ID
-**tax** | number | Tax rate for this zone
+**tax** | number | Tax rate for this zone in %
 
 #### Zone
 *System Settings → Zones*
