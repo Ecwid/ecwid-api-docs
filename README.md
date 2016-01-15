@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##January 15, 2016
+- Added TRIAL status for Application endpoint
+- Updates to the structure of Authentication section
+- Added 'isShippingRequired' field for Products endpoint
+- Added support for Google Analytics in Store profile endpoint
+- Updated strucrure of Storefront JS API
+- New Storefront JS API function: getInitializedWidgets()
+
 ##December 14, 2015
 - Added unfinished order event types for webhooks
 - Added order status changes details for webhooks
