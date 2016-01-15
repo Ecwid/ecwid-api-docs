@@ -230,6 +230,7 @@ Parameters in bold are mandatory
         }
     ],
     "compareToPrice": 1.34,
+    "isShippingRequired": true,
     "weight": 0.31,
     "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208339",
     "created": "2009-07-23 17:22:37 +0000",
@@ -433,6 +434,7 @@ price | number |  Base product price
 priceInProductList | number |  Product price displayed in the product list. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
+isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
@@ -595,6 +597,7 @@ Cache-Control: no-cache
   "name": "New Product",
   "price": 20.99,
   "compareToPrice": 24.99,
+  "isShippingRequired": false,
   "categoryIds": [
     9691094
   ],
@@ -632,6 +635,7 @@ unlimited | boolean | Set as `true` to make Unlimited stock for the product and 
 price | number |  Base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
+isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Leave empty for intangible products*
 productClassId |  number | Id of the class (type) that this product belongs to. `0` value means the product is of the default 'General' class. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
 enabled | boolean | `true` to make product enabled, `false` otherwise. Disabled products are not displayed in the store front.
@@ -787,6 +791,7 @@ unlimited | boolean | Set as `true` to make Unlimited stock for the product and 
 price | number |  Base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
+isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Leave empty for intangible products*
 productClassId |  number | Id of the class (type) that this product belongs to. `0` value means the product is of the default 'General' class. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
 enabled | boolean | `true` to make product enabled, `false` otherwise. Disabled products are not displayed in the store front.
