@@ -1,74 +1,56 @@
-# Get started
+# Authentication
 
-All Ecwid API requests require authentication. Ecwid supports **oAuth2** protocol to provide external applications with an easy way to authenticate and access store data on behalf of the user. Ecwid user grants or denies access to certain data in their store for the particular application - the application gets its own secure access token upon authorization and uses that token as a key to make API calls to Ecwid.
+All Ecwid API requests require authentication. Ecwid supports **oAuth2** protocol to provide applications with an easy way to authenticate and access store data on behalf of the user. 
 
-## Register your app in Ecwid
-To use Ecwid oAuth and REST API, your application needs to be registered in Ecwid. The registration is easy: you will just need to provide us with information about your application and we will send you app ID and app credentials that you will then use to get access to API. The information we're asking is:
+Ecwid user grants or denies access to certain data in their store for the particular application - then the application gets its own secure access token upon authorization and uses that token as a key to make API calls to Ecwid.
 
-1. Application description and logo that will be displayed to your users
-2. Technical parameters that will be used in oAuth flow
-3. Application details for displaying in Ecwid Control panel
+# Basics
 
-To register you app in Ecwid, fill [this form](https://ecwidcom.typeform.com/to/tRyWJ6) and we will contact you in a few days. 
+### RESTful / oAuth2
+Ecwid API is a **RESTful** API with **oAuth2** authentication. As any RESTful service, Ecwid REST API use the standard HTTP codes in requests: 
 
-## Install your application
+* `GET` to read store data
+* `PUT` to update store data
+* `POST` to create entries
+* `DELETE` to remove entries
+
+### HTTPS
+All requests are done via HTTPs. Requests via insecure HTTP are not supported.
+
+### UTF-8
+Ecwid API works with UTF-8 encoded data. Please make sure everything you send over in API calls also uses UTF-8.
+
+### JSON
+All data received from API and submitted to API is JSON.
+
+### UTC
+Date/time values returned by Ecwid API are in UTC.
+
+### API Version
+This document describes *Ecwid REST API v.3* 
+
+### API calls limits
+You are free to build your app with as many API calls as you need to make your service awesome for Ecwid merchants, but keep in mind the [usage policy](#usage-policy).
+
+# Native applications
 
 Every public application, which is accessible in Ecwid App Market, has a dedicated app information page inside Ecwid Control Panel. Ecwid merchants can find and install the application without leaving their Control Panel. Example: [Import customers app details page](https://my.ecwid.com/cp/CP.html#apps:view=app&name=ecwid-customers-import) (you will need to log in to your Ecwid account see this page). 
 
-After user installs an application, Ecwid will redirect user to the new created tab. The redirect URL setting is ignored in this case. It works this way because app can get the access token without temporary code. More details on how to get access token in application's tab: [Authentication in embedded apps](#authentication-in-embedded-apps). 
+After user installs an application, Ecwid will redirect user to the new created tab. Then your app need to to get access token in that tab. Please see the [Authentication in embedded apps](#authentication-in-embedded-apps) section for more details.
 
 This is the most popular or even the only way Ecwid merchants install public applications to their stores, so please make sure your application supports this. 
 
-If your app doesn't create a new tab in Ecwid control panel, please check out [this section](#installation-for-custom-solutions-and-external-apps). In case if your app doesn't have an app details page for you to test the flow, please contact us.
+If your app doesn't create a new tab in Ecwid control panel, please see the [External applications](#installation-for-custom-solutions-and-external-apps) section for more details.
 
-## Installation for custom solutions and external apps
+# External applications
 
-In order to interact with a store via Ecwid API, your code will need an access token. Access token is a unique string of characters, which works as an authentication. You will need to retrieve it with the help of a user in two cases: 
+External applications work outside of Ecwid control panel and they also have an app details page for easy installation process. These apps use oAuth2 flow to get access token for a specific Ecwid store. 
 
-1. You are building a custom solution for specific Ecwid store(s)
-2. Your public app is an integration with external service
-
-Let's see each situation in more details:
-
-**Case #1 - Custom solution**
-
-When you are building a custom solution just for your store, you know what stores will use this functionality. Therefore, you will just need to get access token once and use it in your code to access store data via Ecwid API. Please see the steps outlined in [Get access token](#get-access-token) for more details on how to do that.
-
-**Case #2 - Integration with external service**
-
-In this case, a user is located on an app details page and is already authorized in Ecwid Control Panel. Thus the process of getting an access token starts with the **Step #2** and the **Step #1** of getting token process ("Send user to Ecwid authorization dialog") is omitted. Once the user clicks the "Install" button, Ecwid sends a user to your app Return URL along with the temporary code as outlined in the **Step #2** "Ecwid redirects the user back to your application". 
+The installation process starts with the **Step #2** and the Step #1 of [getting token](#get-access-token) process ("Send user to Ecwid authorization dialog") is omitted. Once the user clicks the "Install" button, Ecwid sends a user to your app Return URL along with the temporary code as outlined in the **Step #2** ("Ecwid redirects the user back to your application"). 
 
 Mind that in this case the installation process starts on Ecwid side and the moment when user gets to your application "Return" endpoint might be the first time they open your site. Make sure your page on the return URL onboards users well – this is a landing page for them in your service. We recommend prefilling user details like: Name, email, Store name, Store ID and other fields that your service needs.
 
-*Important*
-
-When the app cannot be installed from the app details page, it displays the "Get" button instead of "Install". The "Get" button simply redirects yser to your app web site. Examples of such apps are the apps installed on device (iOS, Android, Desktop applications). More details about such apps: [Applications installed on device](#applications-installed-on-device).
-
-## Access scopes
-Scopes are permissions that identifies the scope of access your application requests from the user. You should pass the required scopes along with the authorization request to Ecwid oAuth server when a user installs your application. See details above: [Get access token](#get-access-token).
-
-Access scope | Notes
------------- | -----
-read_store_profile | Get store name and general settings, get store admin email, get updates statistics etc. *Requested in all cases even if not specified*
-update_store_profile | Set taxes, update invoice logo, change Starter Site domain, close store for maintenance etc.
-read_catalog | Search products, get product options/combinations etc. Also allows to receive push updates (webhooks) about changes in store products.
-update_catalog | Update product prices, upload images and e-goods, modify product attributes etc.
-create_catalog | Create new products
-read_orders | Get sales for a given period, retrieve order details etc. Also allows to receive push updates (webhooks) about changes in store orders.
-update_orders | Change order totals, switch order status, cancel orders etc.
-create_orders | Place a new order in the store
-read_customers | Search customers or retrieve some particular customer data
-update_customers | Change customer profile data, add items to the customer address book etc.
-create_customers | Add a new customer to the store's Customers list
-read_discount_coupons | Get the list of discount coupons or retrieve some particular coupon details
-update_discount_coupons | Change the coupon expiration date or limit its number of use, update coupon code etc.
-create_discount_coupons | Add a new discount coupon
-customize_storefront | Attach a custom JS/CSS to the storefront on the fly to modify its look and feel (see [Customizing storefront](#customize-storefront))
-add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
-
 ## Get access token
-
-Access token allows you to interact with a store through Ecwid API on behalf of a user. 
 
 ### Standard oAuth flow
 
@@ -185,6 +167,27 @@ Access token provides access to Ecwid API on behalf of the user that installed y
 
 After a user goes through installation of your app, it can store that token securely in your database for that user, so it's not necessary to go through the standard oAuth flow each time you need to make a request to Ecwid API.
 
+## Access scopes
+Scopes are permissions that identifies the scope of access your application requests from the user. You should pass the required scopes along with the authorization request to Ecwid oAuth server when a user installs your application. See details above: [Get access token](#get-access-token).
+
+Access scope | Notes
+------------ | -----
+read_store_profile | Get store name and general settings, get store admin email, get updates statistics etc. *Requested in all cases even if not specified*
+update_store_profile | Set taxes, update invoice logo, change Starter Site domain, close store for maintenance etc.
+read_catalog | Search products, get product options/combinations etc. Also allows to receive push updates (webhooks) about changes in store products.
+update_catalog | Update product prices, upload images and e-goods, modify product attributes etc.
+create_catalog | Create new products
+read_orders | Get sales for a given period, retrieve order details etc. Also allows to receive push updates (webhooks) about changes in store orders.
+update_orders | Change order totals, switch order status, cancel orders etc.
+create_orders | Place a new order in the store
+read_customers | Search customers or retrieve some particular customer data
+update_customers | Change customer profile data, add items to the customer address book etc.
+create_customers | Add a new customer to the store's Customers list
+read_discount_coupons | Get the list of discount coupons or retrieve some particular coupon details
+update_discount_coupons | Change the coupon expiration date or limit its number of use, update coupon code etc.
+create_discount_coupons | Add a new discount coupon
+customize_storefront | Attach a custom JS/CSS to the storefront on the fly to modify its look and feel (see [Customizing storefront](#customize-storefront))
+add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
 
 ## Applications installed on device
 
@@ -233,4 +236,6 @@ The [Step #3](#get-access-token) (the app exchanges the temporarily authorizatio
 
 ## Selfhosted web apps
 
-Some applications requires user to download and install them on their site rather than providing a hosted solution. For example, plugins for Wordpress, Joomla or other CMS systems do that. Every instance of such application resides on different domain and thus has different Return URL. To implement oAuth flow in such an app, you will need to pass the `redirect_uri` security check oultined in the [step #1](#get-access-token) of the authorization flow. [Contact us](http://developers.ecwid.com/contact) if your application is of this kind and we will mark it as "selfhosted web app" in the app settings – in this case the redirect URL security requirements will be removed for your application. 
+Some applications requires user to download and install them on their site rather than providing a hosted solution. For example, plugins for Wordpress, Joomla or other CMS systems do that. Every instance of such application resides on different domain and thus has different Return URL. 
+
+To implement oAuth flow in such an app, you will need to pass the `redirect_uri` security check oultined in the [step #1](#get-access-token) of the authorization flow. [Contact us](http://developers.ecwid.com/contact) if your application is of this kind and we will mark it as "selfhosted web app" in the app settings – in this case the redirect URL security requirements will be removed for your application. 

@@ -8,7 +8,6 @@ toc_footers:
  - <a href='http://developers.ecwid.com'>Ecwid Developers Site</a>
 
 includes:
-  - using_api
   - overview
   - authentication
   - api_reference

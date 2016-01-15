@@ -466,7 +466,7 @@ A JSON object of type 'Customer' with the following fields:
 Field | Type  | Description
 -------------- | -------------- | --------------
 email | string |  Customer email
-password | string |  Customer email
+password | string |  Customer password
 customerGroupId | number | Customer group ID
 billingPerson | <Person> | Customer's billing name/address
 shippingAddresses | Array<ShippingAddress> | Customer address book items
