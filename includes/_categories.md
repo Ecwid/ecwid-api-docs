@@ -436,10 +436,28 @@ Upload category image: if the category already has an image attached, the upload
 ```http
 POST /api/v3/4870020/categories/1234657/image?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
-Content-Type: application/json
+Content-Type: image/jpeg
 Cache-Control: no-cache
 
 binary data
+```
+
+> PHP Example
+
+```php
+...
+$file = file_get_contents('image.jpg');
+$url = 'https://app.ecwid.com/api/v3/1003/categories/123456/image?token=abcdefg123456';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $file);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
+
+$result = curl_exec($ch);
+curl_close ($ch);
+...
 ```
 
 `POST https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}/image?token={token}`

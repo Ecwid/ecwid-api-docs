@@ -8,12 +8,15 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##January 18, 2016
+- Added PHP examples for uploading binary data (images)
+
 ##January 15, 2016
 - Added TRIAL status for Application endpoint
 - Updates to the structure of Authentication section
 - Added 'isShippingRequired' field for Products endpoint
 - Added support for Google Analytics in Store profile endpoint
-- Updated strucrure of Storefront JS API
+- Updated structure of Storefront JS API
 - New Storefront JS API function: getInitializedWidgets()
 
 ##December 14, 2015

@@ -1066,10 +1066,28 @@ Upload product image: if the product already has an image attached, the uploaded
 ```http
 POST /api/v3/4870020/products/1234657/image?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
-Content-Type: application/json
+Content-Type: image/jpeg
 Cache-Control: no-cache
 
 binary data
+```
+
+> PHP Example
+
+```php
+...
+$file = file_get_contents('image.jpg');
+$url = 'https://app.ecwid.com/api/v3/1003/products/123456/image?token=abcdefg123456';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $file);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
+
+$result = curl_exec($ch);
+curl_close ($ch);
+...
 ```
 
 `POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/image?token={token}`
@@ -1204,10 +1222,28 @@ Add image to the product images gallery. Request parameters specify which produc
 ```http
 POST /api/v3/4870020/products/1234657/gallery?fileName=Extra%20Image&token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
-Content-Type: application/json
+Content-Type: image/jpeg
 Cache-Control: no-cache
 
 binary data
+```
+
+> PHP Example
+
+```php
+...
+$file = file_get_contents('image.jpg');
+$url = 'https://app.ecwid.com/api/v3/1003/products/123456/gallery?token=abcdefg123456';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $file);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
+
+$result = curl_exec($ch);
+curl_close ($ch);
+...
 ```
 
 `POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/gallery?fileName={fileName}token={token}`

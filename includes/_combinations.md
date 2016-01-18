@@ -723,10 +723,28 @@ errorMessage | string | Error message
 ```http
 POST /api/v3/4870020/products/1234657/combinations/463737373/image?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
-Content-Type: application/json
+Content-Type: image/jpeg
 Cache-Control: no-cache
 
 binary data
+```
+
+> PHP Example
+
+```php
+...
+$file = file_get_contents('image.jpg');
+$url = 'https://app.ecwid.com/api/v3/1003/products/123456/combinations/1233541/image?token=abcdefg123456';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $file);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
+
+$result = curl_exec($ch);
+curl_close ($ch);
+...
 ```
 
 `POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}/image?token={token}`
