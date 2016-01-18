@@ -1075,7 +1075,6 @@ binary data
 > PHP Example
 
 ```php
-...
 $file = file_get_contents('image.jpg');
 $url = 'https://app.ecwid.com/api/v3/1003/products/123456/image?token=abcdefg123456';
 
@@ -1087,7 +1086,6 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
 
 $result = curl_exec($ch);
 curl_close ($ch);
-...
 ```
 
 `POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/image?token={token}`
@@ -1231,7 +1229,6 @@ binary data
 > PHP Example
 
 ```php
-...
 $file = file_get_contents('image.jpg');
 $url = 'https://app.ecwid.com/api/v3/1003/products/123456/gallery?token=abcdefg123456';
 
@@ -1243,7 +1240,6 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
 
 $result = curl_exec($ch);
 curl_close ($ch);
-...
 ```
 
 `POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/gallery?fileName={fileName}token={token}`
@@ -1513,6 +1509,23 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 
 binary data
+```
+
+> PHP Example
+
+```php
+$file = file_get_contents('cool.jpg');
+$url = 'https://app.ecwid.com/api/v3/1003/products/123456/files?fileName=cool.jpg&token=abcdefgh123456';
+
+$ch = curl_init();
+
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $file);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg'));
+
+$result = curl_exec($ch);
+curl_close ($ch);
 ```
 
 Uploading a product file (e-goods)

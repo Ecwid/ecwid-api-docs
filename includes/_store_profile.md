@@ -629,7 +629,6 @@ binary data
 > PHP Example
 
 ```php
-...
 $file = file_get_contents('image.jpg');
 $url = 'https://app.ecwid.com/api/v3/1003/profile/logo?token=abcdefg123456';
 
@@ -641,7 +640,6 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
 
 $result = curl_exec($ch);
 curl_close ($ch);
-...
 ```
 
 `POST https://app.ecwid.com/api/v3/{storeId}/profile/logo?token={token}`
@@ -779,7 +777,6 @@ binary data
 > PHP Example
 
 ```php
-...
 $file = file_get_contents('image.jpg');
 $url = 'https://app.ecwid.com/api/v3/1003/profile/invoicelogo?token=abcdefg123456';
 
@@ -791,7 +788,6 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
 
 $result = curl_exec($ch);
 curl_close ($ch);
-...
 ```
 
 `POST https://app.ecwid.com/api/v3/{storeId}/profile/invoicelogo?token={token}`
