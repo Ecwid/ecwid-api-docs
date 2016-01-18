@@ -318,7 +318,7 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 
 2. Use this guide to find the elements and CSS classes you need: [http://developers.ecwid.com/ecwid-css-framework/](/ecwid-css-framework)
 
-<img src="http://take.ms/uXxvy"></img>
+<img src="https://dj925myfyz5v.cloudfront.net/wp-content/uploads/ecwid-buttons.png"></img>
 
 
 # Ecwid Javascript SDK
