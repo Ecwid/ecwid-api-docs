@@ -88,16 +88,26 @@ EcwidApp.getAppStorage('color', function(value){
 })
 ```
 
-To retrieve data for a specific key, use `EcwidApp.setAppStorage` specifying the key as first parameter and callback function as the second one. It will return a value of the key you requested in a form of a string.
+To retrieve data for a specific key, use `EcwidApp.setAppStorage` and specify the key as first parameter and callback function as the second one. It will return a value of the key you requested in a form of a string.
+
+> Get public app config
+
+```js
+EcwidApp.getAppStorage('public', function(value){
+  //prints '1234' 
+  console.log(value);
+})
+```
+
+Public application config is a part of application storage: data that you save there is kept in `public` key of the storage. In case if you need to check the value you saved to public app config, use `EcwidApp.getAppStorage` and specify the `public` key as first parameter and a callback function as a second one. 
 
 ## REST Storage API
 
 This REST API allows to set, update and delete values in the application storage. You should usually use it if your code is executed on a server, i.e. you mainly use PHP, Ruby, Python, Java, and any other server-side programming language.
 
-
 ### Get all storage data
 
-Retrieves all stored data for the given store ID.
+Retrieves all stored data for the given store ID. Public application config can be found in the `public` key of your application storage.
 
 #### Request
 
@@ -146,7 +156,7 @@ value | string | The stored data
 
 ### Get storage data by key
 
-Retrieves the stored data for the given store ID by the given key
+Retrieves the stored data for the given store ID by the given key. Public application config can be found in the `public` key of your application storage.
 
 #### Request
 
@@ -154,6 +164,15 @@ Retrieves the stored data for the given store ID by the given key
 
 ```http
 GET /api/v3/805056/storage/birth_date?token=487487437834aasdfd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+```
+
+> Get public app config example
+
+```http
+GET /api/v3/805056/storage/public?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -221,7 +240,7 @@ errorMessage | string | Error message
 
 ### Add data to storage
 
-Use this method to put a new data into the storage. If the key you specify in the request already exists, the corresponding value in the storage will be replaced with the submitted one. 
+Use this method to put a new data into the storage. If the key you specify in the request already exists, the corresponding value in the storage will be replaced with the submitted one. You can also create app public config data by using `public` as storage key in your request.
 
 #### Request
 
@@ -270,7 +289,7 @@ success | boolean | `true` if the data has been added to the storage, `false` ot
 
 ### Edit storage data
 
-Use this method to update data in the storage. If the key you specify in the request doesn't yet exists, the corresponding value in the storage will be created. 
+Use this method to update data in the storage. If the key you specify in the request doesn't yet exist, the corresponding value in the storage will be created. You can also update public application config by accessing `public` key in your request.
 
 #### Request
 
