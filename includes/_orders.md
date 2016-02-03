@@ -1204,6 +1204,7 @@ POST /api/v3/4870020/orders?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+
 {
         "subtotal": 30,
         "total": 40,

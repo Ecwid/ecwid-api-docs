@@ -178,4 +178,4 @@ App public config allows apps to access user specific data in storefront as soon
 
 For example, using this method you can pass store ID to a storefront, category or product ID where the changes need to apply or whether your widget needs to be shown in storefront. 
 
-To find out more about this process, please check app public config section.
+To find out more about this process, please check [Public App Config](#public-application-config) section.
