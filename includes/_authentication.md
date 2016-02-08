@@ -56,7 +56,7 @@ Upon successful installation, Ecwid redirects the user to the application's `red
 
 Example link to app details page: 
 
-`https://my.ecwid.com/cp/CP.html#apps:view=app&name={appNamespace}`
+`https://my.ecwid.com/cp/CP.html#apps:view=app&name=my-cool-app`
 
 #### Return URL parameters
 

@@ -1,12 +1,16 @@
 ecwid-api-docs
 ==============
 
-Ecwid REST API documentation ([api.ecwid.com](http://api.ecwid.com))
+Ecwid REST API documentation ([https://developers.ecwid.com/api-documentation](https://developers.ecwid.com/api-documentation))
 
 The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax)
 
 
 #Changelog
+
+##February 8, 2016
+- Updated wording of Authentication section
+- Added new content to Overview section
 
 ##January 18, 2016
 - Added PHP examples for uploading binary data (images)
