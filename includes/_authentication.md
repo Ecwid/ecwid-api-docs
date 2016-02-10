@@ -39,6 +39,10 @@ Retrieving an access token for external apps includes the following steps:
 1. User installs application, Ecwid redirects the user to the return URL.
 2. Your code requests an access token from Ecwid in the background. This access_token will be used as API key in all API calls.
 
+User will get to the first step by accessing your app details page. It is a separate page dedicated to describe your application in Ecwid Control Panel. Example link to app details page: 
+
+`https://my.ecwid.com/cp/CP.html#apps:view=app&name=my-cool-app`
+
 <aside class="notice">
 User needs to go through all these steps only <strong>once</strong> in order for your app to get and store access token for that user. This token will be used in any call you make to Ecwid API on behalf of the user.
 </aside>
@@ -53,10 +57,6 @@ https://www.example.com/myapp?code=1234567890
 ```
 
 Upon successful installation, Ecwid redirects the user to the application's `redirect_uri`. 
-
-Example link to app details page: 
-
-`https://my.ecwid.com/cp/CP.html#apps:view=app&name=my-cool-app`
 
 #### Return URL parameters
 
@@ -146,7 +146,9 @@ add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embed
 
 ## Complete oAuth flow
 
-This method of getting access token is meant for apps without app details page.
+This method of getting access token is meant for apps that are installed outside of Ecwid App Market, for example: apps that install on a device, apps for mobile devices, CMS plugins, etc. These kinds of apps can also have an app details page, but it will will direct users to app's website, where developer will decide how to handle the installation. 
+
+We recommend using the simplified installation flow from the [Get access token](#get-access-token) section, however if it's not possible, you can use this complete oAuth flow.
 
 Retrieving an access token in a complete oAuth flow includes the following steps:
 
@@ -251,7 +253,7 @@ store_id | Ecwid store ID (a unique Ecwid account identificator)
 For security reasons, a temporary code can be exchanged to an access token only once. In case of second attempt, the previously provided access token is automatically disabled.
 </aside>
 
-### Q: What if my app is selfhosted?
+### Q: What if my app requires multiple domains for redirect URL?
 
 Some applications requires user to download and install them on their site rather than providing a hosted solution. For example, plugins for Wordpress, Joomla or other CMS systems do that. Every instance of such application resides on different domain and thus has different Return URL. 
 

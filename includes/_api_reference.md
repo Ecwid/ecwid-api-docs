@@ -28,7 +28,7 @@ This document describes *Ecwid REST API v.3*
 ### API calls limits
 You are free to build your app with as many API calls as you need to make your service awesome for Ecwid merchants, but keep in mind the [usage policy](#usage-policy).
 
-# Usage policy
+## Usage policy
 By default, we do not limit API usage for applications. You are free to build your app with as many calls as you need to make your service awesome for Ecwid merchants. However, to protect us and our users from abusing, we ask you to optimize your app code to make fewer API requests. For example:
 
 - Cache store data locally if you need to use or display it many times in your app. 

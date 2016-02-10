@@ -1,4 +1,4 @@
-# Single sign-on
+# Single Sign-On
 
 # Overview
 
