@@ -39,9 +39,7 @@ Retrieving an access token for external apps includes the following steps:
 1. User installs application, Ecwid redirects the user to the return URL.
 2. Your code requests an access token from Ecwid in the background. This access_token will be used as API key in all API calls.
 
-User will get to the first step by accessing your app details page. It is a separate page dedicated to describe your application in Ecwid Control Panel. Example link to app details page: 
-
-`https://my.ecwid.com/cp/CP.html#apps:view=app&name=my-cool-app`
+User will get to the first step by accessing your app details page in Ecwid App Market. It is a separate page dedicated to describe your application in Ecwid Control Panel. 
 
 <aside class="notice">
 User needs to go through all these steps only <strong>once</strong> in order for your app to get and store access token for that user. This token will be used in any call you make to Ecwid API on behalf of the user.
@@ -146,7 +144,7 @@ add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embed
 
 ## Complete oAuth flow
 
-This method of getting access token is meant for apps that are installed outside of Ecwid App Market, for example: apps that install on a device, apps for mobile devices, CMS plugins, etc. These kinds of apps can also have an app details page, but it will will direct users to app's website, where developer will decide how to handle the installation. 
+This method of getting access token is meant for apps that are installed outside of Ecwid App Market, for example: apps that work on a device, apps for mobile devices, CMS plugins, etc. These kinds of apps are also displayed in the App Market, but the oAuth flow will be done on external website, where developer will decide how to handle the installation. 
 
 We recommend using the simplified installation flow from the [Get access token](#get-access-token) section, however if it's not possible, you can use this complete oAuth flow.
 
@@ -253,11 +251,11 @@ store_id | Ecwid store ID (a unique Ecwid account identificator)
 For security reasons, a temporary code can be exchanged to an access token only once. In case of second attempt, the previously provided access token is automatically disabled.
 </aside>
 
-### Q: What if my app requires multiple domains for redirect URL?
+### Q: What if my app always redirects users to different domain?
 
 Some applications requires user to download and install them on their site rather than providing a hosted solution. For example, plugins for Wordpress, Joomla or other CMS systems do that. Every instance of such application resides on different domain and thus has different Return URL. 
 
-To implement oAuth flow in such an app, you will need to pass the `redirect_uri` security check oultined in the **Step #1** of the authorization flow. [Contact us](http://developers.ecwid.com/contact) if your application is of this kind and we will mark it as "selfhosted web app" in the app settings – in this case the redirect URL security requirements will be removed for your application. 
+To implement oAuth flow in such an app, you will need enable support for multiple domains in `redirect_uri` and improve security: application will always ask user for permissions and will show the domain that requests them in the oAuth flow. [Contact us](http://developers.ecwid.com/contact) if your application is of this kind and we will make the necessary changes.  
 
 ## Applications installed on device
 

@@ -38,9 +38,9 @@ More information: [Customize Storefront](#customize-storefront)
 
 ### Storefront Single Sign-On
 
-Ecwid is a widget, that can be inserted to any website. Many websites have their own login functionality as well as Ecwid. To allow customers to sign in to their account in storefront automatically right after they sign in to your website or service, use Single Sign-On feature. It will save customers' time and let them concentrate on shopping in the store.
+Ecwid is a widget, that can be inserted to any website. Many websites have their own login functionality as well as Ecwid. To allow customers to sign in to their account in storefront automatically right after they sign in to merchant's website or service, use Single Sign-On feature. It will save customers' time and let them concentrate on shopping in the store.
 
-More information: [Single Sign-On](#single-sign-on)
+More information: [Storefront Single Sign-On](#single-sign-on)
 
 # Applications for Ecwid
 
@@ -109,7 +109,7 @@ Suggested API features:
 - [Save and pass user preferences to storefront](#public-application-config) script
 - [Append your JS and CSS file](#customize-storefront) to storefront
 
-**Membership (CRM) system for customers**
+**Membership system for customers**
 
 Use customer groups in the store as a tool to manage memberships. Provide discounts to regular shoppers like absolute discount or free shipping. 
 

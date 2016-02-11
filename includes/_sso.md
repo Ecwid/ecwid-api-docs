@@ -2,15 +2,15 @@
 
 # Overview
 
-Single sign-on (SSO) is a tool that allows a user to have one login and password to access multiple applications. If you already have customer base on your site and you are using Ecwid, your customers may find it rather inconvenient that they have to log in to your site and store separately. 
+Storefront Single Sign-On (SSO) is a tool that allows a user to have one login and password to access multiple applications. If a merchant already has a customer base on their website, customers may find it rather inconvenient that they have to log in to website and store separately. 
 
-Ecwid Single Sign-on API allows your customers to sign into your site and fully use your store without having to log in to Ecwid. I.e. if a customer is logged in to your site, he/she is logged in to your store automatically, even if he/she didn’t have an account in your store before.
+Ecwid Single Sign-on API allows those customers to sign into merchant's website and fully use Ecwid store without having to log in again. I.e. if a customer is logged in in a website, they are logged in Ecwid store automatically, even if they didn’t have an account there before.
 
-# Implement SSO on your site
+# Implement SSO on a website
 
 ## Pass user data to Ecwid
 
-To enable Single Sign-on (SSO) on your website, you need to pass encrypted user information to Ecwid JavaScript API. The user data itself needs to be prepared and encrypted on the server. See SSO Payload for the details. Then, in the code of your store web page, you should send the encrypted user data to Ecwid. There are two ways you can do that:
+To enable Storefront Single Sign-on (SSO) on merchant's website, you need to pass encrypted user information to Ecwid JavaScript API. The user data itself needs to be prepared and encrypted on the server. See [SSO Payload](#sso-payload) for the details. Then, in the code of the store web page, you should send the encrypted user data to Ecwid. There are two ways you can do that:
 
 1. Declaring a `ecwid_sso_profile` JS variable on the store web page containing the user information
 2. Dynamically sending a user info to Ecwid by means of the `Ecwid.setSsoProfile()` JS API method
@@ -26,7 +26,7 @@ var ecwid_sso_profile = '93n3ufncucndndner9872h34b43ird8djd8d8 8787aa437a4aaa3ds
 ...
 ```
 
-You can inform Ecwid of the logged in user on your site in the `ecwid_sso_profile` JavaScript variable declared on your store pages. The `ecwid_sso_profile` variable can be declared anywhere in your web page, either before the Ecwid's script.js or after. The `ecwid_sso_profile` is initialized **once** – when Ecwid loads on the page.
+You can inform Ecwid of the logged in user on your site in the `ecwid_sso_profile` JavaScript variable declared on the store pages. The `ecwid_sso_profile` variable can be declared anywhere in a web page, either before the Ecwid's script.js or after. The `ecwid_sso_profile` is initialized **once** – when Ecwid loads on the page.
 
 ### Ecwid.setSsoProfile()
 
@@ -41,7 +41,7 @@ var ssoPayload = ...
 Ecwid.setSsoProfile(ssoPayload);
 ```
 
-The abovementioned SSO approach with setting `ecwid_sso_profile` variable works well when login/logout actions on your site are done along with the page reload. If your site utilizes AJAX for login/logout functionality, the page won't be reloaded and thus `ecwid_sso_profile` will not be updated instantly. In this case, you can use `Ecwid.setSsoProfile()` API method. The `Ecwid.setSsoProfile()` method does exactly the same as setting of the `ecwid_sso_profile` variable, but can be used multiple times within the same "session".
+The abovementioned SSO approach with setting `ecwid_sso_profile` variable works well when login/logout actions on the site are done along with the page reload. If a website utilizes AJAX for login/logout functionality, the page won't be reloaded and thus `ecwid_sso_profile` will not be updated instantly. In this case, you can use `Ecwid.setSsoProfile()` API method. The `Ecwid.setSsoProfile()` method does exactly the same as setting of the `ecwid_sso_profile` variable, but can be used multiple times within the same "session".
 
 Here is how you will use that:
 
@@ -55,6 +55,7 @@ Here is how you will use that:
 
 
 ### When no one is logged in
+
 To specify that no user is logged in, pass an empty payload either to the `ecwid_sso_profile` variable or to `Ecwid.setSsoProfile()` method. Ecwid will 'understand' that nobody is logged in at the moment and log out the current user if any.
 
 
@@ -79,11 +80,12 @@ When you passing the user information to Ecwid either in `ecwid_sso_profile` JS 
 - Timestamp
 
 ### Message
+
 The message is a Base64-encoded JSON string containing user profile fields and the application ID. See the `Message` field format explained below.
 
 Field | Type | Description
 ------| ---- | -----------
-**appId** | string | Any arbitrary string identifying the 3rd-party authentication system (your site). Example: `my_cool_website1`
+**appId** | string | Any arbitrary string identifying the 3rd-party authentication system (merchant's site). Example: `my_cool_website1`
 **userId** | string | Any string identifying the user in the 3rd-party authentication system. Examples: `72551`, `johnsmith87`. The combination of appId and userId identifies the customer profile in Ecwid connected with your site. 
 **profile** | *Profile* | User information. If a customer with the given combination of `appId` and `userId` already associated with some customer in your Ecwid store, the profile on file will be merged with the provided fields. Exception is the customer address book (`shippingAddresses`), which is only filled once when profile is created in Ecwid.
 
@@ -114,22 +116,24 @@ phone | string | Phone number
 
 
 ### Signature
+
 The signature should be generated by HMAC SHA1 encryption of the Base64-encoded profile data and timestamp. Use your **SSO secret key** as a signature key. The secret key can be obtained in the user's [Ecwid Control panel](https://my.ecwid.com/cp/CP.html#legacy_api).
 
 Every message should have different signature. If a message has a signature that has already been seen recently, Ecwid denies the sign-on request.
 
 ### Timestamp
+
 UNIX timestamp. The system clock on your server must be in sync with the actual time, otherwise signatures generated by your server will fail to validate in Ecwid. Ecwid allows this timestamp to be up to 10 minutes late. The timestamp ensures that the message cannot be intercepted and misused later.
 
 ### Q: How do I know that SSO is working? 
 
 When `ecwid_sso_profile` variable is set on a page, Ecwid will hide the Sign In and Sign Out links in a storefront. However in some cases this doesn't mean that the SSO functionality is working successfully. 
 
-To make sure that Single Sign On functionality is working, customer in your store should be able to do any action that any logged in customer would do: add shipping addresses to their address book, use prefilled details on checkout, etc. 
+To make sure that Single Sign On functionality is working, customer in merchant's store should be able to do any action that any logged in customer would do: add shipping addresses to their address book, use prefilled details on checkout, etc. 
 
 Another clear indicator can be the email field in the payment method selection of the checkout process. If your storefront has this field hidden, then the Single Sign On is working correctly in your store. 
 
-When troubleshooting this issue, please make sure to check if the **SSO secret key** that you specified in your code is correct. You can find out more about it in the `Signature` section above.
+When troubleshooting this issue, please make sure to check if the **SSO secret key** that you specified in your code is correct. You can find out more about it in the **Signature** section above.
 
 ## Customize SSO workflow
 
