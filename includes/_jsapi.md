@@ -1,6 +1,6 @@
 # Storefront JS API
 
-The described Javascript API is available for all Ecwid users. The API is intended for better integrating Ecwid with the surrounding web site. All most useful stuff is located in the `window.Ecwid` top-level object, e.g. `window.Ecwid.formatCurrency`. The API is based on two concepts: objects and extension points. Objects are simple containers for methods, while extension points are containers for the user-supplied callbacks (or extensions). 
+The described Javascript API is available for all Ecwid users. The API is intended for better integrating Ecwid with the surrounding web site. The API is based on two concepts: objects and events. Objects are simple containers for methods, while events are containers for the user-supplied callbacks (or extensions). 
 
 > Access Page object to find the current page type
 
@@ -9,27 +9,15 @@ Ecwid.OnPageLoad.add(function(page) {
         alert("My page load handler: " + page.type);
 });
 ```
-Extensions are added to the extension points using the `add()` method, see example code on the right.
+Extensions are added to the events using the `add()` method, see example code on the right.
 
-This sample adds a function that is called every time a new page is loading in the product browser. Callbacks may be objects with multiple functions instead of just one function as shown in the example above, which may return useful values. The form of the extensions, their parameters and the need of a return value depends on the extension point as described below.
+This sample adds a function that is called every time a new page is loading in the product browser. Callbacks may be objects with multiple functions instead of just one function as shown in the example above, which may return useful values. The form of the extensions, their parameters and the need of a return value depends on the event that occurs.
 
-Note that the `add()` method call follows the script.js script of the standard Ecwid integration HTML code. It is important to include script.js before any use of the API methods. Moreover, because of the staged loading of Ecwid, only few of API functions are available during the page load. Most of the Ecwid Javascript API is available after Ecwid is loaded completely. This moment when you can use Javascript API can be caught by the `Ecwid.OnAPILoaded` extension point, as shown below.
+Note that the `add()` method call follows the script.js script of the standard Ecwid integration code. It is important to include script.js before any use of the API methods. Moreover, because of the staged loading of Ecwid, only few of API functions are available during the page load. Most of the Ecwid Javascript API is available after Ecwid is loaded completely. The moment, when you can use Javascript API, can be caught by the `Ecwid.OnAPILoaded` event.
 
-# Store
+# Get Storefront Details
 
-The top-level object `window.Ecwid` itself provides some useful functions for getting information about storefront on a page, besides references to other objects like `Ecwid.OnAPILoaded`.
-
-## Ecwid.OnAPILoaded
-
-> OnAPILoaded usage example
-
-```javascript
-Ecwid.OnAPILoaded.add(function() {
-    console.log("API is loaded")
-});
-```
-
-This extension point contains callback functions that get called exactly once when the Ecwid Javascript API loads and become available under the `window.Ecwid` top-level object. Functions supplied to this extension point as extensions do not accept any parameters and do not require to return any value.
+Get basic storefront information to use in your script.
 
 ## Ecwid.getStaticBaseUrl
 
@@ -94,7 +82,7 @@ console.log(currencyFormat)
 // "$12.99"
 ```
 
-Converts the given currency value to a human-readable string according to the store settings.
+Converts the given currency value to a human-readable string according to the store settings. It accepts both string and integer as arguments.
 
 ## Ecwid.getAppPublicConfig
 
@@ -138,9 +126,61 @@ Name | Type | Description
 Data in public storage of your app must not exceed <strong>8Kb</strong>
 </aside>
 
-# Customer
+## Page Object
 
-In this section you will find all customer-related functionality available in Javascript API.
+Describes the page displaying inside the product browser.
+
+**Fields:**
+
+Name | Type | Description
+---- | ----- | -----------
+type | string, one of the following: ‘ACCOUNT_SETTINGS’, ‘ADDRESS_BOOK’, ‘ORDERS’, ‘CATEGORY’, ‘CART’, ‘CHECKOUT_ADDRESS_BOOK’, ‘CHECKOUT_PAYMENT_DETAILS’, ‘CHECKOUT_PLACE_ORDER’, ‘CHECKOUT_SHIPPING_ADDRESS’, ‘ORDER_CONFIRMATION’, ‘ORDER_FAILURE’, ‘CHECKOUT_RESULT’, ‘DOWNLOAD_ERROR’, ‘PRODUCT’, ‘SEARCH’, 'FAVORITES' | The type of the page. Some pages may have parameters like for example product id of the viewing product. Those parameters are described below.
+keywords | string, optional | for type==’ORDERS’: the keywords that are used to find orders in the customer account page. for type==’SEARCH’: the keywords that are used to find products on the product search page.
+from | integer timestamp, optional | for type==’ORDERS’: The timestamp of the start of the orders date range.
+to | integer timestamp, optional | for type==’ORDERS’: The timestamp of the end of the orders date range.
+offset | | for type==’ORDERS’: the position of the current order list page (starting from 0). for type==’CATEGORY’ and SEARCH’: the position of the current product list page (starting from 0).
+categoryId | integer | for type==’CATEGORY’: the id of the showing product category or 0 if this is the starting page of the catalog and no categories are selected yet. for type==’PRODUCT’: the category internal id the current product has been navigated from. Zero (0) is the root category, −1 meaning that the category is unknown (e.g. a product opened from a search result).
+mainCategoryId | integer | for type==’PRODUCT’ in the OnPageLoaded event: the internal id of category that is considered the default category of this product (in case if the product is assigned to a few different categories). If a product is assigned to a single category, mainCategoryId will be equeal to categoryId; if a product is not assigned to any category, its mainCategoryId is 0 (zero). for type==’PRODUCT’ in the OnPageLoad event: always 0 (zero);
+sort | string, one of: ‘normal’, ‘addedTimeDesc’, ‘priceAsc’, ‘priceDesc’, ‘nameAsc’, ‘nameDesc’ | for type==’CATEGORY’ and ’SEARCH’: the order of the product list, as selected by the user in the ‘sort by’ drop-down. ‘Desc’ suffix stands for the descending order, ‘Asc’ suffix stands for the ascending order.
+orderId | integer | for type==’CHECKOUT_RESULT’: the internal id of the order (not to be confused with the store order number)
+ticket | integer | for type==’CHECKOUT_RESULT’: the security random code that allows to retrieve information about the order
+errorType | one of the following: ‘expired’, ‘invalid’, ‘limit’ | for type==’DOWNLOAD_ERROR’: the type of the error while downloading an e-good file.
+key | integer, optional | for type==’DOWNLOAD_ERROR’: the downloading file internal id
+productId | integer | for type==’PRODUCT’: the internal id of the displaying product (not to be confused with SKU).
+orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
+orderVendorNumber | integer | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
+
+# Subscribe To Events
+
+Find various useful events and execute your functions with them.
+
+## Ecwid.OnAPILoaded
+
+> OnAPILoaded usage example
+
+```javascript
+Ecwid.OnAPILoaded.add(function() {
+    console.log("API is loaded")
+});
+```
+
+This event contains callback functions that are called exactly when the Ecwid Javascript API loads and becomes available under the `window.Ecwid` top-level object. Functions attached to this event do not accept any parameters and do not require to return any value.
+
+## Ecwid.OnPageLoad/Ecwid.OnPageLoaded
+
+> If user visits cart page, do domething
+
+```javascript
+Ecwid.OnPageLoaded.add(function(page) {
+    if (page.type == "CART") {
+      // do something ...
+  }
+});
+```
+
+These events contain callbacks that get called on each page change inside the product browser. The difference between **OnPageLoad** and **OnPageLoaded** is that the former is called when the page is changed (e.g. a link is clicked), while the later is called later when the corresponding page is loaded inside the product browser.
+
+The callback functions accept one parameter of type **Page** specifying which page is to be loaded (or has already been loaded).
 
 ## Ecwid.OnSetProfile
 
@@ -182,7 +222,56 @@ xProductBrowser();
 </script>
 ```
 
-This extension point contains callback functions that receive the changes in the current customer profile. If no customer is logged in, these functions receive **null**. Whenever a customer logs in/out, the callback functions are called with either the corresponding parameter of type **Customer** or **null**. Example code can be seen on the right.
+This event contains callback functions that receive the changes in the current customer profile. 
+
+If no customer is logged in, these functions receive **null**. Whenever a customer logs in/out, the callback functions are called with either the corresponding parameter of type **Customer** or **null**. Example code can be seen on the right.
+
+## Ecwid.OnCartChanged
+
+> Specify a callback function when cart is changed in storefront
+
+```javascript
+Ecwid.OnCartChanged.add(function(cart){
+     // your code here
+}) 
+```
+
+This event contains callback functions that get called each time when a shopping cart is changed — either by the customer or due to system events.
+
+The callback function receives Cart object as an argument, that has the new shopping cart state after the change is applied.
+
+The callbacks added to `Ecwid.OnCartChanged` will be called when the shopping cart is initialized and on every occasion when either of the properties of the passed **Cart** object is changed. These occasions include:
+
+- Cart initialization 
+- Adding a product to cart
+- Removing a product from cart
+- Changing the product’s options
+- Clearing the cart
+- Applying a discount coupon
+- Selecting and changing the selection of the payment method
+- Selecting and changing the selection of the shipping method
+- Syncing the cart contents, if there are a few browser tabs with the store are opened
+- Clearing the cart upon user’s logout — in this occasion the callback receives **null** as an argument.
+
+The passed Cart object represents only the basic properties of the shopping cart. It contains the data coming from the customer’s actions (like products, coupons, payment and shipping methods) and **might not contain the calculated aggregates** (like order totals, shipping costs, the discounted amounts or taxes). For the calculated aggregates, it is rather recommended to use the `Ecwid.Cart.calculateTotal()` method.
+
+## Ecwid.OnProductOptionsChanged
+
+> Show an alert if product options were changed
+
+```javascript
+Ecwid.OnProductOptionsChanged.add(function(productid) {
+   window.alert("Options changed, product id:" + productid);    
+})
+```
+
+This event executes callback function each time when product option was changed. The callback functions accept one parameter: **productid**, specifying ID of the product changed. 
+
+`OnProductOptionsChanged` works for following options type: dropdown list, radio button and checkbox. Input, textarea and upload files types are not supported yet.
+
+# Get Customer Details
+
+Find out more about customer that is currently logged in a store.
 
 ## Customer Object
 
@@ -228,62 +317,15 @@ stateOrProvinceCode | string, optional | The person’s region/state/province co
 countryName | string, optional | Country name, if applicable
 phone | string, optional | Phone number, if applicable
 
-# Cart
+# Manage Customer's Cart
 
-In this section you will find all cart-related functionality available in Javascript API.
-
-## Ecwid.OnCartChanged
-
-> Specify a callback function when cart is changed in storefront
-
-```javascript
-Ecwid.OnCartChanged.add(function(cart){
-     // your code here
-}) 
-```
-
-This extension point contains callback functions that get called each time when a shopping cart is changed — either by the customer or due to system events.
-
-The callback function receives in an argument the Cart object, that holds the new shopping cart state after the change is applied.
-
-The callbacks added to `Ecwid.OnCartChanged` will be called when the shopping cart is initialized and on every occasion when either of the properties of the passed **Cart** object is changed. These occasions include:
-
-- Cart initialization 
-- Adding a product to cart
-- Removing a product from cart
-- Changing the product’s options
-- Clearing the cart
-- Applying a discount coupon
-- Selecting and changing the selection of the payment method
-- Selecting and changing the selection of the shipping method
-- Syncing the cart contents, if there are a few browser tabs with the store are opened
-- Clearing the cart upon user’s logout — in this occasion the callback receives **null** as an argument.
-
-The passed Cart object represents only the basic properties of the shopping cart. It contains the data coming from the customer’s actions (like products, coupons, payment and shipping methods) and **might not contain the calculated aggregates** (like order totals, shipping costs, the discounted amounts or taxes). For the calculated aggregates, it is rather recommended to use the `Ecwid.Cart.calculateTotal()` method.
-
-## Ecwid.OnProductOptionsChanged
-
-> Show an alert if product options were changed
-
-```javascript
-Ecwid.OnProductOptionsChanged.add(function(productid) {
-   window.alert("Options changed, product id:" + productid);    
-})
-```
-
-This extension point executes callback function each time when product option was changed. The callback functions accept one parameter: **productid**, specifying ID of the product that was changed. 
-
-`OnProductOptionsChanged` works for following options type: dropdown list, radio button and checkbox. Input, textarea and upload files types are not supported yet.
-
-## Ecwid.Cart
-
-`Ecwid.Cart` is a namespace for cart-related functions of JavaScript API.
+Manage cart on customer's behalf.
 
 ## Ecwid.Cart.addProduct
 
 This function allows to add a product to shopping cart, modifying the cart on behalf of customer.
 
-There are 2 possible ways to call this function.
+There are 2 possible ways to call this function: adding products by product ID or adding products with extended options.
 
 ### Adding by product ID
 
@@ -297,7 +339,7 @@ Ecwid.Cart.addProduct(productID, callback)
 
 Name | Type | Description
 ---- | ---- | -----------|
-**productID** | Integer | the Ecwid’s internal product ID to be added to cart (can be retrieved from Product API or seen in the URL of the product page)
+**productID** | Integer | the Ecwid’s internal product ID to be added to cart (can be retrieved from product export, seen in the URL of the product page or via [REST API](#search-products))
 callback | Function | the callback function to be called once the operation is complete (either succeeded or failed). See below for details.
 
 > Add product to cart using ID
@@ -412,9 +454,13 @@ Cart calculation involves a request to server, so this method should be called o
 
 Since the calculation needs a server connection, it might fail due to network conditions. In this case, null is passed into the callback instead of **Order** object.
 
+# Get Cart Details
+
+Find out more about cart in its current state.
+
 ## Cart Object
 
-Cart object is a snapshot of essential shopping cart properties, passed via various callbacks. Cart object does not provide direct memory access to the actual cart that Ecwid uses — i.e. changing this exact objectwill not alter the actual cart Ecwid uses for placing the order.
+Cart object is a snapshot of essential shopping cart properties, passed via various callbacks. Cart object does not provide direct memory access to the actual cart that Ecwid uses — i.e. changing this exact object will not alter the actual cart Ecwid uses for placing the order.
 
 **Fields:**
 
@@ -474,51 +520,6 @@ shortDescription | String | Product description truncated to 120 characters
 sku | String | Product SKU
 url | String | URL to this product details page in store front (store front URL is generated from a field in Ecwid Control panel > Settings > General > Store profile)
 weight | Integer | Weight of a product
-
-# Page 
-
-In this section you will find all page-related functionality available in Javascript API.
-
-## Ecwid.OnPageLoad/Ecwid.OnPageLoaded
-
-> If user visits cart page, do domething
-
-```javascript
-Ecwid.OnPageLoaded.add(function(page) {
-    if (page.type == "CART") {
-      // do something ...
-  }
-});
-```
-
-These extension points contain callbacks that get called on each page change inside the product browser. The difference between **OnPageLoad** and **OnPageLoaded** is that the former is called when the page is changed (e.g. a link is clicked), while the later is called later when the corresponding page is loaded inside the product browser.
-
-The callback functions accept one parameter of type **Page** specifying which page is to be loaded (or has already been loaded).
-
-
-## Page Object
-
-Describes the page displaying inside the product browser.
-
-**Fields:**
-
-Name | Type | Description
----- | ----- | -----------
-type | string, one of the following: ‘ACCOUNT_SETTINGS’, ‘ADDRESS_BOOK’, ‘ORDERS’, ‘CATEGORY’, ‘CART’, ‘CHECKOUT_ADDRESS_BOOK’, ‘CHECKOUT_PAYMENT_DETAILS’, ‘CHECKOUT_PLACE_ORDER’, ‘CHECKOUT_SHIPPING_ADDRESS’, ‘ORDER_CONFIRMATION’, ‘ORDER_FAILURE’, ‘CHECKOUT_RESULT’, ‘DOWNLOAD_ERROR’, ‘PRODUCT’, ‘SEARCH’, 'FAVORITES' | The type of the page. Some pages may have parameters like for example product id of the viewing product. Those parameters are described below.
-keywords | string, optional | for type==’ORDERS’: the keywords that are used to find orders in the customer account page. for type==’SEARCH’: the keywords that are used to find products on the product search page.
-from | integer timestamp, optional | for type==’ORDERS’: The timestamp of the start of the orders date range.
-to | integer timestamp, optional | for type==’ORDERS’: The timestamp of the end of the orders date range.
-offset | | for type==’ORDERS’: the position of the current order list page (starting from 0). for type==’CATEGORY’ and SEARCH’: the position of the current product list page (starting from 0).
-categoryId | integer | for type==’CATEGORY’: the id of the showing product category or 0 if this is the starting page of the catalog and no categories are selected yet. for type==’PRODUCT’: the category internal id the current product has been navigated from. Zero (0) is the root category, −1 meaning that the category is unknown (e.g. a product opened from a search result).
-mainCategoryId | integer | for type==’PRODUCT’ in the OnPageLoaded event: the internal id of category that is considered the default category of this product (in case if the product is assigned to a few different categories). If a product is assigned to a single category, mainCategoryId will be equeal to categoryId; if a product is not assigned to any category, its mainCategoryId is 0 (zero). for type==’PRODUCT’ in the OnPageLoad event: always 0 (zero);
-sort | string, one of: ‘normal’, ‘addedTimeDesc’, ‘priceAsc’, ‘priceDesc’, ‘nameAsc’, ‘nameDesc’ | for type==’CATEGORY’ and ’SEARCH’: the order of the product list, as selected by the user in the ‘sort by’ drop-down. ‘Desc’ suffix stands for the descending order, ‘Asc’ suffix stands for the ascending order.
-orderId | integer | for type==’CHECKOUT_RESULT’: the internal id of the order (not to be confused with the store order number)
-ticket | integer | for type==’CHECKOUT_RESULT’: the security random code that allows to retrieve information about the order
-errorType | one of the following: ‘expired’, ‘invalid’, ‘limit’ | for type==’DOWNLOAD_ERROR’: the type of the error while downloading an e-good file.
-key | integer, optional | for type==’DOWNLOAD_ERROR’: the downloading file internal id
-productId | integer | for type==’PRODUCT’: the internal id of the displaying product (not to be confused with SKU).
-orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
-orderVendorNumber | integer | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
 
 # Examples
 
