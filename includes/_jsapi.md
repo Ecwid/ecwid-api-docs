@@ -130,6 +130,17 @@ Data in public storage of your app must not exceed <strong>8Kb</strong>
 
 Describes the page displaying inside the product browser.
 
+> Get page type after new page is loaded 
+
+```js
+Ecwid.OnPageLoaded.add(function(page){
+  console.log("Current page is of type: " + page.type);
+})
+
+// prints
+// Current page is of type: CATEGORY
+```
+
 **Fields:**
 
 Name | Type | Description
@@ -276,6 +287,20 @@ Find out more about customer that is currently logged in a store.
 ## Customer Object
 
 Customer object describes details of a customer in the store
+
+> Get customer email and billing country example
+
+```js
+Ecwid.OnSetProfile.add(function(customer) {
+  console.log(customer.email);
+  console.log(customer.billingPerson.countryName);
+})
+
+// prints to console
+//
+// john.doe@example.com
+// United States
+```
 
 **Fields:**
 
@@ -462,12 +487,24 @@ Find out more about cart in its current state.
 
 Cart object is a snapshot of essential shopping cart properties, passed via various callbacks. Cart object does not provide direct memory access to the actual cart that Ecwid uses — i.e. changing this exact object will not alter the actual cart Ecwid uses for placing the order.
 
+> Get quantity of products in cart example
+
+```js
+Ecwid.OnCartChanged.add(function(cart) {
+  console.log("Products in cart now: " + cart.productsQuantity);
+})
+
+// prints
+// Products in cart now: 1
+```
+
 **Fields:**
 
 Name | Type | Description
 ---- | ---- | -----------
 items | Array of \<*CartItem*\> | Enlists all items currently present in customer’s cart
 productsQuantity | Integer | Total number of product varieties in cart
+orderId | Integer | Unique internal order ID for this order (available after order is created)
 couponName | String | The name of the coupon (if any) applied to the cart. If no coupon was applied, will contain undefined. Does not contain the actual code of coupon, just the name.
 weight | Number | Total weight of the items in cart
 paymentMethod | String | The name of the selected payment method (if any)
@@ -476,6 +513,17 @@ shippingMethod | String | The name of the selected shipping method (if any)
 ## Order Object
 
 Order object represents details of current customer's order.
+
+> Get order total example
+
+```js
+Ecwid.Cart.calculateTotal(function(order) {
+  console.log(order.total);
+})
+
+// prints
+// 13.25
+```
 
 **Fields:**
 
@@ -497,6 +545,17 @@ volumeDiscount | Integer | An absolute amount of a discount based on subtotal fo
 
 CartItem represents a single item (product variety) in cart.
 
+> Get quantity of a product in cart example
+
+```js
+Ecwid.OnCartChanged.add(function(cart) {
+  console.log("There are " + cart.items[0].quantity + " items of " + cart.items[0].product.name + " in cart now.");
+})
+
+// prints
+// There are 1 items of Apple product in cart now.
+```
+
 **Fields:**
 
 Name | Type | Description
@@ -508,6 +567,17 @@ options | Obejct with option names and values | Map of the product options (opti
 ## Product Object
 
 Product object represents details of a specific product in cart
+
+> Get product name and SKU in cart example
+
+```js
+Ecwid.OnCartChanged.add(function(cart) {
+  console.log(cart.items[0].product.name + " in the cart has SKU: " + cart.items[0].product.sku);
+})
+
+// prints
+// Apple product in the cart has SKU: TEST-1234
+```
 
 **Fields:**
 

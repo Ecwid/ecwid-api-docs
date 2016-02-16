@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##February 16, 2016
+- Updated Storefront JS API section
+
 ##February 8, 2016
 - Updated wording of Authentication section
 - Added new content to Overview section

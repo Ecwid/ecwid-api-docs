@@ -99,7 +99,7 @@ Suggested API features:
 - Use [Webhooks](#webhooks) to get notifications about orders
 - [Get order details](#get-order-details) to send information to affiliate system
 
-**Custom text in storefront**
+**Custom content in storefront**
 
 Create an app to show custom content in Ecwid storefront. Store owner can update it using your app interface in Ecwid Control Panel. 
 
