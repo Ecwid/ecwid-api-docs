@@ -9,7 +9,7 @@ Search/filter store products
 > Request examples
 
 ```http
-GET /api/v3/4870020/products?keyword=apple&token=1234567890qwqeertt HTTP/1.1
+GET /api/v3/4870020/products?limit=2&keyword=fruit&token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -52,63 +52,314 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
 
 ```json
 {
-    "total": 2,
+    "total": 5,
     "count": 2,
     "offset": 0,
     "limit": 100,
     "items": [
         {
-            "id": 37208338,
-            "sku": "00000",
-            "smallThumbnailUrl": "http://app.ecwid.com/default-store/00000-80-sq.jpg",
-            "thumbnailUrl": "http://app.ecwid.com/default-store/00000-230-sq.jpg",
-            "imageUrl": "http://app.ecwid.com/default-store/00000-sq.jpg",
-            "unlimited": true,
+          "id": 37208339,
+          "sku": "00099",
+          "thumbnailUrl": "http://app.ecwid.com/default-store/00011-232-sq.jpg",
+          "quantity": 11,
+          "unlimited": false,
+          "inStock": true,
+          "name": "Orange",
+          "price": 10,
+          "priceInProductList": 10,
+          "wholesalePrices": [
+            {
+              "quantity": 2,
+              "price": 9
+            },
+            {
+              "quantity": 4,
+              "price": 8
+            }
+          ],
+          "compareToPrice": 23,
+          "isShippingRequired": true,
+          "weight": 0,
+          "url": "http://app.ecwid.com#!/Orange/p/37208339",
+          "created": "2015-10-05 07:26:14 +0000",
+          "updated": "2016-02-03 10:01:02 +0000",
+          "createTimestamp": 1444029974,
+          "updateTimestamp": 1454493662,
+          "productClassId": 0,
+          "enabled": true,
+          "options": [],
+          "warningLimit": 0,
+          "fixedShippingRateOnly": true,
+          "fixedShippingRate": 0,
+          "defaultCombinationId": 0,
+          "imageUrl": "http://app.ecwid.com/default-store/00007123-12-sq.jpg",
+          "smallThumbnailUrl": "http://app.ecwid.com/default-store/000017-sq.jpg",
+          "originalImageUrl": "http://app.ecwid.com/default-store/00005-sq.jpg",
+          "description": "<p>It's a tasty fruit!</p>",
+          "galleryImages": [
+            {
+              "id": 18481471,
+              "alt": "AdditionalImage",
+              "url": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/312058848.jpg",
+              "thumbnail": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/351433814.jpg",
+              "width": 473,
+              "height": 545,
+              "orderBy": 0
+            },
+            {
+              "id": 18481472,
+              "alt": "AdditionalImage",
+              "url": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/312058850.jpg",
+              "thumbnail": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/351433815.jpg",
+              "width": 247,
+              "height": 545,
+              "orderBy": 1
+            }
+          ],
+          "categoryIds": [],
+          "defaultCategoryId": 0,
+          "favorites": {
+            "count": 0,
+            "displayedCount": "0"
+          },
+          "attributes": [
+            {
+              "id": 8258226,
+              "name": "Width",
+              "value": "61.47 mm",
+              "show": "DESCR"
+            },
+            {
+              "id": 8258231,
+              "name": "Height",
+              "value": "117.09 mm",
+              "show": "DESCR"
+            },
+            {
+              "id": 8258249,
+              "name": "Depth",
+              "value": "15.49 mm",
+              "show": "DESCR"
+            },
+            {
+              "id": 8258255,
+              "name": "Net weight",
+              "value": "153.2 g",
+              "show": "DESCR"
+            }
+          ],
+          "files": [],
+          "relatedProducts": {
+            "productIds": [],
+            "relatedCategory": {
+              "enabled": false,
+              "categoryId": 0,
+              "productCount": 1
+            }
+          },
+          "combinations": []
+        },
+        {
+            "id": 37208339,
+            "sku": "00007",
+            "thumbnailUrl": "http://app.ecwid.com/default-store/00007-230-sq.jpg",
+            "quantity": 67,
             "inStock": true,
-            "name": "Apple",
-            "price": 1.99,
-            "priceInProductList": 1.99,
-            "weight": 0.32,
-            "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208338",
-            "created": "2014-06-06 18:57:19 +0000",
-            "updated": "2014-06-06 18:57:19 +0000",
+            "name": "Radish",
+            "price": 1.15,
+            "priceInProductList": 1.15,
+            "wholesalePrices": [
+                {
+                    "quantity": 10,
+                    "price": 1.05
+                }
+            ],
+            "compareToPrice": 1.34,
+            "isShippingRequired": true,
+            "weight": 0.31,
+            "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208339",
+            "created": "2009-07-23 17:22:37 +0000",
+            "updated": "2014-07-30 10:32:37 +0000",
             "createTimestamp": 1248340746,
             "updateTimestamp": 1428313104,
             "productClassId": 0,
             "enabled": true,
-            "description": "<h5>Apple</h5>\n<p>The apple is the pomaceous fruit of the apple tree, species Malus domestica in the rose family Rosaceae. It is one of the most widely cultivated tree fruits. The tree is small and deciduous, reaching 3 to 12 metres (9.8 to 39 ft) tall, with a broad, often densely twiggy crown. The leaves are alternately arranged simple ovals 5 to 12 cm long and 3–6 centimetres (1.2–2.4 in) broad on a 2 to 5 centimetres (0.79 to 2.0 in) petiole with an acute tip, serrated margin and a slightly downy underside. Blossoms are produced in spring simultaneously with the budding of the leaves. The flowers are white with a pink tinge that gradually fades, five petaled, and 2.5 to 3.5 centimetres (0.98 to 1.4 in) in diameter. The fruit matures in autumn, and is typically 5 to 9 centimetres (2.0 to 3.5 in) diameter. The center of the fruit contains five carpels arranged in a five-point star, each carpel containing one to three seeds.</p>\n<p>The tree originated from Central Asia, where its wild ancestor is still found today. There are more than 7,500 known cultivars of apples resulting in a range of desired characteristics. Cultivars vary in their yield and the ultimate size of the tree, even when grown on the same rootstock.</p>\n<p>vAt least 55 million tonnes of apples were grown worldwide in 2005, with a value of about $10 billion. China produced about 35% of this total. The United States is the second leading producer, with more than 7.5% of the world production. Turkey, France, Italy, and Iran are also among the leading apple exporters.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
-            "descriptionTruncated": false
-        },
-        {
-            "id": 37208344,
-            "sku": "00003",
-            "smallThumbnailUrl": "http://app.ecwid.com/default-store/00003-80-sq.jpg",
-            "thumbnailUrl": "http://app.ecwid.com/default-store/00003-230-sq.jpg",
-            "imageUrl": "http://app.ecwid.com/default-store/00003-sq.jpg",
-            "unlimited": true,
-            "inStock": true,
-            "name": "Orange",
-            "price": 2.99,
-            "priceInProductList": 3.39,
-            "weight": 0.32,
-            "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208344",
-            "created": "2014-06-06 18:57:19 +0000",
-            "updated": "2014-06-06 18:57:19 +0000",
-            "createTimestamp": 1248340781,
-            "updateTimestamp": 1428313104,
-            "productClassId": 0,
-            "enabled": true,
-            "description": "<h5>Orange</h5>\n<p>An orange—specifically, the sweet orange—is the citrus Citrus ×sinensis (syn. Citrus aurantium L. var. dulcis L., or Citrus aurantium Risso) and its fruit. The orange is a hybrid of ancient cultivated origin, possibly between pomelo (Citrus maxima) and tangerine (Citrus reticulata). It is a small flowering tree growing to about 10 m tall with evergreen leaves, which are arranged alternately, of ovate shape with crenulate margins and 4–10 cm long. The orange fruit is a hesperidium, a type of berry.</p>\n<p>Oranges originated in Southeast Asia. The fruit of Citrus sinensis is called sweet orange to distinguish it from Citrus aurantium, the bitter orange. The name is thought to ultimately derive from the Dravidian and Telugu word for the orange tree, with its final form developing after passing through numerous intermediate languages.</p>\n<p>In a number of languages, it is known as a \"Chinese apple\" (e.g. Dutch Sinaasappel, \"China's apple\", or \"Apfelsine\" in German).</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
-            "descriptionTruncated": false,
-            "categoryIds": [
-                1234567,
-                39303939
+            "options": [
+                {
+                    "type": "RADIO",
+                    "name": "Size",
+                    "choices": [
+                        {
+                            "text": "Small",
+                            "priceModifier": 0,
+                            "priceModifierType": "ABSOLUTE"
+                        },
+                        {
+                            "text": "Large",
+                            "priceModifier": 0.5,
+                            "priceModifierType": "ABSOLUTE"
+                        }
+                    ],
+                    "defaultChoice": 0,
+                    "required": false
+                },
+                {
+                    "type": "SELECT",
+                    "name": "Color",
+                    "choices": [
+                        {
+                            "text": "Red",
+                            "priceModifier": 0,
+                            "priceModifierType": "ABSOLUTE"
+                        },
+                        {
+                            "text": "White",
+                            "priceModifier": 0,
+                            "priceModifierType": "ABSOLUTE"
+                        }
+                    ],
+                    "defaultChoice": 0,
+                    "required": false
+                }
             ],
-            "defaultCategoryId": 1234567,
-            "favorites": {
-                "count":3201,
-                "displayedCount":"3K"
-            }
+            "warningLimit": 0,
+            "fixedShippingRateOnly": false,
+            "fixedShippingRate": 0,
+            "defaultCombinationId": 7084076,
+            "imageUrl": "http://app.ecwid.com/default-store/00007-sq.jpg",
+            "smallThumbnailUrl": "http://app.ecwid.com/default-store/00007-80-sq.jpg",
+            "description": "<h5>Radish</h5>\n<p>The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in Europe in pre-Roman times. They are grown and consumed throughout the world. Radishes have numerous varieties, varying in size, color and duration of required cultivation time. There are some radishes that are grown for their seeds; oilseed radishes are grown, as the name implies, for oil production.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
+            "galleryImages": [
+                {
+                    "id": 18276483,
+                    "alt": "Radish with friends",
+                    "url": "http://images-cdn.ecwid.com/images/4870020/237132118.jpg",
+                    "thumbnail": "http://images-cdn.ecwid.com/images/4870020/237132119.jpg",
+                    "width": 220,
+                    "height": 293,
+                    "orderby": 10
+                }
+            ],
+            "categoryIds": [
+                9691095
+            ],
+            "defaultCategoryId": 9691095,
+            "attributes": [
+                {
+                    "id": 5029057,
+                    "name": "Brand",
+                    "value": "SuperVegetables",
+                    "show": "DESCR"
+                },
+                {
+                    "id": 5029059,
+                    "name": "Hidden Attribute",
+                    "value": "Secret Value",
+                    "show": "NOTSHOW"
+                }
+            ],
+            "files": [
+                {
+                    "id": 7215101,
+                    "name": "pic_200_200.jpg",
+                    "description": "",
+                    "size": 54492,
+                    "adminUrl": "https://app.ecwid.com/api/v3/4870020/products/37208340/files/7215101?token=abcd123456"
+                },
+                {
+                    "id": 7215102,
+                    "name": "14293004.zip",
+                    "description": "Files archive",
+                    "size": 18955,
+                    "adminUrl": "https://app.ecwid.com/api/v3/4870020/products/37208340/files/7215102?token=abcd1234"
+                }
+            ],
+            "relatedProducts": {
+                "productIds": [
+                    37208340
+                ],
+                "relatedCategory": {
+                    "enabled": true,
+                    "categoryId": 9691095,
+                    "productCount": 1
+                }
+            },
+            "combinations": [
+                {
+                    "id": 7084071,
+                    "combinationNumber": 6,
+                    "options": [
+                        {
+                            "name": "Color",
+                            "value": "White"
+                        },
+                        {
+                            "name": "Size",
+                            "value": "Large"
+                        }
+                    ],
+                    "sku": "000076",
+                    "quantity": 1,
+                    "unlimited": false,
+                    "weight": 0.41,
+                    "warningLimit": 1
+                },
+                {
+                    "id": 7084072,
+                    "combinationNumber": 5,
+                    "options": [
+                        {
+                            "name": "Color",
+                            "value": "Red"
+                        },
+                        {
+                            "name": "Size",
+                            "value": "Large"
+                        }
+                    ],
+                    "sku": "000075",
+                    "quantity": 0,
+                    "unlimited": false,
+                    "weight": 0.41,
+                    "warningLimit": 0
+                },
+                {
+                    "id": 7084075,
+                    "combinationNumber": 2,
+                    "options": [
+                        {
+                            "name": "Size",
+                            "value": "Small"
+                        },
+                        {
+                            "name": "Color",
+                            "value": "White"
+                        }
+                    ],
+                    "sku": "000072",
+                    "quantity": 67,
+                    "unlimited": true,
+                    "warningLimit": 0
+                },
+                {
+                    "id": 7084076,
+                    "combinationNumber": 1,
+                    "options": [
+                        {
+                            "name": "Size",
+                            "value": "Small"
+                        },
+                        {
+                            "name": "Color",
+                            "value": "Red"
+                        }
+                    ],
+                    "sku": "000071",
+                    "quantity": 61,
+                    "unlimited": false,
+                    "warningLimit": 0
+                }
+            ]
         }
     ]
 }
@@ -136,7 +387,9 @@ inStock | boolean | `true` if the product or any of its combinations is in stock
 name |  string |  Product title
 price | number |  Base product price
 priceInProductList | number |  Product price displayed in the product list. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
+isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
@@ -145,20 +398,118 @@ createTimestamp | number | The date of product creation in UNIX Timestamp format
 updateTimestamp | number | Product last update date in UNIX Timestamp format, e.g `1427268654`
 productClassId |  number | Id of the class (type) that this product belongs to. `0` value means the product is of the default 'General' class. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
 enabled | boolean | `true` if product is enabled, `false` otherwise. Disabled products are not displayed in the store front.
+options | Array\<*ProductOption*\> | A list of the product options. Empty (`[]`) if no options are specified for the product. 
+warningLimit | number | The minimum 'warning' amount of the product items in stock, if set. When the product quantity reaches this level, the store administrator gets an email notification.
+fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
+fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
+defaultCombinationId |  number |  Identifier of the default product combination, which is defined by the default values of product options.
 thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. *The original uploaded product image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the product image resized to fit 500x500. *The original uploaded product image is available in the `originalImageUrl` field.*
 smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 80x80. *The original uploaded product image is available in the `originalImageUrl` field.*
-description | string  | Product description *in HTML* TODO: limit
-descriptionTruncated | boolean | Identifies whether the returned description has been truncated
+originalImageUrl |  string  | URL of the original not resized product image
+description | string  | Product description *in HTML*
+galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
 defaultCategoryId | number  | Identifier of the default category of the product
 favorites | \<FavoritesStats\>  | Product favorites stats
+attributes | Array\<*AttributeValue*\> | Product attributes and their values
+files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
+relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
+combinations | Array\<*Combination*\> | List of the product combinations
 
 #### FavoritesStats
 Field | Type  | Description
 ----- | ----- | -----------
 count | number | The actual number of 'likes' of this product
-displayedCount | string | The displayed number of likes. May differ from the `count` if, for example, the value is more than 1000 -- it will show 1K instead of precise number
+displayedCount | string | The displayed number of likes. May differ from the `count` if, for example, the value is more than 1000, than it will show 1K instead of the precise number
+
+#### WholesalePrice
+Field | Type  | Description
+----- | ----- | -----------
+quantity |  number |  Number of product items on this wholesale tier
+price | number |  Product price on the tier
+
+#### ProductOption
+Field | Type  | Description
+----- | ----- | -----------
+type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
+name |  string |  Product option name, e.g. `Color`
+choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
+defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT`, `CHECKBOX` or `RADIO`.
+required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
+
+#### GalleryImage
+Field | Type  | Description
+----- | ----- | -----------
+id | number | Internal gallery image ID
+alt | string |  Image description, displayed in the image tag's *alt* attribute
+url | string |  Image URL
+thumbnail | string  | Image thumbnail URL resized to fit 46x42px box
+width | number |  Image width
+height |  number |  Image height
+orderby |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
+
+#### AttributeValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
+name |  string |  Attribute displayed name
+value | string  | Attribute value
+show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` . 
+
+#### ProductFile
+Field | Type  | Description
+-------------- | -------------- | --------------
+id |  number |  Internal ID of the file 
+name |  string |  File name
+description | string |  File description defined by the store administrator
+size |  number |  File size, bytes (64-bit integer)
+adminUrl | string | Link to the file. Be careful: the link contains the API access token so make sure the link is not displayed as is in your application
+
+#### RelatedProducts
+Field | Type  | Description
+-------------- | -------------- | --------------
+productIds | Array\<number\>  | IDs of the related products
+relatedCategory | *RelatedCategory*  | Describes the "N random related products from a category" option
+
+#### RelatedCategory
+Field | Type  | Description
+-------------- | -------------- | --------------
+enabled | boolean | `true` if the "N random related products from a category" option is enabled. `false` otherwise
+categoryId |  number |  Id of the related category. Zero value means "any category", that is, random products from the whole store.
+productCount |  number |  Number of random products from the given category to be shown as related
+
+#### Combination
+Field | Type  | Description
+------| ----- | -----------
+id |  number |  Combination ID
+combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
+options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
+sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
+smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
+thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the combination image resized to fit 500x500. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
+originalImageUrl | string | URL of the original not resized combination image. Omitted if the combination inherits the base product's image.
+quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
+unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
+price | number | Combination price. Omitted if the combination inherits the base product's price.
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
+weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
+
+
+#### OptionValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+name |  string |  Option name
+value | string |  Option value
+
+#### ProductOptionChoice
+Field | Type  | Description
+-------------- | -------------- | --------------
+text |  string | Option selection text, e.g. 'Green'.
+priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
+priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
 
 ### Errors
 

@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##February 18, 2016
+- 'Search products' method will now return all available product fields
+
 ##February 16, 2016
 - Updated Storefront JS API section
 
