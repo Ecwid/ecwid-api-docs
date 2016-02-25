@@ -15,7 +15,7 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&sku={sku}&productId={productId}&token={token}`
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -37,6 +37,8 @@ enabled | boolean | `true` to get only enabled products, `false` to get only dis
 inStock | boolean | `true` to get only products in stock, `false` to get out of stock products
 field{attributeName} | string | Filter by product attribute values. Format: field{attributeName}=param[,param], where "attributeName" is the attribute name and "param" is the attribute value. You can place several values separated by comma. In that case values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `fieldBrand=Apple&fieldCapacity=32GB,64GB` 
 field{attributeId} | string | Filter by product attribute values. Works the same as the filter by `field{attributeName}` but attribute IDs are used instead of attribute names. This way is insensitive to attributes renaming.
+sku | string | Product or combination SKU. Ecwid will return details of a product containing that SKU, if SKU value is an exact match. If SKU is specified, other search parameters are ignored, except for product ID.
+productId | number | Internal Ecwid product ID. If product ID is specified, other search parameters are ignored. 
 
 <aside class="notice">
 If no filters are set in the URL, API will return all products
