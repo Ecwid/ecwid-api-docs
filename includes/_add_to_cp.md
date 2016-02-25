@@ -11,10 +11,10 @@ At high level, it works this way:
 - As soon as the access is granted, an additional tab with your application will appear in the user Control panel
 - On this new tab, your application will appear in an iframe and the user will interact with it as it was a part of their Ecwid backend
 
-Below, you'll find more details on how to build an app.
+Below, you'll find more details on how to build a native app.
 
 <aside class="notice">
-Permission required: add_to_cp (see <a href="#access-scopes">Access scopes</a>)
+Permission required: <strong>add_to_cp</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
 # Building an embedded app
@@ -94,6 +94,8 @@ In your application, you will likely show some user-specific data, for example t
 
 Ecwid will pass this data to your application as soon as it is opened in Ecwid Control panel. The way data is passed to your application and the way you should decrypt the received data depends on whether you process it on a client or a server side of your application. Below, you will find how you can do that in either case.
 
+By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please contact us and we will update your app.
+
 ## Client-side applications
 
 > Example of the iframe URL call in client-side apps
@@ -105,13 +107,17 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
 > Workflow of client-side applications
 
 ```js
-...
-    // get store details
+//
+//  Get store details
+//
     var storeData = EcwidApp.getPayload();
     var storeId = storeData.store_id;
     var accessToken = storeData.access_token;
 
-    // get store specific data
+//
+//  Get store specific data
+//
+
     var backgroundColor;
     EcwidApp.getAppStorage('color', function(value) {
       if (value !== null) {
@@ -123,8 +129,9 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
       } 
     });
 
-    // now you know the user you interact with and their store specific details to start the flow of your app
-...
+//
+//  Start the flow of your application
+//  ...
 ```
 
 Ecwid allows your application to fully reside on client side and not use server side at all, i.e. you can authenticate the user, get store ID and access token and manage the store data via Ecwid API right inside your app in Control panel without calling your server scripts. By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. 
@@ -176,6 +183,10 @@ https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746
 
 ```php
 <?php
+//
+//  Get and decrypt the payload from Ecwid
+//
+
 // authenticate user in iframe page
 function getEcwidPayload($app_secret_key, $data) {
   // Get the encryption key (16 first bytes of the app's client_secret key)
@@ -219,6 +230,10 @@ $key = 'color';
 $token = $result['access_token'];
 $storeId = $result['store_id'];
 
+//
+//  Get store specific data
+//
+
 $url = 'https://app.ecwid.com/api/v3/' .$storeId. '/storage/' .$key. '?token=' .$token;
 
 $ch = curl_init();
@@ -238,7 +253,9 @@ $color = $curlResult -> {'value'};
     // do something else
   }
 
-  // now you know the user you interact with and their store specific details to start the flow of your app
+//
+//  Start the flow of your application
+//  ...
 ?>
 ```
 
