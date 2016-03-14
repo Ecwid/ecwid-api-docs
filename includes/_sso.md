@@ -114,6 +114,7 @@ postalCode | string | Postal code (zip code)
 stateOrProvinceCode | string | State/province code
 phone | string | Phone number
 
+<aside class="notice">Parameters in <strong>bold</strong> are mandatory</aside>
 
 ### Signature
 
