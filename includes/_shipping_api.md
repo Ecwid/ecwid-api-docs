@@ -45,10 +45,20 @@ POST https://mycoolapp.com/integration HTTP/1.1
 {
     "storeId": 35002,
     "merchantAppSettings": {
+    	"public":"{color : \"red\", storeName : \"Cool Socks Ltd.\"}",
         "dimensions": "5x10x7",
         "userId": "12345"
     },
     "cart": {
+        "items": [{
+            "weight": 0.32,
+            "price": 11.98,
+            "amount": 1
+        }, {
+            "weight": 0.90,
+            "price": 9.98,
+            "amount": 1
+        }],
         "shippingAddress": {
             "street": "5th Avenue",
             "city": "New York",
@@ -67,7 +77,6 @@ POST https://mycoolapp.com/integration HTTP/1.1
         },
         "weight": 1.22,
         "weightUnit": "lb",
-        "total": 10.56,
         "currency": "USD"
     }
 }
@@ -85,12 +94,20 @@ cart | \<*CartDetails*\> | Offset from the beginning of the returned items list 
 
 Name | Type    | Description
 ---- | ------- | --------------
+items | Array\<*OrderItems*\> | Array of customer's order items with basic details
 shippingAddress | \<*ShippingAddressInfo*\> |  Shipping address details of a customer (ship to)
 originAddress | \<*OriginAdressInfo*\> | Origin address of the store (ship from)
 weight | number | Total weight of the order
 weightUnit | string | Weight units
-total | number | Order total
 currency | string | Currency code for the order
+
+### OrderItems
+
+Name | Type    | Description
+---- | ------- | --------------
+weight | number | Order item weight
+price | number | Order item price (including tax)
+amount | number | Quantity of product in the cart
 
 ### ShippingAddressInfo
 

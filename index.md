@@ -24,6 +24,7 @@ includes:
   - webhooks
   - application_storage
   - add_to_cp
+  - shipping_api
   - customize_storefront
   - jsapi
   - sso
