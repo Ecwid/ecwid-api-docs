@@ -11,7 +11,7 @@ At high level, it works this way:
 - As soon as the access is granted, an additional tab with your application will appear in the user Control panel
 - On this new tab, your application will appear in an iframe and the user will interact with it as it was a part of their Ecwid backend
 
-Below, you'll find more details on how to build a native app.
+Below, you'll find more details on how to build a native app. Check out [Native applications guideline](/native-applications) to get the page ready for a review.
 
 <aside class="notice">
 Permission required: <strong>add_to_cp</strong> (see <a href="#access-scopes">Access scopes</a>)

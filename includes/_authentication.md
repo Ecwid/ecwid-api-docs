@@ -32,6 +32,8 @@ The installation process starts with user visiting app details page. On that pag
 
 Mind that in this case the installation process starts on Ecwid side and it might be the first time they open your site. Make sure your page on the return URL onboards users well – this is a landing page for them in your service. We recommend prefilling user details like: Name, email, Store name, Store ID and other fields that your service needs.
 
+See [External applications guideline](/external-applications) for more information.
+
 ## Get access token
 
 Retrieving an access token for external apps includes the following steps:
@@ -141,6 +143,7 @@ update_discount_coupons | Change the coupon expiration date or limit its number 
 create_discount_coupons | Add a new discount coupon
 customize_storefront | Attach a custom JS/CSS to the storefront on the fly to modify its look and feel (see [Customizing storefront](#customize-storefront))
 add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
+add_shipping_method | Add a new shipping method to the store (see [Custom Shipping API](#custom-shipping-api))
 
 ## Complete oAuth flow
 

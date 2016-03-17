@@ -5,9 +5,7 @@
 <strong>Note</strong>: this feature is currently in the development and will be available soon.
 </aside>
 
-Custom Shipping API allows you to integrate a new shipping method to provide real time shipping rates for customers of Ecwid stores. This functionality will work in a form of an application that users install from Ecwid App Market.
-
-To provide the ability to display shipping rates from a carrier that is not currently supported by Ecwid, application would need to request the `add_shipping_method` access scope from the Ecwid merchants. Also, the application would need to provide a URL where Ecwid will send order data to get the shipping rates from in a response.
+Using Custom Shipping API you can integrate a new shipping carrier to provide real time shipping methods with different rates for customers of Ecwid stores. This functionality will work in a form of an application that users install from Ecwid App Market.
 
 <aside class="notice">
 Access scope required: <strong>add_shipping_method</strong>
@@ -15,33 +13,43 @@ Access scope required: <strong>add_shipping_method</strong>
 
 # How it works
 
-The main workflow of the application happens when customer is in checkout and order is formed. Steps include:
+### 1. User configures app settings in settings tab
 
-### 1. Ecwid sends order data to app request URL
+After the installation, user would need a page where they can configure it. We recommend using [Native apps feature](#embedded-apps) to provide this functionality.
 
-When registering your app, provide a request URL where Ecwid will send order data as well as the [merchant app settings](#merchant-settings) that your integration requires. These settings are kept in the Application storage of your app.
+### 2. Ecwid sends order data to app request URL
 
-### 2. Application returns the rates in a specific format
+When registering your app, provide a request URL where Ecwid will send order data as well as the [Merchant app settings](#merchant-settings) when customer is at checkout stage.
 
-Ecwid will expect a response from your service within 10 second interval to display the shipping rates for the customer. In the response from your application there should be several values present: the rate itself, the name of the method and a delivery estimation. See the format in the Request and response section.
+### 3. Application returns the rates in a specific format
 
-### 3. Ecwid displays the rates in checkout process for customer
+Ecwid will expect a response from your service within 10 second interval to display additional shipping methods for customers. Ecwid will expect shipping method name, rate and estimated delivery time in that response. See the format in the [Request and response](#request-and-response) section.
 
-Based on the response from your service, Ecwid will display the shipping rates for customer in the checkout process. Customer can select them just like any other shipping method in that Ecwid store and it will display in the order details.
+### 4. Ecwid displays the rates at checkout
 
-## Merchant settings
+Based on the response from your app, Ecwid will display the shipping methods for customers at the checkout. Customer can select them just like any other shipping method in that Ecwid store and it will display in the order details.
 
-To provide customers with correct shipping rates your application can require merchants to specify their shipping account details, package size and any other user preferences you may require.
+# Merchant settings
 
-To get and set those preferences, use [Application storage](#application-storage) feature of Ecwid API. Once specified for the store, Ecwid will send this data in each request to your server to calculate the shipping rates correctly. 
+Your application can require merchants to specify their shipping account details, package size and any other user preferences you may require.
+
+First, set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](/native-applications).
+
+When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the Application storage feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](#javascript-storage-api) (client-side) or [Ecwid REST API](#rest-storage-api) (server-side).
+
+Once the settings are saved there, Ecwid will send them in a request to your application alongside order details when customer is at checkout stage. Your application endpoint should receive the request, get its components and return correct rates back to the customer.
+
 
 # Request and response
 
-> Ecwid request example
+### Request
+
+> Request from Ecwid example
 
 ```http
 POST https://mycoolapp.com/integration HTTP/1.1
-
+```
+```json
 {
     "storeId": 35002,
     "merchantAppSettings": {
@@ -81,8 +89,6 @@ POST https://mycoolapp.com/integration HTTP/1.1
     }
 }
 ```
-
-This is the details of the step where Ecwid sends order data to app request URL. 
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -133,7 +139,7 @@ stateOrProvinceCode | string | Customer's state or province code in Ecwid
 
 ### Response
 
-> Response example
+> Response to Ecwid example
 
 ```json
 {

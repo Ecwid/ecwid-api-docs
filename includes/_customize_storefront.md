@@ -19,7 +19,7 @@ Ecwid API allows you to attach external JavaScript and CSS scripts and load them
 Permission required: customize_storefront (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
-Below, you will find more information on how to create custom JS/CSS.
+Below, you will find more information on how to create custom JS/CSS. See [Customizing Storefront guideline](/customizing-storefront) for more details about app review.
 
 # Custom JavaScript
 
