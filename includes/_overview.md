@@ -24,6 +24,12 @@ Webhooks allow you to get an instant notification after an event ocurred in an E
 
 More information: [Webhooks](#webhooks)
 
+### Custom Shipping API
+
+Custom Shipping API allows you to add new shipping methods in an Ecwid store as if they were available out of the box. Merchant can configure the integration in Ecwid Control Panel and new shipping methods will be displayed at checkout for store customers.
+
+More information: [Custom Shipping API](#custom-shipping-api)
+
 ### Application Storage
 
 Application storage is a key/value storage that can serve as a database for your application and a way to send details to user's storefront. All data is kept on Ecwid servers, so you don't need to worry about keeping the data safe. 
@@ -50,7 +56,7 @@ In Ecwid there can be two main categories of applications: Native and External a
 
 Native applications work inside of Ecwid Control Panel in a separate tab, just like Shipping Settings or Design. This way of embedding your app into user interface puts your app right before the day-to-day workflow of an Ecwid store owner and it is a great way to design an app for Ecwid. Using Ecwid JS SDK it's very easy to get access token for a store.
 
-More details: [Native apps](#native-applications).
+More details: [Native apps](#native-applications)
 
 ### External applications
 

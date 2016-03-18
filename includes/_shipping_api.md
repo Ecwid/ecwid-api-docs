@@ -7,6 +7,10 @@ Using Custom Shipping API you can integrate a new shipping carrier to provide re
 Access scope required: <strong>add_shipping_method</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
+# How to set up
+
+When [registering a new application](/register) for Ecwid, specify the request URL for your application. Ecwid will be sending order details requests to that endpoint and expect shipping rates in a specific format in response.
+
 # How it works
 
 ### 1. User configures app settings in settings tab
@@ -167,7 +171,7 @@ Name | Type    | Description
 **transitDays** | string | Estimated delivery time. Formats accepted: empty `""`, number `"5"`, several days estimate `"4-9"`
 
 <aside class="notice">
-Response parameters in **bold** are mandatory
+Response parameters in <strong>bold</strong> are mandatory
 </aside>
 
 ## Weight units
