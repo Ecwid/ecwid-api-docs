@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##March 18, 2016
+- **NEW** Added Custom Shipping API to add new shipping methods for Ecwid stores
+
 ##February 25, 2016
 - **NEW** Added endpoint for calculating order details on demand for custom checkouts
 - **NEW** Added SKU and Product ID filters to ’Search Products’ endpoint

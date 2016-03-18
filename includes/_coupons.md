@@ -277,7 +277,7 @@ A JSON object of type 'Coupon' with the following fields:
 Field | Type  | Description
 ----- | ----- | -----------
 **name** |  string | Coupon title
-**code** |  string | Unique coupon code
+**code** |  string | Unique coupon code, length limit is 128 characters.
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING` . Default is `ABS`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP` . Default is `ACTIVE`
 discount | number | Discount amount . `0` is default
@@ -396,7 +396,7 @@ A JSON object of type 'Coupon' with the following fields:
 Field | Type  | Description
 ----- | ----- | -----------
 name |  string | Coupon title
-code |  string | Unique coupon code
+code |  string | Unique coupon code, length limit is 128 characters.
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING` . 
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP` .
 discount | number | Discount amount .

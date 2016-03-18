@@ -1,14 +1,10 @@
 # Custom Shipping API
 # Overview
 
-<aside class="notice">
-<strong>Note</strong>: this feature is currently in the development and will be available soon.
-</aside>
-
 Using Custom Shipping API you can integrate a new shipping carrier to provide real time shipping methods with different rates for customers of Ecwid stores. This functionality will work in a form of an application that users install from Ecwid App Market.
 
 <aside class="notice">
-Access scope required: <strong>add_shipping_method</strong>
+Access scope required: <strong>add_shipping_method</strong> (see [Access scopes](#access-scopes))
 </aside>
 
 # How it works
@@ -33,12 +29,17 @@ Based on the response from your app, Ecwid will display the shipping methods for
 
 Your application can require merchants to specify their shipping account details, package size and any other user preferences you may require.
 
-First, set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](/native-applications).
+First, set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications).
 
-When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the Application storage feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](#javascript-storage-api) (client-side) or [Ecwid REST API](#rest-storage-api) (server-side).
+When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](#javascript-storage-api) (client-side) or [Ecwid REST API](#rest-storage-api) (server-side).
 
-Once the settings are saved there, Ecwid will send them in a request to your application alongside order details when customer is at checkout stage. Your application endpoint should receive the request, get its components and return correct rates back to the customer.
+Once the settings are saved there, Ecwid will send them in a request to your application alongside order details when customer is at checkout stage. The request will contain **all data** from your application storage, including public and other keys that were specified.
 
+You can use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
+
+Please make sure **not to pass any sensitive user data in the public application config**, as this information will be available via Ecwid Javascript API to any 3-rd party. To save and get that kind of information, use any other key names in your application storage. They will be provided in a request to your application as well as public information, but not accessible in the storefront.
+
+After you get a request from Ecwid, your application endpoint should get its components and return correct rates back to the customer in a response.
 
 # Request and response
 
@@ -84,7 +85,7 @@ POST https://mycoolapp.com/integration HTTP/1.1
             "stateOrProvinceCode": "CA"
         },
         "weight": 1.22,
-        "weightUnit": "lb",
+        "weightUnit": "lbs",
         "currency": "USD"
     }
 }
@@ -104,8 +105,8 @@ items | Array\<*OrderItems*\> | Array of customer's order items with basic detai
 shippingAddress | \<*ShippingAddressInfo*\> |  Shipping address details of a customer (ship to)
 originAddress | \<*OriginAdressInfo*\> | Origin address of the store (ship from)
 weight | number | Total weight of the order
-weightUnit | string | Weight units
-currency | string | Currency code for the order
+weightUnit | string | Active weight units in the store at the moment of the request
+currency | string | Active currency in the store at the moment of the request
 
 ### OrderItems
 
@@ -161,11 +162,24 @@ An array of JSON data of type 'ShippingOptions' with the following fields:
 
 Name | Type    | Description
 ---- | ------- | --------------
-title | string | Shipping method name
-rate | number | Shipping rate amount
-transitDays | string | Estimated delivery time
+**title** | string | Shipping method name
+**rate** | number | Shipping rate amount
+**transitDays** | string | Estimated delivery time. Formats accepted: empty `""`, number `"5"`, several days estimate `"4-9"`
 
 <aside class="notice">
-Parameters in bold are mandatory
+Response parameters in bold are mandatory
 </aside>
 
+## Weight units
+
+Ecwid supports several weigh units that can be passed in the request to your application to provide shipping rates. Below you can see all available units as well as their conversion values for calculation. 
+
+Name | Code | Value
+-----|------|------
+Carat | carat | 0.2
+Gram | gram | 1
+Ounce | ounce | 28.35
+Pound | lbs | 453.6
+Kilogram | kg | 1000
+
+Gram is the main weight unit, from which other units are converted. Merchants can change weight units in [Ecwid Control Panel](https://my.ecwid.com/cp/CP.html#formats-units).
