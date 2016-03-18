@@ -4,7 +4,7 @@
 Using Custom Shipping API you can integrate a new shipping carrier to provide real time shipping methods with different rates for customers of Ecwid stores. This functionality will work in a form of an application that users install from Ecwid App Market.
 
 <aside class="notice">
-Access scope required: <strong>add_shipping_method</strong> (see [Access scopes](#access-scopes))
+Access scope required: <strong>add_shipping_method</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
 # How it works
@@ -167,7 +167,7 @@ Name | Type    | Description
 **transitDays** | string | Estimated delivery time. Formats accepted: empty `""`, number `"5"`, several days estimate `"4-9"`
 
 <aside class="notice">
-Response parameters in bold are mandatory
+Response parameters in **bold** are mandatory
 </aside>
 
 ## Weight units
