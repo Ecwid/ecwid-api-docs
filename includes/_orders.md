@@ -1194,7 +1194,7 @@ errorMessage | string | Error message
 
 ## Calculate order details
 
-This method will calculate and return shipping rates and taxes for the order sent in a request. You can use it for your custom checkout process prior to creating an actual order in the store. Requests to this endpoint don't create any new orders in the actual store.
+This method will calculate and return shipping rates and taxes for the order sent in a request. You can use it for your custom checkout process prior to creating an actual order in the store. Requests to this endpoint don't create any new orders in the actual store. See [Shipping](https://help.ecwid.com/customer/en/portal/articles/1161340-shipping) and [Taxes](https://help.ecwid.com/customer/en/portal/articles/1182159-taxes) help articles to find out more information.
 
 > Request example
 

@@ -19,7 +19,7 @@ After the installation, user would need a page where they can configure it. We r
 
 ### 2. Ecwid sends order data to app request URL
 
-When registering your app, provide a request URL where Ecwid will send order data as well as the [Merchant app settings](#merchant-settings) when customer is at checkout stage.
+When registering your app, provide a request URL where Ecwid will send **POST request** with order data as well as the [Merchant app settings](#merchant-settings) when customer is at checkout stage.
 
 ### 3. Application returns the rates in a specific format
 
@@ -37,7 +37,7 @@ First, set up a new tab in Ecwid Control Panel, which will serve as a settings p
 
 When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](#javascript-storage-api) (client-side) or [Ecwid REST API](#rest-storage-api) (server-side).
 
-Once the settings are saved there, Ecwid will send them in a request to your application alongside order details when customer is at checkout stage. The request will contain **all data** from your application storage, including public and other keys that were specified.
+Once the settings are saved there, Ecwid will send them in a **POST request** to your application alongside order details when customer is at checkout stage. The request will contain **all data** from your application storage, including public and other keys that were specified.
 
 You can use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
 

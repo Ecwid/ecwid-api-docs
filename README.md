@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##March 19, 2016
+- Added small example for using jQuery library when customizing Ecwid Storefront
+
 ##March 18, 2016
 - **NEW** Added Custom Shipping API to add new shipping methods for Ecwid stores
 

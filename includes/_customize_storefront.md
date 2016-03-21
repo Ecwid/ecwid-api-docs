@@ -16,7 +16,7 @@ Ecwid API allows you to attach external JavaScript and CSS scripts and load them
 3. If the user grants your application with access to their store, the next time their storefront is loaded in any browser, the specified external JS/CSS files will be automatically loaded and executed on the page. 
 
 <aside class="notice">
-Permission required: customize_storefront (see <a href="#access-scopes">Access scopes</a>)
+Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
 Below, you will find more information on how to create custom JS/CSS. See [Customizing Storefront guideline](/customizing-storefront) for more details about app review.
@@ -125,6 +125,46 @@ In most cases, your application behavior will vary depending on the store it is 
 For example, let's say you need to dynamically add a store-specific configuration to your script when it's executed in some particular storefront. You can detect the store ID in your script and call a script on your server containing the store-specific code. 
 
 To get information for that specific store you can use `Ecwid.getAppPublicConfig` function in [Ecwid Javascript API](#storefront-js-api). See more details on how to access that data in **Application data** section of documentation.
+
+## Using jQuery on store pages
+
+> Checking for jQuery on a page example
+
+```js
+// function to load jQuery
+
+function loadjQuery(){
+  var jq = document.createElement('script'); jq.type = 'text/javascript';
+  jq.src = '//code.jquery.com/jquery-1.12.0.min.js';
+  document.getElementsByTagName('head')[0].appendChild(jq);
+}
+
+// check if jQuery is present on a page
+
+if (typeof jQuery != 'undefined') {  
+
+// check jQuery version loaded
+
+   if (jQuery.fn.jquery != '1.12.0') {
+      loadjQuery();
+
+   } else {
+      exit;
+   }
+
+} else {
+  loadjQuery();
+}
+
+// your app code
+// ...
+```
+
+jQuery is a very popular JavaScript library that is used in many websites. The developers of themes for Wordpress CMS, for example, include this library right into the theme to have access to its functions and to operate various HTML elements on the page easily.
+
+Ecwid storefronts can be customized in many ways, for example: you can set specific behaviour for each [page or each user](https://help.ecwid.com/customer/portal/articles/1085558) that visits those pages. Some developers prefer using native JavaScript libraries to change the position or the display of certain elements and some of them use various versions of jQuery. 
+
+To ensure that your jQuery version code doesn't conflict with other applications that change Ecwid storefront, you can use the code example on the right. It will allow you to check whether the page has a specific version of jQuery that you need and load it if required. 
 
 # Custom CSS
 
