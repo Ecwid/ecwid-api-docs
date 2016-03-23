@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##March 23, 2016
+- New minor version 1.1.1 of Ecwid Javascript SDK is out. It includes a fix for using cyrillic characters in the Application storage.
+
 ##March 19, 2016
 - Added small example for using jQuery library when customizing Ecwid Storefront
 
