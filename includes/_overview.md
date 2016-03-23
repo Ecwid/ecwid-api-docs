@@ -36,7 +36,7 @@ Application storage is a key/value storage that can serve as a database for your
 
 More information: [Application storage](#application-storage)
 
-### Customize Storefront
+### Storefront customization
 
 Ecwid has a beautifully designed storefront that is aimed to direct customers to make a purchase in a store. If you want to customize how it looks or its logic - you can do that too: attach an external Javascript file or adapt a store to make it stylish. 
 
