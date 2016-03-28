@@ -249,11 +249,11 @@ paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
-couponDiscount | number | Discount applied with a coupon
-volumeDiscount | number | Subtotal based discount sum
-discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
-membershipBasedDiscount | number | Customer group based discount sum
-totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
+couponDiscount | number | Discount applied to order using a coupon
+volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
+discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values
+membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
+totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
@@ -650,17 +650,17 @@ paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
 tax | number | Tax total
 ipAddress | string  | Customer IP
-couponDiscount | number | Discount applied with a coupon
+couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <nobr><ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul></nobr>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
-volumeDiscount | number | Subtotal based discount sum
+volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
-membershipBasedDiscount | number | Customer group based discount sum
-totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
-discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
+membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
+totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field 
+discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values
 usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
@@ -950,17 +950,17 @@ paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
 tax | number | Tax total
 ipAddress | string  | Customer IP
-couponDiscount | number | Discount applied with a coupon
+couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
-volumeDiscount | number | Subtotal based discount sum
+volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
-membershipBasedDiscount | number | Customer group based discount sum
-totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
-discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
+membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
+totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field 
+discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values
 globalReferer | string | URL that the customer came to the store from
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
@@ -1267,17 +1267,17 @@ paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
 tax | number | Tax total
 ipAddress | string  | Customer IP
-couponDiscount | number | Discount applied with a coupon
+couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <nobr><ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul></nobr>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
-volumeDiscount | number | Subtotal based discount sum
+volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
-membershipBasedDiscount | number | Customer group based discount sum
-totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
-discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
+membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
+totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field 
+discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values
 usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
@@ -1634,17 +1634,17 @@ total | number | Order total cost
 email | string  | Customer email address
 tax | number | Tax total
 ipAddress | string  | Customer IP
-couponDiscount | number | Discount applied with a coupon
+couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status, will always be returned as `INCOMPLETE`
 fulfillmentStatus | string |    Fulfilment status, will always be returned as `AWAITING_PROCESSING`
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
-volumeDiscount | number | Subtotal based discount sum
+volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
-membershipBasedDiscount | number | Customer group based discount sum
-totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
-discount | number | The sum of applied discounts without coupon discount. To get the total order discount, take the sum of `couponDiscount` and `discount`
+membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
+totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field 
+discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values
 usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
@@ -1919,16 +1919,16 @@ paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
 tax | number | Tax total
 ipAddress | string  | Customer IP
-couponDiscount | number | Discount applied with a coupon
+couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
-volumeDiscount | number | Subtotal based discount sum
+volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
-membershipBasedDiscount | number | Customer group based discount sum
-totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group 
+membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
+totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field 
 discount | number | The sum of applied discounts without coupon discount. 
 globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
