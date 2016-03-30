@@ -191,7 +191,7 @@ Ecwid.OnPageLoaded.add(function(page) {
 
 These events contain callbacks that get called on each page change inside the product browser. The difference between **OnPageLoad** and **OnPageLoaded** is that the former is called when the page is changed (e.g. a link is clicked), while the later is called later when the corresponding page is loaded inside the product browser.
 
-The callback functions accept one parameter of type **Page** specifying which page is to be loaded (or has already been loaded).
+The callback functions accept one parameter of type **Page** specifying which page is to be loaded (or has already been loaded). See [Page Object](#page-object) details for more info.
 
 ## Ecwid.OnSetProfile
 
