@@ -123,6 +123,8 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `product.updated` Product is updated
 * `product.deleted` Product is deleted
 
+All order related webhooks require `read_orders` access scope and all product related webhooks require `read_catalog` [access scope](#access-scopes) to be requested from the store.
+
 ### Q: What is an unfinished order and how it works? 
 
 The typical process of ordering in Ecwid store is:

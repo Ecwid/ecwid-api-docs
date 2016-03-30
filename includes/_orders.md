@@ -389,7 +389,7 @@ Field | Type | Description
 shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
-estimatedTransitTime | number | Delivery time estimation
+estimatedTransitTime | string | Delivery time estimation. Possible formats: number "5", several days estimate "4-9"
 
 #### HandlingFeeInfo
 Field | Type | Description
@@ -794,7 +794,7 @@ Field | Type | Description
 shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
-estimatedTransitTime | number | Delivery time estimation
+estimatedTransitTime | string | Delivery time estimation. Possible formats: number "5", several days estimate "4-9"
 
 #### HandlingFeeInfo
 Field | Type | Description
@@ -1060,7 +1060,7 @@ Field | Type | Description
 shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
-estimatedTransitTime | number | Delivery time estimation
+estimatedTransitTime | string | Delivery time estimation. Formats accepted: number "5", several days estimate "4-9"
 
 #### HandlingFeeInfo
 Field | Type | Description
@@ -1411,7 +1411,7 @@ Field | Type | Description
 shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
-estimatedTransitTime | number | Delivery time estimation
+estimatedTransitTime | string | Delivery time estimation. Possible formats: number "5", several days estimate "4-9"
 
 #### HandlingFeeInfo
 Field | Type | Description
@@ -1780,7 +1780,7 @@ Field | Type | Description
 shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
-estimatedTransitTime | number | Delivery time estimation
+estimatedTransitTime | string | Delivery time estimation. Possible formats: number "5", several days estimate "4-9"
 
 #### TaxInfo
 
@@ -2029,7 +2029,7 @@ Field | Type | Description
 shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
-estimatedTransitTime | number | Delivery time estimation
+estimatedTransitTime | string | Delivery time estimation. Formats accepted: number "5", several days estimate "4-9"
 
 #### HandlingFeeInfo
 Field | Type | Description

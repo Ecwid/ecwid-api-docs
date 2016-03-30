@@ -178,7 +178,7 @@ Parameter | Required | Description
 client_id | required | Application ID
 redirect_uri | required | URI in your app where users will be sent after authorization. It must match the domain/URL of the registered return_url specified in the app settings. I.e. if the registered return_url is `http://www.example.com`, the redirect_uri in request might be `http://www.example.com/oauth/callback.php` , but not `http://www.example2.com/`
 response_type | required | `code` (must always be `code`)
-scope | optional | Scope of access that your app requests from the user, separated by space. See all possible values in [Scopes](#access-scopes) section
+scope | required | Scope of access that your app requests from the user, separated by space. See all possible values in [Scopes](#access-scopes) section
 
 <aside class="notice">
 This step is omitted if the application is installed from the app details page inside Ecwid Control Panel. See details in <a href="#external-applications">External applications</a> section
