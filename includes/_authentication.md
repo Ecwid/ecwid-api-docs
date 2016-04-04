@@ -304,3 +304,20 @@ On the [Step #2](#complete-oauth-flow) (Ecwid provides the app with a temporary 
 ### Changes in Step #3
 The [Step #3](#get-access-token) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
 
+# App details page
+
+To install any application from the Ecwid App Market, user would need to visit an app details page for that application first. Typical app details link looks like this: 
+
+`https://my.ecwid.com/cp/CP.html#apps:view=app&name=my-cool-app`
+
+Where `my-cool-app` is the application ID provided to you when you registered your application with us. App details page contains various information like app description, screenshots, pricing and other details. 
+
+User can install the application into their Ecwid store there and this process replaces the oAuth dialog because the user is already logged in to their account. Ecwid will request from users all the store permissions that you specified when you registered the application.
+
+The app installation works different for different app types: 
+
+- Ecwid will redirect user to app tab in Ecwid Control Panel if it's a **Native app**
+- Ecwid will redirect user to external website with temporary code if it's an **External app**
+- Ecwid will not redirect user anywhere if no redirect is specified for the app
+
+To set up an app details page for your public application, see [Publishing Your App](/publishing-your-app) page for details.
