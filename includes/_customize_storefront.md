@@ -9,17 +9,19 @@ Depending on the kind of application you integrate with Ecwid, you may want to c
 * modify Ecwid widgets look and behavior
 * add tracking pixels or any other third party conversion-tracking scripts at checkout page
 
-Ecwid API allows you to attach external JavaScript and CSS scripts and load them automatically in a user storefront. Basically, it works as follows:
+Ecwid API allows you to attach external JavaScript and CSS scripts and load them automatically in a user storefront. 
 
-1. When [registering of your app in Ecwid](#register-your-app-in-ecwid), you specify https URL of the .css or .js file (or both) you'd like to be loaded in user storefront. 
-2. When asking user to authorize your application, you add `customize_storefront` scope in the request to let user know your application is going to change their storefront. 
-3. If the user grants your application with access to their store, the next time their storefront is loaded in any browser, the specified external JS/CSS files will be automatically loaded and executed on the page. 
+**How it works and how to set up**
+
+1. When [registering of your app in Ecwid](/register), you specify https URL of the `.css` or `.js` file (or both) you'd like to be loaded in user storefront. 
+2. When asking user to install your app, Ecwid will ask for `customize_storefront` scope from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the oAuth process*)
+3. The next time user's storefront is loaded in any browser, the specified external JS/CSS files will be automatically loaded and executed on the page. 
 
 <aside class="notice">
 Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
-Below, you will find more information on how to create custom JS/CSS. See [Customizing Storefront guideline](/customizing-storefront) for more details about app review.
+Below, you will find more information on how to create custom JS/CSS. See [Customizing Storefront guideline](/customizing-storefront) for more details about app review process.
 
 # Custom JavaScript
 

@@ -2059,7 +2059,7 @@ cvvMessage | string  | Credit card verification status returned by the payment s
 
 ```json
 {
-    "orderNumber": 20
+    "id": 20
 }
 ```
 
@@ -2069,7 +2069,7 @@ A JSON object of type 'CreateStatus' with the following fields:
 
 Field | Type |  Description
 -------------- | -------------- | --------------
-orderNumber | number | The number of created order in the store
+id | number | The number of created order in the store
 
 ### Errors
 
