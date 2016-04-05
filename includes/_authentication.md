@@ -41,7 +41,7 @@ Retrieving an access token for external apps includes the following steps:
 1. User installs application, Ecwid redirects the user to the return URL.
 2. Your code requests an access token from Ecwid in the background. This access_token will be used as API key in all API calls.
 
-User will get to the first step by accessing your app details page in Ecwid App Market. It is a separate page dedicated to describe your application in Ecwid Control Panel. 
+User will get to the first step by accessing your [App details page](#app-details-page) in the Ecwid App Market. It is a separate page dedicated to describe your application in Ecwid Control Panel. Before you proceed, make sure you have a [registered app](/register) to install.
 
 <aside class="notice">
 User needs to go through all these steps only <strong>once</strong> in order for your app to get and store access token for that user. This token will be used in any call you make to Ecwid API on behalf of the user.
@@ -71,16 +71,10 @@ error | If the user does not allow authorization to the application, query param
 > Request example
 
 ```shell
-curl "https://my.ecwid.com/api/oauth/token" \
--XPOST \
--d client_id=abcd0123 \
--d client_secret=01234567890abcdefg \
--d code=987654321hgfdsa \
--d redirect_uri=https://www.example.com/myapp \
--d grant_type=authorization_code
+https://my.ecwid.com/api/oauth/token?client_id=abcd0123&client_secret=01234567890abcdefg&code=987654321hgfdsa&redirect_uri=https://www.example.com/myapp&grant_type=authorization_code
 ```
 
-`POST https://my.ecwid.com/api/oauth/token`
+`POST https://my.ecwid.com/api/oauth/token?client_id={client_id}&client_secret={client_secret}&code={code}&redirect_uri={redirect_uri}&grant_type=authorization_code`
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -149,7 +143,7 @@ add_shipping_method | Add a new shipping method to the store (see [Custom Shippi
 
 This method of getting access token is meant for apps that are installed outside of Ecwid App Market, for example: apps that work on a device, apps for mobile devices, CMS plugins, etc. These kinds of apps are also displayed in the App Market, but the oAuth flow will be done on external website, where developer will decide how to handle the installation. 
 
-We recommend using the simplified installation flow from the [Get access token](#get-access-token) section, however if it's not possible, you can use this complete oAuth flow.
+We recommend using the simplified installation flow from the [Get access token](#get-access-token) section, however if it's not possible, you can use this complete oAuth flow. Before you proceed, make sure you have a [registered app](/register) to install.
 
 Retrieving an access token in a complete oAuth flow includes the following steps:
 
@@ -168,10 +162,10 @@ Your application sends the user to Ecwid authorization dialog available on the E
 > Request example
 
 ```shell
-curl "https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=https%3A%2F%2Fwww%2Eexample%2Ecom%2Fmyapp&response_type=code&scope=read_store_profile+read_catalog+update_catalog+read_orders"
+https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=https%3A%2F%2Fwww%2Eexample%2Ecom%2Fmyapp&response_type=code&scope=read_store_profile+read_catalog+update_catalog+read_orders
 ```
 
-`GET https://my.ecwid.com/api/oauth/authorize`
+`GET https://my.ecwid.com/api/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code&scope={scope}`
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -211,16 +205,10 @@ error | If the user does not allow authorization to the application, query param
 > Request example
 
 ```shell
-curl "https://my.ecwid.com/api/oauth/token" \
--XPOST \
--d client_id=abcd0123 \
--d client_secret=01234567890abcdefg \
--d code=987654321hgfdsa \
--d redirect_uri=https://www.example.com/myapp \
--d grant_type=authorization_code
+https://my.ecwid.com/api/oauth/token?client_id=abcd0123&client_secret=01234567890abcdefg&code=987654321hgfdsa&redirect_uri=https://www.example.com/myapp&grant_type=authorization_code
 ```
 
-`POST https://my.ecwid.com/api/oauth/token`
+`POST https://my.ecwid.com/api/oauth/token?client_id={client_id}&client_secret={client_secret}&code={code}&redirect_uri={redirect_uri}&grant_type=authorization_code`
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -258,7 +246,7 @@ For security reasons, a temporary code can be exchanged to an access token only 
 
 Some applications requires user to download and install them on their site rather than providing a hosted solution. For example, plugins for Wordpress, Joomla or other CMS systems do that. Every instance of such application resides on different domain and thus has different Return URL. 
 
-To implement oAuth flow in such an app, you will need enable support for multiple domains in `redirect_uri` and improve security: application will always ask user for permissions and will show the domain that requests them in the oAuth flow. [Contact us](http://developers.ecwid.com/contact) if your application is of this kind and we will make the necessary changes.  
+To implement oAuth flow in such an app, you will need enable support for multiple domains in `redirect_uri` and improve security: application will always ask user for permissions and will show the domain that requests them in the oAuth flow. [Contact us](/contact) if your application is of this kind and we will make the necessary changes.  
 
 ## Applications installed on device
 
@@ -269,7 +257,7 @@ In case of applications that are installed on a device (such as a computer, a ce
 > Step #1. Request example
 
 ```shell
-curl "http://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code"
+https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code
 ```
 
 On the [Step #1](#get-access-token) (app requests a temporarily authorization code), application needs to send the following value as redirect_uri:
