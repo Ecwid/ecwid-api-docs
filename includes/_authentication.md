@@ -56,13 +56,13 @@ User needs to go through all these steps only <strong>once</strong> in order for
 https://www.example.com/myapp?code=1234567890
 ```
 
-Upon successful installation, Ecwid redirects the user to the application's `redirect_uri`. 
+Upon successful installation, Ecwid redirects the user to the application's `redirect_uri` with a `code` parameter in the URL. The value of this parameter **is not an actual token for the store** and it must be exchanged for the token in the next step of the process.
 
 #### Return URL parameters
 
 Parameter | Description
 --------- | -----------
-code | If the user successfully authorizes the application, the query will contain the `code` parameter. That is a temporary code that your app should exchange to an access token. This code can be used only once and lives for a few minutes so your app should request the token as soon as it gets the code. See the Authorization step #3 for the details.
+code | If the user successfully authorizes the application, the query will contain the `code` parameter. That is a temporary code that your app should exchange to an access token. This code can be used only once and 'lives' for a few minutes so your app should request the token as soon as it gets the code. See the Authorization step #2 for the details.
 error | If the user does not allow authorization to the application, query parameters indicate the user canceled authorization in error field
 
 
@@ -190,7 +190,7 @@ https://www.example.com/myapp?code=1234567890
 https://www.example.com/myapp?error=access_denied
 ```
 
-Upon authorization, Ecwid redirects the user to the application's `redirect_uri` specified in request.
+Upon authorization, Ecwid redirects the user to the application's `redirect_uri` specified in request with a `code` parameter in that URL. The value of this parameter **is not an actual token for the store** and it must be exchanged for the token in the next step of the process.
 
 #### Return URL parameters
 

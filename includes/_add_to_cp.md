@@ -91,8 +91,23 @@ In your application, you will likely show some user-specific data, for example t
 
 * The ID of the store using your application at the moment
 * The token that allows to access the store data
+* The language of the Ecwid Control Panel
 
-Ecwid will pass this data to your application as soon as it is opened in Ecwid Control panel. The way data is passed to your application and the way you should decrypt the received data depends on whether you process it on a client or a server side of your application. Below, you will find how you can do that in either case.
+Ecwid will pass this data to your application as soon as it is opened in Ecwid Control panel. The way data is passed to your application and the way you should decrypt the received data depends on whether you process it on a client or a server side of your application. 
+
+Below, you will find how you can do that in either case:
+
+**Client-side**
+
+In the client-side applications Ecwid will call your iframe URL like this: 
+
+`https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e223a22776d6`
+
+**Server-side**
+
+In the server-side applications Ecwid will call your iframe URL like this:
+
+`https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&cache-killer=13532`
 
 By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please contact us and we will update your app.
 
@@ -134,7 +149,9 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
 //  ...
 ```
 
-Ecwid allows your application to fully reside on client side and not use server side at all, i.e. you can authenticate the user, get store ID and access token and manage the store data via Ecwid API right inside your app in Control panel without calling your server scripts. By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. 
+Ecwid allows your application to fully reside on client side and not use server side at all. So you can authenticate the user, get store ID and access token, and manage the store data via Ecwid API right inside your app in Control panel without calling your server scripts. 
+
+By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. 
 
 The workflow can be described into the following several steps: 
 
@@ -168,9 +185,13 @@ So let's look a little closer on how to create a your embedded server-side appli
 
 ### 1. Decrypt the payload from Ecwid control panel
 
-Let's say, you process user input and prepare the data to display in your app on your server and then pass this information to your application UI to be displayed in the user Control panel. In this case, you will need to authenticate user on server side of your application. Ecwid sends an auth data to your app in a payload while requesting your iframe URL as follows:
+Let's say, you process user input and prepare the data to display in your app on your server and then pass this information to your application UI to be displayed in the user Control panel. 
+
+In this case, you will need to authenticate user on server side of your application. Ecwid sends an auth data to your app in a payload while requesting your iframe URL as follows: 
+
 `https://www.example.com/my-app-iframe-page?payload={payload}&cache-killer={cache-killer}`
 
+By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side to have the URL called as mentioned above, please contact us and we will update your app.
 
 > Example of the iframe URL call in server-side apps
 
