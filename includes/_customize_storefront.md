@@ -137,7 +137,7 @@ To get information for that specific store you can use `Ecwid.getAppPublicConfig
 
 function loadjQuery(){
   var jq = document.createElement('script'); jq.type = 'text/javascript';
-  jq.src = '//code.jquery.com/jquery-1.12.0.min.js';
+  jq.src = '//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js';
   document.getElementsByTagName('head')[0].appendChild(jq);
 }
 
@@ -147,7 +147,7 @@ if (typeof jQuery != 'undefined') {
 
 // check jQuery version loaded
 
-   if (jQuery.fn.jquery != '1.12.0') {
+   if (jQuery.fn.jquery != '1.12.2') {
       loadjQuery();
 
    } else {
@@ -167,6 +167,8 @@ jQuery is a very popular JavaScript library that is used in many websites. The d
 Ecwid storefronts can be customized in many ways, for example: you can set specific behaviour for each [page or each user](https://help.ecwid.com/customer/portal/articles/1085558) that visits those pages. Some developers prefer using native JavaScript libraries to change the position or the display of certain elements and some of them use various versions of jQuery. 
 
 To ensure that your jQuery version code doesn't conflict with other applications that change Ecwid storefront, you can use the code example on the right. It will allow you to check whether the page has a specific version of jQuery that you need and load it if required. 
+
+We recommend loading your jQuery from your own server or from [Google's CDN](https://developers.google.com/speed/libraries/#jquery) for jQuery to ensure it is available at all times.
 
 # Custom CSS
 

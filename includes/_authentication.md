@@ -49,7 +49,7 @@ User needs to go through all these steps only <strong>once</strong> in order for
 
 ### Step 1. Ecwid redirects the user to a return URL of your app
 
-> Return URL
+> Step #1: Return URL example
 
 ```shell
 # Successfull authorization
@@ -68,7 +68,7 @@ error | If the user does not allow authorization to the application, query param
 
 ### Step 2. Retrieve access_token from Ecwid in background
 
-> Request example
+> Step #2: Request example
 
 ```shell
 https://my.ecwid.com/api/oauth/token?client_id=abcd0123&client_secret=01234567890abcdefg&code=987654321hgfdsa&redirect_uri=https://www.example.com/myapp&grant_type=authorization_code
@@ -84,7 +84,7 @@ code | required | The temporary code received on the step #2
 redirect_uri | required | Redirect URL of your application
 grant_type | required | Must be `authorization_code`
 
-> Response example
+> Step #2: Response example
 
 ```json
 {
@@ -159,7 +159,7 @@ User needs to go through all these steps only <strong>once</strong> in order for
 
 Your application sends the user to Ecwid authorization dialog available on the Ecwid's oAuth endpoint. 
 
-> Request example
+> Step #1: Request example
 
 ```shell
 https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=https%3A%2F%2Fwww%2Eexample%2Ecom%2Fmyapp&response_type=code&scope=read_store_profile+read_catalog+update_catalog+read_orders
@@ -180,7 +180,7 @@ This step is omitted if the application is installed from the app details page i
 
 ### Step 2. Ecwid redirects the user back to a return URL
 
-> Return URLs
+> Step #2: Return URLs example
 
 ```shell
 # Successfull authorization
@@ -202,7 +202,7 @@ error | If the user does not allow authorization to the application, query param
 
 ### Step 3. Retrieve access_token from Ecwid in background
 
-> Request example
+> Step #3: Request example
 
 ```shell
 https://my.ecwid.com/api/oauth/token?client_id=abcd0123&client_secret=01234567890abcdefg&code=987654321hgfdsa&redirect_uri=https://www.example.com/myapp&grant_type=authorization_code
@@ -218,7 +218,7 @@ code | required | The temporary code received on the step #2
 redirect_uri | conditional | If the `redirect_uri` parameter was included in the authorization request, you must include it in the token request and their values must be identical.
 grant_type | required | Must be `authorization_code`
 
-> Response example
+> Step #3: Response example
 
 ```json
 {
@@ -254,7 +254,7 @@ In case of applications that are installed on a device (such as a computer, a ce
 
 ### Changes in Step #1
 
-> Step #1. Request example
+> Step #1: Request example
 
 ```shell
 https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code
@@ -271,7 +271,7 @@ The rest of request parameters are the same as for web services.
 
 ### Changes in Step #2
 
-> Step #2. User grants permission
+> Step #2: User grants permission
 
 ```html
 <title>oauth_response:code=54xgQHmbZrrLTqzCiHPyw&amp;state=code</title>
@@ -290,6 +290,7 @@ On the [Step #2](#complete-oauth-flow) (Ecwid provides the app with a temporary 
 <aside class="notice">On this step, the app needs to react on the changes in the title tag content and parse it the same way as it would parse GET request query. So it is required that the application has access to the system browser or the ability to embed a browser control in the application.</aside>
 
 ### Changes in Step #3
+
 The [Step #3](#get-access-token) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
 
 # App details page
