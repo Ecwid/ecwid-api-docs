@@ -153,13 +153,13 @@ offset | | for type==’ORDERS’: the position of the current order list page (
 categoryId | integer | for type==’CATEGORY’: the id of the showing product category or 0 if this is the starting page of the catalog and no categories are selected yet. for type==’PRODUCT’: the category internal id the current product has been navigated from. Zero (0) is the root category, −1 meaning that the category is unknown (e.g. a product opened from a search result).
 mainCategoryId | integer | for type==’PRODUCT’ in the OnPageLoaded event: the internal id of category that is considered the default category of this product (in case if the product is assigned to a few different categories). If a product is assigned to a single category, mainCategoryId will be equeal to categoryId; if a product is not assigned to any category, its mainCategoryId is 0 (zero). for type==’PRODUCT’ in the OnPageLoad event: always 0 (zero);
 sort | string, one of: ‘normal’, ‘addedTimeDesc’, ‘priceAsc’, ‘priceDesc’, ‘nameAsc’, ‘nameDesc’ | for type==’CATEGORY’ and ’SEARCH’: the order of the product list, as selected by the user in the ‘sort by’ drop-down. ‘Desc’ suffix stands for the descending order, ‘Asc’ suffix stands for the ascending order.
-orderId | integer | for type==’CHECKOUT_RESULT’: the internal id of the order (not to be confused with the store order number)
+orderId | integer | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’: the internal id of the order (not to be confused with the store order number)
 ticket | integer | for type==’CHECKOUT_RESULT’: the security random code that allows to retrieve information about the order
 errorType | one of the following: ‘expired’, ‘invalid’, ‘limit’ | for type==’DOWNLOAD_ERROR’: the type of the error while downloading an e-good file.
 key | integer, optional | for type==’DOWNLOAD_ERROR’: the downloading file internal id
 productId | integer | for type==’PRODUCT’: the internal id of the displaying product (not to be confused with SKU).
 orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
-orderVendorNumber | integer | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
+vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
 
 # Subscribe To Events
 

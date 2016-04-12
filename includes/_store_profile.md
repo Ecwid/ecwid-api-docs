@@ -1,4 +1,4 @@
-# Store profile
+# Store information
 
 ## Get store profile
 
@@ -203,10 +203,10 @@ starterSite | \<StarterSiteInfo\> | Starter Site settings
 #### Account
 Field | Type | Description
 ----- | ---- | -----------
-accountName | string | Full user name
-accountNickName | string | User nickname on the Ecwid forums
-accountEmail | string | User email
-availableFeatures | Array\<string\> | A list of the premium features available on the user pricing plan
+accountName | string | Full store owner name
+accountNickName | string | Store owner nickname on the Ecwid forums
+accountEmail | string | Store owner email
+availableFeatures | Array\<string\> | A list of the premium features available on the store's pricing plan
 
 
 #### Settings
@@ -266,7 +266,7 @@ timezone | string | Store timezone, e.g. `Europe/Moscow`
 
 Field | Type | Description
 ----- | ---- | -----------
-enabledLanguages | Array\<string\> | A list of enabled languages in the storefront
+enabledLanguages | Array\<string\> | A list of enabled languages in the storefront. First language code is the default language for the store.
 facebookPreferredLocale | string | Language automatically chosen be default in Facebook storefront (if any)
 
 #### Shipping
@@ -446,10 +446,9 @@ starterSite | \<StarterSiteInfo\> | Starter Site settings
 #### Account
 Field | Type | Description
 ----- | ---- | -----------
-accountName | string | Full user name
-accountNickName | string | User nickname on the Ecwid forums
-accountEmail | string | User email
-
+accountName | string | Full store owner name
+accountNickName | string | Store owner nickname on the Ecwid forums
+accountEmail | string | Store owner email
 
 #### Settings
 Field | Type | Description
@@ -505,7 +504,7 @@ timezone | string | Store timezone, e.g. `Europe/Moscow`
 
 Field | Type | Description
 ----- | ---- | -----------
-enabledLanguages | Array\<string\> | A list of enabled languages in the storefront
+enabledLanguages | Array\<string\> | A list of enabled languages in the storefront. Use first item to set default storefront language
 
 #### Shipping
 *System Settings → Shipping*
