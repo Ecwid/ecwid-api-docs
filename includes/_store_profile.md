@@ -182,7 +182,7 @@ A JSON object of type 'Profile' with the following fields:
 Field | Type | Description
 ----- | ---- | -----------
 generalInfo | \<GeneralInfo\> | Store basic data
-account | \<Account\> | Seller's account data
+account | \<Account\> | Store owner's account data
 settings | \<Settings\> | Store general settings
 mailNotifications | \<MailNotifications\> | Mail notifications settings
 company | \<Company\> | Company info
@@ -422,7 +422,7 @@ A JSON object of type 'Profile' with the following fields:
 Field | Type | Description
 ----- | ---- | -----------
 generalInfo | \<GeneralInfo\> | Store basic data
-account | \<Account\> | Seller's account data
+account | \<Account\> | Store owner's account data
 settings | \<Settings\> | Store general settings
 mailNotifications | \<MailNotifications\> | Mail notifications settings
 company | \<Company\> | Company info
@@ -1007,9 +1007,9 @@ Cache-Control: no-cache
 There are 4 endpoints: deleted products, orders, customers, coupons.
 
 * `GET https://app.ecwid.com/api/v3/{storeId}/products/deleted?from_date={from_date}&to_date={to_date}&offset={offset}&limit={limit}&token={token}`
-* `GET https://app.ecwid.com/api/v3/{storeId}/orders/deleted?{from_date}&to_date={to_date}&offset={offset}&limit={limit}&token={token}`
-* `GET https://app.ecwid.com/api/v3/{storeId}/customers/deleted?{from_date}&to_date={to_date}&offset={offset}&limit={limit}&token={token}`
-* `GET https://app.ecwid.com/api/v3/{storeId}/discount_coupons/deleted?{from_date}&to_date={to_date}&offset={offset}&limit={limit}&token={token}`
+* `GET https://app.ecwid.com/api/v3/{storeId}/orders/deleted?from_date={from_date}&to_date={to_date}&offset={offset}&limit={limit}&token={token}`
+* `GET https://app.ecwid.com/api/v3/{storeId}/customers/deleted?from_date={from_date}&to_date={to_date}&offset={offset}&limit={limit}&token={token}`
+* `GET https://app.ecwid.com/api/v3/{storeId}/discount_coupons/deleted?from_date={from_date}&to_date={to_date}&offset={offset}&limit={limit}&token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
