@@ -24,11 +24,17 @@ Webhooks allow you to get an instant notification after an event ocurred in an E
 
 More information: [Webhooks](#webhooks)
 
-**Custom Shipping API**
+**Add Shipping Methods**
 
 Custom Shipping API allows you to add new shipping methods in an Ecwid store as if they were available out of the box. Merchant can configure the integration in Ecwid Control Panel and new shipping methods will be displayed at checkout for store customers.
 
-More information: [Custom Shipping API](#custom-shipping-api)
+More information: [Custom Shipping API](#add-shipping-method)
+
+**Add Payment Method**
+
+Custom Payment API allows you to add new payment methods to an Ecwid store. Merchant will install your app, set it up and they will be able to accept payments through your payment system for orders in their store.
+
+More inforamation: [Custom Payment API](#add-payment-method)
 
 **Application Storage**
 

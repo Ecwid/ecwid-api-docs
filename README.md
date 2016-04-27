@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##April 27, 2016
+- **NEW** Added Custom Payment API to add new payment methods for Ecwid stores
+
 ##March 23, 2016
 - New minor version 1.1.1 of Ecwid Javascript SDK is out. It includes a fix for using cyrillic characters in the Application storage.
 

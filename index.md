@@ -25,6 +25,7 @@ includes:
   - application_storage
   - add_to_cp
   - shipping_api
+  - payment_api
   - customize_storefront
   - jsapi
   - sso

@@ -137,7 +137,8 @@ update_discount_coupons | Change the coupon expiration date or limit its number 
 create_discount_coupons | Add a new discount coupon
 customize_storefront | Attach a custom JS/CSS to the storefront on the fly to modify its look and feel (see [Customizing storefront](#customize-storefront))
 add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
-add_shipping_method | Add a new shipping method to the store (see [Custom Shipping API](#custom-shipping-api))
+add_shipping_method | Add a new shipping method to the store (see [Custom Shipping API](#add-shipping-method))
+add_payment_method | Add a new payment method to the store (see [Add Payment Method](#add-payment-method))
 
 ## Complete oAuth flow
 
