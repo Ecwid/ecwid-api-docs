@@ -608,7 +608,6 @@ HTTP Status | Meaning
 402 | Cannot update settings because the limit of number of zones or taxes is reached
 500 | Cannot retrieve the coupon info because of an error on the server
 
-
 ## Upload store logo
 
 Upload store logo displayed on Starter Site. 

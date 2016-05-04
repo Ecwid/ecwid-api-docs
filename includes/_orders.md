@@ -1867,7 +1867,7 @@ Cache-Control: no-cache
                 "weight": 0.32,
                 "sku": "00004",
                 "quantity": 2,
-                "name": "Cherry",
+                "name": "Cherry"
             }
         ],
         "billingPerson": {
@@ -1920,8 +1920,8 @@ paymentModule | string | Payment processor name
 tax | number | Tax total
 ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
-paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
-fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
+**paymentStatus** | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
+**fulfillmentStatus** | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field

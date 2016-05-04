@@ -85,6 +85,7 @@ POST https://mycoolapp.com/integration HTTP/1.1
 > Decoding the request to get order details
 
 ```php
+<?php
 function getEcwidPayload($app_secret_key, $data) {
   // Get the encryption key (16 first bytes of the app's client_secret key)
   $encryption_key = substr($app_secret_key, 0, 16);
@@ -123,6 +124,7 @@ $client_secret = "payment-app-secret-key"; // this is a dummy value. Please plac
 
 // The resulting JSON array will be in $result variable
 $result = getEcwidPayload($client_secret, $ecwid_payload);
+?>
 ```
 
 When customer tries to pay with your payment method, Ecwid will send a POST request with a format as described on the right. 

@@ -139,6 +139,8 @@ customize_storefront | Attach a custom JS/CSS to the storefront on the fly to mo
 add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
 add_shipping_method | Add a new shipping method to the store (see [Custom Shipping API](#add-shipping-method))
 add_payment_method | Add a new payment method to the store (see [Add Payment Method](#add-payment-method))
+read_stores | Check if there is a store already registered with an email (see [Manage Stores](#stores))
+create_stores | Create a new Ecwid store using API (see [Manage Stores](#stores))
 
 ## Complete oAuth flow
 
