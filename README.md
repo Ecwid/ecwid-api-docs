@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##May 4, 2016
+- Added endpoint for creating Ecwid stores and checking if store exists
+
 ##April 27, 2016
 - **NEW** Added Custom Payment API to add new payment methods for Ecwid stores
 
