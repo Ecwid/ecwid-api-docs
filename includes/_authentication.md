@@ -62,7 +62,7 @@ Upon successful installation, Ecwid redirects the user to the application's `red
 
 Parameter | Description
 --------- | -----------
-code | If the user successfully authorizes the application, the query will contain the `code` parameter. That is a temporary code that your app should exchange to an access token. This code can be used only once and 'lives' for a few minutes so your app should request the token as soon as it gets the code. See the Authorization step #2 for the details.
+code | If the user successfully authorizes the application, the query will contain the `code` parameter. That is a temporary code that your app should exchange to an access token. This code can be used only once and 'lives' for a few minutes so your app should request the token as soon as it gets the code. See step #2 for the details.
 error | If the user does not allow authorization to the application, query parameters indicate the user canceled authorization in error field
 
 
@@ -80,7 +80,7 @@ Parameter | Required | Description
 --------- | -------- | -----------
 client_id | required | Application ID
 client_secret | required | Application secret key
-code | required | The temporary code received on the step #2
+code | required | The temporary code received on the step #1
 redirect_uri | required | Redirect URL of your application
 grant_type | required | Must be `authorization_code`
 

@@ -11,7 +11,6 @@ includes:
   - overview
   - authentication
   - api_reference
-  - stores
   - store_profile
   - products
   - categories
@@ -22,6 +21,7 @@ includes:
   - customer_groups
   - coupons
   - application
+  - stores
   - webhooks
   - application_storage
   - add_to_cp
