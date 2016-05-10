@@ -32,10 +32,16 @@ Server-side or Client-side app | The way Ecwid passes the store information to y
 You'll be asked for those details on the app registration page. If you already have a registered app and want to make it embeddable, you can [contact us](/contact) to adjust your app settings.
 
 ## Installation of the app
-To access to Ecwid API on behalf of the merchant, your app should implement the oAuth flow described in details here: [Authentication](#authentication) . During the authorization, you will need to add `add_to_cp` scope to your request to let the merchant give your app permissions to appear in their control panel. If the `add_to_cp` access is granted and your app settings on our side allows the app to appear in the user Control panel, a new tab with your application will be added to the merchant's Ecwid backend. When the user opens the new tab, we will load your application's *iframe URL*. 
 
-As the regular oAuth flow implies, you can get the access token right after the store owner grants your application access to their store data (see [Authentication](#authentication) for more details). You may want to use this if you're going to access the store data from your server in background, for example, to periodically synchronize user products or orders with the data stored on your servers. As to the part of your application working in the user Control panel in iframe, it requires additional authentication to let you know which store backend your app is opened from right now.
+After user installs the app from its [app details page](#app-details-page) with the `add_to_cp` access scope, a new tab with your application will be added to the merchant's Ecwid Control Panel. When the user opens the new tab, we will load your application's *iframe URL*. See the [set up your application](#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
 
+When the application tab is opened, the URL will have a format like this: 
+
+`https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales`
+
+Where the `my-cool-app` is your **app_id** which you will need to use upon initializing the application on the page. 
+
+Ecwid will load your app's *Iframe URL* with a payload to help identify the store. To find out more about the store authentication process in the app tab, see the [Authentication section](#authentication-in-embedded-apps).
 
 ## Build your application
 
@@ -109,7 +115,7 @@ In the server-side applications Ecwid will call your iframe URL like this:
 
 `https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&cache-killer=13532`
 
-By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please contact us and we will update your app.
+<aside class="note">By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please contact us and we will update your app.</aside>
 
 ## Client-side applications
 
