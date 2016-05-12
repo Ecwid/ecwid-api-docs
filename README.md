@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##May 12, 2016
+- Added support to control Order Comments functionality in the store profile section
+
 ##May 4, 2016
 - Added endpoint for creating Ecwid stores and checking if store exists
 

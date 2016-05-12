@@ -42,7 +42,10 @@ Name | Type    | Description
         "invoiceLogoUrl": "https://dpbfm6h358sh7.cloudfront.net/images/4870020/253584290.jpg",
         "emailLogoUrl": "https://dpbfm6h358sh7.cloudfront.net/images/4870020/298177033.jpg",
         "googleRemarketingEnabled": true,
-        "googleAnalyticsId": "UA-123456-1"
+        "googleAnalyticsId": "UA-123456-1",
+        "orderCommentsEnabled": false,
+        "orderCommentsCaption": "Order comments",
+        "orderCommentsRequired": false
     },
     "mailNotifications": {
         "adminNotificationEmails": [
@@ -218,6 +221,9 @@ invoiceLogoUrl | string | Company logo displayed on the invoice
 emailLogoUrl | string | Company logo displayed in the store email notifications
 googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
 googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/customer/en/portal/articles/1170264-google-analytics) connected to a store
+orderCommentsEnabled | boolean | `true` if order comments feature is enabled, `false` otherwise
+orderCommentsCaption | string | Caption for order comments field in storefront
+orderCommentsRequired | boolean | `true` if order comments are required to be filled, `false` otherwise
 
 #### MailNotifications
 Field | Type | Description
@@ -457,6 +463,9 @@ closed | string | `true` if the store is closed for maintenance, `false` otherwi
 storeName | string | The store name displayed in Starter Site
 googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
 googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/customer/en/portal/articles/1170264-google-analytics) connected to a store
+orderCommentsEnabled | boolean | Use `true` to enable order comments feature, `false` otherwise
+orderCommentsCaption | string | Caption for order comments field in storefront. If the value is empty, the default 'Order comments' caption will be used
+orderCommentsRequired | boolean | Use `true` to require order comments to be filled, `false` otherwise
 
 #### MailNotifications
 Field | Type | Description

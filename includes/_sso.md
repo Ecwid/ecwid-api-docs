@@ -69,6 +69,7 @@ $sso_secret = "TEST";
 $message = base64_encode("{appId:'123',userId:'234',profile:{email:'test@example.com'}}");
 $timestamp = time();
 $hmac = hash_hmac('sha1', "$message $timestamp", $sso_secret);
+
 echo "<script> var ecwid_sso_profile = '$message $hmac $timestamp' </script>";
 ?>
 ```
