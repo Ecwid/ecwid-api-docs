@@ -48,6 +48,19 @@ Please make sure **not to pass any sensitive user data in the public application
 
 ## Updating order status
 
+> Update order status example
+
+```http
+PUT /api/v3/4870020/orders/20?token=1234567890qwqeertt HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+
+{
+    "paymentStatus": "PAID"
+}
+```
+
 For Ecwid to find out the result of the payment, your application must update the order status before returning them back to the storefront. Updating order status can be performed using a call to Ecwid's REST API and its [Orders endpoint](#update-order). 
 
 In order to update an order, you will need these details: order number, store ID and an access token. All of these details are provided in a request to your application's payment URL in a corresponding fields: `orderNumber` field in the `cart` object, `storeId` and `token` fields in the request.

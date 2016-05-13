@@ -15,23 +15,23 @@ When [registering a new application](/register) for Ecwid, specify the request U
 
 ### 1. User configures app settings in settings tab
 
-After the installation, user would need a page where they can configure it. We recommend using [Native apps feature](#embedded-apps) to provide this functionality.
+After the installation, user would need a page where they can configure it: provide their account details, set up dimensions, etc. We recommend using [Native apps feature](#embedded-apps) to provide this functionality. To manage and store those settings, see the [Merchant app settings](#merchant-settings-for-shipping-method) section.
 
 ### 2. Ecwid sends order data to app request URL
 
-When registering your app, provide a request URL where Ecwid will send **POST request** with order data as well as the [Merchant app settings](#merchant-settings) when customer is at checkout stage.
+To show new shipping methods in storefront, Ecwid will send a **POST request** to your endpoint with order details: items, customer address, merchant app settings, etc. That endpoint must respond to the request with the shipping rates for this configuration.
 
 ### 3. Application returns the rates in a specific format
 
-Ecwid will expect a response from your service within 10 second interval to display additional shipping methods for customers. Ecwid will expect shipping method name, rate and estimated delivery time in that response. See the format in the [Request and response](#request-and-response) section.
+Ecwid will expect a response from your service within 10 second interval to display additional shipping methods for customers. In the response, provide shipping method name, rate and estimated delivery time. See the response format in the [Request and response](#request-and-response) section.
 
 ### 4. Ecwid displays the rates at checkout
 
-Based on the response from your app, Ecwid will display the shipping methods for customers at the checkout. Customer can select them just like any other shipping method in that Ecwid store and it will display in the order details.
+Based on the response from your app, Ecwid will display the shipping methods for customers at the checkout. Customer can select them just like any other shipping method in that Ecwid store and it will be shown in the order details.
 
 # Merchant settings for shipping method
 
-Your application can require merchants to specify their shipping account details, package size and any other user preferences you may require.
+Your application can require merchants to specify their shipping account details, package size and any other user preferences you may require. We recommend adding a new tab into the Ecwid Control Panel's Shipping settings for optimal experience - Native applications feature.
 
 **Settings**
 
@@ -41,9 +41,9 @@ When merchant is in the settings tab of your app, your code can create and modif
 
 **Request**
 
-Once the settings are saved there, Ecwid will send them in a **POST request** to your application alongside order details when customer is at checkout stage. The request will contain **all data** from your application storage, including public and other keys that were specified.
+Once the settings are saved there, Ecwid will send them in a **POST request** to your application alongside order details when customer is at checkout stage. The request will contain **all data** from your application storage, including public and other keys that were specified. Use it to idetify the store and a user for the shipping rates.
 
-You can use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
+You can also use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
 
 Please make sure **not to pass any sensitive user data in the public application config**, as this information will be available via Ecwid Javascript API to any 3-rd party. To save and get that kind of information, use any other key names in your application storage. They will be provided in a request to your application as well as public information, but not accessible in the storefront.
 
