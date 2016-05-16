@@ -184,7 +184,7 @@ A key for the new key-value pair will be taken from the request URL. The data (v
 
 ```json
 {
-  success: true
+  "updateCount": 1
 }
 ```
 
@@ -233,7 +233,7 @@ A key for the new key-value pair will be taken from the request URL. The data (v
 
 ```json
 {
-  success: true
+  "updateCount": 1
 }
 ```
 
@@ -277,7 +277,7 @@ Name | Type    | Description
 
 ```json
 {
-  success: true
+  "deleteCount": 1
 }
 ```
 

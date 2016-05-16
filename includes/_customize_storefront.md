@@ -95,6 +95,24 @@ Ecwid widgets can be also embedded in many ways:
 
 So, it is important to know where exactly your application is loaded: if there is a storefront present on a page or if it's just a search widget. To check that, use `Ecwid.getInitializedWidgets()` function of [Ecwid Javascript API](#storefront-js-api). Using it, you can determine whether your app functionality needs to be initialized or not.
 
+### Q: What is the best way to add new scripts from my code? 
+
+> Add external script to the page example
+
+```js
+var s = document.createElement("script");
+s.type = "text/javascript";
+s.src = "http://example.com/example.js";
+document.head.appendChild(s);
+```
+
+JavaScript is a very flexible programming language, that allows you to do the same thing in many different ways. For example, if you need to load additional external script on the page with your current code, you can do it in multiple ways too.
+
+We recommend that you load external JS files using a standard function `createElement()`. See example code on the right. 
+More details about this approach: [W3CSchools](http://www.w3schools.com/jsref/met_document_createelement.asp)
+
+<aside class="note">Please make sure to avoid using the <em>document.write()</em> function as it works synchronously and will slow down the page.</aside>
+
 ## Store-specific custom JS
 
 > Example of the script that dynamically loads store-specific code
