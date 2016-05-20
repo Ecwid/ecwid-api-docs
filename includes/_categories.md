@@ -40,6 +40,11 @@ productIds | boolean | Set to `true` if you want the results to contain a list o
             "orderBy": 10,
             "thumbnailUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
             "originalImageUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
+            "originalImage": {
+                "url": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
+                "width": 123,
+                "height": 456
+            },            
             "name": "Fruit",
             "url": "http://app.ecwid.com/store/4870020#!/Fruit/c/9691094",
             "productCount": 6,
@@ -51,6 +56,11 @@ productIds | boolean | Set to `true` if you want the results to contain a list o
             "orderBy": 20,
             "thumbnailUrl": "https://app.ecwid.com/default-store/vegetables-230-sq.jpg",
             "originalImageUrl": "https://app.ecwid.com/default-store/vegetables-230-sq.jpg",
+            "originalImage": {
+                "url": "https://app.ecwid.com/default-store/vegetables-230-sq.jpg",
+                "width": 123,
+                "height": 456
+            },
             "name": "Vegetables",
             "url": "http://app.ecwid.com/store/4870020#!/Vegetables/c/9691095",
             "productCount": 4,
@@ -79,6 +89,7 @@ parentId | number  | ID of the parent category, if any
 orderBy | number | Sort order of the category in the parent category subcategories list
 thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified in the store settings
 originalImageUrl | string  | Link to the original (not resized) category image
+originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
 url | string | Category page URL in the store
 productCount | number | Number of products in the category and its subcategories
@@ -86,6 +97,12 @@ description | string  | The category description in HTML
 enabled | boolean | `true` if the category is enabled, `false` otherwise. Use `hidden_categories` in request to get disabled categories
 productIds | Array\<number\>  | IDs of the products assigned to the category
 
+#### ImageDetails 
+Field | Type  | Description
+----- | ----- | -----------
+url | string | Image URL
+width | integer | Image width
+height | integer | Image height
 
 ### Errors
 
@@ -142,6 +159,11 @@ Query field | Type    | Description
     "orderBy": 20,
     "thumbnailUrl": "http://images-cdn.ecwid.com/images/4870020/244778352.jpg",
     "originalImageUrl": "http://images-cdn.ecwid.com/images/4870020/244778351.jpg",
+    "originalImage": {
+        "url": "http://images-cdn.ecwid.com/images/4870020/244778351.jpg",
+        "width": 123,
+        "height": 456
+    },
     "name": "Subfruit2",
     "url": "http://app.ecwid.com/store/4870020#!/Subfruit2/c/10861116",
     "productCount": 0,
@@ -161,12 +183,20 @@ parentId | number  | ID of the parent category, if any
 orderBy | number | Sort order of the category in the parent category subcategories list
 thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified in the store settings
 originalImageUrl | string  | Link to the original (not resized) category image
+originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
 url | string | Category page URL in the store
 productCount | number | Number of products in the category and its subcategories
 description | string  | The category description in HTML
 enabled | boolean | `true` if the category is enabled, `false` otherwise.
 productIds | Array\<number\>  | IDs of the products assigned to the category
+
+#### ImageDetails 
+Field | Type  | Description
+----- | ----- | -----------
+url | string | Image URL
+width | integer | Image width
+height | integer | Image height
 
 ### Errors
 

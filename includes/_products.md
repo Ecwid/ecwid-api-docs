@@ -26,7 +26,7 @@ priceFrom |  number | Minimum product price
 priceTo | number | Maximum product price
 category | number | Category ID
 withSubcategories |  boolean | `true`/`false`: defines whether Ecwid should search in subcategories of the category you set in `category` field. Ignored if `category` field is not set . `false` is the default value
-sortBy |  string | Sort order. Supported values: <ul><li>`RELEVANCE` *default*</li> <li>`ADDED_TIME_DESC`</li> <li>`ADDED_TIME_ASC`</li> <li>`NAME_ASC`</li> <li>`NAME_DESC`</li> <li>`PRICE_ASC`</li> <li>`PRICE_DESC`</li></ul>
+sortBy |  string | Sort order. Supported values: <ul><li>`RELEVANCE` *default*</li> <li>`ADDED_TIME_DESC`</li> <li>`ADDED_TIME_ASC`</li> <li>`NAME_ASC`</li> <li>`NAME_DESC`</li> <li>`PRICE_ASC`</li> <li>`PRICE_DESC`</li><li>UPDATED_TIME_ASC</li><li>UPDATED_TIME_DESC</li></ul>
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
 createdFrom | string | Product creation date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
@@ -97,6 +97,11 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           "imageUrl": "http://app.ecwid.com/default-store/00007123-12-sq.jpg",
           "smallThumbnailUrl": "http://app.ecwid.com/default-store/000017-sq.jpg",
           "originalImageUrl": "http://app.ecwid.com/default-store/00005-sq.jpg",
+          "originalImage": {
+              "url": "http://app.ecwid.com/default-store/00005-sq.jpg",
+              "width": 123,
+              "height": 456
+          },
           "description": "<p>It's a tasty fruit!</p>",
           "galleryImages": [
             {
@@ -228,7 +233,12 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "fixedShippingRateOnly": false,
             "fixedShippingRate": 0,
             "defaultCombinationId": 7084076,
-            "imageUrl": "http://app.ecwid.com/default-store/00007-sq.jpg",
+            "originalImageUrl": "http://app.ecwid.com/default-store/00007-sq.jpg",
+            "originalImage": {
+              "url": "http://app.ecwid.com/default-store/00007-sq.jpg",
+              "width": 123,
+              "height": 456
+            },
             "smallThumbnailUrl": "http://app.ecwid.com/default-store/00007-80-sq.jpg",
             "description": "<h5>Radish</h5>\n<p>The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in Europe in pre-Roman times. They are grown and consumed throughout the world. Radishes have numerous varieties, varying in size, color and duration of required cultivation time. There are some radishes that are grown for their seeds; oilseed radishes are grown, as the name implies, for oil production.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
             "galleryImages": [
@@ -409,6 +419,7 @@ thumbnailUrl |  string | URL of the product thumbnail displayed on the product l
 imageUrl |  string  | URL of the product image resized to fit 500x500. *The original uploaded product image is available in the `originalImageUrl` field.*
 smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 80x80. *The original uploaded product image is available in the `originalImageUrl` field.*
 originalImageUrl |  string  | URL of the original not resized product image
+originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
@@ -439,6 +450,13 @@ name |  string |  Product option name, e.g. `Color`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT`, `CHECKBOX` or `RADIO`.
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
+
+#### ImageDetails 
+Field | Type  | Description
+----- | ----- | -----------
+url | string | Image URL
+width | integer | Image width
+height | integer | Image height
 
 #### GalleryImage
 Field | Type  | Description
@@ -634,7 +652,12 @@ Parameters in bold are mandatory
     "fixedShippingRateOnly": false,
     "fixedShippingRate": 0,
     "defaultCombinationId": 7084076,
-    "imageUrl": "http://app.ecwid.com/default-store/00007-sq.jpg",
+    "originalImageUrl": "http://app.ecwid.com/default-store/00007-sq.jpg",
+    "originalImage": {
+      "url": "http://app.ecwid.com/default-store/00007-sq.jpg",
+      "width": 123,
+      "height": 456
+    },
     "smallThumbnailUrl": "http://app.ecwid.com/default-store/00007-80-sq.jpg",
     "description": "<h5>Radish</h5>\n<p>The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in Europe in pre-Roman times. They are grown and consumed throughout the world. Radishes have numerous varieties, varying in size, color and duration of required cultivation time. There are some radishes that are grown for their seeds; oilseed radishes are grown, as the name implies, for oil production.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
     "galleryImages": [
@@ -805,6 +828,7 @@ thumbnailUrl |  string | URL of the product thumbnail displayed on the product l
 imageUrl |  string  | URL of the product image resized to fit 500x500. *The original uploaded product image is available in the `originalImageUrl` field.*
 smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 80x80. *The original uploaded product image is available in the `originalImageUrl` field.*
 originalImageUrl |  string  | URL of the original not resized product image
+originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
@@ -835,6 +859,13 @@ name |  string |  Product option name, e.g. `Color`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT`, `CHECKBOX` or `RADIO`.
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
+
+#### ImageDetails 
+Field | Type  | Description
+----- | ----- | -----------
+url | string | Image URL
+width | integer | Image width
+height | integer | Image height
 
 #### GalleryImage
 Field | Type  | Description

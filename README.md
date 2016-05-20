@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##May 20, 2016
+- Added a new sort type to search for products: *UPDATED_TIME_ASC* and *UPDATED_TIME_DESC*
+- Added product and category image details, see `originalImage` field
+
 ##May 12, 2016
 - Added support to control Order Comments functionality in the store profile section
 
