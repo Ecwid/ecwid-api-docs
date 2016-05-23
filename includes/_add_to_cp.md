@@ -53,7 +53,7 @@ Ecwid will load your app's *Iframe URL* with a payload to help identify the stor
 
 <head>
   <!-- Include Ecwid JS SDK -->
-  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.1.1/ecwid-app.js"></script>
+  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.0/ecwid-app.js"></script>
 
   <script>
     // Initialize the application
@@ -369,12 +369,12 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 
 ```html
 <!-- Include Ecwid JS SDK -->
-<script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.1.1/ecwid-app.js"></script>
+<script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.0/ecwid-app.js"></script>
 ```
 
 Ecwid Javascript SDK is a simple JS framework with a set of basic JS functions that will help you to embed your app to Ecwid Control Panel and interact with Ecwid from within your application.
 
-To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.1.1/ecwid-app.js` .
+To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.0/ecwid-app.js` .
 
 ## init
 

@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##May 23, 2016
+- New version of Ecwid JS SDK: 1.2.0. Changelog includes a fix for the issues with page height when `autoheight: true` was specified.
+
 ##May 20, 2016
 - Added a new sort type to search for products: *UPDATED_TIME_ASC* and *UPDATED_TIME_DESC*
 - Added product and category image details, see `originalImage` field
