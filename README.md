@@ -10,6 +10,7 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ##May 23, 2016
 - New version of Ecwid JS SDK: 1.2.0. Changelog includes a fix for the issues with page height when `autoheight: true` was specified.
+- Added `Ecwid.getStorefrontLang()` function to get the language of the storefront as soon as it starts loading.
 
 ##May 20, 2016
 - Added a new sort type to search for products: *UPDATED_TIME_ASC* and *UPDATED_TIME_DESC*

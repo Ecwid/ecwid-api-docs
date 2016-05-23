@@ -84,6 +84,19 @@ console.log(currencyFormat)
 
 Converts the given currency value to a human-readable string according to the store settings. It accepts both string and integer as arguments.
 
+## Ecwid.getStorefrontLang
+
+```javascript
+var lang = Ecwid.getStorefrontLang();
+
+console.log(lang);
+
+//prints
+// "en"
+```
+
+Get language of storefront when it starts to load. 
+
 ## Ecwid.getAppPublicConfig
 
 > Get app public config function usage
