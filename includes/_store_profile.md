@@ -96,28 +96,6 @@ Name | Type    | Description
             "description": "Silk paper wrapping"
         }
     },
-    "taxes": [
-        {
-            "id": 1485869949,
-            "name": "Tax X",
-            "enabled": true,
-            "includeInPrice": false,
-            "useShippingAddress": true,
-            "taxShipping": false,
-            "appliedByDefault": true,
-            "defaultTax": 7,
-            "rules": [
-                {
-                    "zoneId": "3",
-                    "tax": 8
-                },
-                {
-                    "zoneId": "2",
-                    "tax": 5
-                }
-            ]
-        }
-    ],
     "zones": [
         {
             "id": "1",
@@ -172,6 +150,31 @@ Name | Type    | Description
             ]
         },
     ],
+    "taxSettings": {
+        "automaticTaxEnabled": true,
+        "taxes": [
+            {
+                "id": 1485869949,
+                "name": "Tax X",
+                "enabled": true,
+                "includeInPrice": false,
+                "useShippingAddress": true,
+                "taxShipping": false,
+                "appliedByDefault": true,
+                "defaultTax": 7,
+                "rules": [
+                    {
+                        "zoneId": "3",
+                        "tax": 8
+                    },
+                    {
+                        "zoneId": "2",
+                        "tax": 5
+                    }
+                ]
+            }
+        ]
+    },
     "businessRegistrationID": {
         "name": "VAT Reg No",
         "value": "GB999 9999 73"
@@ -192,7 +195,7 @@ company | \<Company\> | Company info
 formatsAndUnits | \<FormatsAndUnits\> | Store formats/untis settings
 languages | \<Languages\> | Store language settings
 shipping | \<Shipping\> | Store shipping settings (only handling fee is included at the moment)
-taxes | Array\<Tax\> | Store taxes settings
+taxSettings | \<TaxSettings\> | Store taxes settings
 zones | Array\<Zone\> | Store destination zones
 businessRegistrationID | \<BusinessRegistrationID\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
 
@@ -292,9 +295,15 @@ value | number | Hndling fee value
 description | string | Handling fee description for customer
 
 
-#### Tax
+#### TaxSettings
 *System Settings → Taxes*
 
+Field | Type | Description
+----- | ---- | -----------
+automaticTaxEnabled | boolean | `true` if taxes are calculated automatically, `else` otherwise
+taxes | Array\<Taxes\> | Manual tax settings for a store
+
+#### Taxes
 Field | Type | Description
 ----- | ---- | -----------
 id | number | Unique internal ID of the tax
@@ -435,7 +444,6 @@ company | \<Company\> | Company info
 formatsAndUnits | \<FormatsAndUnits\> | Store formats/untis settings
 languages | \<Languages\> | Store language settings
 shipping | \<Shipping\> | Store shipping settings (only handling fee is included at the moment)
-taxes | Array\<Tax\> | Store taxes settings
 zones | Array\<Zone\> | Store destination zones
 businessRegistrationID | \<BusinessRegistrationID\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
 
@@ -531,9 +539,15 @@ name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value. If handling fee is `0` then it's disabled.
 description | string | Handling fee description for customer
 
-#### Tax
+#### TaxSettings
 *System Settings → Taxes*
 
+Field | Type | Description
+----- | ---- | -----------
+automaticTaxEnabled | boolean | `true` if taxes are calculated automatically, `else` otherwise
+taxes | Array\<Taxes\> | Manual tax settings for a store
+
+#### Taxes
 Field | Type | Description
 ----- | ---- | -----------
 id | number | Unique internal ID of the tax

@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##May 24, 2016
+- Added fields to control manual/automatic tax calculation. To manage taxes, use `taxSettings` field
+
 ##May 23, 2016
 - New version of Ecwid JS SDK: 1.2.0. Changelog includes a fix for the issues with page height when `autoheight: true` was specified.
 - Added `Ecwid.getStorefrontLang()` function to get the language of the storefront as soon as it starts loading.
