@@ -444,6 +444,7 @@ company | \<Company\> | Company info
 formatsAndUnits | \<FormatsAndUnits\> | Store formats/untis settings
 languages | \<Languages\> | Store language settings
 shipping | \<Shipping\> | Store shipping settings (only handling fee is included at the moment)
+taxSettings | \<TaxSettings\> | Store taxes settings
 zones | Array\<Zone\> | Store destination zones
 businessRegistrationID | \<BusinessRegistrationID\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
 
