@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##May 26, 2016
+- Added new fields describing order details when sending request for a custom shipping methods.
+
 ##May 24, 2016
 - Added fields to control manual/automatic tax calculation. To manage taxes, use `taxSettings` field
 
