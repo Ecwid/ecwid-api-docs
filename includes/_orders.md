@@ -216,7 +216,8 @@ Parameters in bold are mandatory
                     "orderTotal": 15
                 }
             ],
-            "hidden": false
+            "hidden": false,
+            "privateAdminNotes": "Must be delivered till Sunday."
         }
     ]
 }
@@ -278,6 +279,7 @@ paymentMessage | string | Message from the payment processor if any
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
+privateAdminNotes | string | Private note about the order from store owner
 
 #### OrderItem
 Field | Type |  Description
@@ -632,7 +634,8 @@ Parameters in bold are mandatory
             "orderTotal": 15
         }
     ],
-    "hidden": false
+    "hidden": false,
+    "privateAdminNotes": "Must be delivered till Sunday."
 }
 ```
 
@@ -683,6 +686,7 @@ paymentMessage | string | Message from the payment processor if any
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
+privateAdminNotes | string | Private note about the order from store owner
 
 #### OrderItem
 Field | Type |  Description
@@ -924,7 +928,8 @@ Cache-Control: no-cache
                 ]
             }
         ],
-        "hidden": false
+        "hidden": false,
+        "privateAdminNotes": "Must be delivered till Sunday."
     }
 ```
 
@@ -977,6 +982,7 @@ paymentMessage | string | Message from the payment processor if any
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
+privateAdminNotes | string | Private note about the order from store owner
 
 #### OrderItem
 Field | Type |  Description
@@ -1894,7 +1900,8 @@ Cache-Control: no-cache
             "shippingMethodName": "Fast Delivery",
             "shippingRate": 10
         },
-        "hidden": false
+        "hidden": false,
+        "privateAdminNotes": "Must be delivered till Sunday."
     }
 ```
 
@@ -1947,6 +1954,7 @@ paymentMessage | string | Message from the payment processor if any
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
+privateAdminNotes | string | Private note about the order from store owner
 
 #### OrderItem
 Field | Type | Description

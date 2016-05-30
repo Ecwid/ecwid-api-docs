@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##May 30, 2016
+- New feature: private admin notes for orders. See orders endpoint for `privateAdminNotes` field
+
 ##May 26, 2016
 - Added new fields describing order details when sending request for a custom shipping methods.
 
