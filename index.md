@@ -17,6 +17,7 @@ includes:
   - combinations
   - product_classes
   - orders
+  - cart
   - customers
   - customer_groups
   - coupons

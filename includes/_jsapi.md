@@ -95,7 +95,7 @@ console.log(lang);
 // "en"
 ```
 
-Get language of storefront when it starts to load. 
+Get current language of storefront. 
 
 ## Ecwid.getAppPublicConfig
 
