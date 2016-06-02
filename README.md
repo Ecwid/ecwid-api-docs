@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##June 2, 2016
+- **NEW** Single Sign On feature now works via Ecwid APIv3 credentials. While old implementations of SSO are still functional, we encourage you to update to the latest specifications. [Learn more](https://developers.ecwid.com/api-documentation#single-sign-on)
+
 ##May 30, 2016
 - New feature: private admin notes for orders. See orders endpoint for `privateAdminNotes` field
 
