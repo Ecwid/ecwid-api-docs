@@ -76,16 +76,16 @@ Content-Type: application/json; charset=UTF-8
 Cache-Control: no-cache
 
 {
-"eventId":"123456-1234-1234-1234-123412341234",
-"eventCreated":1234567,
-"storeId":1003,
-"entityId":103,
-"eventType":"order.updated",
-"data":{
-  "oldPaymentStatus":"PAID",
-  "newPaymentStatus":"PAID",
-  "oldFulfillmentStatus":"PROCESSING",
-  "newFulfillmentStatus":"SHIPPED"
+  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventCreated":1234567,
+  "storeId":1003,
+  "entityId":103,
+  "eventType":"order.updated",
+  "data":{
+    "oldPaymentStatus":"PAID",
+    "newPaymentStatus":"PAID",
+    "oldFulfillmentStatus":"PROCESSING",
+    "newFulfillmentStatus":"SHIPPED"
   }
 }
 ```
