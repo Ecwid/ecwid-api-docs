@@ -203,7 +203,7 @@ id |  number |  Unique internal customer ID
 email | string |  Customer email
 registered | string | Registration date, e.g `2014-06-06 18:57:19 +0400`
 billingPerson | *Person* | Customer's billing name/address
-shippingAddresses | *ShippingAddress* | Customer address book items
+shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
 customerGroupId | number | Customer group ID
 customerGroupName | string | Customer group name
 
@@ -323,7 +323,7 @@ Field | Type  | Description
 **password** | string |  Customer password
 customerGroupId | number | Customer group ID
 billingPerson | <Person> | Customer's billing name/address
-shippingAddresses | Array<ShippingAddress> | Customer address book items
+shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
 
 #### Person
 Field | Type  | Description
@@ -469,7 +469,7 @@ email | string |  Customer email
 password | string |  Customer password
 customerGroupId | number | Customer group ID
 billingPerson | <Person> | Customer's billing name/address
-shippingAddresses | Array<ShippingAddress> | Customer address book items
+shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
 
 #### Person
 Field | Type  | Description
