@@ -10,7 +10,6 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ##June 14, 2016
 - App public config now can store up to 64Kb of data. [Learn more](https://developers.ecwid.com/api-documentation#public-application-config)
-- Added function to center popups in iframe storefronts. [Learn more](https://developers.ecwid.com/api-documentation#centering-popups-in-iframe-storefronts)
 
 ##June 2, 2016
 - **NEW** Single Sign On feature now works via Ecwid APIv3 credentials. While old implementations of SSO are still functional, we encourage you to update to the latest specifications. [Learn more](https://developers.ecwid.com/api-documentation#single-sign-on)
