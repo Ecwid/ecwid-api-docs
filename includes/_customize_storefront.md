@@ -188,26 +188,6 @@ To ensure that your jQuery version code doesn't conflict with other applications
 
 We recommend loading your jQuery from your own server or from [Google's CDN](https://developers.google.com/speed/libraries/#jquery) for jQuery to ensure it is available at all times.
 
-<!--
-## Centering popups in iframe storefronts
-
-> Example of centering popups
-
-```html
-<script type='text/javascript'>
-window.addEventListener('load',  function(e) {
-  setPopupCentering('#myframe');
-});
-</script>
-```
-
-Ecwid can be embedded to a website in many ways. Sometimes a storefront can be inserted in an iframe container due to the limitations of a platform. 
-
-To make sure that all popups, such as login popup and other ones are displayed in the center of an iframe, use the example code on the right. 
-
-`setPopupCentering()` function accepts one argument, which is the ID of an iframe element, where Ecwid storefront is loaded.
--->
-
 # Custom CSS
 
 > Example of custom CSS to modify storefront
