@@ -136,7 +136,7 @@ Name | Type | Description
 **appId** | String | Namespace of your application (as set in the application settings).
 
 <aside class="notice">
-Data in public storage of your app must not exceed <strong>8Kb</strong>
+Data in public storage of your app must not exceed <strong>64Kb</strong>
 </aside>
 
 ## Page Object
