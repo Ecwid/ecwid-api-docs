@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##June 15, 2016
+- New version of Ecwid JS SDK: 1.2.1. In this version we fixed height issues with `fixed` positioned elements.
+
 ##June 14, 2016
 - App public config now can store up to 64Kb of data. [Learn more](https://developers.ecwid.com/api-documentation#public-application-config)
 
