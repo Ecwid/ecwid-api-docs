@@ -43,7 +43,7 @@ var widgets;
 var checkSubtotal = function(order) {
   if (order) {
     var subtotal = order.total - order.shipping;
-    if (subtotal < minSubtotal) {
+    if (subtotal > minSubtotal) {
       alert(promoMessage);
     }  
   }
@@ -56,11 +56,11 @@ Ecwid.OnPageLoaded.add(function(page) {
   // if storefront widget is present on this page
   for (i = 0; i < widgets.length ; i++) {
     if (widgets[i] == "ProductBrowser") {
-      
       if ('CART' == page.type) {
         Ecwid.Cart.calculateTotal(function(order) {
           checkSubtotal(order);
-      });
+        });
+      }
     }
   }
 });
