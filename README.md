@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##June 21, 2016
+- Added SEO title and description fields for [each product](https://developers.ecwid.com/api-documentation#products). Now you can control how products are presented in search engine results.
+
 ##June 15, 2016
 - New version of Ecwid JS SDK: 1.2.1. In this version we fixed height issues with `fixed` positioned elements.
 

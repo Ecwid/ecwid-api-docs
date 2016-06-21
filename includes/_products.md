@@ -124,6 +124,8 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             }
           ],
           "categoryIds": [],
+          "seoTitle": "Orange",
+          "seoDescription": "It's a tasty orange for you and your family!",
           "defaultCategoryId": 0,
           "favorites": {
             "count": 0,
@@ -255,6 +257,8 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "categoryIds": [
                 9691095
             ],
+            "seoTitle": "Radish",
+            "seoDescription": "It's an awesome radish just for you!",            
             "defaultCategoryId": 9691095,
             "attributes": [
                 {
@@ -423,6 +427,8 @@ originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
+seoTitle | string | Page title to be displayed in search results on the web
+seoDescription | string | Page description to be displayed in search results on the web
 defaultCategoryId | number  | Identifier of the default category of the product
 favorites | \<FavoritesStats\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
@@ -674,6 +680,8 @@ Parameters in bold are mandatory
     "categoryIds": [
         9691095
     ],
+    "seoTitle": "Radish",
+    "seoDescription": "It's an awesome radish just for you!",     
     "defaultCategoryId": 9691095,
     "attributes": [
         {
@@ -832,6 +840,8 @@ originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
+seoTitle | string | Page title to be displayed in search results on the web
+seoDescription | string | Page description to be displayed in search results on the web
 defaultCategoryId | number  | Identifier of the default category of the product
 favorites | \<FavoritesStats\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
@@ -1029,6 +1039,8 @@ fixedShippingRateOnly | boolean | `true` if shipping cost for this product is ca
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 description | string  | Product description *in HTML*
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
+seoTitle | string | Page title to be displayed in search results on the web
+seoDescription | string | Page description to be displayed in search results on the web
 defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
@@ -1185,6 +1197,8 @@ fixedShippingRateOnly | boolean | `true` if shipping cost for this product is ca
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 description | string  | Product description *in HTML*
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
+seoTitle | string | Page title to be displayed in search results on the web
+seoDescription | string | Page description to be displayed in search results on the web
 defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
