@@ -68,46 +68,13 @@ A JSON object of type 'Order' with the following fields:
 #### Order
 Field | Type |  Description
 ------| -----| ------------
-subtotal |  number | Order subtotal
-total | number | Order total cost
 email | string  | Customer email address
-paymentMethod | string |  Payment method name
-paymentModule | string | Payment processor name
-tax | number | Tax total
 ipAddress | string  | Customer IP
-couponDiscount | number | Discount applied to order using a coupon
-paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
-fulfillmentStatus | string |    Fulfilment status. Supported values: <nobr><ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul></nobr>
-refererUrl | string | URL of the page when order was placed (without hash (#) part)
-orderComments | string  | Order comments
-volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
-hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
-membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
-totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field 
-discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values
-usdTotal | number | Order total in USD
-globalReferer | string | URL that the customer came to the store from
-createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
-updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
-createTimestamp | number | The date of order placement in UNIX Timestamp format, e.g `1427268654`
-updateTimestamp | number | The date of the last order change in UNIX Timestamp format, e.g `1427268654`
-customerGroupId | number | Customer group ID
-customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 **items** | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
-shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
-shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
-handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
-additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
-paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
-discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
-trackingNumber |  string | Shipping tracking code
-paymentMessage | string | Message from the payment processor if any
-externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
-affiliateId |   string  | Affiliate ID
-creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
+shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information. If no `shippingPerson` provided, the values are taken from `billingPerson`
 
 #### OrderItem
 Field | Type |  Description
@@ -134,8 +101,6 @@ digital | boolean | `true`/`false`: shows whether the item has downloadable file
 productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
-taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
-files | Array\<*OrderItemProductFile*\> | Files attached to the order item
 
 #### OrderItemTax
 Field | Type |  Description
@@ -145,19 +110,6 @@ value | number | Tax value in percent
 total | number | Tax amount for the item
 taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
 taxOnShipping | number | Tax on item shipping
-
-#### OrderItemProductFile
-Field | Type | Description
------ | -----| -----------
-productFileId | number | Internal unique file ID
-maxDownloads | number | Max allowed number of file downloads. See [E-goods article](http://help.ecwid.com/customer/portal/articles/1163931?q=egoods) in Ecwid Help center for the details
-remainingDownloads | number | Remaining number of download attempts
-expire | string | Date/time of the customer download link expiration
-name |  string |  File name
-description | string |  File description defined by the store administrator
-size |  number |  File size, bytes (64-bit integer)
-adminUrl | string | Link to the file. Be careful: the link contains the API access token. Make sure you do not display the link as is in your application and not give it to a customer.
-customerUrl | string | File download link that is sent to the customer when the order is paid
 
 #### OrderItemOption
 Field | Type |  Description
@@ -212,35 +164,6 @@ Field | Type | Description
 ----- | ---- | -----------
 products | Array\<number\> | The list of product IDs the coupon can be applied to
 categories | Array\<number\> | The list of category IDs the coupon can be applied to
-
-#### ShippingOptionInfo
-Field | Type | Description
------ | ---- | -----------
-shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
-shippingMethodName | string | Shipping option name
-shippingRate | number | Rate
-estimatedTransitTime | string | Delivery time estimation. Possible formats: number "5", several days estimate "4-9"
-
-#### HandlingFeeInfo
-Field | Type | Description
------ | ---- | -----------
-name | string | Handling fee name set by store admin. E.g. `Wrapping`
-value | number | Handling fee value
-description | string | Handling fee description for customer
-
-#### DiscountInfo
-Field | Type | Description
------ | ---- | -----------
-value | number | Discount value
-type | string | Discount type: `ABS` or `PERCENT`
-base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`
-order_total | number | Minimum order subtotal the discount applies to
-
-#### CreditCardStatus
-Field | Type | Description
------ | ---- | -----------
-avsMessage | string  | Address verification status returned by the payment system.
-cvvMessage | string  | Credit card verification status returned by the payment system.
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -445,8 +368,6 @@ ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status, will always be returned as `INCOMPLETE`
 fulfillmentStatus | string |    Fulfilment status, will always be returned as `AWAITING_PROCESSING`
-refererUrl | string | URL of the page when order was placed (without hash (#) part)
-orderComments | string  | Order comments
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
@@ -454,13 +375,8 @@ membershipBasedDiscount | number | Sum of discounts based on customer group. Is 
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field 
 discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values
 usdTotal | number | Order total in USD
-globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
-updateDate | date |  The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
 createTimestamp | number | The date of order placement in UNIX Timestamp format, e.g `1427268654`
-updateTimestamp | number | The date of the last order change in UNIX Timestamp format, e.g `1427268654`
-customerGroupId | number | Customer group ID
-customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 items | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
@@ -472,11 +388,6 @@ handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
-trackingNumber |  string | Shipping tracking code
-paymentMessage | string | Message from the payment processor if any
-externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
-affiliateId |   string  | Affiliate ID
-creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 
 #### OrderItem
 Field | Type |  Description
@@ -503,30 +414,6 @@ digital | boolean | `true`/`false`: shows whether the item has downloadable file
 productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
-taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
-files | Array\<*OrderItemProductFile*\> | Files attached to the order item
-
-#### OrderItemTax
-Field | Type |  Description
---------- | -----------| -----------
-name |  string | Tax name
-value | number | Tax value in percent
-total | number | Tax amount for the item
-taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
-taxOnShipping | number | Tax on item shipping
-
-#### OrderItemProductFile
-Field | Type | Description
------ | -----| -----------
-productFileId | number | Internal unique file ID
-maxDownloads | number | Max allowed number of file downloads. See [E-goods article](http://help.ecwid.com/customer/portal/articles/1163931?q=egoods) in Ecwid Help center for the details
-remainingDownloads | number | Remaining number of download attempts
-expire | string | Date/time of the customer download link expiration
-name |  string |  File name
-description | string |  File description defined by the store administrator
-size |  number |  File size, bytes (64-bit integer)
-adminUrl | string | Link to the file. Be careful: the link contains the API access token. Make sure you do not display the link as is in your application and not give it to a customer.
-customerUrl | string | File download link that is sent to the customer when the order is paid
 
 #### OrderItemOption
 Field | Type |  Description
