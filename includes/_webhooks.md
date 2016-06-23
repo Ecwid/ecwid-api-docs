@@ -262,3 +262,31 @@ foreach (getallheaders() as $name => $value) {
 ```
 
 Here's an example of implementing all of the above described guidelines and recommendations in order to process webhooks from Ecwid in the most efficient way.
+
+## Troubleshooting webhooks
+
+#### Q: Webhooks to my endpoint are not delivered. Why?
+
+There are several factors that can prevent you from getting webhooks from Ecwid. 
+
+1. **Application is not installed**
+
+When you are expecting a webhook from Ecwid after a certain event, please make sure that you have a registered app that has all webhook details specified. [More details](#setting-up-webhooks)
+
+2. **Application is missing the right webhook events**
+
+Webhooks in Ecwid are sent to an endpoint of an application only when event occurs and the application is set up for those webhook event types. Make sure that you specified webhook event types that you want to receive when setting up webhooks. [More details](#setting-up-webhooks)
+
+3. **Application is missing access scopes**
+
+Webhooks also depend not only on the event types specified for them, but also for access scopes that your application has. For example, if you want to receive webhooks about new orders, then your app must request `read_orders` access scope from a store.
+
+4. **Your endpoint is not responding to requests with 200 OK status**
+
+When an event occurs, Ecwid will immediately try to send a webhook to your endpoint. However, if it fails to respond with 200OK response status or it has errors in the response (from PHP code, for example). Ecwid will not be able to deliver this webhook to your endpoint, because it failed to accept it.
+
+5. **Webhooks are added to an existing application**
+
+If you registered your app without webhooks functionality and added it later on, please make sure to reinstall the app for the changes to apply faster in Ecwid.
+
+If you made sure that all of the above steps are not concerning your case, please contact us and we will help you.
