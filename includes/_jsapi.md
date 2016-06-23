@@ -451,6 +451,34 @@ success | Boolean | indicates the overall status of addition (succeeded or faile
 product | Object (Product) | conatins the object representation of the product added to cart, or null if adding to cart failed (wrong product ID or product is out of stock).
 cart | Object (Cart) | contains the object representation of the shopping cart after addition (same as in `Ecwid.OnCartChanged` event)
 
+## Ecwid.Cart.removeProduct 
+
+> Remove specific product from cart
+
+```js
+Ecwid.Cart.removeProduct(index);
+```
+
+> Example
+
+```js
+// returns cart details with items' details. Use 'items' array to get the index
+
+Ecwid.Cart.get(function(cart){
+  console.log(cart);
+})
+
+// remove first product from customer's cart
+
+Ecwid.Cart.removeProduct(0);
+```
+
+Removes a product with specified index from customer's cart. `Ecwid.Cart.removeProduct()` receives one argument: **index**
+
+Name | Type | Description
+---- | ---- | -----------
+index | integer | index of a product in cart object you need to remove from customer's cart
+
 ## Ecwid.Cart.clear
 
 > Clear cart contents

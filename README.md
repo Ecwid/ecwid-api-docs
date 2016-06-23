@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##June 23, 2016
+- Added JS method to remove specific products from customer's cart. [Learn more](https://developers.ecwid.com/api-documentation#ecwid-cart-removeproduct)
+
 ##June 21, 2016
 - Added SEO title and description fields for [each product](https://developers.ecwid.com/api-documentation#products). Now you can control how products are presented in search engine results.
 
