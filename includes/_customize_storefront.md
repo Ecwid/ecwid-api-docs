@@ -246,47 +246,6 @@ Add this script to the source code of the page, where your Ecwid storefront is d
 
 **Step 2: Generate your cart**
 
-> Generate items in cart
-
-```html
-<script>
-
-var cartItems = [{
-    "id": 10,
-    "quantity": 3,
-    "options": {
-        "someTextOption": "optionVal",
-        "someDateOption": 1463650610794,
-        "someRadioOption": "optionVal",
-        "someDropDownOption": "optionVal",
-        "someCheckboxOption": ["optionVal1", "optionVal2"]
-    }
-}, {
-    "id": 20,
-    "quantity": 4,
-    "options": {
-        "someTextOption": "optionVal",
-        "someDateOption": 1463650610794,
-        "someRadioOption": "optionVal",
-        "someDropDownOption": "optionVal",
-        "someCheckboxOption": ["optionVal1", "optionVal2"]
-    }
-}];
-
-cartItems = JSON.stringify(cartItems);
-
-var cart = encodeURIComponent('{"products":'+cartItems+'}');
-
-console.log(cart);
-
-// prints the resulting string you need to use in step 3
-//
-// %7B%22products%22%3A%5B%7B%22id%22%3A10%2C%22quantity%22%3A3%2C%22options%22%3A%7B%22someTextOption%22%3A%22optionVal%22%2C%22someDateOption%22%3A1463650610794%2C%22someRadioOption%22%3A%22optionVal%22%2C%22someDropDownOption%22%3A%22optionVal%22%2C%22someCheckboxOption%22%3A%5B%22optionVal1%22%2C%22optionVal2%22%5D%7D%7D%2C%7B%22id%22%3A20%2C%22quantity%22%3A4%2C%22options%22%3A%7B%22someTextOption%22%3A%22optionVal%22%2C%22someDateOption%22%3A1463650610794%2C%22someRadioOption%22%3A%22optionVal%22%2C%22someDropDownOption%22%3A%22optionVal%22%2C%22someCheckboxOption%22%3A%5B%22optionVal1%22%2C%22optionVal2%22%5D%7D%7D%5D%7D
-//
-
-</script>
-```
-
 > Generate items in cart example
 
 ```html
@@ -323,8 +282,16 @@ The syntax is very similar to adding products to cart via [Ecwid JavaScript API]
 
 **Step 3: Create a link for customers**
 
+> Final link structure
+
 ```
 http://example.com/store#!/~/cart/create={generatedCartCode}
+```
+
+> Final link to generated cart example
+
+```
+https://www.ecwid.com/demo#!/~/cart/create=%7B%22products%22%3A%5B%7B%22id%22%3A66821181%2C%22quantity%22%3A3%2C%22options%22%3A%7B%22Color%22%3A%22White%22%2C%22Size%22%3A%2211oz%22%7D%7D%2C%7B%22id%22%3A66722581%2C%22quantity%22%3A5%7D%5D%7D
 ```
 
 Now we need to fill in customer's cart when your custom link is opened. 
