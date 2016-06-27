@@ -155,26 +155,13 @@ To get information for that specific store you can use `Ecwid.getAppPublicConfig
 
 function loadjQuery(){
   var jq = document.createElement('script'); jq.type = 'text/javascript';
-  jq.src = '//ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js';
+  jq.src = 'https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.js';
   document.getElementsByTagName('head')[0].appendChild(jq);
 }
 
-// check if jQuery is present on a page
-
-if (typeof jQuery != 'undefined') {  
-
-// check jQuery version loaded
-
-   if (jQuery.fn.jquery != '1.12.2') {
-      loadjQuery();
-
-   } else {
-      exit;
-   }
-
-} else {
+if (typeof jQuery == 'undefined') {  
   loadjQuery();
-}
+} else {}
 
 // your app code
 // ...
@@ -182,11 +169,42 @@ if (typeof jQuery != 'undefined') {
 
 jQuery is a very popular JavaScript library that is used in many websites. The developers of themes for Wordpress CMS, for example, include this library right into the theme to have access to its functions and to operate various HTML elements on the page easily.
 
-Ecwid storefronts can be customized in many ways, for example: you can set specific behaviour for each [page or each user](https://help.ecwid.com/customer/portal/articles/1085558) that visits those pages. Some developers prefer using native JavaScript libraries to change the position or the display of certain elements and some of them use various versions of jQuery. 
+Ecwid storefronts can be customized in many ways, for example: you can set specific behaviour for each [page or each user](https://help.ecwid.com/customer/portal/articles/1085558) that visits those pages. Some developers prefer using native JavaScript functions to change the position or the display of certain elements. But many use different versions of popular jQuery library.
 
-To ensure that your jQuery version code doesn't conflict with other applications that change Ecwid storefront, you can use the code example on the right. It will allow you to check whether the page has a specific version of jQuery that you need and load it if required. 
+To ensure that your jQuery version code doesn't conflict with other applications that change Ecwid storefront, please see our guidelines: 
 
-We recommend loading your jQuery from your own server or from [Google's CDN](https://developers.google.com/speed/libraries/#jquery) for jQuery to ensure it is available at all times.
+#### For simple modifications
+
+When your modifications don't require specific versions of jQuery loaded on a page and are fairly simple, we suggest you follow this algorithm: 
+
+First, check for jQuery object on current page. If no object is defined, load any jQuery version you prefer using the example code on the right. If there is already jQuery object available - skip the loading and use the curreny jQuery on this page.
+
+#### For complex modifications
+
+When you are using advanced jQuery's features such as jQuery UI, version specific functions, etc. it will be hard to work with, if a website already has varuous jQuery versions on a page. To avoid any version conflicts with current page jQuery version, we suggest you use jQuery noconflict feature. Check out how it works: https://api.jquery.com/jquery.noconflict/
+
+<aside class='note'>
+We recommend loading your jQuery from [Google's CDN](https://developers.google.com/speed/libraries/#jquery) for jQuery to ensure it is available at all times.
+</aside>
+
+## Centering popups in iframe storefronts
+
+> Example of centering popups
+
+```html
+<script src='https://d1e443hvef5jf2.cloudfront.net/static/iframeintegration.js'></script>
+<script type='text/javascript'>
+
+window.addEventListener('load',  function(e) {
+  setPopupCentering('#myframe');
+});
+
+</script>
+```
+
+Ecwid can be embedded to a website in many ways. Sometimes a storefront can be inserted in an iframe container due to the limitations of a platform. To make sure that all popup windows such as customer account login popup are displayed in the center of an iframe, use the example code on the right **in a main frame of your page**.
+
+`setPopupCentering()` function accepts one argument, which is the ID of an iframe element, where Ecwid storefront is loaded. In order to work, `setPopupCentering()` function needs to have `iframeintegration.js` file loaded for that frame. 
 
 # Custom CSS
 

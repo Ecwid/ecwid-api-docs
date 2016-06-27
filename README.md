@@ -10,6 +10,7 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ##June 27, 2016
 - Added instructions for generating custom customer's cart using a link. [Learn more](https://developers.ecwid.com/api-documentation#generate-cart-with-products)
+- Added instruction for centering popup windows in Ecwid storefronts and Control panels, working in an iframe containers. [Learn more](https://developers.ecwid.com/api-documentation#centering-popups-in-iframe-storefronts)
 
 ##June 23, 2016
 - Added JS method to remove specific products from customer's cart. [Learn more](https://developers.ecwid.com/api-documentation#ecwid-cart-removeproduct)
