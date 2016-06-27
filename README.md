@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##June 27, 2016
+- Added instructions for generating custom customer's cart using a link. [Learn more](https://developers.ecwid.com/api-documentation#generate-cart-with-products)
+
 ##June 23, 2016
 - Added JS method to remove specific products from customer's cart. [Learn more](https://developers.ecwid.com/api-documentation#ecwid-cart-removeproduct)
 
