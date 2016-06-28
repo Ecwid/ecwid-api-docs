@@ -181,10 +181,10 @@ First, check for jQuery object on current page. If no object is defined, load an
 
 #### For complex modifications
 
-When you are using advanced jQuery's features such as jQuery UI, version specific functions, etc. it will be hard to work with, if a website already has varuous jQuery versions on a page. To avoid any version conflicts with current page jQuery version, we suggest you use jQuery noconflict feature. Check out how it works: https://api.jquery.com/jquery.noconflict/
+When you are using advanced jQuery's features such as jQuery UI, version specific functions, etc. it will be hard to work with, if a website already has varuous jQuery versions on a page. To avoid any version conflicts with current page jQuery version, we suggest you use jQuery noconflict feature. Check out how it works: [https://api.jquery.com/jquery.noconflict/](https://api.jquery.com/jquery.noconflict/)
 
 <aside class='note'>
-We recommend loading your jQuery from [Google's CDN](https://developers.google.com/speed/libraries/#jquery) for jQuery to ensure it is available at all times.
+We recommend loading your jQuery from <a href='https://developers.google.com/speed/libraries/#jquery'>Google's CDN</a> to ensure it is available at all times.
 </aside>
 
 ## Centering popups in iframe storefronts
@@ -252,7 +252,7 @@ Using the following steps you will be able to create links to your storefront wi
 
 Let's check out how this can be achieved: 
 
-**Step 1: add external script to your website**
+**Step 1: Add external script to your website**
 
 > Script to load on your storefront page
 
@@ -317,7 +317,9 @@ Now we need to fill in customer's cart when your custom link is opened.
 First things first, let's determine where your Ecwid store is displayed and get a direct link to that page. For example, our demo store is located in: `https://www.ecwid.com/demo`
 And to fill in customer's cart with items that you seleted earlier, we need to create a link to your storefront with the generated cart part. 
 
-The generated link with products added to for our demo store will be: 
+**Example link**
+
+Generated link with products added automatically to cart for Ecwid demo store will be: 
 
 `https://www.ecwid.com/demo#!/~/cart/create=%7B%22products%22%3A%5B%7B%22id%22%3A66821181%2C%22quantity%22%3A3%2C%22options%22%3A%7B%22Color%22%3A%22White%22%2C%22Size%22%3A%2211oz%22%7D%7D%2C%7B%22id%22%3A66722581%2C%22quantity%22%3A5%7D%5D%7D`
 
