@@ -25,7 +25,13 @@ Name | Type    | Description
 
 ```json
 {
-  "subscriptionStatus":"ACTIVE"
+	"subscription":
+	{
+		"startDate":"2016-06-30 08:28:28 +0000",
+		"expirationDate":"2016-07-14 09:27:56 +0000",
+		"status":"TRIAL"
+	},
+	"subscriptionStatus":"TRIAL"
 }
 ```
 
@@ -35,9 +41,19 @@ A JSON object of type 'Application' with the following fields:
 
 Field | Type | Description
 ------| ------| -----------
+subscription | \<*SubscriptionDetails*\> | Subscription details for the application
 subscriptionStatus | string | Application status in Ecwid store. One of `ACTIVE`, `SUSPENDED` or `TRIAL`
 
+#### SubscriptionDetails
+
+Field | Type | Description
+------| ------| -----------
+startDate | string | App subscription start timestamp
+expirationDate | string | App subscription end timestamp
+status | string | Application status in Ecwid store. One of `ACTIVE`, `SUSPENDED` or `TRIAL`
+
 ### How it works
+
 
 **Free apps**: 
 
