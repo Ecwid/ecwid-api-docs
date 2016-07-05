@@ -96,6 +96,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           "defaultCombinationId": 0,
           "imageUrl": "http://app.ecwid.com/default-store/00007123-12-sq.jpg",
           "smallThumbnailUrl": "http://app.ecwid.com/default-store/000017-sq.jpg",
+          "hdThumbnailUrl": "https://app.ecwid.com/images/1003/397690783.jpg",
           "originalImageUrl": "http://app.ecwid.com/default-store/00005-sq.jpg",
           "originalImage": {
               "url": "http://app.ecwid.com/default-store/00005-sq.jpg",
@@ -235,6 +236,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "fixedShippingRateOnly": false,
             "fixedShippingRate": 0,
             "defaultCombinationId": 7084076,
+            "hdThumbnailUrl": "https://app.ecwid.com/images/1003/397690841.jpg",
             "originalImageUrl": "http://app.ecwid.com/default-store/00007-sq.jpg",
             "originalImage": {
               "url": "http://app.ecwid.com/default-store/00007-sq.jpg",
@@ -372,6 +374,11 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                     ],
                     "sku": "000071",
                     "quantity": 61,
+                    "smallThumbnailUrl": "https://app.ecwid.com/images/1003/397690841.jpg",
+                    "hdThumbnailUrl": "https://app.ecwid.com/images/1003/397690842.jpg",
+                    "thumbnailUrl": "https://app.ecwid.com/images/1003/397690811.jpg",
+                    "imageUrl": "https://app.ecwid.com/images/1003/397690844.jpg",
+                    "originalImageUrl": "https://app.ecwid.com/images/1003/397690845jpg",
                     "unlimited": false,
                     "warningLimit": 0
                 }
@@ -422,6 +429,7 @@ defaultCombinationId |  number |  Identifier of the default product combination,
 thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. *The original uploaded product image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the product image resized to fit 500x500. *The original uploaded product image is available in the `originalImageUrl` field.*
 smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 80x80. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product HD thumbnail URL resized to fit 650x650px
 originalImageUrl |  string  | URL of the original not resized product image
 originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
@@ -513,6 +521,7 @@ combinationNumber | number |  Combination # number, which is displayed in the co
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
 sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
 smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Combination HD thumbnail URL resized to fit 650x650px
 thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the combination image resized to fit 500x500. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 originalImageUrl | string | URL of the original not resized combination image. Omitted if the combination inherits the base product's image.
@@ -658,6 +667,7 @@ Parameters in bold are mandatory
     "fixedShippingRateOnly": false,
     "fixedShippingRate": 0,
     "defaultCombinationId": 7084076,
+    "hdThumbnailUrl": "https://app.ecwid.com/images/1003/397690824.jpg",
     "originalImageUrl": "http://app.ecwid.com/default-store/00007-sq.jpg",
     "originalImage": {
       "url": "http://app.ecwid.com/default-store/00007-sq.jpg",
@@ -835,6 +845,7 @@ defaultCombinationId |  number |  Identifier of the default product combination,
 thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. *The original uploaded product image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the product image resized to fit 500x500. *The original uploaded product image is available in the `originalImageUrl` field.*
 smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 80x80. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product HD thumbnail URL resized to fit 650x650px
 originalImageUrl |  string  | URL of the original not resized product image
 originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
@@ -927,6 +938,7 @@ options | Array\<*OptionValue*\> | Set of options that identifies this combinati
 sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
 smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Combination HD thumbnail URL resized to fit 650x650px
 imageUrl |  string  | URL of the combination image resized to fit 500x500. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 originalImageUrl | string | URL of the original not resized combination image. Omitted if the combination inherits the base product's image.
 quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.

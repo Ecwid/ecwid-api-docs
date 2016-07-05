@@ -38,6 +38,7 @@ productIds | boolean | Set to `true` if you want the results to contain a list o
         {
             "id": 9691094,
             "orderBy": 10,
+            "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
             "thumbnailUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
             "originalImageUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
             "originalImage": {
@@ -54,6 +55,7 @@ productIds | boolean | Set to `true` if you want the results to contain a list o
         {
             "id": 9691095,
             "orderBy": 20,
+            "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690772.jpg",
             "thumbnailUrl": "https://app.ecwid.com/default-store/vegetables-230-sq.jpg",
             "originalImageUrl": "https://app.ecwid.com/default-store/vegetables-230-sq.jpg",
             "originalImage": {
@@ -87,6 +89,7 @@ Field | Type | Description
 id | number | Internal category ID
 parentId | number  | ID of the parent category, if any
 orderBy | number | Sort order of the category in the parent category subcategories list
+hdThumbnailUrl | string  | Category HD thumbnail URL resized to fit 650x650px
 thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified in the store settings
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<ImageDetails\> | Details of the category image
@@ -157,6 +160,7 @@ Query field | Type    | Description
     "id": 10861116,
     "parentId": 9691094,
     "orderBy": 20,
+    "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690771.jpg",
     "thumbnailUrl": "http://images-cdn.ecwid.com/images/4870020/244778352.jpg",
     "originalImageUrl": "http://images-cdn.ecwid.com/images/4870020/244778351.jpg",
     "originalImage": {
@@ -181,6 +185,7 @@ Field | Type | Description
 id | number | Internal category ID
 parentId | number  | ID of the parent category, if any
 orderBy | number | Sort order of the category in the parent category subcategories list
+hdThumbnailUrl | string  | Category HD thumbnail URL resized to fit 650x650px
 thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified in the store settings
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<ImageDetails\> | Details of the category image

@@ -41,6 +41,7 @@ Name | Type | Description
     ],
     "sku":"000076",
     "smallThumbnailUrl":"http://images-cdn.ecwid.com/images/4870020/249912079.jpg",
+    "hdThumbnailUrl": "https://images-cdn.ecwid.com/images/4870020/397690841.jpg",
     "thumbnailUrl":"http://images-cdn.ecwid.com/images/4870020/249912077.jpg",
     "imageUrl":"http://images-cdn.ecwid.com/images/4870020/249912061.jpg",
     "originalImageUrl":"http://images-cdn.ecwid.com/images/4870020/249912061.jpg",
@@ -88,6 +89,7 @@ Name | Type | Description
     ],
     "sku":"000072",
     "smallThumbnailUrl":"http://images-cdn.ecwid.com/images/4870020/249912078.jpg",
+    "hdThumbnailUrl": "https://images-cdn.ecwid.com/images/4870020/397690841.jpg",
     "thumbnailUrl":"http://images-cdn.ecwid.com/images/4870020/249912076.jpg",
     "imageUrl":"http://images-cdn.ecwid.com/images/4870020/249912060.jpg",
     "originalImageUrl":"http://images-cdn.ecwid.com/images/4870020/249912060.jpg",
@@ -137,6 +139,7 @@ combinationNumber | number |  Combination # number, which is displayed in the co
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
 sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
 smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Combination HD thumbnail URL resized to fit 650x650px
 thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the combination image resized to fit 500x500. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 originalImageUrl | string | URL of the original not resized combination image. Omitted if the combination inherits the base product's image.
@@ -220,6 +223,7 @@ Name | Type | Description
     ],
     "sku": "000072",
     "smallThumbnailUrl": "http://images-cdn.ecwid.com/images/4870020/249919682.jpg",
+    "hdThumbnailUrl": "https://images-cdn.ecwid.com/images/4870020/397690841.jpg",
     "thumbnailUrl": "http://images-cdn.ecwid.com/images/4870020/249919680.jpg",
     "imageUrl": "http://images-cdn.ecwid.com/images/4870020/249912060.jpg",
     "originalImageUrl": "http://images-cdn.ecwid.com/images/4870020/249912060.jpg",
@@ -250,6 +254,7 @@ combinationNumber | number |  Combination # number, which is displayed in the co
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
 sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
 smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Combination HD thumbnail URL resized to fit 650x650px
 thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the combination image resized to fit 500x500. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
 originalImageUrl | string | URL of the original not resized combination image. Omitted if the combination inherits the base product's image.
