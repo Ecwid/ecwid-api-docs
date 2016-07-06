@@ -43,7 +43,9 @@ var ssoPayload = ...
 Ecwid.setSsoProfile(ssoPayload);
 ```
 
-The abovementioned SSO approach with setting `ecwid_sso_profile` variable works well when login/logout actions on the site are done along with the page reload. If a website utilizes AJAX for login/logout functionality, the page won't be reloaded and thus `ecwid_sso_profile` will not be updated instantly. In this case, you can use `Ecwid.setSsoProfile()` API method. The `Ecwid.setSsoProfile()` method does exactly the same as setting of the `ecwid_sso_profile` variable, but can be used multiple times within the same "session".
+The abovementioned SSO approach with setting `ecwid_sso_profile` variable works well when login/logout actions on the site are done along with the page reload. If a website utilizes AJAX for login/logout functionality, the page won't be reloaded and thus `ecwid_sso_profile` will not be updated instantly. In this case, you can use `Ecwid.setSsoProfile()` API method. 
+
+The `Ecwid.setSsoProfile()` method does exactly the same as setting of the `ecwid_sso_profile` variable, but can be used multiple times within the same "session".
 
 Here is how you will use that:
 
@@ -52,7 +54,7 @@ Here is how you will use that:
 - Execute `Ecwid.setSsoProfile()` function and pass the retrieved SSO payload as parameter
 
 <aside class="notice">
-`Ecwid.setSsoProfile` works only when Ecwid is in SSO mode, that is, when the global variable `ecwid_sso_profile` is also defined.
+<strong>`Ecwid.setSsoProfile` works only when Ecwid is in SSO mode, that is, when the global variable `ecwid_sso_profile` is also defined.</strong> Make sure `ecwid_sso_profile` is defined at least as empty string `ecwid_sso_profile` = ''
 </aside>
 
 
@@ -67,11 +69,12 @@ To specify that no user is logged in, pass an empty payload either to the `ecwid
 
 ```php
 <?php
-$client_secret = "A1Lu7ANIhKD6A1Lu7ANIhKD6ADsaSdsa";
-$message = base64_encode("{appClientId: 'my-cool-app', userId:'234',profile:{email:'test@example.com'}}");
-$timestamp = time();
-$hmac = hash_hmac('sha1', "$message $timestamp", $client_secret);
-echo "<script> var ecwid_sso_profile = '$message $hmac $timestamp' </script>";
+    $client_secret = "A1Lu7ANIhKD6A1Lu7ANIhKD6ADsaSdsa";
+    $message = base64_encode("{appClientId: 'my-cool-app', userId:'234',profile:{email:'test@example.com'}}");
+    $timestamp = time();
+    $hmac = hash_hmac('sha1', "$message $timestamp", $client_secret);
+
+    echo "<script> var ecwid_sso_profile = '$message $hmac $timestamp' </script>";
 ?>
 ```
 
