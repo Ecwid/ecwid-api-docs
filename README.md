@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##July 8, 2016
+- **NEW** added `Ecwid.Cart.gotoCheckout()` function to start checkout process for a customer in a storefront. [Learn more](https://developers.ecwid.com/api-documentation#ecwid-cart-gotocheckout)
+
 ##July 5, 2016
 - Added `hdThumbnailUrl` for products, categories and combinations. This field provides URL to a resized to fit 650x650px image of an entity.
 

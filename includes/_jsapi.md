@@ -520,6 +520,44 @@ Cart calculation involves a request to server, so this method should be called o
 
 Since the calculation needs a server connection, it might fail due to network conditions. In this case, null is passed into the callback instead of **Order** object.
 
+## Ecwid.Cart.gotoCheckout
+
+> Send customer to checkout
+
+```js
+Ecwid.Cart.gotoCheckout()
+```
+
+`Ecwid.Cart.gotoCheckout()` function allows you to send customer to the first step of the checkout process in a store. Customer will be sent there only if agreeing to terms and conditions is not required in the store. You can find this setting in Ecwid Control Panel > Settings > General > Legal Pages > "Show “I agree with Terms & Conditions” checkbox during checkout" or check it using `Ecwid.Cart.canGotoCheckout()` function.
+
+> Callback function after sending to checkout
+
+```js
+Ecwid.Cart.gotoCheckout(function(){
+  alert("Checkout process started");
+})
+```
+
+You can also execute a callback function if a customer was successfully sent to the first step of the checkout process in a store. See example code on the right.
+
+## Ecwid.Cart.canGotoCheckout
+
+> Check if possible to send customer to checkout
+
+```js
+Ecwid.Cart.canGotoCheckout(function(callback){
+  console.log(callback);
+})
+```
+
+Using `Ecwid.Cart.canGotoCheckout()` function you can check whether you can send customers to the first step of checkout process in a store. 
+
+**Fields:**
+
+Name | Type | Description
+---- | ---- | -----------
+callback | boolean | `true` if you can send customer to the checkout process, `false` otherwise
+
 # Get Cart Details
 
 Find out more about cart in its current state.
