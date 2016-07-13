@@ -34,7 +34,7 @@ External applications work outside of Ecwid control panel and they also have an 
 
 > Check external apps guideline for general guides
 
-> https://developers.ecwid.com/external-applications
+> [https://developers.ecwid.com/external-applications](https://developers.ecwid.com/external-applications)
 
 The installation process starts with user visiting app details page. On that page, they can install the app by providing the necessary permissions to it. Once the user clicks the "Install" button, Ecwid sends a user to your app's **Return URL** along with the temporary **code** in the URL parameters.
 
@@ -314,7 +314,7 @@ Where `my-cool-app` is the **appId** provided to you when you registered your ap
 
 > Public app details page of Ecwid app for iOS
 
-> https://www.ecwid.com/apps/storemanagement/ecwid-iphone-app
+> [https://www.ecwid.com/apps/storemanagement/ecwid-iphone-app](https://www.ecwid.com/apps/storemanagement/ecwid-iphone-app)
 
 User can install the application into their Ecwid store there and this process replaces the oAuth dialog because user is already logged in to their account. Ecwid will request from users all the store permissions that you specified when you registered the application.
 
