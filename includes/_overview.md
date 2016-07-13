@@ -30,6 +30,9 @@ Custom Shipping API allows you to add new shipping methods in an Ecwid store as 
 
 More information: [Custom Shipping API](#add-shipping-method)
 
+> Find out more about Ecwid Platform:
+> https://developers.ecwid.com/intro
+
 **Add Payment Method**
 
 Custom Payment API allows you to add new payment methods to an Ecwid store. Merchant will install your app, set it up and they will be able to accept payments through your payment system for orders in their store.
@@ -57,6 +60,9 @@ More information: [Storefront Single Sign-On](#single-sign-on)
 # Applications for Ecwid
 
 In Ecwid there can be two main categories of applications: Native and External apps. 
+
+> Check out app examples
+> https://developers.ecwid.com/examples
 
 ### Native applications
 
@@ -144,6 +150,9 @@ Suggested API features:
 # API availability on Ecwid plans
 
 [Ecwid pricing](http://www.ecwid.com/pricing) includes four tiers: Free, Venture, Business, Unlimited. The API is available on **paid** Ecwid plans, i.e. on Venture, Business and Unlimited. Merchants on Free plans cannot use Ecwid API. This means that, if the user is on Free plan, all API functions will fail including requests to read or update store data, embedding of the app interfaces into Ecwid Control Panel and customizing storefront. 
+
+> Find out more about what you need to get started with Ecwid API
+> https://developers.ecwid.com/developing-your-app
 
 ### Q: I need to start developing my app. How can I get a paid account?
 
