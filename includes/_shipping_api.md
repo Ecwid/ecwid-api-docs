@@ -1,6 +1,10 @@
 # Add Shipping Method
 # Overview
 
+> Added custom shipping methods in checkout process
+
+> ![Custom shipping methods in checkout process](https://don16obqbay2c.cloudfront.net/wp-content/uploads/shippingMethod-1468407305.png)
+
 Using Custom Shipping API you can integrate a new shipping carrier to provide real time shipping methods with different rates for customers of Ecwid stores. This functionality will work in a form of an application that users install from the Ecwid App Market.
 
 <aside class="notice">
@@ -33,6 +37,10 @@ Based on the response from your app, Ecwid will display the shipping methods for
 
 Your application can require merchants to specify their shipping account details, package size and any other user preferences you may require. We recommend adding a new tab into the Ecwid Control Panel's Shipping settings for optimal experience - Native applications feature.
 
+> Merchant settings example
+
+> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/shippingSettings-1468407629.png)
+
 **Settings**
 
 First, set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications).
@@ -64,7 +72,7 @@ POST https://mycoolapp.com/integration HTTP/1.1
 {
     "storeId": 35002,
     "merchantAppSettings": {
-    	"public":"{color : \"red\", storeName : \"Cool Socks Ltd.\"}",
+        "public":"{color : \"red\", storeName : \"Cool Socks Ltd.\"}",
         "dimensions": "5x10x7",
         "userId": "12345"
     },

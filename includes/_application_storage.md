@@ -4,6 +4,10 @@
 
 Ecwid API offers a simple key-value storage for apps. You can use it to save private user preferences, public storefront settings or as a database for your app. 
 
+> App storage data example
+
+> ![App storage data example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/appStorage-1468406476.png)
+
 This storage allows you to create complex client-side (JavaScript) apps and skip on using a database on a server (like MySQL, etc.).
 
 So now you can save user data, like preferences: color, font size, position of a widget in storefront, whether widget is active or other data right in Ecwid API, using it as a database of your application. 
@@ -383,6 +387,13 @@ Storage API allows to save public app config and easily access it in a storefron
 ## Overview
 
 Let’s say that you plan to build an app, that customizes a storefront, by displaying custom text created by store owner on a cart page.
+
+> Get public application config data in storefront example
+
+```js
+Ecwid.getAppPublicConfig('my-cool-app')
+// "enabled"
+```
 
 Or you can create a fully customizable widget, where merchant can input custom text, change its size, color, background and do other customizations. 
 

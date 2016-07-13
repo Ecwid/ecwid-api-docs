@@ -2,6 +2,10 @@
 
 # Overview
 
+> Custom payment methods at checkout
+
+> ![Custom payment methods at checkout](https://don16obqbay2c.cloudfront.net/wp-content/uploads/paymentMethod-1468407853.png)
+
 Using Custom Payment API you can integrate a new payment method for customers of Ecwid stores to choose from. This functionality will work in a form of an application that users install from the Ecwid App Market.
 
 <aside class="notice">
@@ -31,6 +35,10 @@ Upon finishing the payment, your app must [update the order status](#update-orde
 ## Merchant settings for payment method
 
 Your application can require merchants to specify their account details in your system and any other user preferences you may require.
+
+> Merchant settings example
+
+> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/paymentSettings-1468408208.png)
 
 **Settings**
 
