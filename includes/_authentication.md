@@ -18,6 +18,10 @@ var accessToken = storeData.access_token;
 // ...
 ```
 
+> Check native apps guideline for general guides 
+
+> [https://developers.ecwid.com/native-applications](https://developers.ecwid.com/native-applications)
+
 Native applications work in a separate tab in Ecwid Control Panel. After user installs an application, Ecwid will redirect user to the new tab. In that tab, your application can interact with the store on behalf of the user. 
 
 To get access token and start making requests to Ecwid API, use Ecwid JS SDK and a couple of Javascript lines of code - see example on the right.
@@ -27,6 +31,10 @@ See [native apps documentation](#embedded-apps) and start working on your applic
 # External applications
 
 External applications work outside of Ecwid control panel and they also have an app details page for easy installation process. These apps use oAuth2 flow to get access token for a specific Ecwid store. 
+
+> Check external apps guideline for general guides
+
+> https://developers.ecwid.com/external-applications
 
 The installation process starts with user visiting app details page. On that page, they can install the app by providing the necessary permissions to it. Once the user clicks the "Install" button, Ecwid sends a user to your app's **Return URL** along with the temporary **code** in the URL parameters.
 
@@ -298,18 +306,22 @@ The [Step #3](#get-access-token) (the app exchanges the temporarily authorizatio
 
 # App details page
 
-To install any application from the Ecwid App Market, user would need to visit an app details page for that application first. Typical app details link looks like this: 
+To install any application from the Ecwid App Market, user would need to visit an app details page for that application first. Typical app details link in Ecwid Control Panel looks like this: 
 
 `https://my.ecwid.com/cp/CP.html#apps:view=app&name=my-cool-app`
 
-Where `my-cool-app` is the application ID provided to you when you registered your application with us. App details page contains various information like app description, screenshots, pricing and other details. 
+Where `my-cool-app` is the **appId** provided to you when you registered your application with us. App details page contains various information like app description, screenshots, pricing and other details. 
 
-User can install the application into their Ecwid store there and this process replaces the oAuth dialog because the user is already logged in to their account. Ecwid will request from users all the store permissions that you specified when you registered the application.
+> Public app details page of Ecwid app for iOS
+
+> https://www.ecwid.com/apps/storemanagement/ecwid-iphone-app
+
+User can install the application into their Ecwid store there and this process replaces the oAuth dialog because user is already logged in to their account. Ecwid will request from users all the store permissions that you specified when you registered the application.
+
+> To set up an app details page for your public application, see [Publishing Your App](/publishing-your-app) page for details.
 
 The app installation works different for different app types: 
 
 - Ecwid will redirect user to app tab in Ecwid Control Panel if it's a **Native app**
 - Ecwid will redirect user to external website with temporary code if it's an **External app**
 - Ecwid will not redirect user anywhere if no redirect is specified for the app
-
-To set up an app details page for your public application, see [Publishing Your App](/publishing-your-app) page for details.
