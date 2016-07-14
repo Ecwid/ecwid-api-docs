@@ -96,10 +96,11 @@ grant_type | required | Must be `authorization_code`
 
 ```json
 {
- "access_token":"12345",
+ "access_token":"secure_123453lasdADSKasasdjasdklasASkmns",
  "token_type":"bearer",
  "scope":"read_store_profile update_catalog",
- "store_id":1003
+ "store_id":1003,
+ "public_token":"public_qKDUqKkNXzcj9DejkMUqEkYLq2E6BXM9"
 }
 ```
 
@@ -107,10 +108,11 @@ Ecwid responds with a JSON-formatted data containing the access token and additi
 
 Field | Description
 ----- | -----------
-access_token | Authorization token. This is a key your app will use to access Ecwid API on behalf of the user. 
+access_token | Private authorization token. This is a key your app will use to access Ecwid API on behalf of the user. 
 token_type | `bearer` (it's always `bearer`)
 scope | List of permissions (API access scopes) given to the app, separated by space
 store_id | Ecwid store ID (a unique Ecwid account identificator)
+public_token | Public authorization token. Provided if requested access scopes contain `public_storefront` scope.
 
 
 <aside class="notice">
@@ -122,6 +124,12 @@ For security reasons, a temporary code can be exchanged to an access token only 
 Access token provides access to Ecwid API on behalf of the user that installed your application in their store. It doesn't expire, so is available to you at all times. You will only need to get a new access token in case a user uninstalls the application from their store and installs your application back again. 
 
 After the moment user installs your app, it can store that token securely in your database for that user. So it's not necessary to go through the standard oAuth flow each time you need to make a request to Ecwid API.
+
+### Q: What is public token? 
+
+Public token is a key to the store, which allows you to get public store information via REST API interface. While private tokens allow you to modify something in a store, like update an order status or change storkc levels, public tokens provides read-only access to the public store information. 
+
+For more details, please see [Public REST API](#public-rest-api)
 
 ## Access scopes
 
@@ -149,6 +157,7 @@ add_shipping_method | Add a new shipping method to the store (see [Custom Shippi
 add_payment_method | Add a new payment method to the store (see [Add Payment Method](#add-payment-method))
 read_stores | Check if there is a store already registered with an email (see [Manage Stores](#stores))
 create_stores | Create a new Ecwid store using API (see [Manage Stores](#stores))
+public_storefront | Get public store details with public access token
 
 ## Complete oAuth flow
 
@@ -236,7 +245,8 @@ grant_type | required | Must be `authorization_code`
  "access_token":"12345",
  "token_type":"bearer",
  "scope":"read_store_profile update_catalog",
- "store_id":1003
+ "store_id":1003,
+ "public_token":"public_qKDUqKkNXzcj9DejkMUqEkYLq2E6BXM9"
 }
 ```
 
@@ -248,6 +258,7 @@ access_token | Authorization token. This is a key your app will use to access Ec
 token_type | `bearer` (it's always `bearer`)
 scope | List of permissions (API access levels) given to the app, separated by space
 store_id | Ecwid store ID (a unique Ecwid account identificator)
+public_token | Public authorization token. Provided if requested access scopes contain `public_storefront` scope.
 
 <aside class="notice">
 For security reasons, a temporary code can be exchanged to an access token only once. In case of second attempt, the previously provided access token is automatically disabled.
