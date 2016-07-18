@@ -313,7 +313,7 @@ Name | Type | Description
 ---- | ---- | -----------
 store_id | number | Ecwid store ID
 lang | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
-access_token | string | oAuth token
+access_token | string | Secure oAuth token for Ecwid REST API
 
 #### Decryption of payload on your server
 

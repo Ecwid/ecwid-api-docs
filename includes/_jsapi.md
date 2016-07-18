@@ -2,6 +2,8 @@
 
 The described Javascript API is available for all Ecwid users. The API is intended for better integrating Ecwid with the surrounding web site. The API is based on two concepts: objects and events. Objects are simple containers for methods, while events are containers for the user-supplied callbacks (or extensions). 
 
+> Check out [Customize Storefront](#customize-storefront) section for general details on changing Ecwid's storefront.
+
 > Access Page object to find the current page type
 
 ```javascript
