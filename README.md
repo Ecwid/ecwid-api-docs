@@ -9,7 +9,7 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 #Changelog
 
 ##July 14, 2016
-- **NEW** added documentation for Public REST API. It allows to get public information of a store anywhere. [Learn more](https://developers.ecwid.com/api-documentation#public-rest-api)
+- **NEW** added public access tokens support. It allows to get public information of a store from anywhere with Ecwid REST API. [Learn more](https://developers.ecwid.com/api-documentation#access-tokens)
 
 ##July 8, 2016
 - **NEW** added `Ecwid.Cart.gotoCheckout()` function to start checkout process for a customer in a storefront. [Learn more](https://developers.ecwid.com/api-documentation#ecwid-cart-gotocheckout)

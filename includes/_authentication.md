@@ -1,8 +1,10 @@
 # Authentication
 
-All Ecwid API requests require authentication. Ecwid supports **oAuth2** protocol to provide applications with an easy way to authenticate and access store data on behalf of the user. 
+All Ecwid API requests require authentication. Ecwid supports **oAuth2** protocol to provide applications with an easy way to authenticate and access store data on behalf of the user with access tokens. 
 
-Ecwid user grants or denies access to certain data in their store for the particular application - then the application gets its own secure access token upon authorization and uses that token as a key to make API calls to Ecwid.
+There are two types of access tokens in Ecwid: private and public tokens. Private ones can't be shared publicly as they provide access to modify store data through the REST API. Public tokens on the other hand have read-only access, so they can be used anywhere to get store details through the REST API in your apps.
+
+Ecwid user grants or denies access to certain data in their store for the particular application - then the application gets its own secure access token (and optional public token) upon authorization and uses that token as a key to make REST API calls to Ecwid.
 
 # Native applications
 
@@ -42,7 +44,57 @@ Mind that in this case the installation process starts on Ecwid side and it migh
 
 See [External applications guideline](/external-applications) for more information.
 
-## Get access token
+##Access Tokens
+
+### Private access token
+
+> Private access token example
+
+```json
+{
+	"access_token": "secure_adasjkhndjksnmkasjhdASDHasjdnhasa"
+}
+```
+
+Private access token provides access to Ecwid API to retrieve and change store data on behalf of the user who installed your application in their store. **It doesn't expire, so it is available to you at all times**. You will only need to get a new access token in case a user uninstalls the application from their store and installs your application back again. 
+
+With private access token you can use any method within the access scope range that you requested from an Ecwid user on initial steps of oAuth process.
+
+After the moment user installs your app, it can store that token securely in your database for that user. So it's not necessary to go through the standard oAuth flow each time you need to make a request to Ecwid API. 
+
+<aside class="note">Private access token <strong>must not be visible/available in public</strong> (widget integration code, client-side JavaScript, etc.).</aside>
+
+### Public access token
+
+> Private access token example
+
+```json
+{
+	"public_token": "public_asdkjlsaASKDjaslkdASmndcasmrdgaSj"
+}
+```
+
+Public token provides limited read-only access to public store data via REST API interface. While private tokens allow you to modify something in a store, like update an order status or change storkc levels, public tokens can only get limited information from a store.
+
+With public access token you can use these methods from anywhere (client-side JavaScript, widget integration codes, etc.):
+
+- [Get store profile](#get-store-profile)
+- [Search enabled products](#search-products)
+- [Get enabled product details](#get-a-product)
+- [Search enabled categories](#get-categories)
+- [Get enabled category details](#get-category)
+- [Get all combinations of an enabled product](#get-all-product-combinations)
+- [Get combination details of an enabled product](#get-product-combination)
+- [Search visible product types](#get-product-types)
+- [Get visible product type details](#get-product-type)
+- [Get deleted items statistics](#get-deleted-items-statistics)
+- [Calculate order details](#calculate-order-details)
+
+These methods are available for public token regardless of the other access scope your requested in the oAuth process.
+
+You can get public token for your application by requesting `public_storefront` [access scope](#access-scopes) in the oAuth process.
+
+## Get access tokens
 
 Retrieving an access token for external apps includes the following steps:
 
@@ -112,24 +164,11 @@ access_token | Private authorization token. This is a key your app will use to a
 token_type | `bearer` (it's always `bearer`)
 scope | List of permissions (API access scopes) given to the app, separated by space
 store_id | Ecwid store ID (a unique Ecwid account identificator)
-public_token | Public authorization token. Provided if requested access scopes contain `public_storefront` scope.
-
+public_token | [Public authorization token](#access-tokens). Provided if requested access scopes contain `public_storefront` scope.
 
 <aside class="notice">
 For security reasons, a temporary code can be exchanged to an access token only once. In case of second attempt, the previously provided access token is automatically disabled.
 </aside>
-
-### Q: How does private access token work? 
-
-Private access token provides access to Ecwid API to chage store data on behalf of the user who installed your application in their store. **It doesn't expire, so is available to you at all times**. You will only need to get a new access token in case a user uninstalls the application from their store and installs your application back again. 
-
-After the moment user installs your app, it can store that token securely in your database for that user. So it's not necessary to go through the standard oAuth flow each time you need to make a request to Ecwid API.
-
-### Q: What is public token? 
-
-Public token provides read-only access to public store data via REST API interface. While private tokens allow you to modify something in a store, like update an order status or change storkc levels, public tokens provides read-only access to the public store information. 
-
-You can get public token for your application by requesting `public_storefront` access scope in the oAuth process.
 
 ## Access scopes
 
@@ -258,7 +297,7 @@ access_token | Private authorization token. This is a key your app will use to a
 token_type | `bearer` (it's always `bearer`)
 scope | List of permissions (API access levels) given to the app, separated by space
 store_id | Ecwid store ID (a unique Ecwid account identificator)
-public_token | Public authorization token to access public part of a store in Ecwid REST API. Provided if requested access scopes contain `public_storefront` scope.
+public_token | [Public authorization token](#access-tokens). Provided if requested access scopes contain `public_storefront` scope.
 
 <aside class="notice">
 For security reasons, a temporary code can be exchanged to an access token only once. In case of second attempt, the previously provided access token is automatically disabled.

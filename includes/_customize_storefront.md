@@ -248,6 +248,34 @@ You may want to apply different CSS codes depending on the store your applicatio
 
 In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#custom-javascript) for details.
 
+# Using REST API in storefront
+
+When working on a custom storefront functionality, applications can require getting up-to-date catalog information from Ecwid store.
+
+> Get 3 products from Ecwid REST API using JavaScript with public token
+
+```js
+var xhttp = new XMLHttpRequest();
+var storeId = 1003;
+var token = 'public_qKDUqKkNXzcj9DejkMUqEkYLq2E6BXM9';
+
+var requestURL = 'https://app.ecwid.com/api/v3/'+storeId+'/products?limit=3&token='+token;
+
+xhttp.open("GET", requestURL, true);
+xhttp.send();
+
+xhttp.onreadystatechange = function() {
+  if (xhttp.readyState == 4 && xhttp.status == 200) {
+    var apiResponse = xhttp.responseText;
+    console.log(apiResponse); // prints response in format of Search Products request in Ecwid API
+  }
+};
+```
+
+We suggest using [public access token](#access-tokens) to get information about: store details, enabled products, enabled categories, combinations of enabled products, visible product types and deleted items statistics on demand with Ecwid REST API. Check out example on how to do this on the right.
+
+With public access token you can safely make requests to Ecwid REST API without creating a buffer in a form of a server-side code, which requested information for your client-side code. You can make an Ajax request to Ecwid API with your JavaScript code and have a completely serverless application.
+
 # Generate cart with products
 
 Ecwid JavaScript API allows you to add items to customer's cart automatically. This can be useful when you are using custom storefront to provide any type of button to add products to cart.
