@@ -44,7 +44,7 @@ Mind that in this case the installation process starts on Ecwid side and it migh
 
 See [External applications guideline](/external-applications) for more information.
 
-##Access Tokens
+##Access tokens
 
 ### Private access token
 
@@ -87,14 +87,13 @@ With public access token you can use these methods from anywhere (client-side Ja
 - [Get combination details of an enabled product](#get-product-combination)
 - [Search visible product types](#get-product-types)
 - [Get visible product type details](#get-product-type)
-- [Get deleted items statistics](#get-deleted-items-statistics)
+- [Get products and profile update stats](#get-store-update-statistics)
+- [Get deleted products statistics](#get-deleted-items-statistics)
 - [Calculate order details](#calculate-order-details)
 
-These methods are available for public token regardless of the other access scope your requested in the oAuth process.
+These methods are available for public token regardless of the other access scope your requested from a store. To get public token for your application, specify `public_storefront` [access scope](#access-scopes) in the oAuth process.
 
-You can get public token for your application by requesting `public_storefront` [access scope](#access-scopes) in the oAuth process.
-
-## Get access tokens
+## Get access token
 
 Retrieving an access token for external apps includes the following steps:
 
