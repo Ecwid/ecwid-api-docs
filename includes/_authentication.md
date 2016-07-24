@@ -66,7 +66,7 @@ After the moment user installs your app, it can store that token securely in you
 
 ### Public access token
 
-> Private access token example
+> Public access token example
 
 ```json
 {

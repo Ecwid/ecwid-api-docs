@@ -54,7 +54,7 @@ Here is how you will use that:
 - Execute `Ecwid.setSsoProfile()` function and pass the retrieved SSO payload as parameter
 
 <aside class="notice">
-<strong>`Ecwid.setSsoProfile` works only when Ecwid is in SSO mode, that is, when the global variable `ecwid_sso_profile` is also defined.</strong> Make sure `ecwid_sso_profile` is defined at least as empty string `ecwid_sso_profile` = ''
+<strong>Ecwid.setSsoProfile</strong> works only when Ecwid is in SSO mode, that is, when the global variable 'ecwid_sso_profile' is also defined. Make sure 'ecwid_sso_profile' is defined at least as empty string, like this: ecwid_sso_profile = '' .
 </aside>
 
 

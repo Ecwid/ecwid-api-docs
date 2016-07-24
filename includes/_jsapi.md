@@ -204,9 +204,44 @@ Ecwid.OnPageLoaded.add(function(page) {
 });
 ```
 
-These events contain callbacks that get called on each page change inside the product browser. The difference between **OnPageLoad** and **OnPageLoaded** is that the former is called when the page is changed (e.g. a link is clicked), while the later is called later when the corresponding page is loaded inside the product browser.
+These events contain callbacks that get called on each page change inside the product browser. The difference between **OnPageLoad** and **OnPageLoaded** is that the former is called when the page is changed (e.g. a link is clicked), while the latter is called later when the corresponding page is loaded inside the product browser.
 
 The callback functions accept one parameter of type **Page** specifying which page is to be loaded (or has already been loaded). See [Page Object](#page-object) details for more info.
+
+### Page Object
+
+Describes the page displaying inside the product browser.
+
+> Get page type after new page is loaded 
+
+```js
+Ecwid.OnPageLoaded.add(function(page){
+  console.log("Current page is of type: " + page.type);
+})
+
+// prints
+// Current page is of type: CATEGORY
+```
+
+**Fields:**
+
+Name | Type | Description
+---- | ----- | -----------
+type | string, one of the following: ‘ACCOUNT_SETTINGS’, ‘ADDRESS_BOOK’, ‘ORDERS’, ‘CATEGORY’, ‘CART’, ‘CHECKOUT_ADDRESS_BOOK’, ‘CHECKOUT_PAYMENT_DETAILS’, ‘CHECKOUT_PLACE_ORDER’, ‘CHECKOUT_SHIPPING_ADDRESS’, ‘ORDER_CONFIRMATION’, ‘ORDER_FAILURE’, ‘CHECKOUT_RESULT’, ‘DOWNLOAD_ERROR’, ‘PRODUCT’, ‘SEARCH’, 'FAVORITES' | The type of the page. Some pages may have parameters like for example product id of the viewing product. Those parameters are described below.
+keywords | string, optional | for type==’ORDERS’: the keywords that are used to find orders in the customer account page. for type==’SEARCH’: the keywords that are used to find products on the product search page.
+from | integer timestamp, optional | for type==’ORDERS’: The timestamp of the start of the orders date range.
+to | integer timestamp, optional | for type==’ORDERS’: The timestamp of the end of the orders date range.
+offset | | for type==’ORDERS’: the position of the current order list page (starting from 0). for type==’CATEGORY’ and SEARCH’: the position of the current product list page (starting from 0).
+categoryId | integer | for type==’CATEGORY’: the id of the showing product category or 0 if this is the starting page of the catalog and no categories are selected yet. for type==’PRODUCT’: the category internal id the current product has been navigated from. Zero (0) is the root category, −1 meaning that the category is unknown (e.g. a product opened from a search result).
+mainCategoryId | integer | for type==’PRODUCT’ in the OnPageLoaded event: the internal id of category that is considered the default category of this product (in case if the product is assigned to a few different categories). If a product is assigned to a single category, mainCategoryId will be equeal to categoryId; if a product is not assigned to any category, its mainCategoryId is 0 (zero). for type==’PRODUCT’ in the OnPageLoad event: always 0 (zero);
+sort | string, one of: ‘normal’, ‘addedTimeDesc’, ‘priceAsc’, ‘priceDesc’, ‘nameAsc’, ‘nameDesc’ | for type==’CATEGORY’ and ’SEARCH’: the order of the product list, as selected by the user in the ‘sort by’ drop-down. ‘Desc’ suffix stands for the descending order, ‘Asc’ suffix stands for the ascending order.
+orderId | integer | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’: the internal id of the order (not to be confused with the store order number)
+ticket | integer | for type==’CHECKOUT_RESULT’: the security random code that allows to retrieve information about the order
+errorType | one of the following: ‘expired’, ‘invalid’, ‘limit’ | for type==’DOWNLOAD_ERROR’: the type of the error while downloading an e-good file.
+key | integer, optional | for type==’DOWNLOAD_ERROR’: the downloading file internal id
+productId | integer | for type==’PRODUCT’: the internal id of the displaying product (not to be confused with SKU).
+orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
+vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
 
 ## Ecwid.OnSetProfile
 
@@ -276,6 +311,7 @@ The callbacks added to `Ecwid.OnCartChanged` will be called when the shopping ca
 - Applying a discount coupon
 - Selecting and changing the selection of the payment method
 - Selecting and changing the selection of the shipping method
+- Changing shippind address
 - Syncing the cart contents, if there are a few browser tabs with the store are opened
 - Clearing the cart upon user’s logout — in this occasion the callback receives **null** as an argument.
 
