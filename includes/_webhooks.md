@@ -74,7 +74,11 @@ POST https://www.myapp.com/callback?eventType=order.updated HTTP/1.1
 Host: www.myapp.com
 Content-Type: application/json; charset=UTF-8
 Cache-Control: no-cache
+```
 
+> Order #103 updated webhook example
+
+```json
 {
   "eventId":"123456-1234-1234-1234-123412341234",
   "eventCreated":1234567,
@@ -90,6 +94,18 @@ Cache-Control: no-cache
 }
 ```
 
+> Product ID: 66722483 updated webhook example
+
+```
+{
+  "eventId":"08a78904-0aa0-4c1a-953a-2e33c56236f0",
+  "eventCreated":1469429912,
+  "storeId":1003, 
+  "entityId":66722483, 
+  "eventType":"product.updated"
+}
+```
+
 The request body is a JSON object with the following fields:
 
 Name | Type | Description
@@ -98,7 +114,7 @@ eventId | number | Unique webhook ID
 eventType | string | Type of the occurred event.
 eventCreated | timestamp | Unix timestamp of the occurred event.
 storeId | number | Store ID of the store where the event occured.
-entityId | number | Id of the updated entity. For example, if a product was updated, then the entityId will be the ID of that product
+entityId | number | Id of the updated entity. Contains `productId` or `orderNumber` depending on `eventType`.
 data | \<OrderStatuses\> | Describes changes made to order. Is provided for `order.updated` and `order.created` event types, regarding order statuses
 
 #### OrderStatuses
