@@ -38,6 +38,9 @@ The following events are supported:
 * New product is created
 * Product is updated
 * Product is deleted
+* Application is installed
+* Application is deleted
+* Application status changed
 
 
 ## Setting up webhooks
@@ -106,6 +109,22 @@ Cache-Control: no-cache
 }
 ```
 
+> Application status changed
+
+```
+{
+  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventCreated":1234567,
+  "storeId":1003,
+  "entityId":"1003",
+  "eventType":"application.subscriptionStatusChanged"
+  "data":{
+    "oldSubscriptionStatus":"TRIAL",
+    "newSubscriptionStatus":"ACTIVE"
+    }
+  }
+```
+
 The request body is a JSON object with the following fields:
 
 Name | Type | Description
@@ -115,9 +134,9 @@ eventType | string | Type of the occurred event.
 eventCreated | timestamp | Unix timestamp of the occurred event.
 storeId | number | Store ID of the store where the event occured.
 entityId | number | Id of the updated entity. Contains `productId` or `orderNumber` depending on `eventType`.
-data | \<OrderStatuses\> | Describes changes made to order. Is provided for `order.updated` and `order.created` event types, regarding order statuses
+data | \<WebhookData\> | Describes changes made to order. Is provided for `order.updated` and `order.created` event types, regarding order statuses
 
-#### OrderStatuses
+#### WebhookData
 
 Name | Type | Description
 ---- | -----| -----------
@@ -125,6 +144,8 @@ oldPaymentStatus | string | Payment status of order before changes occurred
 newPaymentStatus | string | Payment status of order after changes occurred
 oldFulfillmentStatus | string | Fulfillment status of order before changes occurred
 newFulfillmentStatus | string | Fulfillment status of order after changes occurred
+oldSubscriptionStatus | string | Previous application subscription status before changes occurred
+newSubscriptionStatus | string | New application subscription status after changes occurred
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
 
@@ -138,6 +159,9 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `product.created` New product is created
 * `product.updated` Product is updated
 * `product.deleted` Product is deleted
+* `application.installed` Application is installed
+* `application.uninstalled` Application is deleted
+* `application.subscriptionStatusChanged` Application status changed
 
 All order related webhooks require `read_orders` access scope and all product related webhooks require `read_catalog` [access scope](#access-scopes) to be requested from the store.
 
@@ -182,6 +206,10 @@ To completely delete an unfinished order, make a delete order request to Ecwid A
 Webhooks in Ecwid have a specific field for that: `data`. This field provides information about changes to both payment and fulfilment status of orders. 
 
 Contents of `data` field also lets you know the details about old status (before the changes) and the new one (after the changes) at all times. For example, your application can send a note to your warehouse if it received a webhook about order payment status changes from `Awaiting payment` to `Paid`.
+
+### Q: How can I know the current subscription status of a store?
+
+Once you received `application.subscriptionStatusChanged` webhook, you can make a request to [Application endpoint](#get-application-status) to get the current subscription status of your app in that store.
 
 ## Request headers
 Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](#webhooks-security) below.
@@ -281,27 +309,27 @@ Here's an example of implementing all of the above described guidelines and reco
 
 ## Troubleshooting webhooks
 
-#### Q: Webhooks to my endpoint are not delivered. Why?
+### Q: Webhooks to my endpoint are not delivered. Why?
 
 There are several factors that can prevent you from getting webhooks from Ecwid. 
 
-1. **Application is not installed**
+**Application is not installed**
 
 When you are expecting a webhook from Ecwid after a certain event, please make sure that you have a registered app that has all webhook details specified. [More details](#setting-up-webhooks)
 
-2. **Application is missing the right webhook events**
+**Application is missing the right webhook events**
 
 Webhooks in Ecwid are sent to an endpoint of an application only when event occurs and the application is set up for those webhook event types. Make sure that you specified webhook event types that you want to receive when setting up webhooks. [More details](#setting-up-webhooks)
 
-3. **Application is missing access scopes**
+**Application is missing access scopes**
 
 Webhooks also depend not only on the event types specified for them, but also for access scopes that your application has. For example, if you want to receive webhooks about new orders, then your app must request `read_orders` access scope from a store.
 
-4. **Your endpoint is not responding to requests with 200 OK status**
+**Your endpoint is not responding to requests with 200 OK status**
 
 When an event occurs, Ecwid will immediately try to send a webhook to your endpoint. However, if it fails to respond with 200OK response status or it has errors in the response (from PHP code, for example). Ecwid will not be able to deliver this webhook to your endpoint, because it failed to accept it.
 
-5. **Webhooks are added to an existing application**
+**Webhooks are added to an existing application**
 
 If you registered your app without webhooks functionality and added it later on, please make sure to reinstall the app for the changes to apply faster in Ecwid.
 

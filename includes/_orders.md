@@ -1276,8 +1276,8 @@ paymentModule | string | Payment processor name
 tax | number | Tax total
 ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
-**paymentStatus** | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
-**fulfillmentStatus** | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
+**paymentStatus** | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>. Ignored when creating orders with [public token](#access-tokens)
+**fulfillmentStatus** | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>. Ignored when creating orders with [public token](#access-tokens)
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
@@ -1303,7 +1303,7 @@ paymentMessage | string | Message from the payment processor if any
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
-privateAdminNotes | string | Private note about the order from store owner
+privateAdminNotes | string | Private note about the order from store owner. Ignored when creating orders with [public token](#access-tokens)
 
 #### OrderItem
 Field | Type | Description

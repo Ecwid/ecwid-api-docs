@@ -2,7 +2,7 @@
 
 All Ecwid API requests require authentication. Ecwid supports **oAuth2** protocol to provide applications with an easy way to authenticate and access store data on behalf of the user with access tokens. 
 
-There are two types of access tokens in Ecwid: private and public tokens. Private ones can't be shared publicly as they provide access to modify store data through the REST API. Public tokens on the other hand have read-only access, so they can be used anywhere to get store details through the REST API in your apps.
+There are two types of access tokens in Ecwid: **private** and **public** tokens. **Private** ones can't be shared publicly as they provide access to modify store data through the REST API. **Public** tokens on the other hand have read-only access, so they can be used anywhere to get store details through the REST API in your apps.
 
 Ecwid user grants or denies access to certain data in their store for the particular application - then the application gets its own secure access token (and optional public token) upon authorization and uses that token as a key to make REST API calls to Ecwid.
 
@@ -74,7 +74,7 @@ After the moment user installs your app, it can store that token securely in you
 }
 ```
 
-Public token provides limited read-only access to public store data via REST API interface. While private tokens allow you to modify something in a store, like update an order status or change storkc levels, public tokens can only get limited information from a store.
+Public token provides limited access to public store data via REST API interface. While private tokens allow you to modify something in a store, like update an order status or change storkc levels, public tokens can only get limited information from a store and create orders with limitations.
 
 With public access token you can use these methods from anywhere (client-side JavaScript, widget integration codes, etc.):
 
@@ -89,6 +89,7 @@ With public access token you can use these methods from anywhere (client-side Ja
 - [Get visible product type details](#get-product-type)
 - [Get products and profile update stats](#get-store-update-statistics)
 - [Get deleted products statistics](#get-deleted-items-statistics)
+- [Create new orders](#create-order)
 - [Calculate order details](#calculate-order-details)
 
 These methods are available for public token regardless of the other access scope your requested from a store. To get public token for your application, specify `public_storefront` [access scope](#access-scopes) in the oAuth process.

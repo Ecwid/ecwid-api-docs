@@ -8,6 +8,11 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##July 26, 2016
+- **New** Added Javascript API Method for getting public token in storefront. [Learn more](https://developers.ecwid.com/api-documentation#ecwid-getapppublictoken)
+- Public tokens can now create orders. [Learn more](https://developers.ecwid.com/api-documentation#access-tokens)
+- Added webhooks for application changes (install/uninstall, status change). [Learn more](https://developers.ecwid.com/api-documentation#webhooks)
+
 ##July 14, 2016
 - **NEW** added public access tokens support. It allows to get public information of a store from anywhere with Ecwid REST API. [Learn more](https://developers.ecwid.com/api-documentation#access-tokens)
 

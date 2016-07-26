@@ -119,14 +119,11 @@ Ecwid.getAppPublicConfig(appId);
 > Get app public config code example
 
 ```js
-Ecwid.OnAPILoaded.add(function(page){
   var pageId = Ecwid.getAppPublicConfig("my-cool-app");
 
   console.log(pageId);
   // prints 
   // '12345'
-  
-})
 ```
 
 Returns value for `public` key from Ecwid Application Storage endpoint.
@@ -140,6 +137,33 @@ Name | Type | Description
 <aside class="notice">
 Data in public storage of your app must not exceed <strong>64Kb</strong>
 </aside>
+
+## Ecwid.getAppPublicToken 
+
+> Get app public config function usage
+
+```js
+Ecwid.getAppPublicToken(appId);
+```
+
+> Get app public token code example
+
+```js
+var publicToken = Ecwid.getAppPublicToken('my-cool-app');
+
+console.log(publicToken);
+// prints
+// public_qKDUqKkNXzcj9DejkMUqEkYLq2E6BXM9
+
+```
+
+Returns public applicaiton token for an Ecwid store. [Learn more](#access-tokens)
+
+`Ecwid.getAppPublicToken()` receives one argument: 
+
+Name | Type | Description
+---- | ---- | -----------
+**appId** | String | Namespace of your application (as set in the application settings).
 
 ## Page Object
 
