@@ -1,50 +1,20 @@
 # Authentication
 
-All Ecwid API requests require authentication. Ecwid supports **oAuth2** protocol to provide applications with an easy way to authenticate and access store data on behalf of the user with access tokens. 
+# Overview
+
+Ecwid platform provides two ways of how applications can be installed and operated with an online store: native and external apps. 
+
+**Native apps** work solely in Ecwid Control Panel by adding a new tab into one of its several sections. When user visits that tab, Ecwid will load the app's page in an iframe window. App can interact with a store (get access token, get store information) and with Ecwid Control Panel using [Ecwid JS SDK](#ecwid-javascript-sdk). 
+
+**External apps** work outside of Ecwid Control Panel on an external website or in the background with no set up required. These applications need to [handle the oAuth process](#get-access-token) themselves in order to get access token. Usually these apps work on server-side with their own database to store access tokens of their users' stores.
+
+# Access tokens
+
+All Ecwid REST API requests require authentication. Ecwid supports **oAuth2** protocol to provide applications with an easy way to authenticate and access store data on behalf of the user with access tokens. 
 
 There are two types of access tokens in Ecwid: **private** and **public** tokens. **Private** ones can't be shared publicly as they provide access to modify store data through the REST API. **Public** tokens on the other hand have read-only access, so they can be used anywhere to get store details through the REST API in your apps.
 
 Ecwid user grants or denies access to certain data in their store for the particular application - then the application gets its own secure access token (and optional public token) upon authorization and uses that token as a key to make REST API calls to Ecwid.
-
-# Native applications
-
-> Get access token in native apps
-
-```js
-var storeData = EcwidApp.getPayload();
-
-var storeId = storeData.store_id;
-var accessToken = storeData.access_token;
-
-// Use accessToken and storeId variables to make requests to Ecwid REST API
-// ...
-```
-
-> Check native apps guideline for general guides 
-
-> [https://developers.ecwid.com/native-applications](https://developers.ecwid.com/native-applications)
-
-Native applications work in a separate tab in Ecwid Control Panel. After user installs an application, Ecwid will redirect user to the new tab. In that tab, your application can interact with the store on behalf of the user. 
-
-To get access token and start making requests to Ecwid API, use Ecwid JS SDK and a couple of Javascript lines of code - see example on the right.
-
-See [native apps documentation](#embedded-apps) and start working on your application.
-
-# External applications
-
-External applications work outside of Ecwid control panel and they also have an app details page for easy installation process. These apps use oAuth2 flow to get access token for a specific Ecwid store. 
-
-> Check external apps guideline for general guides
-
-> [https://developers.ecwid.com/external-applications](https://developers.ecwid.com/external-applications)
-
-The installation process starts with user visiting app details page. On that page, they can install the app by providing the necessary permissions to it. Once the user clicks the "Install" button, Ecwid sends a user to your app's **Return URL** along with the temporary **code** in the URL parameters.
-
-Mind that in this case the installation process starts on Ecwid side and it might be the first time they open your site. Make sure your page on the return URL onboards users well – this is a landing page for them in your service. We recommend prefilling user details like: Name, email, Store name, Store ID and other fields that your service needs.
-
-See [External applications guideline](/external-applications) for more information.
-
-##Access tokens
 
 ### Private access token
 
@@ -92,7 +62,47 @@ With public access token you can use these methods from anywhere (client-side Ja
 - [Create new orders](#create-order)
 - [Calculate order details](#calculate-order-details)
 
-These methods are available for public token regardless of the other access scope your requested from a store. To get public token for your application, specify `public_storefront` [access scope](#access-scopes) in the oAuth process.
+These methods are available for public token regardless of the other access scope your requested from a store. 
+
+<aside class='note'>To get public token for your application, specify <strong>public_storefront</strong> <a href="#access-scopes">access scope</a> in the oAuth process.</aside>
+
+# Native applications
+
+> Get access token in native apps
+
+```js
+var storeData = EcwidApp.getPayload();
+
+var storeId = storeData.store_id;
+var accessToken = storeData.access_token;
+
+// Use accessToken and storeId variables to make requests to Ecwid REST API
+// ...
+```
+
+> Check native apps guideline for general guides 
+
+> [https://developers.ecwid.com/native-applications](https://developers.ecwid.com/native-applications)
+
+Native applications work in a separate tab in Ecwid Control Panel. After user installs an application, Ecwid will redirect user to the new tab. In that tab, your application can interact with the store on behalf of the user. 
+
+To get access token and start making requests to Ecwid API, use Ecwid JS SDK and a couple of Javascript lines of code - see example on the right.
+
+See [native apps documentation](#embedded-apps) and start working on your application.
+
+# External applications
+
+External applications work outside of Ecwid control panel and they also have an app details page for easy installation process. These apps use oAuth2 flow to get access token for a specific Ecwid store. 
+
+> Check external apps guideline for general guides
+
+> [https://developers.ecwid.com/external-applications](https://developers.ecwid.com/external-applications)
+
+The installation process starts with user visiting app details page. On that page, they can install the app by providing the necessary permissions to it. Once the user clicks the "Install" button, Ecwid sends a user to your app's **Return URL** along with the temporary **code** in the URL parameters.
+
+Mind that in this case the installation process starts on Ecwid side and it might be the first time they open your site. Make sure your page on the return URL onboards users well – this is a landing page for them in your service. We recommend prefilling user details like: Name, email, Store name, Store ID and other fields that your service needs.
+
+See [External applications guideline](/external-applications) for more information.
 
 ## Get access token
 

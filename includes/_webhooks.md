@@ -117,7 +117,7 @@ Cache-Control: no-cache
   "eventCreated":1234567,
   "storeId":1003,
   "entityId":"1003",
-  "eventType":"application.subscriptionStatusChanged"
+  "eventType":"application.subscriptionStatusChanged",
   "data":{
     "oldSubscriptionStatus":"TRIAL",
     "newSubscriptionStatus":"ACTIVE"
