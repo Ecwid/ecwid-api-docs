@@ -1171,6 +1171,14 @@ Cache-Control: no-cache
   "compareToPrice": 24.99,
   "categoryIds": [
     9691094
+  ],
+  "attributes": [
+    {
+      "id": 12974019,
+      "name": "Brand",
+      "value": "Apple",
+      "show": "DESCR"
+    }
   ]
 }
 ```
@@ -1201,7 +1209,7 @@ wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price t
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Leave empty for intangible products*
-productClassId |  number | Id of the class (type) that this product belongs to. `0` value means the product is of the default 'General' class. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
+productClassId |  number | Id of the product type that this product belongs to. `0` value means the product is of the default 'General' type. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
 enabled | boolean | `true` to make product enabled, `false` otherwise. Disabled products are not displayed in the store front.
 options | Array\<*ProductOption*\> | List of the product options. 
 warningLimit | number | The minimum 'warning' amount of the product items in stock, if set. When the product quantity reaches this level, the store administrator gets an email notification.
@@ -1241,9 +1249,11 @@ required |  boolean | `true` if this option is mandatory, `false` otherwise. Def
 #### AttributeValue
 Field | Type  | Description
 -------------- | -------------- | --------------
-id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs. 
+id |  number |  Unique attribute ID. See [Product Types](#product-types) for the information on attribute IDs. 
 alias | string | One of `UPC` , `BRAND` . This can be used instead of id to quickly update the basic product attributes without numeric id: UPC and brand 
 value | string  | Attribute value
+
+<aside class='notice'>To add a new attribute to a product, first <a href="#product-types">add it to product type</a> it belongs to. Then you can set a value for this new attribute by updating a product.</aside>
 
 #### RelatedProducts
 Field | Type  | Description

@@ -620,6 +620,294 @@ Name | Type | Description
 ---- | ---- | -----------
 callback | boolean | `true` if you can send customer to the checkout process, `false` otherwise
 
+## Ecwid.Cart.setCustomerEmail
+
+> Function description
+
+```js
+Ecwid.Cart.setCustomerEmail(email, successCallback, errorCallback)
+```
+
+> Set customer email example
+
+```js
+Ecwid.Cart.setCustomerEmail('james@coolstore.com')
+```
+
+`Ecwid.Cart.setCustomerEmail()` allows you to set customer's email in checkout process. Make sure to use it on pages, where the email is not shown so that it is always up-to-date.
+
+If a customer is logged in, your set email will overwrite the email for that customer's account (if possible).
+
+**Fields:**
+
+Name | Type | Description
+-----|------|-------------
+**email** | string | Customer email address to be set
+successCallback | function | Success callback function
+errorCallback | function | Error callback function
+
+<aside class='notice'>
+Parameters in bold are mandatory
+</aside>
+
+`errorCallback` structure is: errorCallback(errCode, errMsg)
+
+Name | Type | Description
+-----|------|-------------
+errCode | number | Error code
+errMsg | string | Error message
+
+**Errors**
+
+Error code | Error message
+-----------|--------------
+0 | Missing argument
+100 | Incorrect data passed
+1000 | Store owner disabled this functionality
+
+## Ecwid.Cart.setOrderComments
+
+> Function
+
+```js
+Ecwid.Cart.setAddress(orderComments, successCallback, errorCallback)
+```
+
+> Set order comments example
+
+```js
+Ecwid.Cart.setOrderComments('Leave order at the door.');
+```
+
+> Full function call example
+
+```js
+Ecwid.Cart.setOrderComments('Leave order at the door.',
+function(){
+ console.log('Success!')
+},
+function(){
+ console.log('Error');
+})
+```
+
+`Ecwid.Cart.setOrderComments` allows you to set the order comments field on the fly. It's quite useful to pass some additional information for an order, which will be provided in email notifications to customer and store admin as well as the order details in Ecwid Control Panel and Ecwid API.
+
+**Fields:**
+
+Name | Type | Description
+-----|------|-------------
+**orderComments** | string | Order comments string to be set for an order
+successCallback | function | Success callback function
+errorCallback | function | Error callback function
+
+<aside class='notice'>
+Parameters in bold are mandatory
+</aside>
+
+`errorCallback` structure is: errorCallback(errCode, errMsg)
+
+Name | Type | Description
+-----|------|-------------
+errCode | number | Error code
+errMsg | string | Error message
+
+**Errors**
+
+Error code | Error message
+-----------|--------------
+0 | Missing argument
+100 | Incorrect data passed
+1000 | Store owner disabled this functionality
+
+## Ecwid.Cart.setAddress
+
+> Function
+
+```js
+Ecwid.Cart.setAddress(address, successCallback, errorCallback)
+```
+
+> Set shipping address example
+
+```js
+Ecwid.Cart.setAddress({
+  "name": "John CarMichael",
+  "companyName": "Cool Slippers",
+  "street": "5th Ave",
+  "city": "New York",
+  "countryName": "United States",
+  "postalCode": "10002",
+  "stateOrProvinceCode": "NY",
+  "phone": "+1 234 523 11 42"
+  }
+);
+```
+
+> Full function call example
+
+```js
+Ecwid.Cart.setAddress({
+  "name": "John CarMichael",
+  "companyName": "Cool Slippers",
+  "street": "5th Ave",
+  "city": "New York",
+  "countryName": "United States",
+  "postalCode": "10002",
+  "stateOrProvinceCode": "NY",
+  "phone": "+1 234 523 11 42"
+  },
+  function(){
+   console.log('Success!')
+  },
+  function(){
+   console.log('Error');
+  }
+)
+```
+
+`Ecwid.Cart.setAddress()` allows you to set shipping address for customer in storefront. You can use it to prefill and hide fields in checkout process to simplify it. 
+
+If you specify some fields only (name, for example), then Ecwid will reset all other fields and they will become empty. So if you need to update only some fields, make sure to send them in your function call as well as the updated values.
+
+When function is called, Ecwid will set the 'My shipping address is the same as the billing address' flag to `true` automatically.
+
+**Fields:**
+
+Name | Type | Description
+-----|------|-------------
+**address** | \<*Person*\> | Customer's shipping address details
+successCallback | function | Success callback function
+errorCallback | function | Error callback function
+
+**Person** fields:
+
+Name | Type | Description
+-----|------|------------
+name | string | Customer's name
+companyName | string | Customer's company name
+street | string | Customer's street address
+city | string | Customer's city
+countryName | string | Customer's country name. `countryCode` can be used instead
+countryCode | string | Customer's country code. `countryName` can be used instead
+postalCode | string | Customer's zip code
+stateOrProvinceCode | string | Customer's state or provice code
+phone | string | Customer's phone number
+
+
+<aside class='notice'>
+Parameters in bold are mandatory
+</aside>
+
+`errorCallback` structure is: errorCallback(errCode, errMsg)
+
+Name | Type | Description
+-----|------|-------------
+errCode | number | Error code
+errMsg | string | Error message
+
+**Errors**
+
+Error code | Error message
+-----------|--------------
+0 | Missing argument
+100 | Incorrect data passed
+1000 | Store owner disabled this functionality
+
+## Ecwid.Cart.setBillingAddress
+
+> Function
+
+```js
+Ecwid.Cart.setBillingAddress(address, successCallback, errorCallback)
+```
+
+> Set billing address example
+
+```js
+Ecwid.Cart.setBillingAddress({
+  "name": "John CarMichael",
+  "companyName": "Cool Slippers",
+  "street": "5th Ave",
+  "city": "New York",
+  "countryName": "United States",
+  "postalCode": "10002",
+  "stateOrProvinceCode": "NY",
+  "phone": "+1 234 523 11 42"
+  }
+);
+```
+
+> Full function call example
+
+```js
+Ecwid.Cart.setBillingAddress({
+  "name": "John CarMichael",
+  "companyName": "Cool Slippers",
+  "street": "5th Ave",
+  "city": "New York",
+  "countryName": "United States",
+  "postalCode": "10002",
+  "stateOrProvinceCode": "NY",
+  "phone": "+1 234 523 11 42"
+  },
+  function(){
+   console.log('Success!')
+  },
+  function(){
+   console.log('Error');
+  }
+)
+```
+
+`Ecwid.Cart.setBillingAddress()` allows you to set billing address for customer in storefront. You can use it to specify some address from your custom form on your website. 
+
+If you specify some fields only (name, for example), then Ecwid will apply the changed fields only, leaving preset ones as they were before.
+
+When function is called, Ecwid will set the 'My shipping address is the same as the billing address' flag to `false` automatically.
+
+**Fields:**
+
+Name | Type | Description
+-----|------|-------------
+**address** | \<*Person*\> | Customer's billing address details
+successCallback | function | Success callback function
+errorCallback | function | Error callback function
+
+**Person** fields:
+
+Name | Type | Description
+-----|------|------------
+name | string | Customer's name
+companyName | string | Customer's company name
+street | string | Customer's street address
+city | string | Customer's city
+countryName | string | Customer's country name. `countryCode` can be used instead
+countryCode | string | Customer's country code. `countryName` can be used instead
+postalCode | string | Customer's zip code
+stateOrProvinceCode | string | Customer's state or provice code
+phone | string | Customer's phone number
+
+
+<aside class='notice'>
+Parameters in bold are mandatory
+</aside>
+
+`errorCallback` structure is: errorCallback(errCode, errMsg)
+
+Name | Type | Description
+-----|------|-------------
+errCode | number | Error code
+errMsg | string | Error message
+
+**Errors**
+
+Error code | Error message
+-----------|--------------
+0 | Missing argument
+100 | Incorrect data passed
+1000 | Store owner disabled this functionality
+
 # Get Cart Details
 
 Find out more about cart in its current state.
