@@ -8,8 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
-##August 15, 2016
+##August 16,2016
+- **NEW** Added methods to get and update starter site content details. [Learn more](https://developers.ecwid.com/api-documentation#starter-site)
 
+##August 15, 2016
 - **NEW** Added new JavaScript API functions to set various customer details in storefront. [Learn more](https://developers.ecwid.com/api-documentation#manage-customer-39-s-cart)
 - Improved 'Generate cart with products' method with new fields, like customer address, customer email and order comments. [Learn more](https://developers.ecwid.com/api-documentation#generate-cart-with-products)
 

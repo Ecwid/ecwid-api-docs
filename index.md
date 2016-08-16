@@ -23,6 +23,7 @@ includes:
   - coupons
   - application
   - stores
+  - startersite
   - webhooks
   - application_storage
   - add_to_cp
