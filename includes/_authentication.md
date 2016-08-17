@@ -372,11 +372,15 @@ To install any application from the Ecwid App Market, user would need to visit a
 
 Where `my-cool-app` is the **appId** provided to you when you registered your application with us. App details page contains various information like app description, screenshots, pricing and other details. 
 
+<aside class='notice'>
+App details page is available for public apps registered for the Ecwid App Market only. In all other cases 404 error will be displayed when accessing app page.
+</aside>
+
 > Public app details page of Ecwid app for iOS
 
 > [https://www.ecwid.com/apps/storemanagement/ecwid-iphone-app](https://www.ecwid.com/apps/storemanagement/ecwid-iphone-app)
 
-User can install the application into their Ecwid store there and this process replaces the oAuth dialog because user is already logged in to their account. Ecwid will request from users all the store permissions that you specified when you registered the application.
+User can install the application into their Ecwid store from this page and this process replaces the oAuth dialog, because user is already in the Ecwid Control Panel. After that, your app will request store permissions that you specified when you registered the application and proceed according to the type of the application (see below).
 
 > To set up an app details page for your public application, see [Publishing Your App](/publishing-your-app) page for details.
 

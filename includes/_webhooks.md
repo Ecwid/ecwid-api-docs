@@ -30,13 +30,13 @@ In a nustshell, webhooks in Ecwid work this way:
 The following events are supported:
 
 * Unfinished order is created
-* Unfinished order is updated
+* Unfinished order is updated (any changes made to that order)
 * Unfinished order is deleted
 * New order is placed
-* Order is changed
+* Order is changed (any changes made to that order)
 * Order is deleted
 * New product is created
-* Product is updated
+* Product is updated (any changes made to that product)
 * Product is deleted
 * Application is installed
 * Application is deleted

@@ -964,9 +964,9 @@ A JSON object containing the update dates statistics
 #### UpdateStats
 Field | Type | Description
 ----- | ---- | -----------
-productsUpdated | string | Date of the latest product update, e.g. `2014-10-15 16:54:11 +0400`
-ordersUpdated | string | Date of the latest orders update, e.g. `2014-10-15 16:54:11 +0400`
-profileUpdated | string | Date of the latest profile update, e.g. `2014-10-15 16:54:11 +0400`
+productsUpdated | string | Date of the latest changes in store catalog (products, categories), e.g. `2014-10-15 16:54:11 +0400`
+ordersUpdated | string | Date of the latest changes in store orders, e.g. `2014-10-15 16:54:11 +0400`
+profileUpdated | string | Date of the latest changes in store information, e.g. `2014-10-15 16:54:11 +0400`
 
 ### Errors
 
