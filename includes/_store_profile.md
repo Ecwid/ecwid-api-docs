@@ -932,6 +932,8 @@ errorMessage | string | Error message
 
 This method provides simple 'Latest updates' statistics about store profile, products and orders. Use it to check whether something was changed in an Ecwid store. This could be helpful to keep data in your application up-to-date and avoid abusing API to get and parse large amounts of data to check its state.
 
+Also, you can consider using [webhooks](#webhooks) to get a notificaiton when changes are made to orders and catalog items. For example, you can get a webhook when a new order is placed in a store and send order details to a warehouse right away.
+
 > Request example
 
 ```http
@@ -994,6 +996,8 @@ errorMessage | string | Error message
 
 ## Get deleted items statistics
 Using this group of API methods, you can get a list of products, orders, customers and coupons that have been deleted from the store. In combination with the update statistics, you can use these endpoints to check whether something was changed in an Ecwid store and keep data in your application synchronized with the Ecwid store you're working with. 
+
+Also, you can consider using [webhooks](#webhooks) to get a notificaiton when orders and catalog items are deleted. For example, you can get a webhook right after a product is deleted from an Ecwid store and adjust your custom product list in external system.
 
 > Get deleted products stats
 

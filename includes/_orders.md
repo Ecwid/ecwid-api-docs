@@ -353,7 +353,7 @@ Field | Type |  Description
 --------- | -----------| -----------
 name |  string  | Full name
 companyName |   string  | Company name
-street |    string  | Address
+street |    string  | Address line 1 and address line 2, separated by '\n'
 city |  string  | City
 countryCode | string  | Two-letter country code
 countryName | string | Country name
@@ -760,7 +760,7 @@ Field | Type |  Description
 --------- | -----------| -----------
 name |  string  | Full name
 companyName |   string  | Company name
-street |    string  | Address
+street |    string  | Address line 1 and address line 2, separated by '\n'
 city |  string  | City
 countryCode | string  | Two-letter country code
 countryName | string | Country name
@@ -1030,7 +1030,7 @@ Field | Type |  Description
 --------- | -----------| -----------
 name |  string  | Full name
 companyName |   string  | Company name
-street |    string  | Address
+street |    string  | Address line 1 and address line 2, separated by '\n'
 city |  string  | City
 countryCode | string  | Two-letter country code
 postalCode | string  | Postal/ZIP code
@@ -1350,7 +1350,7 @@ Field | Type | Description
 ----- | ---- | -----------
 name |  string  | Full name
 companyName |   string  | Company name
-street |    string  | Address
+street |    string  | Address line 1 and address line 2, separated by '\n'
 city |  string  | City
 countryCode | string  | Two-letter country code
 postalCode | string  | Postal/ZIP code
