@@ -214,7 +214,7 @@ Parameters in bold are mandatory
   "contactusFacebook": "https://www.facebook.com/ecwid",
   "contactusTwitter": "https://twitter.com/ecwid",
   "contactusInstagram": "https://www.instagram.com/ecwid_team",
-  "contactUsList": "{\"title\": \"Contact us\", \"channels\": [{\"type\": \"phone\", \"title\": \"Phone\", \"value\": \"1-800-555-0123\"}, {\"type\": \"email\", \"title\": \"Email\", \"value\": \"john.doe@example.com\"}], \"channelsTitle\": \"Connect with us\"}"
+  "contactUsList": "{\"title\": \"Contact us\", \"channels\": [{\"type\": \"phone\", \"title\": \"Phone\", \"value\": \"1-800-555-0123\"}, {\"type\": \"email\", \"title\": \"Email\", \"value\": \"john.doe@example.com\"}], \"channelsTitle\": \"Connect with us\"}",
   "showCoverImage": true,
   "showWhyUs": true,
   "showQuote": false,
