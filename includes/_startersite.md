@@ -61,7 +61,14 @@ Parameters in bold are mandatory
   "contactusFacebook": "https://www.facebook.com/ecwid",
   "contactusTwitter": "https://twitter.com/ecwid",
   "contactusInstagram": "https://www.instagram.com/ecwid_team",
-  "contactUsList": "{\"title\": \"Contact us\", \"channels\": [{\"type\": \"phone\", \"title\": \"Phone\", \"value\": \"1-800-555-0123\"}, {\"type\": \"email\", \"title\": \"Email\", \"value\": \"john.doe@example.com\"}], \"channelsTitle\": \"Connect with us\"}"
+  "contactUsList": "{\"title\": \"Contact us\", \"channels\": [{\"type\": \"phone\", \"title\": \"Phone\", \"value\": \"1-800-555-0123\"}, {\"type\": \"email\", \"title\": \"Email\", \"value\": \"john.doe@example.com\"}], \"channelsTitle\": \"Connect with us\"}",
+  "showCoverImage": true,
+  "showWhyUs": true,
+  "showQuote": true,
+  "showInstagram": true,
+  "showMeetowner": true,
+  "showLocation": true,
+  "showContactus": true
 }
 ```
 
@@ -108,6 +115,13 @@ contactusGoogle | string | URL to store's Google+ profile
 contactusYoutube | string | URL to store's Youtube profile
 contactusVimeo | string | URL to store's Vimeo profile
 contactUsList | \<*ContactUsListInfo*\> | Contact a store block
+showCoverImage | boolean | `true` if "Cover image" section is shown. `false` otherwise. Default is `true`
+showWhyUs | boolean | `true` if "Why Us?" section is shown. `false` otherwise. Default is `true`
+showQuote | boolean | `true` if quote section is shown. `false` otherwise. Default is `true`
+showInstagram | boolean | `true` if Instagram feed section is shown. `false` otherwise. Default is `true`
+showMeetowner | boolean | `true` if "Meet the Owner" section is shown. `false` otherwise. Default is `true`
+showLocation | boolean | `true` if store location section is shown. `false` otherwise. Default is `true`
+showContactus | boolean | `true` if "Contact Us" section is shown. `false` otherwise. Default is `true`
 
 #### LocationHoursInfo
 
@@ -201,6 +215,13 @@ Parameters in bold are mandatory
   "contactusTwitter": "https://twitter.com/ecwid",
   "contactusInstagram": "https://www.instagram.com/ecwid_team",
   "contactUsList": "{\"title\": \"Contact us\", \"channels\": [{\"type\": \"phone\", \"title\": \"Phone\", \"value\": \"1-800-555-0123\"}, {\"type\": \"email\", \"title\": \"Email\", \"value\": \"john.doe@example.com\"}], \"channelsTitle\": \"Connect with us\"}"
+  "showCoverImage": true,
+  "showWhyUs": true,
+  "showQuote": false,
+  "showInstagram": true,
+  "showMeetowner": true,
+  "showLocation": false,
+  "showContactus": true
 }
 ```
 
@@ -241,6 +262,13 @@ contactusGoogle | string | URL to store's Google+ profile
 contactusYoutube | string | URL to store's Youtube profile
 contactusVimeo | string | URL to store's Vimeo profile
 contactUsList | \<*ContactUsListInfo*\> | Contact a store block
+showCoverImage | boolean | Set to `false` to hide the "Cover image" section. `true` otherwise. Default is `true`
+showWhyUs | boolean | Set to `false` to hide "Why Us?" section. `true` otherwise. Default is `true`
+showQuote | boolean | Set to `false` to hide quote section. `true` otherwise. Default is `true`
+showInstagram | boolean | Set to `false` to hide Instagram feed section. `true` otherwise. Default is `true`
+showMeetowner | boolean | Set to `false` to hide "Meet the Owner" section. `true` otherwise. Default is `true`
+showLocation | boolean | Set to `false` to hide store location section. `true` otherwise. Default is `true`
+showContactus | boolean | Set to `false` to hide "Contact Us" section. `true` otherwise. Default is `true`
 
 #### LocationHoursInfo
 
