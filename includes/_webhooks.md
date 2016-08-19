@@ -29,19 +29,35 @@ In a nustshell, webhooks in Ecwid work this way:
 
 The following events are supported:
 
-* Unfinished order is created
-* Unfinished order is updated (any changes made to that order)
-* Unfinished order is deleted
-* New order is placed
-* Order is changed (any changes made to that order)
-* Order is deleted
-* New product is created
-* Product is updated (any changes made to that product)
-* Product is deleted
-* Application is installed
-* Application is deleted
-* Application status changed
+#### Orders
 
+* Unfinished order was created
+* Unfinished order was updated
+* Unfinished order was deleted
+
+`unfinished_order.updated` events are triggered when any changes are made to an unfinished order. [Orders endpoint](#orders) allows you to control and get information about unfinished orders in a store. 
+
+* New order was placed
+* Order was updated
+* Order was deleted
+
+`order.updated` events are triggered when any changes are made to an order in Ecwid store. [Orders endpoint](#orders) allows you to control and get information about orders in a store. 
+
+#### Products
+
+* New product was created
+* Product was updated
+* Product was deleted
+
+`product.updated` events are triggered when any part of a product is updated: quantity, categories assigned, product options, combinations, attributes, images, pricing, etc. [Products endpoint](#products) allows you to control and get information about products in a store. 
+
+#### Application
+
+* Application was installed
+* Application status was updated
+* Application was deleted
+
+[Application endpoint](#application) allows you to check status of your application.
 
 ## Setting up webhooks
 
