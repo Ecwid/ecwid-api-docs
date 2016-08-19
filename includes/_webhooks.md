@@ -31,17 +31,14 @@ The following events are supported:
 
 #### Orders
 
+* New order was placed
+* Order was updated
+* Order was deleted
 * Unfinished order was created
 * Unfinished order was updated
 * Unfinished order was deleted
 
-`unfinished_order.updated` events are triggered when any changes are made to an unfinished order. [Orders endpoint](#orders) allows you to control and get information about unfinished orders in a store. 
-
-* New order was placed
-* Order was updated
-* Order was deleted
-
-`order.updated` events are triggered when any changes are made to an order in Ecwid store. [Orders endpoint](#orders) allows you to control and get information about orders in a store. 
+`order.updated` and `unfinished_order.updated` events are triggered when any changes are made to an unfinished or completed order. [Orders endpoint](#orders) allows you to control and get information about unfinished and completed orders in a store. 
 
 #### Products
 
