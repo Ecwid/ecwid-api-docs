@@ -57,7 +57,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
     "total": 5,
     "count": 2,
     "offset": 0,
-    "limit": 100,
+    "limit": 2,
     "items": [
         {
           "id": 37208339,
@@ -124,7 +124,28 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
               "orderBy": 1
             }
           ],
-          "categoryIds": [],
+          "categoryIds": [
+            19563207,
+            19976005,
+            19976006
+          ],
+          "categories": [
+            {
+              "id": 19976006,
+              "name": "Fruit",
+              "enabled": true
+            },
+            {
+              "id": 19976005,
+              "name": "Sale",
+              "enabled": true
+            },
+            {
+              "id": 19563207,
+              "name": "Test",
+              "enabled": false
+            }
+          ],
           "seoTitle": "Orange",
           "seoDescription": "It's a tasty orange for you and your family!",
           "defaultCategoryId": 0,
@@ -193,7 +214,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "createTimestamp": 1248340746,
             "updateTimestamp": 1428313104,
             "productClassId": 0,
-            "enabled": true,
+            "enabled": false,
             "options": [
                 {
                     "type": "RADIO",
@@ -259,6 +280,13 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "categoryIds": [
                 9691095
             ],
+            "categories": [
+              {
+                "id": 9691095,
+                "name": "Vegetables",
+                "enabled": true
+              }
+            ]
             "seoTitle": "Radish",
             "seoDescription": "It's an awesome radish just for you!",            
             "defaultCategoryId": 9691095,
@@ -388,6 +416,163 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
 }
 ```
 
+> Public token request example
+
+```http
+GET /api/v3/4870020/products?limit=2&keyword=fruit&token=public_123abcdaASasdASjndasAnsdu HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+```
+
+> Response example (JSON)
+
+```json
+{
+    "total": 5,
+    "count": 2,
+    "offset": 0,
+    "limit": 2,
+    "items": [
+        {
+          "id": 37208339,
+          "sku": "00099",
+          "thumbnailUrl": "http://app.ecwid.com/default-store/00011-232-sq.jpg",
+          "quantity": 11,
+          "unlimited": false,
+          "inStock": true,
+          "name": "Orange",
+          "price": 10,
+          "priceInProductList": 10,
+          "wholesalePrices": [
+            {
+              "quantity": 2,
+              "price": 9
+            },
+            {
+              "quantity": 4,
+              "price": 8
+            }
+          ],
+          "compareToPrice": 23,
+          "isShippingRequired": true,
+          "weight": 0,
+          "url": "http://app.ecwid.com#!/Orange/p/37208339",
+          "created": "2015-10-05 07:26:14 +0000",
+          "updated": "2016-02-03 10:01:02 +0000",
+          "createTimestamp": 1444029974,
+          "updateTimestamp": 1454493662,
+          "productClassId": 0,
+          "enabled": true,
+          "options": [],
+          "warningLimit": 0,
+          "fixedShippingRateOnly": true,
+          "fixedShippingRate": 0,
+          "defaultCombinationId": 0,
+          "imageUrl": "http://app.ecwid.com/default-store/00007123-12-sq.jpg",
+          "smallThumbnailUrl": "http://app.ecwid.com/default-store/000017-sq.jpg",
+          "hdThumbnailUrl": "https://app.ecwid.com/images/1003/397690783.jpg",
+          "originalImageUrl": "http://app.ecwid.com/default-store/00005-sq.jpg",
+          "originalImage": {
+              "url": "http://app.ecwid.com/default-store/00005-sq.jpg",
+              "width": 123,
+              "height": 456
+          },
+          "description": "<p>It's a tasty fruit!</p>",
+          "galleryImages": [
+            {
+              "id": 18481471,
+              "alt": "AdditionalImage",
+              "url": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/312058848.jpg",
+              "thumbnail": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/351433814.jpg",
+              "width": 473,
+              "height": 545,
+              "orderBy": 0
+            },
+            {
+              "id": 18481472,
+              "alt": "AdditionalImage",
+              "url": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/312058850.jpg",
+              "thumbnail": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/351433815.jpg",
+              "width": 247,
+              "height": 545,
+              "orderBy": 1
+            }
+          ],
+          "categoryIds": [
+            19563207,
+            19976005,
+            19976006
+          ],
+          "categories": [
+            {
+              "id": 19976006,
+              "name": "Fruit",
+              "enabled": true
+            },
+            {
+              "id": 19976005,
+              "name": "Sale",
+              "enabled": true
+            },
+            {
+              "id": 19563207,
+              "enabled": false
+            }
+          ],
+          "seoTitle": "Orange",
+          "seoDescription": "It's a tasty orange for you and your family!",
+          "defaultCategoryId": 0,
+          "favorites": {
+            "count": 0,
+            "displayedCount": "0"
+          },
+          "attributes": [
+            {
+              "id": 8258226,
+              "name": "Width",
+              "value": "61.47 mm",
+              "show": "DESCR"
+            },
+            {
+              "id": 8258231,
+              "name": "Height",
+              "value": "117.09 mm",
+              "show": "DESCR"
+            },
+            {
+              "id": 8258249,
+              "name": "Depth",
+              "value": "15.49 mm",
+              "show": "DESCR"
+            },
+            {
+              "id": 8258255,
+              "name": "Net weight",
+              "value": "153.2 g",
+              "show": "DESCR"
+            }
+          ],
+          "files": [],
+          "relatedProducts": {
+            "productIds": [],
+            "relatedCategory": {
+              "enabled": false,
+              "categoryId": 0,
+              "productCount": 1
+            }
+          },
+          "combinations": []
+        },
+        {
+            "id": 37208339,
+            "enabled": false
+        }
+    ]
+}
+```
+
+
 A JSON object of type 'SearchResult' with the following fields:
 
 #### SearchResult
@@ -435,6 +620,7 @@ originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
+categories | Array\<CategoriesInfo\> | List of the categories, which the product belongs to, with brief details
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
@@ -482,6 +668,13 @@ thumbnail | string  | Image thumbnail URL resized to fit 46x42px box
 width | number |  Image width
 height |  number |  Image height
 orderby |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
+
+#### CategoriesInfo
+Field | Type  | Description
+----- | ----- | -----------
+id | number | Category ID
+name | string | Category name. Not returned for [public access tokens](#access-tokens)
+enabled | boolean | `true` if category is enabled, `false` otherwise
 
 #### AttributeValue
 Field | Type  | Description
@@ -690,6 +883,12 @@ Parameters in bold are mandatory
     "categoryIds": [
         9691095
     ],
+    "categories": [
+      {
+        "id": 9691095,
+        "enabled": true
+      }
+    ]    
     "seoTitle": "Radish",
     "seoDescription": "It's an awesome radish just for you!",     
     "defaultCategoryId": 9691095,
@@ -812,6 +1011,23 @@ Parameters in bold are mandatory
 }
 ```
 
+> Public token request example for disabled product
+
+```http
+GET /api/v3/4870020/products/66722482?token=public_123abcdaASasdASjndasAnsdu HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+```
+
+> Response example (JSON)
+
+```json
+{
+  "id": 66722482,
+  "enabled": false
+}
+```
 
 A JSON object of type 'Product' with the following fields:
 
@@ -851,6 +1067,7 @@ originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<number\> | List of the categories, which the product belongs to
+categories | Array\<CategoriesInfo\> | List of the categories, which the product belongs to, with brief details
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
@@ -898,6 +1115,12 @@ thumbnail | string  | Image thumbnail URL resized to fit 46x42px box
 width | number |  Image width
 height |  number |  Image height
 orderby |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
+
+#### CategoriesInfo
+Field | Type  | Description
+----- | ----- | -----------
+id | number | Category ID
+enabled | boolean | `true` if category is enabled, `false` otherwise
 
 #### AttributeValue
 Field | Type  | Description

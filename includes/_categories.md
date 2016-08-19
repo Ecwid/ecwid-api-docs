@@ -7,7 +7,7 @@
 > Request example
 
 ```http
-GET /api/v3/4870020/categories?token=123abcd HTTP/1.1
+GET /api/v3/4870020/categories?hidden_categories=true&token=123abcd HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
 ```
@@ -66,7 +66,49 @@ productIds | boolean | Set to `true` if you want the results to contain a list o
             "name": "Vegetables",
             "url": "http://app.ecwid.com/store/4870020#!/Vegetables/c/9691095",
             "productCount": 4,
+            "enabled": false
+        }
+    ]
+}
+```
+
+> Public token request example
+
+```http
+GET /api/v3/4870020/categories?hidden_categories=true&token=public_123abcdaASasdASjndasAnsdu HTTP/1.1
+Host: app.ecwid.com
+Cache-Control: no-cache
+```
+
+> Response example
+
+```json
+{
+    "total": 2,
+    "count": 2,
+    "offset": 0,
+    "limit": 100,
+    "items": [
+        {
+            "id": 9691094,
+            "orderBy": 10,
+            "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
+            "thumbnailUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
+            "originalImageUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
+            "originalImage": {
+                "url": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
+                "width": 123,
+                "height": 456
+            },            
+            "name": "Fruit",
+            "url": "http://app.ecwid.com/store/4870020#!/Fruit/c/9691094",
+            "productCount": 6,
+            "description": "",
             "enabled": true
+        },
+        {
+            "id": 9691095,
+            "enabled": false
         }
     ]
 }
@@ -173,6 +215,24 @@ Query field | Type    | Description
     "productCount": 0,
     "description": "<p>arf34</p>",
     "enabled": true
+}
+```
+
+> Disabled category and public token request example
+
+```http
+GET /api/v3/4870020/categories/10861117?token=public_123abcdaASasdASjndasAnsdu HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+```
+
+> Response
+
+```json
+{
+    "id": 10861117,
+    "enabled": false
 }
 ```
 
