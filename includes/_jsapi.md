@@ -200,6 +200,117 @@ productId | integer | for type==’PRODUCT’: the internal id of the displaying
 orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
 vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
 
+# Colors and Fonts
+
+Change any color and main font for user's storefront
+
+## Change colors
+
+> Set storefront colors automatically
+
+```js
+window.ec = {
+         config: {
+             chameleon: {
+                 colors: 'auto'
+             }
+         }
+     }
+```
+
+> Set storefront colors manually
+
+```js
+window.ec = {
+    config: {
+        chameleon: {
+            colors: {
+                'color-background':'#A0A0A0',
+                'color-foreground':'#A0A0A0',
+                'color-link':'#A0A0A0',
+                'color-button':'#A0A0A0',
+                'color-price':'#A0A0A0'
+            }
+        }
+    }
+}
+```
+
+> Set storefront colors and font example
+
+```js
+window.ec = {
+    config: {
+        chameleon: {
+            colors: {
+                'color-button':'#A0A0A0',
+                'color-price':'#A0A0A0'
+            },
+            font: {
+                'font-family': 'arial,sans-serif'
+            }
+        }
+    }
+}
+```
+
+Using the global Ecwid config object you can control the colors in user's storefront. To pre-define colors for a storefront, add JavaScript code on the right in the same frame, where Ecwid integration code is added.
+
+**Fields:**
+
+Name | Type | Description
+---- | ----- | -----------
+color-background | string (HEX color) | Background color for storefront and  small buttons ("Clear bag", "Apply", etc.)
+color-foreground | string (HEX color) | Color of all texts in storefront
+color-link | string (HEX color) | Color for links in storefront (breadcrumbs, "Sign In", "Favourites", etc.)
+color-button | string (HEX color) | Color for main buttons in storefront ("Add to bag", "Checkout", etc.) and small buttons on mouse hover ("Clear bag", "Apply", etc.)
+color-price | string (HEX color) | Color for product prices in storefront
+
+## Change font
+
+> Set storefront font automatically
+
+```js
+window.ec = {
+         config: {
+             chameleon: {
+                 font: 'auto'
+             }
+         }
+     }
+```
+
+> Set storefront font manually
+
+```js
+window.ec = {
+    config: {
+        chameleon: {
+            font: {
+                'font-family': 'arial,sans-serif'
+            }
+        }
+    }
+}
+```
+
+> Set storefront colors and font example
+
+```js
+window.ec = {
+    config: {
+        chameleon: {
+            colors: 'auto',
+            font: {
+                'font-family': 'arial,sans-serif'
+            }
+        }
+    }
+}
+```
+
+Using the global Ecwid config object you can control the fonts of all texts displayed in user's storefront. To pre-define a font for a storefront, add JavaScript code on the right in the same fram, where Ecwid integration code is added.
+
 # Subscribe To Events
 
 Find various useful events and execute your functions with them.

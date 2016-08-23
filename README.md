@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##August 23, 2016
+- **NEW** Added methods to change colors and font of a storefront. [Learn more](https://developers.ecwid.com/api-documentation#colors-and-fonts)
+
 ##August 16,2016
 - **NEW** Added methods to get and update starter site content details. [Learn more](https://developers.ecwid.com/api-documentation#starter-site)
 
