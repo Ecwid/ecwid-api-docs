@@ -208,19 +208,22 @@ Change any color and main font for user's storefront
 
 > Set storefront colors automatically
 
-```js
+```html
+<script>
 window.ec = {
-         config: {
-             chameleon: {
-                 colors: 'auto'
-             }
+     config: {
+         chameleon: {
+            colors: 'auto'
          }
      }
+}
+</script>
 ```
 
 > Set storefront colors manually
 
-```js
+```html
+<script>
 window.ec = {
     config: {
         chameleon: {
@@ -234,11 +237,13 @@ window.ec = {
         }
     }
 }
+</script>
 ```
 
 > Set storefront colors and font example
 
-```js
+```html
+<script>
 window.ec = {
     config: {
         chameleon: {
@@ -252,9 +257,12 @@ window.ec = {
         }
     }
 }
+</script>
 ```
 
 Using the global Ecwid config object you can control the colors in user's storefront. To pre-define colors for a storefront, add JavaScript code on the right in the same frame, where Ecwid integration code is added.
+
+`auto` value allows Ecwid to detect the website colors around Ecwid storefront to adapt its colors automatically. Use the fields below to set colors manually.
 
 **Fields:**
 
@@ -270,19 +278,22 @@ color-price | string (HEX color) | Color for product prices in storefront
 
 > Set storefront font automatically
 
-```js
+```html
+<script>
 window.ec = {
-         config: {
-             chameleon: {
-                 font: 'auto'
-             }
-         }
-     }
+    config: {
+        chameleon: {
+            font: 'auto'
+        }
+    }
+}
+</script>
 ```
 
 > Set storefront font manually
 
-```js
+```html
+<script>
 window.ec = {
     config: {
         chameleon: {
@@ -292,11 +303,13 @@ window.ec = {
         }
     }
 }
+</script>
 ```
 
 > Set storefront colors and font example
 
-```js
+```html
+<script>
 window.ec = {
     config: {
         chameleon: {
@@ -307,9 +320,12 @@ window.ec = {
         }
     }
 }
+</script>
 ```
 
 Using the global Ecwid config object you can control the fonts of all texts displayed in user's storefront. To pre-define a font for a storefront, add JavaScript code on the right in the same fram, where Ecwid integration code is added.
+
+`auto` value allows Ecwid to detect the website's main font to adapt its font automatically. You can also set a specific font-family for a storefront manually.
 
 # Subscribe To Events
 
