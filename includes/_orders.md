@@ -1469,6 +1469,36 @@ Cache-Control: no-cache
 binary data
 ```
 
+> PHP Example
+
+```php
+$file = file_get_contents('image.jpg');
+$url = 'https://app.ecwid.com/api/v3/4870020/orders/20/items/987653/options/Attach+your+image?fileName=my_photo.jpg&token=123456789abcd';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $file);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
+
+$result = curl_exec($ch);
+curl_close ($ch);
+```
+
+> Python Example
+
+```python
+import requests
+
+request_url = "https://app.ecwid.com/api/v3/4870020/orders/20/items/987653/options/Attach+your+image?fileName=my_photo.jpg&token=123456789abcd"
+
+image_file_data = open('image.jpg', 'rb').read()
+
+result = requests.post(request_url,data=image_file_data)
+
+print(result.status_code)
+```
+
 `POST https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName}?fileName={fileName}token={token}`
 
 Name | Type    | Description

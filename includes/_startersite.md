@@ -361,6 +361,20 @@ $result = curl_exec($ch);
 curl_close ($ch);
 ```
 
+> Python Example
+
+```python
+import requests
+
+request_url = "https://app.ecwid.com/api/v3/1003/startersite/cover?token=abcdefg123456"
+
+image_file_data = open('image.jpg', 'rb').read()
+
+result = requests.post(request_url,data=image_file_data)
+
+print(result.status_code)
+```
+
 `POST https://app.ecwid.com/api/v3/{storeId}/startersite/cover?token={token}`
 
 Name | Type    | Description
@@ -454,6 +468,20 @@ $result = curl_exec($ch);
 curl_close ($ch);
 ```
 
+> Python Example
+
+```python
+import requests
+
+request_url = "https://app.ecwid.com/api/v3/1003/startersite/ownerportrait?token=abcdefg123456"
+
+image_file_data = open('image.jpg', 'rb').read()
+
+result = requests.post(request_url,data=image_file_data)
+
+print(result.status_code)
+```
+
 `POST https://app.ecwid.com/api/v3/{storeId}/startersite/ownerportrait?token={token}`
 
 Name | Type    | Description
@@ -540,6 +568,20 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
 
 $result = curl_exec($ch);
 curl_close ($ch);
+```
+
+> Python Example
+
+```python
+import requests
+
+request_url = "https://app.ecwid.com/api/v3/1003/startersite/quoteperson?token=abcdefg123456"
+
+image_file_data = open('image.jpg', 'rb').read()
+
+result = requests.post(request_url,data=image_file_data)
+
+print(result.status_code)
 ```
 
 `POST https://app.ecwid.com/api/v3/{storeId}/startersite/quoteperson?token={token}`

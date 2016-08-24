@@ -553,6 +553,20 @@ $result = curl_exec($ch);
 curl_close ($ch);
 ```
 
+> Python Example
+
+```python
+import requests
+
+request_url = "https://app.ecwid.com/api/v3/1003/categories/123456/image?token=abcdefg123456"
+
+image_file_data = open('image.jpg', 'rb').read()
+
+result = requests.post(request_url,data=image_file_data)
+
+print(result.status_code)
+```
+
 `POST https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}/image?token={token}`
 
 Name | Type    | Description
