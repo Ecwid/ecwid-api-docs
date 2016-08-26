@@ -48,6 +48,10 @@ If no filters are set in the URL, API will return all products
 To search for exact match, put the keyword in quotes like this: "ABC123". For example, you can use this to get a product by SKU. 
 </aside>
 
+<aside class="notice">
+To get all products from the store, use the <strong>offset</strong> parameter. I.e. after you got first 100 products, set <strong>offset</strong> to 100 and retrieve the next 100 products. Continue this loop to get all products in a store.
+</aside>
+
 ### Response
 
 > Response example (JSON)

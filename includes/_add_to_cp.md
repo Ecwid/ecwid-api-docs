@@ -381,6 +381,10 @@ EcwidApp.init({
 
 The `EcwidApp.init()` method initializes your app inside Ecwid Control Panel. Call it once at the beginning of executable code in your app.
 
+You can get the `app_id` using the URL in your browser when you open your application tab. Here's a typical link that you can get when you open your app: `https://my.ecwid.com/cp/CP.html#app:name=my-super-app&parent-menu=promotions`
+
+The `app_id` here is the `my-super-app` part. Make sure to use this to initialize your application with Ecwid JS SDK.
+
 ### Parameters
 
 The only parameter is a JS object with the following fields:

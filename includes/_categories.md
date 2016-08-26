@@ -24,6 +24,10 @@ parent | number | ID of the parent category. Set to `0` to get the list of root 
 hidden_categories | boolean | By default, Ecwid returns only enabled categories. Set this parameter to `true` if you want hidden (disabled) categories to be returned. `false` is default
 productIds | boolean | Set to `true` if you want the results to contain a list of product IDs assigned to category. `false` is default
 
+<aside class='notice'>
+To get a list of products in results for each category, set `productIds` parameter to `true` when making a request.
+</aside>
+
 ### Response
 
 > Response example
