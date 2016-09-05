@@ -452,7 +452,8 @@ Check out example on how to save data to app public config on the right. To find
 
 ```js
 Ecwid.OnPageLoaded.add(function(page){
-  var category_id = Ecwid.getAppPublicConfig('ecwid-example-app');
+  var category_id = Ecwid.getAppPublicConfig('my-cool-app'); // 'my-cool-app' is your appId value
+
   category_id = parseInt(category_id);
 
   if (page.categoryId == category_id) {
@@ -465,9 +466,9 @@ Ecwid.OnPageLoaded.add(function(page){
 
 If your app customizes Ecwid storefront, you can get public config of your app using Ecwid JS API. 
 
-In your Javascript file, which is executed when a storefront is loaded, you should get config using this API call: `Ecwid.getAppPublicConfig(appId)`. It will return a string value that you saved previously.
+In your Javascript file, which is executed when a storefront is loaded, you should get config using this API call: `Ecwid.getAppPublicConfig('appId')`. It will return a string value that you saved previously.
 
-To get the value, specify your `appId` (app namespace) as its parameter and store the result of this function in a variable. If you are not sure on what your appId is, please [contact us](http://developers.ecwid.com/contact).
+To get the value, specify your `appId` (app `client_id`) as its parameter and store the result of this function in a variable. If you are not sure on what your appId is, please [contact us](http://developers.ecwid.com/contact).
 
 App public config is available to your app as soon as storefront starts to load. 
 

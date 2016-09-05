@@ -38,7 +38,7 @@ More information: [Custom Shipping API](#add-shipping-method)
 
 Custom Payment API allows you to add new payment methods to an Ecwid store. Merchant will install your app, set it up and they will be able to accept payments through your payment system for orders in their store.
 
-More inforamation: [Custom Payment API](#add-payment-method)
+More information: [Custom Payment API](#add-payment-method)
 
 **Application Storage**
 

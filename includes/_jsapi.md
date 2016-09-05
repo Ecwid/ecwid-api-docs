@@ -268,11 +268,11 @@ Using the global Ecwid config object you can control the colors in user's storef
 
 Name | Type | Description
 ---- | ----- | -----------
-color-background | string (HEX color) | Background color for storefront and  small buttons ("Clear bag", "Apply", etc.)
-color-foreground | string (HEX color) | Color of all texts in storefront
-color-link | string (HEX color) | Color for links in storefront (breadcrumbs, "Sign In", "Favourites", etc.)
-color-button | string (HEX color) | Color for main buttons in storefront ("Add to bag", "Checkout", etc.) and small buttons on mouse hover ("Clear bag", "Apply", etc.)
-color-price | string (HEX color) | Color for product prices in storefront
+color-background | string (HEX and RGBA color) | Background color for storefront and  small buttons ("Clear bag", "Apply", etc.)
+color-foreground | string (HEX and RGBA color) | Color of all texts in storefront
+color-link | string (HEX and RGBA color) | Color for links in storefront (breadcrumbs, "Sign In", "Favourites", etc.)
+color-button | string (HEX and RGBA color) | Color for main buttons in storefront ("Add to bag", "Checkout", etc.) and small buttons on mouse hover ("Clear bag", "Apply", etc.)
+color-price | string (HEX and RGBA color) | Color for product prices in storefront
 
 ## Change font
 
