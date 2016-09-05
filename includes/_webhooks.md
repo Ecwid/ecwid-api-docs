@@ -60,20 +60,19 @@ The following events are supported:
 
 Setup process is easy. Once your application has a webhook URL specified in the settings and has a token with appropriate access level for the store, it will receive notifications automatically. More details on these are below.
 
-
-### Set webhook URL
+### 1. Set webhook URL
 When you [register your application](#register-your-app-in-ecwid) with Ecwid, please specify a webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable webhooks for existing application, please contact us. 
 
 <aside class="notice">
-This must be an HTTPS URL. 
+This must be a <strong>publicly accessible HTTPS URL</strong>. 
 </aside>
 
-### Set webhook events
+### 2. Set webhook events
 There are several types of events in the store that Ecwid can notify your application about, check out **Event type** section of webhook structure for more details. 
 
 Please specify the exact event types you wish to be notified about upon registering your application or [contact us](http://developers.ecwid.com/contact) if you already have an app.
 
-### Get access
+### 3. Get access
 Each application has scope of access that controls the set of store resources and operations permitted for the application. The same set of access scopes is used to determine which events your application can be notified of. To be notified of the product updates, make sure your app has `read_catalog` access to the store. The `read_orders` scope allows to get order webhooks. See [Access scopes](#access-scopes) for more details. 
 
 
@@ -341,6 +340,10 @@ Webhooks also depend not only on the event types specified for them, but also fo
 **Your endpoint is not responding to requests with 200 OK status**
 
 When an event occurs, Ecwid will immediately try to send a webhook to your endpoint. However, if it fails to respond with 200OK response status or it has errors in the response (from PHP code, for example). Ecwid will not be able to deliver this webhook to your endpoint, because it failed to accept it.
+
+**Ecwid can't access your endpoint**
+
+When [setting up webhooks](#setting-up-webhooks), make sure that your endpoint is publicly accessible by any resource (no local servers, etc.). This way, Ecwid services can successfully send and deliver POST requests to yoru endpoint.
 
 **Webhooks are added to an existing application**
 
