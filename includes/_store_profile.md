@@ -455,7 +455,7 @@ All fields are optional. Omitted field will not be affected
 #### GeneralInfo
 Field | Type | Description
 ----- | ---- | -----------
-storeUrl | string | Storefront URL. If this field is empty in the store settings and omitted in the request, it will be automatically copied from the current Starter Site URL
+storeUrl | string | Storefront URL. If this field is empty in the store settings and omitted in the request, it will be automatically copied from the current Starter Site URL. **When updating, make sure to add protocol to the URL (`http://` or `https://`)**.
 starterSite | \<StarterSiteInfo\> | Starter Site settings
 
 #### Account
