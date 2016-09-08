@@ -53,6 +53,7 @@ To get a list of products in results for each category, set `productIds` paramet
             "name": "Fruit",
             "url": "http://app.ecwid.com/store/4870020#!/Fruit/c/9691094",
             "productCount": 6,
+            "enabledProductCount": 5,
             "description": "",
             "enabled": true
         },
@@ -70,6 +71,7 @@ To get a list of products in results for each category, set `productIds` paramet
             "name": "Vegetables",
             "url": "http://app.ecwid.com/store/4870020#!/Vegetables/c/9691095",
             "productCount": 4,
+            "enabledProductCount": 3,
             "enabled": false
         }
     ]
@@ -142,6 +144,7 @@ originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
 url | string | Category page URL in the store
 productCount | number | Number of products in the category and its subcategories
+enabledProductCount | number | Number of enabled products in the category (excluding its subcategories). **Not returned for public tokens**
 description | string  | The category description in HTML
 enabled | boolean | `true` if the category is enabled, `false` otherwise. Use `hidden_categories` in request to get disabled categories
 productIds | Array\<number\>  | IDs of the products assigned to the category
@@ -216,7 +219,8 @@ Query field | Type    | Description
     },
     "name": "Subfruit2",
     "url": "http://app.ecwid.com/store/4870020#!/Subfruit2/c/10861116",
-    "productCount": 0,
+    "productCount": 4,
+    "enabledProductCount": 3,
     "description": "<p>arf34</p>",
     "enabled": true
 }
@@ -256,6 +260,7 @@ originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
 url | string | Category page URL in the store
 productCount | number | Number of products in the category and its subcategories
+enabledProductCount | number | Number of enabled products in the category (excluding its subcategories). **Not returned for public tokens**
 description | string  | The category description in HTML
 enabled | boolean | `true` if the category is enabled, `false` otherwise.
 productIds | Array\<number\>  | IDs of the products assigned to the category
