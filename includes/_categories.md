@@ -134,7 +134,7 @@ items | Array<Category> | The categories list
 #### Category
 Field | Type | Description
 ----- | ---- | -----------
-id | number | Internal category ID
+id | number | Internal unique category ID
 parentId | number  | ID of the parent category, if any
 orderBy | number | Sort order of the category in the parent category subcategories list
 hdThumbnailUrl | string  | Category HD thumbnail URL resized to fit 650x650px
@@ -250,7 +250,7 @@ A JSON object of type 'Category' with the following fields:
 
 Field | Type | Description
 ----- | ---- | -----------
-id | number | Internal category ID
+id | number | Internal unique category ID
 parentId | number  | ID of the parent category, if any
 orderBy | number | Sort order of the category in the parent category subcategories list
 hdThumbnailUrl | string  | Category HD thumbnail URL resized to fit 650x650px

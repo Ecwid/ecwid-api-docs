@@ -44,7 +44,9 @@ Application storage offers an alternative - store data on Ecwid servers and acce
 
 This JavaScript storage API allows to set and update values in the app storage right from your JavaScript code. You should use it if your app is client-side, works mainly in Javascript and you don’t plan to use a server.
 
-<aside class="notice">Your application must be <a href="#client-side-applications">client-side</a>
+Use the code examples below with the help of Ecwid JS SDK to manage user details in your application's tab in Ecwid Control Panel.
+
+<aside class="notice">Your application must be a native <a href="#client-side-applications">client-side</a> application to access JavaScript Storage API.
 </aside>
 
 ### Save data to storage
