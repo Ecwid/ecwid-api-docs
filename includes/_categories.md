@@ -147,7 +147,7 @@ productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories). **Not returned for public tokens**
 description | string  | The category description in HTML
 enabled | boolean | `true` if the category is enabled, `false` otherwise. Use `hidden_categories` in request to get disabled categories
-productIds | Array\<number\>  | IDs of the products assigned to the category
+productIds | Array\<number\>  | IDs of products assigned to the category as they appear in Ecwid Control Panel > Catalog > Categories
 
 #### ImageDetails 
 Field | Type  | Description
@@ -263,7 +263,7 @@ productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories). **Not returned for public tokens**
 description | string  | The category description in HTML
 enabled | boolean | `true` if the category is enabled, `false` otherwise.
-productIds | Array\<number\>  | IDs of the products assigned to the category
+productIds | Array\<number\>  | IDs of products assigned to the category as they appear in Ecwid Control Panel > Catalog > Categories
 
 #### ImageDetails 
 Field | Type  | Description

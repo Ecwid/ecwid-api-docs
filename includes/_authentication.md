@@ -242,10 +242,14 @@ https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=https%3
 
 Parameter | Required | Description
 --------- | -------- | -----------
-client_id | required | Application ID
-redirect_uri | required | URI in your app where users will be sent after authorization. It must match the domain/URL of the registered return_url specified in the app settings. I.e. if the registered return_url is `http://www.example.com`, the redirect_uri in request might be `http://www.example.com/oauth/callback.php` , but not `http://www.example2.com/`
-response_type | required | `code` (must always be `code`)
-scope | required | Scope of access that your app requests from the user, separated by space. See all possible values in [Scopes](#access-scopes) section
+**client_id** | required | Application ID
+**redirect_uri** | required | URI in your app where users will be sent after authorization. It must match the domain/URL of the registered return_url specified in the app settings. I.e. if the registered return_url is `http://www.example.com`, the redirect_uri in request might be `http://www.example.com/oauth/callback.php` , but not `http://www.example2.com/`
+**response_type** | required | `code` (must always be `code`)
+**scope** | required | Scope of access that your app requests from the user, separated by space. See all possible values in [Scopes](#access-scopes) section
+
+<aside class="notice">
+	Parameters in <strong>bold</strong> are mandatory.
+</aside>
 
 <aside class="notice">
 This step is omitted if the application is installed from the app details page inside Ecwid Control Panel. See details in <a href="#external-applications">External applications</a> section
@@ -332,7 +336,7 @@ In case of applications that are installed on a device (such as a computer, a ce
 > Step #1: Request example
 
 ```shell
-https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code
+https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code&scope=read_store_profile+read_catalog+update_catalog+read_orders
 ```
 
 On the [Step #1](#get-access-token) (app requests a temporarily authorization code), application needs to send the following value as redirect_uri:
