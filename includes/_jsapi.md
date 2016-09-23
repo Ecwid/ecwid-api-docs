@@ -228,11 +228,11 @@ window.ec = {
     config: {
         chameleon: {
             colors: {
-                'color-background':'#A0A0A0',
-                'color-foreground':'#A0A0A0',
-                'color-link':'#A0A0A0',
-                'color-button':'#A0A0A0',
-                'color-price':'#A0A0A0'
+                'color-background':'#D3D3D3',
+                'color-foreground':'#4EA3F0',
+                'color-link':'#FF0606',
+                'color-button':'#4EA3F0',
+                'color-price':'#FF0606'
             }
         }
     }
@@ -248,8 +248,8 @@ window.ec = {
     config: {
         chameleon: {
             colors: {
-                'color-button':'#A0A0A0',
-                'color-price':'#A0A0A0'
+                'color-button':'#4EA3F0',
+                'color-price':'#FF0606'
             },
             font: {
                 'font-family': 'arial,sans-serif'
@@ -444,7 +444,7 @@ If no customer is logged in, these functions receive **null**. Whenever a custom
 
 ```javascript
 Ecwid.OnCartChanged.add(function(cart){
-     // your code here
+    // your code here
 }) 
 ```
 
@@ -498,9 +498,8 @@ Ecwid.OnSetProfile.add(function(customer) {
   console.log(customer.billingPerson.countryName);
 })
 
-// prints to console
-//
-// john.doe@example.com
+// prints
+// supercoder@matrix.com
 // United States
 ```
 
@@ -588,11 +587,11 @@ var product = {
   id: 10,
   quantity: 3,
   options: {
-    someTextOption: "optionVal",
+    someTextOption: "Your name",
     someDateOption: new Date().getTime().toString(),
-    someRadioOption: "optionVal",
-    someDropDownOption: "optionVal",
-    someCheckboxOption: ["optionVal1", "optionVal2"]
+    someRadioOption: "Use default color",
+    someDropDownOption: "I want custom engraving",
+    someCheckboxOption: ["It's a gift", "Gold engraving"]
   },
   callback: function(success, product, cart) {
     // ...  
@@ -614,22 +613,22 @@ Adding to cart is done asynchronously, so if it is important to know the result 
 
 ```javascript
 Ecwid.Cart.addProduct(productID, function(success, product, cart){
-        console.log(success); // true or false
-        console.log(product.name);
-    })
+  console.log(success); // true or false
+  console.log(product.name);
+})
 ```
 
 > Add product to cart with callback function, example 2
 
 ```javascript
-    Ecwid.Cart.addProduct({
-        id: 10, 
-        quantity: 3, 
-        callback: function(success, product, cart){
-            console.log(success); // true or false
-            console.log(product.name);
-        }
-    })
+Ecwid.Cart.addProduct({
+  id: 10, 
+  quantity: 3, 
+  callback: function(success, product, cart){
+    console.log(success); // true or false
+    console.log(product.name);
+  }
+})
 ```
 
 Callback receives 3 arguments: **success**, **product**, **cart**
@@ -684,7 +683,7 @@ Clears the cart contents.
 
 ```javascript
 Ecwid.Cart.get(function(cart) {
-     alert(cart.productsQuantity + " products in cart now");
+  alert(cart.productsQuantity + " products in cart now");
 });
 ```
 
@@ -696,10 +695,10 @@ Retrieves the cart contents asynchronously and passes it as an argument of type 
 
 ```javascript
 Ecwid.Cart.calculateTotal(function(order) {
-    if (!order)
-        alert('An error occurred!')
-    else    
-        alert('Order total: ' + order.total);    
+  if (!order)
+    alert('An error occurred while calculating the order!')
+  else    
+    alert('Order total: ' + order.total);    
 }); 
 ```
 
@@ -810,11 +809,11 @@ Ecwid.Cart.setOrderComments('Leave order at the door.');
 
 ```js
 Ecwid.Cart.setOrderComments('Leave order at the door.',
-function(){
- console.log('Success!')
-},
-function(){
- console.log('Error');
+  function(){
+    console.log('Successfully set order comments.')
+  },
+  function(){
+    console.log('Error setting order comments.');
 })
 ```
 
@@ -859,7 +858,7 @@ Ecwid.Cart.setAddress(address, successCallback, errorCallback)
 
 ```js
 Ecwid.Cart.setAddress({
-  "name": "John CarMichael",
+  "name": "John Carmichael",
   "companyName": "Cool Slippers",
   "street": "5th Ave",
   "city": "New York",
@@ -875,7 +874,7 @@ Ecwid.Cart.setAddress({
 
 ```js
 Ecwid.Cart.setAddress({
-  "name": "John CarMichael",
+  "name": "John Carmichael",
   "companyName": "Cool Slippers",
   "street": "5th Ave",
   "city": "New York",
@@ -885,10 +884,10 @@ Ecwid.Cart.setAddress({
   "phone": "+1 234 523 11 42"
   },
   function(){
-   console.log('Success!')
+    console.log('Address successfully set')
   },
   function(){
-   console.log('Error');
+    console.log('Error setting the address');
   }
 )
 ```
@@ -953,7 +952,7 @@ Ecwid.Cart.setBillingAddress(address, successCallback, errorCallback)
 
 ```js
 Ecwid.Cart.setBillingAddress({
-  "name": "John CarMichael",
+  "name": "John Carmichael",
   "companyName": "Cool Slippers",
   "street": "5th Ave",
   "city": "New York",
@@ -969,7 +968,7 @@ Ecwid.Cart.setBillingAddress({
 
 ```js
 Ecwid.Cart.setBillingAddress({
-  "name": "John CarMichael",
+  "name": "John Carmichael",
   "companyName": "Cool Slippers",
   "street": "5th Ave",
   "city": "New York",
@@ -979,10 +978,10 @@ Ecwid.Cart.setBillingAddress({
   "phone": "+1 234 523 11 42"
   },
   function(){
-   console.log('Success!')
+   console.log('Address successfully set')
   },
   function(){
-   console.log('Error');
+   console.log('Error setting the address');
   }
 )
 ```
