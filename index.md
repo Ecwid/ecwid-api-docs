@@ -4,8 +4,8 @@ title: Ecwid API
 toc_footers:
  - <a href='https://ecwidcom.typeform.com/to/tRyWJ6'>Register your application</a>
  - <a href='https://github.com/Ecwid/ecwid-api-docs'>Suggest an edit</a>
- - <a href='https://github.com/Ecwid/ecwid-api-docs#changelog'>Changelog</a>
- - <a href='http://developers.ecwid.com'>Ecwid Developers Site</a>
+ - <a href='https://github.com/Ecwid/ecwid-api-docs#changelog'>See changelog</a>
+ - <a href='https://ecwid-community.signup.team/'>Join Ecwid Developers Community on Slack</a>
 
 includes:
   - overview
