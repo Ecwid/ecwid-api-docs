@@ -31,9 +31,15 @@ To get more details and install the playground, please open this page: [api-play
 
 **Legacy Ecwid API** is a part of Ecwid API platform functionality, that was available for any store owner on a paid plan. It allowed developers to access and modify their store through the REST API requests. 
 
+Legacy Ecwid API includes:
+- Product API
+- Order API
+- Instant Order Notifications (ION)
+- Single Sign On API
+
 You may have accessed it earlier on this page: `https://my.ecwid.com/cp/CP.html#legacy_api`
 
-Since the current Ecwid API plaftorm fully replaced the Legacy Ecwid API and added new features, the Legacy Ecwid API will be **deprecated and no longer be available after February 1st 2017**.
+The Legacy Ecwid API will be **deprecated and no longer available after February 1st, 2017** because the current Ecwid API plaftorm has fully replaced the Legacy Ecwid API and even added new features.
 
 If you have any questions, please [contact us](/contact).
 
