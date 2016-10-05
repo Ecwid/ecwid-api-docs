@@ -838,6 +838,7 @@ HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
 404 | The order is not found
+405 | Method not allowed. Can occur when using `POST` instead of `PUT` HTTP request method
 500 | Cannot retrieve the order info because of an error on the server
 
 #### Error response body (optional)

@@ -16,8 +16,8 @@ All requests are done via HTTPs. Requests via insecure HTTP are not supported.
 ### UTF-8
 Ecwid API works with UTF-8 encoded data. Please make sure everything you send over in API calls also uses UTF-8.
 
-### JSON
-All data received from API and submitted to API is JSON.
+### Content Type
+All data received from API and submitted to API is JSON, so the content type should be: `application/json;charset=utf-8`
 
 ### UTC
 Date/time values returned by Ecwid API are in UTC.

@@ -109,6 +109,7 @@ Cache-Control: no-cache
             "name": "Fruit",
             "url": "http://app.ecwid.com/store/4870020#!/Fruit/c/9691094",
             "productCount": 6,
+            "enabledProductCount": 5,
             "description": "",
             "enabled": true
         },
@@ -144,7 +145,7 @@ originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
 url | string | Category page URL in the store
 productCount | number | Number of products in the category and its subcategories
-enabledProductCount | number | Number of enabled products in the category (excluding its subcategories). **Not returned for public tokens**
+enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
 enabled | boolean | `true` if the category is enabled, `false` otherwise. Use `hidden_categories` in request to get disabled categories
 productIds | Array\<number\>  | IDs of products assigned to the category as they appear in Ecwid Control Panel > Catalog > Categories
@@ -260,7 +261,7 @@ originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
 url | string | Category page URL in the store
 productCount | number | Number of products in the category and its subcategories
-enabledProductCount | number | Number of enabled products in the category (excluding its subcategories). **Not returned for public tokens**
+enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
 enabled | boolean | `true` if the category is enabled, `false` otherwise.
 productIds | Array\<number\>  | IDs of products assigned to the category as they appear in Ecwid Control Panel > Catalog > Categories
