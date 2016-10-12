@@ -366,6 +366,7 @@ In case of error, Ecwid responds with an error HTTP status code
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the coupon info because of an error on the server
 
 ## Update store profile
@@ -628,8 +629,9 @@ In case of error, Ecwid responds with an error HTTP status code
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
-409 | Cannot update profile because such nickname or email is already registered in the system
 402 | Cannot update settings because the limit of number of zones or taxes is reached
+409 | Cannot update profile because such nickname or email is already registered in the system
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the coupon info because of an error on the server
 
 ## Upload store logo
@@ -719,10 +721,11 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the image file failed or there was an internal server error while processing a file
-413 | The image file is too large (Maximum allowed file size is 20Mb)
-422 | The uploaded file is not an image
 400 | Request parameters are malformed
+413 | The image file is too large (Maximum allowed file size is 20Mb)
+415 | Unsupported content-type: expected `application/octet-stream`
+422 | The uploaded file is not an image
+500 | Uploading of the image file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 
@@ -785,8 +788,8 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the image file failed or there was an internal server error while processing a file
 400 | Request parameters are malformed
+500 | Uploading of the image file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 Field | Type |  Description
@@ -881,10 +884,11 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the image file failed or there was an internal server error while processing a file
-413 | The image file is too large. Maximum allowed file size is 20Mb.
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/octet-stream`
 422 | The uploaded file is not an image
+413 | The image file is too large. Maximum allowed file size is 20Mb.
+500 | Uploading of the image file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 
@@ -947,8 +951,8 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the image file failed or there was an internal server error while processing a file
 400 | Request parameters are malformed
+500 | Uploading of the image file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 Field | Type |  Description
@@ -1013,8 +1017,9 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | There was an internal server error while processing the request
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/json` or `text/json`
+500 | There was an internal server error while processing the request
 
 #### Error response body (optional)
 Field | Type |  Description
@@ -1148,8 +1153,9 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | There was an internal server error while processing the request
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/json` or `text/json`
+500 | There was an internal server error while processing the request
 
 #### Error response body (optional)
 Field | Type |  Description

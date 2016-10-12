@@ -173,6 +173,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the categories info because of an error on the server
 
 #### Error response body (optional)
@@ -288,8 +289,9 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 HTTP Status | Meaning
 ------------|--------
-404 | Category is not found
 400 | Malformed request parameters
+404 | Category is not found
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Server error
 
 
@@ -374,14 +376,12 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Malformed request parameters
-404 | The parent category or one of the assigned products is not found
-449 | Store catalog cannot be modified at the moment because import is in progress. Retry later.
 402 | The merchant plan category limit is reached
-409 | Data validation error
-409 | There was a conflict modifying the store. Retry later.
+404 | The parent category or one of the assigned products is not found
+409 | Data validation error: the category name or description exceed the max allowed length of characters
+415 | Unsupported content-type: expected `application/json` or `text/json`
+449 | Store catalog cannot be modified at the moment because import is in progress. Retry later
 500 | Server error
-
-
 
 
 
@@ -469,9 +469,9 @@ HTTP Status | Meaning
 400 | Malformed request parameters
 400 | Category name must not be empty
 404 | The parent category or one of the assigned products is not found
+409 | There was a conflict modifying the store (updating a category while it's being edited elsewhere). Retry later.
+415 | Unsupported content-type: expected `application/json` or `text/json`
 449 | Store catalog cannot be modified at the moment because import is in progress. Retry later.
-409 | Data validation error
-409 | There was a conflict modifying the store. Retry later.
 500 | Server error
 
 
@@ -528,6 +528,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Malformed request parameters
+415 | Unsupported content-type: expected `application/json` or `text/json`
 449 | Store catalog cannot be modified at the moment because import is in progress. Retry later.
 500 | Server error
 
@@ -621,6 +622,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 400 | Request parameters are malformed
 404 | Category is not found
 413 | The image file is too large (Maximum allowed size is 20Mb)
+415 | Unsupported content-type: expected `application/octet-stream`
 422 | The uploaded file is not an image
 500 | Uploading of the image file failed or there was an internal server error while processing a file. On of possible reasons is image 
 

@@ -155,6 +155,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 403 | Access token doesn't have `update_store_profile` scope
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Server error
 
 #### Error response body (optional)
@@ -322,6 +323,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 403 | Access token doesn't have `update_store_profile` scope
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Server error
 
 #### Error response body (optional)
@@ -427,9 +429,10 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the image file failed or there was an internal server error while processing a file
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/json` or `text/json`
 422 | The uploaded file is not an image
+500 | Uploading of the image file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 
@@ -528,9 +531,10 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the image file failed or there was an internal server error while processing a file
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/octet-stream`
 422 | The uploaded file is not an image
+500 | Uploading of the image file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 
@@ -629,9 +633,10 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the image file failed or there was an internal server error while processing a file
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/octet-stream`
 422 | The uploaded file is not an image
+500 | Uploading of the image file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 

@@ -57,8 +57,8 @@ In case if you need this functionality, please contact us and provide details on
 
 Name | Type    | Description
 ---- | ------- | -----------
-**appClientId** |  string | Your application's client_id
-**appSecretKey** |  string |  Your application's client_secret
+**appClientId** |  string | Your application's `client_id`
+**appSecretKey** |  string |  Your application's `client_secret`
 
 ### Request body
 
@@ -289,6 +289,7 @@ HTTP Status | Meaning
 400 | Request parameters are malformed
 403 | Permission denied. Application client ID or application secret key is invalid or invalid scope parameter
 409 | Conflict: Email already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 422 | Unprocessable entity: invalid email or invalid password or invalid name. The password must be at least 5 characters long. Make sure the name contains first name and last name
 
 ## Check if store exists
@@ -350,5 +351,6 @@ HTTP Status | Meaning
 403 | Permission denied. Application client ID or application secret key is invalid or invalid scope parameter
 404 | Store with given email is not found
 409 | Conflict: Email already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 422 | Unprocessable entity: invalid email or invalid password or invalid name. The password must be at least 5 characters long. Make sure the name contains first name and last name
 

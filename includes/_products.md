@@ -759,6 +759,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot get the product because of an error on the server
 
 #### Error response body (optional)
@@ -1371,10 +1372,11 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 **HTTP Status** | **Response JSON** | Description
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
-409 | The product with such SKU already exists
 402 | The functionality/method is not available on the merchant plan
 402 | The merchant plan product limit is reached
 404 | Some of the linked entities in the request doesn't exist. For example, the product class is not found
+409 | The product with such SKU already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 
 #### Error response body (optional)
 
@@ -1550,10 +1552,11 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Description
 -------------- | --------------
 400 | Request parameters are malformed
-409 | The product with such SKU already exists
 402 | The functionality/method is not available on the merchant plan
 402 | The merchant plan product limit is reached
 404 | Some of the linked entities in the request doesn't exist. For example, the product class is not found
+409 | The product with such SKU already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 
 #### Error response body (optional)
 
@@ -1632,6 +1635,7 @@ HTTP Status | Description
 -------------- | --------------
 400 | Request parameters are malformed
 404 | Product not found
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Could not process the request, internal server error
 
 #### Error response body (optional)
@@ -1796,12 +1800,13 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the image file failed or there was an internal server error while processing a file
-404 | Product is not found
-413 | The image file is too large (Maximum allowed size is 20Mb)
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
+404 | Product is not found
+413 | The image file is too large (Maximum allowed size is 20Mb)
+415 | Unsupported content-type: expected `application/octet-stream`
 422 | The uploaded file is not an image
+500 | Uploading of the image file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 
@@ -1861,8 +1866,8 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Deleting of the image file failed or there was an internal server error
 404 | Product is not found
+500 | Deleting of the image file failed or there was an internal server error
 
 #### Error response body (optional)
 
@@ -1964,12 +1969,13 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the image file failed or there was an internal server error while processing a file
-404 | Product is not found
-413 | The image file is too large (Maximum allowed size is 20Mb)
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
+404 | Product is not found
+413 | The image file is too large (Maximum allowed size is 20Mb)
+415 | Unsupported content-type: expected `application/octet-stream`
 422 | The uploaded file is not an image
+500 | Uploading of the image file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 
@@ -2031,9 +2037,9 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Deleting of the image file failed or there was an internal server error
-404 | Product is not found
 400 | Request parameters are malformed
+404 | Product is not found
+500 | Deleting of the image file failed or there was an internal server error
 
 #### Error response body (optional)
 
@@ -2101,9 +2107,9 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Deleting of the files failed or there was an internal server error
-404 | Product is not found
 400 | Request parameters are malformed
+404 | Product is not found
+500 | Deleting of the files failed or there was an internal server error
 
 #### Error response body (optional)
 
@@ -2268,11 +2274,12 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the file failed or there was an internal server error while processing a file
-404 | Product is not found
-413 | The file is too large (Maximum allowed size is 100Mb)
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
+404 | Product is not found
+413 | The file is too large (Maximum allowed size is 100Mb)
+415 | Unsupported content-type: expected `application/octet-stream`
+500 | Uploading of the file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 
@@ -2351,6 +2358,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 --------- | -----------| -----------
 400 | Request parameters are malformed
 404 | Product is not found
+415 | Unsupported content-type: expected `application/json` or `text/json`
 
 #### Error response body (optional)
 
@@ -2417,8 +2425,8 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Deleting of the file failed or there was an internal server error
 404 | Product is not found
+500 | Deleting of the file failed or there was an internal server error
 
 #### Error response body (optional)
 
@@ -2481,8 +2489,8 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Deleting of the files failed or there was an internal server error
 404 | Product is not found
+500 | Deleting of the files failed or there was an internal server error
 
 #### Error response body (optional)
 

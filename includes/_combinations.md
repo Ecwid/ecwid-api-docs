@@ -179,6 +179,7 @@ HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
 402 | The "Product Combinations" feature are not available on the merchant plan
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot get combinations because of an error on the server
 
 
@@ -295,6 +296,7 @@ HTTP Status | Meaning
 400 | Request parameters are malformed
 402 | The "Product Combinations" feature are not available on the merchant plan
 404 | The combination is not found
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot get the combination because of an error on the server
 
 
@@ -402,6 +404,7 @@ HTTP Status | Meaning
 402 | The "Product Combinations" feature are not available on the merchant plan
 404 | The product is not found
 409 | The specified sku or options variation already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot get the combination because of an error on the server
 
 
@@ -501,6 +504,7 @@ HTTP Status | Meaning
 402 | The "Product Combinations" feature are not available on the merchant plan
 404 | The product or combination is not found
 409 | The specified sku or options variation already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot get the combination because of an error on the server
 
 
@@ -709,6 +713,7 @@ HTTP Status | Description
 400 | Request parameters are malformed
 402 | This functionality is not available on this plan
 404 | Product not found
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Could not process the request, internal server error
 
 #### Error response body (optional)
@@ -812,12 +817,13 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Uploading of the image file failed or there was an internal server error while processing a file
-404 | Product or combination in request are not found
-413 | The image file is too large (Maximum allowed file size is 20Mb)
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
+404 | Product or combination in request are not found
+413 | The image file is too large (Maximum allowed file size is 20Mb)
 422 | The uploaded file is not an image
+415 | Unsupported content-type: expected `application/octet-stream`
+500 | Uploading of the image file failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 
@@ -884,10 +890,10 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Request failed or there was an internal server error while processing a file
-404 | Product or combination in request are not found
 400 | Request parameters are malformed
 402 | The Product combinations are not available on the merchant plan
+404 | Product or combination in request are not found
+500 | Request failed or there was an internal server error while processing a file
 
 #### Error response body (optional)
 

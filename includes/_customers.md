@@ -111,6 +111,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the customers info because of an error on the server
 
 #### Error response body (optional)
@@ -391,6 +392,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
 409 | The customer with the given email already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | The creation request failed because of an error on the server
 
 #### Error response body (optional)
@@ -538,6 +540,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 400 | Request parameters are malformed
 404 | The customer with given ID is not found
 409 | The customer with the given email already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | The update request failed because of an error on the server
 
 #### Error response body (optional)

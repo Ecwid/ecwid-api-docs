@@ -101,6 +101,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the product type info because of an error on the server
 
 #### Error response body (optional)
@@ -195,6 +196,7 @@ HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
 404 | Product type is not found
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the product type info because of an error on the server
 
 #### Error response body (optional)
@@ -293,6 +295,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
 409 | The type/class with the given name already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | The request failed because of an error on the server
 
 #### Error response body (optional)
@@ -404,6 +407,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
 409 | The type/class with the given name already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | The request failed because of an error on the server
 
 #### Error response body (optional)

@@ -87,6 +87,7 @@ HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
 402 | Store doesn't have access to customer groups feature, it's available on Business plan an higher
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the customer groups info because of an error on the server
 
 #### Error response body (optional)
@@ -235,6 +236,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
 402 | Store doesn't have access to customer groups feature, it's available on Business plan and higher
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | The creation request failed because of an error on the server
 
 #### Error response body (optional)
@@ -316,6 +318,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 400 | Request parameters are malformed
 402 | Store doesn't have access to customer groups feature, it's available on Business plan and higher
 404 | The customer group with given ID is not found
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | The update request failed because of an error on the server
 
 #### Error response body (optional)

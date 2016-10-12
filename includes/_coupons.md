@@ -128,6 +128,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the coupon info because of an error on the server
 
 #### Error response body (optional)
@@ -225,8 +226,9 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 HTTP Status | Meaning
 ------------|--------
-404 | Coupon is not found
 400 | Malformed request parameters
+404 | Coupon is not found
+415 | Unsupported content-type: expected `application/json` or `text/json`
 
 
 ## Create coupon
@@ -338,6 +340,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
 409 | The coupon with the given code already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | The creation request failed because of an error on the server
 
 #### Error response body (optional)
@@ -457,6 +460,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
 409 | The coupon with the given code already exists
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | The request failed because of an error on the server
 
 #### Error response body (optional)

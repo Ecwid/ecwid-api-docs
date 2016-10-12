@@ -52,6 +52,12 @@ startDate | string | App subscription start timestamp
 expirationDate | string | App subscription end timestamp
 status | string | Application status in Ecwid store. One of `ACTIVE`, `SUSPENDED` or `TRIAL`
 
+#### HTTP codes
+
+HTTP Status | Meaning
+------------|--------
+415 | Unsupported content-type: expected `application/json` or `text/json`
+
 ### How it works
 
 

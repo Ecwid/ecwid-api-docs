@@ -159,6 +159,13 @@ Field | Type | Description
 key | string | The key you set for the stored data
 value | string | The stored data
 
+#### HTTP codes
+
+HTTP Status | Meaning
+------------|--------
+403 | The access token doesn't have the `update_store_profile` access scope
+415 | Unsupported content-type: expected `application/json` or `text/json`
+500 | Cannot retrieve the data because of an error on the server
 
 ### Get storage data by key
 
@@ -233,7 +240,9 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 HTTP Status | Meaning
 ------------|--------
+403 | The access token doesn't have the `update_store_profile` access scope
 404 | The key is not found
+415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the data because of an error on the server
 
 #### Error response body (optional)
@@ -290,7 +299,13 @@ Field | Type | Description
 ----- | ---- | -----------
 success | boolean | `true` if the data has been added to the storage, `false` otherwise
 
+#### HTTP codes
 
+HTTP Status | Meaning
+------------|--------
+403 | The access token doesn't have the `update_store_profile` access scope
+415 | Unsupported content-type: expected `application/json` or `text/json`
+500 | Cannot retrieve the data because of an error on the server
 
 
 ### Edit storage data
@@ -339,6 +354,15 @@ Field | Type | Description
 ----- | ---- | -----------
 success | boolean | `true` if the data has been changed in the storage, `false` otherwise
 
+#### HTTP codes
+
+HTTP Status | Meaning
+------------|--------
+403 | The access token doesn't have the `update_store_profile` access scope
+404 | The key is not found
+415 | Unsupported content-type: expected `application/json` or `text/json`
+500 | Cannot retrieve the data because of an error on the server
+
 
 ### Delete storage data
 
@@ -381,6 +405,13 @@ Field | Type | Description
 ----- | ---- | -----------
 success | boolean | `true` if the data has been removed from the storage, `false` otherwise. 
 
+#### HTTP codes
+
+HTTP Status | Meaning
+------------|--------
+403 | The access token doesn't have the `update_store_profile` access scope
+404 | The key is not found
+500 | Cannot retrieve the data because of an error on the server
 
 # Public application config
 

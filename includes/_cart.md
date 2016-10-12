@@ -528,6 +528,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/json` or `text/json`
 422 | No order items or incorrect items details sent
 500 | Cannot retrieve the order info because of an error on the server
 
