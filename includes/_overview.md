@@ -4,6 +4,8 @@ The documentation below describes various ways to interact with Ecwid store usin
 
 To find out more about Ecwid platform and get some basic details about it, please visit [Get started](http://developers.ecwid.com/get-started) page.
 
+Learn more on how to get started with developing an app: [https://developers.ecwid.com/developing-your-app](https://developers.ecwid.com/developing-your-app)
+
 # API features
 
 **REST API**
@@ -162,3 +164,16 @@ Suggested API features:
 If you’re building an app for Ecwid App Market, we would be happy to provide you with a paid Ecwid account for free for development and testing purposes. Feel free to [contact us](http://developers.ecwid.com/contact), provide the details of your application and we will help you.
 
 Please note that this account must not be used for selling the application or any other products to real customers.
+
+# API playground
+
+To quickly learn Ecwid API and see it in action even before you start development of your application, you can use Ecwid API playground. The playground is basically a collection of presets for [PostMan](http://www.getpostman.com/). You can load it in PostMan application and try accessing and managing your store data via API. 
+
+Using the playground is easy. All you will need is:
+
+* "PostMan" Chrome extension (it's free) . You can download it [here](https://chrome.google.com/webstore/detail/postman-rest-client-packa/fhbjgbiflinjbdggehcddcbncdddomop)
+* An Ecwid store which has access to API (the store needs to be on a paid plan)
+
+To get more details and install the playground, please open this page: [api-playground.ecwid.com](https://api-playground.ecwid.com/)
+
+<img src="https://dj925myfyz5v.cloudfront.net/wp-content/uploads/icon.png"></img>
