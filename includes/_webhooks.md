@@ -56,12 +56,29 @@ The following events are supported:
 
 [Application endpoint](#application) allows you to check status of your application.
 
+## Custom HTTP Headers
+
+Webhooks also allow you to specify custom headers that Ecwid will use when sending a webhook to your endpoint. For example, if you are using [Sashido](https://www.sashido.io/) service that requires specific headers to be passed along with webhook HTTP requests, then it is possible to do that with Ecwid.
+
+> Custom webhook headers example
+
+```http
+POST https://www.myapp.com/callback?eventType=order.updated HTTP/1.1
+Host: www.myapp.com
+Content-Type: application/json; charset=UTF-8
+Content-Length: 243
+Cache-Control: no-cache
+X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
+X-Parse-Application-Id: AlsdaS342AnsmakyatdasdeASndaaASDnmAS2fsa
+Parse-REST-API-Key: LKnmdasASnalASntATKsmdASmnIASnlksfn1mSF6
+```
+
 ## Setting up webhooks
 
 Setup process is easy. Once your application has a webhook URL specified in the settings and has a token with appropriate access level for the store, it will receive notifications automatically. More details on these are below.
 
 ### 1. Set webhook URL
-When you [register your application](#register-your-app-in-ecwid) with Ecwid, please specify a webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable webhooks for existing application, please contact us. 
+After you successfully [registered your application](#register-your-app-in-ecwid) with Ecwid, please contact us and provide a webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable or modify webhooks for existing application, please contact us as well.
 
 <aside class="notice">
 This must be a <strong>publicly accessible HTTPS URL</strong>. 
@@ -71,6 +88,10 @@ This must be a <strong>publicly accessible HTTPS URL</strong>.
 There are several types of events in the store that Ecwid can notify your application about, check out **Event type** section of webhook structure for more details. 
 
 Please specify the exact event types you wish to be notified about upon registering your application or [contact us](http://developers.ecwid.com/contact) if you already have an app.
+
+### 3. Set custom HTTP headers (optional)
+
+You are also able to specify your custom HTTP headers to be provided by Ecwid when sending webhooks to your URL. If you want to add custom headers to your app, please contact us. Learn more about [custom HTTP headers](#custom-http-headers)
 
 ### 3. Get access
 Each application has scope of access that controls the set of store resources and operations permitted for the application. The same set of access scopes is used to determine which events your application can be notified of. To be notified of the product updates, make sure your app has `read_catalog` access to the store. The `read_orders` scope allows to get order webhooks. See [Access scopes](#access-scopes) for more details. 
@@ -88,7 +109,9 @@ Each application has scope of access that controls the set of store resources an
 POST https://www.myapp.com/callback?eventType=order.updated HTTP/1.1
 Host: www.myapp.com
 Content-Type: application/json; charset=UTF-8
+Content-Length: 243
 Cache-Control: no-cache
+X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 ```
 
 > Order #103 updated webhook example
