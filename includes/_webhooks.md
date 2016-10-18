@@ -58,8 +58,6 @@ The following events are supported:
 
 ## Custom HTTP Headers
 
-Webhooks also allow you to specify custom headers that Ecwid will use when sending a webhook to your endpoint. For example, if you are using [Sashido](https://www.sashido.io/) service that requires specific headers to be passed along with webhook HTTP requests, then it is possible to do that with Ecwid.
-
 > Custom webhook headers example
 
 ```http
@@ -69,9 +67,12 @@ Content-Type: application/json; charset=UTF-8
 Content-Length: 243
 Cache-Control: no-cache
 X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
-X-Parse-Application-Id: AlsdaS342AnsmakyatdasdeASndaaASDnmAS2fsa
-Parse-REST-API-Key: LKnmdasASnalASntATKsmdASmnIASnlksfn1mSF6
+Custom-Webhook-Header-Name: custom webhook header value
 ```
+
+Webhooks also allow you to specify custom headers that Ecwid will use when sending a webhook to your endpoint. For example, if you are using [Sashido](https://www.sashido.io/) service that requires specific headers to be passed along with webhook HTTP requests, then it is possible to do that with Ecwid.
+
+The custom HTTP headers specified for webhooks will be **added** to the default list of headers Ecwid is sending. In case if a custom webhook HTTP header is duplicating a default header, Ecwid will send **both the default and custom header** in a request.
 
 ## Setting up webhooks
 
