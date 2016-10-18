@@ -55,32 +55,38 @@ Parameters in bold are mandatory
     "limit": 100,
     "items": [
         {
-            "vendorOrderNumber": "18",
+            // Basic information
+            "vendorOrderNumber": "20",
+            "orderNumber": 20,
+            "tax": 1.79,
             "subtotal": 29.95,
             "total": 37.39,
-            "email": "johnsmith@example.com",
+            "usdTotal": 37.39,
             "paymentMethod": "Purchase order",
-            "tax": 1.79,
-            "ipAddress": "83.217.8.241",
-            "couponDiscount": 1.5,
             "paymentStatus": "PAID",
             "fulfillmentStatus": "AWAITING_PROCESSING",
-            "orderNumber": 18,
+            // Additional information
             "refererUrl": "http://mysuperstore.ecwid.com/",
-            "orderComments": "Test order comments",
-            "volumeDiscount": 0,
-            "customerId": 15319410,
-            "membershipBasedDiscount": 0,
-            "totalAndMembershipBasedDiscount": 2.85,
-            "discount": 2.85,
-            "usdTotal": 37.39,
             "globalReferer": "",
             "createDate": "2014-09-20 19:59:43 +0000",
             "updateDate": "2014-09-21 00:00:12 +0000",
             "createTimestamp": 1427268654,
             "updateTimestamp": 1427272209,
+            "hidden": false,
+            "orderComments": "Test order comments",
+            "privateAdminNotes": "Must be delivered till Sunday.",
+            // Basic customer information
+            "email": "johnsmith@example.com",
+            "ipAddress": "83.217.8.241",
+            "customerId": 15319410,
             "customerGroupId": 12345,
             "customerGroup": "Gold",
+            // Discounts in order
+            "membershipBasedDiscount": 0,
+            "totalAndMembershipBasedDiscount": 2.85,
+            "couponDiscount": 1.5,
+            "discount": 2.85,
+            "volumeDiscount": 0,
             "discountCoupon": {
                 "name": "Coupon # 3",
                 "code": "5PERCENTOFF",
@@ -93,6 +99,15 @@ Parameters in bold are mandatory
                 "creationDate": "2014-09-20 19:58:49 +0000",
                 "orderCount": 0
             },
+            "discountInfo": [
+                {
+                    "value": 10,
+                    "type": "PERCENT",
+                    "base": "ON_TOTAL_AND_MEMBERSHIP",
+                    "orderTotal": 15
+                }
+            ],
+            // Order items details
             "items": [
                 {
                     "id": 40989227,
@@ -134,7 +149,7 @@ Parameters in bold are mandatory
                             "name": "Size",
                             "value": "Big",
                             "valuesArray" : [
-                            "Big"
+                              "Big"
                             ],
                             "type": "CHOICE"
                         },
@@ -172,6 +187,7 @@ Parameters in bold are mandatory
                     ]
                 }
             ],
+            // Customer addresses
             "billingPerson": {
                 "name": "John Smith",
                 "companyName": "Unreal Company",
@@ -196,28 +212,25 @@ Parameters in bold are mandatory
                 "stateOrProvinceName": "New York",
                 "phone": "+1234567890"
             },
+            // Shipping information
             "shippingOption": {
                 "shippingMethodName": "2nd day delivery",
                 "shippingRate": 10,
                 "estimatedTransitTime": "5"
-            },            
+            },
+            "handlingFee": {
+                "name": "Wrapping",
+                "value": 2,
+                "description": "Silk paper wrapping"
+            },
+            // Other information
             "additionalInfo": {},
             "paymentParams": {
                 "Company name": "Unreal Company",
                 "Job position": "Manager",
                 "PO number": "123abcd",
                 "Buyer's full name": "John Smith"
-            },
-            "discountInfo": [
-                {
-                    "value": 10,
-                    "type": "PERCENT",
-                    "base": "ON_TOTAL_AND_MEMBERSHIP",
-                    "orderTotal": 15
-                }
-            ],
-            "hidden": false,
-            "privateAdminNotes": "Must be delivered till Sunday."
+            }
         }
     ]
 }
@@ -469,32 +482,38 @@ Parameters in bold are mandatory
 
 ```json
 {
+    // Basic information
     "vendorOrderNumber": "20",
+    "orderNumber": 20,
+    "tax": 1.79,
     "subtotal": 29.95,
     "total": 37.39,
-    "email": "johnsmith@example.com",
+    "usdTotal": 37.39,
     "paymentMethod": "Purchase order",
-    "tax": 1.79,
-    "ipAddress": "83.217.8.241",
-    "couponDiscount": 1.5,
     "paymentStatus": "PAID",
     "fulfillmentStatus": "AWAITING_PROCESSING",
-    "orderNumber": 20,
+    // Additional information
     "refererUrl": "http://mysuperstore.ecwid.com/",
-    "orderComments": "Test order comments",
-    "volumeDiscount": 0,
-    "customerId": 15319410,
-    "membershipBasedDiscount": 0,
-    "totalAndMembershipBasedDiscount": 2.85,
-    "discount": 2.85,
-    "usdTotal": 37.39,
     "globalReferer": "",
     "createDate": "2014-09-20 19:59:43 +0000",
     "updateDate": "2014-09-21 00:00:12 +0000",
     "createTimestamp": 1427268654,
     "updateTimestamp": 1427272209,
+    "hidden": false,
+    "orderComments": "Test order comments",
+    "privateAdminNotes": "Must be delivered till Sunday.",
+    // Basic customer information
+    "email": "johnsmith@example.com",
+    "ipAddress": "83.217.8.241",
+    "customerId": 15319410,
     "customerGroupId": 12345,
     "customerGroup": "Gold",
+    // Discounts in order
+    "membershipBasedDiscount": 0,
+    "totalAndMembershipBasedDiscount": 2.85,
+    "couponDiscount": 1.5,
+    "discount": 2.85,
+    "volumeDiscount": 0,
     "discountCoupon": {
         "name": "Coupon # 3",
         "code": "5PERCENTOFF",
@@ -507,6 +526,15 @@ Parameters in bold are mandatory
         "creationDate": "2014-09-20 19:58:49 +0000",
         "orderCount": 0
     },
+    "discountInfo": [
+        {
+            "value": 10,
+            "type": "PERCENT",
+            "base": "ON_TOTAL_AND_MEMBERSHIP",
+            "orderTotal": 15
+        }
+    ],
+    // Order items details
     "items": [
         {
             "id": 40989227,
@@ -586,6 +614,7 @@ Parameters in bold are mandatory
             ]
         }
     ],
+    // Customer addresses
     "billingPerson": {
         "name": "John Smith",
         "companyName": "Unreal Company",
@@ -610,6 +639,7 @@ Parameters in bold are mandatory
         "stateOrProvinceName": "New York",
         "phone": "+1234567890"
     },
+    // Shipping information
     "shippingOption": {
         "shippingMethodName": "2nd day delivery",
         "shippingRate": 10,
@@ -620,23 +650,14 @@ Parameters in bold are mandatory
         "value": 2,
         "description": "Silk paper wrapping"
     },
+    // Other information
     "additionalInfo": {},
     "paymentParams": {
         "Company name": "Unreal Company",
         "Job position": "Manager",
         "PO number": "123abcd",
         "Buyer's full name": "John Smith"
-    },
-    "discountInfo": [
-        {
-            "value": 10,
-            "type": "PERCENT",
-            "base": "ON_TOTAL_AND_MEMBERSHIP",
-            "orderTotal": 15
-        }
-    ],
-    "hidden": false,
-    "privateAdminNotes": "Must be delivered till Sunday."
+    }
 }
 ```
 
