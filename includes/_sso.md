@@ -91,8 +91,8 @@ The message is a Base64-encoded JSON string containing user profile fields and t
 Field | Type | Description
 ------| ---- | -----------
 **appClientId** | string | Your application's **client_id** value. Example: `my-cool-app`
-**userId** | string | Any string identifying the user in the 3rd-party authentication system. Examples: `72551`, `johnsmith87`. The combination of appId and userId identifies the customer profile in Ecwid connected with your site. 
-**profile** | *Profile* | User information. If a customer with the given combination of `appId` and `userId` already associated with some customer in your Ecwid store, the profile on file will be merged with the provided fields. Exception is the customer address book (`shippingAddresses`), which is only filled once when profile is created in Ecwid.
+**userId** | string | Any string identifying the user in the 3rd-party authentication system. Examples: `72551`, `johnsmith87`. The combination of appClientId and userId identifies the customer profile in Ecwid connected with your site. 
+**profile** | *Profile* | User information. If a customer with the given combination of `appClientId` and `userId` already associated with some customer in your Ecwid store, the profile on file will be merged with the provided fields. Exception is the customer address book (`shippingAddresses`), which is only filled once when profile is created in Ecwid.
 
 #### Profile
 Field | Type  | Description
@@ -204,7 +204,7 @@ Field | Type  | Description
 
 ## Notes
 
-- Ecwid does not allow two customers with the same email address in one store. If a customer with the same email already exists and has different SSO appId/userId, or does not have them at all, then Ecwid will fail to create a customer account and will behave as if no user is logged in. For example, If you have a customer `customer@example.com` from Facebook, you cannot have another `customer@example.com` signing in using SSO. Ecwid will simply ignore `customer@example.com` passed in to SSO.
+- Ecwid does not allow two customers with the same email address in one store. If a customer with the same email already exists and has different SSO appClientId/userId, or does not have them at all, then Ecwid will fail to create a customer account and will behave as if no user is logged in. For example, If you have a customer `customer@example.com` from Facebook, you cannot have another `customer@example.com` signing in using SSO. Ecwid will simply ignore `customer@example.com` passed in to SSO.
 - SSO API is available for [paid Ecwid users only](http://www.ecwid.com/pricing). If an Ecwid store has no paid subscription, Ecwid stops processing SSO requests for that store and will behave as if no user is logged in.
 
 ## SSO implementation examples
