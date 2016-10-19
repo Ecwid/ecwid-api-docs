@@ -24,30 +24,33 @@ Permission required: <strong>add_to_cp</strong> (see <a href="#access-scopes">Ac
 # Building an embedded app
 
 ## Set up your application
-To make your application displayed in Ecwid Control panel, you will need to register your application with us, if you haven't yet. During the registration, you will need to provide us with additional details about your application that are necessary to properly show your app in Ecwid control panel:
+
+After the app registration you will need to provide us with additional details about your app interface in the Ecwid Control Panel. These details are necessary to properly show your page, please see the required details below:
 
 Parameter | Meaning
 --------- | -------
-iframe URL | This is a URL of the application page hosted on your server, which will be loaded in Ecwid Control panel. Requirements: <ul><li>It must load over HTTPS</li> <li>The page must not contain header/footer, i.e. you will need to design this page as an embeddable, not as a standalone application.</li><li>The page content should not contain the word 'Ecwid', so we can offer your app to our partners</li><li>Its interface must use [Ecwid CSS Framework](#ecwid-css-framework)</li><li>The page must <a href="#init">initialize the app</a> using Ecwid Javascript SDK</li></ul>
+iframe URL | This is a URL of the application page hosted on your server, which will be loaded in Ecwid Control panel. Requirements: <ul><li>It must load over HTTPS</li> <li>The page must not contain header/footer, i.e. you will need to design this page as an embeddable, not as a standalone application.</li><li>The page content should not contain the word 'Ecwid', so we can offer your app to our partners</li><li>Its interface must use [Ecwid CSS Framework](#ecwid-css-framework)</li><li>The page must <a href="#init">initialize the app</a> using Ecwid Javascript SDK to be displayed</li></ul>
 App page title | This will be the title of the tab in Ecwid control panel where your application resides. Please keep it short as it will reside in a row of native Ecwid tabs and other applications 
 Control panel section | The section of Ecwid control panel where you want your application to be added. Supported sections: <ul><li>*Sales* – choose this if your application works with orders or customers</li> <li>*Products* – choose this if your application works with products, combinations, product images etc. </li> <li>*Promotions* – this section is for the applications working with discounts, coupons, loyalty programs and other promotion features</li> <li>*Settings* – you can choose this section if you need to place your application settings at the same level as the store settings</li> <li>*Design* – this section is for the applications that customize storefront look and feel</li><li>*Shipping* - choose this section if your app adds new shipping methods</li><li>*Payment* - choose this section if your app adds new payment methods to the store</li></ul>
-Server-side or Client-side app | The way Ecwid passes the store information to your app will depend on whether your application will work on client side only or it's a server-side application.
+Server-side or Client-side app | The way Ecwid passes the store information to your app will depend on whether your application will work on client side only or it's a server-side application. [Learn more](#authentication-in-embedded-apps)
 
-You'll be asked for those details on the app registration page. If you already have a registered app and want to make it embeddable, you can [contact us](/contact) to adjust your app settings.
+If you already have a registered app and want to make it native, you can [contact us](/contact) to adjust your app settings.
 
 ## Installation of the app
 
-After user installs the app from its [app details page](#app-details-page) with the `add_to_cp` access scope, a new tab with your application will be added to the merchant's Ecwid Control Panel. When the user opens the new tab, we will load your application's *iframe URL*. See the [set up your application](#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
+After user installs the app from its [app details page](#app-details-page) with the `add_to_cp` access scope, a new tab will be added to the merchant's Ecwid Control Panel.
 
-When the application tab is opened, the URL will have a format like this: 
+When a user opens this new tab, we will load your application's *iframe URL*. Please see the [set up your application](#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
+
+The browser address bar URL will have a format like this: 
 
 `https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales`
 
-Where the `my-cool-app` is your **app_id** which you will need to use upon initializing the application on the page. 
+Where the `my-cool-app` is your **app_id** which you will need to use upon initializing the application on the page, and the `sales` is the Ecwid Control Panel section where the app is embedded into.
 
-Ecwid will load your app's *Iframe URL* with a payload to help identify the store. To find out more about the store authentication process in the app tab, see the [Authentication section](#authentication-in-embedded-apps).
+Ecwid will load your app's *Iframe URL* with a payload to help identify the merchant's store. To find out more about the store authentication process in the app tab, see the [Authentication section](#authentication-in-embedded-apps).
 
-## Build your application
+## App page template
 
 > Skeleton of an application embedded into Ecwid Control panel
 
@@ -79,7 +82,7 @@ Ecwid will load your app's *Iframe URL* with a payload to help identify the stor
   <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.0/ecwid-app-ui.css"/>  
 </head>
 
-<body>
+<body class='normalized'>
   <div>Show something</div>
 </body>
 
@@ -90,12 +93,13 @@ Ecwid will load your app's *Iframe URL* with a payload to help identify the stor
 Here you can find a starter template that you can use as a skeleton of your own application.
 
 #### Notes
-* `EcwidApp.init()` method initialize the application within Ecwid Control panel.
-* `EcwidApp.getPayload()` method allows you to simply get the store ID and API access token. See details in the further sections
+* `EcwidApp.init()` method initializes the application within Ecwid Control panel and allows it to show the page content
+* `EcwidApp.getPayload()` method allows you to get the store ID and REST API access token. See details in the further sections
+* Make sure to use [Ecwid CSS Framework](#ecwid-css-framework) for your application, so that your app becomes a native of Ecwid Control Panel
 
-See the detailed description of the init() and getPayload() functions here: [Ecwid JS SDK](#ecwid-javascript-sdk) .
+See the detailed description of the `init()` and `getPayload()` functions here: [Ecwid JS SDK](#ecwid-javascript-sdk) .
 
-## Authentication in embedded apps
+# Authentication in embedded apps
 
 In your application, you will likely show some user-specific data, for example the store order list. To do that, your iframe application will need to know:
 
@@ -105,21 +109,39 @@ In your application, you will likely show some user-specific data, for example t
 
 Ecwid will pass this data to your application as soon as it is opened in Ecwid Control panel. The way data is passed to your application and the way you should decrypt the received data depends on whether you process it on a client or a server side of your application. 
 
-Below, you will find how you can do that in either case:
+Below, you will find the differences between client and server side apps and which one suits your application.
 
-**Client-side**
+### Client-side
 
 In the client-side applications Ecwid will call your iframe URL like this: 
 
 `https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e223a22776d6`
 
-**Server-side**
+We recommend using client-side authentication for simple JavaScript applications. For example: 
+
+- Read-only access to store data (read-only)
+- App uses [Application Storage](#application-storage) for user settings to pass user preferences to storefront
+- Other similar cases
+
+[Continue with client-side authentication](#client-side-applications)
+
+### Server-side
 
 In the server-side applications Ecwid will call your iframe URL like this:
 
 `https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&cache-killer=13532`
 
-<aside class="note">By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please contact us and we will update your app.</aside>
+We recommend using server-side authentication for complex server-side applications (working in PHP) that can modify parts of a store:
+
+- Single Sign On for integration with 3rd party services (automated login)
+- App is working with private user data to modify the store orders, products, etc.
+- Other similar cases
+
+In general, server-side authentication is recommended in cases where additional security is required to protect store owner data.
+
+[Continue with server-side authentication](#server-side-applications)
+
+<aside class="note">By default, all applications are registered as <strong>client-side</strong> so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please contact us and we will update your app.</aside>
 
 ## Client-side applications
 
@@ -166,14 +188,14 @@ By default, all applications are registered as client-side so you can start work
 The workflow can be described into the following several steps: 
 
 1. Get store details
-2. Get store specific data
+2. Get store specific data (optional)
 3. Start the flow of your app
 
 ### 1. Get store details
 
 For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](#ecwidapp-getpayload) method specification. So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. 
 
-### 2. Get store specific data
+### 2. Get store specific data (optional)
 
 If your application is going to store some user specified information, like background color, page IDs or something else, you can use [Ecwid Javascript SDK](#ecwid-javascript-sdk) to access [Storage endpoint](#application-storage) to easily store and access this data there without saving this information on your server.
 
@@ -184,6 +206,8 @@ See functions `EcwidApp.getAppStorage`, `EcwidApp.setAppStorage` and `EcwidApp.s
 So once you know the store you are working with and you have the settings and other data specific to that store, you can use that information in your embedded application to start is stndard workflow.
 
 ## Server-side applications
+
+By default, all applications are registered as **client-side** so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please [contact us](/contact) and we will update your app.
 
 The workflow of such applications can be divided into several steps: 
 
