@@ -65,6 +65,7 @@ Parameters in bold are mandatory
             "paymentMethod": "Purchase order",
             "paymentStatus": "PAID",
             "fulfillmentStatus": "AWAITING_PROCESSING",
+
             // Additional information
             "refererUrl": "http://mysuperstore.ecwid.com/",
             "globalReferer": "",
@@ -75,12 +76,14 @@ Parameters in bold are mandatory
             "hidden": false,
             "orderComments": "Test order comments",
             "privateAdminNotes": "Must be delivered till Sunday.",
+
             // Basic customer information
             "email": "johnsmith@example.com",
             "ipAddress": "83.217.8.241",
             "customerId": 15319410,
             "customerGroupId": 12345,
             "customerGroup": "Gold",
+
             // Discounts in order
             "membershipBasedDiscount": 0,
             "totalAndMembershipBasedDiscount": 2.85,
@@ -107,6 +110,7 @@ Parameters in bold are mandatory
                     "orderTotal": 15
                 }
             ],
+
             // Order items details
             "items": [
                 {
@@ -187,6 +191,7 @@ Parameters in bold are mandatory
                     ]
                 }
             ],
+
             // Customer addresses
             "billingPerson": {
                 "name": "John Smith",
@@ -212,6 +217,7 @@ Parameters in bold are mandatory
                 "stateOrProvinceName": "New York",
                 "phone": "+1234567890"
             },
+
             // Shipping information
             "shippingOption": {
                 "shippingMethodName": "2nd day delivery",
@@ -223,6 +229,7 @@ Parameters in bold are mandatory
                 "value": 2,
                 "description": "Silk paper wrapping"
             },
+
             // Other information
             "additionalInfo": {},
             "paymentParams": {
@@ -492,6 +499,7 @@ Parameters in bold are mandatory
     "paymentMethod": "Purchase order",
     "paymentStatus": "PAID",
     "fulfillmentStatus": "AWAITING_PROCESSING",
+
     // Additional information
     "refererUrl": "http://mysuperstore.ecwid.com/",
     "globalReferer": "",
@@ -502,12 +510,14 @@ Parameters in bold are mandatory
     "hidden": false,
     "orderComments": "Test order comments",
     "privateAdminNotes": "Must be delivered till Sunday.",
+
     // Basic customer information
     "email": "johnsmith@example.com",
     "ipAddress": "83.217.8.241",
     "customerId": 15319410,
     "customerGroupId": 12345,
     "customerGroup": "Gold",
+
     // Discounts in order
     "membershipBasedDiscount": 0,
     "totalAndMembershipBasedDiscount": 2.85,
@@ -534,6 +544,7 @@ Parameters in bold are mandatory
             "orderTotal": 15
         }
     ],
+
     // Order items details
     "items": [
         {
@@ -614,6 +625,7 @@ Parameters in bold are mandatory
             ]
         }
     ],
+
     // Customer addresses
     "billingPerson": {
         "name": "John Smith",
@@ -639,6 +651,7 @@ Parameters in bold are mandatory
         "stateOrProvinceName": "New York",
         "phone": "+1234567890"
     },
+
     // Shipping information
     "shippingOption": {
         "shippingMethodName": "2nd day delivery",
@@ -650,6 +663,7 @@ Parameters in bold are mandatory
         "value": 2,
         "description": "Silk paper wrapping"
     },
+    
     // Other information
     "additionalInfo": {},
     "paymentParams": {
