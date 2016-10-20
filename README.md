@@ -9,7 +9,7 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 #Changelog
 
 ##October 17, 2016
-- **NEW** Added support for custom HTTP headers when using webhooks. [Learn more](https://developers.ecwid.com/api-documentation#custon-http-headers)
+- **NEW** Added support for custom HTTP headers when using webhooks. [Learn more](https://developers.ecwid.com/api-documentation#custom-http-headers)
 - Added Python examples for file upload methods
 
 ##August 23, 2016
