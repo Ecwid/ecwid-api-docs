@@ -16,7 +16,7 @@ Don't use webhooks themselves as actionable items – please see the "Webhooks s
 
 ## How it works in Ecwid
 
-In a nustshell, webhooks in Ecwid work this way:
+In a nutshell, webhooks in Ecwid work this way:
 
 * In your application settings, you specify an URL, which Ecwid will use to send webhooks to
 * When a user (merchant) installs your application, the webhooks for this store are automatically enabled
@@ -165,12 +165,12 @@ The request body is a JSON object with the following fields:
 
 Name | Type | Description
 ---- | -----| -----------
-eventId | number | Unique webhook ID
-eventType | string | Type of the occurred event.
-eventCreated | timestamp | Unix timestamp of the occurred event.
-storeId | number | Store ID of the store where the event occured.
-entityId | number | Id of the updated entity. Contains `productId` or `orderNumber` depending on `eventType`.
-data | \<WebhookData\> | Describes changes made to order. Is provided for `order.updated` and `order.created` event types, regarding order statuses
+**eventId** | number | Unique webhook ID
+**eventType** | string | Type of the occurred event.
+**eventCreated** | timestamp | Unix timestamp of the occurred event.
+**storeId** | number | Store ID of the store where the event occured.
+**entityId** | number | Id of the updated entity. Contains `productId` or `orderNumber` depending on `eventType`.
+data | \<WebhookData\> | Describes changes made to order. Is provided for `order.*` and `application.subscriptionStatusChanged` event types.
 
 #### WebhookData
 
@@ -182,6 +182,10 @@ oldFulfillmentStatus | string | Fulfillment status of order before changes occur
 newFulfillmentStatus | string | Fulfillment status of order after changes occurred
 oldSubscriptionStatus | string | Previous application subscription status before changes occurred
 newSubscriptionStatus | string | New application subscription status after changes occurred
+
+<aside class='note'>
+  Fields sent with any webhook request are highlighted in <strong>bold</strong>.
+</aside>
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
 
