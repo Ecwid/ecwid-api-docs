@@ -31,7 +31,7 @@ Ecwid will expect a response from your service within 10 second interval to disp
 
 ### 4. Ecwid displays the rates at checkout
 
-Based on the response from your app, Ecwid will display the shipping methods for customers at the checkout. Customer can select them just like any other shipping method in that Ecwid store and it will be shown in the order details.
+Based on the response from your app, Ecwid will display the shipping methods for customers at the checkout. Customer can select them just like any other shipping method in that Ecwid store and it will be shown in the order details. Shipping methods from the application will be added to any currently enabled shipping methods a store has enabled.
 
 # Merchant settings for shipping method
 

@@ -290,7 +290,7 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
                 "name": "Vegetables",
                 "enabled": true
               }
-            ]
+            ],
             "seoTitle": "Radish",
             "seoDescription": "It's an awesome radish just for you!",            
             "defaultCategoryId": 9691095,

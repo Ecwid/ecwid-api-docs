@@ -1,8 +1,9 @@
 # Webhooks
 
-# What is webhook
+# Overview
 
 ## Webhooks
+
 So what is a webhook? Basically, a WebHook is an HTTP POST request that occurs when something happens, i.e. it's a simple event-notification via HTTP POST. Ecwid uses webhooks to notifiy your application in real time about event in the merchant store. 
 
 This is how your application can use webhooks:
@@ -11,7 +12,7 @@ This is how your application can use webhooks:
 * Get notified about every new order in the store to send a custom email or text message, or generate a custom receipt or subscribe the customer to your newsletter.
 
 <aside class="notice">
-Don't use webhooks themselves as actionable items – please see the "Webhooks security" notes below for details on working with webhooks.
+Don't use webhooks themselves as actionable items – please see the [Processing Webhooks](#processing-webhooks) below for details on working with webhooks.
 </aside>
 
 ## How it works in Ecwid
@@ -74,7 +75,7 @@ Webhooks also allow you to specify custom headers that Ecwid will use when sendi
 
 The custom HTTP headers specified for webhooks will be **added** to the default list of headers Ecwid is sending. In case if a custom webhook HTTP header is duplicating a default header, Ecwid will send **both the default and custom header** in a request.
 
-## Setting up webhooks
+# Setting up webhooks
 
 Setup process is easy. Once your application has a webhook URL specified in the settings and has a token with appropriate access level for the store, it will receive notifications automatically. More details on these are below.
 
@@ -252,13 +253,39 @@ Contents of `data` field also lets you know the details about old status (before
 Once you received `application.subscriptionStatusChanged` webhook, you can make a request to [Application endpoint](#get-application-status) to get the current subscription status of your app in that store.
 
 ## Request headers
+
 Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](#webhooks-security) below.
 
+Also, you can set up several custom webhook headers for your application. [Learn more](#custom-http-headers)
 
-# Responding to webhooks
+# Processing webhooks
 
-Your app should return a `200 OK` HTTP status code in reply to a webhook. This acknowledges Ecwid that you received the webhook. Any other response (e.g. `3xx`), will indicate that the webhook is not received. In this case, we will re-send a webhook every 15 minutes the maximum retry limit is reached. Once the limit is reached, the webhook is removed from the queue and will not be sent again.
+Webhooks are a way to get notified about events in an Ecwid store. So they shouldn't be used as actionable items. See processing flow examples below.
 
+`product.updated` webhook processing flow example:
+
+- Receive a webhook from Ecwid
+- Respond with 200OK HTTP status
+- Parse the request information: identify `productId` from `entityId`, make sure the `eventType` is correct and get `storeId` value
+- Get up-to-date information about the product from Ecwid via [the Ecwid REST API](#rest-api-reference)
+- Update your local database with latest stock quantity of that product
+
+`order.updated` webhook processing flow example: 
+
+- Receive a webhook from Ecwid
+- Respond with 200OK HTTP status
+- Parse the request information: identify `orderNumber` from `entityId`, make sure the `eventType` is correct and get `storeId` value, check if `newPaymentStatus` value is "PAID"
+- Get order details from Ecwid via [the Ecwid REST API](#rest-api-reference)
+- Send order details to a fulfillment center
+- Set order fulfillment status as "PROCESSING" via [the Ecwid REST API](#rest-api-reference)
+
+See also [the webhooks best practices](#webhooks-best-practices) on webhooks security and processing examples.
+
+## Responding to webhooks
+
+When a webhook is sent to your URL, your app must return a `200 OK` HTTP status code in reply to a webhook. This acknowledges Ecwid that you received the webhook. 
+
+Any other response (e.g. `3xx`), will indicate that the webhook is not received. In this case, we will re-send a webhook every 15 minutes the maximum retry limit is reached. Once the limit is reached, the webhook is removed from the queue and will not be sent again.
 
 
 # Webhooks best practices
