@@ -12,7 +12,7 @@ This is how your application can use webhooks:
 * Get notified about every new order in the store to send a custom email or text message, or generate a custom receipt or subscribe the customer to your newsletter.
 
 <aside class="notice">
-Don't use webhooks themselves as actionable items – please see the [Processing Webhooks](#processing-webhooks) below for details on working with webhooks.
+Don't use webhooks themselves as actionable items – please see the <a href="#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
 ## How it works in Ecwid
@@ -253,7 +253,6 @@ Contents of `data` field also lets you know the details about old status (before
 Once you received `application.subscriptionStatusChanged` webhook, you can make a request to [Application endpoint](#get-application-status) to get the current subscription status of your app in that store.
 
 ## Request headers
-
 Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](#webhooks-security) below.
 
 Also, you can set up several custom webhook headers for your application. [Learn more](#custom-http-headers)
@@ -286,6 +285,38 @@ See also [the webhooks best practices](#webhooks-best-practices) on webhooks sec
 When a webhook is sent to your URL, your app must return a `200 OK` HTTP status code in reply to a webhook. This acknowledges Ecwid that you received the webhook. 
 
 Any other response (e.g. `3xx`), will indicate that the webhook is not received. In this case, we will re-send a webhook every 15 minutes the maximum retry limit is reached. Once the limit is reached, the webhook is removed from the queue and will not be sent again.
+
+## Troubleshooting webhooks
+
+### Q: Webhooks to my endpoint are not delivered. Why?
+
+There are several factors that can prevent you from getting webhooks from Ecwid. 
+
+**Application is not installed**
+
+When you are expecting a webhook from Ecwid after a certain event, please make sure that you have a registered app that has all webhook details specified. [More details](#setting-up-webhooks)
+
+**Application is missing the right webhook events**
+
+Webhooks in Ecwid are sent to an endpoint of an application only when event occurs and the application is set up for those webhook event types. Make sure that you specified webhook event types that you want to receive when setting up webhooks. [More details](#setting-up-webhooks)
+
+**Application is missing access scopes**
+
+Webhooks also depend not only on the event types specified for them, but also for access scopes that your application has. For example, if you want to receive webhooks about new orders, then your app must request `read_orders` access scope from a store.
+
+**Your endpoint is not responding to requests with 200 OK status**
+
+When an event occurs, Ecwid will immediately try to send a webhook to your endpoint. However, if it fails to respond with 200OK response status or it has errors in the response (from PHP code, for example). Ecwid will not be able to deliver this webhook to your endpoint, because it failed to accept it.
+
+**Ecwid can't access your endpoint**
+
+When [setting up webhooks](#setting-up-webhooks), make sure that your endpoint is publicly accessible by any resource (no local servers, etc.). This way, Ecwid services can successfully send and deliver POST requests to yoru endpoint.
+
+**Webhooks are added to an existing application**
+
+If you registered your app without webhooks functionality and added it later on, please make sure to reinstall the app for the changes to apply faster in Ecwid.
+
+If you made sure that all of the above steps are not concerning your case, please contact us and we will help you.
 
 
 # Webhooks best practices
@@ -373,35 +404,3 @@ foreach (getallheaders() as $name => $value) {
 ```
 
 Here's an example of implementing all of the above described guidelines and recommendations in order to process webhooks from Ecwid in the most efficient way.
-
-## Troubleshooting webhooks
-
-### Q: Webhooks to my endpoint are not delivered. Why?
-
-There are several factors that can prevent you from getting webhooks from Ecwid. 
-
-**Application is not installed**
-
-When you are expecting a webhook from Ecwid after a certain event, please make sure that you have a registered app that has all webhook details specified. [More details](#setting-up-webhooks)
-
-**Application is missing the right webhook events**
-
-Webhooks in Ecwid are sent to an endpoint of an application only when event occurs and the application is set up for those webhook event types. Make sure that you specified webhook event types that you want to receive when setting up webhooks. [More details](#setting-up-webhooks)
-
-**Application is missing access scopes**
-
-Webhooks also depend not only on the event types specified for them, but also for access scopes that your application has. For example, if you want to receive webhooks about new orders, then your app must request `read_orders` access scope from a store.
-
-**Your endpoint is not responding to requests with 200 OK status**
-
-When an event occurs, Ecwid will immediately try to send a webhook to your endpoint. However, if it fails to respond with 200OK response status or it has errors in the response (from PHP code, for example). Ecwid will not be able to deliver this webhook to your endpoint, because it failed to accept it.
-
-**Ecwid can't access your endpoint**
-
-When [setting up webhooks](#setting-up-webhooks), make sure that your endpoint is publicly accessible by any resource (no local servers, etc.). This way, Ecwid services can successfully send and deliver POST requests to yoru endpoint.
-
-**Webhooks are added to an existing application**
-
-If you registered your app without webhooks functionality and added it later on, please make sure to reinstall the app for the changes to apply faster in Ecwid.
-
-If you made sure that all of the above steps are not concerning your case, please contact us and we will help you.
