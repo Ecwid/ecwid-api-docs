@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##October 26, 2016
+- **NEW** Added `hideOutOfStockProductsInStorefront` field to control the visibility of out of stock products in storefront. [Learn more](https://developers.ecwid.com/api-documentation#store-information)
+
 ##October 17, 2016
 - **NEW** Added support for custom HTTP headers when using webhooks. [Learn more](https://developers.ecwid.com/api-documentation#custom-http-headers)
 - Added Python examples for file upload methods

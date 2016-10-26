@@ -45,7 +45,8 @@ Name | Type    | Description
         "googleAnalyticsId": "UA-123456-1",
         "orderCommentsEnabled": false,
         "orderCommentsCaption": "Order comments",
-        "orderCommentsRequired": false
+        "orderCommentsRequired": false,
+        "hideOutOfStockProductsInStorefront": true
     },
     "mailNotifications": {
         "adminNotificationEmails": [
@@ -227,6 +228,7 @@ googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/custom
 orderCommentsEnabled | boolean | `true` if order comments feature is enabled, `false` otherwise
 orderCommentsCaption | string | Caption for order comments field in storefront
 orderCommentsRequired | boolean | `true` if order comments are required to be filled, `false` otherwise
+hideOutOfStockProductsInStorefront | boolean | `true` if out of stock products are hidden in storefront, `false` otherwise. This setting is located in Ecwid Control Panel > Settings > General > Cart
 
 #### MailNotifications
 Field | Type | Description
@@ -386,7 +388,8 @@ Cache-Control: no-cache
         closed: false,
         storeName: "My Cool Store",
         "googleRemarketingEnabled": false,
-        "googleAnalyticsId": "UA-654321-1"
+        "googleAnalyticsId": "UA-654321-1",
+        "hideOutOfStockProductsInStorefront": false
     },
     company: {
       companyName: "My Company, Inc",
@@ -476,6 +479,7 @@ googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/custom
 orderCommentsEnabled | boolean | Use `true` to enable order comments feature, `false` otherwise
 orderCommentsCaption | string | Caption for order comments field in storefront. If the value is empty, the default 'Order comments' caption will be used
 orderCommentsRequired | boolean | Use `true` to require order comments to be filled, `false` otherwise
+hideOutOfStockProductsInStorefront | boolean | `true` if out of stock products are hidden in storefront, `false` otherwise. This setting is located in Ecwid Control Panel > Settings > General > Cart
 
 #### MailNotifications
 Field | Type | Description
