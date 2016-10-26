@@ -14,12 +14,6 @@ At high level, it works this way:
 - After installation, a new tab shows the page content of your specified iframe URL
 - Ecwid provides [REST API](#rest-api-reference) and [JS SDK](#ecwid-javascript-sdk) for authentication and operation inside of the Ecwid Control Panel
 
-Below, you'll find more details on how to build a native app. Check out [Native applications guideline](/native-applications) to get the page ready for a review.
-
-<aside class="notice">
-Permission required: <strong>add_to_cp</strong> (see <a href="#access-scopes">Access scopes</a>)
-</aside>
-
 # Building an embedded app
 
 ## Set up your application
@@ -31,7 +25,10 @@ Parameter | Meaning
 iframe URL | This is a URL of the application page hosted on your server, which will be loaded in Ecwid Control panel. Requirements: <ul><li>It must load over HTTPS</li> <li>The page must not contain header/footer, i.e. you will need to design this page as an embeddable, not as a standalone application.</li><li>The page content should not contain the word 'Ecwid', so we can offer your app to our partners</li><li>Its interface must use [Ecwid CSS Framework](#ecwid-css-framework)</li><li>The page must <a href="#init">initialize the app</a> using Ecwid Javascript SDK to be displayed</li></ul>
 App page title | This will be the title of the tab in Ecwid control panel where your application resides. Please keep it short as it will reside in a row of native Ecwid tabs and other applications 
 Control panel section | The section of Ecwid control panel where you want your application to be added. Supported sections: <ul><li>*Sales* – choose this if your application works with orders or customers</li> <li>*Products* – choose this if your application works with products, combinations, product images etc. </li> <li>*Promotions* – this section is for the applications working with discounts, coupons, loyalty programs and other promotion features</li> <li>*Settings* – you can choose this section if you need to place your application settings at the same level as the store settings</li> <li>*Design* – this section is for the applications that customize storefront look and feel</li><li>*Shipping* - choose this section if your app adds new shipping methods</li><li>*Payment* - choose this section if your app adds new payment methods to the store</li></ul>
-Server-side or Client-side app | The way Ecwid passes the store information to your app will depend on whether your application will work on client side only or it's a server-side application. [Learn more](#authentication-in-embedded-apps)
+
+<aside class="notice">
+Access scope required: <strong>add_to_cp</strong> 
+</aside>
 
 If you already have a registered app and want to make it native, you can [contact us](/contact) to adjust your app settings.
 
@@ -63,7 +60,7 @@ If you already have a registered app and want to make it native, you can [contac
     // do something...
   </script>
 
-  <!-- Include Ecwid CSS SDK -->
+  <!-- Include Ecwid CSS Framework -->
   <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.0/ecwid-app-ui.css"/>  
 </head>
 
@@ -77,22 +74,25 @@ If you already have a registered app and want to make it native, you can [contac
 Here you can find a starter template that you can use as a skeleton of your own application.
 
 #### Notes
-* `EcwidApp.init()` method initializes the application within Ecwid Control panel and allows it to show the page content
-* `EcwidApp.getPayload()` method allows you to get the store ID and REST API access token. See details in the further sections
-* See the [set up your application](#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work
+* The `EcwidApp.init()` method initializes the application within Ecwid Control panel and allows it to show the page content
+* The `EcwidApp.getPayload()` method allows you to get the Store ID and REST API access token. See details in the further sections
 * Ecwid will load your app's *Iframe URL* with a payload to help identify the merchant's store. To find out more about the store authentication process in the app tab, see the [Authentication section](#authentication-in-embedded-apps).
+* See the detailed description of the `init()` and `getPayload()` functions here: [Ecwid JS SDK](#ecwid-javascript-sdk) .
 
-See the detailed description of the `init()` and `getPayload()` functions here: [Ecwid JS SDK](#ecwid-javascript-sdk) .
+Also, see the [set up your application](#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
+
 
 #### Q: What is my app_id?
 
-When user opens the application tab, the browser address bar URL will have a format like this: 
+When user opens the application tab, the browser's address bar URL will have a format like this: 
 
 `https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales`
 
 Where the `my-cool-app` is your **app_id** which you will need to use in this code template to initiale the application on the page. The `sales` part is the Ecwid Control Panel section where the app is embedded into.
 
-# App authentication
+# Authentication in Embedded Apps
+
+## User authentication
 
 In your application, you will likely show some user-specific data, for example the store order list. To do that, your iframe application will need to know:
 
@@ -102,39 +102,38 @@ In your application, you will likely show some user-specific data, for example t
 
 Ecwid will pass this data to your application as soon as it is opened in Ecwid Control panel. The way data is passed to your application and the way you should decrypt the received data depends on whether you process it on a client or a server side of your application. 
 
-Below, you will find the differences between client and server side apps and which one suits your application.
+Below, you will find the description of a default user authentication for native applications.
 
-### Default Auth
+### Default User Authentication
 
-In the default auth process, Ecwid will call your iframe URL like this: 
+In the default user auth process, Ecwid will call your iframe URL like this: 
 
 `https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e223a22776d6`
 
-We recommend using defailt authentication for simple applications built for one goal. For example: 
-
-- Read-only access to store data
-- App uses [Application Storage](#application-storage) for user settings to pass user preferences to storefront
-- Other similar cases
+This process allows for simple user authentication in your app using the **Ecwid JS SDK**.
 
 [Continue with default authentication](#client-side-applications)
 
-### Enhanced Security Auth
+### Enhanced Security User Authentication
 
 In the enhanced security auth process, Ecwid will call your iframe URL like this:
 
 `https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&cache-killer=13532`
 
-We recommend using this type of authentication for complex applications that can modify parts of a store and require additional security measures:
-
-- Single Sign On for integration with 3rd party services (automated login)
-- App is working with private user data to modify the store orders, products, etc.
-- Other similar cases
+We recommend using this type of authentication for complex applications that can modify parts of a store and require additional security measures.
 
 [Continue with enhanced security authentication](#server-side-applications)
 
-<aside class="note">By default, all applications are registered as <strong>client-side</strong> so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please contact us and we will update your app.</aside>
+<aside class="note">By default, Ecwid uses **Default User Authentication** process so you can start working on your application's tab right away without using server side. If you need your app to be switched to **Enhanced Security User Authentication**, please [contact us](/contact) and we will update your app.</aside>
 
-## Client-side applications
+## App authentication
+
+After your app authorized a user, it will need an **access token** to the Ecwid REST API to read and modify Ecwid store orders, products and other information. 
+
+The process of getting the access token is different for each user authentication type. Both authentication processes are described below, so please check them out for more info on getting access tokens.
+
+
+## Default User Auth
 
 > Example of the iframe URL call in client-side apps
 
@@ -178,37 +177,34 @@ By default, all applications are registered as client-side so you can start work
 
 The workflow can be described into the following steps: 
 
-1. Get store details
-2. Get store specific data (optional)
-3. Initialize your application
+1. Get store preferences and data
+2. Initialize your application functionality
 
-### 1. Get store details
+### 1. Get store preferences and data
 
 For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](#ecwidapp-getpayload) method specification. So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. 
-
-### 2. Get store specific data (optional)
 
 If your application is going to store some user specified information, like background color, page IDs or something else, you can use [Ecwid Javascript SDK](#ecwid-javascript-sdk) to access [Storage endpoint](#application-storage) to easily store and access this data there without saving this information on your server.
 
 See functions `EcwidApp.getAppStorage`, `EcwidApp.setAppStorage` and `EcwidApp.setAppPublicConfig` in [Ecwid Javascript SDK](#ecwid-javascript-sdk) for more details.
 
-### 3. Start the flow of your app
+### 2. Initialize your application functionality
 
 So once you know the store you are working with and you have the settings and other data specific to that store, you can use that information in your embedded application to start is stndard workflow.
 
-## Server-side applications
+## Enhanced Security User Auth
 
 By default, all applications are registered as **client-side** so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please [contact us](/contact) and we will update your app.
 
 The workflow of such applications can be divided into several steps: 
 
-1. Decrypt the payload from Ecwid control panel
+1. Decrypt the payload from the Ecwid Control Panel
 2. Get store specific data (optional)
-3. Initialize your application
+3. Initialize your application functionality
 
 So let's look a little closer on how to create a your embedded server-side application:
 
-### 1. Decrypt the payload from Ecwid control panel
+### 1. Decrypt the payload from the Ecwid Control Panel
 
 Let's say, you process user input and prepare the data to display in your app on your server and then pass this information to your application UI to be displayed in the user Control panel. 
 
@@ -334,7 +330,7 @@ access_token | string | Secure oAuth token for Ecwid REST API
 
 Ecwid uses *AES-128* to encrypt the payload. The key is the first 16 symbols (128 bit) of your application secret key (**client_secret**). It is provided when you register an app with us. See a PHP example of decryption to get better idea on how to receive and decrypt the payload.
 
-### 2. Get store specific data (optional)
+### 2. Get store preferences and data
 
 Now that you have successfully got store details and have access to it using Ecwid API, you can get store-specific information from the storage endpoint or from your local database. 
 
@@ -342,7 +338,7 @@ The result of the payload decryption will be provided in an array `$result`, whi
 
 To store and get store-specific data in storage endpoint, you can use cURL functionality in PHP or any other way that you prefer to access REST API endpoints. You can see the example code on how to retrieve the value of `'color'` key in application storage using cURL and process the result on the right based on a response from API.
 
-### 3. Start the flow of your app
+### 3. Initialize your application functionality
 
 Once you got all details that you need, you can start the standard planned workflow for your app and operate with Ecwid API using the details you got earlier.
 
