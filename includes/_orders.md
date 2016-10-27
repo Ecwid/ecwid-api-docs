@@ -884,6 +884,496 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
+
+## Get order invoice
+
+Get invoice HTML code for a specific order placed in a store.
+
+> Request example
+
+```http
+GET /api/v3/4870020/orders/20/invoice?token=1234567890qwqeertt HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+```
+
+`GET https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/invoice?token={token}`
+
+Name | Type    | Description
+---- | ------- | --------------
+**storeId** |  number | Ecwid store ID
+**token** |  string | oAuth token
+**orderNumber** | number | Order number
+
+<aside class="notice">
+Parameters in bold are mandatory
+</aside>
+
+### Response
+
+> Response example (HTML)
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Order - #ab645ad</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <script>
+        function printFrame() {
+            window.document.close();
+            window.focus();
+            window.print();
+            setTimeout(function(){window.close();}, 1);
+        }
+    </script>
+    </head>
+    <body onload="printFrame()">
+        <!-- Invoice styles -->
+        <style type="text/css">
+html,body {
+    min-height:50%;
+    margin:0;
+    padding:0;
+}
+
+body {
+    background-color:#fff;
+    width:210mm;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    padding:20mm 10mm 15mm;
+}
+
+body > div {
+    height:100%;
+}
+
+body p:empty {
+    display:none;
+}
+
+body a {
+    text-decoration:none;
+    color:#000;
+}
+
+body table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+body .body {
+    height:100%;
+    width:130mm;
+    margin:0 auto;
+}
+
+body .body td {
+    vertical-align:top;
+    height:0;
+    font-family:Arial, Helvetica, "Sans Serif";
+    font-size:8pt;
+    line-height:10pt;
+    color:#000;
+    padding:0;
+}
+
+body .body td.footer {
+    height:100%;
+    text-align:center;
+    vertical-align:bottom;
+}
+
+body .body td.footer div {
+    border-bottom:1px solid #000;
+    padding:10mm 0 5pt;
+}
+
+body .body .invoice td td {
+    vertical-align:top;
+    padding:0;
+}
+
+body .body .invoice p {
+    margin:2pt 0;
+}
+
+body .body .invoice .store-info {
+    width:100%;
+    margin-bottom:16pt;
+}
+
+body .body .invoice .store-info .invoice-logo {
+    max-height:25mm;
+    max-width:100%;
+    width:auto;
+    display:block;
+    margin:0 0 5mm;
+}
+
+body .body .invoice .store-info .store-title {
+    font-size:10pt;
+    line-height:12pt;
+    font-weight:600;
+    padding:5pt 0;
+}
+
+body .body .invoice .store-info .store-main-info {
+    width:89mm;
+    padding-right:5mm;
+}
+
+body .body .invoice .store-info .store-main-info .title-detached {
+    margin-top:5pt;
+    margin-bottom:5pt;
+}
+
+
+body .body .invoice .store-info .store-customer-info {
+    vertical-align:top;
+}
+
+body .body .invoice .store-info .store-customer-info p {
+    max-width:60mm;
+    word-wrap:break-word;
+}
+
+body .body .invoice td.invoice-row,body .body .invoice .invoice-row > tr:first-child > td {
+    border-top:1px solid #000;
+}
+
+body .body .invoice .order-comment {
+    padding-bottom: 12pt;
+}
+
+body .body .invoice .order-info {
+    margin-bottom:11pt;
+    padding:0;
+}
+
+body .body .invoice .order-items {
+    margin-bottom:16pt;
+    padding:0;
+}
+
+body .body .invoice .order-info td,body .body .invoice .order-items td {
+    width:42mm;
+    padding-right:5mm;
+}
+
+body .body .invoice .order-info td:last-child,body .body .invoice .order-items td:last-child {
+    width:auto;
+}
+
+body .body .invoice .order-info .title,body .body .invoice .order-items .title {
+    font-weight:600;
+    padding-top:5pt;
+    padding-bottom:12pt;
+    margin:0;
+}
+
+body .body .invoice .order-info td:last-child {
+    padding-right:0;
+}
+
+body .body .invoice .order-info p {
+    max-width:42mm;
+    word-wrap:break-word;
+}
+
+body .body .invoice .order-info .order-comment p {
+    max-width: 100%;
+    word-break: break-all;
+    white-space: pre-wrap;
+}
+
+body .body .invoice .order-comment-title {
+    margin-bottom: 4pt; 
+}
+
+body .body .invoice .order-items table tbody tr:last-child td {
+    padding-bottom:3pt;
+}
+
+body .body .invoice .order-items .title {
+    padding-bottom:5pt;
+}
+
+body .body .invoice .order-items .order-item-desc {
+    width:87mm;
+}
+
+body .body .invoice .order-items .order-item-count {
+    width:11mm;
+}
+
+body .body .invoice .order-items .order-item-count,body .body .invoice .order-items .order-item-total {
+    text-align:right;
+    padding-right:1mm;
+}
+
+body .body .invoice .order-items .order-item-total {
+    padding-right:2mm;
+    white-space: nowrap;
+}
+
+body .body .invoice .order-items .order-total td {
+    padding-top:1pt;
+    padding-bottom:1pt;
+}
+
+body .body .invoice,body .body .invoice .order-items table {
+    width:100%;
+}
+
+body .body .invoice td,body .body .invoice .order-items table td {
+    padding:0 1mm;
+}
+
+body .body .invoice .text-uppercase,body .body .invoice .order-info .title::first-letter,body .body .invoice .order-items .title::first-letter {
+    text-transform:uppercase;
+}
+
+body .body .invoice .text-bold,body .body .invoice .order-items .order-item-title {
+    font-weight:600;
+}
+
+body .body .invoice .store-info .store-main-info .url,body .body .invoice .order-info .title-detached,body .body .invoice .order-items .title-detached {
+    margin-bottom:5pt;
+}
+
+body .body .invoice .store-info .store-main-info p,body .body .invoice .order-items .order-item-desc p {
+    max-width:87mm;
+    word-wrap:break-word;
+}
+
+body .body .invoice .order-items .order-item-desc .order-discount-coupon {
+    max-width: 64mm;
+}
+
+body .body .invoice .order-items table tbody tr td,body .body .invoice .order-items .order-total tr:first-child td {
+    padding-top:7pt;
+}
+
+@media print{
+    * {
+        -webkit-print-color-adjust:exact;
+    }
+
+    html,body {
+        height:100%;
+    }
+
+    body {
+        padding:0;
+    }
+
+    @page {
+        margin:20mm 0 15mm;
+    }
+}
+</style>
+        <!-- Invoice body markup -->
+        <table class="body">
+            <tbody>
+                <tr>
+                    <td>
+                        <table class="invoice">
+                            <tbody>
+                                <!-- Your company information -->
+                                <tr>
+                                    <td>
+                                        <table class="store-info">
+                                            <thead>
+                                                <!-- Invoice logo -->
+                                                <tr>
+                                                    <td colspan="2" class="store-title">
+                                                        <!-- Store name -->
+                                                        <span>Awesome store</span>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <!-- Company information: store URL, tax ID, company name, address and contact information -->
+                                                    <td class="store-main-info">
+                                                        <p class="url">    superstore.com
+</p>
+                                                        <p class="title-detached">Tax registration ID: 1234567</p>
+                                                        <p>Cool slippers for dogs</p>
+                                                        <p>5th Avenue</p>
+                                                        <p>New York, NY 10002</p>
+                                                        <p>United States</p>
+                                                    </td>
+                                                    <td class="store-customer-info">
+                                                        <p>
+                                                            <b>Customer service</b>
+                                                        </p>
+                                                        <p></p>
+                                                        <p>info@superstore.com</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!-- Shipping and billing information -->
+                                <tr>
+                                    <td class="invoice-row">
+                                        <table class="order-info">
+                                            <thead>
+                                                <tr>
+                                                    <!-- Order date -->
+                                                    <td colspan="2" class="title">
+                                                        <span>Fri, Jun 3, '16</span>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <!-- Customer shipping address -->
+                                                    <!-- Customer billing address -->
+                                                    <td>
+                                                        <p class="text-uppercase">s</p>
+                                                        <p></p>
+                                                        <p>Mark Cool</p>
+                                                        <p>New York, New York, NY</p>
+                                                        <p>United States</p>
+                                                        <p></p>
+                                                        <p>customer@gmail.com</p>
+                                                    </td>
+                                                    <td>
+                                                        <!-- Shipping option chosen to deliver the order -->
+                                                        <p>Shipped via Ground Delivery</p>
+                                                        <!-- Payment option that customer used to pay for the order -->
+                                                        <p>Payment method PayPal</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <!-- Order comments -->
+                                <!-- Order information -->
+                                <tr>
+                                    <td class="order-items">
+                                        <table>
+                                            <tbody class="invoice-row">
+                                                <tr>
+                                                    <td colspan="3" class="title">
+                                                        <!-- Order number -->
+                                                        <span>Order #ab645ad</span>
+                                                    </td>
+                                                </tr>
+                                                <!-- Ordered items list -->
+                                                <tr>
+                                                    <td class="order-item-desc">
+                                                        <p class="order-item-title">Galaxy SII</p>
+                                                        <p>SKU : 000026</p>
+                                                    </td>
+                                                    <td class="order-item-count">
+                                                        <p>1</p>
+                                                    </td>
+                                                    <td class="order-item-total text-bold">
+                                                        <p>$100</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <!-- Order totals -->
+                                            <tbody class="invoice-row order-total">
+                                                <!-- Order subtotal -->
+                                                <tr>
+                                                    <td colspan="2" class="order-item-count">
+                                                        <p>Items</p>
+                                                    </td>
+                                                    <td class="order-item-total">
+                                                        <p>$100</p>
+                                                    </td>
+                                                </tr>
+                                                <!-- Order shipping cost -->
+                                                <tr>
+                                                    <td colspan="2" class="order-item-count">
+                                                        <p>Shipping</p>
+                                                    </td>
+                                                    <td class="order-item-total">
+                                                        <p>$10</p>
+                                                    </td>
+                                                </tr>
+                                                <!-- Order handling fee cost -->
+                                                <!-- Order tax -->
+                                                <!-- Order discounts total -->
+                                                <tr>
+                                                    <td colspan="2" class="order-item-count">
+                                                        <p>Discount</p>
+                                                    </td>
+                                                    <td class="order-item-total">
+                                                        <p>-$14</p>
+                                                    </td>
+                                                </tr>
+                                                <!-- Order total cost -->
+                                                <tr>
+                                                    <td class="order-item-desc"></td>
+                                                    <td class="order-item-count text-bold">
+                                                        <p>Total</p>
+                                                    </td>
+                                                    <td class="order-item-total text-bold">
+                                                        <p>$96</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <!-- Invoice footer -->
+                <tr>
+                    <td class="footer">
+                        <div>Thank you for your order!</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
+```
+
+HTML code of an invoice for the requested order number.
+
+### Errors
+
+> Error response example
+
+```http
+HTTP/1.1 404 Not Found
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+HTTP Status | Meaning
+------------|--------
+400 | Request parameters are malformed
+404 | The order is not found
+405 | Method not allowed. Can occur when using `PUT/POST/DELETE` HTTP request methods instead of `GET`
+415 | Unsupported content-type: expected `application/json` or `text/json`
+422 | Cannot generate an invoice for unfinished order
+500 | Cannot retrieve the order info because of an error on the server
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+
+
 ## Update order
 
 This request allows you to update existing orders in the store. When updating order information, you can omit unchanged fields – they will be ignored so the resulting order will keep the corresponding information unchanged. However, please mind that if you want to update the ordered items, you should submit all the items in the request. The omitted items will be removed. This is done this way to let you remove some purchased items from the order. 

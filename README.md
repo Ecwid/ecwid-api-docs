@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##October 27, 2016
+- **NEW** Added new REST API endpoint for getting up-to-date HTML invoice of a specific order. [Learn more](https://developers.ecwid.com/api-documentation#get-order-invoice)
+
 ##October 26, 2016
 - **NEW** Added `hideOutOfStockProductsInStorefront` field to control the visibility of out of stock products in storefront. [Learn more](https://developers.ecwid.com/api-documentation#store-information)
 
