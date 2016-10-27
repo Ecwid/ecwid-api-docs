@@ -57,24 +57,6 @@ The following events are supported:
 
 [Application endpoint](#application) allows you to check status of your application.
 
-## Custom HTTP Headers
-
-> Custom webhook headers example
-
-```http
-POST https://www.myapp.com/callback?eventType=order.updated HTTP/1.1
-Host: www.myapp.com
-Content-Type: application/json; charset=UTF-8
-Content-Length: 243
-Cache-Control: no-cache
-X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
-Custom-Webhook-Header-Name: custom webhook header value
-```
-
-Webhooks also allow you to specify custom headers that Ecwid will use when sending a webhook to your endpoint. For example, if you are using [Sashido](https://www.sashido.io/) service that requires specific headers to be passed along with webhook HTTP requests, then it is possible to do that with Ecwid.
-
-The custom HTTP headers specified for webhooks will be **added** to the default list of headers Ecwid is sending. In case if a custom webhook HTTP header is duplicating a default header, Ecwid will send **both the default and custom header** in a request.
-
 # Setting up webhooks
 
 Setup process is easy. Once your application has a webhook URL specified in the settings and has a token with appropriate access level for the store, it will receive notifications automatically. More details on these are below.
@@ -89,13 +71,13 @@ This must be a <strong>publicly accessible HTTPS URL</strong>.
 ### 2. Set webhook events
 There are several types of events in the store that Ecwid can notify your application about, check out **Event type** section of webhook structure for more details. 
 
-Please specify the exact event types you wish to be notified about upon registering your application or [contact us](http://developers.ecwid.com/contact) if you already have an app.
+Please specify the exact event types you wish to be notified about upon registering your application or [contact us](/contact) if you already have an app.
 
 ### 3. Set custom HTTP headers (optional)
 
-You are also able to specify your custom HTTP headers to be provided by Ecwid when sending webhooks to your URL. If you want to add custom headers to your app, please contact us. Learn more about [custom HTTP headers](#custom-http-headers)
+You are also able to specify your custom HTTP headers to be provided by Ecwid when sending webhooks to your URL. If you want to add custom headers to your app, please [contact us](/contact). Learn more about [custom HTTP headers](#request-headers)
 
-### 3. Get access
+### 4. Get access
 Each application has scope of access that controls the set of store resources and operations permitted for the application. The same set of access scopes is used to determine which events your application can be notified of. To be notified of the product updates, make sure your app has `read_catalog` access to the store. The `read_orders` scope allows to get order webhooks. See [Access scopes](#access-scopes) for more details. 
 
 
@@ -253,9 +235,28 @@ Contents of `data` field also lets you know the details about old status (before
 Once you received `application.subscriptionStatusChanged` webhook, you can make a request to [Application endpoint](#get-application-status) to get the current subscription status of your app in that store.
 
 ## Request headers
+
 Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](#webhooks-security) below.
 
-Also, you can set up several custom webhook headers for your application. [Learn more](#custom-http-headers)
+### Custom HTTP Headers
+
+> Custom webhook headers example
+
+```http
+POST https://www.myapp.com/callback?eventType=order.updated HTTP/1.1
+Host: www.myapp.com
+Content-Type: application/json; charset=UTF-8
+Content-Length: 243
+Cache-Control: no-cache
+X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
+Custom-Webhook-Header-Name: custom webhook header value
+```
+
+Webhooks also allow you to specify custom headers that Ecwid will use when sending a webhook to your endpoint. For example, if you have only one endpoint and several applications sending webhooks to that endpoint, you may want to specify a custom HTTP header to know the application this webhook was sent to.
+
+The custom HTTP headers specified for webhooks will be **added** to the default list of headers Ecwid is sending. In case if a custom webhook HTTP header is duplicating a default header, Ecwid will send **both the default and custom header** in a request.
+
+To setup custom HTTP headers for your app webhooks, please [contact us](/contact).
 
 # Processing webhooks
 

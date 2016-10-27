@@ -124,7 +124,7 @@ We recommend using this type of authentication for complex applications that can
 
 [Continue with enhanced security authentication](#server-side-applications)
 
-<aside class="note">By default, Ecwid uses **Default User Authentication** process so you can start working on your application's tab right away without using server side. If you need your app to be switched to **Enhanced Security User Authentication**, please [contact us](/contact) and we will update your app.</aside>
+<aside class="note">By default, Ecwid uses <strong>Default User Authentication</strong> process so you can start working on your application's tab right away without using server side. If you need your app to be switched to <strong>Enhanced Security User Authentication</strong>, please <a href='/contact'>contact us</a> and we will update your app.</aside>
 
 ## App authentication
 
