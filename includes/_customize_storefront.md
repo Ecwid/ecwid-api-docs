@@ -17,7 +17,7 @@ Ecwid API allows you to attach external JavaScript and CSS scripts and load them
 
 **How it works and how to set up**
 
-1. When [registering of your app in Ecwid](/register), you specify https URL of the `.css` or `.js` file (or both) you'd like to be loaded in user storefront. 
+1. After your app is registered, [contact us](/contact) and provide https URL of the `.css` and/or `.js` file you'd like to be loaded in user storefront. 
 2. When asking user to install your app, Ecwid will ask for `customize_storefront` scope from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the oAuth process*)
 3. The next time user's storefront is loaded in any browser, the specified external JS/CSS files will be automatically loaded and executed on the page. 
 
