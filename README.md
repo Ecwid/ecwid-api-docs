@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+##November 4, 2016
+- **NEW** Added more ways to contact store for the new Starter site: Whatsapp, Viber, Telegram and more. [Learn more](https://developers.ecwid.com/api-documentation#starter-site)
+
 ##October 27, 2016
 - **NEW** Added new REST API endpoint for getting up-to-date HTML invoice of a specific order. [Learn more](https://developers.ecwid.com/api-documentation#get-order-invoice)
 

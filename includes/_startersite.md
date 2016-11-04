@@ -114,6 +114,12 @@ contactusEtsy | string | URL to store's Etsy profile
 contactusGoogle | string | URL to store's Google+ profile
 contactusYoutube | string | URL to store's Youtube profile
 contactusVimeo | string | URL to store's Vimeo profile
+contactusWechat | string | URL to store's Wechat profile
+contactusWhatsapp | string | URL to store's Whatsapp profile
+contactusTelegram | string | URL to store's Telegram profile
+contactusMessenger | string | URL to store's Messenger profile
+contactusLine | string | URL to store's Line profile
+contactusViber | string | URL to store's Viber profile
 contactUsList | \<*ContactUsListInfo*\> | Contact a store block
 showCoverImage | boolean | `true` if "Cover image" section is shown. `false` otherwise. Default is `true`
 showWhyUs | boolean | `true` if "Why Us?" section is shown. `false` otherwise. Default is `true`
@@ -262,6 +268,12 @@ contactusEtsy | string | URL to store's Etsy profile
 contactusGoogle | string | URL to store's Google+ profile
 contactusYoutube | string | URL to store's Youtube profile
 contactusVimeo | string | URL to store's Vimeo profile
+contactusWechat | string | URL to store's Wechat profile
+contactusWhatsapp | string | URL to store's Whatsapp profile
+contactusTelegram | string | URL to store's Telegram profile
+contactusMessenger | string | URL to store's Messenger profile
+contactusLine | string | URL to store's Line profile
+contactusViber | string | URL to store's Viber profile
 contactUsList | \<*ContactUsListInfo*\> | Contact a store block
 showCoverImage | boolean | Set to `false` to hide the "Cover image" section. `true` otherwise. Default is `true`
 showWhyUs | boolean | Set to `false` to hide "Why Us?" section. `true` otherwise. Default is `true`
