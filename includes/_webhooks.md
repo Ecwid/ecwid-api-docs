@@ -363,25 +363,25 @@ See the example in the [webhook processing example code](#webhook-processing-exa
 // Get contents of webhook request
 $requestBody = file_get_contents('php://input');
 $client_secret = 'abcde123456789';
-​
+
 // Parse webhook data
 $decodedBody = json_decode($requestBody, true);
-​
+
 $eventId = $decodedBody['eventId'];
 $eventCreated = $decodedBody['eventCreated'];
 $storeId = $decodedBody['storeId'];
 $entityId = $decodedBody['entityId'];
 $eventType = $decodedBody['eventType'];
-$data = ​$decodedBody['data'];
+$data = $decodedBody['data'];
 
 // Reply with 200OK to Ecwid
 http_response_code(200);
-​
+
 // Filter out the events we're not interested in
 if ($eventType != 'order.updated') {
     exit;
 }
-​
+
 // Continue if eventType is order.updated
 // Verify the webhook (check that it is sent by Ecwid)
 foreach (getallheaders() as $name => $value) {
@@ -390,17 +390,17 @@ foreach (getallheaders() as $name => $value) {
         
         $hmac_result = hash_hmac("sha256", "$eventCreated.$eventId", $client_secret, true);
         $generatedSignature = base64_encode($hmac_result);
-  ​
+        
         if ($generatedSignature != $headerSignature) {
             echo 'Signature verification failed';
             exit;
         }
   }
 }
-​
+
 // Handle the event
 // ...
-​
+
 ?>
 ```
 
