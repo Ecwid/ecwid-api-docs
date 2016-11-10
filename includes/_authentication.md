@@ -96,7 +96,7 @@ See [native apps documentation](#embedded-apps) and start working on your applic
 
 # External applications
 
-External applications work outside of Ecwid control panel and they also have an app details page for easy installation process. These apps use oAuth2 flow to get access token for a specific Ecwid store. 
+External applications work outside of Ecwid control panel and they also have an [app details page](#app-details-page) for easy installation process. These apps use oAuth2 flow to get access token for a specific Ecwid store. 
 
 > Check external apps guideline for general guides
 
@@ -115,7 +115,7 @@ Retrieving an access token for external apps includes the following steps:
 1. User installs application, Ecwid redirects the user to the return URL.
 2. Your code requests an access token from Ecwid in the background. This access_token will be used as API key in all API calls.
 
-User will get to the first step by accessing your [App details page](#app-details-page) in the Ecwid App Market. It is a separate page dedicated to describe your application in Ecwid Control Panel. Before you proceed, make sure you have a [registered app](/register) to install.
+User will get to the first step by accessing your [App details page](#app-details-page) in the Ecwid App Market. It is a separate page dedicated to describe your application in Ecwid Control Panel. Before you proceed, make sure you have a [registered app](/register) to install and the application is registered for the Ecwid App Market.
 
 <aside class="notice">
 User needs to go through all these steps only <strong>once</strong> in order for your app to get and store access token for that user. This token will be used in any call you make to Ecwid API on behalf of the user.
@@ -214,9 +214,11 @@ public_storefront | Get public store details with public access token
 
 ## Complete oAuth flow
 
-This method of getting access token is meant for apps that are installed outside of Ecwid App Market, for example: apps that work on a device, apps for mobile devices, CMS plugins, etc. These kinds of apps are also displayed in the App Market, but the oAuth flow will be done on external website, where developer will decide how to handle the installation. 
+This method of getting access token is meant for apps that are installed outside of the Ecwid App Market, for example: apps that work on a device, apps for mobile devices, CMS plugins, etc. 
 
-We recommend using the simplified installation flow from the [Get access token](#get-access-token) section, however if it's not possible, you can use this complete oAuth flow. Before you proceed, make sure you have a [registered app](/register) to install.
+These kinds of apps can be also displayed in the Ecwid App Market, but the oAuth flow will be performed on an external website, where developer will decide how to handle the installation. 
+
+We recommend using the simplified installation flow from the [Get access token](#get-access-token) section, however if it's not possible or the application is created **for a specific Ecwid store only**, you can use this complete oAuth flow. Before you proceed, make sure you have a [registered app](/register) to install.
 
 Retrieving an access token in a complete oAuth flow includes the following steps:
 
