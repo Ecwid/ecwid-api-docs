@@ -62,7 +62,7 @@ The following events are supported:
 Setup process is easy. Once your application has a webhook URL specified in the settings and has a token with appropriate access level for the store, it will receive notifications automatically. More details on these are below.
 
 ### 1. Set webhook URL
-After you successfully [registered your application](#register-your-app-in-ecwid) with Ecwid, please contact us and provide a webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable or modify webhooks for existing application, please contact us as well.
+After you successfully [registered your application](/register) with Ecwid, please contact us and provide a webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable or modify webhooks for existing application, please contact us as well.
 
 <aside class="notice">
 This must be a <strong>publicly accessible HTTPS URL</strong>. 

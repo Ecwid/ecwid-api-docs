@@ -112,7 +112,7 @@ In the default user auth process, Ecwid will call your iframe URL like this:
 
 This process allows for simple user authentication in your app using the **Ecwid JS SDK**.
 
-[Continue with default authentication](#client-side-applications)
+[Continue with default authentication](#default-user-auth)
 
 ### Enhanced Security User Authentication
 
@@ -122,7 +122,7 @@ In the enhanced security auth process, Ecwid will call your iframe URL like this
 
 We recommend using this type of authentication for complex applications that can modify parts of a store and require additional security measures.
 
-[Continue with enhanced security authentication](#server-side-applications)
+[Continue with enhanced security authentication](#enhanced-security-user-auth)
 
 <aside class="note">By default, Ecwid uses <strong>Default User Authentication</strong> process so you can start working on your application's tab right away without using server side. If you need your app to be switched to <strong>Enhanced Security User Authentication</strong>, please <a href='/contact'>contact us</a> and we will update your app.</aside>
 
@@ -182,7 +182,7 @@ The workflow can be described into the following steps:
 
 ### 1. Get store preferences and data
 
-For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](#ecwidapp-getpayload) method specification. So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. 
+For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](#getpayload) method specification. So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. 
 
 If your application is going to store some user specified information, like background color, page IDs or something else, you can use [Ecwid Javascript SDK](#ecwid-javascript-sdk) to access [Storage endpoint](#application-storage) to easily store and access this data there without saving this information on your server.
 

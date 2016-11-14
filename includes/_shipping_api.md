@@ -187,7 +187,7 @@ POST https://mycoolapp.com/integration HTTP/1.1
 Name | Type    | Description
 ---- | ------- | --------------
 storeId |  number | Ecwid store ID
-merchantAppSettings | json | Merchant settings for your integration set up by your code. [More details](#merchant-settings-for-shpping-method)
+merchantAppSettings | json | Merchant settings for your integration set up by your code. [More details](#merchant-settings-for-shipping-method)
 cart | \<*CartDetails*\> | Offset from the beginning of the returned items list (for paging)
 
 ### CartDetails
