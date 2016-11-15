@@ -18,7 +18,7 @@ Check out all available methods: [REST API](#rest-api-reference)
 
 Will your app have a settings page for a user to update them quickly? Place it right in Ecwid Control Panel! It is a great way to put your app up front to the users and let them use if more often.
 
-More information: [Native applications](#embedded-apps)
+More information: [Native applications](#native-applications)
 
 **Webhooks**
 
@@ -68,13 +68,13 @@ In Ecwid there can be two main categories of applications: Native and External a
 
 > [https://developers.ecwid.com/examples](https://developers.ecwid.com/examples)
 
-### Native applications
+### Native apps
 
 Native applications work inside of Ecwid Control Panel in a separate tab, just like Shipping Settings or Design. This way of embedding your app into user interface puts your app right before the day-to-day workflow of an Ecwid store owner and it is a great way to design an app for Ecwid. Using Ecwid JS SDK it's very easy to get access token for a store.
 
 More details: [Native apps](#native-applications)
 
-### External applications
+### External apps
 
 External applications work outside of Ecwid Control panel and user would interact and control them on a separate website. This approach is great for applications that provide extensive feature set for store owners and would require implementing oAuth flow to get access token for a specific Ecwid store.
 
