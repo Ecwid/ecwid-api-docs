@@ -993,7 +993,8 @@ Name | Type    | Description
 {
     "productsUpdated": "2014-10-19 18:56:21 +0400",
     "ordersUpdated": "2014-10-15 16:54:11 +0400",
-    "profileUpdated": "2014-10-19 18:55:35 +0400"
+    "profileUpdated": "2014-10-19 18:55:35 +0400",
+    "categoriesUpdated": "2014-10-19 12:23:12 +0400"
 }
 ```
 
@@ -1005,6 +1006,7 @@ Field | Type | Description
 productsUpdated | string | Date of the latest changes in store catalog (products, categories), e.g. `2014-10-15 16:54:11 +0400`
 ordersUpdated | string | Date of the latest changes in store orders, e.g. `2014-10-15 16:54:11 +0400`
 profileUpdated | string | Date of the latest changes in store information, e.g. `2014-10-15 16:54:11 +0400`
+categoriesUpdated | string | Date of the latest changes in store categories, e.g. `2014-10-19 12:23:12 +0400`
 
 ### Errors
 
