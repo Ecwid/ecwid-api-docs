@@ -771,6 +771,14 @@ errorMessage | string | Error message
 
 ## Get a product
 
+This method allows you to get all details of a specific product in an Ecwid store. 
+
+#### Q: How can I request details of several products at once?
+
+If you need to do this operation for multiple products at once (batch request), you can use the [Search products](#search-products) method: provide the productIds you have in the `productId` parameter separating them with a comma. 
+
+This way your app will save some time as you will be performing less requests to the Ecwid API and they will be much more efficient.
+
 ### Request
 
 > Request example
