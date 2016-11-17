@@ -70,6 +70,7 @@ Returns array containing widget types present on a page. There are four types av
 * SearchPanel - Search widget
 * ProductBrowser - Storefront widget
 * Categories - Categories widget
+* Product - Embedded product
 
 ## Ecwid.formatCurrency
 
