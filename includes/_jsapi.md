@@ -205,19 +205,32 @@ vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_
 
 Change any color and main font for user's storefront
 
+## Apply colors and font automatically
+
+> Set storefront colors and font automatically
+
+```html
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon.font = 'auto';
+window.ec.config.chameleon.colors = 'auto';
+</script>
+```
+
+Ecwid can automatically detect the main colors and fonts of a surrounding website and match the storefront automatically. To apply the colors and font automatically for a store, use the code on the right.
+
 ## Change colors
 
 > Set storefront colors automatically
 
 ```html
 <script>
-window.ec = {
-     config: {
-         chameleon: {
-            colors: 'auto'
-         }
-     }
-}
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon.colors = 'auto';
 </script>
 ```
 
@@ -225,18 +238,15 @@ window.ec = {
 
 ```html
 <script>
-window.ec = {
-    config: {
-        chameleon: {
-            colors: {
-                'color-background':'#D3D3D3',
-                'color-foreground':'#4EA3F0',
-                'color-link':'#FF0606',
-                'color-button':'#4EA3F0',
-                'color-price':'#FF0606'
-            }
-        }
-    }
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon.colors = {
+  'color-background':'#D3D3D3',
+  'color-foreground':'#4EA3F0',
+  'color-link':'#FF0606',
+  'color-button':'#4EA3F0',
+  'color-price':'#FF0606'
 }
 </script>
 ```
@@ -245,18 +255,17 @@ window.ec = {
 
 ```html
 <script>
-window.ec = {
-    config: {
-        chameleon: {
-            colors: {
-                'color-button':'#4EA3F0',
-                'color-price':'#FF0606'
-            },
-            font: {
-                'font-family': 'arial,sans-serif'
-            }
-        }
-    }
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon = {
+  colors: {
+    'color-button':'#4EA3F0',
+    'color-price':'#FF0606'
+  },
+  font: {
+    'font-family': 'arial,sans-serif'
+  }
 }
 </script>
 ```
@@ -281,13 +290,10 @@ color-price | string (HEX and RGBA color) | Color for product prices in storefro
 
 ```html
 <script>
-window.ec = {
-    config: {
-        chameleon: {
-            font: 'auto'
-        }
-    }
-}
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon.font = 'auto';
 </script>
 ```
 
@@ -295,14 +301,11 @@ window.ec = {
 
 ```html
 <script>
-window.ec = {
-    config: {
-        chameleon: {
-            font: {
-                'font-family': 'arial,sans-serif'
-            }
-        }
-    }
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon.font = {
+  'font-family': 'arial,sans-serif'
 }
 </script>
 ```
@@ -311,16 +314,15 @@ window.ec = {
 
 ```html
 <script>
-window.ec = {
-    config: {
-        chameleon: {
-            colors: 'auto',
-            font: {
-                'font-family': 'arial,sans-serif'
-            }
-        }
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon = {
+  colors: 'auto',
+  font: {
+      'font-family': 'arial,sans-serif'
     }
-}
+  }
 </script>
 ```
 

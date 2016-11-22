@@ -150,6 +150,14 @@ For example, let's say you need to dynamically add a store-specific configuratio
 
 To get information for that specific store you can use `Ecwid.getAppPublicConfig` function in [Ecwid Javascript API](#storefront-js-api). See more details on how to access that data in **Application data** section of documentation.
 
+## Caching JavaScript file content
+
+When your external JS file is loaded on a page, it is loaded like any other resource via a GET request by a web browser. If you'd like to use caching to increase the loading speeds of your script, we can suggest several options:
+
+- invalidate cache for your JS file link when deploying a new version
+- in your JS file, place a code that will get the latest JS assets file from your server dynamically and append it to a page (instead of the using an actual code of your app on that URL)
+- don't use caching, so that your files for storefront are always up-to-date for any user
+
 ## Using jQuery on store pages
 
 > Checking for jQuery on a page example
