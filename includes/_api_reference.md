@@ -29,9 +29,13 @@ This document describes *Ecwid REST API v.3*
 You are free to build your app with as many API calls as you need to make your service awesome for Ecwid merchants, but keep in mind the [usage policy](#usage-policy).
 
 ## Usage policy
-By default, we do not limit API usage for applications. You are free to build your app with as many calls as you need to make your service awesome for Ecwid merchants. However, to protect us and our users from abusing, we ask you to optimize your app code to make fewer API requests. For example:
+By default, we **do not limit API usage for applications**. You are free to build your app with as many calls as you need to make your service awesome for Ecwid merchants. 
+
+However, to protect us and our users from abusing, we ask you to optimize your app code to make fewer API requests. For example:
 
 - Cache store data locally if you need to use or display it many times in your app. 
 - If you need to synchronize store data with your database, use Webhooks to get timely updates about changes in a store. More details: [Webhooks](#webhooks)
 
-We constantly monitor API activity and servers load on our side to make sure every application uses API properly. In case an app abuses Ecwid API by generating huge amount of requests every day, we'll attempt to get in touch with the developer to talk about the issue. Don't worry, you will unlikely face such trouble and even if you do, we will advice on how to fix that. But of course, if the usage is high enough to significantly affect other users of the platform and you don't react on our warnings, we can temporarily disable your application. 
+We constantly monitor API activity and servers load on our side to make sure every application uses API properly. In case an app abuses Ecwid API by generating huge amount of requests every day, we'll attempt to get in touch with the developer to talk about the issue. 
+
+Don't worry, you will unlikely face such trouble and even if you do, we will advice on how to fix that. But of course, if the usage is high enough to significantly affect other users of the platform and you don't react on our warnings, we can temporarily disable your application. 

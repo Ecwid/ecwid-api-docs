@@ -183,6 +183,118 @@ Name | Type    | Description
 }
 ```
 
+> Public token request example
+
+```http
+GET /api/v3/4870020/profile?token=public_123abcd HTTP/1.1
+Host: app.ecwid.com
+Cache-Control: no-cache
+```
+
+```json
+{
+  "generalInfo": {
+    "storeId": 5035009,
+    "storeUrl": "https://example.com",
+    "starterSite": {
+      "ecwidSubdomain": "demo",
+      "generatedUrl": "https://demo.ecwid.com"
+    }
+  },
+  "settings": {
+    "closed": false,
+    "storeName": "Awesome store",
+    "googleAnalyticsId": ""
+  },
+  "mailNotifications": {
+    "customerNotificationFromEmail": "info@example.com"
+  },
+  "company": {
+    "companyName": "Cool slippers for dogs",
+    "email": "info@example.com",
+    "street": "W 3d st",
+    "city": "New York",
+    "countryCode": "US",
+    "postalCode": "10002",
+    "stateOrProvinceCode": "NY",
+    "phone": ""
+  },
+  "formatsAndUnits": {
+    "currency": "USD",
+    "currencyPrefix": "$",
+    "currencySuffix": "",
+    "currencyGroupSeparator": " ",
+    "currencyDecimalSeparator": ".",
+    "currencyPrecision": 2,
+    "currencyTruncateZeroFractional": false,
+    "currencyRate": 1,
+    "weightUnit": "KILOGRAM",
+    "weightGroupSeparator": " ",
+    "weightDecimalSeparator": ".",
+    "weightTruncateZeroFractional": false,
+    "timeFormat": "hh:mm a",
+    "dateFormat": "EEE, MMM d, ''yy",
+    "timezone": "Europe/Samara",
+    "dimensionsUnit": "CM"
+  },
+  "languages": {
+    "enabledLanguages": [
+      "en",
+      "ar",
+      "be",
+      "bg",
+      "ca",
+      "cs",
+      "cy",
+      "da",
+      "de",
+      "el",
+      "es",
+      "es_419",
+      "et",
+      "eu",
+      "fi",
+      "fa",
+      "fr",
+      "id",
+      "is",
+      "it",
+      "ja",
+      "he",
+      "hr",
+      "hu",
+      "hy",
+      "ka",
+      "ko",
+      "lt",
+      "lv",
+      "mk",
+      "mr",
+      "ms",
+      "nl",
+      "no",
+      "pl",
+      "pt",
+      "pt_BR",
+      "ro",
+      "ru",
+      "sk",
+      "sl",
+      "sr",
+      "sv",
+      "sq",
+      "th",
+      "tr",
+      "uk",
+      "vi",
+      "zh",
+      "zh_TW"
+    ],
+    "facebookPreferredLocale": "en_US"
+  }
+}
+```
+
 A JSON object of type 'Profile' with the following fields:
 
 #### Profile

@@ -40,6 +40,11 @@ Application storage offers an alternative - store data on Ecwid servers and acce
 
 # Storage in Ecwid API
 
+Below you can find information about two different ways you can access your application storage depending on the type of an application you have.
+
+<aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
+</aside>
+
 ## Javascript Storage API
 
 This JavaScript storage API allows to set and update values in the app storage right from your JavaScript code. You should use it if your app is client-side, works mainly in Javascript and you don’t plan to use a server.
@@ -110,6 +115,9 @@ Public application config is a part of application storage: data that you save t
 ## REST Storage API
 
 This REST API allows to set, update and delete values in the application storage. You should usually use it if your code is executed on a server, i.e. you mainly use PHP, Ruby, Python, Java, and any other server-side programming language.
+
+<aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
+</aside>
 
 ### Get all storage data
 
@@ -416,6 +424,9 @@ HTTP Status | Meaning
 # Public application config
 
 Storage API allows to save public app config and easily access it in a storefront. You can use  this API if your app changes the look, appearance or logic of storefronts using the [Customize Storefront](#customize-storefront) API.
+
+<aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
+</aside>
 
 ## Overview
 
