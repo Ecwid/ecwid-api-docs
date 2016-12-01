@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+## December 1, 2016
+- **NEW** Added new order payment status: Partially Refunded. [Learn more](https://developers.ecwid.com/api-documentation#orders)
+
 ##November 15, 2016
 - **NEW** Added ability to get product details using multiple product IDs separated by a comma. [Learn more](https://developers.ecwid.com/api-documentation#search-products)
 - **NEW** Added latest category update date to store update stats. [Learn more](https://developers.ecwid.com/api-documentation#get-store-update-statistics)
