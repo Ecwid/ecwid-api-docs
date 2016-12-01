@@ -83,6 +83,10 @@ Parameters in bold are mandatory
             "customerId": 15319410,
             "customerGroupId": 12345,
             "customerGroup": "Gold",
+            "customerTaxExempt": false,
+            "customerTaxId": "",
+            "customerTaxIdValid": false,
+            "reversedTaxApplied": false,
 
             // Discounts in order
             "membershipBasedDiscount": 0,
@@ -265,6 +269,10 @@ email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
 tax | number | Tax total
+customerTaxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
+customerTaxId | string | Customer tax ID
+customerTaxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
+reversedTaxApplied | boolean | `true` if order tax was set to 0 because customer specified their valid tax ID in checkout process. `false` otherwise
 ipAddress | string  | Customer IP
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
@@ -517,6 +525,10 @@ Parameters in bold are mandatory
     "customerId": 15319410,
     "customerGroupId": 12345,
     "customerGroup": "Gold",
+    "customerTaxExempt": false,
+    "customerTaxId": "",
+    "customerTaxIdValid": false,
+    "reversedTaxApplied": false,    
 
     // Discounts in order
     "membershipBasedDiscount": 0,
@@ -688,6 +700,10 @@ email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
 tax | number | Tax total
+customerTaxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
+customerTaxId | string | Customer tax ID
+customerTaxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
+reversedTaxApplied | boolean | `true` if order tax was set to 0 because customer specified their valid tax ID in checkout process. `false` otherwise
 ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
@@ -1394,6 +1410,10 @@ Cache-Control: no-cache
         "tax": 0,
         "paymentStatus": "CANCELLED",
         "fulfillmentStatus": "PROCESSING",
+        "customerTaxExempt": false,
+        "customerTaxId": "",
+        "customerTaxIdValid": false,
+        "reversedTaxApplied": false,
         "billingPerson": {
             "name": "Eugene K",
             "companyName": "Hedgehog and Bucket",
@@ -1482,6 +1502,10 @@ email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
 tax | number | Tax total
+customerTaxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
+customerTaxId | string | Customer tax ID
+customerTaxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
+reversedTaxApplied | boolean | `true` if order tax was set to 0 because customer specified their valid tax ID in checkout process. `false` otherwise
 ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
@@ -1743,6 +1767,10 @@ Cache-Control: no-cache
         "paymentMethod": "Phone order",
         "tax": 0,
         "paymentStatus": "PAID",
+        "customerTaxExempt": false,
+        "customerTaxId": "",
+        "customerTaxIdValid": false,
+        "reversedTaxApplied": false,
         "fulfillmentStatus": "AWAITING_PROCESSING",
         "createDate": "2015-09-20 19:59:43 +0000",
         "items": [
@@ -1803,6 +1831,10 @@ email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
 tax | number | Tax total
+customerTaxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
+customerTaxId | string | Customer tax ID
+customerTaxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
+reversedTaxApplied | boolean | `true` if order tax was set to 0 because customer specified their valid tax ID in checkout process. `false` otherwise
 ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
 **paymentStatus** | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>. Ignored when creating orders with [public token](#access-tokens)

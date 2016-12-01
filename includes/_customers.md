@@ -190,7 +190,10 @@ Name | Type    | Description
             "stateOrProvinceName": "Illinois",
             "phone": ""
         }
-    ]
+    ],
+    "customerTaxId": "GB999 9999 73",
+    "taxExempt": true,
+    "taxIdValid": true
 }
 ```
 
@@ -207,6 +210,9 @@ billingPerson | *Person* | Customer's billing name/address
 shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
 customerGroupId | number | Customer group ID
 customerGroupName | string | Customer group name
+customerTaxId | string | Customer tax ID
+taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
+taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 
 #### Person
 Field | Type  | Description
@@ -299,7 +305,10 @@ Cache-Control: no-cache
             "stateOrProvinceCode": "NY",
             "phone": "11111111111"
         }
-      ]
+      ],
+    "customerTaxId": "GB999 9999 73",
+    "taxExempt": true,
+    "taxIdValid": true
 }
 ```
 
@@ -325,6 +334,9 @@ Field | Type  | Description
 customerGroupId | number | Customer group ID
 billingPerson | <Person> | Customer's billing name/address
 shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
+customerTaxId | string | Customer tax ID
+taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
+taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 
 #### Person
 Field | Type  | Description
@@ -402,12 +414,6 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-<!--
----------------------------------------------------------------------------------------------------------
-    Edit customer
----------------------------------------------------------------------------------------------------------
--->
-
 ## Update customer
 
 ### Request
@@ -445,7 +451,10 @@ Cache-Control: no-cache
             "stateOrProvinceCode": "CA",
             "phone": "11111111111"
         }
-      ]
+      ],
+    "customerTaxId": "GB999 9999 73",
+    "taxExempt": true,
+    "taxIdValid": true
 }
 ```
 
@@ -472,6 +481,9 @@ password | string |  Customer password
 customerGroupId | number | Customer group ID
 billingPerson | <Person> | Customer's billing name/address
 shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
+customerTaxId | string | Customer tax ID
+taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
+taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 
 #### Person
 Field | Type  | Description

@@ -10,6 +10,7 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ## December 1, 2016
 - **NEW** Added new order payment status: Partially Refunded. [Learn more](https://developers.ecwid.com/api-documentation#orders)
+- **NEW** Added support for tax exempt customers in the Ecwid REST API. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 
 ##November 15, 2016
 - **NEW** Added ability to get product details using multiple product IDs separated by a comma. [Learn more](https://developers.ecwid.com/api-documentation#search-products)
