@@ -211,6 +211,7 @@ add_payment_method | Add a new payment method to the store (see [Add Payment Met
 read_stores | Check if there is a store already registered with an email (see [Manage Stores](#stores))
 create_stores | Create a new Ecwid store using API (see [Manage Stores](#stores))
 public_storefront | Get public store details with public access token
+customize_cart_calculation | Apply custom discounts to orders in real time
 
 ## Complete oAuth flow
 

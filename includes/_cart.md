@@ -345,10 +345,10 @@ Parameters in bold are mandatory
       "base": "ON_MEMBERSHIP"
     },
     {
-      "value": 11,
-      "type": "PERCENT",
-      "base": "ON_TOTAL_AND_MEMBERSHIP",
-      "orderTotal": 1
+      "value": 10,
+      "type": "ABSOLUTE",
+      "base": "CUSTOM",
+      "description": "Buy one get one free for T-shirts"
     }
   ],
   "hidden": false
@@ -509,8 +509,9 @@ Field | Type | Description
 ----- | ---- | -----------
 value | number | Discount value
 type | string | Discount type: `ABS` or `PERCENT`
-base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`
+base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
 order_total | number | Minimum order subtotal the discount applies to
+description | string | Description of a discount (for discounts with base == `CUSTOM`)
 
 ### Errors
 

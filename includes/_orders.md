@@ -112,6 +112,12 @@ Parameters in bold are mandatory
                     "type": "PERCENT",
                     "base": "ON_TOTAL_AND_MEMBERSHIP",
                     "orderTotal": 15
+                },
+                {
+                    "value": 2,
+                    "type": "ABSOLUTE",
+                    "base": "CUSTOM",
+                    "description": "Buy more than 3 cherries and get $2 off!"
                 }
             ],
 
@@ -433,8 +439,9 @@ Field | Type | Description
 ----- | ---- | -----------
 value | number | Discount value
 type | string | Discount type: `ABS` or `PERCENT`
-base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`
+base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
 order_total | number | Minimum order subtotal the discount applies to
+description | string | Description of a discount (for discounts with base == `CUSTOM`)
 
 #### CreditCardStatus
 Field | Type | Description
@@ -864,8 +871,9 @@ Field | Type | Description
 ----- | ---- | -----------
 value | number | Discount value
 type | string | Discount type: `ABS` or `PERCENT`
-base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`
+base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
 order_total | number | Minimum order subtotal the discount applies to
+description | string | Description of a discount (for discounts with base == `CUSTOM`)
 
 #### CreditCardStatus
 Field | Type | Description
