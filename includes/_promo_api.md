@@ -310,7 +310,7 @@ stateOrProvinceCode | string | Customer's state or province code in Ecwid
           "description": "T-shirt for free for orders over $100"
         },
         {
-          "value": 10
+          "value": 10,
           "type": "PERCENT",
           "description": "10% off. Thanks for liking us on Facebook!"
         }

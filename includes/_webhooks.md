@@ -378,7 +378,7 @@ $data = $decodedBody['data'];
 http_response_code(200);
 
 // Filter out the events we're not interested in
-if ($eventType != 'order.updated') {
+if ($eventType !== 'order.updated') {
     exit;
 }
 
@@ -391,7 +391,7 @@ foreach (getallheaders() as $name => $value) {
         $hmac_result = hash_hmac("sha256", "$eventCreated.$eventId", $client_secret, true);
         $generatedSignature = base64_encode($hmac_result);
         
-        if ($generatedSignature != $headerSignature) {
+        if ($generatedSignature !== $headerSignature) {
             echo 'Signature verification failed';
             exit;
         }

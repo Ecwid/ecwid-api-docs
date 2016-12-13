@@ -188,6 +188,8 @@ For security reasons, a temporary code can be exchanged to an access token only 
 
 Scopes are permissions that identifies the scope of access your application requests from the user. Below you can see the names of access scopes that exist in Ecwid API and their description.
 
+Each application has their specified set of access scopes which are required for this applicaiton. If you specify additional scopes, that excess the specified ones for the app in Ecwid, you will see an error message. So if you need to add more access scopes - please [contact us](/contact) to update your app.
+
 Access scope | Notes
 ------------ | -----
 read_store_profile | Get store name and general settings, get store admin email, get updates statistics etc. *Requested in all cases even if not specified*

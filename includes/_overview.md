@@ -42,6 +42,12 @@ Custom Payment API allows you to add new payment methods to an Ecwid store. Merc
 
 More information: [Custom Payment API](#add-payment-method)
 
+**Apply Custom Discount**
+
+Custom Discount API allows you to apply a custom discount amount to an order being placed at the moment. Merchant can configure the discount rules in their Ecwid Control Panel using the Native apps feature and customers will have discounts on their orders according to those rules at checkout.
+
+More information: [Custom Discount API](#add-custom-discount)
+
 **Application Storage**
 
 Application storage is a key/value storage that can serve as a database for your application and a way to send details to user's storefront. All data is kept on Ecwid servers, so you don't need to worry about keeping the data safe. 
@@ -150,6 +156,8 @@ Customizing Ecwid's design never been easier - apply your CSS file to all storef
 Suggested API features:
 
 - [Apply your custom CSS](#custom-css) file for Ecwid storefront
+
+Learn more on how to create a theme for Ecwid: [https://developers.ecwid.com/how-to-create-a-theme-for-an-ecwid-store](https://developers.ecwid.com/how-to-create-a-theme-for-an-ecwid-store)
 
 # API availability on Ecwid plans
 

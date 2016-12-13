@@ -901,7 +901,7 @@ Parameters in bold are mandatory
         "id": 9691095,
         "enabled": true
       }
-    ]    
+    ],
     "seoTitle": "Radish",
     "seoDescription": "It's an awesome radish just for you!",     
     "defaultCategoryId": 9691095,
