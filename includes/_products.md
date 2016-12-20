@@ -162,24 +162,28 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
               "id": 8258226,
               "name": "Width",
               "value": "61.47 mm",
+              "type": "CUSTOM",
               "show": "DESCR"
             },
             {
               "id": 8258231,
               "name": "Height",
               "value": "117.09 mm",
+              "type": "CUSTOM",
               "show": "DESCR"
             },
             {
               "id": 8258249,
               "name": "Depth",
               "value": "15.49 mm",
+              "type": "CUSTOM",
               "show": "DESCR"
             },
             {
               "id": 8258255,
               "name": "Net weight",
               "value": "153.2 g",
+              "type": "CUSTOM",
               "show": "DESCR"
             }
           ],
@@ -299,12 +303,14 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
                     "id": 5029057,
                     "name": "Brand",
                     "value": "SuperVegetables",
+                    "type": "BRAND",
                     "show": "DESCR"
                 },
                 {
                     "id": 5029059,
                     "name": "Hidden Attribute",
                     "value": "Secret Value",
+                    "type": "CUSTOM",
                     "show": "NOTSHOW"
                 }
             ],
@@ -536,24 +542,28 @@ Cache-Control: no-cache
               "id": 8258226,
               "name": "Width",
               "value": "61.47 mm",
+              "type": "CUSTOM",
               "show": "DESCR"
             },
             {
               "id": 8258231,
               "name": "Height",
               "value": "117.09 mm",
+              "type": "CUSTOM",
               "show": "DESCR"
             },
             {
               "id": 8258249,
               "name": "Depth",
               "value": "15.49 mm",
+              "type": "CUSTOM",
               "show": "DESCR"
             },
             {
               "id": 8258255,
               "name": "Net weight",
               "value": "153.2 g",
+              "type": "CUSTOM",
               "show": "DESCR"
             }
           ],
@@ -686,7 +696,8 @@ Field | Type  | Description
 id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
 name |  string |  Attribute displayed name
 value | string  | Attribute value
-show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` . 
+type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit’ attributes. The 'type’ field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
+show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` 
 
 #### ProductFile
 Field | Type  | Description
@@ -910,12 +921,14 @@ Parameters in bold are mandatory
             "id": 5029057,
             "name": "Brand",
             "value": "SuperVegetables",
+            "type": "BRAND",
             "show": "DESCR"
         },
         {
             "id": 5029059,
             "name": "Hidden Attribute",
             "value": "Secret Value",
+            "type": "CUSTOM",
             "show": "NOTSHOW"
         }
     ],
@@ -1141,6 +1154,7 @@ Field | Type  | Description
 id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
 name |  string |  Attribute displayed name
 value | string  | Attribute value
+type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit’ attributes. The 'type’ field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
 show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` . 
 
 #### ProductFile
@@ -1371,27 +1385,36 @@ id | number | ID of the created product
 ```http
 HTTP/1.1 409 Conflict
 Content-Type application/json; charset=utf-8
+
+{
+ errorMessage: "WhosalePrice cannot be null",
+ errorCode: "WHOLESALE_PRICES_CANT_BE_NULL"
+}
 ```
 
-In case of error, Ecwid responds with an error HTTP status code and JSON-formatted body containing error description.
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
 
 #### HTTP codes
 
-**HTTP Status** | **Response JSON** | Description
--------------- | -------------- | --------------
-400 | Request parameters are malformed
-402 | The functionality/method is not available on the merchant plan
-402 | The merchant plan product limit is reached
-404 | Some of the linked entities in the request doesn't exist. For example, the product class is not found
-409 | The product with such SKU already exists
-415 | Unsupported content-type: expected `application/json` or `text/json`
+HTTP Status | Description | Code (optional)
+-------------- | -------------- | ---------------
+400 | Request parameters are malformed | 
+402 | The functionality/method is not available on the merchant plan | 
+402 | The merchant plan product limit is reached | 
+404 | Some of the linked entities in the request doesn't exist. For example, the product class is not found | 
+409 | The product with such SKU already exists | `SKU_ALREADY_EXISTS`
+409 | Specified wholesale price can't be `null` | `WHOLESALE_PRICES_CANT_BE_NULL`
+409 | Specified wholesale price can't be negative | `WHOLESALE_PRICES_CANT_BE_NEGATIVE` 
+409 | Specified wholesale price is too big | `WHOLESALE_PRICES_TOO_BIG`
+409 | Specified wholesale price quantity is too small | `WHOLESALE_PRICES_QUANTITY_TOO_SMALL`
+415 | Unsupported content-type: expected `application/json` or `text/json` | 
 
 #### Error response body (optional)
 
 Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
-
+errorCode | string | Error code
 
 
 ## Update a product
@@ -1549,28 +1572,38 @@ updateCount | number | The number of updated products (`1` or `0` depending on w
 ### Errors
 
 ```http
-HTTP/1.1 400 Bad Request
+HTTP/1.1 409 Conflict
 Content-Type application/json; charset=utf-8
+
+{
+ errorMessage: "WhosalePrice cannot be null",
+ errorCode: "WHOLESALE_PRICES_CANT_BE_NULL"
+}
 ```
 
 In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
 
 #### HTTP codes
 
-HTTP Status | Description
--------------- | --------------
-400 | Request parameters are malformed
-402 | The functionality/method is not available on the merchant plan
-402 | The merchant plan product limit is reached
-404 | Some of the linked entities in the request doesn't exist. For example, the product class is not found
-409 | The product with such SKU already exists
-415 | Unsupported content-type: expected `application/json` or `text/json`
+HTTP Status | Description | Code (optional)
+-------------- | -------------- | ---------------
+400 | Request parameters are malformed | 
+402 | The functionality/method is not available on the merchant plan | 
+402 | The merchant plan product limit is reached | 
+404 | Some of the linked entities in the request doesn't exist. For example, the product class is not found | 
+409 | The product with such SKU already exists | `SKU_ALREADY_EXISTS`
+409 | Specified wholesale price can't be `null` | `WHOLESALE_PRICES_CANT_BE_NULL`
+409 | Specified wholesale price can't be negative | `WHOLESALE_PRICES_CANT_BE_NEGATIVE` 
+409 | Specified wholesale price is too big | `WHOLESALE_PRICES_TOO_BIG`
+409 | Specified wholesale price quantity is too small | `WHOLESALE_PRICES_QUANTITY_TOO_SMALL`
+415 | Unsupported content-type: expected `application/json` or `text/json` | 
 
 #### Error response body (optional)
 
 Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
+errorCode | string | Error code
 
 ## Adjust product inventory
 

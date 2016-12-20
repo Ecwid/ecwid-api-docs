@@ -2111,14 +2111,15 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 #### HTTP codes
 
-**HTTP Status** | Description
+**HTTP Status** | Description | Code (optional)
 --------- | -----------| -----------
-400 | Request parameters are malformed
-402 | The functionality/method is not available on the merchant plan
-404 | Order, order item or item option is not found
-413 | The file is too large.  Maximum allowed file size is 100Mb.
-415 | Unsupported content-type: expected `application/octet-stream`
-500 | Uploading of the file failed or there was an internal server error while processing a file
+400 | Request parameters are malformed | 
+402 | The functionality/method is not available on the merchant plan | 
+404 | Order, order item or item option is not found | 
+409 | Product option type is not `FILES` | `OPTIONS_IS_NOT_FILES_TYPE`
+413 | The file is too large.  Maximum allowed file size is 100Mb. | 
+415 | Unsupported content-type: expected `application/octet-stream` | 
+500 | Uploading of the file failed or there was an internal server error while processing a file | 
 
 #### Error response body (optional)
 
@@ -2182,16 +2183,18 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Request failed -- there was an internal server error
-404 | Order, order item or item option is not found
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
+404 | Order, order item or item option is not found
+409 | Product option type is not `FILES` | `OPTIONS_IS_NOT_FILES_TYPE`
+500 | Request failed -- there was an internal server error
 
 #### Error response body (optional)
 
 Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
+errorCode | string | Error code
 
 
 ## Delete all item option's files
@@ -2249,13 +2252,14 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 **HTTP Status** | Description
 --------- | -----------| -----------
-500 | Request failed – there was an internal server error
-404 | Order, order item or item option is not found
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
+404 | Order, order item or item option is not found
+500 | Request failed – there was an internal server error
 
 #### Error response body (optional)
 
 Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
+errorCode | string | Error code

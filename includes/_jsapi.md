@@ -17,6 +17,11 @@ This sample adds a function that is called every time a new page is loading in t
 
 Note that the `add()` method call follows the script.js script of the standard Ecwid integration code. It is important to include script.js before any use of the API methods. Moreover, because of the staged loading of Ecwid, only few of API functions are available during the page load. Most of the Ecwid Javascript API is available after Ecwid is loaded completely. The moment, when you can use Javascript API, can be caught by the `Ecwid.OnAPILoaded` event.
 
+<aside class="notice">
+Ecwid Storefront JavaScript API is available on any Ecwid plan.
+</aside>
+
+
 # Get Storefront Details
 
 Get basic storefront information to use in your script.
