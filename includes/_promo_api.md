@@ -2,7 +2,7 @@
 
 # Overview
 
-Using Custom Discount API you can apply custom discounts to order total when customer is at checkout. This functionality will work in a form of an application that users install from the Ecwid App Market.
+Using Custom Discount API you can apply custom discounts to order total when customer is at checkout.
 
 <aside class="notice">
 Access scope required: <strong>customize_cart_calculation</strong> (see <a href="#access-scopes">Access scopes</a>)
@@ -10,30 +10,27 @@ Access scope required: <strong>customize_cart_calculation</strong> (see <a href=
 
 ### Discount types examples
 
-Using the Custom Discount API you are able to apply an absolute or percent discount to an order. While this sounds simple enough, it provides many possibilities and different ways for you to use it. 
+Using the Custom Discount API you are able to apply an absolute or percent discount to an order. While this sounds simple enough, it provides many possibilities and different ways to use it in a store. 
 
-It possible because Ecwid is sending almost full order information to your app URL, thus you can use any part of that information to return a discount back to a customer in a storefront based on certain conditions.
+Examples:
 
-Here are few examples where Custom Discount API can be used: 
-
-- **Customer loyalty**: if `customerGroup` is *VIP* then apply 5% discount
-- **Special time limited promo**: if a current date is somewhere in a promo period (December 14-26), then apply $3 discount
-- **Apply discount to category products**: if product in order belongs to *Sale* category, apply 3% discount
-- **Bonus for using discount coupon**: if customer applied a special discount coupon, apply $10 discount
+- **Customer loyalty**: when a customer from `customerGroup` *VIP* is at checkout, apply 5% discount
+- **Limited-time offers**: enable or disable discounts based on a current date
+- **Apply discount to select products**: when customer added a product from *Sale* category, apply 3% discount
 - **Local customer discount**: if customer location is in the same city as a store itself, make a *local discount* of $5 
-- **Buy one get one free (BYGOF)**: if the two products are in cart, apply discount amount of 100% of free product price
+- **Buy one get one free (BYGOF)**: customer adds two specific products to cart, app applies absolute discount for the cost amount of one of those items
 
 And many more! 
 
 # How to set up
 
-When [registering a new application](/register) for Ecwid, specify the request URL for your application. Ecwid will be sending order details requests to that endpoint and expect discounts in a specific format in response.
+When [registering a new application](/register) for Ecwid, specify the request URL for your application. Ecwid will be sending cart details requests to that endpoint and expect discounts in a specific format in response.
 
 # How it works
 
-### 1. Ecwid sends order data to app request URL
+### 1. Ecwid sends cart data to app request URL
 
-To apply new discounts for an order in storefront, Ecwid will send a **POST request** to your endpoint with order details: items, customer address, merchant app settings, etc. That endpoint must respond to the request with the applied discounts for this order and store configuration.
+To apply new discounts for a cart in storefront, Ecwid will send a **POST request** to your endpoint with cart details: items, customer address, merchant app settings, etc. That endpoint must respond to the request with the applied discounts for this order and store configuration.
 
 ### 2. Application returns discounts in a specific format
 
@@ -43,7 +40,7 @@ Ecwid will expect a response from your service within **5 second interval** to d
 
 Based on the response from your app, Ecwid will display the discounts for customers on the cart page. Customer can view the amount and the reason for a discount that your solution sent to Ecwid. All the discount details will be saved for that order and they will be displayed in related order information.
 
-#### Q: Can I create a UI for user to select and set different duscount rules?
+#### Q: Can I create a user interface for user to select and set different duscount rules?
 
 After the installation, your app can add a page where they can configure it: provide their account details, set up discount rules, enable/disable rules, etc. We recommend using **Native apps** feature and the **Application storage** feature to provide this functionality. To manage and store those settings, see the [Advanced setup](#advanced-setup) section.
 
@@ -323,17 +320,17 @@ description | string | Discount description
 Response parameters in <strong>bold</strong> are mandatory
 </aside>
 
-# Advanced setup
+# User interface for discount rules
 
-Your application can allow merchants to specify their own promo rule combinations or any other user preferences you may require. 
+You can create a user interface for merchants to specify their own promo rule combinations or any other user preferences you may require for your app. 
 
-We recommend adding a new tab into the Ecwid Control Panel's Shipping settings for optimal experience - [Native applications](#native-applications) feature and the [Application storage](#application-storage) feature.
+We recommend adding a new tab into the Ecwid Control Panel's promotion section for optimal experience using the: [Native applications](#native-applications) feature and [Application storage](#application-storage) features.
 
 > Merchant settings example
 
 > ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/shippingSettings-1468407629.png)
 
-**Settings**
+**Settings and User interface**
 
 First, set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications).
 
@@ -341,12 +338,12 @@ When merchant is in the settings tab of your app, your code can create and modif
 
 **Request**
 
-Once the settings are saved there, Ecwid will send them in a **POST request** to your application alongside order details when customer is at checkout stage. The request will contain **all data** from your application storage, including public and other keys that were specified. Use it to idetify the store and a user for the shipping rates.
+Once the settings are saved there, Ecwid will send them in a **POST request** to your application alongside cart details when customer is at checkout stage. The request will contain **all data** from your application storage, including public and other keys that were saved by the app. Use it to idetify the store and apply discounts accordingly.
 
-You can also use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
+You can also use the `public` key of the application storage to save data for accessing it in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
 
 Please make sure **not to pass any sensitive user data in the public application config**, as this information will be available via Ecwid Javascript API to any 3-rd party. To save and get that kind of information, use any other key names in your application storage. They will be provided in a request to your application as well as public information, but not accessible in the storefront.
 
 **Response**
 
-After you get a request from Ecwid, your application endpoint should get its components and return correct rates back to the customer in a response.
+After you get a request from Ecwid, your application endpoint should get its components and return discounts back to the customer in a response.

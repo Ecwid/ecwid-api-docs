@@ -19,12 +19,11 @@ Don't use webhooks themselves as actionable items – please see the <a href="#p
 
 In a nutshell, webhooks in Ecwid work this way:
 
-* In your application settings, you specify an URL, which Ecwid will use to send webhooks to
+* Ecwid will use the `Webhook URL` from your application details to send webhooks there
 * When a user (merchant) installs your application, the webhooks for this store are automatically enabled
 * Each supported event in the store (e.g. new order is placed) triggers an HTTP POST request to the URL your specified
 * Your application receives the requests and replies with `200 OK` to identify that it's received
 * Then your app processes the webhook request and performs further steps to handle the event
-
 
 ## Supported events
 
@@ -362,7 +361,7 @@ See the example in the [webhook processing example code](#webhook-processing-exa
 <?php 
 // Get contents of webhook request
 $requestBody = file_get_contents('php://input');
-$client_secret = 'abcde123456789';
+$client_secret = 'abcde123456789'; // your client_secret value sent to you after the app registration
 
 // Parse webhook data
 $decodedBody = json_decode($requestBody, true);
