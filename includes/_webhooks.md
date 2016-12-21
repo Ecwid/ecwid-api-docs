@@ -308,6 +308,8 @@ Webhooks also depend not only on the event types specified for them, but also fo
 
 When an event occurs, Ecwid will immediately try to send a webhook to your endpoint. However, if it fails to respond with 200OK response status or it has errors in the response (from PHP code, for example). Ecwid will not be able to deliver this webhook to your endpoint, because it failed to accept it.
 
+This case also includes situations when your endpoint is performing redirects to other pages. In that case, it responds with 301 HTTP code, thus the webhook isn't delivered properly.
+
 **Ecwid can't access your endpoint**
 
 When [setting up webhooks](#setting-up-webhooks), make sure that your endpoint is publicly accessible by any resource (no local servers, etc.). This way, Ecwid services can successfully send and deliver POST requests to yoru endpoint.
