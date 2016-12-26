@@ -13,6 +13,10 @@ Cache-Control: no-cache
 
 `GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&customer={customer}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&offset={offset}&limit={limit}&token={token}`
 
+### Q: How to get info about abandoned sales? 
+
+Abandoned sales in Ecwid have order number just like completed orders. To get abandoned sale information, specify `INCOMPLETE` for `paymentStatus` filter when searching for orders.
+
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
@@ -33,7 +37,7 @@ updatedTo | string | Order last update date/time (upper bound). Supported format
 paymentMethod | string | Payment method used by customer
 shippingMethod | string | Shipping method chosen by customer
 paymentStatus | string | Comma separated list of order payment statuses to search. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
-fulfillmentStatus | string | Comma separated list of order fulfilment statuses to search. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
+fulfillmentStatus | string | Comma separated list of order fulfilment statuses to search. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
 
 <aside class="notice">
 If no filters are set in the URL, API will return all orders <strong>except for unfinished orders</strong>. To get unfinished orders, use <i>INCOMPLETE</i> value for <strong>paymentStatus</strong> parameter.
@@ -232,7 +236,9 @@ Parameters in bold are mandatory
             "shippingOption": {
                 "shippingMethodName": "2nd day delivery",
                 "shippingRate": 10,
-                "estimatedTransitTime": "5"
+                "estimatedTransitTime": "5",
+                "isPickup": false,
+                "pickupInstruction": ""
             },
             "handlingFee": {
                 "name": "Wrapping",
@@ -281,7 +287,7 @@ customerTaxIdValid | boolean | `true` if customer tax ID is valid, `false` other
 reversedTaxApplied | boolean | `true` if order tax was set to 0 because customer specified their valid tax ID in checkout process. `false` otherwise
 ipAddress | string  | Customer IP
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
-fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
+fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
 couponDiscount | number | Discount applied to order using a coupon
@@ -426,6 +432,8 @@ shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | string | Delivery time estimation. Possible formats: number "5", several days estimate "4-9"
+isPickup | boolean | `true` if selected shipping option is local pickup. `false` otherwise
+pickupInstruction | string | Instruction for customer on how to receive their products
 
 #### HandlingFeeInfo
 Field | Type | Description
@@ -714,7 +722,7 @@ reversedTaxApplied | boolean | `true` if order tax was set to 0 because customer
 ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
-fulfillmentStatus | string |    Fulfilment status. Supported values: <nobr><ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul></nobr>
+fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
@@ -858,6 +866,8 @@ shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | string | Delivery time estimation. Possible formats: number "5", several days estimate "4-9"
+isPickup | boolean | `true` if selected shipping option is local pickup. `false` otherwise
+pickupInstruction | string | Instruction for customer on how to receive their products
 
 #### HandlingFeeInfo
 Field | Type | Description
@@ -1517,7 +1527,7 @@ reversedTaxApplied | boolean | `true` if order tax was set to 0 because customer
 ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
-fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
+fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
@@ -1627,6 +1637,8 @@ shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | string | Delivery time estimation. Formats accepted: number "5", several days estimate "4-9"
+isPickup | boolean | `true` if selected shipping option is local pickup. `false` otherwise
+pickupInstruction | string | Instruction for customer on how to receive their products
 
 #### HandlingFeeInfo
 Field | Type | Description
@@ -1846,7 +1858,7 @@ reversedTaxApplied | boolean | `true` if order tax was set to 0 because customer
 ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
 **paymentStatus** | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>. Ignored when creating orders with [public token](#access-tokens)
-**fulfillmentStatus** | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>. Ignored when creating orders with [public token](#access-tokens)
+**fulfillmentStatus** | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li> <li>`READY_FOR_PICKUP`</li> </ul>. Ignored when creating orders with [public token](#access-tokens)
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
@@ -1956,6 +1968,8 @@ shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | string | Delivery time estimation. Formats accepted: number "5", several days estimate "4-9"
+isPickup | boolean | `true` if selected shipping option is local pickup. `false` otherwise
+pickupInstruction | string | Instruction for customer on how to receive their products
 
 #### HandlingFeeInfo
 Field | Type | Description

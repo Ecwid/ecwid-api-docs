@@ -18,7 +18,7 @@ Examples:
 - **Limited-time offers**: enable or disable discounts based on a current date
 - **Apply discount to select products**: when customer added a product from *Sale* category, apply 3% discount
 - **Local customer discount**: if customer location is in the same city as a store itself, make a *local discount* of $5 
-- **Buy one get one free (BYGOF)**: customer adds two specific products to cart, app applies absolute discount for the cost amount of one of those items
+- **Buy one get one free (BOGOF)**: customer adds a specific product to cart, app adds new free product to cart with JS API. Then app applies absolute discount for the cost amount of that free product
 
 And many more! 
 
@@ -45,6 +45,8 @@ Based on the response from your app, Ecwid will display the discounts for custom
 After the installation, your app can add a page where they can configure it: provide their account details, set up discount rules, enable/disable rules, etc. We recommend using **Native apps** feature and the **Application storage** feature to provide this functionality. To manage and store those settings, see the [Advanced setup](#advanced-setup) section.
 
 # Request and response
+
+Ecwid will send the cart details in a **body** of POST HTTP request in the following format:
 
 ### Request
 
@@ -325,10 +327,6 @@ Response parameters in <strong>bold</strong> are mandatory
 You can create a user interface for merchants to specify their own promo rule combinations or any other user preferences you may require for your app. 
 
 We recommend adding a new tab into the Ecwid Control Panel's promotion section for optimal experience using the: [Native applications](#native-applications) feature and [Application storage](#application-storage) features.
-
-> Merchant settings example
-
-> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/shippingSettings-1468407629.png)
 
 **Settings and User interface**
 

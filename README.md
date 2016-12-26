@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+## December 26, 2016
+- **NEW** Added `READY_FOR_PICKUP` fulfillment status for orders and pickup fields support for selected shipping options in order. [Learn more](https://developers.ecwid.com/api-documentation#orders)
+
 ## December 8, 2016
 - **NEW** Added Custom Promo API to apply discounts to orders when customer is at checkout. [Learn more](https://developers.ecwid.com/api-documentation#add-custom-discount)
 

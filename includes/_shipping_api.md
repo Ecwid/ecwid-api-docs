@@ -64,6 +64,8 @@ After you get a request from Ecwid, your application endpoint should get its com
 
 ### Request
 
+Ecwid will send order information in the **body** of a POST HTTP request in the following format:
+
 > Request from Ecwid example
 
 ```http

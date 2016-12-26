@@ -289,6 +289,11 @@ Parameters in bold are mandatory
     {
       "shippingMethodName": "Fixed rate",
       "shippingRate": 10
+    },
+    {
+      "shippingMethodName": "Local store pickup",
+      "isPickup": true,
+      "pickupInstruction": "Bring your receipt and order number."
     }
   ],
   "availableTaxes": [
@@ -476,6 +481,8 @@ shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | string | Delivery time estimation. Possible formats: number "5", several days estimate "4-9"
+isPickup | boolean | `true` if selected shipping option is local pickup. `false` otherwise
+pickupInstruction | string | Instruction for customer on how to receive their products
 
 #### TaxInfo
 

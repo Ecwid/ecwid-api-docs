@@ -132,7 +132,6 @@ After your app authorized a user, it will need an **access token** to the Ecwid 
 
 The process of getting the access token is different for each user authentication type. Both authentication processes are described below, so please check them out for more info on getting access tokens.
 
-
 ## Default User Auth
 
 > Example of the iframe URL call in client-side apps
