@@ -56,6 +56,11 @@ If you already have a registered app and want to make it native, you can [contac
     var storeData = EcwidApp.getPayload();
     var storeId = storeData.store_id;
     var accessToken = storeData.access_token;
+    var language = storeData.lang;
+    
+    if (storeData.app_state !== undefined){
+      var appState = storeData.app_state;
+    }
 
     // do something...
   </script>
@@ -86,11 +91,15 @@ Also, see the [set up your application](#set-up-your-application) and [Native Ap
 
 When user opens the application tab, the browser's address bar URL will have a format like this: 
 
-`https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales`
+`https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales&app_state=orderId%3A%2012`
 
 Where the `my-cool-app` is your **app_id** which you will need to use in this code template to initiale the application on the page. The `sales` part is the Ecwid Control Panel section where the app is embedded into.
 
-# Authentication in Embedded Apps
+#### Q: Can I send an application state to my app?
+
+Yes, you can do that using the `app_state` URL parameter when using a direct link to your application's tab in Ecwid Control Panel. Please see the [Authentication section](#user-authentication) for more information.
+
+# Authentication in embedded apps
 
 ## User authentication
 
@@ -99,6 +108,7 @@ In your application, you will likely show some user-specific data, for example t
 * The ID of the store using your application at the moment
 * The token that allows to access the store data
 * The language of the Ecwid Control Panel
+* Optional application state to initialize the app with
 
 Ecwid will pass this data to your application as soon as it is opened in Ecwid Control panel. The way data is passed to your application and the way you should decrypt the received data depends on whether you process it on a client or a server side of your application. 
 
@@ -118,7 +128,7 @@ This process allows for simple user authentication in your app using the **Ecwid
 
 In the enhanced security auth process, Ecwid will call your iframe URL like this:
 
-`https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&cache-killer=13532`
+`https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&app_state=orderId%3A%2012&cache-killer=13532`
 
 We recommend using this type of authentication for complex applications that can modify parts of a store and require additional security measures.
 
@@ -149,6 +159,11 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
     var storeData = EcwidApp.getPayload();
     var storeId = storeData.store_id;
     var accessToken = storeData.access_token;
+    var language = storeData.lang;
+    
+    if (storeData.app_state !== undefined){
+      var appState = storeData.app_state;
+    }
 
 //
 //  Get store specific data
@@ -157,11 +172,11 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
     var backgroundColor;
     EcwidApp.getAppStorage('color', function(value) {
       if (value !== null) {
-        // do something
-        backgroundColor = 'black';
+        // set user color from storage
+        backgroundColor = value;
       } else {
-        // do something else
-        backgrountColor = value;
+        // set default color
+        backgrountColor = 'black';
       } 
     });
 
@@ -209,14 +224,14 @@ Let's say, you process user input and prepare the data to display in your app on
 
 In this case, you will need to authenticate user on server side of your application. Ecwid sends an auth data to your app in a payload while requesting your iframe URL as follows: 
 
-`https://www.example.com/my-app-iframe-page?payload={payload}&cache-killer={cache-killer}`
+`https://www.example.com/my-app-iframe-page?payload={payload}&app_state={app_state}&cache-killer={cache-killer}`
 
 By default, all applications are registered as client-side so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side to have the URL called as mentioned above, please contact us and we will update your app.
 
 > Example of the iframe URL call in server-side apps
 
 ```
-https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&cache-killer=13532
+https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&app_state=orderId%3A%2012&cache-killer=13532
 ```
 
 
@@ -266,14 +281,22 @@ $ecwid_payload = $_GET['payload'];
 $client_secret = "0123abcd4567efgh1234567890"; // this is a dummy value. Please place your app secret key here
 $result = getEcwidPayload($client_secret, $ecwid_payload);
 
-// get store specific data from storage endpoint
-$key = 'color';
+// Get store info from the payload
 $token = $result['access_token'];
 $storeId = $result['store_id'];
+$lang = $result['lang'];
+
+// URL Encoded App state passed to the app
+if (isset($_GET['app_state'])){
+  $app_state = $_GET['app_state'];
+}
 
 //
 //  Get store specific data
 //
+
+// Get store specific data from storage endpoint
+$key = 'color';
 
 $url = 'https://app.ecwid.com/api/v3/' .$storeId. '/storage/' .$key. '?token=' .$token;
 
@@ -289,9 +312,9 @@ $curlResult = (json_decode($curlResult));
 $color = $curlResult -> {'value'};
 
   if ($color !== null ) {
-    // do something
+    // set color from storage
     } else {
-    // do something else
+    // set default colors
   }
 
 //
@@ -305,7 +328,7 @@ $color = $curlResult -> {'value'};
 ```json
 {
   "store_id": 1003,
-  "lang": "en_US",
+  "lang": "en",
   "access_token":"xxxxxxxxxxxxxxxx"
 }
 ```
@@ -314,6 +337,7 @@ Name | Type | Description
 ---- | ---- | -----------
 payload | string | Encrypted JSON string containing the authentication information (see the details below)
 cache-killer | string | Random string preventing caching on your server
+app_state | string | Optional **URL Encoded** app state passed to the app in the URL
 
 #### Payload
 
@@ -415,6 +439,12 @@ autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust you
     var storeData = EcwidApp.getPayload();
     var storeId = storeData.store_id;
     var accessToken = storeData.access_token;
+    var language = storeData.lang;
+    
+    if (storeData.app_state !== undefined){
+      var appState = storeData.app_state;
+    }
+
     // now you know the user you interact with and can access Ecwid API on their behalf
 ...
 ```
@@ -442,7 +472,6 @@ Name | Type | Description
 store_id | number | Ecwid store ID
 lang | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
 access_token | string | oAuth token
-
 
 
 ## openPage
