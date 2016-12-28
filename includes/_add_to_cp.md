@@ -2,17 +2,17 @@
 
 # Overview
 
-Ecwid API allows your application to be embedded right into user Control panel and work like it is built into Ecwid. Although this is not necessary and you can use Ecwid API without embedding an application into Control panel, we highly recommend this approach. Being integrated with Ecwid this way, your app will get a way more user engagement as it will be a part of a merchant store backend.
+The Ecwid API allows your application to be embedded right into the user Control Panel and work like it is built into Ecwid. Although this approach is not necessary and you can use the Ecwid API without embedding an application into the Control Panel, we highly recommend it. Being integrated with Ecwid this way, your app will get way more user engagement, as it will be a part of a merchant store backend.
 
 > Native app interface example
 
 > ![Edit orders interface](https://don16obqbay2c.cloudfront.net/wp-content/uploads/nativeApp-1468407012.png)
 
-At high level, it works this way:
+Overall, it works this way:
 
-- User installs the application and allows it to add a new tab into the Ecwid Control Panel
-- After installation, a new tab shows the page content of your specified iframe URL
-- Ecwid provides [REST API](#rest-api-reference) and [JS SDK](#ecwid-javascript-sdk) for authentication and operation inside of the Ecwid Control Panel
+- The user installs the application and allows it to add a new tab to the Ecwid Control Panel.
+- After installation, a new tab shows the page content of your specified IFRAME URL.
+- Ecwid provides a [REST API](#rest-api-reference) and a [JS SDK](#ecwid-javascript-sdk) for authentication and operations inside of the Ecwid Control Panel.
 
 # Building an embedded app
 

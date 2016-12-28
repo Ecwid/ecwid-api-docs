@@ -2,7 +2,7 @@
 
 # Overview
 
-Using Custom Discount API you can apply custom discounts to order total when customer is at checkout.
+With the Custom Discount API you can apply custom discounts to the order total when the customer is at the checkout.
 
 <aside class="notice">
 Access scope required: <strong>customize_cart_calculation</strong> (see <a href="#access-scopes">Access scopes</a>)
@@ -10,17 +10,16 @@ Access scope required: <strong>customize_cart_calculation</strong> (see <a href=
 
 ### Discount types examples
 
-Using the Custom Discount API you are able to apply an absolute or percent discount to an order. While this sounds simple enough, it provides many possibilities and different ways to use it in a store. 
+The Custom Discount API allows you to apply an absolute or percent discount to an order. While this sounds simple enough, it provides many possibilities and different ways to use it in a store.
 
 Examples:
 
-- **Customer loyalty**: when a customer from `customerGroup` *VIP* is at checkout, apply 5% discount
-- **Limited-time offers**: enable or disable discounts based on a current date
-- **Apply discount to select products**: when customer added a product from *Sale* category, apply 3% discount
-- **Local customer discount**: if customer location is in the same city as a store itself, make a *local discount* of $5 
-- **Buy one get one free (BOGOF)**: customer adds a specific product to cart, app adds new free product to cart with JS API. Then app applies absolute discount for the cost amount of that free product
-
-And many more! 
+- **Customer loyalty**: when a customer from a VIP customer group is at the checkout, apply 5% discount.
+- **Limited-time offers**: enable or disable discounts based on a current date.
+- **Apply discount to select products**: when a customer adds a product from the sale category, apply 3% discount.
+- **Local customer discount**: if the customer’s location is in the same city as the store, apply a local discount of $5.
+- **Buy one, get one free (BOGOF)**: when the customer puts a specific product in their cart, the app adds a new free product with the JS API. The app applies an absolute discount for the cost amount of that free product.
+- And many more!
 
 # How to set up
 

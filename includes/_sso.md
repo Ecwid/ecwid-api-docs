@@ -2,9 +2,9 @@
 
 # Overview
 
-Storefront Single Sign-On (SSO) is a tool that allows a user to have one login and password to access multiple applications. If a merchant already has a customer base on their website, customers may find it rather inconvenient that they have to log in to website and store separately. 
+Single sign-on (SSO) is a tool that allows a user to access multiple applications with one login and password. If a merchant already has a customer base on their website, customers may find it rather inconvenient that they have to log into the website and the store separately.
 
-Ecwid Single Sign-on API allows those customers to sign into merchant's website and fully use Ecwid store without having to log in again. I.e. if a customer is logged in in a website, they are logged in Ecwid store automatically, even if they didn’t have an account there before.
+Ecwid’s single sign-on API allows those customers to sign into a merchant’s website and use the entire Ecwid store without having to log in again. In other words, if a customer is logged in on a website, they are automatically logged in on the Ecwid store too, even if they didn’t have an account there before.
 
 <aside class="notice">Access scope required: <strong>create_customers</strong>. See more information in <a href="#access-scopes">access scopes section</a></aside>
 

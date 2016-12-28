@@ -2,19 +2,19 @@
 
 # Overview
 
-Ecwid API offers a simple key-value storage for apps. You can use it to save private user preferences, public storefront settings or as a database for your app. 
+The Ecwid API offers simple key-value storage for apps. You can use it to save private user preferences and public storefront settings, or as a database for your app.
 
 > App storage data example
 
 > ![App storage data example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/appStorage-1468406476.png)
 
-This storage allows you to create complex client-side (JavaScript) apps and skip on using a database on a server (like MySQL, etc.).
+This storage allows you to create complex client-side (JavaScript) apps and skip using a database on a server (like MySQL, etc.).
 
-So now you can save user data, like preferences: color, font size, position of a widget in storefront, whether widget is active or other data right in Ecwid API, using it as a database of your application. 
+So now you can save user data (e.g. preferences like color, font size, the position of a widget in the storefront, whether a widget is active, etc.) right in the Ecwid API, so you can use it as the database of your application.
 
-Each data entry is stored as a pair: a key and its value and you can get a specific value right away by checking a corresponding key. It is available for both embeddable and storefront apps.
+Each data entry is stored as a pair: a key and its value. You can get a specific value right away by checking a corresponding key. It is available for both embeddable and storefront apps.
 
-**Important**: Application storage of each app is isolated from each other, so user data of your application is not available to other apps and vice versa.
+**Important**: the storage of each app is isolated from other apps, so user data of your application is not available to other apps and vice versa.
 
 <aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
 </aside>

@@ -2,30 +2,30 @@
 
 # Overview
 
-Depending on the kind of application you integrate with Ecwid, you may want to customize user storefront in some way. For example:
+Depending on the kind of application you integrate with Ecwid, you may want to customize the user storefront in some way. For example:
 
-* apply custom styles to the store elements (buttons, fonts, pictures etc.)
-* add extra widgets, e.g. customer reviews, comments, image magnifier
-* modify Ecwid widgets look and behavior
-* add tracking pixels or any other third party conversion-tracking scripts at checkout page
+- apply custom styles to the store elements (buttons, fonts, pictures, etc.)
+- add extra widgets, e.g. customer reviews, comments, image magnifier
+- modify the look and behavior of Ecwid widgets
+- add tracking pixels or any other third-party conversion-tracking scripts to the checkout page
 
-Ecwid API allows you to attach external JavaScript and CSS scripts and load them automatically in a user storefront. 
+The Ecwid API allows you to attach external JavaScript and CSS scripts, and load them automatically in a user storefront. 
 
 > Check out guideline below for general guides
 
 > [https://developers.ecwid.com/customizing-storefront](https://developers.ecwid.com/customizing-storefront)
 
-**How it works and how to set up**
+**How It Works and How to Set It Up**
 
-1. After your app is registered, [contact us](/contact) and provide https URL of the `.css` and/or `.js` file you'd like to be loaded in user storefront. 
-2. When asking user to install your app, Ecwid will ask for `customize_storefront` scope from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the oAuth process*)
-3. The next time user's storefront is loaded in any browser, the specified external JS/CSS files will be automatically loaded and executed on the page. 
+1. After your app is registered, [contact us](/contact) and provide the https URL of the `.css` and/or `.js` file you’d like to load in the user storefront.
+2. When asking a user to install your app, Ecwid will request the `customize_storefront` permission from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the OAuth process.*)
+3. The next time the user storefront is loaded in any browser, the specified external JS/CSS files will be automatically loaded and executed on the page.
 
 <aside class="notice">
 Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
-Below, you will find more information on how to create custom JS/CSS. See [Customizing Storefront guideline](/customizing-storefront) for more details about app review process.
+Below, you will find more information on how to create custom JS/CSS. See the [Customizing Storefront guideline](/customizing-storefront) for more details about the app review process.
 
 # Custom JavaScript
 

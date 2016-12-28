@@ -1,6 +1,6 @@
 # Storefront JS API
 
-The described Javascript API is available for all Ecwid users. The API is intended for better integrating Ecwid with the surrounding web site. The API is based on two concepts: objects and events. Objects are simple containers for methods, while events are containers for the user-supplied callbacks (or extensions). 
+The JavaScript API we described is available for all Ecwid users. The API is intended for better integrating Ecwid with the surrounding website. The API is based on two concepts: objects and events. Objects are simple containers for methods, while events are containers for the user-supplied callbacks (or extensions).
 
 > Check out [Customize Storefront](#customize-storefront) section for general details on changing Ecwid's storefront.
 
@@ -11,11 +11,12 @@ Ecwid.OnPageLoad.add(function(page) {
         alert("My page load handler: " + page.type);
 });
 ```
+
 Extensions are added to the events using the `add()` method, see example code on the right.
 
-This sample adds a function that is called every time a new page is loading in the product browser. Callbacks may be objects with multiple functions instead of just one function as shown in the example above, which may return useful values. The form of the extensions, their parameters and the need of a return value depends on the event that occurs.
+This sample adds a function that is called every time a new page is loading in the product browser. Callbacks may be objects with multiple functions instead of just one function as shown in the example above, which may return useful values. The form of the extensions, their parameters, and the need of a return value depends on the event that occurs.
 
-Note that the `add()` method call follows the script.js script of the standard Ecwid integration code. It is important to include script.js before any use of the API methods. Moreover, because of the staged loading of Ecwid, only few of API functions are available during the page load. Most of the Ecwid Javascript API is available after Ecwid is loaded completely. The moment, when you can use Javascript API, can be caught by the `Ecwid.OnAPILoaded` event.
+Note that the `add()` method is located in the script.js file of the standard Ecwid integration code. It is important to include script.js before you use the API methods. Moreover, because of the staged loading of Ecwid, only few API methods are available during the page load. Most of the Ecwid JavaScript API is available after Ecwid is loaded completely. All JavaScript API methods will be available after you hook into the `Ecwid.OnAPILoaded` event.
 
 <aside class="notice">
 Ecwid Storefront JavaScript API is available on any Ecwid plan.

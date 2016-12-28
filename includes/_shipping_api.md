@@ -6,7 +6,7 @@
 
 > ![Custom shipping methods in checkout process](https://don16obqbay2c.cloudfront.net/wp-content/uploads/shippingMethod-1468407305.png)
 
-Using Custom Shipping API you can integrate a new shipping carrier to provide real time shipping methods with different rates for customers of Ecwid stores. This functionality will work in a form of an application that users install from the Ecwid App Market.
+Using the Custom Shipping API, you can integrate a new shipping carrier to provide real-time shipping methods with different rates for the Ecwid store customers. This functionality will work in the form of an application that users install from the Ecwid App Market.
 
 <aside class="notice">
 Access scope required: <strong>add_shipping_method</strong> (see <a href="#access-scopes">Access scopes</a>)

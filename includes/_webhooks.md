@@ -4,15 +4,15 @@
 
 ## Webhooks
 
-So what is a webhook? Basically, a WebHook is an HTTP POST request that occurs when something happens, i.e. it's a simple event-notification via HTTP POST. Ecwid uses webhooks to notifiy your application in real time about event in the merchant store. 
+Basically, a webhook is an HTTP POST request that occurs when something happens. In other words, it’s a simple event notification via HTTP POST. Ecwid uses webhooks to notify your application in real time about events in the merchant store.
 
 This is how your application can use webhooks:
 
-* Receive a request from Ecwid every time a new product is created or an exsiting product is changed to let you synchronize the store catalog with your local database. Get the updated product data and make your app in sync in one HTTP request instead of downloading the whole catalog.
-* Get notified about every new order in the store to send a custom email or text message, or generate a custom receipt or subscribe the customer to your newsletter.
+* Receive a request from Ecwid every time a new product is created or an existing product is changed so you can synchronize the store catalog with your local database. Get the updated product data and make your app in sync in one HTTP request instead of downloading the whole catalog.
+* Get notified about every new order in the store so you can send a custom email or text message, generate a custom receipt, or subscribe the customer to your newsletter.
 
 <aside class="notice">
-Don't use webhooks themselves as actionable items – please see the <a href="#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+Don’t use webhooks themselves as actionable items – please see the <a href="#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
 ## How it works in Ecwid
