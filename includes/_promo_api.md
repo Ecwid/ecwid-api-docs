@@ -329,17 +329,11 @@ We recommend adding a new tab into the Ecwid Control Panel's promotion section f
 
 **Settings and User interface**
 
-First, set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications).
-
-When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](#javascript-storage-api) (client-side) or [Ecwid REST API](#rest-storage-api) (server-side).
+First, set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more info.
 
 **Request**
 
-Once the settings are saved there, Ecwid will send them in a **POST request** to your application alongside cart details when customer is at checkout stage. The request will contain **all data** from your application storage, including public and other keys that were saved by the app. Use it to idetify the store and apply discounts accordingly.
-
-You can also use the `public` key of the application storage to save data for accessing it in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
-
-Please make sure **not to pass any sensitive user data in the public application config**, as this information will be available via Ecwid Javascript API to any 3-rd party. To save and get that kind of information, use any other key names in your application storage. They will be provided in a request to your application as well as public information, but not accessible in the storefront.
+Once the settings are saved there, Ecwid will send them in a **POST request** to your application alongside cart details when customer is at checkout stage. The request will contain **all data** from your application storage, including public and other keys that were saved by the app. Use it to idetify the store and apply discounts accordingly. See [Application storage](#application-storage) for more info.
 
 **Response**
 
