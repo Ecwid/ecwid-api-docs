@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+## January 5, 2017
+- **NEW** Added support for product dimensions feature. Now each product and shipping itself can be calculated according to the product dimensions specified for products.
+
 ## December 27, 2016
 
 - **NEW** Added support for passing custom application state for Native applications. You can use this to initiate a custom action performed when loading the application tab in Ecwid Control Panel. [Learn more](https://developers.ecwid.com/api-documentation#user-authentication)

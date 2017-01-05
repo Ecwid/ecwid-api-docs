@@ -151,7 +151,12 @@ POST https://mycoolapp.com/integration HTTP/1.1
                             "Big"
                         ]
                     }
-                ]
+                ],
+                "dimensions": {
+                    "height": 3.5,
+                    "width": 6,
+                    "length": 12.5
+                }
             },
             {
                 "weight": 0.3,
@@ -161,7 +166,12 @@ POST https://mycoolapp.com/integration HTTP/1.1
                 "name": "Orange",
                 "categoryId": 19175294,
                 "sku": "02266183",
-                "selectedOptions": null
+                "selectedOptions": null,
+                "dimensions": {
+                    "height": 0,
+                    "width": 0,
+                    "length": 0
+                }
             }
         ],
         "shippingAddress": {
@@ -181,7 +191,8 @@ POST https://mycoolapp.com/integration HTTP/1.1
         },
         "weight": 1.5,
         "weightUnit": "lbs",
-        "currency": "USD"
+        "currency": "USD",
+        "dimensionUnit" : "MM"
     }
 }
 ```
@@ -219,6 +230,7 @@ weightUnit | string | Active weight units in the store at the moment of the requ
 currency | string | Active currency in the store at the moment of the request
 shippingAddress | \<*ShippingAddressInfo*\> | Shipping address details (destination)
 originAddress | \<*OriginAdressInfo*\> | Origin address details (departure)
+dimensionUnit | string | Active dimension units of a store at the moment of the request. Possible values: `IN`,`YD`,`CM`,`MM`
 
 #### OrderItems
 Field | Type |  Description
@@ -231,6 +243,7 @@ sku | string | Product SKU. If the chosen options match a combination, this will
 amount |  number | Amount purchased
 name |  string | Product name
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
+dimensions | \<ProductDimensions\> | Product dimensions info
 
 #### OrderItemOption
 Field | Type |  Description
@@ -248,6 +261,13 @@ id | number | File ID
 name |  string | File name
 size |  number | File size in bytes
 url |   string | File URL
+
+#### ProductDimensions
+Field | Type  | Description
+-------------- | -------------- | --------------
+length | number | Length of a product
+width | number | Width of a product
+height | number | Height of a product
 
 #### DiscountCouponInfo
 Field | Type  | Description

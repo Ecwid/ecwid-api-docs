@@ -196,7 +196,12 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
               "productCount": 1
             }
           },
-          "combinations": []
+          "combinations": [],
+          "dimensions": {
+            "length": 0,
+            "width": 0,
+            "height": 0
+          }
         },
         {
             "id": 37208340,
@@ -420,7 +425,12 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
                     "unlimited": false,
                     "warningLimit": 0
                 }
-            ]
+            ],
+          "dimensions": {
+            "length": 14,
+            "width": 6,
+            "height": 3
+          }
         }
     ]
 }
@@ -576,7 +586,8 @@ Cache-Control: no-cache
               "productCount": 1
             }
           },
-          "combinations": []
+          "combinations": [],
+          "dimensions": {}
         },
         {
             "id": 37208339,
@@ -643,6 +654,7 @@ attributes | Array\<*AttributeValue*\> | Product attributes and their values
 files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Combination*\> | List of the product combinations
+dimensions | \<ProductDimensions\> | Product dimensions info
 
 #### FavoritesStats
 Field | Type  | Description
@@ -740,7 +752,6 @@ wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's
 weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
 warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
 
-
 #### OptionValue
 Field | Type  | Description
 -------------- | -------------- | --------------
@@ -753,6 +764,13 @@ Field | Type  | Description
 text |  string | Option selection text, e.g. 'Green'.
 priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
 priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
+
+#### ProductDimensions
+Field | Type  | Description
+-------------- | -------------- | --------------
+length | number | Length of a product
+width | number | Width of a product
+height | number | Height of a product
 
 ### Errors
 
@@ -1033,7 +1051,12 @@ Parameters in bold are mandatory
             "unlimited": false,
             "warningLimit": 0
         }
-    ]
+    ],
+    "dimensions": {
+      "length": 0,
+      "width": 0,
+      "height": 0
+    }
 }
 ```
 
@@ -1102,6 +1125,7 @@ attributes | Array\<*AttributeValue*\> | Product attributes and their values
 files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Combination*\> | List of the product combinations
+dimensions | \<ProductDimensions\> | Product dimensions info
 
 #### FavoritesStats
 Field | Type  | Description
@@ -1198,7 +1222,6 @@ wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's
 weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
 warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
 
-
 #### OptionValue
 Field | Type  | Description
 -------------- | -------------- | --------------
@@ -1211,6 +1234,13 @@ Field | Type  | Description
 text |  string | Option selection text, e.g. 'Green'.
 priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
 priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
+
+#### ProductDimensions
+Field | Type  | Description
+-------------- | -------------- | --------------
+length | number | Length of a product
+width | number | Width of a product
+height | number | Height of a product
 
 ### Errors
 
@@ -1306,7 +1336,7 @@ seoDescription | string | Page description to be displayed in search results on 
 defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
-
+dimensions | \<ProductDimensions\> | Product dimensions info
 
 #### WholesalePrice
 Field | Type  | Description
@@ -1356,6 +1386,13 @@ Field | Type  | Description
 **text** |  string | Option selection text, e.g. 'Green'.
 priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
 priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
+
+#### ProductDimensions
+Field | Type  | Description
+-------------- | -------------- | --------------
+length | number | Length of a product
+width | number | Width of a product
+height | number | Height of a product
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -1483,6 +1520,7 @@ defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images (for updating alt tags and sort order)
+dimensions | \<ProductDimensions\> | Product dimensions info
 
 <aside class="notice">
 All fields are optional
@@ -1550,6 +1588,12 @@ id | number | Internal gallery image ID
 alt | string |  Image description, displayed in the image tag's *alt* attribute
 orderby |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
 
+#### ProductDimensions
+Field | Type  | Description
+-------------- | -------------- | --------------
+length | number | Length of a product
+width | number | Width of a product
+height | number | Height of a product
 
 ### Response
 

@@ -80,7 +80,10 @@ Name | Type    | Description
         "weightTruncateZeroFractional": false,
         "timeFormat": "hh:mm a",
         "dateFormat": "MMM d, yyyy",
-        "timezone": "Europe/Moscow"
+        "timezone": "Europe/Moscow",
+        "dimensionsUnit": "CM",
+        "orderNumberPrefix": "00001",
+        "orderNumberSuffix": "5000"
     },
     "languages": {
         "enabledLanguages": [
@@ -383,6 +386,9 @@ weightTruncateZeroFractional |  boolean | Hide zero fractional part of the weigh
 dateFormat | string | Date format, e.g. `MMM d, yyyy`
 timeFormat | string | Time format, e.g. `hh:mm a`
 timezone | string | Store timezone, e.g. `Europe/Moscow`
+dimensionsUnit | string | Product dimensions units
+orderNumberPrefix | string | Order number prefix in a store
+orderNumberSuffix | string | Order number suffix in a store
 
 #### Languages
 *System Settings → General → Languages*
@@ -633,6 +639,9 @@ weightTruncateZeroFractional |  boolean | Hide zero fractional part of the weigh
 dateFormat | string | Date format, e.g. `MMM d, yyyy`
 timeFormat | string | Time format, e.g. `hh:mm a`
 timezone | string | Store timezone, e.g. `Europe/Moscow`
+dimensionsUnit | string | Product dimensions units. Possible values: `IN`,`CM`,`MM`,`YD`
+orderNumberPrefix | string | Order number prefix in a store
+orderNumberSuffix | string | Order number suffix in a store
 
 #### Languages
 *System Settings → General → Languages*
