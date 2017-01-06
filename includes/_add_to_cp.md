@@ -95,9 +95,85 @@ When user opens the application tab, the browser's address bar URL will have a f
 
 Where the `my-cool-app` is your **app_id** which you will need to use in this code template to initiale the application on the page. The `sales` part is the Ecwid Control Panel section where the app is embedded into.
 
-#### Q: Can I send an application state to my app?
+## Deep linking
 
-Yes, you can do that using the `app_state` URL parameter when using a direct link to your application's tab in Ecwid Control Panel. Please see the [Authentication section](#user-authentication) for more information.
+Native apps in Ecwid Control Panel support deep linking, which means that they can receive information prior to being loaded and opened. This can provide your app with a new level of interactivity with a user by reacting to the context, sent to your app.
+
+This functionality is achieved by passing a URL-encoded value - `app_state` to your application prior to loading and opening it for a user. 
+
+### Sending app state
+
+A typical native application URL looks like this: 
+
+`https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales`
+
+In case of your app being called using deep linking, that URL will also have a new parameter - `app_state`:
+
+`https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales&app_state=orderId%3A%2012`
+
+The `app_state` parameter value is a URL encoded string with a specific application state your app can understand and process. 
+
+### Receiving app state
+
+Receiving and processing the externally called app state depends on the type of user authentication you are using. Please see 
+
+### Default user authentication
+
+```
+GET https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e223a22776d6
+```
+
+> Payload example for Ecwid JS SDK
+
+```js
+{
+  "store_id": 1003,
+  "lang": "en",
+  "access_token":"xxxxxxxxxxxxxxxx",
+  "app_state":"orderId%3A%2012"
+}
+```
+
+> Get app state with Ecwid JS SDK
+
+```js
+  var storeData = EcwidApp.getPayload();
+  var storeId = storeData.store_id;
+  var accessToken = storeData.access_token;
+  var language = storeData.lang;
+
+  if (storeData.app_state !== undefined){
+    var appState = storeData.app_state;
+  }
+...
+```
+
+When using default user authentication, the app state will be delivered through the Ecwid JavaScript SDK in the `EcwidApp.getPayload()` method.
+
+Once it's called, you can save the user details and app state into your client-side variables. See example on the right.
+
+Learn more about [Default User Authentication](#default-user-auth)
+
+### Enhanced security user authentication
+
+```
+GET https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&app_state=orderId%3A%2012&cache-killer=13532
+```
+
+```php
+...
+  // URL Encoded App state passed to the app
+  if (isset($_GET['app_state'])){
+    $app_state = $_GET['app_state'];
+  }
+...
+```
+
+When using enhanced security user authentication, the app state will be delivered as a GET parameter `app_state` of your iframe URL alongside the standard parameters.
+
+You can retrieve it just like any other value of a GET parameter on a server-side and then save and use it in your app code. See example on the right.
+
+Learn more about [Enhanced Security User Authentication](#enhanced-security-user-auth)
 
 # Authentication in embedded apps
 
@@ -453,26 +529,16 @@ autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust you
 
 Above, we explained how your app can be a client-side HTML/JS application and still access Ecwid API right from Ecwid Control Panel (see [Authentication in embedded apps](#authentication-in-embedded-apps) section). There, we used the `EcwidApp.getPayload()` method to get the store ID and API access token. 
 
-
-> Payload example
-
-```json
-{
-  "store_id": 1003,
-  "lang": "en_US",
-  "access_token":"xxxxxxxxxxxxxxxx"
-}
-```
-
-
 The payload is a JSON with the following fields:
 
 Name | Type | Description
 ---- | ---- | -----------
-store_id | number | Ecwid store ID
-lang | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
-access_token | string | oAuth token
+**store_id** | number | Ecwid store ID
+**lang** | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
+**access_token** | string | oAuth token
+app_state | 
 
+<aside class="note">Fields marked in <strong>bold</strong> are always sent in the payload. Others are sent depending on conditions.</aside>
 
 ## openPage
 

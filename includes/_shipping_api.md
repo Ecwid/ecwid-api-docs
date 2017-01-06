@@ -174,6 +174,15 @@ POST https://mycoolapp.com/integration HTTP/1.1
                 }
             }
         ],
+        "predictedPackages":[  
+            {  
+                "length":12.5,
+                "width":6,
+                "height":3.5,
+                "weight":1.5,
+                "declaredValue":7.08
+            }
+        ],
         "shippingAddress": {
             "street": "5th Avenue",
             "city": "New York",
@@ -228,6 +237,7 @@ items | Array\<*OrderItems*\> | Array of customer's order items with basic detai
 weight | number | Total weight of the order
 weightUnit | string | Active weight units in the store at the moment of the request
 currency | string | Active currency in the store at the moment of the request
+predictedPackages | \<*PredictedPackage*\> | Predicted dimensions, weight and cost of all items in cart
 shippingAddress | \<*ShippingAddressInfo*\> | Shipping address details (destination)
 originAddress | \<*OriginAdressInfo*\> | Origin address details (departure)
 dimensionUnit | string | Active dimension units of a store at the moment of the request. Possible values: `IN`,`YD`,`CM`,`MM`
@@ -300,6 +310,15 @@ Field | Type | Description
 name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value
 description | string | Handling fee description for customer
+
+### PredictedPackage
+Name | Type    | Description
+---- | ------- | --------------
+height | number | Height of a predicted package
+width | number | Width of a predicted package
+length | number | Length of a predicted package
+weight | number | Total weight of a predicted package
+declaredValue | number | Declared value of a predicted package
 
 ### ShippingAddressInfo
 
