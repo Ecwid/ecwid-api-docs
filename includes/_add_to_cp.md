@@ -103,11 +103,9 @@ This functionality is achieved by passing a URL-encoded value - `app_state` to y
 
 ### Sending app state
 
-A typical native application URL looks like this: 
+A typical native application URL looks like this: `https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales`
 
-`https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales`
-
-In case of your app being called using deep linking, that URL will also have a new parameter - `app_state`:
+In case of your app being called using deep linking, that URL will also have a new parameter - `app_state` :
 
 `https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales&app_state=orderId%3A%2012`
 
@@ -115,15 +113,15 @@ The `app_state` parameter value is a URL encoded string with a specific applicat
 
 ### Receiving app state
 
-Receiving and processing the externally called app state depends on the type of user authentication you are using. Please see 
+Receiving and processing the externally called app state depends on the type of user authentication you are using. See the details below. 
 
-### Default user authentication
+**Default user authentication**
+
+> Default user authentication
 
 ```
 GET https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e223a22776d6
 ```
-
-> Payload example for Ecwid JS SDK
 
 ```js
 {
@@ -154,19 +152,21 @@ Once it's called, you can save the user details and app state into your client-s
 
 Learn more about [Default User Authentication](#default-user-auth)
 
-### Enhanced security user authentication
+**Enhanced security user authentication**
+
+> Enhanced security user authentication
 
 ```
 GET https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746f6b656e223a22776d6&app_state=orderId%3A%2012&cache-killer=13532
 ```
 
+> Get app state from GET parameter
+
 ```php
-...
   // URL Encoded App state passed to the app
   if (isset($_GET['app_state'])){
     $app_state = $_GET['app_state'];
   }
-...
 ```
 
 When using enhanced security user authentication, the app state will be delivered as a GET parameter `app_state` of your iframe URL alongside the standard parameters.
