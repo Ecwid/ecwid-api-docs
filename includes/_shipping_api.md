@@ -237,7 +237,7 @@ items | Array\<*OrderItems*\> | Array of customer's order items with basic detai
 weight | number | Total weight of the order
 weightUnit | string | Active weight units in the store at the moment of the request
 currency | string | Active currency in the store at the moment of the request
-predictedPackages | \<*PredictedPackage*\> | Predicted dimensions, weight and cost of all items in cart
+predictedPackages | Array\<*PredictedPackage*\> | Predicted information about the packages to ship items in to customer
 shippingAddress | \<*ShippingAddressInfo*\> | Shipping address details (destination)
 originAddress | \<*OriginAdressInfo*\> | Origin address details (departure)
 dimensionUnit | string | Active dimension units of a store at the moment of the request. Possible values: `IN`,`YD`,`CM`,`MM`
@@ -318,7 +318,7 @@ height | number | Height of a predicted package
 width | number | Width of a predicted package
 length | number | Length of a predicted package
 weight | number | Total weight of a predicted package
-declaredValue | number | Declared value of a predicted package
+declaredValue | number | Declared value of a predicted package (subtotal of items in package)
 
 ### ShippingAddressInfo
 
