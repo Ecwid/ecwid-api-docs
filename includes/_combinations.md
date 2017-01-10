@@ -138,11 +138,11 @@ id |  number |  Combination ID
 combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
 sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
-smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
-hdThumbnailUrl | string  | Combination HD thumbnail URL resized to fit 650x650px
-thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the combination image resized to fit 500x500. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
-originalImageUrl | string | URL of the original not resized combination image. Omitted if the combination inherits the base product's image.
+thumbnailUrl |  string | URL of the product combination thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the product combination image resized to fit 1500x1500px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+smallThumbnailUrl | string  | URL of the product combination thumbnail resized to fit 160x160px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product combination HD thumbnail URL resized to fit 800x800px. Omitted if the combination inherits the base product's image.
+originalImageUrl |  string  | URL of the original not resized product combination image. Omitted if the combination inherits the base product's image.
 quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
 unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
 price | number | Combination price. Omitted if the combination inherits the base product's price.
@@ -254,11 +254,11 @@ id |  number |  Combination ID
 combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
 options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
 sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
-smallThumbnailUrl | string  | URL of the combination thumbnail resized to fit 80x80 px box. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
-hdThumbnailUrl | string  | Combination HD thumbnail URL resized to fit 650x650px
-thumbnailUrl |  string  | URL of the combination thumbnail displayed on the product list pages if the combination is default one. Thumbnails size is defined in the store settings and the same as the product thumbnail size. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the combination image resized to fit 500x500. Omitted if the combination inherits the base product's image. *The original uploaded combination image is available in the `originalImageUrl` field.*
-originalImageUrl | string | URL of the original not resized combination image. Omitted if the combination inherits the base product's image.
+thumbnailUrl |  string | URL of the product combination thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the product combination image resized to fit 1500x1500px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+smallThumbnailUrl | string  | URL of the product combination thumbnail resized to fit 160x160px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product combination HD thumbnail URL resized to fit 800x800px. Omitted if the combination inherits the base product's image.
+originalImageUrl |  string  | URL of the original not resized product combination image. Omitted if the combination inherits the base product's image.
 quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
 unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
 price | number | Combination price. Omitted if the combination inherits the base product's price.

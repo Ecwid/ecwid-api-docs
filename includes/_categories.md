@@ -43,8 +43,9 @@ To get a list of products in results for each category, set `productIds` paramet
             "id": 9691094,
             "orderBy": 10,
             "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
-            "thumbnailUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
-            "originalImageUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
+            "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341234.jpg",
+            "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/461717703.jpg",
+            "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124125.jpg",
             "originalImage": {
                 "url": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
                 "width": 123,
@@ -61,10 +62,11 @@ To get a list of products in results for each category, set `productIds` paramet
             "id": 9691095,
             "orderBy": 20,
             "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690772.jpg",
-            "thumbnailUrl": "https://app.ecwid.com/default-store/vegetables-230-sq.jpg",
-            "originalImageUrl": "https://app.ecwid.com/default-store/vegetables-230-sq.jpg",
+            "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341254.jpg",
+            "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/461717702.jpg",
+            "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124124.jpg",
             "originalImage": {
-                "url": "https://app.ecwid.com/default-store/vegetables-230-sq.jpg",
+                "url": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124124.jpg",
                 "width": 123,
                 "height": 456
             },
@@ -99,8 +101,9 @@ Cache-Control: no-cache
             "id": 9691094,
             "orderBy": 10,
             "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
-            "thumbnailUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
-            "originalImageUrl": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
+            "thumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/12321312.jpg",
+            "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/461717702.jpg",
+            "originalImageUrl": "https://dpbfm6h358sh7.cloudfront.net/1003/1231231231.jpg",
             "originalImage": {
                 "url": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
                 "width": 123,
@@ -138,8 +141,9 @@ Field | Type | Description
 id | number | Internal unique category ID
 parentId | number  | ID of the parent category, if any
 orderBy | number | Sort order of the category in the parent category subcategories list
-hdThumbnailUrl | string  | Category HD thumbnail URL resized to fit 650x650px
-thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified in the store settings
+hdThumbnailUrl | string  | Category HD thumbnail URL resized to fit 800x800px
+thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified in the store settings. Resized to fit 400x400px by default
+imageUrl | string | Category image URL. A resized original image to fit 1500x1500px
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
@@ -211,11 +215,12 @@ Query field | Type    | Description
     "id": 10861116,
     "parentId": 9691094,
     "orderBy": 20,
-    "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690771.jpg",
-    "thumbnailUrl": "http://images-cdn.ecwid.com/images/4870020/244778352.jpg",
-    "originalImageUrl": "http://images-cdn.ecwid.com/images/4870020/244778351.jpg",
+    "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
+    "thumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/12321312.jpg",
+    "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/461717702.jpg",
+    "originalImageUrl": "https://dpbfm6h358sh7.cloudfront.net/1003/1231231231.jpg",
     "originalImage": {
-        "url": "http://images-cdn.ecwid.com/images/4870020/244778351.jpg",
+        "url": "https://dpbfm6h358sh7.cloudfront.net/1003/1231231231.jpg",
         "width": 123,
         "height": 456
     },
@@ -255,8 +260,9 @@ Field | Type | Description
 id | number | Internal unique category ID
 parentId | number  | ID of the parent category, if any
 orderBy | number | Sort order of the category in the parent category subcategories list
-hdThumbnailUrl | string  | Category HD thumbnail URL resized to fit 650x650px
-thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified in the store settings
+hdThumbnailUrl | string  | Category HD thumbnail URL resized to fit 800x800px
+thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified in the store settings. Resized to fit 400x400px by default
+imageUrl | string | Category image URL. A resized original image to fit 1500x1500px
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
