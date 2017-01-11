@@ -34,6 +34,10 @@ Ecwid will expect a response from your service within 10 second interval to disp
 
 Based on the response from your app, Ecwid will display the shipping methods for customers at the checkout. Customer can select them just like any other shipping method in that Ecwid store and it will be shown in the order details. Shipping methods from the application will be added to any currently enabled shipping methods a store has enabled.
 
+#### Q: What happens, if my URL responds with an error? 
+
+In case if your app responds with an error or in an incorrect format, then the shipping methods from your app will not be shown to customer at checkout stage. If your store has applicable shipping methods set up using the default means of creating shipping methods in Ecwid, then they will be shown to customer.
+
 # Merchant settings for shipping method
 
 Your application can require merchants to specify their shipping account details, package size and any other user preferences you may require. We recommend adding a new tab into the Ecwid Control Panel's Shipping settings for optimal experience - Native applications feature.

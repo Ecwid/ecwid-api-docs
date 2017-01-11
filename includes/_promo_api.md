@@ -39,6 +39,10 @@ Ecwid will expect a response from your service within **5 second interval** to d
 
 Based on the response from your app, Ecwid will display the discounts for customers on the cart page. Customer can view the amount and the reason for a discount that your solution sent to Ecwid. All the discount details will be saved for that order and they will be displayed in related order information.
 
+#### Q: What happens, if my URL responds with an error? 
+
+In case if your app responds with an error or in an incorrect format, then the discounts from your app will not be shown to customer at checkout stage and they will be able to shop in the store as usual. If your store has applicable discounts methods set up using the default means of creating discounts in Ecwid, then they will be shown to customer and applied to order.
+
 #### Q: Can I create a user interface for user to select and set different duscount rules?
 
 After the installation, your app can add a page where they can configure it: provide their account details, set up discount rules, enable/disable rules, etc. We recommend using **Native apps** feature and the **Application storage** feature to provide this functionality. To manage and store those settings, see the [Advanced setup](#advanced-setup) section.
