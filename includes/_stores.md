@@ -80,7 +80,7 @@ Field | Type | Description
 ----- | ---- | -----------
 **email** | string | Store owner's email
 **name** | string | Store owner's name
-password | string | Ecwid account password
+password | string | Ecwid account password. **Minimum password length is 6 characters**
 ip | string | Store owner's IP. Is used to predetermine user's location and set default settings in store
 
 #### AffiliatePartner
