@@ -57,6 +57,10 @@ If you already have a registered app and want to make it native, you can [contac
     var storeId = storeData.store_id;
     var accessToken = storeData.access_token;
     var language = storeData.lang;
+
+    if (storeData.public_token !== undefined){
+      var publicToken = storeData.public_token;
+    }
     
     if (storeData.app_state !== undefined){
       var appState = storeData.app_state;
@@ -128,7 +132,8 @@ GET https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b65
   "store_id": 1003,
   "lang": "en",
   "access_token":"xxxxxxxxxxxxxxxx",
-  "app_state":"orderId%3A%2012"
+  "app_state":"orderId%3A%2012",
+  "public_token":"public_QnWFi7GpGemRUvz3SJ18crtJ5ru8yjfy"
 }
 ```
 
@@ -139,6 +144,10 @@ GET https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b65
   var storeId = storeData.store_id;
   var accessToken = storeData.access_token;
   var language = storeData.lang;
+
+  if (storeData.public_token !== undefined){
+    var publicToken = storeData.public_token;
+  }
 
   if (storeData.app_state !== undefined){
     var appState = storeData.app_state;
@@ -236,6 +245,10 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
     var storeId = storeData.store_id;
     var accessToken = storeData.access_token;
     var language = storeData.lang;
+    
+    if (storeData.public_token !== undefined){
+      var publicToken = storeData.public_token;
+    }
     
     if (storeData.app_state !== undefined){
       var appState = storeData.app_state;
@@ -362,6 +375,10 @@ $token = $result['access_token'];
 $storeId = $result['store_id'];
 $lang = $result['lang'];
 
+if (isset($result['public_token'])){
+  $public_token = $result['public_token'];
+}
+
 // URL Encoded App state passed to the app
 if (isset($_GET['app_state'])){
   $app_state = $_GET['app_state'];
@@ -405,7 +422,8 @@ $color = $curlResult -> {'value'};
 {
   "store_id": 1003,
   "lang": "en",
-  "access_token":"xxxxxxxxxxxxxxxx"
+  "access_token":"xxxxxxxxxxxxxxxx",
+  "public_token":"public_ASDlkDASmasdaslkdASkndasANJKLsAf"
 }
 ```
 
@@ -424,6 +442,7 @@ Name | Type | Description
 store_id | number | Ecwid store ID
 lang | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
 access_token | string | Secure oAuth token for Ecwid REST API
+public_token | string | Public oAuth token for Ecwid REST API
 
 #### Decryption of payload on your server
 
@@ -516,6 +535,10 @@ autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust you
     var storeId = storeData.store_id;
     var accessToken = storeData.access_token;
     var language = storeData.lang;
+
+    if (storeData.public_token !== undefined){
+      var publicToken = storeData.public_token;
+    }
     
     if (storeData.app_state !== undefined){
       var appState = storeData.app_state;
@@ -535,8 +558,9 @@ Name | Type | Description
 ---- | ---- | -----------
 **store_id** | number | Ecwid store ID
 **lang** | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
-**access_token** | string | oAuth token
-app_state | 
+**access_token** | string | Secure oAuth token
+app_state | string | URL Encoded application state
+public_token | string | Public oAuth token for Ecwid REST API
 
 <aside class="note">Fields marked in <strong>bold</strong> are always sent in the payload. Others are sent depending on conditions.</aside>
 
