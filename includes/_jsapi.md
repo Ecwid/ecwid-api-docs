@@ -491,6 +491,103 @@ This event executes callback function each time when product option was changed.
 
 `OnProductOptionsChanged` works for following options type: dropdown list, radio button and checkbox. Input, textarea and upload files types are not supported yet.
 
+## Ecwid.OnOrderPlaced
+
+> Get order number of a placed order
+
+```js
+Ecwid.OnOrderPlaced.add(function(order){
+  console.log(order.orderNumber);
+})
+
+// 781
+```
+
+`Ecwid.OnOrderPlaced()` event allows you to get details of an order placed by a customer in storefront right after an order is placed. This event provides the `order` object in callback function so that you can get order details right after the event occurs.
+
+### Order object
+
+Describes the details of a placed order by customer. 
+
+**Fields**
+
+Name | Type | Description
+---- | ----- | -----------
+items | Array\<*OrderItems*\> | Items purchased in order
+productsQuantity | integer | Total quantity of purchased items in order
+couponName | string | Applied coupon name. `undefined` if no coupon was used
+weight | number | Total order weight
+paymentMethod | string | Selected payment method name. `undefined` if no method selected
+shippingCarrierName | string | Selected shipping carrier name. `undefined` if no method selected
+shippingMethod | string | Selected shipping method name. `undefined` if no method selected
+total | number | Order total
+subtotal | number | Order subtotal
+tax | number | Order total tax
+couponDiscount | number | Coupon discount applied to order
+volumeDiscount | number | Sum of discounts based on subtotal
+customerGroupDiscount | number | Sum of discounts based on customer group
+discount | number | Total discount amount for order
+shipping | number | Total shipping cost for order
+handlingFee | number | Handling fee applied to order
+shippingAndHandling | number | Sum of `shipping` and `handlingFee` fields
+billingPerson | \<*PersonInfo*\> | Customer billing information
+shippingPerson | \<*PersonInfo*\> | Customer shipping information
+affiliateId | string | Affiliate ID value for order
+orderNumber | number | Order number in a store
+vendorNumber | string | Order number with custom prefixes and suffixes of that store
+date | string (UNIX Timestamp) | Date when order was placed as a UNIX Timestamp, e.g. `"1484638550"`
+paymentStatus | string | Payment status of an order. One of: `AWAITING_PAYMENT`, `PAID`, `CANCELLED`, `REFUNDED`, `PARTIALLY_REFUNDED`, `INCOMPLETE`
+fulfillmentStatus | string | Fulfillment status of an order. One of: `AWAITING_PROCESSING`, `PROCESSING`, `SHIPPED`, `DELIVERED`, `WILL_NOT_DELIVER`, `RETURNED`, `READY_FOR_PICKUP`
+customer | \<*CustomerInfo*\> | Basic customer info
+
+#### OrderItems
+
+Name | Type | Description
+---- | ----- | -----------
+quantity | integer | Quantity of an item in order
+product | \<*ProductInfo*\> | Product details
+options | Map\<*OptionsInfo*\> | Selected product options
+
+#### ProductInfo
+
+Name | Type | Description
+---- | ---- | -----------
+id | Integer | Internal unique product ID
+name | String | Product name
+price | Integer | Product price
+shortDescription | String | Product description truncated to 120 characters
+sku | String | Product SKU
+url | String | URL to this product details page in store front (store front URL is generated from a field in Ecwid Control panel > Settings > General > Store profile)
+weight | Integer | Weight of a product
+
+#### OptionsInfo
+
+Name | Type | Description
+---- | ---- | -----------
+selectedOption | string | Selected option name as a key, its value as a value of that key. For `dropdown`, `radio`, `textarea`, `textfield` options value is a string; for `checkbox` option the value is a comma-separated list of selected values in a single string; for `date` option the value is a selected date according to the store format; for `files` option the value is a string in a format: `"4 files"`
+
+#### PersonInfo
+
+Name | Type | Description
+-----|------|------------
+name | string | Customer's name
+companyName | string | Customer's company name
+street | string | Customer's street address
+city | string | Customer's city
+countryName | string | Customer's country name. `countryCode` can be used instead
+countryCode | string | Customer's country code. `countryName` can be used instead
+postalCode | string | Customer's zip code
+stateOrProvinceCode | string | Customer's state or province code
+stateOrProvinceName | string | Customer's state or province name
+phone | string | Customer's phone number
+
+#### CustomerInfo
+
+Name | Type | Description
+-----|------|------------
+name | string | Customer's name
+email | string | Customer's email
+
 # Get Customer Details
 
 Find out more about customer that is currently logged in a store.
