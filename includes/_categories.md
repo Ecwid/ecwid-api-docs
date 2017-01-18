@@ -12,7 +12,7 @@ Host: app.ecwid.com
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/categories?parent={parent}&hidden_categories={hidden_categories}&offset={offset}&limit={limit}&productIds={productIds}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/categories?parent={parent}&hidden_categories={hidden_categories}&offset={offset}&limit={limit}&productIds={productIds}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&token={token}`
 
 Query field | Type    | Description
 ----------- | ------- | --------------
@@ -23,6 +23,8 @@ limit | number | Maximum number of returned items. Maximum allowed value: `100`.
 parent | number | ID of the parent category. Set to `0` to get the list of root categories. Leave empty to get all store categories.
 hidden_categories | boolean | By default, Ecwid returns only enabled categories. Set this parameter to `true` if you want hidden (disabled) categories to be returned. `false` is default
 productIds | boolean | Set to `true` if you want the results to contain a list of product IDs assigned to category. `false` is default
+baseUrl | string | Base URL of a storefront for Ecwid to use when returning category URLs (`url` field) instead of storefront URL specified in [store settings](#get-store-profile)
+cleanUrls | boolean | If `true` Ecwid will return the new SEO-friendly URL in the `url` field. If `false` Ecwid will return the old URL format. Can be used together with the `baseUrl` request parameter
 
 <aside class='notice'>
 To get a list of products in results for each category, set `productIds` parameter to `true` when making a request.
@@ -147,7 +149,7 @@ imageUrl | string | Category image URL. A resized original image to fit 1500x150
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
-url | string | Category page URL in the store
+url | string |  URL of the category page in a store. If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL. For example, if `baseUrl` is `"https://mycoolstore.com"` then the category URL in `url` field will be in this format: `"https://mycoolstore.com#!/Fruits/c/70445445"`. If `cleanUrls` request parameter is `true`, then `url` field will have the new SEO-friendly format regardless of whether the `baseUrl` request parameter is specified
 productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
@@ -174,11 +176,12 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 #### HTTP codes
 
-HTTP Status | Meaning
-------------|--------
-400 | Request parameters are malformed
-415 | Unsupported content-type: expected `application/json` or `text/json`
-500 | Cannot retrieve the categories info because of an error on the server
+HTTP Status | Meaning | Code (optional)
+------------|--------|-----------
+400 | Request parameters are malformed | 
+400 | The cleanUrls value is invalid. It must be either `true` or `false` | `CLEAN_URLS_PARAMETER_IS_INVALID`
+415 | Unsupported content-type: expected `application/json` or `text/json` | 
+500 | Cannot retrieve the categories info because of an error on the server | 
 
 #### Error response body (optional)
 
@@ -198,13 +201,15 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}?token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}?token={token}&baseUrl={baseUrl}&cleanUrls={cleanUrls}`
 
 Query field | Type    | Description
 ----------- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**categoryId** | number | Category internal ID
+**categoryId** | number | Internal category ID
+baseUrl | string | Base URL of a storefront for Ecwid to use when returning category URLs (`url` field) instead of storefront URL specified in [store settings](#get-store-profile)
+cleanUrls | boolean | If `true` Ecwid will return the new SEO-friendly URL in the `url` field. If `false` Ecwid will return the old URL format. Can be used together with the `baseUrl` request parameter
 
 ### Response
 
@@ -266,7 +271,7 @@ imageUrl | string | Category image URL. A resized original image to fit 1500x150
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
-url | string | Category page URL in the store
+url | string |  URL of the category page in a store. If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL. For example, if `baseUrl` is `"https://mycoolstore.com"` then the category URL in `url` field will be in this format: `"https://mycoolstore.com#!/Fruits/c/70445445"`. If `cleanUrls` request parameter is `true`, then `url` field will have the new SEO-friendly format regardless of whether the `baseUrl` request parameter is specified
 productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
@@ -293,12 +298,13 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 #### HTTP codes
 
-HTTP Status | Meaning
-------------|--------
-400 | Malformed request parameters
-404 | Category is not found
-415 | Unsupported content-type: expected `application/json` or `text/json`
-500 | Server error
+HTTP Status | Meaning | Code (optional)
+------------|--------|-----------
+400 | Request parameters are malformed | 
+400 | The cleanUrls value is invalid. It must be either `true` or `false` | `CLEAN_URLS_PARAMETER_IS_INVALID`
+404 | Category is not found | 
+415 | Unsupported content-type: expected `application/json` or `text/json` | 
+500 | Server error | 
 
 
 ## Add new category

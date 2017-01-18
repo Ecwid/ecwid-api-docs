@@ -15,7 +15,7 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&sku={sku}&productId={productId}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&sku={sku}&productId={productId}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&token={token}`
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -39,6 +39,8 @@ field{attributeName} | string | Filter by product attribute values. Format: fiel
 field{attributeId} | string | Filter by product attribute values. Works the same as the filter by `field{attributeName}` but attribute IDs are used instead of attribute names. This way is insensitive to attributes renaming.
 sku | string | Product or combination SKU. Ecwid will return details of a product containing that SKU, if SKU value is an exact match. If SKU is specified, other search parameters are ignored, except for product ID.
 productId | number | Internal Ecwid product ID or multiple productIds separated by a comma. If this field is specified, other search parameters are ignored.
+baseUrl | string | Base URL of a storefront for Ecwid to use when returning product URLs (`url` field) instead of storefront URL specified in [store settings](#get-store-profile)
+cleanUrls | boolean | If `true` Ecwid will return the new SEO-friendly URL in the `url` field. If `false` Ecwid will return the old URL format. Can be used together with the `baseUrl` request parameter
 
 <aside class="notice">
 If no filters are set in the URL, API will return all products
@@ -653,7 +655,7 @@ wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price t
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
-url | string |  URL of the product's details page in the store
+url | string |  URL of the product's details page in the store. If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL. For example, if `baseUrl` is `"https://mycoolstore.com"` then the product URLs in `url` field will be in this format: `"https://mycoolstore.com#!/apple/p/70445445"`. If `cleanUrls` request parameter is `true`, then `url` field will have the new SEO-friendly format regardless of whether the `baseUrl` request parameter is specified
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
 updated |  string | Product last update date/time
 createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`
@@ -819,11 +821,12 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 #### HTTP codes
 
-HTTP Status | Meaning
-------------|--------
-400 | Request parameters are malformed
-415 | Unsupported content-type: expected `application/json` or `text/json`
-500 | Cannot get the product because of an error on the server
+HTTP Status | Meaning | Code (optional)
+------------|--------|-----------
+400 | Request parameters are malformed | 
+400 | The cleanUrls value is invalid. It must be either `true` or `false` | `CLEAN_URLS_PARAMETER_IS_INVALID`
+415 | Unsupported content-type: expected `application/json` or `text/json` | 
+500 | Cannot get the product because of an error on the server | 
 
 #### Error response body (optional)
 
@@ -853,13 +856,16 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products/{productId}?token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products/{productId}?token={token}&baseUrl={baseUrl}&cleanUrls={cleanUrls}`
 
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **productId** | number | Product ID
 **token** |  string |  oAuth token
+baseUrl | string | Base URL of a storefront for Ecwid to use when returning product URL (`url` field) instead of storefront URL specified in [store settings](#get-store-profile)
+cleanUrls | boolean | If `true` Ecwid will return the new SEO-friendly URL in the `url` field. If `false` Ecwid will return the old URL format. Can be used together with the `baseUrl` request parameter
+
 <aside class="notice">
 Parameters in bold are mandatory
 </aside>
@@ -1136,7 +1142,7 @@ wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price t
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
-url | string |  URL of the product's details page in the store
+url | string |  URL of the product's details page in the store. If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL. For example, if `baseUrl` is `"https://mycoolstore.com"` then the product URLs in `url` field will be in this format: `"https://mycoolstore.com#!/apple/p/70445445"`. If `cleanUrls` request parameter is `true`, then `url` field will have the new SEO-friendly format regardless of whether the `baseUrl` request parameter is specified
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
 updated |  string | Product last update date/time
 createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`
@@ -1299,10 +1305,11 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 #### HTTP codes
 
-HTTP Status | Meaning
-------------|--------
-404 | Product is not found
-500 | Cannot get the product because of an error on the server
+HTTP Status | Meaning | Code (optional)
+------------|--------|-----------
+400 | The cleanUrls value is invalid. It must be either `true` or `false` | `CLEAN_URLS_PARAMETER_IS_INVALID`
+404 | Product is not found | 
+500 | Cannot get the product because of an error on the server | 
 
 #### Error response body (optional)
 

@@ -256,6 +256,79 @@ You may want to apply different CSS codes depending on the store your applicatio
 
 In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#custom-javascript) for details.
 
+# Customization Tools
+
+There are several storefront customization tools available at your disposal: you can set a category or product page to open by default, change storefront colors, take advantage of SEO-friendly URLs and many more. Check them out in more details below.
+
+## SEO-friendly URLs
+
+By default, Ecwid URLs address store pages in a hash part of the URL (after the # sign). Example: `https://www.mysite.com/store/#!/My-Product/p/123/category=0`
+
+Search engines nowadays index such pages well. However, the general SEO recommendation is to keep URLs as simple as possible and address the site pages in the path part of the url, i.e. in the part before '?' or '#' signs. 
+
+Ecwid allows to change the store URLs accordingly, so that they look like this:
+`https://www.mysite.com/store/My-Product-p123`
+
+Follow the steps below to enable SEO-friendly URLs in an Ecwid store.
+
+### How to enable SEO-friendly URLs
+
+**Step 1. Configure your server: add URL rewrite rules.**
+
+In the SEO friendly URL scheme, Ecwid places a page title right after the store page path in the URL, so that it looks like a subdirectory: `www.mysite.com/store/My-Product-p123` . 
+
+On the other hand, this is just a page on your server, not a directory. So if the server will try to find something inside the store page, it will fail and return 404 errors. To make your server properly process these URLs, you will need to configure URL rewrite rules. 
+
+The general rule is to map everything after slash on the store page to the store page itself, i.e.:
+`www.mysite.com/store/anything` → `www.mysite.com/store`
+
+Specific configuration depends on your server: 
+
+- **In Apache**, you will need to enable mod_rewrite and specify rewrite urls in `.htaccess` file See [https://httpd.apache.org/docs/2.4/rewrite/remapping.html](https://httpd.apache.org/docs/2.4/rewrite/remapping.html)
+- **In Nginx**, you will need to add rewrite instruction to the config file. See [https://www.nginx.com/blog/creating-nginx-rewrite-rules/](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
+
+<aside class='notice'>
+<strong>Do not redirect</strong> the store/anything/ to /store . The rewrite rules should only map one URL to another, without redirection. If you redirect the visitor to the /store page instead, the store pages will not be properly indexed by Google. 
+</aside>
+
+
+**Step 2. Adjust Ecwid integration code: enable the SEO URLs.**
+
+> Adjusting Ecwid integration code to enable SEO-friendly URLs
+
+```html
+<script>
+  window.ec = window.ec || {};
+  window.ec.config = window.ec.config || {};
+  window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
+   
+  window.ec.config.storefrontUrls.cleanUrls = true;
+  window.ec.config.baseUrl = '/store',
+</script>
+```
+
+On the site page where you add Ecwid store, you will need to add a few lines of javascript code before the Ecwid integration code. It will tell Ecwid to enable SEO friednly URLs on this page. See example code on the right.
+
+Make sure to replace the "/store" dummy value in the last line with the actual store page path. Ecwid will use this as a base for the clean URLs. E.g. if you specify this URL as your base URL: `/subfolder/shop` and your site is on `https://www.mysite.com`
+
+Ecwid will address store pages like this:
+- `https://www.mysite.com/subfolder/shop/My-product-p123`
+- `https://www.mysite.com/subfolder/shop/cart`
+- `https://www.mysite.com/subfolder/shop/checkout`
+
+etc. 
+
+
+<aside class='notice'>
+We recommend using <strong>relative URLs</strong> in the <em>baseUrl</em> parameter. But you can also specify an absolute baseUrl if needed, e.g. "https://www.mysite.com/subfolder/shop/cart". <br/><br/>In such case, make sure it is under the same domain a visitor browses the site. E.g. if it includes 'www', do include 'www' in the base URL; if it contains https, do use https in the base URL. If the base URL domain or schema differ from the actual ones, the visitor browser will block URL rewrites and the SEO URls will not work. 
+</aside>
+
+### FAQ
+
+#### Q: Will the regular hash-bang URLs continue working if I enable the new SEO URLs? 
+
+Yes, the old URLs will be supported, so if someone clicks the old link anywhere on the web, they will get to the corresponding store page. Upon opening the page, Ecwid will automatically replace the hash part so that the visitor will see the new URLs in the browser address bar. 
+
 # Using REST API in storefront
 
 When working on a custom storefront functionality, applications can require getting up-to-date catalog information from Ecwid store.
