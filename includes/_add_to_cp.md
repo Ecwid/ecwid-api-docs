@@ -34,6 +34,8 @@ If you already have a registered app and want to make it native, you can [contac
 
 ## App page template
 
+> Native app source code example: [https://github.com/Ecwid/custom-thank-you-page-app](https://github.com/Ecwid/custom-thank-you-page-app)
+> 
 > Skeleton of an application embedded into Ecwid Control panel
 
 ```html
@@ -87,6 +89,8 @@ Here you can find a starter template that you can use as a skeleton of your own 
 * The `EcwidApp.getPayload()` method allows you to get the Store ID and REST API access token. See details in the further sections
 * Ecwid will load your app's *Iframe URL* with a payload to help identify the merchant's store. To find out more about the store authentication process in the app tab, see the [Authentication section](#authentication-in-embedded-apps).
 * See the detailed description of the `init()` and `getPayload()` functions here: [Ecwid JS SDK](#ecwid-javascript-sdk) .
+
+Full native application source code example for Custom URL for "Thank you" page app from [the Ecwid App Market](https://www.ecwid.com/apps/customizestorefront/custom-thank-you) is available here: [https://github.com/Ecwid/custom-thank-you-page-app](https://github.com/Ecwid/custom-thank-you-page-app)
 
 Also, see the [set up your application](#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
 

@@ -3,7 +3,7 @@
 The JavaScript API we described is available for all Ecwid users. The API is intended for better integrating Ecwid with the surrounding website. The API is based on two concepts: objects and events. Objects are simple containers for methods, while events are containers for the user-supplied callbacks (or extensions).
 
 > Check out [Customize Storefront](#customize-storefront) section for general details on changing Ecwid's storefront.
-
+> 
 > Access Page object to find the current page type
 
 ```javascript
@@ -11,6 +11,8 @@ Ecwid.OnPageLoad.add(function(page) {
         alert("My page load handler: " + page.type);
 });
 ```
+> 
+> See also: [App working in storefront source code example](https://github.com/Ecwid/custom-thank-you-page-app)
 
 Extensions are added to the events using the `add()` method, see example code on the right.
 

@@ -438,6 +438,7 @@ Let’s say that you plan to build an app, that customizes a storefront, by disp
 Ecwid.getAppPublicConfig('my-cool-app')
 // "enabled"
 ```
+> See also: [App utilizing the app public config source code example](https://github.com/Ecwid/custom-thank-you-page-app)
 
 Or you can create a fully customizable widget, where merchant can input custom text, change its size, color, background and do other customizations. 
 

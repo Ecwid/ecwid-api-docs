@@ -86,7 +86,7 @@ Each application has scope of access that controls the set of store resources an
 
 ## Webhook request body
 
-> Webhook body example
+> Webhook header example
 
 ```http
 POST https://www.myapp.com/callback?eventType=order.updated HTTP/1.1
@@ -97,14 +97,67 @@ Cache-Control: no-cache
 X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 ```
 
-> Order #103 updated webhook example
+> Unfinished order #105 created webhook body example
 
 ```json
 {
   "eventId":"123456-1234-1234-1234-123412341234",
   "eventCreated":1234567,
   "storeId":1003,
-  "entityId":103,
+  "entityId":105, // this is the number of the unfinished order
+  "eventType":"unfinished_order.created"
+}
+```
+
+> Unfinished order #105 updated webhook body example
+
+```json
+{
+  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventCreated":1234567,
+  "storeId":1003,
+  "entityId":105, // this is the number of the updated unfinished order
+  "eventType":"unfinished_order.updated"
+}
+```
+
+> Unfinished order #105 deleted webhook body example
+
+```json
+{
+  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventCreated":1234567,
+  "storeId":1003,
+  "entityId":105, // this is the number of the deleted unfinished order
+  "eventType":"unfinished_order.deleted"
+}
+```
+
+
+> Order #100 created webhook body example
+
+```json
+{
+  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventCreated":1234567,
+  "storeId":1003,
+  "entityId":103, // this is the number of the placed order
+  "eventType":"order.created",
+  "data":{
+    "newPaymentStatus":"PAID",
+    "newFulfillmentStatus":"SHIPPED"
+  }
+}
+```
+
+> Order #103 updated webhook body example
+
+```json
+{
+  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventCreated":1234567,
+  "storeId":1003,
+  "entityId":103, // this is the number of the updated order
   "eventType":"order.updated",
   "data":{
     "oldPaymentStatus":"PAID",
@@ -115,32 +168,92 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 }
 ```
 
-> Product ID: 66722483 updated webhook example
+> Order #102 deleted webhook body example
+
+```json
+{
+  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventCreated":1234567,
+  "storeId":1003,
+  "entityId":102, // this is the number of the deleted order
+  "eventType":"order.deleted"
+}
+```
+
+> Product with ID 667251253 created webhook body example
+
+```
+{
+  "eventId":"08a78904-4c1a-0aa0-953a-2e33c56236f1",
+  "eventCreated":1469429915,
+  "storeId":1003, 
+  "entityId":667251253, // this is the id of the created product
+  "eventType":"product.created"
+}
+```
+
+> Product with ID 66722483 updated webhook body example
 
 ```
 {
   "eventId":"08a78904-0aa0-4c1a-953a-2e33c56236f0",
   "eventCreated":1469429912,
   "storeId":1003, 
-  "entityId":66722483, 
+  "entityId":66722483, // this is the id of the updated product
   "eventType":"product.updated"
 }
 ```
 
-> Application status changed
+> Product with ID 667251253 deleted webhook body example
+
+```
+{
+  "eventId":"08a78904-953a-4c1a-0aa0-2e33c56236f1",
+  "eventCreated":1469429915,
+  "storeId":1003, 
+  "entityId":667251253, // this is the id of the deleted product
+  "eventType":"product.deleted"
+}
+```
+
+> Application was installed webhook body example
 
 ```
 {
   "eventId":"123456-1234-1234-1234-123412341234",
   "eventCreated":1234567,
   "storeId":1003,
-  "entityId":"1003",
+  "entityId":"1003", // this is the id of a store that installed the app
+  "eventType":"application.installed"
+}
+```
+
+> Application subscription status changed webhook body example
+
+```
+{
+  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventCreated":1234567,
+  "storeId":1003,
+  "entityId":"1003", // this is the id of a store where app subscription status was changed
   "eventType":"application.subscriptionStatusChanged",
   "data":{
     "oldSubscriptionStatus":"TRIAL",
     "newSubscriptionStatus":"ACTIVE"
     }
-  }
+}
+```
+
+> Application was deleted webhook body example
+
+```
+{
+  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventCreated":1234567,
+  "storeId":1003,
+  "entityId":"1003", // this is the id of a store that deleted the app
+  "eventType":"application.uninstalled"
+}
 ```
 
 The request body is a JSON object with the following fields:
@@ -152,22 +265,27 @@ Name | Type | Description
 **eventCreated** | timestamp | Unix timestamp of the occurred event.
 **storeId** | number | Store ID of the store where the event occured.
 **entityId** | number | Id of the updated entity. Contains `productId` or `orderNumber` depending on `eventType`.
-data | \<WebhookData\> | Describes changes made to order. Is provided for `order.*` and `application.subscriptionStatusChanged` event types.
+data | \<*WebhookData*\> | Optional field. Describes changes made to an entity. Is provided for `order.*` and `application.subscriptionStatusChanged` event types.
 
 #### WebhookData
 
 Name | Type | Description
 ---- | -----| -----------
-oldPaymentStatus | string | Payment status of order before changes occurred
-newPaymentStatus | string | Payment status of order after changes occurred
-oldFulfillmentStatus | string | Fulfillment status of order before changes occurred
-newFulfillmentStatus | string | Fulfillment status of order after changes occurred
-oldSubscriptionStatus | string | Previous application subscription status before changes occurred
-newSubscriptionStatus | string | New application subscription status after changes occurred
+oldPaymentStatus | string | Payment status of **order** before changes occurred
+newPaymentStatus | string | Payment status of **order** after changes occurred
+oldFulfillmentStatus | string | Fulfillment status of **order** before changes occurred
+newFulfillmentStatus | string | Fulfillment status of an **order** after changes occurred
+oldSubscriptionStatus | string | Previous **application** subscription status before changes occurred
+newSubscriptionStatus | string | New **application** subscription status after changes occurred
 
 <aside class='note'>
-  Fields sent with any webhook request are highlighted in <strong>bold</strong>.
+Fields sent with all webhook requests are highlighted in <strong>bold</strong>.
 </aside>
+
+<aside class="notice">
+Don’t use webhooks themselves as actionable items – please see the <a href="#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+</aside>
+
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
 

@@ -290,7 +290,7 @@ HTTP Status | Meaning
 403 | Permission denied. Application client ID or application secret key is invalid or invalid scope parameter
 409 | Conflict: Email already exists
 415 | Unsupported content-type: expected `application/json` or `text/json`
-422 | Unprocessable entity: invalid email or invalid password or invalid name. The password must be at least 5 characters long. Make sure the name contains first name and last name
+422 | Unprocessable entity: invalid email or invalid password or invalid name. Minimum password length is 6 characters. Make sure the name contains first name and last name
 
 ## Check if store exists
 
