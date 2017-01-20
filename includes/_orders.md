@@ -500,7 +500,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**orderNumber** | number | Order number
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -938,7 +938,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**orderNumber** | number | Order number
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -1505,7 +1505,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**orderNumber** | number | Order number
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 
 ### Request body
 
@@ -1723,7 +1723,7 @@ Cache-Control: no-cache
 Name | Type    | Description
 ---- | ------- | -----------
 **storeId** |  number | Ecwid store ID
-**orderNumber** | number | Order number
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 **token** |  string |  oAuth token
 
 ### Response
@@ -2087,7 +2087,7 @@ print(result.status_code)
 Name | Type    | Description
 ---- | ------- | -----------
 **storeId** |  number | Ecwid store ID
-**orderNumber** | number | Order number
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 **itemId** | number | Order item ID
 **optionName** | string | Item product option name, e.g. `Upload your photo`
 **fileName** |  string |  Uploaded file name
@@ -2159,7 +2159,7 @@ Content-Type: application/json
 Name | Type    | Description
 ---- | ------- | -----------
 **storeId** |  number | Ecwid store ID
-**orderNumber** | number | Order number
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 **itemId** | number | Order item ID
 **optionName** | string | Item product option name, e.g. `Upload your photo`
 **fileId** | number | Option file's internal ID
@@ -2229,7 +2229,7 @@ Cache-Control: no-cache
 Name | Type    | Description
 ---- | ------- | -----------
 **storeId** |  number | Ecwid store ID
-**orderNumber** | number | Order number
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 **itemId** | number | Order item ID
 **optionName** | string | Item product option name, e.g. `Upload your photo`
 **token** |  string |  oAuth token

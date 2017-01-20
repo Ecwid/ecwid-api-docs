@@ -23,8 +23,8 @@ limit | number | Maximum number of returned items. Maximum allowed value: `100`.
 parent | number | ID of the parent category. Set to `0` to get the list of root categories. Leave empty to get all store categories.
 hidden_categories | boolean | By default, Ecwid returns only enabled categories. Set this parameter to `true` if you want hidden (disabled) categories to be returned. `false` is default
 productIds | boolean | Set to `true` if you want the results to contain a list of product IDs assigned to category. `false` is default
-baseUrl | string | Base URL of a storefront for Ecwid to use when returning category URLs (`url` field) instead of storefront URL specified in [store settings](#get-store-profile)
-cleanUrls | boolean | If `true` Ecwid will return the new SEO-friendly URL in the `url` field. If `false` Ecwid will return the old URL format. Can be used together with the `baseUrl` request parameter
+baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](#get-store-profile)
+cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
 
 <aside class='notice'>
 To get a list of products in results for each category, set `productIds` parameter to `true` when making a request.
@@ -149,7 +149,7 @@ imageUrl | string | Category image URL. A resized original image to fit 1500x150
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
-url | string |  URL of the category page in a store. If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL. For example, if `baseUrl` is `"https://mycoolstore.com"` then the category URL in `url` field will be in this format: `"https://mycoolstore.com#!/Fruits/c/70445445"`. If `cleanUrls` request parameter is `true`, then `url` field will have the new SEO-friendly format regardless of whether the `baseUrl` request parameter is specified
+url | string |  URL of the category page in the store
 productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
@@ -189,6 +189,33 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
+### Q: How can I control the URL field for generating URLs?
+
+If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL. 
+
+For example, if `baseUrl` is `"https://mycoolstore.com"` then the category URLs in `url` field will be in hash URL format: `"https://mycoolstore.com#!/apple/p/70445445"`. 
+
+If `cleanUrls` request parameter is `true`, then `url` field will have the SEO-friendly format (clean URL, no hash "#") regardless of whether the `baseUrl` request parameter is specified.
+
+**Examples:**
+
+Ecwid store has a storefront URL set in store settings as: `"https://mdemo.ecwid.com"`. If:
+
+1. `baseUrl` is set as `"https://mycoolstore.com"` and `cleanUrls` is set to `false` or not used. 
+
+Example category URL will be: `"https://mycoolstore.com#!/apple/p/70445445"`
+
+2. `baseUrl` is not set and `cleanUrls` is set to `false` or not used. 
+
+Example category URL will be: `"https://mdemo.ecwid.com#!/apple/p/70445445"`
+
+3. `baseUrl` is set as `"https://mycoolstore.com"` and `cleanUrls` is set to `true`
+
+Example category URL will be: `"https://mycoolstore.com/apple-p70445445"`
+
+4. `baseUrl` is not set and `cleanUrls` is set to `true`
+
+Example category URL will be: `"https://mdemo.ecwid.com/apple-p70445445"`
 
 ## Get category
 
@@ -208,8 +235,8 @@ Query field | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 **categoryId** | number | Internal category ID
-baseUrl | string | Base URL of a storefront for Ecwid to use when returning category URLs (`url` field) instead of storefront URL specified in [store settings](#get-store-profile)
-cleanUrls | boolean | If `true` Ecwid will return the new SEO-friendly URL in the `url` field. If `false` Ecwid will return the old URL format. Can be used together with the `baseUrl` request parameter
+baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](#get-store-profile)
+cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
 
 ### Response
 
@@ -271,7 +298,7 @@ imageUrl | string | Category image URL. A resized original image to fit 1500x150
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
-url | string |  URL of the category page in a store. If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL. For example, if `baseUrl` is `"https://mycoolstore.com"` then the category URL in `url` field will be in this format: `"https://mycoolstore.com#!/Fruits/c/70445445"`. If `cleanUrls` request parameter is `true`, then `url` field will have the new SEO-friendly format regardless of whether the `baseUrl` request parameter is specified
+url | string |  URL of the category page in the store
 productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
@@ -306,6 +333,33 @@ HTTP Status | Meaning | Code (optional)
 415 | Unsupported content-type: expected `application/json` or `text/json` | 
 500 | Server error | 
 
+### Q: How can I control the URL field for generating URLs?
+
+If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL. 
+
+For example, if `baseUrl` is `"https://mycoolstore.com"` then the category URLs in `url` field will be in hash URL format: `"https://mycoolstore.com#!/apple/p/70445445"`. 
+
+If `cleanUrls` request parameter is `true`, then `url` field will have the SEO-friendly format (clean URL, no hash "#") regardless of whether the `baseUrl` request parameter is specified.
+
+**Examples:**
+
+Ecwid store has a storefront URL set in store settings as: `"https://mdemo.ecwid.com"`. If:
+
+1. `baseUrl` is set as `"https://mycoolstore.com"` and `cleanUrls` is set to `false` or not used. 
+
+Example category URL will be: `"https://mycoolstore.com#!/apple/p/70445445"`
+
+2. `baseUrl` is not set and `cleanUrls` is set to `false` or not used. 
+
+Example category URL will be: `"https://mdemo.ecwid.com#!/apple/p/70445445"`
+
+3. `baseUrl` is set as `"https://mycoolstore.com"` and `cleanUrls` is set to `true`
+
+Example category URL will be: `"https://mycoolstore.com/apple-p70445445"`
+
+4. `baseUrl` is not set and `cleanUrls` is set to `true`
+
+Example category URL will be: `"https://mdemo.ecwid.com/apple-p70445445"`
 
 ## Add new category
 
@@ -394,8 +448,6 @@ HTTP Status | Meaning
 415 | Unsupported content-type: expected `application/json` or `text/json`
 449 | Store catalog cannot be modified at the moment because import is in progress. Retry later
 500 | Server error
-
-
 
 ## Update category
 

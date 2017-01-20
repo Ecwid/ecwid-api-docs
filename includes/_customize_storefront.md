@@ -329,6 +329,149 @@ We recommend using <strong>relative URLs</strong> in the <em>baseUrl</em> parame
 
 Yes, the old URLs will be supported, so if someone clicks the old link anywhere on the web, they will get to the corresponding store page. Upon opening the page, Ecwid will automatically replace the hash part so that the visitor will see the new URLs in the browser address bar. 
 
+## Change colors and fonts
+
+Change any color and main font for user's storefront
+
+### Apply colors and font automatically
+
+> Set storefront colors and font automatically
+
+```html
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon.font = 'auto';
+window.ec.config.chameleon.colors = 'auto';
+</script>
+```
+
+Ecwid can automatically detect the main colors and fonts of a surrounding website and match the storefront automatically. To apply the colors and font automatically for a store, use the code on the right.
+
+### Change colors
+
+> Set storefront colors automatically
+
+```html
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon.colors = 'auto';
+</script>
+```
+
+> Set storefront colors manually
+
+```html
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon.colors = {
+  'color-background':'#D3D3D3',
+  'color-foreground':'#4EA3F0',
+  'color-link':'#FF0606',
+  'color-button':'#4EA3F0',
+  'color-price':'#FF0606'
+}
+</script>
+```
+
+> Set storefront colors and font example
+
+```html
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon = {
+  colors: {
+    'color-button':'#4EA3F0',
+    'color-price':'#FF0606'
+  },
+  font: {
+    'font-family': 'arial,sans-serif'
+  }
+}
+</script>
+```
+
+Using the global Ecwid config object you can control the colors in user's storefront. To pre-define colors for a storefront, add JavaScript code on the right in the same frame, where Ecwid integration code is added.
+
+`auto` value allows Ecwid to detect the website colors around Ecwid storefront to adapt its colors automatically. Use the fields below to set colors manually.
+
+**Fields:**
+
+Name | Type | Description
+---- | ----- | -----------
+color-background | string (HEX and RGBA color) | Background color for storefront and  small buttons ("Clear bag", "Apply", etc.)
+color-foreground | string (HEX and RGBA color) | Color of all texts in storefront
+color-link | string (HEX and RGBA color) | Color for links in storefront (breadcrumbs, "Sign In", "Favourites", etc.)
+color-button | string (HEX and RGBA color) | Color for main buttons in storefront ("Add to bag", "Checkout", etc.) and small buttons on mouse hover ("Clear bag", "Apply", etc.)
+color-price | string (HEX and RGBA color) | Color for product prices in storefront
+
+### Change font
+
+> Set storefront font automatically
+
+```html
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon.font = 'auto';
+</script>
+```
+
+> Set storefront font manually
+
+```html
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon.font = {
+  'font-family': 'arial,sans-serif'
+}
+</script>
+```
+
+> Set storefront colors and font example
+
+```html
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.chameleon = window.ec.config.chameleon || Object();
+window.ec.config.chameleon = {
+  colors: 'auto',
+  font: {
+      'font-family': 'arial,sans-serif'
+    }
+  }
+</script>
+```
+
+Using the global Ecwid config object you can control the fonts of all texts displayed in user's storefront. To pre-define a font for a storefront, add JavaScript code on the right in the same fram, where Ecwid integration code is added.
+
+`auto` value allows Ecwid to detect the website's main font to adapt its font automatically. You can also set a specific font-family for a storefront manually.
+
+## Storefront JavaScript API
+
+Any Ecwid storefront has a JavaScript API available at all times to help users create various customizations for their storefronts. 
+
+Its features include: 
+
+- detect currently opened page details
+- set shipping and billing address for customer
+- get customer's cart details
+- manage customer's cart
+and others.
+
+To find our more about it, plesae see the [Storefront JavsScript API Documentation](#storefront-js-api).
+
 # Using REST API in storefront
 
 When working on a custom storefront functionality, applications can require getting up-to-date catalog information from Ecwid store.
