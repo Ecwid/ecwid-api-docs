@@ -22,7 +22,6 @@ includes:
   - customer_groups
   - coupons
   - application
-  - stores
   - startersite
   - webhooks
   - application_storage
