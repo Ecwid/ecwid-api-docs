@@ -184,4 +184,4 @@ Using the playground is easy. All you will need is:
 
 To get more details and install the playground, please open this page: [api-playground.ecwid.com](https://api-playground.ecwid.com/)
 
-<img src="https://dj925myfyz5v.cloudfront.net/wp-content/uploads/icon.png"></img>
+<img src="https://dj925myfyz5v.cloudfront.net/wp-content/uploads/postman_api-1485266906.png"></img>

@@ -6,7 +6,7 @@ The Ecwid API allows your application to be embedded right into the user Control
 
 > Native app interface example
 
-> ![Edit orders interface](https://don16obqbay2c.cloudfront.net/wp-content/uploads/nativeApp-1468407012.png)
+> ![Edit orders interface](https://dj925myfyz5v.cloudfront.net/wp-content/uploads/nativeApp-1468407012-1485267123.png)
 
 Overall, it works this way:
 

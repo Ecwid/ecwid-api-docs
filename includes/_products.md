@@ -838,33 +838,63 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-### Q: How can I control the URL field for generating URLs?
+### Q: How to get URLs for products?
 
-If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL. 
+Direct URL for each product is always available in the `url` field once you make a request to the Ecwid REST API. 
 
-For example, if `baseUrl` is `"https://mycoolstore.com"` then the product URLs in `url` field will be in hash URL format: `"https://mycoolstore.com#!/apple/p/70445445"`. 
+In any Ecwid store there is a [storefront URL](#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide product URLs in the REST API and other connected services.
 
-If `cleanUrls` request parameter is `true`, then `url` field will have the SEO-friendly format (clean URL, no hash "#") regardless of whether the `baseUrl` request parameter is specified.
+**When a store is embedded into multiple websites**
 
-**Examples:**
+For this situation you may need to generate a product feed for each of those websites (building a sitemap, etc.), hence there will be multiple storefront URLs to process. In this case you can use `baseUrl` request parameter to get a working product URL in a response from the Ecwid REST API. 
 
-Ecwid store has a storefront URL set in store settings as: `"https://mdemo.ecwid.com"`. If:
+Let's see how it works: 
 
-1. `baseUrl` is set as `"https://mycoolstore.com"` and `cleanUrls` is set to `false` or not used. 
+If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL as a storefront URL. 
 
-Example product URL will be: `"https://mycoolstore.com#!/apple/p/70445445"`
+**Examples**
 
-2. `baseUrl` is not set and `cleanUrls` is set to `false` or not used. 
+Ecwid store has a storefront URL set in store settings as: `"https://mdemo.ecwid.com"`:
 
-Example product URL will be: `"https://mdemo.ecwid.com#!/apple/p/70445445"`
+- `baseUrl` parameter is not set in a request:
 
-3. `baseUrl` is set as `"https://mycoolstore.com"` and `cleanUrls` is set to `true`
+Example product URL in the `url` field will be: `"https://mdemo.ecwid.com#!/apple/p/70445445"`
 
-Example product URL will be: `"https://mycoolstore.com/apple-p70445445"`
+- `baseUrl` parameter is set as `"https://mycoolstore.com"`:
 
-4. `baseUrl` is not set and `cleanUrls` is set to `true`
+Example product URL in the `url` field will be: `"https://mycoolstore.com#!/apple/p/70445445"`
 
-Example product URL will be: `"https://mdemo.ecwid.com/apple-p70445445"`
+As you can see, the product URL in a response from Ecwid API changes based on the value of the `baseUrl` request parameter. So now you can use it to get product URLs of the same store for any number of storefront URLs.
+
+It is possible to use the `baseUrl` parameter together with the `cleanUrls` parameter. See below for more details on the `cleanUrls` parameter.
+
+**Receiving SEO-friendly (clean) URLs from the Ecwid REST API**
+
+By default, Ecwid's product URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
+
+<aside>
+  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="#seo-friendly-urls">SEO-friendly URLs section</a>.
+</aside>
+
+Let's see how it works: 
+
+If `cleanUrls` request parameter is set to `true`, then `url` field will have the SEO-friendly format in the response (clean URL, no hash "#").
+
+**Examples**
+
+Ecwid store has a storefront URL set in store settings as: `"https://mdemo.ecwid.com"`
+
+- `cleanUrls` parameter is set to `false` or not set
+
+Example product URL in the `url` field will be: `"https://mdemo.ecwid.com#!/apple/p/70445445"`
+
+- `cleanUrls` parameter is set to `true`
+
+Example product URL in the `url` field will be: `"https://mdemo.ecwid.com/apple-p70445445"`
+
+As you can see, the format of a product URL returned from the Ecwid API changes based on the `cleanUrls` request parameter. So now you can use it to get URLs of any of the two supported URL formats - SEO-friendly (clean) URLs or hash-based URLs. 
+
+It is possible to use the `cleanUrls` parameter together with the `baseUrl` parameter. See above for more details on the `baseUrl` parameter.
 
 ## Get a product
 
@@ -1348,33 +1378,63 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-### Q: How can I control the URL field for generating URLs?
+### Q: How to get URLs for products?
 
-If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL. 
+Direct URL for each product is always available in the `url` field once you make a request to the Ecwid REST API. 
 
-For example, if `baseUrl` is `"https://mycoolstore.com"` then the product URLs in `url` field will be in hash URL format: `"https://mycoolstore.com#!/apple/p/70445445"`. 
+In any Ecwid store there is a [storefront URL](#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide product URLs in the REST API and other connected services.
 
-If `cleanUrls` request parameter is `true`, then `url` field will have the SEO-friendly format (clean URL, no hash "#") regardless of whether the `baseUrl` request parameter is specified.
+**When a store is embedded into multiple websites**
 
-**Examples:**
+For this situation you may need to generate a product feed for each of those websites (building a sitemap, etc.), hence there will be multiple storefront URLs to process. In this case you can use `baseUrl` request parameter to get a working product URL in a response from the Ecwid REST API. 
 
-Ecwid store has a storefront URL set in store settings as: `"https://mdemo.ecwid.com"`. If:
+Let's see how it works: 
 
-1. `baseUrl` is set as `"https://mycoolstore.com"` and `cleanUrls` is set to `false` or not used. 
+If `baseUrl` request parameter is specified, then the `url` field will be generated according to that URL as a storefront URL. 
 
-Example product URL will be: `"https://mycoolstore.com#!/apple/p/70445445"`
+**Examples**
 
-2. `baseUrl` is not set and `cleanUrls` is set to `false` or not used. 
+Ecwid store has a storefront URL set in store settings as: `"https://mdemo.ecwid.com"`:
 
-Example product URL will be: `"https://mdemo.ecwid.com#!/apple/p/70445445"`
+- `baseUrl` parameter is not set in a request:
 
-3. `baseUrl` is set as `"https://mycoolstore.com"` and `cleanUrls` is set to `true`
+Example product URL in the `url` field will be: `"https://mdemo.ecwid.com#!/apple/p/70445445"`
 
-Example product URL will be: `"https://mycoolstore.com/apple-p70445445"`
+- `baseUrl` parameter is set as `"https://mycoolstore.com"`:
 
-4. `baseUrl` is not set and `cleanUrls` is set to `true`
+Example product URL in the `url` field will be: `"https://mycoolstore.com#!/apple/p/70445445"`
 
-Example product URL will be: `"https://mdemo.ecwid.com/apple-p70445445"`
+As you can see, the product URL in a response from Ecwid API changes based on the value of the `baseUrl` request parameter. So now you can use it to get product URLs of the same store for any number of storefront URLs.
+
+It is possible to use the `baseUrl` parameter together with the `cleanUrls` parameter. See below for more details on the `cleanUrls` parameter.
+
+**Receiving SEO-friendly (clean) URLs from the Ecwid REST API**
+
+By default, Ecwid's product URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
+
+<aside>
+  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="#seo-friendly-urls">SEO-friendly URLs section</a>.
+</aside>
+
+Let's see how it works: 
+
+If `cleanUrls` request parameter is set to `true`, then `url` field will have the SEO-friendly format in the response (clean URL, no hash "#").
+
+**Examples**
+
+Ecwid store has a storefront URL set in store settings as: `"https://mdemo.ecwid.com"`
+
+- `cleanUrls` parameter is set to `false` or not set
+
+Example product URL in the `url` field will be: `"https://mdemo.ecwid.com#!/apple/p/70445445"`
+
+- `cleanUrls` parameter is set to `true`
+
+Example product URL in the `url` field will be: `"https://mdemo.ecwid.com/apple-p70445445"`
+
+As you can see, the format of a product URL returned from the Ecwid API changes based on the `cleanUrls` request parameter. So now you can use it to get URLs of any of the two supported URL formats - SEO-friendly (clean) URLs or hash-based URLs. 
+
+It is possible to use the `cleanUrls` parameter together with the `baseUrl` parameter. See above for more details on the `baseUrl` parameter.
 
 ## Add a product
 
