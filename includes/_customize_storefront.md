@@ -303,7 +303,7 @@ Specific configuration depends on your server:
   window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
    
   window.ec.config.storefrontUrls.cleanUrls = true;
-  window.ec.config.baseUrl = '/store',
+  window.ec.config.baseUrl = '/store';
 </script>
 ```
 
