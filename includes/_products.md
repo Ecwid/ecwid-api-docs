@@ -659,7 +659,7 @@ wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price t
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
-url | string |  URL of the product's details page in the store
+url | string |  URL of the product's details page in the store. [Learn more](#q-how-to-get-urls-for-products)
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
 updated |  string | Product last update date/time
 createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`
@@ -1203,7 +1203,7 @@ wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price t
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
-url | string |  URL of the product's details page in the store
+url | string |  URL of the product's details page in the store. [Learn more](#q-how-to-get-urls-for-products)
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
 updated |  string | Product last update date/time
 createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`

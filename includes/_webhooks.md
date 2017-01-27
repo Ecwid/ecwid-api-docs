@@ -438,6 +438,13 @@ If you registered your app without webhooks functionality and added it later on,
 
 If you made sure that all of the above steps are not concerning your case, please contact us and we will help you.
 
+### Q: I receive webhooks for events that already happened. Why?
+
+When your application isn't sending `200OK` HTTP response back to Ecwid, the webhook event counts by Ecwid as not delivered. Such webhooks are sent again to the application URL according to the scheme described in [Responding to webhooks](#responding-to-webhooks). 
+
+Hence, if your app somehow got the webhook the first time, it will receive more of the same webhooks until Ecwid receives back the `200OK` response from your app or the 48-hour timeout is over.
+
+So plesae make sure that your webhooks endpoint always respods with `200OK` HTTP response upon successfully receiving the webhook from Ecwid.
 
 # Webhooks best practices
 

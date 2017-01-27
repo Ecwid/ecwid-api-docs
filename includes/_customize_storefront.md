@@ -329,6 +329,13 @@ We recommend using <strong>relative URLs</strong> in the <em>baseUrl</em> parame
 
 Yes, the old URLs will be supported, so if someone clicks the old link anywhere on the web, they will get to the corresponding store page. Upon opening the page, Ecwid will automatically replace the hash part so that the visitor will see the new URLs in the browser address bar. 
 
+#### Q: Can I get SEO-friendly URLs in Ecwid REST API?
+
+Yes, when getting information about products and categories in an Ecwid store, you can choose the URL format you wish to receive in response. For more details, see the links below: 
+
+- [How to get URLs for products](#q-how-to-get-urls-for-products)
+- [How to get URLs for categories](#q-how-to-get-urls-for-categories)
+
 ## Change colors and fonts
 
 Change any color and main font for user's storefront
