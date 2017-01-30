@@ -1013,6 +1013,109 @@ Error code | Error message
 100 | Incorrect data passed
 1000 | Store owner disabled this functionality
 
+## Generate cart with products
+
+Ecwid JavaScript API allows you to add items to customer's cart automatically. This can be useful when you are using custom storefront to provide any type of button to add products to cart.
+
+Using the following steps you will be able to create links to your storefront with products in cart for your customers. So all they have to do is just clikc that promo link to go to your store and have products added to cart automatically.
+
+Let's check out how this can be achieved: 
+
+**Step 1: Add external files to your website**
+
+> Script and CSS to load on your storefront page
+
+```html
+<link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/ecwid-addons/apps/ecwid-cart-app/cartapp.css">
+<script src="https://s3.amazonaws.com/ecwid-addons/apps/ecwid-cart-app/cart.js"></script>
+```
+
+Add this code to the source code of the page, where your Ecwid storefront is displayed. Add the script **after** or below Ecwid integration code.
+
+**Step 2: Generate your cart**
+
+> Generate items in cart example
+
+```js
+var cartItems = [{
+    "id": 66821181, // ID of the product in Ecwid
+    "quantity": 3, // Quantity of products to add
+    "options": { // Specify product options
+        "Color": "White",
+        "Size":"11oz"
+    }
+}, {
+    "id": 66722581,
+    "quantity": 5
+}];
+
+var cart = {
+     "gotoCheckout": true, // go to next checkout step right away (after 'Cart' page)
+     "products": cartItems, // products to add to cart
+     "profile": {
+         "address": { // Shipping address details
+             "name": "john smith",
+             "companyName": "general motors",
+             "street": "5th Ave",
+             "city": "New York",
+             "countryCode": "US",
+             "postalCode": "10002",
+             "stateOrProvinceCode": "NY",
+             "phone": "+1 234 235 22 12"
+         },
+         "billingAddress": { // Billing address details
+             "countryCode": "US",
+             "stateOrProvinceCode": "AL",
+         },
+         "email": "test@test.com", // Customer email
+         "orderComments": "Comments!" // Order comments
+     }
+ }
+
+cart = JSON.stringify(cart);
+cart = encodeURIComponent(cart);
+
+console.log(cart);
+
+// prints the resulting string you need to use in step 3
+//
+// %7B%22gotoCheckout%22%3Atrue%2C%22products%22%3A%5B%7B%22id%22%3A66821181%2C%22quantity%22%3A3%2C%22options%22%3A%7B%22Color%22%3A%22White%22%2C%22Size%22%3A%2211oz%22%7D%7D%2C%7B%22id%22%3A66722581%2C%22quantity%22%3A5%7D%5D%2C%22profile%22%3A%7B%22address%22%3A%7B%22name%22%3A%22john%20smith%22%2C%22companyName%22%3A%22general%20motors%22%2C%22street%22%3A%225th%20Ave%22%2C%22city%22%3A%22New%20York%22%2C%22countryCode%22%3A%22US%22%2C%22postalCode%22%3A%2210002%22%2C%22stateOrProvinceCode%22%3A%22NY%22%2C%22phone%22%3A%22%2B1%20234%20235%2022%2012%22%7D%2C%22billingAddress%22%3A%7B%22countryCode%22%3A%22US%22%2C%22stateOrProvinceCode%22%3A%22AL%22%7D%2C%22email%22%3A%22test%40test.com%22%2C%22orderComments%22%3A%22Comments!%22%7D%7D
+//
+```
+
+In order for the script to add items to cart, we need to 'tell' it what items to add. Check the example on the right on how to do this. The `cart` variable will have the generated cart content in it. 
+
+The syntax is very similar to adding products to cart via [Ecwid JavaScript API](#ecwid-cart-addproduct).
+
+**Step 3: Create a link for customers**
+
+> Final link structure
+
+```
+http://example.com/store#!/~/cart/create={generatedCartCode}
+```
+
+> Final link to generated cart example
+
+```
+https://www.ecwid.com/demo#!/~/cart/create=%7B%22gotoCheckout%22%3Atrue%2C%22products%22%3A%5B%7B%22id%22%3A66821181%2C%22quantity%22%3A3%2C%22options%22%3A%7B%22Color%22%3A%22White%22%2C%22Size%22%3A%2211oz%22%7D%7D%2C%7B%22id%22%3A66722581%2C%22quantity%22%3A5%7D%5D%2C%22profile%22%3A%7B%22address%22%3A%7B%22name%22%3A%22john%20smith%22%2C%22companyName%22%3A%22general%20motors%22%2C%22street%22%3A%225th%20Ave%22%2C%22city%22%3A%22New%20York%22%2C%22countryCode%22%3A%22US%22%2C%22postalCode%22%3A%2210002%22%2C%22stateOrProvinceCode%22%3A%22NY%22%2C%22phone%22%3A%22%2B1%20234%20235%2022%2012%22%7D%2C%22billingAddress%22%3A%7B%22countryCode%22%3A%22US%22%2C%22stateOrProvinceCode%22%3A%22AL%22%7D%2C%22email%22%3A%22test%40test.com%22%2C%22orderComments%22%3A%22Comments!%22%7D%7D
+```
+
+Now we need to fill in customer's cart when your custom link is opened. 
+
+First things first, let's determine where your Ecwid store is displayed and get a direct link to that page. For example, our demo store is located in: `https://www.ecwid.com/demo`
+And to fill in customer's cart with items that you seleted earlier, we need to create a link to your storefront with the generated cart part. 
+
+**Example link**
+
+Generated link with products added automatically to cart for Ecwid demo store will be: 
+
+`https://www.ecwid.com/demo#!/~/cart/create=%7B%22gotoCheckout%22%3Atrue%2C%22products%22%3A%5B%7B%22id%22%3A66821181%2C%22quantity%22%3A3%2C%22options%22%3A%7B%22Color%22%3A%22White%22%2C%22Size%22%3A%2211oz%22%7D%7D%2C%7B%22id%22%3A66722581%2C%22quantity%22%3A5%7D%5D%2C%22profile%22%3A%7B%22address%22%3A%7B%22name%22%3A%22john%20smith%22%2C%22companyName%22%3A%22general%20motors%22%2C%22street%22%3A%225th%20Ave%22%2C%22city%22%3A%22New%20York%22%2C%22countryCode%22%3A%22US%22%2C%22postalCode%22%3A%2210002%22%2C%22stateOrProvinceCode%22%3A%22NY%22%2C%22phone%22%3A%22%2B1%20234%20235%2022%2012%22%7D%2C%22billingAddress%22%3A%7B%22countryCode%22%3A%22US%22%2C%22stateOrProvinceCode%22%3A%22AL%22%7D%2C%22email%22%3A%22test%40test.com%22%2C%22orderComments%22%3A%22Comments!%22%7D%7D`
+
+<aside class='note'>
+Please note that this is an example link and it will not work in Ecwid's demo store. Please test this feature in your own website.
+</aside>
+
 # Get Cart Details
 
 Find out more about cart in its current state.
