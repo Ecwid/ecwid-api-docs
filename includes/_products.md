@@ -153,17 +153,14 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
           "categories": [
             {
               "id": 19976006,
-              "name": "Fruit",
               "enabled": true
             },
             {
               "id": 19976005,
-              "name": "Sale",
               "enabled": true
             },
             {
               "id": 19563207,
-              "name": "Test",
               "enabled": false
             }
           ],
@@ -320,7 +317,6 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
             "categories": [
               {
                 "id": 9691095,
-                "name": "Vegetables",
                 "enabled": true
               }
             ],
@@ -562,12 +558,10 @@ Cache-Control: no-cache
           "categories": [
             {
               "id": 19976006,
-              "name": "Fruit",
               "enabled": true
             },
             {
               "id": 19976005,
-              "name": "Sale",
               "enabled": true
             },
             {
@@ -739,7 +733,6 @@ orderby |  number |  The sort weight of the image in the gallery images list. Th
 Field | Type  | Description
 ----- | ----- | -----------
 id | number | Category ID
-name | string | Category name. Not returned for [public access tokens](#access-tokens)
 enabled | boolean | `true` if category is enabled, `false` otherwise
 
 #### AttributeValue

@@ -436,12 +436,6 @@ For example:
 
 ## Dynamic embedding of Ecwid widget
 
-In some cases it is necessary to dynamically create and destroy Ecwid widget within HTML page. This is useful for dynamic sitebuilders that switch to online store page without actually reloading page (e.g. making it visible). You should use `window.ecwid_dynamic_widgets` variable to enable dynamic widget creating in Ecwid. See the example below that shows how to create and destroy Ecwid widget through javascript functions. 
-
-Please note that this method allows to embed the storefront widget only. If you need to embed other widgets dynamically, please, use the code for [deferred widget initialization](#deferred-initialization-of-ecwid-widget)
-
-Please note that this method is slower than direct embedding of Ecwid widget so you should use it only if you need dynamic widget creation. 
-
 > Dynamic embedding of Ecwid storefront widget
 
 ```html
@@ -469,6 +463,12 @@ window.ecwid_dynamic_widgets = true;
     }
 </script>
 ```
+
+In some cases it is necessary to dynamically create and destroy Ecwid widget within HTML page. This is useful for dynamic sitebuilders that switch to online store page without actually reloading page (e.g. making it visible). You should use `window.ecwid_dynamic_widgets` variable to enable dynamic widget creating in Ecwid. See the example below that shows how to create and destroy Ecwid widget through javascript functions. 
+
+Please note that this method allows to embed the storefront widget only. If you need to embed other widgets dynamically, please, use the code for [deferred widget initialization](#deferred-initialization-of-ecwid-widget)
+
+Please note that this method is slower than direct embedding of Ecwid widget so you should use it only if you need dynamic widget creation. 
 
 ## Deferred initialization of Ecwid widget
 
