@@ -27,43 +27,188 @@ Permission required: <strong>customize_storefront</strong> (see <a href="#access
 
 Below, you will find more information on how to create custom JS/CSS. See the [Customizing Storefront guideline](/customizing-storefront) for more details about the app review process.
 
+# Add Ecwid to the site
+
+## Add storefront to the site
+
+> Add Ecwid storefront to your website
+
+```html
+<div id="my-store-1003"></div><div> <script type="text/javascript" src="https://app.ecwid.com/script.js?1003" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","id=my-store-1003");</script></div>
+```
+
+This is the most important Ecwid widget. It shows and includes a full-featured shopping cart with products, categories, catalog, checkout pages, etc.
+
+To add an Ecwid store to the website, use the code example on the right. The `1003` is the ID of an Ecwid store. Make sure to specify your desired store ID in order to show your store!
+
+## Set main storefront URL for widgets
+
+When you add store widgets, like search, minicart, categories menu, to a site page separate from the storefront widget, the storefront will open in a pop-up. This pop-up contains the whole store and works just fine. But in some cases it is more convenient to open the store on another website page instead of the pop-up.
+ 
+You can do this with the help of the `ecwid_ProductBrowserURL` option.
+
+> 'Tell' Ecwid widgets that storefront is located at "http://www.example.com/store.html"
+
+```html
+<script>var ecwid_ProductBrowserURL = "http://www.example.com/store.html";</script>
+```
+
+**How Ecwid works by default**
+
+- if a visitor uses the "minicart/vertical categories/search box" widget and a storefront is added on this page, all actions (go to cart, to category, etc.) will be made there
+- but if a storefront widget doesn't exist on the same page page, **a pop-up window with the storefront will be created on this page** to complete the action
+
+In order use a storefront widget placed on another page of a website, you should use the `ecwid_ProductBrowserURL` option. If it's set up, Ecwid works in such way:
+
+- if a visitor uses the "minicart/vertical categories/search box" widget and the storefront widget isn't added on this page, **they will be redirected to the page where the storefront widget is added and then the necessary actions will be performed**
+
+For example, if a customer searches for a product on the page without a storefront, they will be redirected to a specified in `ecwid_ProductBrowserURL` variable website page and then Ecwid will show the search results on that page.
+
+**How to set up this option**
+
+In order to use it, you need to add the following JavaScript code to all pages, where Ecwid widgets are installed:
+
+`<script>var ecwid_ProductBrowserURL = "PB_URL";</script>`
+
+where `PB_URL` is the full URL of the page where your product browser widget (i.e. your Ecwid store) is installed.
+
+For example: 
+
+`<script>var ecwid_ProductBrowserURL = "http://www.example.com/store.html";</script>`
+
+## Embed or remove storefront on demand
+
+> Dynamic embedding of Ecwid storefront widget
+
+```html
+<div id="my-store-1003"></div>
+<script>
+window.ecwid_script_defer = true;
+window.ecwid_dynamic_widgets = true;
+
+   if (typeof Ecwid != 'undefined') Ecwid.destroy(); 
+   window._xnext_initialization_scripts = [{
+        widgetType: 'ProductBrowser',
+        id: 'my-store-1003',
+        arg: ["categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list"]
+      }];
+
+  if (!document.getElementById('ecwid-script')) {
+      var script = document.createElement('script');
+      script.charset = 'utf-8';
+      script.type = 'text/javascript';
+      script.src = 'https://app.ecwid.com/script.js?1003';
+      script.id = 'ecwid-script'
+      document.body.appendChild(script);
+    } else {
+      ecwid_onBodyDone();
+    }
+</script>
+```
+
+In some cases it is necessary to dynamically create and destroy Ecwid widget within the HTML page. This is useful for dynamic sitebuilders that switch to online store page without actually reloading page (e.g. making it visible). 
+
+<aside class="note">
+This method of embedding Ecwid is slower than direct embedding of Ecwid widget. Please use it only when you need the storefront embedded on the fly. 
+</aside>
+
+You should use `window.ecwid_dynamic_widgets` variable to enable dynamic widget creating in Ecwid. See the example on the right that shows how to create and destroy Ecwid widget through the JavaScript functions. 
+
+Please note that **this method allows to embed the storefront widget only**. If you need to embed other widgets dynamically, please, use the code for [deferred widget initialization](#delayed-widget-initialization)
+
+## Delayed widget initialization 
+
+> Delayed widget initialization
+
+```html
+<div id="my-store-1003"></div>
+<div id="productBrowser"></div>
+<script>
+window.ecwid_script_defer = true;
+var script = document.createElement('script');
+script.charset = 'utf-8';
+script.type = 'text/javascript';
+script.src = 'https://app.ecwid.com/script.js?1003';
+document.getElementById('my-store-1003').appendChild(script);
+window._xnext_initialization_scripts = [
+    { widgetType: 'ProductBrowser', id: 'productBrowser', arg: [
+        '"categoriesPerRow=3","views=grid(4,4) list(10) table(20)","categoryView=grid","searchView=list","style=","responsive=yes","id=productBrowser"'
+    ] }
+];</script>
+```
+
+Sometimes it is necessary to delay widget initialization while the website page finishes the initialization procedures. This is useful when the website is built dynamically using libraries such as **ReactJs**.
+
+See the example of delayed initialization of Ecwid widget on the right.
+
+## Increase widget loading speed
+
+> DNS Prefetching of Ecwid's resources
+
+```html
+<link rel="dns-prefetch" href="//images-cdn.ecwid.com/">
+<link rel="dns-prefetch" href="//images.ecwid.com/">
+<link rel="dns-prefetch" href="//app.ecwid.com/">
+```
+
+To increase the loading speed of an Ecwid store, you can start loading Ecwid resources even before a customer opens the store page by the means of so-called prefetching (prerendering) browser feature. Not all browsers support this at this moment though.
+
+> Prefetching and prerendering of storefront page
+
+```html
+<link rel="prefetch" href="http://www.example.com/store/"/>
+<link rel="prerender" href="http://www.example.com/store/"/>
+```
+
+You can also add your storefront page to preload and prerender in the background for further increase in loading speed for browsers that have this feature.
+
+Feel free to learn more about these techniques in [https://css-tricks.com/prefetching-preloading-prebrowsing/](https://css-tricks.com/prefetching-preloading-prebrowsing/)
+
 # Look and feel
 
-## Store layout
+## Change the store layout
 
 Ecwid integration code provides a number of modifications to the store layout: number of products per row, default view mode and more. See the details below. 
 
-### ​Products/categories listing layout
+### Change the number of products/categories on a page
 
-Find the following code in the widget code:
+>Add Ecwid storefront to your website
+
+```html
+<div id="my-store-1003"></div><div> <script type="text/javascript" src="https://app.ecwid.com/script.js?1003" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","id=my-store-1003");</script></div>
+```
+
+Find the following code in the widget code on the right:
 
 `"categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list"`
 
-The code defines products and categories listing styles. Let's see its parts:
+This code defines products and categories listing styles. Let's see its parts:
 
 - `"categoriesPerRow=3"` -- defines number of categories per row
 - `"views=grid(3,3) list(10) table(20)"` - defines the available views and their settings. If you want to remove any view, just remove the `grid(3,3)` or `list(10)` or `table(20)` text from the settings.
 
 The number in braces is number of products in the particular view. I.e.:
 
-- `grid(K,L)` - `K` is a number of products in a column, `L` -- number of products in a row. 
-- `list(M)` - `M` is number of products on one page
-- `table(N)` - `N` is number of products on one page
+- `grid(K,L)` - `K` is a number of products in a column, `L` - number of products in a row in grid view
+- `list(M)` - `M` is a number of products on one page in list view
+- `table(N)` - `N` is a number of products on one page in table view
 
-Default view mode:
+Default view mode settings:
 
 - `"categoryView=grid"` - defines the default view for products in categories. Possible values: `list`, `grid`, `table`
 - `"searchView=list"` - defines the default view for search results. Possible values: `list`, `grid`, `table`.
 
-### Default product or category page
+Feel free to change the code to achieve the layout you need!
 
-> Open Surfboards category of Ecwid Demo store by default
+### Set default product or category page
+
+> Open "Surfboards" category of Ecwid Demo store by default
 
 ```html
 <div> <script type='text/javascript' src='https://app.ecwid.com/script.js?1003'></script> <script type='text/javascript'> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","style=","defaultCategoryId=20671017"); </script> </div>
 ```
 
-> Open PYZEL Amigo 6'2 Surfboard product in Ecwid Demo store by default
+> Open "PYZEL Amigo 6'2 Surfboard" product in Ecwid Demo store by default
 
 ```html
 <div> <script type='text/javascript' src='https://app.ecwid.com/script.js?1003'></script> <script type='text/javascript'> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","style=","defaultProductId=70178249"); </script> </div>
@@ -73,15 +218,15 @@ By default, the storefront widget opens with a list of root category. But you ca
 
 You can do it by adding either option to the Product Browser integration code:
 
-`defaultCategoryId=%categoryId%`
+`"defaultCategoryId=%categoryId%"`
 
 or
 
-`defaultProductId=%productId%`
+`"defaultProductId=%productId%"`
 
-The examples codes are available on the right.
+The example codes are available on the right.
 
-## Custom label names and translations
+## Change storefront labels
 
 > Format example
 
@@ -135,7 +280,7 @@ If you're not familiar with JavaScript, but want to translate a store or change 
 
 For more details on this functionality, please see [this article](https://support.ecwid.com/hc/en-us/articles/207808835-Custom-Translations) in our help center.
 
-## Custom CSS
+## Apply custom CSS
 
 > Example of custom CSS to modify storefront
 
@@ -167,7 +312,7 @@ Ecwid provides a merchant with a built-in CSS customization tool in their contro
 
 Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom CSS code and Ecwid automatically loads that code in the user storefront. So you don't need to put the CSS on user site manually or ask them to do that. 
 
-#### Q: Can I create new themes as apps?
+### Q: Can I create new themes as apps?
 
 Yes, you can! Please check out this page for more details: [How to create a theme](/how-to-create-a-theme-for-an-ecwid-store)
 
@@ -175,13 +320,13 @@ Yes, you can! Please check out this page for more details: [How to create a them
 
 You may want to apply different CSS codes depending on the store your application is loaded. For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
 
-In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#custom-javascript) for details.
+In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#add-custom-javascript-code) for details.
 
 ## Change default colors and fonts
 
 Change any color and main font for user's storefront
 
-### Apply colors and font automatically
+### Apply colors and fonts to storefront automatically from a website
 
 > Set storefront colors and font automatically
 
@@ -197,7 +342,7 @@ window.ec.config.chameleon.colors = 'auto';
 
 Ecwid can automatically detect the main colors and fonts of a surrounding website and match the storefront automatically. To apply the colors and font automatically for a store, use the code on the right.
 
-### Change colors
+### Set storefront colors
 
 > Set storefront colors automatically
 
@@ -246,7 +391,7 @@ window.ec.config.chameleon = {
 </script>
 ```
 
-Using the global Ecwid config object you can control the colors in user's storefront. To pre-define colors for a storefront, add JavaScript code on the right in the same frame, where Ecwid integration code is added.
+Using the global Ecwid config object `window.ec.config` you can control the colors in user's storefront. To pre-define colors for a storefront, add JavaScript code on the right in the same frame, where Ecwid integration code is added.
 
 `auto` value allows Ecwid to detect the website colors around Ecwid storefront to adapt its colors automatically. Use the fields below to set colors manually.
 
@@ -260,7 +405,7 @@ color-link | string (HEX and RGBA color) | Color for links in storefront (breadc
 color-button | string (HEX and RGBA color) | Color for main buttons in storefront ("Add to bag", "Checkout", etc.) and small buttons on mouse hover ("Clear bag", "Apply", etc.)
 color-price | string (HEX and RGBA color) | Color for product prices in storefront
 
-### Change font
+### Set storefront font
 
 > Set storefront font automatically
 
@@ -302,7 +447,7 @@ window.ec.config.chameleon = {
 </script>
 ```
 
-Using the global Ecwid config object you can control the fonts of all texts displayed in user's storefront. To pre-define a font for a storefront, add JavaScript code on the right in the same fram, where Ecwid integration code is added.
+Using the global Ecwid config object `window.ec.config` you can control the fonts of all texts displayed in user's storefront. To pre-define a font for a storefront, add JavaScript code on the right in the same fram, where Ecwid integration code is added.
 
 `auto` value allows Ecwid to detect the website's main font to adapt its font automatically. You can also set a specific font-family for a storefront manually.
 
@@ -385,142 +530,9 @@ Yes, when getting information about products and categories in an Ecwid store, y
 - [How to get URLs for products](#q-how-to-get-urls-for-products)
 - [How to get URLs for categories](#q-how-to-get-urls-for-categories)
 
-# Add Ecwid to the site
-
-## Ecwid storefront (Product Browser)
-
-> Add Ecwid storefront to your website
-
-```html
-<div id="my-store-1003"></div><div> <script type="text/javascript" src="https://app.ecwid.com/script.js?1003" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","id=my-store-1003");</script></div>
-```
-
-This is the most important Ecwid widget. It shows and includes a full-featured shopping cart with products, categories, catalog, checkout pages, etc.
-
-To add an Ecwid store to the website, use the code example on the right. The `1003` is the ID of an Ecwid store. Make sure to specify your desired store ID in order to show your store!
-
-## Product Browser URL
-
-When you add store widgets, like search, minicart, categories menu, to a site page separate from Product browser widget – the main store widget, the store will open in a pop-up. This pop-up contains the whole store and works just fine. But in some cases it is more convenient to open the store on the page instead of the pop-up.
- 
-It is possible to setup Ecwid in more convenient way, when your product browser is installed on one page, but you have minicart/vertical categories/search box on all other pages of your site with the help of `ecwid_ProductBrowserURL` option.
-
-> 'Tell' Ecwid that storefront is located at "http://www.example.com/store.html"
-
-```html
-<script>var ecwid_ProductBrowserURL = "http://www.example.com/store.html";</script>
-```
-
-**How Ecwid works by default**
-
-- if a visitor uses the "minicart/vertical categories/search" box widget and the product browser is installed on this page, all actions will be made in it.
-- if they do it, but the product browser doesn't exist on the page, **the pop-up window with the product browser will be created on this page**
-
-In order to get rid of this pop-up, you should use the `ecwid_ProductBrowserURL` option. If it's set up, Ecwid works in such way:
-
-- if the visitor uses the "minicart/vertical categories/search" box widget and the product browser isn't installed on this page, **they will be redirected to the page where the product browser is installed and then the necessary actions will be performed**
-
-For example if a customer searches for a product on the page without a product browser, s/he will be redirected to a page with it and then Ecwid will show the search results on this page.
-
-**How to set up this option**
-
-In order to use it, you need to add the following JavaScript code to all pages, where Ecwid widgets are installed:
-
-`<script>var ecwid_ProductBrowserURL = "PB_URL";</script>`
-
-where `PB_URL` is the full URL of the page where your product browser widget (i.e. your Ecwid store) is installed.
-
-For example: 
-
-`<script>var ecwid_ProductBrowserURL = "http://www.example.com/store.html";</script>`
-
-## Dynamic embedding of Ecwid widget
-
-> Dynamic embedding of Ecwid storefront widget
-
-```html
-<div id="my-store-1003"></div>
-<script>
-window.ecwid_script_defer = true;
-window.ecwid_dynamic_widgets = true;
-
-   if (typeof Ecwid != 'undefined') Ecwid.destroy(); 
-   window._xnext_initialization_scripts = [{
-        widgetType: 'ProductBrowser',
-        id: 'my-store-1003',
-        arg: ["categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list"]
-      }];
-
-  if (!document.getElementById('ecwid-script')) {
-      var script = document.createElement('script');
-      script.charset = 'utf-8';
-      script.type = 'text/javascript';
-      script.src = 'https://app.ecwid.com/script.js?1003';
-      script.id = 'ecwid-script'
-      document.body.appendChild(script);
-    } else {
-      ecwid_onBodyDone();
-    }
-</script>
-```
-
-In some cases it is necessary to dynamically create and destroy Ecwid widget within HTML page. This is useful for dynamic sitebuilders that switch to online store page without actually reloading page (e.g. making it visible). You should use `window.ecwid_dynamic_widgets` variable to enable dynamic widget creating in Ecwid. See the example below that shows how to create and destroy Ecwid widget through javascript functions. 
-
-Please note that this method allows to embed the storefront widget only. If you need to embed other widgets dynamically, please, use the code for [deferred widget initialization](#deferred-initialization-of-ecwid-widget)
-
-Please note that this method is slower than direct embedding of Ecwid widget so you should use it only if you need dynamic widget creation. 
-
-## Deferred initialization of Ecwid widget
-
-> Deferred widget initialization
-
-```html
-<div id="my-store-1003"></div>
-<div id="productBrowser"></div>
-<script>
-window.ecwid_script_defer = true;
-var script = document.createElement('script');
-script.charset = 'utf-8';
-script.type = 'text/javascript';
-script.src = 'https://app.ecwid.com/script.js?1003';
-document.getElementById('my-store-1003').appendChild(script);
-window._xnext_initialization_scripts = [
-    { widgetType: 'ProductBrowser', id: 'productBrowser', arg: [
-        '"categoriesPerRow=3","views=grid(4,4) list(10) table(20)","categoryView=grid","searchView=list","style=","responsive=yes","id=productBrowser"'
-    ] }
-];</script>
-```
-
-Sometimes it is necessary to delay widget initialization while host page finishes the initialization procedures. This is useful when host site is built dynamically using libraries such as React js.
-
-See the example of delayed initialization of Ecwid widget on the right.
-
-## DNS Prefetch
-
-> DNS Prefetching of Ecwid's resources
-
-```html
-<link rel="dns-prefetch" href="//images-cdn.ecwid.com/">
-<link rel="dns-prefetch" href="//images.ecwid.com/">
-<link rel="dns-prefetch" href="//app.ecwid.com/">
-```
-
-To increase the loading speed of an Ecwid store, you can start loading Ecwid resources even before a customer opens the store page by the means of so-called prefetching (prerendering). Not all browsers support this feature at this moment though.
-
-> Prefetching and prerendering of storefront page
-
-```html
-<link rel="prefetch" href="http://www.example.com/store/"/>
-<link rel="prerender" href="http://www.example.com/store/"/>
-```
-
-You can also add your storefront page to preload and prerender in the background for further increase in loading speed for browsers that have this feature.
-
-Feel free to learn more about these techniques [https://css-tricks.com/prefetching-preloading-prebrowsing/](https://css-tricks.com/prefetching-preloading-prebrowsing/)
-
 # JavaScript and Custom Logic
 
-## Custom JavaScript
+## Add custom JavaScript code
 
 > Example of custom JavaScript to modify storefront
 
@@ -610,7 +622,7 @@ More details about this approach: [W3CSchools](http://www.w3schools.com/jsref/me
 
 <aside class="note">Please make sure to avoid using the <em>document.write()</em> function as it works synchronously and will slow down the page.</aside>
 
-### Store-specific custom JS
+### Store-specific custom JavaScript
 
 > Example of the script that dynamically loads store-specific code
 
@@ -643,7 +655,7 @@ For example, let's say you need to dynamically add a store-specific configuratio
 
 To get information for that specific store you can use `Ecwid.getAppPublicConfig` function in [Ecwid Javascript API](#storefront-js-api). See more details on how to access that data in **Application data** section of documentation.
 
-## Caching JavaScript file content
+## Caching JavaScript file contents
 
 When your external JS file is loaded on a page, it is loaded like any other resource via a GET request by a web browser. If you'd like to use caching to increase the loading speeds of your script, we can suggest several options:
 
@@ -692,7 +704,7 @@ When you are using advanced jQuery's features such as jQuery UI, version specifi
 We recommend loading your jQuery from <a href='https://developers.google.com/speed/libraries/#jquery'>Google's CDN</a> to ensure it is available at all times.
 </aside>
 
-## Centering popups in iframe storefronts
+## Center popups in iframe storefronts
 
 > Example of centering popups
 
@@ -754,7 +766,7 @@ We suggest using [public access token](#access-tokens) to get information about:
 
 With public access token you can safely make requests to Ecwid REST API without creating a buffer in a form of a server-side code, which requested information for your client-side code. You can make an Ajax request to Ecwid API with your JavaScript code and have a completely serverless application.
 
-## Access merchant in-app preferences in storefront
+## Access merchant in-app preferences
 
 Applications can work and look differently in various stores, so you can provide tailored user experience to the store owner and a website they have in your application.
 
