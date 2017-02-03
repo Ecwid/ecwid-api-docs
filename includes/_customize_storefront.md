@@ -2,30 +2,15 @@
 
 # Overview
 
-Depending on the kind of application you integrate with Ecwid, you may want to customize the user storefront in some way. For example:
+The Ecwid API platform allows you to customize storefront in various ways: 
 
 - apply custom styles to the store elements (buttons, fonts, pictures, etc.)
 - add extra widgets, e.g. customer reviews, comments, image magnifier
 - modify the look and behavior of Ecwid widgets
 - add tracking pixels or any other third-party conversion-tracking scripts to the checkout page
+- and more
 
-The Ecwid API allows you to attach external JavaScript and CSS scripts, and load them automatically in a user storefront. 
-
-> Check out guideline below for general guides
-
-> [https://developers.ecwid.com/customizing-storefront](https://developers.ecwid.com/customizing-storefront)
-
-**How it works and how to set it up**
-
-1. After your app is registered, [contact us](/contact) and provide the https URL of the `.css` and/or `.js` file you’d like to load in the user storefront.
-2. When asking a user to install your app, Ecwid will request the `customize_storefront` permission from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the OAuth process.*)
-3. The next time the user storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
-
-<aside class="notice">
-Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
-</aside>
-
-Below, you will find more information on how to create custom JS/CSS. See the [Customizing Storefront guideline](/customizing-storefront) for more details about the app review process.
+Check out the sections below to find out what other features are available and how to use them.
 
 # Add Ecwid to the site
 
@@ -55,14 +40,16 @@ You can do this with the help of the `ecwid_ProductBrowserURL` option.
 
 **How Ecwid works by default**
 
-- if a visitor uses the "minicart/vertical categories/search box" widget and a storefront is added on this page, all actions (go to cart, to category, etc.) will be made there
+- if a visitor uses the "minicart/vertical categories/search box" widget and a storefront is added on this page, all actions (go to cart, to category, etc.) will be made in that storefront widget
 - but if a storefront widget doesn't exist on the same page page, **a pop-up window with the storefront will be created on this page** to complete the action
 
-In order use a storefront widget placed on another page of a website, you should use the `ecwid_ProductBrowserURL` option. If it's set up, Ecwid works in such way:
+**How Ecwid works with this option**
 
-- if a visitor uses the "minicart/vertical categories/search box" widget and the storefront widget isn't added on this page, **they will be redirected to the page where the storefront widget is added and then the necessary actions will be performed**
+When a merchant uses a storefront widget placed on another page of a website, you should use the `ecwid_ProductBrowserURL` option. If it's set up, Ecwid works in such way: 
 
-For example, if a customer searches for a product on the page without a storefront, they will be redirected to a specified in `ecwid_ProductBrowserURL` variable website page and then Ecwid will show the search results on that page.
+- if a visitor uses the "minicart/vertical categories/search box" widget and the storefront widget isn't added on this page, **they will be redirected to the URL speicified in the code and then the necessary actions will be performed there**
+
+For example, if a customer searches for a product on the page without a storefront, they will be redirected to a URL specified in `ecwid_ProductBrowserURL` variable and then Ecwid will show the search results on that page.
 
 **How to set up this option**
 
@@ -308,9 +295,23 @@ div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-backgrounde
 }
 ```
 
+**Add custom CSS in Ecwid Control Panel (for a single store)**
+
 Ecwid provides a merchant with a built-in CSS customization tool in their control panel in the 'Design' section: Ecwid automatically loads the CSS code entered by user in their storefront. This allows merchants to customize their store look and feel flexibly. See also ["How to change Ecwid design"](http://help.ecwid.com/customer/portal/articles/1083332-how-to-change-ecwid-design) article in our knowledge base.
 
-Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom CSS code and Ecwid automatically loads that code in the user storefront. So you don't need to put the CSS on user site manually or ask them to do that. 
+**Add custom CSS in an app (for multiple stores at once)**
+
+Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom CSS code and Ecwid automatically loads that code in the user storefront. So you don't need to put the CSS on user site manually or ask a merchant to do that. 
+
+In more details: 
+
+1. After your app is registered, [contact us](/contact) and provide the https URL of the `.css` and/or `.js` file you’d like to load in the user storefront.
+2. When asking a user to install your app, Ecwid will request the `customize_storefront` permission from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the OAuth process.*)
+3. The next time the user storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
+
+<aside class="notice">
+Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
+</aside>
 
 ### Q: Can I create new themes as apps?
 
@@ -530,7 +531,7 @@ Yes, when getting information about products and categories in an Ecwid store, y
 - [How to get URLs for products](#q-how-to-get-urls-for-products)
 - [How to get URLs for categories](#q-how-to-get-urls-for-categories)
 
-# JavaScript and Custom Logic
+# Add or modify features in storefront
 
 ## Add custom JavaScript code
 
@@ -591,6 +592,20 @@ In addition, Ecwid provides a [JavaScript API](#storefront-js-api) that you can 
 * `EcwidApp.getAppPublicConfig` will return store-specific data from application storage
 
 More details: [Ecwid JavaScript API](#storefront-js-api)
+
+### How to load custom JavaScript anytime storefront is loaded
+
+Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom JavaScript code and Ecwid automatically loads that code in the user storefront. So you don't need to put the JS on merchant site manually or ask them to do that. 
+
+In more details: 
+
+1. After your app is registered, [contact us](/contact) and provide the https URL of the `.css` and/or `.js` file you’d like to load in the user storefront.
+2. When asking a user to install your app, Ecwid will request the `customize_storefront` permission from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the OAuth process.*)
+3. The next time the user storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
+
+<aside class="notice">
+Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
+</aside>
 
 ### Q: How to know what Ecwid widgets are on a page?
 

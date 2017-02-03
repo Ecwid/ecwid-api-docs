@@ -39,3 +39,22 @@ However, to protect us and our users from abusing, we ask you to optimize your a
 We constantly monitor API activity and servers load on our side to make sure every application uses API properly. In case an app abuses Ecwid API by generating huge amount of requests every day, we'll attempt to get in touch with the developer to talk about the issue. 
 
 Don't worry, you will unlikely face such trouble and even if you do, we will advice on how to fix that. But of course, if the usage is high enough to significantly affect other users of the platform and you don't react on our warnings, we can temporarily disable your application. 
+
+### Q: How can I make the requests?
+
+You can use any library or software (capable of making HTTP requests) you are familiar with. 
+
+To make a basic API request you will need to know: 
+
+- Ecwid Store ID
+- [Access token](#access-tokens) (private or public)
+
+These details are provided at the end of the app installation in an Ecwid store. Ways to get them depend on the app you are using, see the [Authentication section](#authentication) for more details.
+
+Here are some resources we can recommend to get started:
+
+- [Making HTTP requests with cURL in PHP](http://codular.com/curl-with-php)
+- [Making HTTP requests with cURL in terminal](https://quickleft.com/blog/command-line-tutorials-curl/)
+- [Making HTTP requests with wget in terminal](http://techs-tricks.blogspot.ru/2008/12/test-http-request-with-wget.html)
+
+For testing out the API functionality we can also recommend using [Ecwid API Playground](#api-playground).
