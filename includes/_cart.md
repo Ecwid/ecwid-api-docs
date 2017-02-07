@@ -419,6 +419,16 @@ digital | boolean | `true`/`false`: shows whether the item has downloadable file
 productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
+taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
+
+#### OrderItemTax
+Field | Type | Description
+----- | -----| -----------
+name |  string | Tax name
+value | number | Tax value in percent
+total | number | Tax amount for the item
+taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
+taxOnShipping | number | Tax on item shipping
 
 #### OrderItemOption
 Field | Type |  Description

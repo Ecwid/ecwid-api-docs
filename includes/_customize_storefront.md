@@ -14,8 +14,6 @@ Check out the sections below to find out what other features are available and h
 
 # Add Ecwid to the site
 
-## Add storefront to the site
-
 > Add Ecwid storefront to your website
 
 ```html
@@ -153,6 +151,62 @@ Feel free to learn more about these techniques in [https://css-tricks.com/prefet
 
 # Look and feel
 
+## Apply custom CSS
+
+> Example of custom CSS to modify storefront
+
+```css
+/*
+ * Change Ecwid buttons style 
+ */
+button.gwt-Button, #wrapper button.gwt-Button { 
+  border-radius: 13px; 
+  -moz-border-radius: 13px; 
+  -webkit-border-radius: 13px; 
+  height: 28px; 
+  background-color: #e4e4e4; 
+  padding: 0 15px; 
+}  
+ 
+button.gwt-Button:active,
+#wrapper button.gwt-Button:active { 
+  background-color: #999999; 
+}  
+ 
+div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-backgroundedPanel {
+  min-width:185px; 
+  width:auto; 
+}
+```
+
+**Add custom CSS in Ecwid Control Panel (for a single store)**
+
+Ecwid provides a merchant with a built-in CSS customization tool in their control panel in the 'Design' section: Ecwid automatically loads the CSS code entered by user in their storefront. This allows merchants to customize their store look and feel flexibly. See also ["How to change Ecwid design"](http://help.ecwid.com/customer/portal/articles/1083332-how-to-change-ecwid-design) article in our knowledge base.
+
+**Add custom CSS in an app (for multiple stores at once)**
+
+Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom CSS code and Ecwid automatically loads that code in the user storefront. So you don't need to put the CSS on user site manually or ask a merchant to do that. 
+
+In more details: 
+
+1. After your app is registered, [contact us](/contact) and provide the https URL of the `.css` and/or `.js` file you’d like to load in the user storefront.
+2. When asking a user to install your app, Ecwid will request the `customize_storefront` permission from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the OAuth process.*)
+3. The next time the user storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
+
+<aside class="notice">
+Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
+</aside>
+
+### Q: Can I create new themes as apps?
+
+Yes, you can! Please check out this page for more details: [How to create a theme](/how-to-create-a-theme-for-an-ecwid-store)
+
+### Store-specific custom CSS
+
+You may want to apply different CSS codes depending on the store your application is loaded. For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
+
+In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#add-custom-javascript-code) for details.
+
 ## Change the store layout
 
 Ecwid integration code provides a number of modifications to the store layout: number of products per row, default view mode and more. See the details below. 
@@ -266,62 +320,6 @@ on your web page. See the example one the right!
 If you're not familiar with JavaScript, but want to translate a store or change its labels, you can use [Storefront Label Editor](https://www.ecwid.com/apps/tools/storefront-label-editor) or the [Ecwid Translate Tool](http://www.ecwid.com/playground/translate-tool/). It will make the translation much easier.
 
 For more details on this functionality, please see [this article](https://support.ecwid.com/hc/en-us/articles/207808835-Custom-Translations) in our help center.
-
-## Apply custom CSS
-
-> Example of custom CSS to modify storefront
-
-```css
-/*
- * Change Ecwid buttons style 
- */
-button.gwt-Button, #wrapper button.gwt-Button { 
-  border-radius: 13px; 
-  -moz-border-radius: 13px; 
-  -webkit-border-radius: 13px; 
-  height: 28px; 
-  background-color: #e4e4e4; 
-  padding: 0 15px; 
-}  
- 
-button.gwt-Button:active,
-#wrapper button.gwt-Button:active { 
-  background-color: #999999; 
-}  
- 
-div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-backgroundedPanel {
-  min-width:185px; 
-  width:auto; 
-}
-```
-
-**Add custom CSS in Ecwid Control Panel (for a single store)**
-
-Ecwid provides a merchant with a built-in CSS customization tool in their control panel in the 'Design' section: Ecwid automatically loads the CSS code entered by user in their storefront. This allows merchants to customize their store look and feel flexibly. See also ["How to change Ecwid design"](http://help.ecwid.com/customer/portal/articles/1083332-how-to-change-ecwid-design) article in our knowledge base.
-
-**Add custom CSS in an app (for multiple stores at once)**
-
-Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom CSS code and Ecwid automatically loads that code in the user storefront. So you don't need to put the CSS on user site manually or ask a merchant to do that. 
-
-In more details: 
-
-1. After your app is registered, [contact us](/contact) and provide the https URL of the `.css` and/or `.js` file you’d like to load in the user storefront.
-2. When asking a user to install your app, Ecwid will request the `customize_storefront` permission from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the OAuth process.*)
-3. The next time the user storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
-
-<aside class="notice">
-Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
-</aside>
-
-### Q: Can I create new themes as apps?
-
-Yes, you can! Please check out this page for more details: [How to create a theme](/how-to-create-a-theme-for-an-ecwid-store)
-
-### Store-specific custom CSS
-
-You may want to apply different CSS codes depending on the store your application is loaded. For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
-
-In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#add-custom-javascript-code) for details.
 
 ## Change default colors and fonts
 
