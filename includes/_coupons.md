@@ -23,6 +23,10 @@ limit | number | Maximum number of returned items in one batch. Maximum allowed 
 code | string | Coupon code
 discount_type | string | Comma separated list of discount types. Supported values: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 availability |  string | Comma separated list of coupon states. Supported values: `ACTIVE`, `PAUSED`, `EXPIRED`, `USEDUP`
+createdFrom | string | Coupon creation date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
+createdTo | string | Coupon creation date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+updatedFrom | string | Coupon last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+updatedTo | string | Coupon last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
 
 <aside class="notice">
 If no filters are set in the URL, API will return all discount coupons
@@ -44,6 +48,7 @@ Parameters in bold are mandatory
     "offset": 0,
     "items": [
         {
+            "id": 1231421413,
             "name": "Coupon # 1",
             "code": "MOXQ3YCWXRXA",
             "discountType": "ABS",
@@ -53,6 +58,7 @@ Parameters in bold are mandatory
             "usesLimit": "UNLIMITED",
             "repeatCustomerOnly": false,
             "creationDate": "2014-06-06 18:57:19 +0400",
+            "updateDate": "2017-01-10 02:03:43 +0000",
             "orderCount": 0,
             "catalogLimit": {
                 "products": [
@@ -63,6 +69,7 @@ Parameters in bold are mandatory
             }
         },
         {
+            "id": 12314211242,
             "name": "Coupon # 3",
             "code": "O3Q4AP5FKXJ1",
             "discountType": "PERCENT",
@@ -71,7 +78,8 @@ Parameters in bold are mandatory
             "launchDate": "2014-06-06 08:00:00 +0400",
             "usesLimit": "UNLIMITED",
             "repeatCustomerOnly": false,
-            "creationDate": "2014-06-06 18:57:19 +0400",
+            "creationDate": "2014-06-06 08:00:00 +0400",
+            "updateDate": "2017-02-10 08:03:43 +0000",
             "orderCount": 0
         }
     ]
@@ -92,6 +100,7 @@ items | Array\<*CouponSearchEntry*\> | The items list
 #### CouponSearchEntry
 Field | Type  | Description
 ----- | ----- | -----------
+id | number | Internal unique coupon ID
 name |  string | Coupon title
 code |  string | Unique coupon code
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
@@ -102,7 +111,8 @@ expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +040
 totalLimit | number | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
-creationDate |  string | Coupon creation date
+creationDate |  string | Coupon creation date. Format example: `2016-06-29 11:36:55 +0000`
+updateDate | string | Coupon update date. Format example: `2016-06-29 11:36:55 +0000`
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | The products and categories the coupon can be applied to
 
@@ -151,12 +161,12 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/discount_coupons/{couponCode}?token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/discount_coupons/{couponIdentifier}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
-**couponCode** | number | Coupon ID
+**couponIdentifier** | number/string | Coupon identifier in a store. It can be either unique internal coupon `id` OR a discount coupon `code`.
 **token** |  string |  oAuth token
 
 ### Response
@@ -165,6 +175,7 @@ Name | Type    | Description
 
 ```json
 {
+    "id": 12314211242,
     "name": "Coupon # 1",
     "code": "MOXQ3YCWXRXA",
     "discountType": "ABS",
@@ -174,6 +185,7 @@ Name | Type    | Description
     "usesLimit": "UNLIMITED",
     "repeatCustomerOnly": false,
     "creationDate": "2014-06-06 18:57:19 +0400",
+    "updateDate": "2017-02-10 08:03:43 +0000",
     "orderCount": 0,
     "catalogLimit": {
         "products": [
@@ -191,6 +203,7 @@ A JSON object of type 'Coupon' with the following fields:
 #### Coupon
 Field | Type  | Description
 ----- | ----- | -----------
+id | number | Internal unique coupon ID
 name |  string | Coupon title
 code |  string | Unique coupon code
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
@@ -201,7 +214,8 @@ expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +04
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
-creationDate |  string | Coupon creation date
+creationDate |  string | Coupon creation date. Format example: `2016-06-29 11:36:55 +0000`
+updateDate | string | Coupon update date. Format example: `2016-06-29 11:36:55 +0000`
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | The products and categories the coupon can be applied to
 
@@ -252,7 +266,6 @@ Cache-Control: no-cache
     "launchDate": "2014-06-06 08:00:00 +0400",
     "usesLimit": "UNLIMITED",
     "repeatCustomerOnly": false,
-    "creationDate": "2014-06-06 18:57:19 +0400",
     "orderCount": 0,
     "catalogLimit": {
         "products": [
@@ -288,7 +301,6 @@ expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +04
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE` . `UNLIMITED` is default
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers. `false` is default
-creationDate |  string | Coupon creation date
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | The products and categories the coupon can be applied to
 
@@ -310,6 +322,7 @@ Parameters in bold are mandatory
 
 ```json
 {
+    "id": 21871001,
     "code": 9698215
 }
 ```
@@ -320,6 +333,7 @@ A JSON object of type 'CreateStatus' with the following fields:
 #### CreateStatus
 Field | Type |  Description
 -------------- | -------------- | --------------
+id | number | Internal unique coupon ID
 code | number | Code of the created coupon
 
 
@@ -354,7 +368,7 @@ errorMessage | string | Error message
 
 ### Request
 
-> Request body
+> Request body for discount coupon code
 
 ```http
 PUT /api/v3/4870020/discount_coupons/12MOXQ3YCWXRXA?token=123456789abcd HTTP/1.1
@@ -371,7 +385,6 @@ Cache-Control: no-cache
     "launchDate": "2014-06-06 08:00:00 +0400",
     "usesLimit": "UNLIMITED",
     "repeatCustomerOnly": false,
-    "creationDate": "2014-06-06 18:57:19 +0400",
     "orderCount": 0,
     "catalogLimit": {
         "products": [
@@ -383,13 +396,41 @@ Cache-Control: no-cache
 }
 ```
 
-`PUT https://app.ecwid.com/api/v3/{storeId}/discount_coupons/{couponCode}?token={token}`
+> Request body for discount coupon id
+
+```http
+PUT /api/v3/4870020/discount_coupons/123213123?token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+    "name": "Coupon # 1",
+    "code": "MOXQ3YCWXRXA",
+    "discountType": "ABS",
+    "status": "ACTIVE",
+    "discount": 1,
+    "launchDate": "2014-06-06 08:00:00 +0400",
+    "usesLimit": "UNLIMITED",
+    "repeatCustomerOnly": false,
+    "orderCount": 0,
+    "catalogLimit": {
+        "products": [
+            37208342,
+            37208338
+        ],
+        "categories": []
+    }
+}
+```
+
+`PUT https://app.ecwid.com/api/v3/{storeId}/discount_coupons/{couponIdentifier}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string |  oAuth token
-**code** | string | Unique coupon code
+**couponIdentifier** | number/string | Coupon identifier in a store. It can be either unique internal coupon `id` OR a discount coupon `code`.
 
 ### Request body
 
@@ -408,7 +449,6 @@ expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +04
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE` . 
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers.
-creationDate |  string | Coupon creation date
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | The products and categories the coupon can be applied to
 
@@ -481,12 +521,12 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`DELETE https://app.ecwid.com/api/v3/{storeId}/discount_coupons/{couponCode}?token={token}`
+`DELETE https://app.ecwid.com/api/v3/{storeId}/discount_coupons/{couponIdentifier}?token={token}`
 
 Name | Type    | Description
 ---- | ------- | -----------
 **storeId** |  number | Ecwid store ID
-**couponCode** | number | Coupon code
+**couponIdentifier** | number/string | Coupon identifier in a store. It can be either unique internal coupon `id` OR a discount coupon `code`.
 **token** |  string |  oAuth token
 
 ### Response

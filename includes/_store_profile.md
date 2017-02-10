@@ -1087,7 +1087,7 @@ errorMessage | string | Error message
 
 ## Get store update statistics
 
-This method provides simple 'Latest updates' statistics about store profile, products and orders. Use it to check whether something was changed in an Ecwid store. This could be helpful to keep data in your application up-to-date and avoid abusing API to get and parse large amounts of data to check its state.
+This method provides simple 'Latest updates' statistics about store profile, products, orders, categories and discount coupons. Use it to check whether something was changed in an Ecwid store. This could be helpful to keep data in your application up-to-date and avoid abusing API to get and parse large amounts of data to check its state.
 
 Also, you can consider using [webhooks](#webhooks) to get a notificaiton when changes are made to orders and catalog items. For example, you can get a webhook when a new order is placed in a store and send order details to a warehouse right away.
 
@@ -1115,7 +1115,8 @@ Name | Type    | Description
     "productsUpdated": "2014-10-19 18:56:21 +0400",
     "ordersUpdated": "2014-10-15 16:54:11 +0400",
     "profileUpdated": "2014-10-19 18:55:35 +0400",
-    "categoriesUpdated": "2014-10-19 12:23:12 +0400"
+    "categoriesUpdated": "2014-10-19 12:23:12 +0400",
+    "discountCouponsUpdated": "2017-02-10 08:03:43 +0000"
 }
 ```
 
@@ -1128,6 +1129,7 @@ productsUpdated | string | Date of the latest changes in store catalog (products
 ordersUpdated | string | Date of the latest changes in store orders, e.g. `2014-10-15 16:54:11 +0400`
 profileUpdated | string | Date of the latest changes in store information, e.g. `2014-10-15 16:54:11 +0400`
 categoriesUpdated | string | Date of the latest changes in store categories, e.g. `2014-10-19 12:23:12 +0400`
+discountCouponsUpdated | string | Date of the latest changes in store discount coupons, e.g. `2014-10-19 12:23:12 +0400`
 
 ### Errors
 
@@ -1237,11 +1239,11 @@ limit | number | Maximum number of returned items. Default value: `100`
     "limit": 100,
     "items": [
         {
-            "code": "UNN9GN6XAW2M",
+            "id": 34256365236,
             "date": "2014-10-20 18:00:54 +0400"
         },
         {
-            "code": "MOXQ3YCWXRXA",
+            "id": 123123213213,
             "date": "2014-10-20 18:00:57 +0400"
         }
     ]
@@ -1262,7 +1264,7 @@ items | Array<RemovedItem> | The removed items list with IDs and dates
 #### Removed item
 Field | Type | Description
 ----- | ---- | -----------
-id | number | Item ID. Depending on the request, that is products ID, customer ID, order number or coupon code. In case of coupons the field is called `code` instead if `id` and has string format. 
+id | number | Item ID. Depending on the request, that is products ID, customer ID, order number or coupon ID.
 date | string | Item deletion date
 
 ### Errors

@@ -8,6 +8,11 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+## February 10, 2017
+- Updated [discount coupons endpoints](https://developers.ecwid.com/api-documentation#discount-coupons) in the Ecwid REST API. 
+
+Now you can get/update/delete a discount coupon using either its internal `id` (new) or coupon `code` itself. The `id` field is now returned when getting coupon(s) details or creating it. Also, you can filter coupons by creation/update dates when getting their details. The latest stats endpoint now also returns latest update date of discount coupons. The `discount_coupons/deleted` endpoint now returns unique coupon `id` instead of the coupon `code` field.
+
 ## January 18, 2017
 - Added support for SEO-friendly URLs for Ecwid storefronts. [Learn more](https://developers.ecwid.com/api-documentation#seo-friendly-urls)
 - SEO-friendly URLs can be retrieved from Ecwid REST API for [products](https://developers.ecwid.com/api-documentation#products) and [categories](https://developers.ecwid.com/api-documentation#categories) URLs in URL field using `cleanUrls` request parameter. Also, it's possible to change the base storefront URL for such URLs using `baseUrl` request parameter.  
