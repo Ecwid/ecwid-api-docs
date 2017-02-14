@@ -191,7 +191,7 @@ Name | Type    | Description
             "phone": ""
         }
     ],
-    "customerTaxId": "GB999 9999 73",
+    "taxId": "GB999 9999 73",
     "taxExempt": true,
     "taxIdValid": true
 }
@@ -210,7 +210,7 @@ billingPerson | *Person* | Customer's billing name/address
 shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
 customerGroupId | number | Customer group ID
 customerGroupName | string | Customer group name
-customerTaxId | string | Customer tax ID
+taxId | string | Customer tax ID
 taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
 taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 
@@ -306,7 +306,7 @@ Cache-Control: no-cache
             "phone": "11111111111"
         }
       ],
-    "customerTaxId": "GB999 9999 73",
+    "taxId": "GB999 9999 73",
     "taxExempt": true,
     "taxIdValid": true
 }
@@ -334,7 +334,7 @@ Field | Type  | Description
 customerGroupId | number | Customer group ID
 billingPerson | <Person> | Customer's billing name/address
 shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
-customerTaxId | string | Customer tax ID
+taxId | string | Customer tax ID
 taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
 taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 
@@ -452,7 +452,7 @@ Cache-Control: no-cache
             "phone": "11111111111"
         }
       ],
-    "customerTaxId": "GB999 9999 73",
+    "taxId": "GB999 9999 73",
     "taxExempt": true,
     "taxIdValid": true
 }
@@ -481,7 +481,7 @@ password | string |  Customer password
 customerGroupId | number | Customer group ID
 billingPerson | <Person> | Customer's billing name/address
 shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
-customerTaxId | string | Customer tax ID
+taxId | string | Customer tax ID
 taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
 taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 
