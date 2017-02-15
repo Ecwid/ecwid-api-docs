@@ -204,7 +204,12 @@ Parameters in bold are mandatory
                             "taxOnDiscountedSubtotal": 1.79,
                             "taxOnShipping": 0
                         }
-                    ]
+                    ],
+                    "productDimensions": {
+                        "length": 34,
+                        "width": 3,
+                        "height": 22
+                    }
                 }
             ],
 
@@ -350,6 +355,7 @@ couponApplied | boolean | `true`/`false`: shows whether a discount coupon is app
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
+productDimensions | \<ProductDimensions\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type | Description
@@ -389,6 +395,13 @@ id | number | File ID
 name |  string | File name
 size |  number | File size in bytes
 url |   string | File URL
+
+#### ProductDimensions
+Field | Type  | Description
+-------------- | -------------- | --------------
+length | number | Length of a product
+width | number | Width of a product
+height | number | Height of a product
 
 #### PersonInfo
 Field | Type |  Description
@@ -651,7 +664,12 @@ Parameters in bold are mandatory
                     "taxOnDiscountedSubtotal": 1.79,
                     "taxOnShipping": 0
                 }
-            ]
+            ],
+            "productDimensions": {
+                "length": 34,
+                "width": 3,
+                "height": 22
+            }
         }
     ],
 
@@ -784,6 +802,7 @@ couponApplied | boolean | `true`/`false`: shows whether a discount coupon is app
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
+productDimensions | \<ProductDimensions\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type |  Description
@@ -823,6 +842,13 @@ id | number | File ID
 name |  string | File name
 size |  number | File size in bytes
 url |   string | File URL
+
+#### ProductDimensions
+Field | Type  | Description
+-------------- | -------------- | --------------
+length | number | Length of a product
+width | number | Width of a product
+height | number | Height of a product
 
 #### PersonInfo
 Field | Type |  Description
@@ -1493,7 +1519,12 @@ Cache-Control: no-cache
                         "value": 7,
                         "total": 4.79
                     }
-                ]
+                ],
+                "productDimensions": {
+                    "length": 34,
+                    "width": 3,
+                    "height": 22
+                }
             }
         ],
         "hidden": false,
@@ -1912,6 +1943,7 @@ productAvailable | boolean | `true`/`false`: shows whether the product is availa
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
+productDimensions | \<ProductDimensions\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type | Description
@@ -1927,6 +1959,13 @@ Field | Type | Description
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 **value** | string | Selected/entered value by customer. Multiple values separated by comma in a single string
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
+
+#### ProductDimensions
+Field | Type  | Description
+-------------- | -------------- | --------------
+length | number | Length of a product
+width | number | Width of a product
+height | number | Height of a product
 
 #### PersonInfo
 Field | Type | Description
