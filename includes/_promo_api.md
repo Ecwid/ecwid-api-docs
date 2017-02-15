@@ -29,11 +29,15 @@ When [registering a new application](/register) for Ecwid, specify the request U
 
 ### 1. Ecwid sends cart data to app request URL
 
-To apply new discounts for a cart in storefront, Ecwid will send a **POST request** to your endpoint with cart details: items, customer address, merchant app settings, etc. That endpoint must respond to the request with the applied discounts for this order and store configuration.
+To apply new discounts for a cart in storefront, Ecwid will send a **POST request** to your endpoint with cart details: items, customer address, merchant app settings, etc.The request will be sent when the customer's cart changes - a new product is added to cart, shipping address is changed, etc. That endpoint must respond to the request with the applied discounts for this order and store configuration. 
 
 ### 2. Application returns discounts in a specific format
 
-Ecwid will expect a response from your service within **5 second interval** to display additional discounts for an order. In the response, provide discount value, type of discount (percent or absolute) and discount description. See the response format in the [Request and response](#request-and-response) section.
+Ecwid will expect **a response to its request** from your service within **5 second interval** to display additional discounts for an order. In the response, provide discount value, type of discount (percent or absolute) and discount description. See the response format in the [Request and response](#request-and-response) section.
+
+<aside class="note">
+Please mind that the response isn't a separate request back to a specific URL in Ecwid. This needs to be a response to the request Ecwid makes to the application URL.
+</aside>
 
 ### 3. Ecwid displays discounts at checkout
 
