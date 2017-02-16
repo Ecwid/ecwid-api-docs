@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+## February 16, 2017
+- **NEW** Added `showOnFrontpage` field to [products endpoint](https://developers.ecwid.com/api-documentation#products) in the Ecwid REST API. Now when you search/get/update/create products, you can control whether that product will be shown in the store front page.
+
 ## February 10, 2017
 - Updated [discount coupons endpoints](https://developers.ecwid.com/api-documentation#discount-coupons) in the Ecwid REST API. 
 

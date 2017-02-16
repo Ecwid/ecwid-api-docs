@@ -215,7 +215,8 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
             "length": 0,
             "width": 0,
             "height": 0
-          }
+          },
+          "showOnFrontpage": 1
         },
         {
             "id": 37208340,
@@ -673,8 +674,8 @@ originalImageUrl |  string  | URL of the original not resized product image
 originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
-categoryIds | Array\<number\> | List of the categories, which the product belongs to
-categories | Array\<CategoriesInfo\> | List of the categories, which the product belongs to, with brief details
+categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+categories | Array\<CategoriesInfo\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
@@ -684,6 +685,7 @@ files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the pr
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Combination*\> | List of the product combinations
 dimensions | \<ProductDimensions\> | Product dimensions info
+showOnFrontpage | number | If not `null`, the position (index) of a product in the store front page. If `null`, then product is not shown in the store front page
 
 #### FavoritesStats
 Field | Type  | Description
@@ -1157,7 +1159,8 @@ Parameters in <strong>bold</strong> are mandatory
       "length": 0,
       "width": 0,
       "height": 0
-    }
+    },
+    "showOnFrontpage": 2
 }
 ```
 
@@ -1216,8 +1219,8 @@ originalImageUrl |  string  | URL of the original not resized product image
 originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
-categoryIds | Array\<number\> | List of the categories, which the product belongs to
-categories | Array\<CategoriesInfo\> | List of the categories, which the product belongs to, with brief details
+categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+categories | Array\<CategoriesInfo\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
@@ -1227,6 +1230,7 @@ files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the pr
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Combination*\> | List of the product combinations
 dimensions | \<ProductDimensions\> | Product dimensions info
+showOnFrontpage | number | If not `null`, the position (index) of a product in the store front page. If `null`, then product is not shown in the store front page
 
 #### FavoritesStats
 Field | Type  | Description
@@ -1494,13 +1498,14 @@ warningLimit | number | The minimum 'warning' amount of the product items in sto
 fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 description | string  | Product description *in HTML*
-categoryIds | Array\<number\> | List of the categories, which the product belongs to
+categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 dimensions | \<ProductDimensions\> | Product dimensions info
+showOnFrontpage | number | If not `null`, the position (index) of a product in the store front page. If `null`, then product is not shown in the store front page
 
 #### WholesalePrice
 Field | Type  | Description
@@ -1677,7 +1682,7 @@ warningLimit | number | The minimum 'warning' amount of the product items in sto
 fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 description | string  | Product description *in HTML*
-categoryIds | Array\<number\> | List of the categories, which the product belongs to
+categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
@@ -1685,6 +1690,7 @@ attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images (for updating alt tags and sort order)
 dimensions | \<ProductDimensions\> | Product dimensions info
+showOnFrontpage | number | If not `null`, the position (index) of a product in the store front page. If `null`, then product is not shown in the store front page
 
 <aside class="notice">
 All fields are optional
