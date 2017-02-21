@@ -1871,6 +1871,13 @@ Field | Type | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
+<aside class="note">
+    When making a request with [public access token](#access-tokens), there are a few differences applied: 
+    <ul><li>The <strong>paymentStatus</strong> can only be "AWAITING_PAYMENT" or "INCOMPLETE". Any other value is ignored.</li>
+        <li>The <strong>fulfillmentStatus</strong> can only be "AWAITING_PROCESSING". Any other value is ignored.</li>
+        <li><strong>privateAdminNotes</strong> field is always ignored.</li></ul>
+</aside>
+
 ### Request body
 
 A JSON object of type 'Order' with the following fields:

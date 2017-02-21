@@ -332,9 +332,9 @@ Ecwid.OnCartChanged.add(function(cart){
 
 This event contains callback functions that get called each time when a shopping cart is changed — either by the customer or due to system events.
 
-The callback function receives Cart object as an argument, that has the new shopping cart state after the change is applied.
+The callback function receives `cart` object as an argument, that has the new shopping cart state after the change is applied.
 
-The callbacks added to `Ecwid.OnCartChanged` will be called when the shopping cart is initialized and on every occasion when either of the properties of the passed **Cart** object is changed. These occasions include:
+The callbacks added to `Ecwid.OnCartChanged` will be called when the shopping cart is initialized and on every occasion when either of the properties of the passed `cart` object is changed. These occasions include:
 
 - Cart initialization 
 - Adding a product to cart
@@ -342,13 +342,12 @@ The callbacks added to `Ecwid.OnCartChanged` will be called when the shopping ca
 - Changing the product’s options
 - Clearing the cart
 - Applying a discount coupon
-- Selecting and changing the selection of the payment method
 - Selecting and changing the selection of the shipping method
 - Changing shippind address
 - Syncing the cart contents, if there are a few browser tabs with the store are opened
-- Clearing the cart upon user’s logout — in this occasion the callback receives **null** as an argument.
+- Clearing the cart upon user’s logout — in this occasion the callback receives `null` as an argument.
 
-The passed Cart object represents only the basic properties of the shopping cart. It contains the data coming from the customer’s actions (like products, coupons, payment and shipping methods) and **might not contain the calculated aggregates** (like order totals, shipping costs, the discounted amounts or taxes). For the calculated aggregates, it is rather recommended to use the `Ecwid.Cart.calculateTotal()` method.
+The passed `cart` object represents only the basic properties of the shopping cart. It contains the data coming from the customer’s actions (like products, coupons, shipping methods) and **might not contain the calculated aggregates** (like order totals, shipping costs, the discounted amounts or taxes). For the calculated aggregates, it is rather recommended to use the `Ecwid.Cart.calculateTotal()` method.
 
 ## Ecwid.OnProductOptionsChanged
 
