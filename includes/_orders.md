@@ -1538,7 +1538,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`. **Coming soon**: you can also use cart id you got from the order details in `orderNumber` field for abandoned sales (`paymentStatus` == INCOMPLETE).
 
 ### Request body
 
@@ -1559,7 +1559,7 @@ customerTaxIdValid | boolean | `true` if customer tax ID is valid, `false` other
 reversedTaxApplied | boolean | `true` if order tax was set to 0 because customer specified their valid tax ID in checkout process. `false` otherwise
 ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
-paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
+paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 orderComments | string  | Order comments

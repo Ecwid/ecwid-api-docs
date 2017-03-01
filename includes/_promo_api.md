@@ -199,7 +199,7 @@ discount | number | The sum of all applied discounts **except for the coupon dis
 membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
-discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
+discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (**coupons are not included**)
 customerGroupId | number | Customer group ID
 customerGroup | string | The name of group (membership) the customer belongs to
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
