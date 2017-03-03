@@ -628,12 +628,14 @@ s.src = "https://example.com/example.js";
 document.head.appendChild(s);
 ```
 
-JavaScript is a very flexible programming language, that allows you to do the same thing in many different ways. For example, if you need to load additional external script on the page with your current code, you can do it in multiple ways too.
+In case if you need more than one JavaScript code executed on a page, you can load additional scripts from within your base app JavaScript code.
 
 We recommend that you load external JS files using a standard function `createElement()`. See example code on the right. 
+It allows you to create a new `<script>` element on a page with the parameters you need and then append it to the DOM tree to get loaded and executed.
+
 More details about this approach: [W3CSchools](http://www.w3schools.com/jsref/met_document_createelement.asp)
 
-<aside class="note">Please make sure to avoid using the <em>document.write()</em> function as it works synchronously and will slow down the page.</aside>
+<aside class="note">Please make sure to avoid using the <em>document.write()</em> function as it works synchronously and will slow down the page load.</aside>
 
 ### Store-specific custom JavaScript
 
