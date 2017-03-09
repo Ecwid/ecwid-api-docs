@@ -272,8 +272,8 @@ Name | Type    | Description
 ---- | ------- | --------------
 currency | USD | Code of the currency currently enabled in the store
 vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
-subtotal |  number | Order subtotal
-total | number | Order total cost
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
 paymentMethod | string | Payment method name as specified when registering the app
 paymentModule | string | Payment processor name in Ecwid

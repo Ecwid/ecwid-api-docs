@@ -187,7 +187,7 @@ cart | \<*CartDetails*\> | Offset from the beginning of the returned items list 
 
 Name | Type    | Description
 ---- | ------- | --------------
-subtotal |  number | Order subtotal
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
 ipAddress | string  | Customer IP
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>

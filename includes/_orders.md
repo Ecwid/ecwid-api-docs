@@ -282,8 +282,8 @@ Field | Type |  Description
 ------| -----| ------------
 orderNumber | number/string | Unique order number without prefixes/suffixes, e.g. `34`. **COMING SOON:** For **completed orders** `orderNumber` will work as described earlier. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `orderNumber` will be a unique cart ID of type *string* and it will look like this: `"551c5edd-5fae-40c1-99a9-25095df20e4f"`
 vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`. **COMING SOON:** For **completed orders**, `vendorOrderNumber` will work as described earlier. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `vendorOrderNumber` will be a unique cart ID and will look like this: `"551c5edd-5fae-40c1-99a9-25095df20e4f"`
-subtotal |  number | Order subtotal
-total | number | Order total cost
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
@@ -729,8 +729,8 @@ Field | Type |  Description
 ------| -----| ------------
 orderNumber | number/string | Unique order number without prefixes/suffixes, e.g. `34`. **COMING SOON:** For **completed orders** `orderNumber` will work as described earlier. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `orderNumber` will be a unique cart ID of type *string* and it will look like this: `"551c5edd-5fae-40c1-99a9-25095df20e4f"`
 vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`. **COMING SOON:** For **completed orders**, `vendorOrderNumber` will work as described earlier. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `vendorOrderNumber` will be a unique cart ID and will look like this: `"551c5edd-5fae-40c1-99a9-25095df20e4f"`
-subtotal |  number | Order subtotal
-total | number | Order total cost
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
@@ -1547,8 +1547,8 @@ A JSON object of type 'Order' with the following fields:
 #### Order
 Field | Type |  Description
 ------| -----| ------------
-subtotal |  number | Order subtotal
-total | number | Order total cost
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
@@ -1885,8 +1885,8 @@ A JSON object of type 'Order' with the following fields:
 #### Order
 Field | Type |  Description
 ------| -----| ------------
-subtotal |  number | Order subtotal
-total | number | Order total cost
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
