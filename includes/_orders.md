@@ -17,7 +17,7 @@ Cache-Control: no-cache
 
 To get abandoned sale information, specify `INCOMPLETE` for `paymentStatus` filter when searching for orders.
 
-**Coming soon**: Abandoned sales have a unique cart identification in `orderNumber` field. Because of that, the `orderNumber` field in return from the Ecwid REST API will be of type *string* and will look like this: `"551c5edd-5fae-40c1-99a9-25095df20e4f"`
+**Coming soon**: Abandoned sales will not have an `orderNumber` or `vendorOrderNumber` assigned to them. Instead, they will have a unique order id in `orderNumber` and `vendorOrderNumber` field. 
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -280,8 +280,8 @@ items | Array\<*OrderEntry*\> | The items list
 #### OrderEntry
 Field | Type |  Description
 ------| -----| ------------
-orderNumber | number/string | Unique order number without prefixes/suffixes, e.g. `34`. **COMING SOON:** For **completed orders** `orderNumber` will work as described earlier. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `orderNumber` will be a unique cart ID of type *string* and it will look like this: `"551c5edd-5fae-40c1-99a9-25095df20e4f"`
-vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`. **COMING SOON:** For **completed orders**, `vendorOrderNumber` will work as described earlier. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `vendorOrderNumber` will be a unique cart ID and will look like this: `"551c5edd-5fae-40c1-99a9-25095df20e4f"`
+orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`. **COMING SOON:** For **completed orders** `orderNumber` will work as usual. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `orderNumber` will be a unique order ID.
+vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`. **COMING SOON:** For **completed orders**, `vendorOrderNumber` will work as usual. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `vendorOrderNumber` will be a unique order ID.
 subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
@@ -727,8 +727,8 @@ A JSON object of type 'Order' with the following fields:
 #### Order
 Field | Type |  Description
 ------| -----| ------------
-orderNumber | number/string | Unique order number without prefixes/suffixes, e.g. `34`. **COMING SOON:** For **completed orders** `orderNumber` will work as described earlier. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `orderNumber` will be a unique cart ID of type *string* and it will look like this: `"551c5edd-5fae-40c1-99a9-25095df20e4f"`
-vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`. **COMING SOON:** For **completed orders**, `vendorOrderNumber` will work as described earlier. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `vendorOrderNumber` will be a unique cart ID and will look like this: `"551c5edd-5fae-40c1-99a9-25095df20e4f"`
+orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`. **COMING SOON:** For **completed orders** `orderNumber` will work as usual. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `orderNumber` will be a unique order ID.
+vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`. **COMING SOON:** For **completed orders**, `vendorOrderNumber` will work as usual. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `vendorOrderNumber` will be a unique order ID.
 subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
@@ -1538,7 +1538,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`. **Coming soon**: you can also use cart id you got from the order details in `orderNumber` field for abandoned sales (`paymentStatus` == INCOMPLETE).
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber` for completed orders. **Coming soon**: you can also use order id you got from the order details in the `orderNumber` field for abandoned sales (`paymentStatus` == `INCOMPLETE`).
 
 ### Request body
 

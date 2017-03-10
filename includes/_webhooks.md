@@ -19,7 +19,7 @@ Don’t use webhooks themselves as actionable items – please see the <a href="
 
 In a nutshell, webhooks in Ecwid work this way:
 
-* Ecwid will use the `Webhook URL` from your application details to send webhooks there
+* Ecwid will use the `Webhook URL` from your application details to send any available webhooks to that single URL
 * When a user (merchant) installs your application, the webhooks for this store are automatically enabled
 * Each supported event in the store (e.g. new order is placed) triggers an HTTP POST request to the URL your specified
 * Your application receives the requests and replies with `200 OK` to identify that it's received
@@ -61,7 +61,7 @@ The following events are supported:
 Setup process is easy. Once your application has a webhook URL specified in the settings and has a token with appropriate access level for the store, it will receive notifications automatically. More details on these are below.
 
 ### 1. Set webhook URL
-After you successfully [registered your application](/register) with Ecwid, please contact us and provide a webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable or modify webhooks for existing application, please contact us as well.
+After you successfully [registered your application](/register) with Ecwid, please contact us and provide a single webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable or modify webhooks for existing application, please contact us as well.
 
 <aside class="notice">
 This must be a <strong>publicly accessible HTTPS URL</strong>. 
