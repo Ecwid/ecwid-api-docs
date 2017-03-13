@@ -428,9 +428,11 @@ When an event occurs, Ecwid will immediately try to send a webhook to your endpo
 
 This case also includes situations when your endpoint is performing redirects to other pages. In that case, it responds with 301 HTTP code, thus the webhook isn't delivered properly.
 
+Try sending a dummy POST request to your webhooks URL and see if it accepts the request correctly with 200OK HTTP status code. [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) is great for testing the requests.
+
 **Ecwid can't access your endpoint**
 
-When [setting up webhooks](#setting-up-webhooks), make sure that your endpoint is publicly accessible by any resource (no local servers, etc.). This way, Ecwid services can successfully send and deliver POST requests to yoru endpoint.
+When [setting up webhooks](#setting-up-webhooks), make sure that your endpoint is publicly accessible by any resource (no local servers, etc.). This way, Ecwid services can successfully send and deliver POST requests to your endpoint.
 
 **Webhooks are added to an existing application**
 
