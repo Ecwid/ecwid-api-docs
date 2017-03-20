@@ -443,7 +443,7 @@ categories | Array\<number\> | The list of category IDs the coupon can be applie
 #### ShippingOptionInfo
 Field | Type | Description
 ----- | ---- | -----------
-shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
+shippingCarrierName | string | Optional. Is present for orders made with carriers, e.g. `USPS` or shipping applications.
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | string | Delivery time estimation. Possible formats: number "5", several days estimate "4-9"
@@ -890,7 +890,7 @@ categories | Array\<number\> | The list of category IDs the coupon can be applie
 #### ShippingOptionInfo
 Field | Type | Description
 ----- | ---- | -----------
-shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
+shippingCarrierName | string | Optional. Is present for orders made with carriers, e.g. `USPS` or shipping applications.
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | string | Delivery time estimation. Possible formats: number "5", several days estimate "4-9"
@@ -1666,7 +1666,7 @@ categories | Array\<number\> | The list of category IDs the coupon can be applie
 #### ShippingOptionInfo
 Field | Type | Description
 ----- | ---- | -----------
-shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
+shippingCarrierName | string | Optional. Is present for orders made with carriers, e.g. `USPS` or shipping applications.
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | string | Delivery time estimation. Formats accepted: number "5", several days estimate "4-9"
@@ -2012,7 +2012,7 @@ categories | Array\<number\> | The list of category IDs the coupon can be applie
 #### ShippingOptionInfo
 Field | Type | Description
 ----- | ---- | -----------
-shippingCarrierName | string | Shipping carrier name, e.g. `USPS`
+shippingCarrierName | string | Optional. Is present for orders made with carriers, e.g. `USPS` or shipping applications.
 shippingMethodName | string | Shipping option name
 shippingRate | number | Rate
 estimatedTransitTime | string | Delivery time estimation. Formats accepted: number "5", several days estimate "4-9"

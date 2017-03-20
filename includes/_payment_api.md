@@ -10,7 +10,7 @@ Access scope required: <strong>add_payment_method</strong> (see <a href="#access
 
 # How to set up
 
-When [registering a new application](/register) for Ecwid, specify the payment URL and payment name for a new payment method. Ecwid will be sending order details requests to payment URL endpoint and expect the order status to be changed after the payment is complete.
+After you [registered a new application](/register) for Ecwid, send the payment URL for that new payment method by [contacting us](/contact). Ecwid will be sending order details requests to payment URL endpoint and expect the order status to be changed after the payment is complete.
 
 # How it works
 
@@ -20,7 +20,7 @@ After the installation, user would need a page where they can configure it. We r
 
 ### 2. Ecwid sends order data to app payment URL
 
-When registering your app, provide a payment URL where Ecwid will send **POST request** with order data as well as the [Merchant app settings](#merchant-settings-for-payment-method) when customer is at checkout stage. Your app will need to get request details, decrypt it and allow user to make a payment for the order.
+After registering your app, contact us and provide a payment URL where Ecwid will send **POST request** with order data as well as the [Merchant app settings](#merchant-settings-for-payment-method) when customer is at checkout stage. Your app will need to get request details, decrypt it and allow user to make a payment for the order.
 
 ### 3. Customer finishes the checkout
 
