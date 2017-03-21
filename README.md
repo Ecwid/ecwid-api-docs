@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+## March 21, 2017
+- We updated the `priceInProductList` field for [products endpoint](https://developers.ecwid.com/api-documentation#products). Now it will take into account the default product options when returning the value as well as the combinations. This way, this field is now returning the price as it is displayed in the storefront (without taxes applied).
+
 ## February 16, 2017
 - **NEW** Added `showOnFrontpage` field to [products endpoint](https://developers.ecwid.com/api-documentation#products) in the Ecwid REST API. Now when you search/get/update/create products, you can control whether that product will be shown on the store front page.
 

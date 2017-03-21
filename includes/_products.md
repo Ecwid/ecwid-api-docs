@@ -649,7 +649,7 @@ unlimited | boolean | `true` if the product has unlimited stock
 inStock | boolean | `true` if the product or any of its combinations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
 price | number |  Base product price
-priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
+priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has options and combinations and the default combination's price is different from the base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
@@ -1194,7 +1194,7 @@ unlimited | boolean | `true` if the product has unlimited stock
 inStock | boolean | `true` if the product or any of its combinations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
 price | number |  Base product price
-priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has combinations and the default combination's price is different from the base product price
+priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has options and combinations and the default combination's price is different from the base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
