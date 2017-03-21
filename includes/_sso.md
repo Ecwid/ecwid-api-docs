@@ -65,12 +65,12 @@ To specify that no user is logged in, pass an empty payload either to the `ecwid
 
 ## SSO payload
 
-> Generate SSO payload and send it to Ecwid to log the user in Ecwid
+> Generate SSO payload and send it to Ecwid to log the user in Ecwid (Example)
 
 ```php
 <?php
-    $client_secret = "A1Lu7ANIhKD6A1Lu7ANIhKD6ADsaSdsa";
-    $message = base64_encode("{appClientId: 'my-cool-app', userId:'234',profile:{email:'test@example.com'}}");
+    $client_secret = "A1Lu7ANIhKD6A1Lu7ANIhKD6ADsaSdsa"; // example value
+    $message = base64_encode("{appClientId: 'my-cool-app', userId:'234',profile:{email:'test@example.com'}}"); // example values
     $timestamp = time();
     $hmac = hash_hmac('sha1', "$message $timestamp", $client_secret);
 
@@ -209,7 +209,7 @@ Field | Type  | Description
 
 ## SSO implementation examples
 
-> Ecwid SSO API implementation example
+> Ecwid SSO API implementation (Example)
 
 ```html
 <html><body>
@@ -217,7 +217,9 @@ Field | Type  | Description
 <?php
 if (!$_REQUEST['logoff']) {
         $profile = array(
-                'appClientId' => "my-cool-app",
+            // Example values used. Replace with your customer and app details
+
+                'appClientId' => "my-cool-app", 
                 'userId' => "234",
                 'profile' => array(
                         'email' => "test@example.com",
@@ -232,10 +234,11 @@ if (!$_REQUEST['logoff']) {
                         )
                 )
         );
+        $client_secret = "A1Lu7ANIhKD6A1Lu7ANIhKD6ADsaSdsa";    // this is an example client_secret value
         $message = json_encode($profile);
         $message = base64_encode($message);
         $timestamp = time();
-        $hmac = hash_hmac('sha1', "$message $timestamp", "A1Lu7ANIhKD6A1Lu7ANIhKD6ADsaSdsa");
+        $hmac = hash_hmac('sha1', "$message $timestamp", $client_secret);   
         echo "var ecwid_sso_profile='$message $hmac $timestamp'";
 } else {
         echo "var ecwid_sso_profile=''";
