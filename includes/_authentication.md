@@ -344,7 +344,7 @@ In case of applications that are installed on a device (such as a computer, a ce
 https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code&scope=read_store_profile+read_catalog+update_catalog+read_orders
 ```
 
-On the [Step #1](#get-access-token) (app requests a temporarily authorization code), application needs to send the following value as redirect_uri:
+On the [Step #1](#complete-oauth-flow) (app requests a temporarily authorization code), application needs to send the following value as redirect_uri:
 
 `urn:ietf:wg:oauth:2.0:oob`
 
@@ -375,7 +375,7 @@ On the [Step #2](#complete-oauth-flow) (Ecwid provides the app with a temporary 
 
 ### Changes in Step #3
 
-The [Step #3](#get-access-token) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
+The [Step #3](#complete-oauth-flow) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
 
 # App details page
 
