@@ -40,6 +40,7 @@ paymentMethod | string | Payment method used by customer
 shippingMethod | string | Shipping method chosen by customer
 paymentStatus | string | Comma separated list of order payment statuses to search. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string | Comma separated list of order fulfilment statuses to search. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
+orderNumber | number | Order number(s) separated by a comma. If this field is not empty, other filters are ignored
 
 <aside class="notice">
 If no filters are set in the URL, API will return all orders <strong>except for unfinished orders</strong>. To get unfinished orders, use <i>INCOMPLETE</i> value for <strong>paymentStatus</strong> parameter.
@@ -499,6 +500,12 @@ errorMessage | string | Error message
 
 
 ## Get order details
+
+#### Q: How can I request details of several orders at once?
+
+When you know the exact order numbers for orders you need, you can get those order details in one request (batch request). To do that, use the [Search orders](#search-orders) method: provide the order numbers you have in the `orderNumber` parameter separating them with a comma. 
+
+This way your app will save some time as you will be performing less requests to the Ecwid API and they will be much more efficient.
 
 > Request example
 
@@ -1439,6 +1446,10 @@ errorMessage | string | Error message
 ## Update order
 
 This request allows you to update existing orders in the store. When updating order information, you can omit unchanged fields – they will be ignored so the resulting order will keep the corresponding information unchanged. However, please mind that if you want to update the ordered items, you should submit all the items in the request. The omitted items will be removed. This is done this way to let you remove some purchased items from the order. 
+
+<aside class='note'>
+Access scopes required: <strong>read_orders, update_orders</strong>
+    </aside>
 
 > Request example
 

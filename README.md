@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+## March 23, 2017
+- We added an option to get order details of multiple specific orders if you know their order number. To do that, use the [search orders endpoint](https://developers.ecwid.com/api-documentation#search-orders) with the `orderNumber` filer - that's where you will need to specify your order numbers separated by a comma.
+
 ## March 21, 2017
 - We updated the `priceInProductList` field for [products endpoint](https://developers.ecwid.com/api-documentation#products). Now it will take into account the default product options when returning the value as well as the combinations. This way, this field is now returning the price as it is displayed in the storefront (without taxes applied).
 

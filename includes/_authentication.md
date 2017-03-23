@@ -198,7 +198,7 @@ read_catalog | Search products, get product options/combinations etc. Also allow
 update_catalog | Update product prices, upload images and e-goods, modify product attributes etc.
 create_catalog | Create new products
 read_orders | Get sales for a given period, retrieve order details etc. Also allows to receive push updates (webhooks) about changes in store orders.
-update_orders | Change order totals, switch order status, cancel orders etc.
+update_orders | Change order totals, switch order status, cancel orders etc. Requires `read_orders` scope to function
 create_orders | Place a new order in the store
 read_customers | Search customers or retrieve some particular customer data
 update_customers | Change customer profile data, add items to the customer address book etc.
@@ -374,6 +374,12 @@ On the [Step #2](#complete-oauth-flow) (Ecwid provides the app with a temporary 
 <aside class="notice">On this step, the app needs to react on the changes in the title tag content and parse it the same way as it would parse GET request query. So it is required that the application has access to the system browser or the ability to embed a browser control in the application.</aside>
 
 ### Changes in Step #3
+
+> Step #3: Request example
+
+```shell
+https://my.ecwid.com/api/oauth/token?client_id=abcd0123&client_secret=01234567890abcdefg&code=987654321hgfdsa&redirect_uri=urn:ietf:wg:oauth:2.0:oob&grant_type=authorization_code
+```
 
 The [Step #3](#complete-oauth-flow) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
 
