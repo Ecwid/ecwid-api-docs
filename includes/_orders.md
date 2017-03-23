@@ -501,7 +501,7 @@ errorMessage | string | Error message
 
 ## Get order details
 
-#### Q: How can I request details of several orders at once?
+### Q: How can I request details of several orders at once?
 
 When you know the exact order numbers for orders you need, you can get those order details in one request (batch request). To do that, use the [Search orders](#search-orders) method: provide the order numbers you have in the `orderNumber` parameter separating them with a comma. 
 
@@ -1447,9 +1447,8 @@ errorMessage | string | Error message
 
 This request allows you to update existing orders in the store. When updating order information, you can omit unchanged fields – they will be ignored so the resulting order will keep the corresponding information unchanged. However, please mind that if you want to update the ordered items, you should submit all the items in the request. The omitted items will be removed. This is done this way to let you remove some purchased items from the order. 
 
-<aside class='note'>
-Access scopes required: <strong>read_orders, update_orders</strong>
-    </aside>
+<aside class='note'>Access scopes required: <strong>read_orders</strong> and <strong>update_orders</strong></aside>
+
 
 > Request example
 
