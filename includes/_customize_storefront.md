@@ -529,6 +529,49 @@ Yes, when getting information about products and categories in an Ecwid store, y
 - [How to get URLs for products](#q-how-to-get-urls-for-products)
 - [How to get URLs for categories](#q-how-to-get-urls-for-categories)
 
+## Canonical URLs
+
+Canonical URLs on an HTML web page help the website's search rankings. When a website has multiple pages for a single content, you can specify a single canonical URL for search engines to use when referring to all those pages. This way, you can avoid having duplicate results in the search results thus improving the search engine rankings of your website pages.
+
+This can be helpful, when your store products are located in multiple categories at once – with canonical URL, you will direct potential buyers to that single URL and improve its positions in the search results.
+
+### How canonical URLs work
+
+When canonical URLs are enabled on the page with a store, Ecwid will dynamically update the canonical URL of the page the visitor is on. 
+
+**Store Front Page**
+
+For the store front page, Ecwid will always use the canonical URL that is already present on the page before Ecwid store was loaded.
+
+**Product and Category pages**
+
+If canonical URLs functionality is enabled, Ecwid will dynamically update the canonical URL of that page to match the current product or category that is currently opened. Ecwid will always refer to a unique canonical URL so that the products in multiple categories are addressed in the same way to get the most of the rankings on search engines. 
+
+### How to enable canonical URLs
+
+In order to enable canonical URLs functionality for your store pages, you will need to adjust the Ecwid integration code on your website by adding some JavaScript code. If you are using Ecwid starter site as the main store website then no action is required from you – the canonical URLs are already enabled there.
+
+> Adjusting Ecwid integration code to enable canonical URLs
+
+```html
+<script>
+  window.ec = window.ec || {};
+  window.ec.config = window.ec.config || {};
+  window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
+   
+  window.ec.config.enable_canonical_urls = true;
+  window.ec.config.canonical_base_url: "https://www.example.com/shop/"; // optional setting
+</script>
+```
+
+The `enable_canonical_urls` setting will 'tell' Ecwid to enable the canonical URLs functionality and it will work as described above. 
+
+The optional setting `canonical_base_url` allows you to control the base part of the canonical URL. 
+
+For example, if your store is located on: `https://mycoolshop.com/store` and you specify `canonical_base_url` setting as `https://www.example.com/shop/`, then Ecwid will use that setting's value to create canonical URLs for your store pages.
+
+In case if `canonical_base_url` is not specified, Ecwid will use the current URL of your store to create canonical URLs.
+
 # Add or modify features in storefront
 
 ## Add custom JavaScript code

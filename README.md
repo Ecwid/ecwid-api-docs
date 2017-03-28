@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+## March 28, 2017
+- **NEW** We added an option to enable canonical URLs for Ecwid stores in storefront. To enable them, you can add a couple of lines of JavaScript code to the page where the Ecwid store is located. [Learn more](https://developers.ecwid.com/api-documentation#canonical-urls)
+
 ## March 23, 2017
 - We added an option to get order details of multiple specific orders if you know their order number. To do that, use the [search orders endpoint](https://developers.ecwid.com/api-documentation#search-orders) with the `orderNumber` filer - that's where you will need to specify your order numbers separated by a comma.
 
