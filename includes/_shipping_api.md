@@ -235,7 +235,7 @@ handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 items | Array\<*OrderItems*\> | Array of customer's order items with basic details
 weight | number | Total weight of the order
-weightUnit | string | Active weight units in the store at the moment of the request
+weightUnit | string | Active weight units in the store at the moment of the request. [Formats and units](#weight-units)
 currency | string | Active currency in the store at the moment of the request
 predictedPackages | Array\<*PredictedPackage*\> | Predicted information about the packages to ship items in to customer
 shippingAddress | \<*ShippingAddressInfo*\> | Shipping address details (destination)
