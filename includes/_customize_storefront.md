@@ -560,7 +560,7 @@ In order to enable canonical URLs functionality for your store pages, you will n
   window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
    
   window.ec.config.enable_canonical_urls = true;
-  window.ec.config.canonical_base_url: "https://www.example.com/shop/"; // optional setting
+  window.ec.config.canonical_base_url = "https://www.example.com/shop/"; // optional setting
 </script>
 ```
 
