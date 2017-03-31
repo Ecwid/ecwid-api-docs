@@ -109,17 +109,21 @@ Please note that **this method allows to embed the storefront widget only**. If 
 <div id="my-store-1003"></div>
 <div id="productBrowser"></div>
 <script>
-window.ecwid_script_defer = true;
-var script = document.createElement('script');
-script.charset = 'utf-8';
-script.type = 'text/javascript';
-script.src = 'https://app.ecwid.com/script.js?1003';
-document.getElementById('my-store-1003').appendChild(script);
-window._xnext_initialization_scripts = [
-    { widgetType: 'ProductBrowser', id: 'productBrowser', arg: [
-        '"categoriesPerRow=3","views=grid(4,4) list(10) table(20)","categoryView=grid","searchView=list","style=","responsive=yes","id=productBrowser"'
-    ] }
-];</script>
+  window.ecwid_script_defer = true;
+  
+  var script = document.createElement('script');
+  script.charset = 'utf-8';
+  script.type = 'text/javascript';
+  script.src = 'https://app.ecwid.com/script.js?1003';
+
+  document.getElementById('my-store-1003').appendChild(script);
+
+  window._xnext_initialization_scripts = [
+      { widgetType: 'ProductBrowser', id: 'productBrowser', arg: [
+          '"categoriesPerRow=3","views=grid(4,4) list(10) table(20)","categoryView=grid","searchView=list","style=","responsive=yes","id=productBrowser"'
+      ] }
+  ];
+</script>
 ```
 
 Sometimes it is necessary to delay widget initialization while the website page finishes the initialization procedures. This is useful when the website is built dynamically using libraries such as **ReactJs**.
@@ -557,20 +561,12 @@ In order to enable canonical URLs functionality for your store pages, you will n
 <script>
   window.ec = window.ec || {};
   window.ec.config = window.ec.config || {};
-  window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
    
   window.ec.config.enable_canonical_urls = true;
-  window.ec.config.canonical_base_url: "https://www.example.com/shop/"; // optional setting
 </script>
 ```
 
-The `enable_canonical_urls` setting will 'tell' Ecwid to enable the canonical URLs functionality and it will work as described above. 
-
-The optional setting `canonical_base_url` allows you to control the base part of the canonical URL. 
-
-For example, if your store is located on: `https://mycoolshop.com/store` and you specify `canonical_base_url` setting as `https://www.example.com/shop/`, then Ecwid will use that setting's value to create canonical URLs for your store pages.
-
-In case if `canonical_base_url` is not specified, Ecwid will use the current URL of your store to create canonical URLs.
+The `enable_canonical_urls` setting will 'tell' Ecwid to enable the canonical URLs functionality and it will work as described above. Check out the example on the right.
 
 # Add or modify features in storefront
 

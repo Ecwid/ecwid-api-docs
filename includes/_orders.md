@@ -11,7 +11,7 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&customer={customer}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&orderNumber={orderNumber}&offset={offset}&limit={limit}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&customer={customer}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&offset={offset}&limit={limit}&token={token}`
 
 ### Q: How to get info about abandoned sales? 
 
@@ -24,12 +24,12 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 offset | number | Offset from the beginning of the returned items list (for paging)
-limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
+limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
 keywords |  string | Search term. Ecwid will look for this term in order number, ordered items and customer details. 
 couponCode | number | The code of coupon applied to order
 totalFrom |  number | Minimum product price
 totalTo | number | Maximum product price
-orderNumber | number | Order number
+orderNumber | number | Order number(s) separated by a comma. If this field is not empty, other filters are ignored
 vendorOrderNumber | string | Order number with prefix/suffix defined by admin
 customer | string | Customer search term. Searches for customer details in order, **except for `customerId`**
 createdFrom | string | Order placement date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
@@ -40,7 +40,6 @@ paymentMethod | string | Payment method used by customer
 shippingMethod | string | Shipping method chosen by customer
 paymentStatus | string | Comma separated list of order payment statuses to search. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string | Comma separated list of order fulfilment statuses to search. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
-orderNumber | number | Order number(s) separated by a comma. If this field is not empty, other filters are ignored
 
 <aside class="notice">
 If no filters are set in the URL, API will return all orders <strong>except for unfinished orders</strong>. To get unfinished orders, use <i>INCOMPLETE</i> value for <strong>paymentStatus</strong> parameter.

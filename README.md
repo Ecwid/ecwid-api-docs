@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+## March 31, 2017
+- **NEW** Added new REST API endpoints for working with abandoned carts in Ecwid and the date of the latest changes to them in [latest-stats](https://developers.ecwid.com/api-documentation#get-store-update-statistics) endpoint. [Learn more](https://developers.ecwid.com/api-documentation#carts)
+
 ## March 28, 2017
 - **NEW** We added an option to enable canonical URLs for Ecwid stores in storefront. To enable them, you can add a couple of lines of JavaScript code to the page where the Ecwid store is located. [Learn more](https://developers.ecwid.com/api-documentation#canonical-urls)
 
