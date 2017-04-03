@@ -20,7 +20,11 @@ After the installation, user would need a page where they can configure it: prov
 
 ### 2. Ecwid sends order data to app request URL
 
+The request to your app URL can be triggered by a customer in storefront or by an API request to order details calculation [endpoint](#calculate-order-details).
+
 To show new shipping methods in storefront, Ecwid will send a **POST request** to your endpoint with order details: items, customer address, merchant app settings, etc. That endpoint must respond to the request with the shipping rates for this configuration.
+
+In the case of an API request for calculating order details, the products and cart information itself can be different from what the store has. For example, some other application can create a custom storefront where it requests order calculation with items that are not present in the store. For these cases, your application should also provide correct discount calculations for the amount of cart information available.
 
 ### 3. Application returns the rates in a specific format
 

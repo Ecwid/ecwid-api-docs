@@ -29,7 +29,11 @@ When [registering a new application](/register) for Ecwid, specify the request U
 
 ### 1. Ecwid sends cart data to app request URL
 
+The request to your app URL can be triggered by a customer in storefront or by an API request to order details calculation [endpoint](#calculate-order-details).
+
 To apply new discounts for a cart in storefront, Ecwid will send a **POST request** to your endpoint with cart details: items, customer address, merchant app settings, etc.The request will be sent when the customer's cart changes - a new product is added to cart, shipping address is changed, etc. That endpoint must respond to the request with the applied discounts for this order and store configuration. 
+
+In the case of an API request for calculating order details, the products and cart information itself can be different from what the store has. For example, some other application can create a custom storefront where it requests order calculation with items that are not present in the store. For these cases, your application should also provide correct discount calculations for the amount of cart information available.
 
 ### 2. Application returns discounts in a specific format
 
