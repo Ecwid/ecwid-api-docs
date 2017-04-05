@@ -1,6 +1,10 @@
 # Store information
 
+Using the endpoints below you can get and update basic Ecwid store information like store name, merchant's email, company address, logos and more. 
+
 ## Get store profile
+
+Get basic information about an Ecwid store: settings, store location, email, etc. This request is available with any access token.
 
 > Request example
 
@@ -490,6 +494,8 @@ HTTP Status | Meaning
 500 | Cannot retrieve the coupon info because of an error on the server
 
 ## Update store profile
+
+Update basic store information in an Ecwid store: settings, store location, email, etc.
 
 > Request example -- update general info
 

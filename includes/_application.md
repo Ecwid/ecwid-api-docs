@@ -4,6 +4,8 @@ This endpoint allows you to get the status of the app in a specific Ecwid store.
 
 ## Get application status 
 
+Get application status in an Ecwid store.
+
 > Request example
 
 ```http

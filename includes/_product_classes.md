@@ -4,6 +4,8 @@ Product types (or product classes) are groups of products which share the same a
 
 ## Get product types
 
+Get all product types present in an Ecwid store. 
+
 ### Request
 
 > Request example
@@ -116,6 +118,8 @@ errorMessage | string | Error message
 
 ## Get product type
 
+Get the full details of a specific product type referring to its ID.
+
 ### Request
 
 > Request example
@@ -211,6 +215,8 @@ errorMessage | string | Error message
 
 
 ## Update product type
+
+Update the details of a specific product type referring to its ID.
 
 ### Request
 
@@ -310,6 +316,8 @@ errorMessage | string | Error message
 
 
 ## Create product type
+
+Create a new product type in an Ecwid store.
 
 ### Request
 
@@ -421,7 +429,7 @@ errorMessage | string | Error message
 
 ## Delete product type
 
-This request removes product type and its assigned attributes. The products that belong to this type will not be removed. They will be re-assigned to the General type
+Delete a specific product type and its assigned attributes. The products that belong to this type will not be removed. They will be re-assigned to the General type.
 
 ### Request
 

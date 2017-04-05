@@ -1,6 +1,10 @@
 # Customers
 
+It is possible to place orders without creating an account in a store – it depends on the store settings. Using the methods below you can get information about registered customers and modify them.
+
 ## Search customers
+
+Search for customers by a keyword or basic filters: number of orders made, name, email, customer group and more.
 
 ### Request
 
@@ -121,6 +125,8 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 ## Get customer
+
+Get full customers details referring to their ID in an Ecwid store.
 
 ### Request
 
@@ -270,6 +276,8 @@ errorMessage | string | Error message
 
 ## Create customer
 
+Create a new customer in an Ecwid store.
+
 ### Request
 
 > Request body
@@ -416,6 +424,8 @@ errorMessage | string | Error message
 
 ## Update customer
 
+Update details of an existing customer in an Ecwid store. 
+
 ### Request
 
 > Request body
@@ -529,6 +539,7 @@ All fields are optional
 A JSON object of type 'UpdateStatus' with the following fields:
 
 #### UpdateStatus
+
 Field | Type |  Description
 -------------- | -------------- | --------------
 updateCount | number | The number of update customers (`0` or `1` depending on whether the request was successful)
@@ -563,21 +574,9 @@ errorMessage | string | Error message
 
 
 
-
-
-
-
-
-
-
-
-<!--
----------------------------------------------------------------------------------------------------------
-    Delete customer
----------------------------------------------------------------------------------------------------------
--->
-
 ## Delete customer
+
+Delete a specific customer from an Ecwid store referring to their ID.
 
 > Request example
 

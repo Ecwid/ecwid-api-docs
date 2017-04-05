@@ -1,6 +1,10 @@
 # Categories
 
+Using the methods below you can search/get/update/delete categories in an Ecwid store. It is possible to change the category name, its products, image and more. 
+
 ## Get categories
+
+Search or filter categories in a store catalog. The response provides basic details of found categories.
 
 ### Request
 
@@ -249,6 +253,8 @@ It is possible to use the `cleanUrls` parameter together with the `baseUrl` para
 
 ## Get category
 
+Get full category details from an Ecwid store referring to its ID.
+
 > Request example
 
 ```http
@@ -423,6 +429,8 @@ It is possible to use the `cleanUrls` parameter together with the `baseUrl` para
 
 ## Add new category
 
+Create a new category in an Ecwid store catalog.
+
 ### Request
 
 > Request body
@@ -510,6 +518,8 @@ HTTP Status | Meaning
 500 | Server error
 
 ## Update category
+
+Update an existing category in an Ecwid store referring to its ID.
 
 ### Request
 
@@ -600,6 +610,8 @@ HTTP Status | Meaning
 
 
 ## Delete a category
+
+Delete a category in an Ecwid store referring to its ID.
 
 > Request example
 
@@ -760,6 +772,8 @@ errorMessage | string | Error message
 
 
 ## Delete category image
+
+Delete the category image from an Ecwid store.
 
 > Request example
 

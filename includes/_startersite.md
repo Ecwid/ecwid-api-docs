@@ -1,6 +1,6 @@
 # Starter Site
 
-Ecwid API features several endpoints to control the presentation of Starter site. Learn more about Ecwid Starter site: [https://support.ecwid.com/hc/en-us/articles/207100069-Starter-site](https://support.ecwid.com/hc/en-us/articles/207100069-Starter-site)
+Ecwid API features several endpoints to control the presentation of Starter site. Learn more about the [Ecwid Starter site](https://support.ecwid.com/hc/en-us/articles/207100069-Starter-site)
 
 <aside class="note">Access scope required: <strong>update_store_profile</strong></aside>
 

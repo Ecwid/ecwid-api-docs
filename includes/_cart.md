@@ -1,6 +1,12 @@
 # Carts
 
+When a customer leaves an online store without making a purchase it is recorded as an abandoned cart in Ecwid. The methods below describe how you can search for abandoned carts, place them as completed orders or update its contents. Learn more about abandoned carts in the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/207806235-Orders#Unfinishedsales).
+
+You can also calculate the order total and available shipping methods using the [special endpoint](#calculate-order-details) in the Ecwid API. It is useful for storefronts with a custom checkout process.
+
 ## Search abandoned carts
+
+Search for abandoned carts in an Ecwid stores and filter the results by create/update date, customer, order total.
 
 > Request example
 
@@ -478,6 +484,8 @@ errorMessage | string | Error message
 
 ## Get abandoned cart
 
+Get details of an abandoned cart using its unique cart ID.
+
 > Request example
 
 ```http
@@ -935,6 +943,8 @@ errorMessage | string | Error message
 
 
 ## Update abandoned cart
+
+Update the details of specific abandoned cart using its unique cart ID.
 
 > Request example
 
@@ -1569,7 +1579,7 @@ Cache-Control: no-cache
 
 ```
 
-Converts the abandoned cart into a finished order in an Ecwid store.
+Converts the abandoned cart into a completed order in an Ecwid store.
 
 `POST https://app.ecwid.com/api/v3/{storeId}/carts/{cartID}/place?token={token}`
 

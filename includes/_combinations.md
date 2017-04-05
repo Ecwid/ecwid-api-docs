@@ -1,6 +1,14 @@
 # Product combinations
 
+Using the methods below you can get/update/delete combinations and their details in an Ecwid store. Learn more about product combinations in the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/207100299-Product-Combinations).
+
+<aside class='note'>
+Product Combinations are available on the Ecwid's <a href='https://www.ecwid.com/pricing'>Business plan and higher</a>.
+</aside>
+
 ## Get all product combinations
+
+Get all combinations of a specific product in an Ecwid store.
 
 > Request example
 
@@ -184,6 +192,8 @@ HTTP Status | Meaning
 
 
 ## Get product combination
+
+Get a specific product combination details referring to its ID.
 
 > Request example
 
@@ -412,6 +422,8 @@ HTTP Status | Meaning
 
 ## Update product combination
 
+Update a specific product combination details referring to its ID.
+
 > Request example
 
 ```http
@@ -512,6 +524,8 @@ HTTP Status | Meaning
 
 ## Delete product combination
 
+Delete a specific product combination referring to its ID.
+
 > Request example
 
 ```http
@@ -571,17 +585,9 @@ HTTP Status | Meaning
 
 
 
-
-
-
-
-
-
-
-
-
-
 ## Delete all product combinations
+
+Delete all product combinations of a product in an Ecwid store.
 
 > Request example
 
@@ -728,6 +734,8 @@ errorMessage | string | Error message
 
 ## Upload combination image
 
+Upload a custom image for a specific product combination referring to its ID.
+
 > Request example
 
 ```http
@@ -837,6 +845,8 @@ errorMessage | string | Error message
 
 
 ## Delete combination image
+
+Delete an image of a specific product combination in an Ecwid store.
 
 > Request example
 

@@ -6,6 +6,8 @@ To manage customer groups in Ecwid stores, use this endpoint described below and
 
 ## Get all customer groups
 
+Get information about all customer groups in an Ecwid store.
+
 ### Request
 
 > Request example
@@ -98,6 +100,8 @@ errorMessage | string | Error message
 
 ## Get customer group
 
+Get information about a specific customer group in an Ecwid store referring to its ID.
+
 ### Request
 
 > Request example
@@ -164,6 +168,8 @@ errorMessage | string | Error message
 
 
 ## Create customer group
+
+Create a brand new customer group in an Ecwid store.
 
 ### Request
 
@@ -247,6 +253,8 @@ errorMessage | string | Error message
 
 ## Update customer group
 
+Update an existing customer group in an Ecwid store referring to its ID.
+
 ### Request
 
 > Request body
@@ -295,6 +303,7 @@ Field | Type  | Description
 A JSON object of type 'UpdateStatus' with the following fields:
 
 #### UpdateStatus
+
 Field | Type |  Description
 -------------- | -------------- | --------------
 updateCount | number | The number of update customers (`0` or `1` depending on whether the request was successful)
@@ -328,6 +337,8 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 ## Delete customer group
+
+Delete a customer group in an Ecwid store referring to its ID.
 
 > Request example
 

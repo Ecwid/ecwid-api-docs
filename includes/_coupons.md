@@ -1,6 +1,12 @@
 # Discount Coupons
 
+Discount coupons allow customers to get discounts on their orders in the checkout process. For store owners it's a great way to increase sales or make a temporary promotion.
+
+Learn more about discount coupons in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207806525-Discount-Coupons).
+
 ## Search coupons
+
+Search or filter discount coupons in an Ecwid store. Filters include: discount coupon code, type, availability.
 
 ### Request
 
@@ -247,6 +253,8 @@ HTTP Status | Meaning
 
 ## Create coupon
 
+Create a new discount coupon in an Ecwid store.
+
 ### Request
 
 > Request body
@@ -365,6 +373,8 @@ errorMessage | string | Error message
 
 
 ## Update coupon
+
+Update an existing discount coupon in an Ecwid store referring to its code or ID.
 
 ### Request
 
@@ -511,6 +521,8 @@ errorMessage | string | Error message
 
 
 ## Delete coupon
+
+Delete a specific coupon from an Ecwid store referring to its code or ID.
 
 > Request example
 

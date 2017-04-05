@@ -1,6 +1,10 @@
 # Orders
 
+The endpoints below allow you to search/create/update/delete orders in an Ecwid store. Learn more about orders in Ecwid in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207806235-Orders).
+
 ## Search orders
+
+Search or filter orders in an Ecwid store. The response provides full details of the found orders.
 
 > Request example
 
@@ -13,9 +17,10 @@ Cache-Control: no-cache
 
 `GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&customer={customer}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&offset={offset}&limit={limit}&token={token}`
 
-### Q: How to get info about abandoned sales? 
+#### Q: How to get info about abandoned sales? 
 
 To get abandoned sale information, specify `INCOMPLETE` for `paymentStatus` filter when searching for orders.
+Also, check out the [carts endpoint](#carts) methods for additional info.
 
 **Coming soon**: Abandoned sales will not have an `orderNumber` or `vendorOrderNumber` assigned to them. Instead, they will have a unique order id in `orderNumber` and `vendorOrderNumber` field. 
 
@@ -500,7 +505,9 @@ errorMessage | string | Error message
 
 ## Get order details
 
-### Q: How can I request details of several orders at once?
+Get all available information about an order referring to its ID. The order details include: customer email, payment/shipping method, items purchased and more.
+
+#### Q: How can I request details of several orders at once?
 
 When you know the exact order numbers for orders you need, you can get those order details in one request (batch request). To do that, use the [Search orders](#search-orders) method: provide the order numbers you have in the `orderNumber` parameter separating them with a comma. 
 
@@ -955,7 +962,7 @@ errorMessage | string | Error message
 
 ## Get order invoice
 
-Get invoice HTML code for a specific order placed in a store.
+Get HTML code of an invoice for a specific order placed in an Ecwid store.
 
 > Request example
 
@@ -1444,7 +1451,9 @@ errorMessage | string | Error message
 
 ## Update order
 
-This request allows you to update existing orders in the store. When updating order information, you can omit unchanged fields – they will be ignored so the resulting order will keep the corresponding information unchanged. However, please mind that if you want to update the ordered items, you should submit all the items in the request. The omitted items will be removed. This is done this way to let you remove some purchased items from the order. 
+This request allows you to update existing orders in an Ecwid store. When updating order information, you can omit unchanged fields – they will be ignored so the resulting order will keep the corresponding information unchanged. 
+
+However, please mind that if you want to update the ordered items, you should submit all the items in the request. The omitted items will be removed. This is done this way to let you remove some purchased items from the order. 
 
 <aside class='note'>Access scopes required: <strong>read_orders</strong> and <strong>update_orders</strong></aside>
 
@@ -1751,6 +1760,8 @@ errorMessage | string | Error message
 
 ## Delete order
 
+Delete a specific order in an Ecwid store referrint to its ID.
+
 > Request example
 
 ```http
@@ -1880,8 +1891,10 @@ Field | Type | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
+Create a new order in an Ecwid store. This can be useful for storefronts with a custom checkout process or manually creating orders for sales made earlier.
+
 <aside class="note">
-    When making a request with [public access token](#access-tokens), there are a few differences applied: 
+    When making a request with <a href='#access-tokens'>public access token</a>, there are a few differences applied: 
     <ul><li>The <strong>paymentStatus</strong> can only be "AWAITING_PAYMENT" or "INCOMPLETE". Any other value is ignored.</li>
         <li>The <strong>fulfillmentStatus</strong> can only be "AWAITING_PROCESSING". Any other value is ignored.</li>
         <li><strong>privateAdminNotes</strong> field is always ignored.</li></ul>
@@ -2201,7 +2214,7 @@ errorMessage | string | Error message
 
 ## Delete item option file
 
-Using this method, you can remove a file attached to an order item option by customer.
+Customers can attach files to product options when adding products to cart. Using this method, you can remove that file from an order.
 
 > Request example
 

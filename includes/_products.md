@@ -1,8 +1,10 @@
 # Products
 
+Using the methods below you can search/create/modify/delete products in an Ecwid store. In the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/208078855-Products) you can learn more about the products in Ecwid.
+
 ## Search products
 
-Search/filter store products
+Search or filter products in a store catalog. The response provides full details of found products.
 
 ### Request
 
@@ -893,7 +895,7 @@ It is possible to use the `cleanUrls` parameter together with the `baseUrl` para
 
 ## Get a product
 
-This method allows you to get all details of a specific product in an Ecwid store. 
+Get all details of a specific product in an Ecwid store by its ID.
 
 #### Q: How can I request details of several products at once?
 
@@ -1435,6 +1437,8 @@ It is possible to use the `cleanUrls` parameter together with the `baseUrl` para
 
 ## Add a product
 
+Create a new product in an Ecwid store. 
+
 ### Request
 
 > Request body
@@ -1624,6 +1628,8 @@ errorCode | string | Error code
 
 
 ## Update a product
+
+Update an existing product in an Ecwid store referring to its ID.
 
 > Request example
 
@@ -1833,6 +1839,7 @@ Cache-Control: no-cache
     "quantityDelta": -10
 }
 ```
+
 When your integration changes in stock quantity of products in a store pretty often, it becomes harder and harder to keep track of how many items are actually in stock. For example, when at one point of time you have 3 items in stock and 5 in the very next second, then using the specific values can result in incorrect stock quantity.
 
 This method solves this very problem: you can increase or decrease the product's stock quantity by a delta quantity. For example, if you need to decrease quantity by 10 items, you can use this method. 
@@ -1900,6 +1907,8 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 ## Delete a product
+
+Delete a product from an Ecwid store referring to its ID.
 
 > Request example
 
@@ -2072,6 +2081,8 @@ errorMessage | string | Error message
 
 ## Delete product image
 
+Delete the main image of a product in an Ecwid store.
+
 > Request example
 
 ```http
@@ -2242,6 +2253,8 @@ errorMessage | string | Error message
 
 ## Delete gallery image
 
+Delete an image from a product gallery in an Ecwid store. 
+
 > Request example
 
 ```http
@@ -2309,6 +2322,8 @@ errorMessage | string | Error message
 
 
 ## Delete all gallery images
+
+Delete all images from a product gallery in an Ecwid store.
 
 > Request example
 
@@ -2379,7 +2394,7 @@ errorMessage | string | Error message
 
 ## Download product file
 
-Download a product file by file ID. 
+Download a product file referring to its file ID. 
 
 > Request example
 
@@ -2435,6 +2450,8 @@ errorMessage | string | Error message
 
 
 ## Upload product file
+
+Upload a file to a product in an Ecwid store.
 
 > Request example
 
@@ -2549,6 +2566,8 @@ errorMessage | string | Error message
 
 ## Update product file description
 
+Update file description in a product in an Ecwid store.
+
 > Request example
 
 ```http
@@ -2628,6 +2647,8 @@ errorMessage | string | Error message
 
 ## Delete product file
 
+Delete a file from a product in an Ecwid store.
+
 > Request example
 
 ```http
@@ -2691,6 +2712,8 @@ errorMessage | string | Error message
 
 
 ## Delete all product files
+
+Delete all product files from a product in an Ecwid store.
 
 > Request example
 
