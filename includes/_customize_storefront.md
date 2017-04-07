@@ -777,6 +777,30 @@ Ecwid can be embedded to a website in many ways. Sometimes a storefront can be i
 
 `setPopupCentering()` function accepts one argument, which is the ID of an iframe element, where Ecwid storefront is loaded. In order to work, `setPopupCentering()` function needs to have `iframeintegration.js` file loaded for that frame. 
 
+## Custom URL redirect after online purchase 
+
+> Setting custom URL redirect after online purchase
+
+```html
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.custom_redirect_after_purchase = 'YOUR CUSTOM URL HERE';
+</script>
+```
+
+```html
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.custom_redirect_after_purchase = 'https://mycoolstore.com/thank-you.html';
+</script>
+```
+
+Some merchants may want to send their customers after a successful online purchase to a custom URL. Using the configuration on the right you can set the URL where the customer should be redirected. 
+
+**Important**: the redirect will work only for [online payment methods](https://support.ecwid.com/hc/en-us/articles/207100429-Payment-options#OnlinepaymentmethodsOrIwanttoacceptcreditcards). For offline payment methods, consider using the [Custom URL for 'Thank you' page](https://github.com/Ecwid/custom-thank-you-page-app) application.
+
 
 ## Storefront JavaScript API
 
