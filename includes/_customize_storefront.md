@@ -468,6 +468,10 @@ Ecwid allows to change the store URLs accordingly, so that they look like this:
 
 Follow the steps below to enable SEO-friendly URLs in an Ecwid store.
 
+<aside class='note'>
+  If you have your Ecwid store installed on a platform or sitebuilder including Wordpress, Wix, Adobe Muse or Ecwid Starter Site, you should have the clean URLs enabled automatically (see the <a target="_blank" href='https://www.ecwid.com/blog/new-clean-seo-urls-in-ecwid.html'>blog post</a> for the details). 
+</aside>
+
 ### How to enable SEO-friendly URLs
 
 **Step 1. Configure your server: add URL rewrite rules.**
@@ -519,6 +523,106 @@ etc.
 <aside class='notice'>
 We recommend using <strong>relative URLs</strong> in the <em>baseUrl</em> parameter. But you can also specify an absolute baseUrl if needed, e.g. "https://www.mysite.com/subfolder/shop/cart". <br/><br/>In such case, make sure it is under the same domain a visitor browses the site. E.g. if it includes 'www', do include 'www' in the base URL; if it contains https, do use https in the base URL. If the base URL domain or schema differ from the actual ones, the visitor browser will block URL rewrites and the SEO URls will not work. 
 </aside>
+
+### Examples
+
+Below are examples of clean URLs setup on custom made websites.
+
+**1. The Ecwid store is placed on the “shop.html” page in the web root directory**
+
+Let’s say the Ecwid store was added to the `shop.html` file on a server and it’s available on a site via `example.com/shop.html` URL.
+
+You now want to enable clean URLs on that page so that the store pages URLs will look like this:
+
+* example.com/shop/My-Product-p123
+* example.com/shop/My-Category-c123
+
+Assuming your site structure looks like this:
+
+- [www]
+  - .htaccess
+  - shop.html
+
+> 1) Map all “shop/something” pages to shop.html in the .htaccess file:
+
+```
+  <IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^shop/.*$ shop.html
+  </IfModule>
+```
+
+> 2) Turn on clean URLs in your store integration code in the shop.html file:
+
+```html
+<script>
+  window.ec = window.ec || {};
+  window.ec.config = window.ec.config || {};
+  window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
+     
+  window.ec.config.storefrontUrls.cleanUrls = true;
+  window.ec.config.baseUrl = '/shop';
+</script>
+    
+<!-- Here goes the store integration code -->
+```
+
+You’ll enable clean URLs in two steps. Please see them on the right. 
+
+That's it. Now open the storefront, navigate to any product page and refresh the page in your browser. Both navigation and page opening after refresh should work fine and you should see the new clean URLs enabled.
+
+**2. The Ecwid store is placed on the site home page**
+
+Let’s say the Ecwid store is added to the `index.html` file on a server and it’s available on the site home page, e.g. `example.com` URL. 
+
+You now want to enable clean URLs on that page so that your store pages URLs will look like this:
+
+* example.com/My-Product-p123
+* example.com/My-Category-c123
+
+At the same time, you want to keep the other pages of your site to open at their current URLs, e.g. 
+
+- example.com/some_other_page.html
+
+Assuming your site structure looks like this:
+
+  - [www]
+    - .htaccess
+    - index.html
+    - some_other_page.html
+
+You’ll do that in two steps: 
+
+>1) Map store pages to index.html in the .htaccess file (notice how we specify only Ecwid pages here to avoid the other site pages to be redirected):
+
+```
+    <IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^.*-p[\d]+$ index.html
+    RewriteRule ^.*-c[\d]+$ index.html
+    RewriteRule ^cart$ index.html
+    RewriteRule ^search.*$ index.html
+    RewriteRule ^checkout/.+$ index.html
+    RewriteRule ^account/.+$ index.html
+    RewriteRule ^pages/.+$ index.html
+    </IfModule>
+```
+
+>2) Turn on clean URLs in your store integration code in the shop.html file:
+
+```html
+<script>
+  window.ec = window.ec || {};
+  window.ec.config = window.ec.config || {};
+  window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
+     
+  window.ec.config.storefrontUrls.cleanUrls = true;
+</script>
+    
+<!-- Here goes the store integration code -->
+```
+
+That's it. Now open the storefront, navigate to any product page and refresh the page in your browser. Both navigation and page opening after refresh should work fine and you should see the new clean URLs enabled.
 
 ### FAQ
 
