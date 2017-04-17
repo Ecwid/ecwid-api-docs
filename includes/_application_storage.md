@@ -128,7 +128,7 @@ Retrieves all stored data for the given store ID. Public application config can 
 > Request example
 
 ```http
-GET /api/v3/805056/storage?token=487487437834aasdfd HTTP/1.1
+GET /api/v3/1003/storage?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -184,7 +184,7 @@ Retrieves the stored data for the given store ID by the given key. Public applic
 > Request example
 
 ```http
-GET /api/v3/805056/storage/birth_date?token=487487437834aasdfd HTTP/1.1
+GET /api/v3/1003/storage/birth_date?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -193,7 +193,7 @@ Cache-Control: no-cache
 > Get public app config example
 
 ```http
-GET /api/v3/805056/storage/public?token=487487437834aasdfd HTTP/1.1
+GET /api/v3/1003/storage/public?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -270,7 +270,7 @@ Use this method to put a new data into the storage. If the key you specify in th
 > Request example
 
 ```http
-POST /api/v3/805056/storage/my_key?token=487487437834aasdfd HTTP/1.1
+POST /api/v3/1003/storage/my_key?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -325,7 +325,7 @@ Use this method to update data in the storage. If the key you specify in the req
 > Request example
 
 ```http
-PUT /api/v3/805056/storage/my_key?token=487487437834aasdfd HTTP/1.1
+PUT /api/v3/1003/storage/my_key?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -381,7 +381,7 @@ Use this method to delete data in the storage by key.
 > Request example
 
 ```http
-DELETE /api/v3/805056/storage/my_key?token=487487437834aasdfd HTTP/1.1
+DELETE /api/v3/1003/storage/my_key?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -467,7 +467,7 @@ EcwidApp.setAppPublicConfig(categoryId, function(){
 > Server-side or external app example: 
 
 ```http
-POST /api/v3/805056/storage/public?token=4884asd HTTP/1.1
+POST /api/v3/1003/storage/public?token=4884asd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
