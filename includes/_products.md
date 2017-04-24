@@ -6,6 +6,10 @@ Using the methods below you can search/create/modify/delete products in an Ecwid
 
 Search or filter products in a store catalog. The response provides full details of found products.
 
+<aside class='notice'>
+To get products from Store Front Page, specify <strong>&category=0</strong> in your request.
+</aside>
+
 ### Request
 
 > Request examples
@@ -30,7 +34,7 @@ Name | Type | Description
 keyword |  string | Search term. Use quotes to search for exact match. Ecwid searches products over multiple fields: <ul><li>title</li><li>description</li><li>SKU</li><li>product options</li><li>category name</li><li>gallery image descriptions</li><li>attribute values (except for hidden attributes)
 priceFrom |  number | Minimum product price
 priceTo | number | Maximum product price
-category | number | Category ID
+category | number | Category ID. To get Store Front Page products, specify `&category=0` in the request
 withSubcategories |  boolean | `true`/`false`: defines whether Ecwid should search in subcategories of the category you set in `category` field. Ignored if `category` field is not set . `false` is the default value
 sortBy |  string | Sort order. Supported values: <ul><li>`RELEVANCE` *default*</li> <li>`ADDED_TIME_DESC`</li> <li>`ADDED_TIME_ASC`</li> <li>`NAME_ASC`</li> <li>`NAME_DESC`</li> <li>`PRICE_ASC`</li> <li>`PRICE_DESC`</li><li>`UPDATED_TIME_ASC`</li><li>`UPDATED_TIME_DESC`</li></ul>
 offset | number | Offset from the beginning of the returned items list (for paging)
@@ -676,7 +680,7 @@ originalImageUrl |  string  | URL of the original not resized product image
 originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
-categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 categories | Array\<CategoriesInfo\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
@@ -687,7 +691,7 @@ files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the pr
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Combination*\> | List of the product combinations
 dimensions | \<ProductDimensions\> | Product dimensions info
-showOnFrontpage | number | If not `null`, the position (index) of a product in the store front page. If `null`, then product is not shown in the store front page
+showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
 
 #### FavoritesStats
 Field | Type  | Description
@@ -1221,7 +1225,7 @@ originalImageUrl |  string  | URL of the original not resized product image
 originalImage | \<ImageDetails\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
-categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 categories | Array\<CategoriesInfo\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
@@ -1232,7 +1236,7 @@ files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the pr
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Combination*\> | List of the product combinations
 dimensions | \<ProductDimensions\> | Product dimensions info
-showOnFrontpage | number | If not `null`, the position (index) of a product in the store front page. If `null`, then product is not shown in the store front page
+showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
 
 #### FavoritesStats
 Field | Type  | Description
@@ -1502,14 +1506,14 @@ warningLimit | number | The minimum 'warning' amount of the product items in sto
 fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 description | string  | Product description *in HTML*
-categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 dimensions | \<ProductDimensions\> | Product dimensions info
-showOnFrontpage | number | If not `null`, the position (index) of a product in the store front page. If `null`, then product is not shown in the store front page
+showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page. If no categories are assigned to product in `categoryIds` field, the `showOnFrontPage` will be `1`
 
 #### WholesalePrice
 Field | Type  | Description
@@ -1688,7 +1692,7 @@ warningLimit | number | The minimum 'warning' amount of the product items in sto
 fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 description | string  | Product description *in HTML*
-categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
@@ -1696,7 +1700,7 @@ attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images (for updating alt tags and sort order)
 dimensions | \<ProductDimensions\> | Product dimensions info
-showOnFrontpage | number | If not `null`, the position (index) of a product in the store front page. If `null`, then product is not shown in the store front page
+showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
 
 <aside class="notice">
 All fields are optional
@@ -1808,6 +1812,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Description | Code (optional)
 -------------- | -------------- | ---------------
 400 | Request parameters are malformed | 
+400 | Attribute `showOnFrontpage` was specified as a negative number when there are no categories assigned to product | Attribute `showOnFrontpage` can’t be negative, because the product has no categories
 402 | The functionality/method is not available on the merchant plan | 
 402 | The merchant plan product limit is reached | 
 404 | Some of the linked entities in the request doesn't exist. For example, the product class is not found | 
