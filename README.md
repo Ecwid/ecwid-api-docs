@@ -8,6 +8,13 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 #Changelog
 
+## April 25, 2017
+- We updated the installation flow and now it has only one option - web application. Earlier there was two options: web application and app installed on a device. With this change all current apps installed on a device continue to work the same way. But for the new applications we recommend using the Deep linking functionality for getting the access token. [Learn more](https://developers.ecwid.com/api-documentation#applications-installed-on-device)
+
+- Added examples on how to enable the new SEO-friendly URL format for Ecwid stores. [Learn more](https://developers.ecwid.com/api-documentation#seo-friendly-urls)
+
+- Added a way to get not hidden abandoned sales in an Ecwid store using the `showHidden` filter when searching for abandoned sales. [Learn more](https://developers.ecwid.com/api-documentation#search-abandoned-carts)
+
 ## March 31, 2017
 - **NEW** Added new REST API endpoints for working with abandoned carts in Ecwid and the date of the latest changes to them in [latest-stats](https://developers.ecwid.com/api-documentation#get-store-update-statistics) endpoint. [Learn more](https://developers.ecwid.com/api-documentation#carts)
 

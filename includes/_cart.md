@@ -17,22 +17,23 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/carts?totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&customer={customer}&offset={offset}&limit={limit}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/carts?showHidden={showHidden}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&customer={customer}&offset={offset}&limit={limit}&token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-offset | number | Offset from the beginning of the returned items list (for paging)
-limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
-couponCode | number | The code of coupon applied to order
+showHidden | boolean | If `true` Ecwid will show all abandoned carts found, even if store owner deleted them in the Ecwid Control Panel. If `false`, the response will provide abandoned carts with `hidden` field as `false` only. If not specified, the filter is set to `true`
 totalFrom |  number | Minimum product price
 totalTo | number | Maximum product price
-customer | string | Customer search term. Searches for customer details in order, **except for `customerId`**
 createdFrom | string | Order placement date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
 createdTo | string | Order placement date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
 updatedFrom | string | Order last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
 updatedTo | string | Order last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+couponCode | number | The code of coupon applied to order
+customer | string | Customer search term. Searches for customer details in order, **except for `customerId`**
+offset | number | Offset from the beginning of the returned items list (for paging)
+limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -501,7 +502,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**cartId** | string | Unique abandoned cart identifier
+**cartId** | string | Unique abandoned cart identifier. To get a correct response, the value must completely match the record in Ecwid
 
 <aside class="notice">
 Parameters in bold are mandatory

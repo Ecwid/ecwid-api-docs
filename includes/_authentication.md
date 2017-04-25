@@ -334,54 +334,13 @@ To implement oAuth flow in such an app, you will need enable support for multipl
 
 ## Applications installed on device
 
-In case of applications that are installed on a device (such as a computer, a cell phone, or a tablet), the application client_secret is in general less protected than in case of web services. Thus the process of [retrieving access token](#complete-oauth-flow) is changed as described below.
+In case of applications that are installed on a device (such as a computer, a cell phone, or a tablet), the application `client_secret` is in general less protected than in case of web services. Thus the process of [retrieving access token](#complete-oauth-flow) should be a bit different if you are building an app installed on a device. 
 
-### Changes in Step #1
+We suggest using a deep linking functionality in your application for installation. Deep linking allows applications to direct user to a specific page within the application, just like a regular URL on the Internet. 
 
-> Step #1: Request example
+[Learn more about deep linking and how to enable it in your application](https://savvyapps.com/blog/how-to-use-deep-linking-in-your-mobile-app).
 
-```shell
-https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=urn:ietf:wg:oauth:2.0:oob&response_type=code&scope=read_store_profile+read_catalog+update_catalog+read_orders
-```
-
-On the [Step #1](#complete-oauth-flow) (app requests a temporarily authorization code), application needs to send the following value as redirect_uri:
-
-`urn:ietf:wg:oauth:2.0:oob`
-
-The rest of request parameters are the same as for web services.
-
-<aside class="notice"> In case of Web services, if the app has been already authorized by user before current authorization attempt, Ecwid will simply redirect user back to the application with the code in request parameters (i.e. Ecwid will not ask user to authorize the app second time). In case of an installed application, Ecwid will ask user to provide permission every time a user is directed by the app to Ecwid authorization endpoint. </aside>
-
-
-### Changes in Step #2
-
-> Step #2: User grants permission
-
-```html
-<title>oauth_response:code=54xgQHmbZrrLTqzCiHPyw&amp;state=code</title>
-```
-
-> Step #2. User denies to provide the app with access
-
-```html
-<title>oauth_response:error=access_denied</title>
-```
-
-On the [Step #2](#complete-oauth-flow) (Ecwid provides the app with a temporary authorization code), Ecwid will not direct a user to `redirect_uri` after the user agrees or disagrees to provide the application with permissions. Instead, Ecwid opens an empty page and provides the code in the page's `<title>` tag. I.e., all the data is sent to application in the page title tag and no data is sent in GET request to the application. The format of data provided in the `<title>` tag is the following:
-
-`oauth_response:GET-query-as-it-would-be-transferred-via-redirect`
-
-<aside class="notice">On this step, the app needs to react on the changes in the title tag content and parse it the same way as it would parse GET request query. So it is required that the application has access to the system browser or the ability to embed a browser control in the application.</aside>
-
-### Changes in Step #3
-
-> Step #3: Request example
-
-```shell
-https://my.ecwid.com/api/oauth/token?client_id=abcd0123&client_secret=01234567890abcdefg&code=987654321hgfdsa&redirect_uri=urn:ietf:wg:oauth:2.0:oob&grant_type=authorization_code
-```
-
-The [Step #3](#complete-oauth-flow) (the app exchanges the temporarily authorization code to an access token) is not changed. Everything works the same way for installed apps as it does for web apps.
+Once this process is done, [contact us](/contact) and provide the Redirect URL where you want to direct users after the app is installed in their Ecwid store.
 
 # App details page
 
