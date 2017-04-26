@@ -4,7 +4,9 @@ Using the methods below you can search/get/update/delete categories in an Ecwid 
 
 ## Get categories
 
-Search or filter categories in a store catalog. The response provides basic details of found categories.
+Search or filter categories in a store catalog. The response provides basic details of found categories. 
+
+The order of categories in response sometimes does not represent their order in the Ecwid Control Panel or storefront. To have categories in that order, check the `orderBy` field value for each category returned by Ecwid and use it as a sort index in your application.
 
 ### Request
 

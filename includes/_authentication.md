@@ -274,6 +274,8 @@ https://www.example.com/myapp?error=access_denied
 
 Upon authorization, Ecwid redirects the user to the application's `redirect_uri` specified in request with a `code` parameter in that URL. The value of this parameter **is not an actual token for the store** and it must be exchanged for the token in the next step of the process.
 
+If your application is installed on a device (mobile, desktop, etc.) we suggest using a deep link to your app as a `redirect_uri`. Deep linking allows applications to direct user to a specific page within the application, just like a regular URL on the Internet. [Learn more about deep linking and how to enable it in your application](https://savvyapps.com/blog/how-to-use-deep-linking-in-your-mobile-app).
+
 #### Return URL parameters
 
 Parameter | Description
@@ -331,16 +333,6 @@ For security reasons, a temporary code can be exchanged to an access token only 
 Some applications requires user to download and install them on their site rather than providing a hosted solution. For example, plugins for Wordpress, Joomla or other CMS systems do that. Every instance of such application resides on different domain and thus has different Return URL. 
 
 To implement oAuth flow in such an app, you will need enable support for multiple domains in `redirect_uri` and improve security: application will always ask user for permissions and will show the domain that requests them in the oAuth flow. [Contact us](/contact) if your application is of this kind and we will make the necessary changes.  
-
-## Applications installed on device
-
-In case of applications that are installed on a device (such as a computer, a cell phone, or a tablet), the application `client_secret` is in general less protected than in case of web services. Thus the process of [retrieving access token](#complete-oauth-flow) should be a bit different if you are building an app installed on a device. 
-
-We suggest using a deep linking functionality in your application for installation. Deep linking allows applications to direct user to a specific page within the application, just like a regular URL on the Internet. 
-
-[Learn more about deep linking and how to enable it in your application](https://savvyapps.com/blog/how-to-use-deep-linking-in-your-mobile-app).
-
-Once this process is done, [contact us](/contact) and provide the Redirect URL where you want to direct users after the app is installed in their Ecwid store.
 
 # App details page
 

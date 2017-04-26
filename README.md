@@ -9,7 +9,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 #Changelog
 
 ## April 25, 2017
-- We updated the installation flow and now it has only one option - web application. Earlier there was two options: web application and app installed on a device. With this change all current apps installed on a device continue to work the same way. But for the new applications we recommend using the Deep linking functionality for getting the access token. [Learn more](https://developers.ecwid.com/api-documentation#applications-installed-on-device)
+- We updated the installation flow and now it has only one option - web application. Earlier there was two options: web application and app installed on a device. 
+
+**With this change all existing apps continue to work the same way**. However, for the new applications installed on a device we recommend using the Deep linking functionality for [getting the access token](http://developers.ecwid.com/api-documentation#complete-oauth-flow) (as a `redirect_uri`)
 
 - Added examples on how to enable the new SEO-friendly URL format for Ecwid stores. [Learn more](https://developers.ecwid.com/api-documentation#seo-friendly-urls)
 
