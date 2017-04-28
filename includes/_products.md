@@ -2328,7 +2328,7 @@ errorMessage | string | Error message
 
 ## Delete all gallery images
 
-Delete all images from a product gallery in an Ecwid store.
+Remove all gallery images attached to the product
 
 > Request example
 
@@ -2338,8 +2338,6 @@ Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
-
-*Remove all gallery images attached to the product*
 
 `DELETE https://app.ecwid.com/api/v3/{storeId}/products/{productId}/gallery?token={token}`
 
@@ -2456,7 +2454,7 @@ errorMessage | string | Error message
 
 ## Upload product file
 
-Upload a file to a product in an Ecwid store.
+Upload a file to a product in an Ecwid store ([E-goods](https://support.ecwid.com/hc/en-us/articles/207100559-E-goods)).
 
 > Request example
 
@@ -2500,9 +2498,6 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-Uploading a product file (e-goods)
-
-
 `POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/files?token={token}&fileName={fileName}`
 
 Name | Type    | Description
@@ -2513,7 +2508,7 @@ Name | Type    | Description
 **fileName** | string | Name of the file that customers will see
 description | string | A short description of the uploaded file
 
-When uploading an file for a product, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+When uploading an file for a product, the file itself needs to be sent in the body of your request in a form of binary data. The file you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
 ### Response
 
@@ -2571,7 +2566,7 @@ errorMessage | string | Error message
 
 ## Update product file description
 
-Update file description in a product in an Ecwid store.
+This request allows to edit the file description that is shown to customer when they purchase the product
 
 > Request example
 
@@ -2585,8 +2580,6 @@ Cache-Control: no-cache
     "description": "new description"
 }
 ```
-
-This request allows to edit the file description that is shown to customer when they purchase the product
 
 `PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/files/{fileId}?token={token}`
 
@@ -2652,7 +2645,7 @@ errorMessage | string | Error message
 
 ## Delete product file
 
-Delete a file from a product in an Ecwid store.
+Delete product's file (e-goods) by the file ID
 
 > Request example
 
@@ -2662,8 +2655,6 @@ Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
 ```
-
-*Delete product's file (e-goods) by the file ID*
 
 `DELETE https://app.ecwid.com/api/v3/{storeId}/products/{productId}/files/{fileId}?token={token}`
 
@@ -2718,7 +2709,7 @@ errorMessage | string | Error message
 
 ## Delete all product files
 
-Delete all product files from a product in an Ecwid store.
+Remove all downloadable files attached to the product (e-goods)
 
 > Request example
 
@@ -2728,8 +2719,6 @@ Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
-
-*Remove all downloadable files attached to the product (e-goods)*
 
 `DELETE https://app.ecwid.com/api/v3/{storeId}/products/{productId}/files?token={token}`
 
