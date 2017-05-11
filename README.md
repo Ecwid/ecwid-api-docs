@@ -6,7 +6,7 @@ Ecwid REST API documentation ([https://developers.ecwid.com/api-documentation](h
 The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax)
 
 
-#Changelog
+# Changelog
 
 ## April 25, 2017
 - We updated the installation flow and now it has only one option - web application. Earlier there was two options: web application and app installed on a device. 
