@@ -8,6 +8,19 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## May 12, 2017
+
+- Updates to Ecwid JS SDK and Ecwid CSS Framework. 
+
+New version links: 
+
+* [https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.4/ecwid-app-ui.css](https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.4/ecwid-app-ui.css)
+* [https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.3/ecwid-app.js](https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.3/ecwid-app.js)
+
+Changes to *JS SDK*: Added `EcwidApp.closeAppPopup()` function. Apps displayed in a popup can close it using this function
+
+Changes to *CSS Framework*: Fixed issue with invisible option elements of a \<select\> increasing the height of an app in Firefox
+
 ## April 25, 2017
 - We updated the installation flow and now it has only one option - web application. Earlier there was two options: web application and app installed on a device. 
 

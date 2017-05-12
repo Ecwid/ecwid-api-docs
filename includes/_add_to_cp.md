@@ -44,7 +44,7 @@ If you already have a registered app and want to make it native, you can [contac
 
 <head>
   <!-- Include Ecwid JS SDK -->
-  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.1/ecwid-app.js"></script>
+  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.3/ecwid-app.js"></script>
 
   <script>
     // Initialize the application
@@ -72,7 +72,7 @@ If you already have a registered app and want to make it native, you can [contac
   </script>
 
   <!-- Include Ecwid CSS Framework -->
-  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.3/ecwid-app-ui.css"/>  
+  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.4/ecwid-app-ui.css"/>  
 </head>
 
 <body class='normalized'>
@@ -99,7 +99,7 @@ Also, see the [set up your application](#set-up-your-application) and [Native Ap
 
 When user opens the application tab, the browser's address bar URL will have a format like this: 
 
-`https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales&app_state=orderId%3A%2012`
+`https://my.ecwid.com/cp/#app:name=my-cool-app&parent-menu=sales&app_state=orderId%3A%2012`
 
 Where the `my-cool-app` is your **app_id** which you will need to use in this code template to initiale the application on the page. The `sales` part is the Ecwid Control Panel section where the app is embedded into.
 
@@ -115,7 +115,7 @@ A typical native application URL looks like this: `https://my.ecwid.com/cp/CP.ht
 
 In case of your app being called using deep linking, that URL will also have a new parameter - `app_state` :
 
-`https://my.ecwid.com/cp/CP.html#app:name=my-cool-app&parent-menu=sales&app_state=orderId%3A%2012`
+`https://my.ecwid.com/cp/#app:name=my-cool-app&parent-menu=sales&app_state=orderId%3A%2012`
 
 The `app_state` parameter value is a URL encoded string with a specific application state your app can understand and process. 
 
@@ -473,11 +473,11 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 ### How to use it?
 
 ```html
-<link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.3/ecwid-app-ui.css"/>
+<link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.4/ecwid-app-ui.css"/>
 ```
 
 1. Add this CSS file to your app embedded into Ecwid Control Panel: 
-`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.3/ecwid-app-ui.css`
+`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.4/ecwid-app-ui.css`
 
 2. Use this guide to find the elements and CSS classes you need: [http://developers.ecwid.com/ecwid-css-framework/](/ecwid-css-framework)
 
@@ -490,12 +490,12 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 
 ```html
 <!-- Include Ecwid JS SDK -->
-<script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.1/ecwid-app.js"></script>
+<script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.3/ecwid-app.js"></script>
 ```
 
 Ecwid Javascript SDK is a simple JS framework with a set of basic JS functions that will help you to embed your app to Ecwid Control Panel and interact with Ecwid from within your application.
 
-To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.1/ecwid-app.js` .
+To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.3/ecwid-app.js` .
 
 ## init
 
@@ -701,6 +701,16 @@ key | string | Specify key that you need to get value from. If no key specified,
 **callback** | Function | Specify your callback function
 
 Using this method you can retrieve either all keys and their values that are located in your application storage or get the value of a specific key.
+
+## closeAppPopup
+
+```js
+EcwidApp.closeAppPopup()
+```
+
+When a native application is opened in a popup window in Ecwid Control Panel, executing this function will close that popup for the user.
+
+In case when application is opened in a tab, nothing will happen. 
 
 # Troubleshooting
 
