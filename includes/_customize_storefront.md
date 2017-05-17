@@ -530,19 +530,6 @@ Below are examples of clean URLs setup on custom made websites.
 
 **1. The Ecwid store is placed on the “shop.html” page in the web root directory**
 
-Let’s say the Ecwid store was added to the `shop.html` file on a server and it’s available on a site via `example.com/shop.html` URL.
-
-You now want to enable clean URLs on that page so that the store pages URLs will look like this:
-
-* example.com/shop/My-Product-p123
-* example.com/shop/My-Category-c123
-
-Assuming your site structure looks like this:
-
-- [www]
-  - .htaccess
-  - shop.html
-
 > 1) Map all “shop/something” pages to shop.html in the .htaccess file:
 
 ```
@@ -567,31 +554,25 @@ Assuming your site structure looks like this:
 <!-- Here goes the store integration code -->
 ```
 
+Let’s say the Ecwid store was added to the `shop.html` file on a server and it’s available on a site via `example.com/shop.html` URL.
+
+You now want to enable clean URLs on that page so that the store pages URLs will look like this:
+
+* example.com/shop/My-Product-p123
+* example.com/shop/My-Category-c123
+
+Assuming your site structure looks like this:
+
+- [www]
+  - .htaccess
+  - shop.html
+
 You’ll enable clean URLs in two steps. Please see them on the right. 
 
 That's it. Now open the storefront, navigate to any product page and refresh the page in your browser. Both navigation and page opening after refresh should work fine and you should see the new clean URLs enabled.
 
 **2. The Ecwid store is placed on the site home page**
 
-Let’s say the Ecwid store is added to the `index.html` file on a server and it’s available on the site home page, e.g. `example.com` URL. 
-
-You now want to enable clean URLs on that page so that your store pages URLs will look like this:
-
-* example.com/My-Product-p123
-* example.com/My-Category-c123
-
-At the same time, you want to keep the other pages of your site to open at their current URLs, e.g. 
-
-- example.com/some_other_page.html
-
-Assuming your site structure looks like this:
-
-  - [www]
-    - .htaccess
-    - index.html
-    - some_other_page.html
-
-You’ll do that in two steps: 
 
 >1) Map store pages to index.html in the .htaccess file (notice how we specify only Ecwid pages here to avoid the other site pages to be redirected):
 
@@ -621,6 +602,26 @@ You’ll do that in two steps:
     
 <!-- Here goes the store integration code -->
 ```
+
+Let’s say the Ecwid store is added to the `index.html` file on a server and it’s available on the site home page, e.g. `example.com` URL. 
+
+You now want to enable clean URLs on that page so that your store pages URLs will look like this:
+
+* example.com/My-Product-p123
+* example.com/My-Category-c123
+
+At the same time, you want to keep the other pages of your site to open at their current URLs, e.g. 
+
+- example.com/some_other_page.html
+
+Assuming your site structure looks like this:
+
+  - [www]
+    - .htaccess
+    - index.html
+    - some_other_page.html
+
+You’ll do that in two steps: 
 
 That's it. Now open the storefront, navigate to any product page and refresh the page in your browser. Both navigation and page opening after refresh should work fine and you should see the new clean URLs enabled.
 
