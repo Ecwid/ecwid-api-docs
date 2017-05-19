@@ -51,10 +51,16 @@ The following events are supported:
 #### Application
 
 * Application was installed
-* Application status was updated
+* Application subscription status was updated
 * Application was deleted
 
 [Application endpoint](#application) allows you to check status of your application.
+
+#### Profile
+
+* Store subscription plan was updated
+
+[Store profile endpoint](#store-information) allows you to get and update store information.
 
 # Setting up webhooks
 
@@ -101,7 +107,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 ```json
 {
-  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
   "entityId":105, // this is the number of the unfinished order
@@ -113,7 +119,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 ```json
 {
-  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
   "entityId":105, // this is the number of the updated unfinished order
@@ -125,7 +131,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 ```json
 {
-  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
   "entityId":105, // this is the number of the deleted unfinished order
@@ -138,7 +144,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 ```json
 {
-  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
   "entityId":103, // this is the number of the placed order
@@ -154,7 +160,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 ```json
 {
-  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
   "entityId":103, // this is the number of the updated order
@@ -172,7 +178,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 ```json
 {
-  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
   "entityId":102, // this is the number of the deleted order
@@ -208,7 +214,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 ```
 {
-  "eventId":"08a78904-953a-4c1a-0aa0-2e33c56236f1",
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1469429915,
   "storeId":1003, 
   "entityId":667251253, // this is the id of the deleted product
@@ -220,7 +226,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 ```
 {
-  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
   "entityId":"1003", // this is the id of a store that installed the app
@@ -232,7 +238,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 ```
 {
-  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
   "entityId":"1003", // this is the id of a store where app subscription status was changed
@@ -248,11 +254,27 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 ```
 {
-  "eventId":"123456-1234-1234-1234-123412341234",
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
   "entityId":"1003", // this is the id of a store that deleted the app
   "eventType":"application.uninstalled"
+}
+```
+
+> Store has switched from Business to Unlimited plan
+
+```
+{
+  "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
+  "eventCreated":1494503041,
+  "storeId":1421002,
+  "entityId":1421002, // this is the id of a store that switched to a different Ecwid plan
+  "eventType":"profile.subscriptionStatusChanged",
+  "data":{
+    "oldSubscriptionName":"ECWID_BUSINESS",
+    "newSubscriptionName":"ECWID_UNLIMITED"
+  }
 }
 ```
 
@@ -264,7 +286,7 @@ Name | Type | Description
 **eventType** | string | Type of the occurred event.
 **eventCreated** | timestamp | Unix timestamp of the occurred event.
 **storeId** | number | Store ID of the store where the event occured.
-**entityId** | number | Id of the updated entity. Contains `productId` or `orderNumber` depending on `eventType`.
+**entityId** | number | Id of the updated entity. Can contain `productId`, `orderNumber`, `storeId` depending on the `eventType`.
 data | \<*WebhookData*\> | Optional field. Describes changes made to an entity. Is provided for `order.*` and `application.subscriptionStatusChanged` event types.
 
 #### WebhookData
@@ -275,6 +297,8 @@ oldPaymentStatus | string | Payment status of **order** before changes occurred
 newPaymentStatus | string | Payment status of **order** after changes occurred
 oldFulfillmentStatus | string | Fulfillment status of **order** before changes occurred
 newFulfillmentStatus | string | Fulfillment status of an **order** after changes occurred
+oldSubscriptionName | string | Previous *Ecwid store premium plan* name
+newSubscriptionName | string | New *Ecwid store premium plan* name
 oldSubscriptionStatus | string | Previous **application** subscription status before changes occurred
 newSubscriptionStatus | string | New **application** subscription status after changes occurred
 
@@ -285,7 +309,6 @@ Fields sent with all webhook requests are highlighted in <strong>bold</strong>.
 <aside class="notice">
 Don’t use webhooks themselves as actionable items – please see the <a href="#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
-
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
 
@@ -302,6 +325,7 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `application.installed` Application is installed
 * `application.uninstalled` Application is deleted
 * `application.subscriptionStatusChanged` Application status changed
+* `profile.subscriptionStatusChanged` Store premium subscription status changed
 
 All order related webhooks require `read_orders` access scope and all product related webhooks require `read_catalog` [access scope](#access-scopes) to be requested from the store.
 
