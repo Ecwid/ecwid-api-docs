@@ -26,7 +26,7 @@ Upon finishing the payment, your app must [update the order status](#update-orde
 
 After you [registered a new application](/register) for Ecwid, send the payment URL for that new payment method by [contacting us](/contact). Ecwid will be sending order details requests to payment URL endpoint and expect the order status to be changed after the payment is complete.
 
-## Processing request for payment
+## Processing payment request
 
 ### Request details
 

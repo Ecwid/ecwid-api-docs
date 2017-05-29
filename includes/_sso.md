@@ -205,7 +205,7 @@ Field | Type  | Description
 - Ecwid does not allow two customers with the same email address in one store. If a customer with the same email already exists and has different SSO appClientId/userId, or does not have them at all, then Ecwid will fail to create a customer account and will behave as if no user is logged in. For example, If you have a customer `customer@example.com` from Facebook, you cannot have another `customer@example.com` signing in using SSO. Ecwid will simply ignore `customer@example.com` passed in to SSO.
 - SSO API is available for [paid Ecwid users only](http://www.ecwid.com/pricing). If an Ecwid store has no paid subscription, Ecwid stops processing SSO requests for that store and will behave as if no user is logged in.
 
-### SSO implementation examples
+## SSO implementation examples
 
 > Ecwid SSO API implementation (Example)
 

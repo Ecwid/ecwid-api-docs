@@ -62,7 +62,7 @@ Please make sure **not to pass any sensitive user data in the public application
 
 After you get a request from Ecwid, your application endpoint should get its components and return correct rates back to the customer in a response.
 
-## Request for shipping and response
+## Shipping request and response
 
 #### Request
 

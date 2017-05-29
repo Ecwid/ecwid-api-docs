@@ -521,7 +521,7 @@ stateOrProvinceCode | string, optional | The person’s region/state/province co
 countryName | string, optional | Country name, if applicable
 phone | string, optional | Phone number, if applicable
 
-## Manage Customer's Cart
+## Manage Customer Cart
 
 Manage cart on customer's behalf.
 
@@ -1227,7 +1227,7 @@ sku | String | Product SKU
 url | String | URL to this product details page in store front (store front URL is generated from a field in Ecwid Control panel > Settings > General > Store profile)
 weight | Integer | Weight of a product
 
-## Examples
+## JS API Examples
 
 Redirect Ecwid Paypal Orders to Custom “Thank You” Page:
 [http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/](http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/)
