@@ -1,8 +1,8 @@
-# Products
+## Products
 
 Using the methods below you can search/create/modify/delete products in an Ecwid store. In the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/208078855-Products) you can learn more about the products in Ecwid.
 
-## Search products
+### Search products
 
 Search or filter products in a store catalog. The response provides full details of found products.
 
@@ -10,7 +10,7 @@ Search or filter products in a store catalog. The response provides full details
 To get products from Store Front Page, specify <strong>&category=0</strong> in your request.
 </aside>
 
-### Request
+#### Request
 
 > Request examples
 
@@ -64,7 +64,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
 To get all products from the store, use the <strong>offset</strong> parameter. I.e. after you got first 100 products, set <strong>offset</strong> to 100 and retrieve the next 100 products. Continue this loop to get all products in a store.
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -813,7 +813,7 @@ length | number | Length of a product
 width | number | Width of a product
 height | number | Height of a product
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -839,7 +839,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-### Q: How to get URLs for products?
+#### Q: How to get URLs for products?
 
 Direct URL for each product is always available in the `url` field once you make a request to the Ecwid REST API. 
 
@@ -897,7 +897,7 @@ As you can see, the format of a product URL returned from the Ecwid API changes 
 
 It is possible to use the `cleanUrls` parameter together with the `baseUrl` parameter. See above for more details on the `baseUrl` parameter.
 
-## Get a product
+### Get a product
 
 Get all details of a specific product in an Ecwid store by its ID.
 
@@ -907,7 +907,7 @@ If you need to do this operation for multiple products at once (batch request), 
 
 This way your app will save some time as you will be performing less requests to the Ecwid API and they will be much more efficient.
 
-### Request
+#### Request
 
 > Request example
 
@@ -932,7 +932,7 @@ cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (w
 Parameters in <strong>bold</strong> are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -1358,7 +1358,7 @@ length | number | Length of a product
 width | number | Width of a product
 height | number | Height of a product
 
-### Errors
+#### Errors
 
 ```http
 HTTP/1.1 404 Not Found
@@ -1381,7 +1381,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-### Q: How to get URLs for products?
+#### Q: How to get URLs for products?
 
 Direct URL for each product is always available in the `url` field once you make a request to the Ecwid REST API. 
 
@@ -1439,11 +1439,11 @@ As you can see, the format of a product URL returned from the Ecwid API changes 
 
 It is possible to use the `cleanUrls` parameter together with the `baseUrl` parameter. See above for more details on the `baseUrl` parameter.
 
-## Add a product
+### Add a product
 
 Create a new product in an Ecwid store. 
 
-### Request
+#### Request
 
 > Request body
 
@@ -1483,7 +1483,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 
 
-### Request body
+#### Request body
 
 A JSON object of type 'Product' with the following fields:
 
@@ -1576,7 +1576,7 @@ Parameters in bold are mandatory
 </aside>
 
 
-### Response
+#### Response
 
 
 > Response example
@@ -1594,7 +1594,7 @@ Field | Type |  Description
 -------------- | -------------- | --------------
 id | number | ID of the created product
 
-### Errors
+#### Errors
 
 ```http
 HTTP/1.1 409 Conflict
@@ -1631,7 +1631,7 @@ errorMessage | string | Error message
 errorCode | string | Error code
 
 
-## Update a product
+### Update a product
 
 Update an existing product in an Ecwid store referring to its ID.
 
@@ -1669,7 +1669,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 
 
-### Request body
+#### Request body
 
 A JSON object of type 'Product' with the following fields:
 
@@ -1830,7 +1830,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 errorCode | string | Error code
 
-## Adjust product inventory
+### Adjust product inventory
 
 > Request example
 
@@ -1859,7 +1859,7 @@ Name | Type    | Description
 **productId** | number | Product ID
 **token** |  string |  oAuth token
 
-### Request body
+#### Request body
 
 A JSON object of type 'Inventory' with the following fields:
 
@@ -1868,7 +1868,7 @@ Field | Type |  Description
 ------| ---- | ------------
 **quantityDelta** | number | Delta value used to update product quantity. Negative value will decrease quantity, positive one will increase it.
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -1887,7 +1887,7 @@ Field | Type |  Description
 updateCount | number | The number of updated products (`1` or `0` depending on whether the update was successful)
 warning | string | Inventory update warning(optional). For example, the warning will display if the stock became negative
 
-### Errors
+#### Errors
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -1911,7 +1911,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Delete a product
+### Delete a product
 
 Delete a product from an Ecwid store referring to its ID.
 
@@ -1933,7 +1933,7 @@ Name | Type    | Description
 **productId** | number | Product ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -1952,7 +1952,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted products (`1` or `0` depending on whether the request was successful)
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -1977,7 +1977,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Upload product image
+### Upload product image
 
 Upload product image: if the product already has an image attached, the uploaded image will replace the existing one. Maximum allowed file size is 20Mb.
 
@@ -2032,7 +2032,7 @@ Name | Type    | Description
 
 When uploading an image for a product, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
-### Response
+#### Response
 
 > Response example
 
@@ -2050,7 +2050,7 @@ Field | Type |  Description
 id | number | Internal image ID
 
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2084,7 +2084,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Delete product image
+### Delete product image
 
 Delete the main image of a product in an Ecwid store.
 
@@ -2105,7 +2105,7 @@ Name | Type    | Description
 **productId** | number | Product ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -2122,7 +2122,7 @@ Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted images (`1` or `0` depending on whether the request was successful)
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2148,7 +2148,7 @@ errorMessage | string | Error message
 
 
 
-## Upload gallery image
+### Upload gallery image
 
 Add image to the product images gallery. Request parameters specify which product should be updated and what title should the uploaded image have. Request body is the image file itself (binary data). Maximum allowed file size is 20Mb.
 
@@ -2204,7 +2204,7 @@ fileName |  string |  Image title
 
 When uploading an image for a product gallery, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
-### Response
+#### Response
 
 > Response example
 
@@ -2221,7 +2221,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 id | number | Internal image file ID
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2256,7 +2256,7 @@ errorMessage | string | Error message
 
 
 
-## Delete gallery image
+### Delete gallery image
 
 Delete an image from a product gallery in an Ecwid store. 
 
@@ -2278,7 +2278,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 **fileId** | number | Internal image file ID
 
-### Response
+#### Response
 
 > Response example
 
@@ -2295,7 +2295,7 @@ Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted images (`1` or `0` depending on whether the request was successful)
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2326,7 +2326,7 @@ errorMessage | string | Error message
 
 
 
-## Delete all gallery images
+### Delete all gallery images
 
 Remove all gallery images attached to the product
 
@@ -2347,7 +2347,7 @@ Name | Type    | Description
 **productId** | number | Product ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -2365,7 +2365,7 @@ Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted gallery images
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2395,7 +2395,7 @@ errorMessage | string | Error message
 
 
 
-## Download product file
+### Download product file
 
 Download a product file referring to its file ID. 
 
@@ -2417,12 +2417,12 @@ Name | Type    | Description
 **fileId** | number | Internal file ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 Response is the file in binary format. 
 
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2452,7 +2452,7 @@ errorMessage | string | Error message
 
 
 
-## Upload product file
+### Upload product file
 
 Upload a file to a product in an Ecwid store ([E-goods](https://support.ecwid.com/hc/en-us/articles/207100559-E-goods)).
 
@@ -2510,7 +2510,7 @@ description | string | A short description of the uploaded file
 
 When uploading an file for a product, the file itself needs to be sent in the body of your request in a form of binary data. The file you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
-### Response
+#### Response
 
 > Response example
 
@@ -2527,7 +2527,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 id | number | Internal file ID
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2564,7 +2564,7 @@ errorMessage | string | Error message
 
 
 
-## Update product file description
+### Update product file description
 
 This request allows to edit the file description that is shown to customer when they purchase the product
 
@@ -2590,13 +2590,13 @@ Name | Type    | Description
 **fileId** | string | Internal file ID
 **token** |  string |  oAuth token
 
-### Request body
+#### Request body
 
 Name | Type    | Description
 ---- | ------- | -----------
 description | string | New file description
 
-### Response
+#### Response
 
 > Response example
 
@@ -2613,7 +2613,7 @@ Field | Type |  Description
 ----- | ---- | --------------
 updateCount | number | The number of updated entities (`1` or `0` depending on whether the request was successful)
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2643,7 +2643,7 @@ errorMessage | string | Error message
 
 
 
-## Delete product file
+### Delete product file
 
 Delete product's file (e-goods) by the file ID
 
@@ -2665,7 +2665,7 @@ Name | Type    | Description
 **fileId** | number | Internal file ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -2682,7 +2682,7 @@ Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted files (`1` or `0` depending on whether the request was successful)
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2707,7 +2707,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Delete all product files
+### Delete all product files
 
 Remove all downloadable files attached to the product (e-goods)
 
@@ -2728,7 +2728,7 @@ Name | Type    | Description
 **productId** | number | Product ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -2746,7 +2746,7 @@ Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted files
 
-### Errors
+#### Errors
 
 > Error response example 
 

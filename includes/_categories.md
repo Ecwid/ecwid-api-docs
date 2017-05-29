@@ -1,14 +1,14 @@
-# Categories
+## Categories
 
 Using the methods below you can search/get/update/delete categories in an Ecwid store. It is possible to change the category name, its products, image and more. 
 
-## Get categories
+### Get categories
 
 Search or filter categories in a store catalog. The response provides basic details of found categories. 
 
 The order of categories in response sometimes does not represent their order in the Ecwid Control Panel or storefront. To have categories in that order, check the `orderBy` field value for each category returned by Ecwid and use it as a sort index in your application.
 
-### Request
+#### Request
 
 > Request example
 
@@ -36,7 +36,7 @@ cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (w
 To get a list of products in results for each category, set `productIds` parameter to `true` when making a request.
 </aside>
 
-### Response
+#### Response
 
 > Response example
 
@@ -169,7 +169,7 @@ url | string | Image URL
 width | integer | Image width
 height | integer | Image height
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -195,7 +195,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-### Q: How to get URLs for categories?
+#### Q: How to get URLs for categories?
 
 Direct URL for each category is always available in the `url` field once you make a request to the Ecwid REST API. 
 
@@ -253,7 +253,7 @@ As you can see, the format of a category URL returned from the Ecwid API changes
 
 It is possible to use the `cleanUrls` parameter together with the `baseUrl` parameter. See above for more details on the `baseUrl` parameter.
 
-## Get category
+### Get category
 
 Get full category details from an Ecwid store referring to its ID.
 
@@ -276,7 +276,7 @@ Query field | Type    | Description
 baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](#get-store-profile)
 cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
 
-### Response
+#### Response
 
 > Response example
 
@@ -350,7 +350,7 @@ url | string | Image URL
 width | integer | Image width
 height | integer | Image height
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -371,7 +371,7 @@ HTTP Status | Meaning | Code (optional)
 415 | Unsupported content-type: expected `application/json` or `text/json` | 
 500 | Server error | 
 
-### Q: How to get URLs for categories?
+#### Q: How to get URLs for categories?
 
 Direct URL for each category is always available in the `url` field once you make a request to the Ecwid REST API. 
 
@@ -429,11 +429,11 @@ As you can see, the format of a category URL returned from the Ecwid API changes
 
 It is possible to use the `cleanUrls` parameter together with the `baseUrl` parameter. See above for more details on the `baseUrl` parameter.
 
-## Add new category
+### Add new category
 
 Create a new category in an Ecwid store catalog.
 
-### Request
+#### Request
 
 > Request body
 
@@ -461,7 +461,7 @@ Query field | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
-### Request body
+#### Request body
 
 A JSON object of type 'Category' with the following fields:
 
@@ -476,7 +476,7 @@ description | string  | The category description in HTML
 enabled | boolean | `true` to make category enabled, `false` otherwise. `true` is default
 productIds | Array\<number\>  | IDs of the products to assign to the category
 
-### Response
+#### Response
 
 > Response example
 
@@ -496,7 +496,7 @@ Field | Type |  Description
 id | number | ID of the created category
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -519,11 +519,11 @@ HTTP Status | Meaning
 449 | Store catalog cannot be modified at the moment because import is in progress. Retry later
 500 | Server error
 
-## Update category
+### Update category
 
 Update an existing category in an Ecwid store referring to its ID.
 
-### Request
+#### Request
 
 > Request body
 
@@ -553,7 +553,7 @@ Query field | Type    | Description
 **token** |  string | oAuth token
 **categoryId** | number | Category internal ID
 
-### Request body
+#### Request body
 
 A JSON object of type 'Category' with the following fields:
 
@@ -568,7 +568,7 @@ description | string  | The category description in HTML
 enabled | boolean | `true` to make category enabled, `false` to disable it. `true` is default
 productIds | Array\<number\>  | IDs of the products to assign to the category
 
-### Response
+#### Response
 
 > Response example
 
@@ -587,7 +587,7 @@ Field | Type |  Description
 updateCount | number | The number of updated categories (`1` or `0` depending on whether the update was successful)
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -611,7 +611,7 @@ HTTP Status | Meaning
 500 | Server error
 
 
-## Delete a category
+### Delete a category
 
 Delete a category in an Ecwid store referring to its ID.
 
@@ -632,7 +632,7 @@ Query field | Type    | Description
 **token** |  string | oAuth token
 **categoryId** | number | Category internal ID
 
-### Response
+#### Response
 
 > Response example
 
@@ -650,7 +650,7 @@ Field | Type |  Description
 ----- | ---- | ------------
 deleteCount | number | The number of deleted categories (`1` or `0` depending on whether the request was successful)
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -671,7 +671,7 @@ HTTP Status | Meaning
 500 | Server error
 
 
-## Upload category image
+### Upload category image
 
 Upload category image: if the category already has an image attached, the uploaded image will replace the existing one. Maximum allowed file size is 20Mb.
 
@@ -726,7 +726,7 @@ Name | Type    | Description
 
 When uploading an image for a category, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
-### Response
+#### Response
 
 > Response example
 
@@ -743,7 +743,7 @@ Field | Type |  Description
 ------| -----| -----------
 id | number | Internal image ID
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -773,7 +773,7 @@ errorMessage | string | Error message
 
 
 
-## Delete category image
+### Delete category image
 
 Delete the category image from an Ecwid store.
 
@@ -794,7 +794,7 @@ Name | Type    | Description
 **categoryId** | number | Category ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -811,7 +811,7 @@ Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted images (`1` or `0` depending on whether the request was successful)
 
-### Errors
+#### Errors
 
 > Error response example 
 

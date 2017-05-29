@@ -1,14 +1,14 @@
-# Customer groups
+## Customer groups
 
 In Ecwid stores merchants assign customers to specific groups in order to treat them differently. For example, for some group of people, that purchased a membership in their store, they would like to provide a discount based on subtotal at all times. Another way of using customer groups is to to show them a hidden content of a store, in case if these customers are wholesalers.
 
 To manage customer groups in Ecwid stores, use this endpoint described below and to find out more about customer groups in Ecwid stores, check out [this page](https://help.ecwid.com/customer/en/portal/articles/1345509-customer-groups)
 
-## Get all customer groups
+### Get all customer groups
 
 Get information about all customer groups in an Ecwid store.
 
-### Request
+#### Request
 
 > Request example
 
@@ -32,7 +32,7 @@ limit | number | Maximum number of returned items. Maximum allowed value: `100`.
 Parameters in bold are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -72,7 +72,7 @@ Field | Type  | Description
 id |  number |  Unique internal customer group ID
 name | string | Customer group name
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -98,11 +98,11 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Get customer group
+### Get customer group
 
 Get information about a specific customer group in an Ecwid store referring to its ID.
 
-### Request
+#### Request
 
 > Request example
 
@@ -121,7 +121,7 @@ Name | Type    | Description
 **groupId** | number | Customer group ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -141,7 +141,7 @@ Field | Type  | Description
 id |  number |  Unique internal customer group ID
 name | string | Customer group name
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -167,11 +167,11 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Create customer group
+### Create customer group
 
 Create a brand new customer group in an Ecwid store.
 
-### Request
+#### Request
 
 > Request body
 
@@ -196,7 +196,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 
 
-### Request body
+#### Request body
 
 A JSON object of type 'CustomerGroup' with the following fields:
 
@@ -206,7 +206,7 @@ Field | Type  | Description
 -------------- | -------------- | --------------
 **name** | string | Customer group name
 
-### Response
+#### Response
 
 
 > Response example
@@ -225,7 +225,7 @@ Field | Type |  Description
 id | number | ID of the created customer group
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -251,11 +251,11 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Update customer group
+### Update customer group
 
 Update an existing customer group in an Ecwid store referring to its ID.
 
-### Request
+#### Request
 
 > Request body
 
@@ -279,7 +279,7 @@ Name | Type    | Description
 **token** |  string | oAuth token
 **groupId** | number | Internal customer group ID
 
-### Request body
+#### Request body
 
 A JSON object of type 'CustomerGroup' with the following fields:
 
@@ -289,7 +289,7 @@ Field | Type  | Description
 -------------- | -------------- | --------------
 **name** | string | Customer group name
 
-### Response
+#### Response
 
 
 > Response example
@@ -309,7 +309,7 @@ Field | Type |  Description
 updateCount | number | The number of update customers (`0` or `1` depending on whether the request was successful)
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -336,7 +336,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Delete customer group
+### Delete customer group
 
 Delete a customer group in an Ecwid store referring to its ID.
 
@@ -361,7 +361,7 @@ Name | Type    | Description
 If a customer group is deleted, all customers of that group will be moved to the General group, ID: 0
 </aside>
 
-### Response
+#### Response
 
 > Response example
 
@@ -380,7 +380,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted customers (`1` or `0` depending on whether the request was successful)
 
 
-### Errors
+#### Errors
 
 > Error response example
 

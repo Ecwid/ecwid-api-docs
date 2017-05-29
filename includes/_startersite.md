@@ -1,14 +1,14 @@
-# Starter Site
+## Starter Site
 
 Ecwid API features several endpoints to control the presentation of Starter site. Learn more about the [Ecwid Starter site](https://support.ecwid.com/hc/en-us/articles/207100069-Starter-site)
 
 <aside class="note">Access scope required: <strong>update_store_profile</strong></aside>
 
-## Get starter site content details
+### Get starter site content details
 
 Get starter site content details of an Ecwid store.
 
-### Request
+#### Request
 
 > Request example
 
@@ -29,7 +29,7 @@ Name | Type    | Description
 Parameters in bold are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -145,7 +145,7 @@ dayto | string | Day of the week at the end of period
 hourfrom | string | Opening hours of a working day
 hourto | string | Closing hours of a working day
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -170,11 +170,11 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Create and update starter site content details
+### Create and update starter site content details
 
 Update information displayed on starter site of a store
 
-### Request
+#### Request
 
 > Request example
 
@@ -300,7 +300,7 @@ hourfrom | string | Opening hours of a working day
 hourto | string | Closing hours of a working day
 
 
-### Response
+#### Response
 
 
 > Response example
@@ -319,7 +319,7 @@ Field | Type |  Description
 ------| ---- | --------------
 id | number | The store ID of the store where the settings were changed.
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -344,7 +344,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Upload cover image
+### Upload cover image
 
 Upload starter site cover. The image itself is to be placed in the request body.
 
@@ -402,7 +402,7 @@ When uploading a starter site cover, the image itself needs to be sent in the bo
 Minimum image dimensions are: 1000х667px and maximun dimenstions are: 1920х1280px.
 </aside>
 
-### Response
+#### Response
 
 > Response example
 
@@ -426,7 +426,7 @@ coverImageThumbnail | base64 | Thumbnail cover image.
 coverImageMobileUrl | string | URL to the main image, displayed in background when starter site is opened on mobiles.
 coverImageMobileThumbnail | base64 | Thumbnail cover image for mobile devices
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -452,7 +452,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Upload owner portrait
+### Upload owner portrait
 
 Upload starter site owner portrait. The image itself is to be placed in the request body.
 
@@ -510,7 +510,7 @@ When uploading a starter site owner portrait, the image itself needs to be sent 
 Minimum image dimensions are: 288х288px.
 </aside>
 
-### Response
+#### Response
 
 > Response example
 
@@ -528,7 +528,7 @@ Name | Type    | Description
 ---- | ------- | -----------
 meetownerownerimageurl | string | URL to owner photo in the "About owner" section
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -555,7 +555,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Upload quote person image
+### Upload quote person image
 
 Upload starter site quote person image. The image itself is to be placed in the request body.
 
@@ -613,7 +613,7 @@ When uploading a starter site owner portrait, the image itself needs to be sent 
 Minimum image dimensions are: 128х128px.
 </aside>
 
-### Response
+#### Response
 
 > Response example
 
@@ -630,7 +630,7 @@ Name | Type    | Description
 ---- | ------- | -----------
 quotepersonimageurl | string | URL to a photo of a customer with testimonial 
 
-### Errors
+#### Errors
 
 > Error response example 
 

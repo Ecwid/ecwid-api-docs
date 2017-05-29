@@ -1,8 +1,8 @@
-# Store information
+## Store information
 
 Using the endpoints below you can get and update basic Ecwid store information like store name, merchant's email, company address, logos and more. 
 
-## Get store profile
+### Get store profile
 
 Get basic information about an Ecwid store: settings, store location, email, etc. This request is available with any access token.
 
@@ -21,7 +21,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -474,7 +474,7 @@ generatedUrl | string | Starter Site generated URL, e.g. `http://mysuperstore.ec
 storeLogoUrl | string | Starter Site logo URL
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -493,7 +493,7 @@ HTTP Status | Meaning
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the coupon info because of an error on the server
 
-## Update store profile
+### Update store profile
 
 Update basic store information in an Ecwid store: settings, store location, email, etc.
 
@@ -557,7 +557,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
-### Request body
+#### Request body
 
 A JSON object of type 'Profile' with the following fields:
 
@@ -724,7 +724,7 @@ Field | Type | Description
 ecwidSubdomain | string | Store subdomain on ecwid.com domain, e.g. `mysuperstore.ecwid.com`
 customDomain | string | Custom Starter site domain, e.g. `www.mysuperstore.com`
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -744,7 +744,7 @@ updateCount | number | The number of updated entities (`1` or `0` depending on w
 success | boolean | `true` if the coupon has been updated, `false` otherwise
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -765,7 +765,7 @@ HTTP Status | Meaning
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the coupon info because of an error on the server
 
-## Upload store logo
+### Upload store logo
 
 Upload store logo displayed on Starter Site. 
 The logo itself is to be placed in the request body. Maximum allowed file size is 20Mb.
@@ -820,7 +820,7 @@ Name | Type    | Description
 
 When uploading a store logo, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
-### Response
+#### Response
 
 > Response example
 
@@ -837,7 +837,7 @@ Field | Type |  Description
 ----- | -----| ------------
 id | number | Internal image ID
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -866,7 +866,7 @@ errorMessage | string | Error message
 
 
 
-## Remove store logo
+### Remove store logo
 
 Remove store logo, which is displayed on Starter site
 
@@ -885,7 +885,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -904,7 +904,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted images (`1` or `0` depending on whether the request was successful)
 success | boolean | `true` if the image has been deleted, `false` otherwise
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -929,7 +929,7 @@ errorMessage | string | Error message
 
 
 
-## Upload invoice logo
+### Upload invoice logo
 
 Upload store logo displayed on order invoices. The logo itself is to be placed in the request body. Maximum allowed file size is 20Mb.
 
@@ -983,7 +983,7 @@ Name | Type    | Description
 
 When uploading an invoice logo, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
-### Response
+#### Response
 
 > Response example
 
@@ -1000,7 +1000,7 @@ Field | Type |  Description
 ----- | -----| ------------
 id | number | Internal image ID
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -1029,7 +1029,7 @@ errorMessage | string | Error message
 
 
 
-## Remove invoice logo
+### Remove invoice logo
 
 Remove store logo, which is displayed on order invoices
 
@@ -1048,7 +1048,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -1067,7 +1067,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted images (`1` or `0` depending on whether the request was successful)
 success | boolean | `true` if the image has been deleted, `false` otherwise
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -1091,7 +1091,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Get store update statistics
+### Get store update statistics
 
 This method provides simple 'Latest updates' statistics about store profile, products, orders, categories and discount coupons. Use it to check whether something was changed in an Ecwid store. This could be helpful to keep data in your application up-to-date and avoid abusing API to get and parse large amounts of data to check its state.
 
@@ -1112,7 +1112,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -1139,7 +1139,7 @@ categoriesUpdated | string | Date of the latest changes in store categories, e.g
 discountCouponsUpdated | string | Date of the latest changes in store discount coupons, e.g. `2014-10-19 12:23:12 +0400`
 abandonedSalesUpdated | string | Date of the latest changes to abandoned carts in a store, e.g. `2014-10-19 12:23:12 +0400`
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -1164,7 +1164,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Get deleted items statistics
+### Get deleted items statistics
 Using this group of API methods, you can get a list of products, orders, customers and coupons that have been deleted from the store. In combination with the update statistics, you can use these endpoints to check whether something was changed in an Ecwid store and keep data in your application synchronized with the Ecwid store you're working with. 
 
 Also, you can consider using [webhooks](#webhooks) to get a notificaiton when orders and catalog items are deleted. For example, you can get a webhook right after a product is deleted from an Ecwid store and adjust your custom product list in external system.
@@ -1218,7 +1218,7 @@ offset | number | Offset from the beginning of the returned items list (for pagi
 limit | number | Maximum number of returned items. Default value: `100`
 
 
-### Response
+#### Response
 
 > Response example (JSON). Removed order stats
 
@@ -1275,7 +1275,7 @@ Field | Type | Description
 id | number | Item ID. Depending on the request, that is products ID, customer ID, order number or coupon ID.
 date | string | Item deletion date
 
-### Errors
+#### Errors
 
 > Error response example 
 

@@ -1,8 +1,8 @@
-# Orders
+## Orders
 
 The endpoints below allow you to search/create/update/delete orders in an Ecwid store. Learn more about orders in Ecwid in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207806235-Orders).
 
-## Search orders
+### Search orders
 
 Search or filter orders in an Ecwid store. The response provides full details of the found orders.
 
@@ -54,7 +54,7 @@ If no filters are set in the URL, API will return all orders <strong>except for 
 Parameters in bold are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -477,7 +477,7 @@ Field | Type | Description
 avsMessage | string  | Address verification status returned by the payment system.
 cvvMessage | string  | Credit card verification status returned by the payment system.
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -503,7 +503,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Get order details
+### Get order details
 
 Get all available information about an order referring to its ID. The order details include: customer email, payment/shipping method, items purchased and more.
 
@@ -534,7 +534,7 @@ Name | Type    | Description
 Parameters in bold are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -932,7 +932,7 @@ Field | Type | Description
 avsMessage | string  | Address verification status returned by the payment system.
 cvvMessage | string  | Credit card verification status returned by the payment system.
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -960,7 +960,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Get order invoice
+### Get order invoice
 
 Get HTML code of an invoice for a specific order placed in an Ecwid store.
 
@@ -985,7 +985,7 @@ Name | Type    | Description
 Parameters in bold are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (HTML)
 
@@ -1420,7 +1420,7 @@ body .body .invoice .order-items table tbody tr td,body .body .invoice .order-it
 
 HTML code of an invoice for the requested order number.
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -1449,7 +1449,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Update order
+### Update order
 
 This request allows you to update existing orders in an Ecwid store. When updating order information, you can omit unchanged fields – they will be ignored so the resulting order will keep the corresponding information unchanged. 
 
@@ -1558,7 +1558,7 @@ Name | Type    | Description
 **token** |  string | oAuth token
 **orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber` for completed orders. **Coming soon**: you can also use order id you got from the order details in the `orderNumber` field for abandoned sales (`paymentStatus` == `INCOMPLETE`).
 
-### Request body
+#### Request body
 
 A JSON object of type 'Order' with the following fields:
 
@@ -1712,7 +1712,7 @@ Field | Type | Description
 avsMessage | string  | Address verification status returned by the payment system.
 cvvMessage | string  | Credit card verification status returned by the payment system.
 
-### Response
+#### Response
 
 
 > Response example (JSON)
@@ -1731,7 +1731,7 @@ Field | Type |  Description
 -------------- | -------------- | --------------
 updateCount | number | The number of updated orders (`1` or `0` depending on whether the update was successful)
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -1758,7 +1758,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Delete order
+### Delete order
 
 Delete a specific order in an Ecwid store referrint to its ID.
 
@@ -1779,7 +1779,7 @@ Name | Type    | Description
 **orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -1798,7 +1798,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted orders (`1` or `0` depending on whether the request was successful)
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -1823,7 +1823,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Create order
+### Create order
 
 > Request example
 
@@ -1900,7 +1900,7 @@ Create a new order in an Ecwid store. This can be useful for storefronts with a 
         <li><strong>privateAdminNotes</strong> field is always ignored.</li></ul>
 </aside>
 
-### Request body
+#### Request body
 
 A JSON object of type 'Order' with the following fields:
 
@@ -2062,7 +2062,7 @@ Field | Type | Description
 avsMessage | string  | Address verification status returned by the payment system.
 cvvMessage | string  | Credit card verification status returned by the payment system.
 
-### Response
+#### Response
 
 
 > Response example (JSON)
@@ -2081,7 +2081,7 @@ Field | Type |  Description
 -------------- | -------------- | --------------
 id | number | The number of created order in the store
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -2107,7 +2107,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Upload item option file
+### Upload item option file
 
 Using this method, you can attach a file to an order item (implying that the order item has a 'file upload' option). Request parameters specify which order, item and option should be updated. Request body is the file itself (binary data). Maximum allowed file size is 100Mb.
 
@@ -2165,7 +2165,7 @@ Name | Type    | Description
 
 When uploading an item option file, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
-### Response
+#### Response
 
 > Response example
 
@@ -2182,7 +2182,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 id | number | Internal file ID
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2212,7 +2212,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Delete item option file
+### Delete item option file
 
 Customers can attach files to product options when adding products to cart. Using this method, you can remove that file from an order.
 
@@ -2235,7 +2235,7 @@ Name | Type    | Description
 **fileId** | number | Option file's internal ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -2252,7 +2252,7 @@ Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted files (`1` or `0` depending on whether the request was successful)
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -2281,7 +2281,7 @@ errorMessage | string | Error message
 errorCode | string | Error code
 
 
-## Delete all item option's files
+### Delete all item option's files
 
 Using this method, you can remove all files attached to an order item option by customer.
 
@@ -2304,7 +2304,7 @@ Name | Type    | Description
 **optionName** | string | Item product option name, e.g. `Upload your photo`
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -2321,7 +2321,7 @@ Field | Type |  Description
 ----- | ---- | --------------
 deleteCount | number | The number of deleted files
 
-### Errors
+#### Errors
 
 > Error response example 
 

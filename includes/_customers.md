@@ -1,12 +1,12 @@
-# Customers
+## Customers
 
 It is possible to place orders without creating an account in a store – it depends on the store settings. Using the methods below you can get information about registered customers and modify them.
 
-## Search customers
+### Search customers
 
 Search for customers by a keyword or basic filters: number of orders made, name, email, customer group and more.
 
-### Request
+#### Request
 
 > Request examples
 
@@ -41,7 +41,7 @@ If no filters are set in the URL, API will return all store customers
 Parameters in bold are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -99,7 +99,7 @@ totalOrderCount | number | Number of customer's orders
 customerGroupId | number | Customer group ID
 customerGroupName | string | Customer group name
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -124,11 +124,11 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Get customer
+### Get customer
 
 Get full customers details referring to their ID in an Ecwid store.
 
-### Request
+#### Request
 
 > Request example
 
@@ -147,7 +147,7 @@ Name | Type    | Description
 **customerId** | number | Customer ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -249,7 +249,7 @@ stateOrProvinceCode | string | State/province code
 stateOrProvinceName | string | State/province name
 phone | string | Phone number
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -274,11 +274,11 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Create customer
+### Create customer
 
 Create a new customer in an Ecwid store.
 
-### Request
+#### Request
 
 > Request body
 
@@ -330,7 +330,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 
 
-### Request body
+#### Request body
 
 A JSON object of type 'Customer' with the following fields:
 
@@ -376,7 +376,7 @@ Parameters in bold are mandatory
 </aside>
 
 
-### Response
+#### Response
 
 
 > Response example
@@ -395,7 +395,7 @@ Field | Type |  Description
 id | number | ID of the created customer
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -422,11 +422,11 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Update customer
+### Update customer
 
 Update details of an existing customer in an Ecwid store. 
 
-### Request
+#### Request
 
 > Request body
 
@@ -479,7 +479,7 @@ Name | Type    | Description
 **customerId** | number | Internal customer ID
 
 
-### Request body
+#### Request body
 
 A JSON object of type 'Customer' with the following fields:
 
@@ -525,7 +525,7 @@ All fields are optional
 </aside>
 
 
-### Response
+#### Response
 
 
 > Response example
@@ -545,7 +545,7 @@ Field | Type |  Description
 updateCount | number | The number of update customers (`0` or `1` depending on whether the request was successful)
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -574,7 +574,7 @@ errorMessage | string | Error message
 
 
 
-## Delete customer
+### Delete customer
 
 Delete a specific customer from an Ecwid store referring to their ID.
 
@@ -595,7 +595,7 @@ Name | Type    | Description
 **customerId** | number | Customer ID
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -614,7 +614,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted customers (`1` or `0` depending on whether the request was successful)
 
 
-### Errors
+#### Errors
 
 > Error response example
 

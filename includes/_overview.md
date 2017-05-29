@@ -6,7 +6,7 @@ To find out more about the Ecwid platform and get some basic details about it, p
 
 Learn more on how to start developing an app here: [https://developers.ecwid.com/developing-your-app](/developing-your-app)
 
-# API features
+## API features
 
 **REST API**
 
@@ -66,7 +66,7 @@ Ecwid is a widget, that can be inserted to any website. Many websites have their
 
 More information: [Storefront Single Sign-On](#single-sign-on)
 
-# Applications for Ecwid
+## Applications for Ecwid
 
 In Ecwid there can be two main categories of applications: Native and External apps. 
 
@@ -159,7 +159,7 @@ Suggested API features:
 
 Learn more on how to create a theme for Ecwid: [https://developers.ecwid.com/how-to-create-a-theme-for-an-ecwid-store](https://developers.ecwid.com/how-to-create-a-theme-for-an-ecwid-store)
 
-# API availability on Ecwid plans
+## API availability on Ecwid plans
 
 [Ecwid pricing](http://www.ecwid.com/pricing) includes four tiers: Free, Venture, Business, Unlimited. The API is available on **paid** Ecwid plans, i.e. on Venture, Business and Unlimited. Merchants on Free plans cannot use Ecwid API. This means that, if the user is on Free plan, all API functions will fail including requests to read or update store data, embedding of the app interfaces into Ecwid Control Panel and customizing storefront. 
 
@@ -173,7 +173,7 @@ If you’re building an app for Ecwid App Market, we would be happy to provide y
 
 Please note that this account must not be used for selling the application or any other products to real customers.
 
-# API playground
+## API playground
 
 To quickly learn Ecwid API and see it in action even before you start development of your application, you can use Ecwid API playground. The playground is basically a collection of presets for [PostMan](http://www.getpostman.com/). You can load it in PostMan application and try accessing and managing your store data via API. 
 

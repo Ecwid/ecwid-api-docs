@@ -1,12 +1,12 @@
-# Product types
+## Product types
 
 Product types (or product classes) are groups of products which share the same attributes. Product attributes contain additional product information, e.g. ISBN, UPC, Brand, which is displayed in storefront and included in product feeds when exporting to marketplaces like Google Shopping, eBay, Amazon ads etc. Learn more about product types and attributes in [Ecwid Help center](http://help.ecwid.com/customer/portal/articles/1167365-product-types).
 
-## Get product types
+### Get product types
 
 Get all product types present in an Ecwid store. 
 
-### Request
+#### Request
 
 > Request example
 
@@ -23,7 +23,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -84,10 +84,9 @@ Field | Type  | Description
 id | number | Attribute internal unique ID
 name |  string | Attribute title
 type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit' attributes. The 'type' field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
-show | string | Defines how and where to display the product attribute value: `NOTSHOW`, `DESCR`, `PRICE`
+show | string | Defines how and where to display the product attribute value: `NOTSHOW`, `DESCR`, `PRICE`. For [public tokens](#access-tokens), `NOTSHOW` attributes are not returned
 
-
-### Errors
+#### Errors
 
 > Error response example
 
@@ -116,11 +115,11 @@ errorMessage | string | Error message
 
 
 
-## Get product type
+### Get product type
 
 Get the full details of a specific product type referring to its ID.
 
-### Request
+#### Request
 
 > Request example
 
@@ -138,7 +137,7 @@ Name | Type    | Description
 **token** |  string | oAuth token
 **classId** | number | Product type internal ID
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -180,10 +179,10 @@ Field | Type  | Description
 id | number | Attribute internal unique ID
 name |  string | Attribute title
 type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit' attributes. The 'type' field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
-show | string | Defines how and where to display the product attribute value: `NOTSHOW`, `DESCR`, `PRICE`
+show | string | Defines how and where to display the product attribute value: `NOTSHOW`, `DESCR`, `PRICE`. For [public tokens](#access-tokens), `NOTSHOW` attributes are not returned
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -214,11 +213,11 @@ errorMessage | string | Error message
 
 
 
-## Update product type
+### Update product type
 
 Update the details of a specific product type referring to its ID.
 
-### Request
+#### Request
 
 > Request example
 
@@ -247,7 +246,7 @@ Name | Type    | Description
 **token** |  string | oAuth token
 **classId** | number | Product type internal ID
 
-### Request body
+#### Request body
 
 A JSON object of type 'ProductClass' with the following fields:
 
@@ -265,7 +264,7 @@ name |  string | Attribute title
 type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit' attributes. The 'type' field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
 show | string | Defines how and where to display the product attribute value: `NOTSHOW`, `DESCR`, `PRICE`
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -284,7 +283,7 @@ Field | Type |  Description
 updateCount | number | The number of updated types (`1` or `0` depending on whether the update was successful)
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -313,13 +312,11 @@ errorMessage | string | Error message
 
 
 
-
-
-## Create product type
+### Create product type
 
 Create a new product type in an Ecwid store.
 
-### Request
+#### Request
 
 > Request example
 
@@ -362,7 +359,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
-### Request body
+#### Request body
 
 A JSON object of type 'ProductClass' with the following fields:
 
@@ -379,7 +376,7 @@ name |  string | Attribute title
 type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit' attributes. The 'type' field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
 show | string | Defines how and where to display the product attribute value: `NOTSHOW`, `DESCR`, `PRICE`
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -398,7 +395,7 @@ Field | Type |  Description
 id | number | The internal ID of the just created product type
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -427,11 +424,11 @@ errorMessage | string | Error message
 
 
 
-## Delete product type
+### Delete product type
 
 Delete a specific product type and its assigned attributes. The products that belong to this type will not be removed. They will be re-assigned to the General type.
 
-### Request
+#### Request
 
 > Request example
 
@@ -449,7 +446,7 @@ Name | Type    | Description
 **token** |  string | oAuth token
 **classId** | number | Product type internal ID
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -469,7 +466,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted types (`1` or `0` depending on whether the request was successful). It returns `0` when the type with the given ID is not found
 
 
-### Errors
+#### Errors
 
 > Error response example
 

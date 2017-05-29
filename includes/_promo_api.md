@@ -1,14 +1,12 @@
 # Add Custom Discount
 
-# Overview
-
 With the Custom Discount API you can apply custom discounts to the order total when the customer is at the checkout.
 
 <aside class="notice">
 Access scope required: <strong>customize_cart_calculation</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
-### Discount types examples
+#### Discount types examples
 
 The Custom Discount API allows you to apply an absolute or percent discount to an order. While this sounds simple enough, it provides many possibilities and different ways to use it in a store.
 
@@ -21,13 +19,10 @@ Examples:
 - **Buy one, get one free (BOGOF)**: when the customer puts a specific product in their cart, the app adds a new free product with the JS API. The app applies an absolute discount for the cost amount of that free product.
 - And many more!
 
-# How to set up
 
-When [registering a new application](/register) for Ecwid, specify the request URL for your application. Ecwid will be sending cart details requests to that endpoint and expect discounts in a specific format in response.
+## How it works
 
-# How it works
-
-### 1. Ecwid sends cart data to app request URL
+#### 1. Ecwid sends cart data to app request URL
 
 The request to your app URL can be triggered by a customer in storefront or by an API request to order details calculation [endpoint](#calculate-order-details). 
 
@@ -43,7 +38,7 @@ The request will be sent when the customer's cart changes - a new product is add
 
 The products and cart information itself can be different from what the store actually has. For example, some other application can create a custom storefront where it requests order calculation with items that are not present in the store. 
 
-### 2. Application returns discounts in a specific format
+#### 2. Application returns discounts in a specific format
 
 Ecwid will expect **a response to its request** from your service within **5 second interval** to display additional discounts for an order. In the response, provide discount value, type of discount (percent or absolute) and discount description. See the response format in the [Request and response](#request-and-response) section.
 
@@ -51,9 +46,22 @@ Ecwid will expect **a response to its request** from your service within **5 sec
 Please mind that the response isn't a separate request back to a specific URL in Ecwid. This needs to be a response to the request Ecwid makes to the application URL.
 </aside>
 
-### 3. Ecwid displays discounts at checkout
+#### 3. Ecwid displays discounts at checkout
 
 Based on the response from your app, Ecwid will display the discounts for customers on the cart page. Customer can view the amount and the reason for a discount that your solution sent to Ecwid. All the discount details will be saved for that order and they will be displayed in related order information.
+
+#### Q: In what order does Ecwid calculate the order total?
+
+Ecwid calculates the order total in this order: 
+
+1. Order subtotal
+2. Coupon discount
+3. Handling fee
+4. Discounts (app discounts too)
+5. Shipping
+6. Taxes
+
+Please keep this in mind when creating an app for Ecwid.
 
 #### Q: What happens, if my URL responds with an error? 
 
@@ -63,11 +71,15 @@ In case if your app responds with an error or in an incorrect format, then the d
 
 After the installation, your app can add a page where they can configure it: provide their account details, set up discount rules, enable/disable rules, etc. We recommend using **Native apps** feature and the **Application storage** feature to provide this functionality. To manage and store those settings, see the [Advanced setup](#advanced-setup) section.
 
-# Request and response
+## Set up custom discount
+
+When [registering a new application](/register) for Ecwid, specify the request URL for your application. Ecwid will be sending cart details requests to that endpoint and expect discounts in a specific format in response.
+
+## Request for discount and response
 
 Ecwid will send the cart details in a **body** of POST HTTP request in the following format:
 
-### Request
+#### Request
 
 > Request from Ecwid example
 
@@ -195,7 +207,7 @@ storeId |  number | Ecwid store ID
 merchantAppSettings | json | Merchant settings for your integration set up by your code. [More details](#advanced-setup)
 cart | \<*CartDetails*\> | Offset from the beginning of the returned items list (for paging)
 
-### CartDetails
+#### CartDetails
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -284,7 +296,7 @@ name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value
 description | string | Handling fee description for customer
 
-### ShippingAddressInfo
+#### ShippingAddressInfo
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -296,7 +308,7 @@ postalCode | string | Customer's postal code
 stateOrProvinceCode | string | Customer's state or province code in Ecwid
 stateOrProvinceName | string | Customer's state or province name in Ecwid
 
-### OriginAdressInfo
+#### OriginAdressInfo
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -306,7 +318,7 @@ countryCode | string | Customer's country code in Ecwid
 postalCode | string | Customer's postal code
 stateOrProvinceCode | string | Customer's state or province code in Ecwid
 
-### Response
+#### Response
 
 > Response to Ecwid example
 
@@ -329,7 +341,7 @@ stateOrProvinceCode | string | Customer's state or province code in Ecwid
 
 An array of JSON data of type 'CustomDiscounts' with the following fields:
 
-### CustomDiscounts
+#### CustomDiscounts
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -341,7 +353,7 @@ description | string | Discount description
 Response parameters in <strong>bold</strong> are mandatory
 </aside>
 
-# User interface for discount rules
+## User interface for discount rules
 
 You can create a user interface for merchants to specify their own promo rule combinations or any other user preferences you may require for your app. 
 

@@ -1,14 +1,14 @@
-# Discount Coupons
+## Discount Coupons
 
 Discount coupons allow customers to get discounts on their orders in the checkout process. For store owners it's a great way to increase sales or make a temporary promotion.
 
 Learn more about discount coupons in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207806525-Discount-Coupons).
 
-## Search coupons
+### Search coupons
 
 Search or filter discount coupons in an Ecwid store. Filters include: discount coupon code, type, availability.
 
-### Request
+#### Request
 
 > Request example
 
@@ -42,7 +42,7 @@ If no filters are set in the URL, API will return all discount coupons
 Parameters in bold are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -128,7 +128,7 @@ Field | Type | Description
 products | Array\<number\> | The list of product IDs the coupon can be applied to
 categories | Array\<number\> | The list of category IDs the coupon can be applied to
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -154,9 +154,9 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Get coupon
+### Get coupon
 
-### Request
+#### Request
 
 > Request example
 
@@ -175,7 +175,7 @@ Name | Type    | Description
 **couponIdentifier** | number/string | Coupon identifier in a store. It can be either unique internal coupon `id` OR a discount coupon `code`.
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -231,7 +231,7 @@ Field | Type | Description
 products | Array\<number\> | The list of product IDs the coupon can be applied to
 categories | Array\<number\> | The list of category IDs the coupon can be applied to
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -251,11 +251,11 @@ HTTP Status | Meaning
 415 | Unsupported content-type: expected `application/json` or `text/json`
 
 
-## Create coupon
+### Create coupon
 
 Create a new discount coupon in an Ecwid store.
 
-### Request
+#### Request
 
 > Request body
 
@@ -292,7 +292,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string |  oAuth token
 
-### Request body
+#### Request body
 
 A JSON object of type 'Coupon' with the following fields:
 
@@ -323,7 +323,7 @@ Parameters in bold are mandatory
 </aside>
 
 
-### Response
+#### Response
 
 
 > Response example
@@ -345,7 +345,7 @@ id | number | Internal unique coupon ID
 code | number | Code of the created coupon
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -372,11 +372,11 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Update coupon
+### Update coupon
 
 Update an existing discount coupon in an Ecwid store referring to its code or ID.
 
-### Request
+#### Request
 
 > Request body for discount coupon code
 
@@ -442,7 +442,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 **couponIdentifier** | number/string | Coupon identifier in a store. It can be either unique internal coupon `id` OR a discount coupon `code`.
 
-### Request body
+#### Request body
 
 A JSON object of type 'Coupon' with the following fields:
 
@@ -473,7 +473,7 @@ All fields are optional
 </aside>
 
 
-### Response
+#### Response
 
 
 > Response example
@@ -493,7 +493,7 @@ Field | Type |  Description
 updateCount | number | The number of updated coupons (`1` or `0` depending on whether the update was successful)
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -520,7 +520,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Delete coupon
+### Delete coupon
 
 Delete a specific coupon from an Ecwid store referring to its code or ID.
 
@@ -541,7 +541,7 @@ Name | Type    | Description
 **couponIdentifier** | number/string | Coupon identifier in a store. It can be either unique internal coupon `id` OR a discount coupon `code`.
 **token** |  string |  oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -560,7 +560,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted coupons (`1` or `0` depending on whether the request was successful). It returns `0` when the coupon with the given code is not found
 
 
-### Errors
+#### Errors
 
 > Error response example
 

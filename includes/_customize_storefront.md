@@ -1,7 +1,5 @@
 # Customize storefront
 
-# Overview
-
 The Ecwid API platform allows you to customize storefront in various ways: 
 
 - apply custom styles to the store elements (buttons, fonts, pictures, etc.)
@@ -12,7 +10,7 @@ The Ecwid API platform allows you to customize storefront in various ways:
 
 Check out the sections below to find out what other features are available and how to use them.
 
-# Add Ecwid to the site
+## Add Ecwid to the site
 
 > Add Ecwid storefront to your website
 
@@ -24,7 +22,7 @@ This is the most important Ecwid widget. It shows and includes a full-featured s
 
 To add an Ecwid store to the website, use the code example on the right. The `1003` is the ID of an Ecwid store. Make sure to specify your desired store ID in order to show your store!
 
-## Set main storefront URL for widgets
+### Set main storefront URL for widgets
 
 When you add store widgets, like search, minicart, categories menu, to a site page separate from the storefront widget, the storefront will open in a pop-up. This pop-up contains the whole store and works just fine. But in some cases it is more convenient to open the store on another website page instead of the pop-up.
  
@@ -61,7 +59,7 @@ For example:
 
 `<script>var ecwid_ProductBrowserURL = "http://www.example.com/store.html";</script>`
 
-## Embed or remove storefront on demand
+### Embed or remove storefront on demand
 
 > Dynamic embedding of Ecwid storefront widget
 
@@ -101,7 +99,7 @@ You should use `window.ecwid_dynamic_widgets` variable to enable dynamic widget 
 
 Please note that **this method allows to embed the storefront widget only**. If you need to embed other widgets dynamically, please, use the code for [deferred widget initialization](#delayed-widget-initialization)
 
-## Delayed widget initialization 
+### Delayed widget initialization 
 
 > Delayed widget initialization
 
@@ -130,7 +128,7 @@ Sometimes it is necessary to delay widget initialization while the website page 
 
 See the example of delayed initialization of Ecwid widget on the right.
 
-## Increase widget loading speed
+### Increase widget loading speed
 
 > DNS Prefetching of Ecwid's resources
 
@@ -153,9 +151,9 @@ You can also add your storefront page to preload and prerender in the background
 
 Feel free to learn more about these techniques in [https://css-tricks.com/prefetching-preloading-prebrowsing/](https://css-tricks.com/prefetching-preloading-prebrowsing/)
 
-# Look and feel
+## Look and feel
 
-## Apply custom CSS
+### Apply custom CSS
 
 > Example of custom CSS to modify storefront
 
@@ -201,21 +199,21 @@ In more details:
 Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
-### Q: Can I create new themes as apps?
+#### Q: Can I create new themes as apps?
 
 Yes, you can! Please check out this page for more details: [How to create a theme](/how-to-create-a-theme-for-an-ecwid-store)
 
-### Store-specific custom CSS
+#### Store-specific custom CSS
 
 You may want to apply different CSS codes depending on the store your application is loaded. For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
 
 In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#add-custom-javascript-code) for details.
 
-## Change the store layout
+### Change the store layout
 
 Ecwid integration code provides a number of modifications to the store layout: number of products per row, default view mode and more. See the details below. 
 
-### Change the number of products/categories on a page
+#### Change the number of products/categories on a page
 
 >Add Ecwid storefront to your website
 
@@ -245,7 +243,7 @@ Default view mode settings:
 
 Feel free to change the code to achieve the layout you need!
 
-### Set default product or category page
+#### Set default product or category page
 
 > Open "Surfboards" category of Ecwid Demo store by default
 
@@ -271,7 +269,7 @@ or
 
 The example codes are available on the right.
 
-## Change storefront labels
+### Change storefront labels
 
 > Format example
 
@@ -325,11 +323,11 @@ If you're not familiar with JavaScript, but want to translate a store or change 
 
 For more details on this functionality, please see [this article](https://support.ecwid.com/hc/en-us/articles/207808835-Custom-Translations) in our help center.
 
-## Change default colors and fonts
+### Change default colors and fonts
 
 Change any color and main font for user's storefront
 
-### Apply colors and fonts to storefront automatically from a website
+#### Apply colors and fonts to storefront automatically from a website
 
 > Set storefront colors and font automatically
 
@@ -345,7 +343,7 @@ window.ec.config.chameleon.colors = 'auto';
 
 Ecwid can automatically detect the main colors and fonts of a surrounding website and match the storefront automatically. To apply the colors and font automatically for a store, use the code on the right.
 
-### Set storefront colors
+#### Set storefront colors
 
 > Set storefront colors automatically
 
@@ -408,7 +406,7 @@ color-link | string (HEX and RGBA color) | Color for links in storefront (breadc
 color-button | string (HEX and RGBA color) | Color for main buttons in storefront ("Add to bag", "Checkout", etc.) and small buttons on mouse hover ("Clear bag", "Apply", etc.)
 color-price | string (HEX and RGBA color) | Color for product prices in storefront
 
-### Set storefront font
+#### Set storefront font
 
 > Set storefront font automatically
 
@@ -455,9 +453,9 @@ Using the global Ecwid config object `window.ec.config` you can control the font
 `auto` value allows Ecwid to detect the website's main font to adapt its font automatically. You can also set a specific font-family for a storefront manually.
 
 
-# SEO 
+## SEO 
 
-## SEO-friendly URLs
+### SEO-friendly URLs
 
 By default, Ecwid URLs address store pages in a hash part of the URL (after the # sign). Example: `https://www.mysite.com/store/#!/My-Product/p/123/category=0`
 
@@ -472,7 +470,7 @@ Follow the steps below to enable SEO-friendly URLs in an Ecwid store.
   If you have your Ecwid store installed on a platform or sitebuilder including Wordpress, Wix, Adobe Muse or Ecwid Starter Site, you should have the clean URLs enabled automatically (see the <a target="_blank" href='https://www.ecwid.com/blog/new-clean-seo-urls-in-ecwid.html'>blog post</a> for the details). 
 </aside>
 
-### How to enable SEO-friendly URLs
+#### How to enable SEO-friendly URLs
 
 **Step 1. Configure your server: add URL rewrite rules.**
 
@@ -524,7 +522,7 @@ etc.
 We recommend using <strong>relative URLs</strong> in the <em>baseUrl</em> parameter. But you can also specify an absolute baseUrl if needed, e.g. "https://www.mysite.com/subfolder/shop/cart". <br/><br/>In such case, make sure it is under the same domain a visitor browses the site. E.g. if it includes 'www', do include 'www' in the base URL; if it contains https, do use https in the base URL. If the base URL domain or schema differ from the actual ones, the visitor browser will block URL rewrites and the SEO URls will not work. 
 </aside>
 
-### Examples
+#### Examples
 
 Below are examples of clean URLs setup on custom made websites.
 
@@ -625,7 +623,7 @@ You’ll do that in two steps:
 
 That's it. Now open the storefront, navigate to any product page and refresh the page in your browser. Both navigation and page opening after refresh should work fine and you should see the new clean URLs enabled.
 
-### FAQ
+#### FAQ
 
 #### Q: Will the regular hash-bang URLs continue working if I enable the new SEO URLs? 
 
@@ -638,13 +636,13 @@ Yes, when getting information about products and categories in an Ecwid store, y
 - [How to get URLs for products](#q-how-to-get-urls-for-products)
 - [How to get URLs for categories](#q-how-to-get-urls-for-categories)
 
-## Canonical URLs
+### Canonical URLs
 
 Canonical URLs on an HTML web page help the website's search rankings. When a website has multiple pages for a single content, you can specify a single canonical URL for search engines to use when referring to all those pages. This way, you can avoid having duplicate results in the search results thus improving the search engine rankings of your website pages.
 
 This can be helpful, when your store products are located in multiple categories at once – with canonical URL, you will direct potential buyers to that single URL and improve its positions in the search results.
 
-### How canonical URLs work
+#### How canonical URLs work
 
 When canonical URLs are enabled on the page with a store, Ecwid will dynamically update the canonical URL of the page the visitor is on. 
 
@@ -656,7 +654,7 @@ For the store front page, Ecwid will always use the canonical URL that is alread
 
 If canonical URLs functionality is enabled, Ecwid will dynamically update the canonical URL of that page to match the current product or category that is currently opened. Ecwid will always refer to a unique canonical URL so that the products in multiple categories are addressed in the same way to get the most of the rankings on search engines. 
 
-### How to enable canonical URLs
+#### How to enable canonical URLs
 
 In order to enable canonical URLs functionality for your store pages, you will need to adjust the Ecwid integration code on your website by adding some JavaScript code. If you are using Ecwid starter site as the main store website then no action is required from you – the canonical URLs are already enabled there.
 
@@ -673,9 +671,9 @@ In order to enable canonical URLs functionality for your store pages, you will n
 
 The `enable_canonical_urls` setting will 'tell' Ecwid to enable the canonical URLs functionality and it will work as described above. Check out the example on the right.
 
-# Add or modify features in storefront
+## Add or modify features in storefront
 
-## Add custom JavaScript code
+### Add custom JavaScript code
 
 > Example of custom JavaScript to modify storefront
 
@@ -735,7 +733,7 @@ In addition, Ecwid provides a [JavaScript API](#storefront-js-api) that you can 
 
 More details: [Ecwid JavaScript API](#storefront-js-api)
 
-### How to load custom JavaScript anytime storefront is loaded
+#### How to load custom JavaScript anytime storefront is loaded
 
 Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom JavaScript code and Ecwid automatically loads that code in the user storefront. So you don't need to put the JS on merchant site manually or ask them to do that. 
 
@@ -749,7 +747,7 @@ In more details:
 Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
-### Q: How to know what Ecwid widgets are on a page?
+#### Q: How to know what Ecwid widgets are on a page?
 
 If your applcation customizes storefront, your script will be loaded at **all times** when `app.ecwid.com/script.js?{store_id}` is on a page. It means that if a simple search widget is present on a page, your script will be executed. 
 
@@ -761,7 +759,7 @@ Ecwid widgets can be also embedded in many ways:
 
 So, it is important to know where exactly your application is loaded: if there is a storefront present on a page or if it's just a search widget. To check that, use `Ecwid.getInitializedWidgets()` function of [Ecwid Javascript API](#storefront-js-api). Using it, you can determine whether your app functionality needs to be initialized or not.
 
-### Q: What is the best way to add new scripts from my code? 
+#### Q: What is the best way to add new scripts from my code? 
 
 > Add external script to the page example
 
@@ -781,7 +779,7 @@ More details about this approach: [W3CSchools](http://www.w3schools.com/jsref/me
 
 <aside class="note">Please make sure to avoid using the <em>document.write()</em> function as it works synchronously and will slow down the page load.</aside>
 
-### Store-specific custom JavaScript
+#### Store-specific custom JavaScript
 
 > Example of the script that dynamically loads store-specific code
 
@@ -814,7 +812,7 @@ For example, let's say you need to dynamically add a store-specific configuratio
 
 To get information for that specific store you can use `Ecwid.getAppPublicConfig` function in [Ecwid Javascript API](#storefront-js-api). See more details on how to access that data in **Application data** section of documentation.
 
-## Caching JavaScript file contents
+### Caching JavaScript file contents
 
 When your external JS file is loaded on a page, it is loaded like any other resource via a GET request by a web browser. If you'd like to use caching to increase the loading speeds of your script, we can suggest several options:
 
@@ -822,7 +820,7 @@ When your external JS file is loaded on a page, it is loaded like any other reso
 - in your JS file, place a code that will get the latest JS assets file from your server dynamically and append it to a page (instead of the using an actual code of your app on that URL)
 - don't use caching, so that your files for storefront are always up-to-date for any user
 
-## Using jQuery on store pages
+### Using jQuery on store pages
 
 > Checking for jQuery on a page example
 
@@ -849,13 +847,13 @@ Ecwid storefronts can be customized in many ways, for example: you can set speci
 
 To ensure that your jQuery version code doesn't conflict with other applications that change Ecwid storefront, please see our guidelines: 
 
-### For simple modifications
+#### For simple modifications
 
 When your modifications don't require specific versions of jQuery loaded on a page and are fairly simple, we suggest you follow this algorithm: 
 
 First, check for jQuery object on current page. If no object is defined, load any jQuery version you prefer using the example code on the right. If there is already jQuery object available - skip the loading and use the curreny jQuery on this page.
 
-### For complex modifications
+#### For complex modifications
 
 When you are using advanced jQuery's features such as jQuery UI, version specific functions, etc. it will be hard to work with, if a website already has varuous jQuery versions on a page. To avoid any version conflicts with current page jQuery version, we suggest you use jQuery noconflict feature. Check out how it works: [https://api.jquery.com/jquery.noconflict/](https://api.jquery.com/jquery.noconflict/)
 
@@ -863,7 +861,7 @@ When you are using advanced jQuery's features such as jQuery UI, version specifi
 We recommend loading your jQuery from <a href='https://developers.google.com/speed/libraries/#jquery'>Google's CDN</a> to ensure it is available at all times.
 </aside>
 
-## Center popups in iframe storefronts
+### Center popups in iframe storefronts
 
 > Example of centering popups
 
@@ -882,7 +880,7 @@ Ecwid can be embedded to a website in many ways. Sometimes a storefront can be i
 
 `setPopupCentering()` function accepts one argument, which is the ID of an iframe element, where Ecwid storefront is loaded. In order to work, `setPopupCentering()` function needs to have `iframeintegration.js` file loaded for that frame. 
 
-## Custom URL redirect after online purchase 
+### Custom URL redirect after online purchase 
 
 > Setting custom URL redirect after online purchase
 
@@ -907,7 +905,7 @@ Some merchants may want to send their customers after a successful online purcha
 **Important**: the redirect will work only for [online payment methods](https://support.ecwid.com/hc/en-us/articles/207100429-Payment-options#OnlinepaymentmethodsOrIwanttoacceptcreditcards). For offline payment methods, consider using the [Custom URL for 'Thank you' page](https://github.com/Ecwid/custom-thank-you-page-app) application.
 
 
-## Storefront JavaScript API
+### Storefront JavaScript API
 
 Any Ecwid storefront has a JavaScript API available at all times to help users create various customizations for their storefronts. 
 
@@ -921,7 +919,7 @@ and others.
 
 To find our more about it, plesae see the [Storefront JavsScript API Documentation](#storefront-js-api).
 
-## Using REST API in storefront
+### Using REST API in storefront
 
 When working on a custom storefront functionality, applications can require getting up-to-date catalog information from Ecwid store.
 
@@ -949,7 +947,7 @@ We suggest using [public access token](#access-tokens) to get information about:
 
 With public access token you can safely make requests to Ecwid REST API without creating a buffer in a form of a server-side code, which requested information for your client-side code. You can make an Ajax request to Ecwid API with your JavaScript code and have a completely serverless application.
 
-## Access merchant in-app preferences
+### Access merchant in-app preferences
 
 Applications can work and look differently in various stores, so you can provide tailored user experience to the store owner and a website they have in your application.
 

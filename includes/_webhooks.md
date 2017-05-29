@@ -1,10 +1,8 @@
 # Webhooks
 
-# Overview
+## Webhooks overview
 
-## Webhooks
-
-Basically, a webhook is an HTTP POST request that occurs when something happens. In other words, it’s a simple event notification via HTTP POST. Ecwid uses webhooks to notify your application in real time about events in the merchant store.
+A webhook is an HTTP POST request that occurs when something happens. In other words, it’s a simple event notification via HTTP POST. Ecwid uses webhooks to notify your application in real time about events in the merchant store.
 
 This is how your application can use webhooks:
 
@@ -15,7 +13,7 @@ This is how your application can use webhooks:
 Don’t use webhooks themselves as actionable items – please see the <a href="#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
-## How it works in Ecwid
+### How it works in Ecwid
 
 In a nutshell, webhooks in Ecwid work this way:
 
@@ -25,7 +23,7 @@ In a nutshell, webhooks in Ecwid work this way:
 * Your application receives the requests and replies with `200 OK` to identify that it's received
 * Then your app processes the webhook request and performs further steps to handle the event
 
-## Supported events
+### Supported events
 
 The following events are supported:
 
@@ -62,35 +60,35 @@ The following events are supported:
 
 [Store profile endpoint](#store-information) allows you to get and update store information.
 
-# Setting up webhooks
+## Setting up webhooks
 
 Setup process is easy. Once your application has a webhook URL specified in the settings and has a token with appropriate access level for the store, it will receive notifications automatically. More details on these are below.
 
-### 1. Set webhook URL
+#### 1. Set webhook URL
 After you successfully [registered your application](/register) with Ecwid, please contact us and provide a single webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable or modify webhooks for existing application, please contact us as well.
 
 <aside class="notice">
 This must be a <strong>publicly accessible HTTPS URL</strong>. 
 </aside>
 
-### 2. Set webhook events
+#### 2. Set webhook events
 There are several types of events in the store that Ecwid can notify your application about, check out **Event type** section of webhook structure for more details. 
 
 Please specify the exact event types you wish to be notified about upon registering your application or [contact us](/contact) if you already have an app.
 
-### 3. Set custom HTTP headers (optional)
+#### 3. Set custom HTTP headers (optional)
 
 You are also able to specify your custom HTTP headers to be provided by Ecwid when sending webhooks to your URL. If you want to add custom headers to your app, please [contact us](/contact). Learn more about [custom HTTP headers](#request-headers)
 
-### 4. Get access
+#### 4. Get access
 Each application has scope of access that controls the set of store resources and operations permitted for the application. The same set of access scopes is used to determine which events your application can be notified of. To be notified of the product updates, make sure your app has `read_catalog` access to the store. The `read_orders` scope allows to get order webhooks. See [Access scopes](#access-scopes) for more details. 
 
 
 
-# Webhook structure
+## Webhook structure
 
 
-## Webhook request body
+### Webhook request body
 
 > Webhook header example
 
@@ -312,7 +310,7 @@ Don’t use webhooks themselves as actionable items – please see the <a href="
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
 
-### Event types
+#### Event types
 * `unfinished_order.created` Unfinished order is created
 * `unfinished_order.updated` Unfinished order is updated
 * `unfinished_order.deleted` Unfinished order is deleted
@@ -329,7 +327,7 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 
 All order related webhooks require `read_orders` access scope and all product related webhooks require `read_catalog` [access scope](#access-scopes) to be requested from the store.
 
-### Q: What is an unfinished order and how it works? 
+#### Q: What is an unfinished order and how it works? 
 
 The typical process of ordering in Ecwid store is:
 
@@ -360,26 +358,26 @@ We recommend the following workflow:
 
 After that, application can send an email to that person, following up on that unfinished order or provide some other functionality.
 
-### Q: When 'unfinished_order.deleted' event type is sent?
+#### Q: When 'unfinished_order.deleted' event type is sent?
 
 When a merchant deletes an unfinished order in their Ecwid control panel, `hidden` field in order details becomes `true`. After that update `unfinished_order.updated` webhook is sent. So the details of this order are still available to be accessed [via Ecwid API](#get-order-details).
 
 To completely delete an unfinished order, make a delete order request to Ecwid API. If your app is set up to receive `unfinished_order.deleted` webhooks, Ecwid will send that webhook to endpoint of your application.
 
-### Q: How can I know if order status was changed?
+#### Q: How can I know if order status was changed?
 Webhooks in Ecwid have a specific field for that: `data`. This field provides information about changes to both payment and fulfilment status of orders. 
 
 Contents of `data` field also lets you know the details about old status (before the changes) and the new one (after the changes) at all times. For example, your application can send a note to your warehouse if it received a webhook about order payment status changes from `Awaiting payment` to `Paid`.
 
-### Q: How can I know the current subscription status of a store?
+#### Q: How can I know the current subscription status of a store?
 
 Once you received `application.subscriptionStatusChanged` webhook, you can make a request to [Application endpoint](#get-application-status) to get the current subscription status of your app in that store.
 
-## Request headers
+### Request headers
 
 Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](#webhooks-security) below.
 
-### Custom HTTP Headers
+#### Custom HTTP Headers
 
 > Custom webhook headers example
 
@@ -399,7 +397,7 @@ The custom HTTP headers specified for webhooks will be **added** to the default 
 
 To setup custom HTTP headers for your app webhooks, please [contact us](/contact).
 
-# Processing webhooks
+## Processing webhooks
 
 Webhooks are a way to get notified about events in an Ecwid store. So they shouldn't be used as actionable items. See processing flow examples below.
 
@@ -422,15 +420,15 @@ Webhooks are a way to get notified about events in an Ecwid store. So they shoul
 
 See also [the webhooks best practices](#webhooks-best-practices) on webhooks security and processing examples.
 
-## Responding to webhooks
+### Responding to webhooks
 
 When a webhook is sent to your URL, your app must return a `200 OK` HTTP status code in reply to a webhook. This acknowledges Ecwid that you received the webhook. 
 
 Any other response (e.g. `3xx`), will indicate that the webhook is not received. In this case, we will re-send a webhook every 15 minutes for 48 hours until the time is out or the resource responds with 200OK HTTP response code. Once the 48 hour limit is reached, the webhook will be removed from the queue and will not be sent again.
 
-## Troubleshooting webhooks
+### Troubleshooting webhooks
 
-### Q: Webhooks to my endpoint are not delivered. Why?
+#### Q: Webhooks to my endpoint are not delivered. Why?
 
 There are several factors that can prevent you from getting webhooks from Ecwid. 
 
@@ -464,7 +462,7 @@ If you registered your app without webhooks functionality and added it later on,
 
 If you made sure that all of the above steps are not concerning your case, please contact us and we will help you.
 
-### Q: I receive webhooks for events that already happened. Why?
+#### Q: I receive webhooks for events that already happened. Why?
 
 When your application isn't sending `200OK` HTTP response back to Ecwid, the webhook event counts by Ecwid as not delivered. Such webhooks are sent again to the application URL according to the scheme described in [Responding to webhooks](#responding-to-webhooks). 
 
@@ -472,9 +470,9 @@ Hence, if your app somehow got the webhook the first time, it will receive more 
 
 So plesae make sure that your webhooks endpoint always respods with `200OK` HTTP response upon successfully receiving the webhook from Ecwid.
 
-# Webhooks best practices
+## Webhooks best practices
 
-## Webhooks security
+### Webhooks security
 
 We recommend verifying each webhook request to make sure it comes from Ecwid and not altered or corrupted during transmission. You can do that by validating the webhook signature coming with each webhook.
 
@@ -506,7 +504,7 @@ To verify a webhook in your appliciation:
 See the example in the [webhook processing example code](#webhook-processing-example). 
 
 
-## Webhook processing example
+### Webhook processing example
 
 > Webhooks processing PHP example
 

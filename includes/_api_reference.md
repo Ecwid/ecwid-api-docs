@@ -1,8 +1,11 @@
 # REST API Reference
 
-# API basics
+Ecwid REST API allows your application to manage Ecwid store on behalf of an Ecwid user. Create products, update orders, delete a customer and many many more.
 
-### RESTful / oAuth2
+#### API basics
+
+**RESTful / oAuth2**
+
 Ecwid API is a **RESTful** API with **oAuth2** authentication. As any RESTful service, Ecwid REST API use the standard HTTP codes in requests: 
 
 * `GET` to read store data
@@ -10,25 +13,25 @@ Ecwid API is a **RESTful** API with **oAuth2** authentication. As any RESTful se
 * `POST` to create entries
 * `DELETE` to remove entries
 
-### HTTPS
+**HTTPS**
 All requests are done via HTTPs. Requests via insecure HTTP are not supported.
 
-### UTF-8
+**UTF-8**
 Ecwid API works with UTF-8 encoded data. Please make sure everything you send over in API calls also uses UTF-8.
 
-### Content Type
+**Content Type**
 All data received from API and submitted to API is JSON, so the content type should be: `application/json;charset=utf-8`
 
-### UTC
+**UTC**
 Date/time values returned by Ecwid API are in UTC.
 
-### API Version
+**API Version**
 This document describes *Ecwid REST API v.3* 
 
-### API calls limits
+**API calls limits**
 You are free to build your app with as many API calls as you need to make your service awesome for Ecwid merchants, but keep in mind the [usage policy](#usage-policy).
 
-## Usage policy
+#### Usage policy
 
 To protect us and our users from abusing, we strongly advise that you optimize your app code to make fewer API requests. For example:
 
@@ -41,7 +44,7 @@ We constantly monitor API activity and servers load on our side to make sure eve
 
 Don't worry, you will unlikely face such trouble and even if you do, we will advice on how to fix that. But of course, if the usage is high enough to significantly affect other users of the platform and you don't react on our warnings, we can temporarily disable your application. 
 
-### Q: How can I make the requests?
+#### Q: How can I make the requests?
 
 You can use any library or software (capable of making HTTP requests) you are familiar with. 
 

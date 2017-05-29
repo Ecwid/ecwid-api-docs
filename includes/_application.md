@@ -1,8 +1,8 @@
-# Application
+## Application
 
 This endpoint allows you to get the status of the app in a specific Ecwid store. It's now only identifying the billing state (subscription status) of the application. We will be adding more information to this endpoint in the future.
 
-## Get application status 
+### Get application status 
 
 Get application status in an Ecwid store.
 
@@ -21,7 +21,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
-### Response
+#### Response
 
 > Response example
 
@@ -60,7 +60,7 @@ HTTP Status | Meaning
 ------------|--------
 415 | Unsupported content-type: expected `application/json` or `text/json`
 
-### How it works
+#### How it works
 
 
 **Free apps**: 
@@ -82,7 +82,7 @@ HTTP Status | Meaning
 - Ecwid will return `ACTIVE` if application is successfully installed and paid by a user. 
 - Ecwid will return `SUSPENDED` if there was an issue with prolongating subscription of this app.
 
-### What is Ecwid billing and how do I use it? 
+#### What is Ecwid billing and how do I use it? 
 
 Ecwid billing is a feature that allows to accept payments for applications. It works out of the box, so no additional development is required to use it. 
 

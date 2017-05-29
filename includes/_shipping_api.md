@@ -1,24 +1,18 @@
 # Add Shipping Method
 
-# Overview
-
 Using the Custom Shipping API, you can integrate a new shipping carrier to provide real-time shipping methods with different rates for the Ecwid store customers. This functionality will work in the form of an application that users install from the Ecwid App Market.
 
 <aside class="notice">
 Access scope required: <strong>add_shipping_method</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
-# How to set up
+## How shipping method works
 
-When [registering a new application](/register) for Ecwid, specify the request URL for your application. Ecwid will be sending order details requests to that endpoint and expect shipping rates in a specific format in response.
-
-# How it works
-
-### 1. User configures app settings in settings tab
+#### 1. User configures app settings in settings tab
 
 After the installation, user would need a page where they can configure it: provide their account details, set up dimensions, etc. We recommend using [Native apps feature](#embedded-apps) to provide this functionality. To manage and store those settings, see the [Merchant app settings](#merchant-settings-for-shipping-method) section.
 
-### 2. Ecwid sends order data to app request URL
+#### 2. Ecwid sends order data to app request URL
 
 The request to your app URL can be triggered by a customer in storefront or by an API request to order details calculation [endpoint](#calculate-order-details).
 
@@ -26,11 +20,11 @@ To show new shipping methods in storefront, Ecwid will send a **POST request** t
 
 In the case of an API request for calculating order details, the products and cart information itself can be different from what the store has. For example, some other application can create a custom storefront where it requests order calculation with items that are not present in the store. For these cases, your application should also provide correct discount calculations for the amount of cart information available.
 
-### 3. Application returns the rates in a specific format
+#### 3. Application returns the rates in a specific format
 
 Ecwid will expect a response from your service within 10 second interval to display additional shipping methods for customers. In the response, provide shipping method name, rate and estimated delivery time. See the response format in the [Request and response](#request-and-response) section.
 
-### 4. Ecwid displays the rates at checkout
+#### 4. Ecwid displays the rates at checkout
 
 Based on the response from your app, Ecwid will display the shipping methods for customers at the checkout. Customer can select them just like any other shipping method in that Ecwid store and it will be shown in the order details. Shipping methods from the application will be added to any currently enabled shipping methods a store has enabled.
 
@@ -38,7 +32,11 @@ Based on the response from your app, Ecwid will display the shipping methods for
 
 In case if your app responds with an error or in an incorrect format, then the shipping methods from your app will not be shown to customer at checkout stage. If your store has applicable shipping methods set up using the default means of creating shipping methods in Ecwid, then they will be shown to customer.
 
-# Merchant settings for shipping method
+## Set up shipping method
+
+When [registering a new application](/register) for Ecwid, specify the request URL for your application. Ecwid will be sending order details requests to that endpoint and expect shipping rates in a specific format in response.
+
+## Merchant settings for shipping method
 
 Your application can require merchants to specify their shipping account details, package size and any other user preferences you may require. We recommend adding a new tab into the Ecwid Control Panel's Shipping settings for optimal experience - Native applications feature.
 
@@ -64,9 +62,9 @@ Please make sure **not to pass any sensitive user data in the public application
 
 After you get a request from Ecwid, your application endpoint should get its components and return correct rates back to the customer in a response.
 
-# Request and response
+## Request for shipping and response
 
-### Request
+#### Request
 
 Ecwid will send order information in the **body** of a POST HTTP request in the following format:
 
@@ -216,7 +214,7 @@ storeId |  number | Ecwid store ID
 merchantAppSettings | json | Merchant settings for your integration set up by your code. [More details](#merchant-settings-for-shipping-method)
 cart | \<*CartDetails*\> | Offset from the beginning of the returned items list (for paging)
 
-### CartDetails
+#### CartDetails
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -324,7 +322,7 @@ length | number | Length of a predicted package
 weight | number | Total weight of a predicted package
 declaredValue | number | Declared value of a predicted package (subtotal of items in package)
 
-### ShippingAddressInfo
+#### ShippingAddressInfo
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -336,7 +334,7 @@ postalCode | string | Customer's postal code
 stateOrProvinceCode | string | Customer's state or province code in Ecwid
 stateOrProvinceName | string | Customer's state or province name in Ecwid
 
-### OriginAdressInfo
+#### OriginAdressInfo
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -346,7 +344,7 @@ countryCode | string | Customer's country code in Ecwid
 postalCode | string | Customer's postal code
 stateOrProvinceCode | string | Customer's state or province code in Ecwid
 
-### Response
+#### Response
 
 > Response to Ecwid example
 
@@ -366,7 +364,7 @@ stateOrProvinceCode | string | Customer's state or province code in Ecwid
 
 An array of JSON data of type 'ShippingOptions' with the following fields:
 
-### ShippingOptions
+#### ShippingOptions
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -378,7 +376,7 @@ Name | Type    | Description
 Response parameters in <strong>bold</strong> are mandatory
 </aside>
 
-## Weight units
+### Weight units
 
 Ecwid supports several weigh units that can be passed in the request to your application to provide shipping rates. Below you can see all available units as well as their conversion values for calculation. 
 
@@ -392,9 +390,9 @@ Kilogram | kg | 1000
 
 Gram is the main weight unit, from which other units are converted. Merchants can change weight units in [Ecwid Control Panel](https://my.ecwid.com/cp/CP.html#formats-units).
 
-# Troubleshooting
+## Troubleshooting shipping
 
-### A new shipping method at checkout is not appearing
+#### A new shipping method at checkout is not appearing
 
 You created an app and installed it on your test store, but a new shipping method, returned by your resource, is not appearing when you open your store. There are several possible reasons for this:
 

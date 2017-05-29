@@ -1,7 +1,5 @@
 # Application storage
 
-# Overview
-
 The Ecwid API offers simple key-value storage for apps. You can use it to save private user preferences and public storefront settings, or as a database for your app.
 
 > App storage data example
@@ -19,9 +17,9 @@ Each data entry is stored as a pair: a key and its value. You can get a specific
 <aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
 </aside>
 
-# Benefits
+## Benefits
 
-## For client-side applications
+### For client-side applications
 
 Many Ecwid applications are client-side, which are created completely in Javascript and don’t require any backend interface or server-side functionality for a developer. 
 
@@ -31,21 +29,21 @@ Ecwid API has got you covered on two main aspects of developing client-side appl
 
 Your application can also utilize storage as a primary key-value database using the Ecwid API. Ecwid provides all the tools to operate with that storage – you can manage storage either through REST API or using simple functions provided by the Javascript SDK. 
 
-## For server-side applications
+### For server-side applications
 
 Sometimes server-side applications need to store user’s data as well as the client-side ones. Usually developers create mySQL or PostgreSQL databases or store data locally on a file system. 
 
 Application storage offers an alternative - store data on Ecwid servers and access it using REST API. Why it can be helpful: now there is no need for mySQL databases, your code becomes simpler and you don’t have to worry about storing the private merchant data on your servers. 
 
 
-# Storage in Ecwid API
+## Storage in Ecwid API
 
 Below you can find information about two different ways you can access your application storage depending on the type of an application you have.
 
 <aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
 </aside>
 
-## Javascript Storage API
+### Javascript Storage API
 
 This JavaScript storage API allows to set and update values in the app storage right from your JavaScript code. You should use it if your app is client-side, works mainly in Javascript and you don’t plan to use a server.
 
@@ -54,7 +52,7 @@ Use the code examples below with the help of Ecwid JS SDK to manage user details
 <aside class="notice">Your application must be a native <a href="#client-side-applications">client-side</a> application to access JavaScript Storage API.
 </aside>
 
-### Save data to storage
+#### Save data to storage
 
 > Save data to application storage
 
@@ -77,7 +75,7 @@ This function supports object as an incoming data type only, so make sure that y
 <aside class="notice">The data you wish save to app storage must be stored in an object and values must be string type at all times.
 </aside>
 
-### Get data from storage
+#### Get data from storage
 
 > Get all data from application storage 
 
@@ -112,14 +110,14 @@ EcwidApp.getAppStorage('public', function(value){
 
 Public application config is a part of application storage: data that you save there is kept in `public` key of the storage. In case if you need to check the value you saved to public app config, use `EcwidApp.getAppStorage` and specify the `public` key as first parameter and a callback function as a second one. 
 
-## REST Storage API
+### REST Storage API
 
 This REST API allows to set, update and delete values in the application storage. You should usually use it if your code is executed on a server, i.e. you mainly use PHP, Ruby, Python, Java, and any other server-side programming language.
 
 <aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
 </aside>
 
-### Get all storage data
+#### Get all storage data
 
 Retrieves all stored data for the given store ID. Public application config can be found in the `public` key of your application storage.
 
@@ -175,7 +173,7 @@ HTTP Status | Meaning
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the data because of an error on the server
 
-### Get storage data by key
+#### Get storage data by key
 
 Retrieves the stored data for the given store ID by the given key. Public application config can be found in the `public` key of your application storage.
 
@@ -261,7 +259,7 @@ error | string | Type of the error
 errorMessage | string | Error message
 
 
-### Add data to storage
+#### Add data to storage
 
 Use this method to put a new data into the storage. If the key you specify in the request already exists, the corresponding value in the storage will be replaced with the submitted one. You can also create app public config data by using `public` as storage key in your request.
 
@@ -316,7 +314,7 @@ HTTP Status | Meaning
 500 | Cannot retrieve the data because of an error on the server
 
 
-### Edit storage data
+#### Edit storage data
 
 Use this method to update data in the storage. If the key you specify in the request doesn't yet exist, the corresponding value in the storage will be created. You can also update public application config by accessing `public` key in your request.
 
@@ -372,7 +370,7 @@ HTTP Status | Meaning
 500 | Cannot retrieve the data because of an error on the server
 
 
-### Delete storage data
+#### Delete storage data
 
 Use this method to delete data in the storage by key. 
 
@@ -421,14 +419,12 @@ HTTP Status | Meaning
 404 | The key is not found
 500 | Cannot retrieve the data because of an error on the server
 
-# Public application config
+## Public application config
 
 Storage API allows to save public app config and easily access it in a storefront. You can use  this API if your app changes the look, appearance or logic of storefronts using the [Customize Storefront](#customize-storefront) API.
 
 <aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
 </aside>
-
-## Overview
 
 Let’s say that you plan to build an app, that customizes a storefront, by displaying custom text created by store owner on a cart page.
 
@@ -452,7 +448,7 @@ This provides equal access to storage for native apps and external applications,
 
 See sections below for more details on how to work with app public config.
 
-## Save public data
+### Save public data
 
 > Client-side native app example:
 
@@ -491,7 +487,7 @@ If any other 3rd party obtains your appId, they will have access to public user 
 
 Check out example on how to save data to app public config on the right. To find out more details on how to access app storage via REST API, please see [this page](#rest-storage-api). 
 
-## Get public data
+### Get public data
 
 > Initialize app on a specific category page
 
@@ -517,9 +513,9 @@ To get the value, specify your `appId` (app `client_id`) as its parameter and st
 
 App public config is available to your app as soon as storefront starts to load. 
 
-## Examples
+### Examples
 
-### Access a single public value
+#### Access a single public value
 
 > Check whether widget needs to be shown
 
@@ -547,7 +543,7 @@ Ecwid.OnPageLoaded.add(function(page){
 
 Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in storefront. For example, you can store the status of your widget (enabled / disabled) based on user preferences in [native applications](#embedded-apps) and then access it in storefront using `Ecwid.getAppPublicConfig`.
 
-### Access multiple public user data
+#### Access multiple public user data
 
 > Add custom text to category page and change its color
 

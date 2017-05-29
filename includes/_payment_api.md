@@ -1,91 +1,34 @@
 # Add Payment Method
 
-# Overview
-
 With the Custom Payment API you can integrate a new payment method for customers of Ecwid stores to choose from. This functionality will work in the form of an application that users install from the Ecwid App Market.
 
 <aside class="notice">
 Access scope required: <strong>add_payment_method</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
-# How to set up
+## How payment method works
 
-After you [registered a new application](/register) for Ecwid, send the payment URL for that new payment method by [contacting us](/contact). Ecwid will be sending order details requests to payment URL endpoint and expect the order status to be changed after the payment is complete.
-
-# How it works
-
-### 1. User configures app settings in settings tab
+#### 1. User configures app settings in settings tab
 
 After the installation, user would need a page where they can configure it. We recommend using [Native apps feature](#embedded-apps) to provide this functionality.
 
-### 2. Ecwid sends order data to app payment URL
+#### 2. Ecwid sends order data to app payment URL
 
 After registering your app, contact us and provide a payment URL where Ecwid will send **POST request** with order data as well as the [Merchant app settings](#merchant-settings-for-payment-method) when customer is at checkout stage. Your app will need to get request details, decrypt it and allow user to make a payment for the order.
 
-### 3. Customer finishes the checkout
+#### 3. Customer finishes the checkout
 
 In the storefront, customer will see a new payment method to choose from. If they choose this new method to pay for their order, they will be directed to payment URL of your app to finish the checkout process.
 
 Upon finishing the payment, your app must [update the order status](#update-order) and return customer to the storefront.
 
-## Merchant settings for payment method
+## Set up payment method
 
-Your application can require merchants to specify their account details in your system and any other user preferences you may require.
+After you [registered a new application](/register) for Ecwid, send the payment URL for that new payment method by [contacting us](/contact). Ecwid will be sending order details requests to payment URL endpoint and expect the order status to be changed after the payment is complete.
 
-> Merchant settings example
+## Processing request for payment
 
-> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/paymentSettings-1468408208.png)
-
-**Settings**
-
-First, set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more information.
-
-When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](#javascript-storage-api) (client-side) or [Ecwid REST API](#rest-storage-api) (server-side).
-
-**Request**
-
-Once the settings are saved there, Ecwid will send them in an HTML form with a **POST request** to your payment URL with order details when customer chooses to pay with the new payment method. The request will contain **all data** from your application storage, including public and other keys that were specified.
-
-You can use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
-
-Please make sure **not to pass any sensitive user data in the public application config**, as this information will be available via Ecwid Javascript API to any 3-rd party. To save and get that kind of information, use any other key names in your application storage. They will be provided in a request to your application as well as public information, but not accessible in the storefront.
-
-## Updating order status
-
-> Update order status example
-
-```http
-PUT /api/v3/4870020/orders/20?token=1234567890qwqeertt HTTP/1.1
-Host: app.ecwid.com
-Content-Type: application/json;charset=utf-8
-Cache-Control: no-cache
-
-{
-    "paymentStatus": "PAID"
-}
-```
-
-For Ecwid to find out the result of the payment, your application must update the order status before returning them back to the storefront. Updating order status can be performed using a call to Ecwid's REST API and its [Orders endpoint](#update-order). 
-
-In order to update an order, you will need these details: order number, store ID and an access token. All of these details are provided in a request to your application's payment URL in a corresponding fields: `orderNumber` field in the `cart` object, `storeId` and `token` fields in the request.
-
-Once the order is updated with correct status, your app should return the customer back to the store.
-
-## Returning customer to storefront
-
-When a customer is finished making their payment for an order, your app needs to return them back to the storefront.
-
-`returnurl` is a field provided in a request from Ecwid. It's value is a destination, where your app should return the customer to after the payment process is complete. 
-
-After user is directed to that page, Ecwid will check that order and depending on its status, the action will be different: 
-
-- If the order is in `PAID` or `QUEUED` payment status, customer's cart will be cleared and they will see 'Thank you for your order' page
-- If the order is in `INCOMPLETE` payment status, customer will see the cart page of Ecwid storefront
-- If the order is in `CANCELLED` payment status, Ecwid will show the 'Payment error' page.
-
-# Request from Ecwid
-
-### Request
+### Request details
 
 > Encoded request from Ecwid example
 
@@ -266,7 +209,7 @@ merchantAppSettings | json | Merchant settings for your integration set up by yo
 cart | \<*CartDetails*\> | Offset from the beginning of the returned items list (for paging)
 token | string | Access token of the Ecwid store. Use it to update order status after the payment
 
-### CartDetails
+#### CartDetails
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -302,7 +245,7 @@ paymentParams | Map\<string,string\> |  Additional payment parameters entered by
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unsfinished orders only.
 
 
-### OrderItem
+#### OrderItem
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -398,3 +341,59 @@ Field | Type | Description
 name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value
 description | string | Handling fee description for customer
+
+### Merchant settings for payment method
+
+Your application can require merchants to specify their account details in your system and any other user preferences you may require.
+
+> Merchant settings example
+
+> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/paymentSettings-1468408208.png)
+
+**Settings**
+
+First, set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more information.
+
+When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](#javascript-storage-api) (client-side) or [Ecwid REST API](#rest-storage-api) (server-side).
+
+**Request**
+
+Once the settings are saved there, Ecwid will send them in an HTML form with a **POST request** to your payment URL with order details when customer chooses to pay with the new payment method. The request will contain **all data** from your application storage, including public and other keys that were specified.
+
+You can use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
+
+Please make sure **not to pass any sensitive user data in the public application config**, as this information will be available via Ecwid Javascript API to any 3-rd party. To save and get that kind of information, use any other key names in your application storage. They will be provided in a request to your application as well as public information, but not accessible in the storefront.
+
+### Updating order status
+
+> Update order status example
+
+```http
+PUT /api/v3/4870020/orders/20?token=1234567890qwqeertt HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+
+{
+    "paymentStatus": "PAID"
+}
+```
+
+For Ecwid to find out the result of the payment, your application must update the order status before returning them back to the storefront. Updating order status can be performed using a call to Ecwid's REST API and its [Orders endpoint](#update-order). 
+
+In order to update an order, you will need these details: order number, store ID and an access token. All of these details are provided in a request to your application's payment URL in a corresponding fields: `orderNumber` field in the `cart` object, `storeId` and `token` fields in the request.
+
+Once the order is updated with correct status, your app should return the customer back to the store.
+
+### Returning customer to storefront
+
+When a customer is finished making their payment for an order, your app needs to return them back to the storefront.
+
+`returnurl` is a field provided in a request from Ecwid. It's value is a destination, where your app should return the customer to after the payment process is complete. 
+
+After user is directed to that page, Ecwid will check that order and depending on its status, the action will be different: 
+
+- If the order is in `PAID` or `QUEUED` payment status, customer's cart will be cleared and they will see 'Thank you for your order' page
+- If the order is in `INCOMPLETE` payment status, customer will see the cart page of Ecwid storefront
+- If the order is in `CANCELLED` payment status, Ecwid will show the 'Payment error' page.
+

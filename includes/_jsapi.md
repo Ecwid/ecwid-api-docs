@@ -25,11 +25,11 @@ Ecwid Storefront JavaScript API is available on any Ecwid plan.
 </aside>
 
 
-# Get Storefront Details
+## Get Storefront Details
 
 Get basic storefront information to use in your script.
 
-## Ecwid.getStaticBaseUrl
+### Ecwid.getStaticBaseUrl
 
 > Get Static Base Url code example
 
@@ -44,7 +44,7 @@ console.log(StaticBaseUrl)
 
 Returns the base URL for static Ecwid files, like images and CSS, with the ’/’ at the end.
 
-## Ecwid.getOwnerId
+### Ecwid.getOwnerId
 
 > Get store ID code example
 
@@ -59,7 +59,7 @@ console.log(storeId);
 
 Returns the store ID.
 
-## Ecwid.getInitializedWidgets
+### Ecwid.getInitializedWidgets
 
 > Get all widgets to be displayed when page loads
 
@@ -80,7 +80,7 @@ Returns array containing widget types present on a page. There are four types av
 * Categories - Categories widget
 * Product - Embedded product
 
-## Ecwid.formatCurrency
+### Ecwid.formatCurrency
 
 > Format a number using currency format of a store
 
@@ -95,7 +95,7 @@ console.log(currencyFormat)
 
 Converts the given currency value to a human-readable string according to the store settings. It accepts both string and integer as arguments.
 
-## Ecwid.getStorefrontLang
+### Ecwid.getStorefrontLang
 
 ```javascript
 var lang = Ecwid.getStorefrontLang();
@@ -108,7 +108,7 @@ console.log(lang);
 
 Get current language of storefront. The function is available as soon as Ecwid store starts to load.
 
-## Ecwid.getAppPublicConfig
+### Ecwid.getAppPublicConfig
 
 > Get app public config function usage
 
@@ -147,7 +147,7 @@ Name | Type | Description
 Data in public storage of your app must not exceed <strong>64Kb</strong>
 </aside>
 
-## Ecwid.getAppPublicToken 
+### Ecwid.getAppPublicToken 
 
 > Get app public config function usage
 
@@ -166,7 +166,7 @@ console.log(publicToken);
 
 ```
 
-Returns public applicaiton token for an Ecwid store. [Learn more](#access-tokens)
+Returns public applicaiton token for an Ecwid store. In order for this function to work, your app has to ask for `public_storefront` scope from a store. [Learn more](#access-tokens)
 
 `Ecwid.getAppPublicToken()` receives one argument: 
 
@@ -174,7 +174,7 @@ Name | Type | Description
 ---- | ---- | -----------
 **appId** | String | Namespace of your application (as set in the application settings).
 
-## Page Object
+### Page Object
 
 Describes the page displaying inside the product browser.
 
@@ -209,11 +209,11 @@ productId | integer | for type==’PRODUCT’: the internal id of the displaying
 orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
 vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
 
-# Subscribe To Events
+## Subscribe To Events
 
 Find various useful events and execute your functions with them.
 
-## Ecwid.OnAPILoaded
+### Ecwid.OnAPILoaded
 
 > OnAPILoaded usage example
 
@@ -225,7 +225,7 @@ Ecwid.OnAPILoaded.add(function() {
 
 This event contains callback functions that are called exactly when the Ecwid Javascript API loads and becomes available under the `window.Ecwid` top-level object. Functions attached to this event do not accept any parameters and do not require to return any value.
 
-## Ecwid.OnPageLoad/Ecwid.OnPageLoaded
+### Ecwid.OnPageLoad/Ecwid.OnPageLoaded
 
 > If user visits cart page, do domething
 
@@ -241,7 +241,7 @@ These events contain callbacks that get called on each page change inside the pr
 
 The callback functions accept one parameter of type **Page** specifying which page is to be loaded (or has already been loaded). See [Page Object](#page-object) details for more info.
 
-### Page Object
+#### Page Object
 
 Describes the page displaying inside the product browser.
 
@@ -276,7 +276,7 @@ productId | integer | for type==’PRODUCT’: the internal id of the displaying
 orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
 vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
 
-## Ecwid.OnSetProfile
+### Ecwid.OnSetProfile
 
 > Ecwid.OnSetProfile code example
 
@@ -320,7 +320,7 @@ This event contains callback functions that receive the changes in the current c
 
 If no customer is logged in, these functions receive **null**. Whenever a customer logs in/out, the callback functions are called with either the corresponding parameter of type **Customer** or **null**. Example code can be seen on the right.
 
-## Ecwid.OnCartChanged
+### Ecwid.OnCartChanged
 
 > Specify a callback function when cart is changed in storefront
 
@@ -349,7 +349,7 @@ The callbacks added to `Ecwid.OnCartChanged` will be called when the shopping ca
 
 The passed `cart` object represents only the basic properties of the shopping cart. It contains the data coming from the customer’s actions (like products, coupons, shipping methods) and **might not contain the calculated aggregates** (like order totals, shipping costs, the discounted amounts or taxes). For the calculated aggregates, it is rather recommended to use the `Ecwid.Cart.calculateTotal()` method.
 
-## Ecwid.OnProductOptionsChanged
+### Ecwid.OnProductOptionsChanged
 
 > Show an alert if product options were changed
 
@@ -363,7 +363,7 @@ This event executes callback function each time when product option was changed.
 
 `OnProductOptionsChanged` works for following options type: dropdown list, radio button and checkbox. Input, textarea and upload files types are not supported yet.
 
-## Ecwid.OnOrderPlaced
+### Ecwid.OnOrderPlaced
 
 > Get order number of a placed order
 
@@ -377,7 +377,7 @@ Ecwid.OnOrderPlaced.add(function(order){
 
 `Ecwid.OnOrderPlaced()` event allows you to get details of an order placed by a customer in storefront right after an order is placed. This event provides the `order` object in callback function so that you can get order details right after the event occurs.
 
-### Order object
+#### Order object
 
 Describes the details of a placed order by customer. 
 
@@ -412,7 +412,7 @@ paymentStatus | string | Payment status of an order. One of: `AWAITING_PAYMENT`,
 fulfillmentStatus | string | Fulfillment status of an order. One of: `AWAITING_PROCESSING`, `PROCESSING`, `SHIPPED`, `DELIVERED`, `WILL_NOT_DELIVER`, `RETURNED`, `READY_FOR_PICKUP`
 customer | \<*CustomerInfo*\> | Basic customer info
 
-#### OrderItems
+##### OrderItems
 
 Name | Type | Description
 ---- | ----- | -----------
@@ -460,11 +460,11 @@ Name | Type | Description
 name | string | Customer's name
 email | string | Customer's email
 
-# Get Customer Details
+## Get Customer Details
 
 Find out more about customer that is currently logged in a store.
 
-## Customer Object
+### Customer Object
 
 Customer object describes details of a customer in the store
 
@@ -492,7 +492,7 @@ ownerId | number | Store ID this customer belongs to
 registered | UNIX Timestamp | Registration date of this customer
 shippingAddresses | Array of \<*ShippingAddress*\> | A list of addresses in the customer’s address book
 
-## ShippingAddress Object
+### ShippingAddress Object
 
 The customer’s address as stored in the address book.
 
@@ -503,7 +503,7 @@ Name | Type | Description
 id | integer | The unique address id Ecwid database
 person | Object (Person) | The object describing the address along with the person’s name and phone number.
 
-## Person Object
+### Person Object
 
 Describes the person name, company and address.
 
@@ -521,17 +521,17 @@ stateOrProvinceCode | string, optional | The person’s region/state/province co
 countryName | string, optional | Country name, if applicable
 phone | string, optional | Phone number, if applicable
 
-# Manage Customer's Cart
+## Manage Customer's Cart
 
 Manage cart on customer's behalf.
 
-## Ecwid.Cart.addProduct
+### Ecwid.Cart.addProduct
 
 This function allows to add a product to shopping cart, modifying the cart on behalf of customer.
 
 There are 2 possible ways to call this function: adding products by product ID or adding products with extended options.
 
-### Adding by product ID
+#### Adding by product ID
 
 > Add product function
 
@@ -556,7 +556,7 @@ The most simple call to `Ecwid.Cart.addProduct` only requires to pass the numeri
 
 If this product contains combinations and the base product is out of stock, the first combination that is in stock will be added to cart instead. If the product is out of stock (and there are no combinations in stock for this product), nothing is added to cart.
 
-### Adding with extended options
+#### Adding with extended options
 
 > Add product to cart with extended options
  
@@ -617,7 +617,7 @@ success | Boolean | indicates the overall status of addition (succeeded or faile
 product | Object (Product) | conatins the object representation of the product added to cart, or null if adding to cart failed (wrong product ID or product is out of stock).
 cart | Object (Cart) | contains the object representation of the shopping cart after addition (same as in `Ecwid.OnCartChanged` event)
 
-## Ecwid.Cart.removeProduct 
+### Ecwid.Cart.removeProduct 
 
 > Remove specific product from cart
 
@@ -645,7 +645,7 @@ Name | Type | Description
 ---- | ---- | -----------
 index | integer | index of a product in cart object you need to remove from customer's cart
 
-## Ecwid.Cart.clear
+### Ecwid.Cart.clear
 
 > Clear cart contents
 
@@ -655,7 +655,7 @@ Ecwid.Cart.clear()
 
 Clears the cart contents.
 
-## Ecwid.Cart.get
+### Ecwid.Cart.get
 
 > Get total number of products in cart code example
 
@@ -667,7 +667,7 @@ Ecwid.Cart.get(function(cart) {
 
 Retrieves the cart contents asynchronously and passes it as an argument of type Cart to the callback.
 
-## Ecwid.Cart.calculateTotal
+### Ecwid.Cart.calculateTotal
 
 > Calculate cart total example
 
@@ -686,7 +686,7 @@ Cart calculation involves a request to server, so this method should be called o
 
 Since the calculation needs a server connection, it might fail due to network conditions. In this case, null is passed into the callback instead of **Order** object.
 
-## Ecwid.Cart.gotoCheckout
+### Ecwid.Cart.gotoCheckout
 
 > Send customer to checkout
 
@@ -706,7 +706,7 @@ Ecwid.Cart.gotoCheckout(function(){
 
 You can also execute a callback function if a customer was successfully sent to the first step of the checkout process in a store. See example code on the right.
 
-## Ecwid.Cart.canGotoCheckout
+### Ecwid.Cart.canGotoCheckout
 
 > Check if possible to send customer to checkout
 
@@ -724,7 +724,7 @@ Name | Type | Description
 ---- | ---- | -----------
 callback | boolean | `true` if you can send customer to the checkout process, `false` otherwise
 
-## Ecwid.Cart.setCustomerEmail
+### Ecwid.Cart.setCustomerEmail
 
 > Function description
 
@@ -769,7 +769,7 @@ Error code | Error message
 100 | Incorrect data passed
 1000 | Store owner disabled this functionality
 
-## Ecwid.Cart.setOrderComments
+### Ecwid.Cart.setOrderComments
 
 > Function
 
@@ -824,7 +824,7 @@ Error code | Error message
 100 | Incorrect data passed
 1000 | Store owner disabled this functionality
 
-## Ecwid.Cart.setAddress
+### Ecwid.Cart.setAddress
 
 > Function
 
@@ -918,7 +918,7 @@ Error code | Error message
 100 | Incorrect data passed
 1000 | Store owner disabled this functionality
 
-## Ecwid.Cart.setBillingAddress
+### Ecwid.Cart.setBillingAddress
 
 > Function
 
@@ -1012,7 +1012,7 @@ Error code | Error message
 100 | Incorrect data passed
 1000 | Store owner disabled this functionality
 
-## Generate cart with products
+### Generate cart with products
 
 Ecwid JavaScript API allows you to add items to customer's cart automatically. This can be useful when you are using custom storefront to provide any type of button to add products to cart.
 
@@ -1115,11 +1115,11 @@ Generated link with products added automatically to cart for Ecwid demo store wi
 Please note that this is an example link and it will not work in Ecwid's demo store. Please test this feature in your own website.
 </aside>
 
-# Get Cart Details
+## Get Cart Details
 
 Find out more about cart in its current state.
 
-## Cart Object
+### Cart Object
 
 Cart object is a snapshot of essential shopping cart properties, passed via various callbacks. Cart object does not provide direct memory access to the actual cart that Ecwid uses — i.e. changing this exact object will not alter the actual cart Ecwid uses for placing the order.
 
@@ -1146,7 +1146,7 @@ weight | Number | Total weight of the items in cart
 paymentMethod | String | The name of the selected payment method (if any)
 shippingMethod | String | The name of the selected shipping method (if any)
 
-## Order Object
+### Order Object
 
 Order object represents details of current customer's order.
 
@@ -1177,7 +1177,7 @@ total | Integer | Total amount of this order
 volumeDiscount | Integer | An absolute amount of a discount based on subtotal for this order
 
 
-## CartItem Object
+### CartItem Object
 
 CartItem represents a single item (product variety) in cart.
 
@@ -1200,7 +1200,7 @@ quantity | Integer | Quantity of the given product variety in cart
 product | Array of \<*Product*\> | The map of product properties (combination properties, if the combination is added to cart)
 options | Obejct with option names and values | Map of the product options (option name as a key and option value as a value). For listboxes and radio buttons value will be the string value of the selected option. For checkboxes — names of the selected options, comma separated. For date options — string representing the selected date according to the shop’s format (Ecwid control panel > System settings > General > Formats and Units). For textboxes и textareas — the text given by the customer. For file upload options — string in the form of „4 files”
 
-## Product Object
+### Product Object
 
 Product object represents details of a specific product in cart
 
@@ -1227,7 +1227,7 @@ sku | String | Product SKU
 url | String | URL to this product details page in store front (store front URL is generated from a field in Ecwid Control panel > Settings > General > Store profile)
 weight | Integer | Weight of a product
 
-# Examples
+## Examples
 
 Redirect Ecwid Paypal Orders to Custom “Thank You” Page:
 [http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/](http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/)

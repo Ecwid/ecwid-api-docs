@@ -1,7 +1,5 @@
 # Embedded apps
 
-# Overview
-
 The Ecwid API allows your application to be embedded right into the user Control Panel and work like it is built into Ecwid. Although this approach is not necessary and you can use the Ecwid API without embedding an application into the Control Panel, we highly recommend it. Being integrated with Ecwid this way, your app will get way more user engagement, as it will be a part of a merchant store backend.
 
 > Native app interface example
@@ -14,9 +12,9 @@ Overall, it works this way:
 - After installation, a new tab shows the page content of your specified IFRAME URL.
 - Ecwid provides a [REST API](#rest-api-reference) and a [JS SDK](#ecwid-javascript-sdk) for authentication and operations inside of the Ecwid Control Panel.
 
-# Building an embedded app
+## Building an embedded app
 
-## Set up your application
+### Set up your application
 
 After the app registration you will need to provide us with additional details about your app interface in the Ecwid Control Panel. These details are necessary to properly show your page, please see the required details below:
 
@@ -32,7 +30,7 @@ Access scope required: <strong>add_to_cp</strong>
 
 If you already have a registered app and want to make it native, you can [contact us](/contact) to adjust your app settings.
 
-## App page template
+### App page template
 
 > Native app source code example: [https://github.com/Ecwid/custom-thank-you-page-app](https://github.com/Ecwid/custom-thank-you-page-app)
 > 
@@ -103,7 +101,7 @@ When user opens the application tab, the browser's address bar URL will have a f
 
 Where the `my-cool-app` is your **app_id** which you will need to use in this code template to initiale the application on the page. The `sales` part is the Ecwid Control Panel section where the app is embedded into.
 
-# Deep linking
+## Deep linking
 
 Native apps in Ecwid Control Panel support deep linking, which means that they can receive information prior to being loaded and opened. This can provide your app with a new level of interactivity with a user by reacting to the context, sent to your app.
 
@@ -188,9 +186,9 @@ You can retrieve it just like any other value of a GET parameter on a server-sid
 
 Learn more about [Enhanced Security User Authentication](#enhanced-security-user-auth)
 
-# Authentication in embedded apps
+## Authentication in embedded apps
 
-## User authentication
+### User authentication
 
 In your application, you will likely show some user-specific data, for example the store order list. To do that, your iframe application will need to know:
 
@@ -203,7 +201,7 @@ Ecwid will pass this data to your application as soon as it is opened in Ecwid C
 
 Below, you will find the description of a default user authentication for native applications.
 
-### Default User Authentication
+#### Default User Authentication
 
 In the default user auth process, Ecwid will call your iframe URL like this: 
 
@@ -213,7 +211,7 @@ This process allows for simple user authentication in your app using the **Ecwid
 
 [Continue with default authentication](#default-user-auth)
 
-### Enhanced Security User Authentication
+#### Enhanced Security User Authentication
 
 In the enhanced security auth process, Ecwid will call your iframe URL like this:
 
@@ -225,13 +223,13 @@ We recommend using this type of authentication for complex applications that can
 
 <aside class="note">By default, Ecwid uses <strong>Default User Authentication</strong> process so you can start working on your application's tab right away without using server side. If you need your app to be switched to <strong>Enhanced Security User Authentication</strong>, please <a href='/contact'>contact us</a> and we will update your app.</aside>
 
-## App authentication
+### App authentication
 
 After your app authorized a user, it will need an **access token** to the Ecwid REST API to read and modify Ecwid store orders, products and other information. 
 
 The process of getting the access token is different for each user authentication type. Both authentication processes are described below, so please check them out for more info on getting access tokens.
 
-## Default User Auth
+### Default User Auth
 
 > Example of the iframe URL call in client-side apps
 
@@ -249,6 +247,7 @@ https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e22
     var storeId = storeData.store_id;
     var accessToken = storeData.access_token;
     var language = storeData.lang;
+    var viewMode = storeData.view_mode;
     
     if (storeData.public_token !== undefined){
       var publicToken = storeData.public_token;
@@ -287,7 +286,7 @@ The workflow can be described into the following steps:
 1. Get store preferences and data
 2. Initialize your application functionality
 
-### 1. Get store preferences and data
+#### 1. Get store preferences and data
 
 For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](#getpayload) method specification. So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. 
 
@@ -295,11 +294,11 @@ If your application is going to store some user specified information, like back
 
 See functions `EcwidApp.getAppStorage`, `EcwidApp.setAppStorage` and `EcwidApp.setAppPublicConfig` in [Ecwid Javascript SDK](#ecwid-javascript-sdk) for more details.
 
-### 2. Initialize your application functionality
+#### 2. Initialize your application functionality
 
 So once you know the store you are working with and you have the settings and other data specific to that store, you can use that information in your embedded application to start is stndard workflow.
 
-## Enhanced Security User Auth
+### Enhanced Security User Auth
 
 By default, all applications are registered as **client-side** so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please [contact us](/contact) and we will update your app.
 
@@ -311,7 +310,7 @@ The workflow of such applications can be divided into several steps:
 
 So let's look a little closer on how to create a your embedded server-side application:
 
-### 1. Decrypt the payload from the Ecwid Control Panel
+#### 1. Decrypt the payload from the Ecwid Control Panel
 
 Let's say, you process user input and prepare the data to display in your app on your server and then pass this information to your application UI to be displayed in the user Control panel. 
 
@@ -378,6 +377,7 @@ $result = getEcwidPayload($client_secret, $ecwid_payload);
 $token = $result['access_token'];
 $storeId = $result['store_id'];
 $lang = $result['lang'];
+$viewMode = $result['view_mode'];
 
 if (isset($result['public_token'])){
   $public_token = $result['public_token'];
@@ -427,6 +427,7 @@ $color = $curlResult -> {'value'};
   "store_id": 1003,
   "lang": "en",
   "access_token":"xxxxxxxxxxxxxxxx",
+  "view_mode":"PAGE",
   "public_token":"public_ASDlkDASmasdaslkdASkndasANJKLsAf"
 }
 ```
@@ -447,12 +448,13 @@ store_id | number | Ecwid store ID
 lang | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
 access_token | string | Secure oAuth token for Ecwid REST API
 public_token | string | Public oAuth token for Ecwid REST API
+view_mode | string | Mode used to display the application interface: in a `POPUP` or in a `PAGE`. `PAGE` is a default mode when app is displayed in a separate tab in Ecwid Control Panel
 
 #### Decryption of payload on your server
 
 Ecwid uses *AES-128* to encrypt the payload. The key is the first 16 symbols (128 bit) of your application secret key (**client_secret**). It is provided when you register an app with us. See a PHP example of decryption to get better idea on how to receive and decrypt the payload.
 
-### 2. Get store preferences and data
+#### 2. Get store preferences and data
 
 Now that you have successfully got store details and have access to it using Ecwid API, you can get store-specific information from the storage endpoint or from your local database. 
 
@@ -460,17 +462,17 @@ The result of the payload decryption will be provided in an array `$result`, whi
 
 To store and get store-specific data in storage endpoint, you can use cURL functionality in PHP or any other way that you prefer to access REST API endpoints. You can see the example code on how to retrieve the value of `'color'` key in application storage using cURL and process the result on the right based on a response from API.
 
-### 3. Initialize your application functionality
+#### 3. Initialize your application functionality
 
 Once you got all details that you need, you can start the standard planned workflow for your app and operate with Ecwid API using the details you got earlier.
 
-# Ecwid CSS Framework
+## Ecwid CSS Framework
 
 [Go to the CSS framework documentation →](/ecwid-css-framework)
 
 We provide a set of ready UI components in a form of CSS framework to help you easily design your application embedded into Ecwid Control Panel. The framework includes buttons, links, messages, forms in a nice and consistent design. 
 
-### How to use it?
+#### How to use it?
 
 ```html
 <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.4/ecwid-app-ui.css"/>
@@ -486,7 +488,7 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 <img src="https://dj925myfyz5v.cloudfront.net/wp-content/uploads/ecwid-buttons.png"></img>
 
 
-# Ecwid Javascript SDK
+## Ecwid Javascript SDK
 
 ```html
 <!-- Include Ecwid JS SDK -->
@@ -497,7 +499,7 @@ Ecwid Javascript SDK is a simple JS framework with a set of basic JS functions t
 
 To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.3/ecwid-app.js` .
 
-## init
+### init
 
 > Example of using EcwidApp.init() method
 
@@ -518,7 +520,7 @@ You can get the `app_id` using the URL in your browser when you open your applic
 
 The `app_id` here is the `my-super-app` part. Make sure to use this to initialize your application with Ecwid JS SDK.
 
-### Parameters
+#### Parameters
 
 The only parameter is a JS object with the following fields:
 
@@ -529,7 +531,7 @@ autoloadedflag | boolean | Define how Ecwid should detect when your app is loade
 autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust your app iframe height depending on your app content. If you want to control the iframe size yourself, set this flag as `false` and use the [`EcwidApp.setSize()`](#setsize) method.
 
 
-## getPayload
+### getPayload
 
 > Retrieving store ID and access token using Ecwid JavaScript SDK 
 
@@ -539,6 +541,7 @@ autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust you
     var storeId = storeData.store_id;
     var accessToken = storeData.access_token;
     var language = storeData.lang;
+    var viewMode = storeData.view_mode;
 
     if (storeData.public_token !== undefined){
       var publicToken = storeData.public_token;
@@ -565,10 +568,11 @@ Name | Type | Description
 **access_token** | string | Secure oAuth token
 app_state | string | URL Encoded application state
 public_token | string | Public oAuth token for Ecwid REST API
+view_mode | string | Mode used to display the application interface: in a `POPUP` or in a `PAGE`. `PAGE` is a default mode when app is displayed in a separate tab in Ecwid Control Panel
 
 <aside class="note">Fields marked in <strong>bold</strong> are always sent in the payload. Others are sent depending on conditions.</aside>
 
-## openPage
+### openPage
 
 > Open some page inside Control Panel from your application
 
@@ -578,18 +582,18 @@ EcwidApp.openPage('products');
 
 The `EcwidApp.openPage()` method allows you to direct the user to some particular page in the Control Panel
 
-### Parameters
+#### Parameters
 Name | Type | Description
 ---- | ---- | -----------
 page | string | Hash part of of the page URL in the Control Panel. Examples: `billing` will open the Billing page, `products` will open the Catalog page.
 
 
-## ready
+### ready
 
 You can use the `EcwidApp.ready()` method in your application to inform Ecwid of ready state of your application. For example, you may need to make a few API calls or load some additional assets before your app UI should be displayed to the user. In this way, pass `false` in the `autoloadedflag` parameter in the [`EcwidApp.init()`](#init) method and call the `.ready()` function when you are ready. 
 
 
-## setSize
+### setSize
 
 > Set your app iframe size from within the app
 
@@ -600,7 +604,7 @@ EcwidApp.setSize({height: 800});
 We recommend using the `autoheight` parameter set as `true` in [`EcwidApp.init()`](#init) function to let Ecwid dynamically adjust your app iframe size depending on your application content size. But if you want to control the iframe size yourself, set that flag as `false` and use this `EcwidApp.setSize()` method.
 
 
-### Parameters
+#### Parameters
 
 The only parameter is a JSON object with the `height` field:
 
@@ -608,7 +612,7 @@ Name | Type | Description
 ---- | ---- | -----------
 height | number | The iframe height in pixels
 
-## setAppStorage
+### setAppStorage
 
 > Save multiple 'key' : 'value' data to app storage
 
@@ -622,7 +626,7 @@ var data = {
 EcwidApp.setAppStorage(data, callback);
 ```
 
-### Parameters
+#### Parameters
 
 `EcwidApp.setAppStorage` accepts two parameters: 
 
@@ -634,7 +638,7 @@ callback | Function | Specify your callback function if needed
 Your object data as specified in example will be stored as corresponding keys in your application storage in `'key' : 'value'` format.
 This method accepts only string type values in your data object, so make sure all values in your object, such as 'red', are of type `string`.
 
-## setAppPublicConfig
+### setAppPublicConfig
 
 > Save a string to 'public' key in application storage
 
@@ -644,7 +648,7 @@ var data = '{ "color" : "red", "page_id" : "123456" }';
 EcwidApp.setAppPublicConfig(data, callback);
 ```
 
-### Parameters
+#### Parameters
 
 `EcwidApp.setAppPublicConfig` accepts two parameters: 
 
@@ -659,7 +663,7 @@ The string that you provide in `data` variable will be specified for `public` ke
 Data that you save for public access can't exceed <strong>64Kb</strong>
 </aside>
 
-## getAppStorage
+### getAppStorage
 
 > Get all data from application storage
 
@@ -691,7 +695,7 @@ EcwidApp.getAppStorage('color', function(value){
 })
 ```
 
-### Parameters
+#### Parameters
 
 `EcwidApp.getAppStorage` accepts two parameters: 
 
@@ -702,7 +706,7 @@ key | string | Specify key that you need to get value from. If no key specified,
 
 Using this method you can retrieve either all keys and their values that are located in your application storage or get the value of a specific key.
 
-## closeAppPopup
+### closeAppPopup
 
 ```js
 EcwidApp.closeAppPopup()
@@ -712,16 +716,16 @@ When a native application is opened in a popup window in Ecwid Control Panel, ex
 
 In case when application is opened in a tab, nothing will happen. 
 
-# Troubleshooting
+## Troubleshooting
 
-### A new tab inside Ecwid Control Panel is not appearing
+#### A new tab inside Ecwid Control Panel is not appearing
 You created an app and installed it on your test store, but the new tab is not appearing when you open your store. There are several possible reasons:
 
 * **The application is not configured properly** to be displayed inside Control Panel. E.g. during registration, you forgot to mention that your app will embed itself into Control Panel, or did not choose exact section inside Control Panel where Ecwid needs to display your app. See ["Set up your application"](#set-up-your-application) for the details.
 * **You didn't include the `add_to_cp` access scope** to the list of requested scopes while authorizing the app. While creating an oauth URL, make sure it incudes the "add_to_cp" scope in the list of requested permissions. 
 * **You're testing it in an Ecwid store which is on Free plan**. Ecwid API functionality including embedding apps is available on paid Ecwid plans only. Please upgrade your account.
 
-### The application tab appears in Ecwid Control Panel, but it doesn't load the app content
+#### The application tab appears in Ecwid Control Panel, but it doesn't load the app content
 You created an app and installed it on your test store. The new tab appears in your Control Panel but the new tab content is not loaded and displaing the "Something went wrong" error message instead. Possible reasons:
 
 * **Ecwid cannot reach the iframe URL** that you set up for your application either because it's unavailable or because it has restricted access.

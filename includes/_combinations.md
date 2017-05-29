@@ -1,4 +1,4 @@
-# Product combinations
+## Product combinations
 
 Using the methods below you can get/update/delete combinations and their details in an Ecwid store. Learn more about product combinations in the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/207100299-Product-Combinations).
 
@@ -6,7 +6,7 @@ Using the methods below you can get/update/delete combinations and their details
 Product Combinations are available on the Ecwid's <a href='https://www.ecwid.com/pricing'>Business plan and higher</a>.
 </aside>
 
-## Get all product combinations
+### Get all product combinations
 
 Get all combinations of a specific product in an Ecwid store.
 
@@ -28,7 +28,7 @@ Name | Type | Description
 **productId** | number | Internal product ID
 
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -170,7 +170,7 @@ Field | Type  | Description
 quantity |  number |  Number of product items on this wholesale tier
 price | number |  Product price on the tier
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -191,7 +191,7 @@ HTTP Status | Meaning
 500 | Cannot get combinations because of an error on the server
 
 
-## Get product combination
+### Get product combination
 
 Get a specific product combination details referring to its ID.
 
@@ -214,7 +214,7 @@ Name | Type | Description
 **combinationId** | number | Internal combination ID
 
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -288,7 +288,7 @@ Field | Type  | Description
 quantity |  number |  Number of product items on this wholesale tier
 price | number |  Product price on the tier
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -312,7 +312,7 @@ HTTP Status | Meaning
 
 
 
-## Create product combination
+### Create product combination
 
 You can create a new product combination using this method. If the options you specify in request don't exist, they will be created automatically with the type of dropdown. If you want to create options explicitly, use the [Update product](#update-a-product) call to create them. 
 
@@ -349,7 +349,7 @@ Name | Type | Description
 **token** |  string | oAuth token
 **productId** | number | Internal product ID
 
-### Request body
+#### Request body
 
 A JSON object of type 'Combination' with the following fields:
 
@@ -377,7 +377,7 @@ Field | Type  | Description
 **quantity** |  number |  Number of product items on this wholesale tier
 **price** | number |  Product price on the tier
 
-### Response
+#### Response
 
 > Response example
 
@@ -395,7 +395,7 @@ Field | Type  | Description
 id | number | ID of the created combination
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -420,7 +420,7 @@ HTTP Status | Meaning
 
 
 
-## Update product combination
+### Update product combination
 
 Update a specific product combination details referring to its ID.
 
@@ -448,7 +448,7 @@ Name | Type | Description
 **productId** | number | Internal product ID
 **combinationId** | number | Internal combination ID
 
-### Request body
+#### Request body
 
 A JSON object of type 'Combination' with the following fields:
 
@@ -478,7 +478,7 @@ Field | Type  | Description
 
 
 
-### Response
+#### Response
 
 
 > Response example
@@ -497,7 +497,7 @@ Field | Type | Description
 ----- | ---- | -----------
 updateCount | number | The number of updated combinations (`1` or `0` depending on whether the update was successful)
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -522,7 +522,7 @@ HTTP Status | Meaning
 
 
 
-## Delete product combination
+### Delete product combination
 
 Delete a specific product combination referring to its ID.
 
@@ -544,7 +544,7 @@ Name | Type | Description
 **combinationId** | number | Internal combination ID
 
 
-### Response
+#### Response
 
 > Response example
 
@@ -563,7 +563,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted combinations (`1` or `0` depending on whether the request was successful)
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -585,7 +585,7 @@ HTTP Status | Meaning
 
 
 
-## Delete all product combinations
+### Delete all product combinations
 
 Delete all product combinations of a product in an Ecwid store.
 
@@ -606,7 +606,7 @@ Name | Type | Description
 **productId** | number | Internal product ID
 
 
-### Response
+#### Response
 
 > Response example
 
@@ -625,7 +625,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted combinations
 
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -646,7 +646,7 @@ HTTP Status | Meaning
 
 
 
-## Adjust combination inventory
+### Adjust combination inventory
 
 > Request example
 
@@ -675,7 +675,7 @@ Name | Type    | Description
 **combinationId** | number | Combination ID
 **token** |  string |  oAuth token
 
-### Request body
+#### Request body
 
 A JSON object of type 'Inventory' with the following fields:
 
@@ -684,7 +684,7 @@ Field | Type |  Description
 ------| ---- | ------------
 **quantityDelta** | number | Delta value used to update product quantity. Negative value will decrease quantity, positive one will increase it.
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -703,7 +703,7 @@ Field | Type |  Description
 updateCount | number | The number of updated products (`1` or `0` depending on whether the update was successful)
 warning | string | Inventory update warning(optional). For example, the warning will display if the stock became negative
 
-### Errors
+#### Errors
 
 ```http
 HTTP/1.1 400 Bad Request
@@ -732,7 +732,7 @@ errorMessage | string | Error message
 
 
 
-## Upload combination image
+### Upload combination image
 
 Upload a custom image for a specific product combination referring to its ID.
 
@@ -788,7 +788,7 @@ Name | Type    | Description
 
 When uploading an image for a combination, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
-### Response
+#### Response
 
 > Response example
 
@@ -806,7 +806,7 @@ Field | Type |  Description
 id | number | Internal image ID
 
 
-### Errors
+#### Errors
 
 > Error response example 
 
@@ -844,7 +844,7 @@ errorMessage | string | Error message
 
 
 
-## Delete combination image
+### Delete combination image
 
 Delete an image of a specific product combination in an Ecwid store.
 
@@ -866,7 +866,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 **combinationId** | number | Internal combination ID
 
-### Response
+#### Response
 
 > Response example
 
@@ -885,7 +885,7 @@ Field | Type |  Description
 deleteCount | number | The number of deleted images (`1` if the image has been removed, `0` otherwise)
 
 
-### Errors
+#### Errors
 
 > Error response example 
 

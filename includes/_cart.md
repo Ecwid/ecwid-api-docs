@@ -1,10 +1,10 @@
-# Carts
+## Carts
 
 When a customer leaves an online store without making a purchase it is recorded as an abandoned cart in Ecwid. The methods below describe how you can search for abandoned carts, place them as completed orders or update its contents. Learn more about abandoned carts in the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/207806235-Orders#Unfinishedsales).
 
 You can also calculate the order total and available shipping methods using the [special endpoint](#calculate-order-details) in the Ecwid API. It is useful for storefronts with a custom checkout process.
 
-## Search abandoned carts
+### Search abandoned carts
 
 Search for abandoned carts in an Ecwid stores and filter the results by create/update date, customer, order total.
 
@@ -39,7 +39,7 @@ limit | number | Maximum number of returned items. Maximum allowed value: `100`.
 Parameters in bold are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -457,7 +457,7 @@ Field | Type | Description
 avsMessage | string  | Address verification status returned by the payment system.
 cvvMessage | string  | Credit card verification status returned by the payment system.
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -483,7 +483,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Get abandoned cart
+### Get abandoned cart
 
 Get details of an abandoned cart using its unique cart ID.
 
@@ -508,7 +508,7 @@ Name | Type    | Description
 Parameters in bold are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -917,7 +917,7 @@ Field | Type | Description
 avsMessage | string  | Address verification status returned by the payment system.
 cvvMessage | string  | Credit card verification status returned by the payment system.
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -943,7 +943,7 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-## Update abandoned cart
+### Update abandoned cart
 
 Update the details of specific abandoned cart using its unique cart ID.
 
@@ -968,7 +968,7 @@ Name | Type    | Description
 Parameters in bold are mandatory
 </aside>
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -985,7 +985,7 @@ Field | Type |  Description
 ------| -----| ------------
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -1012,7 +1012,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Calculate order details
+### Calculate order details
 
 This method will calculate and return shipping rates and taxes for the order sent in a request. You can use it for your custom checkout process prior to creating an actual order in the store. Requests to this endpoint don't create any new orders in the actual store. See [Shipping](https://help.ecwid.com/customer/en/portal/articles/1161340-shipping) and [Taxes](https://help.ecwid.com/customer/en/portal/articles/1182159-taxes) help articles to find out more information.
 
@@ -1073,7 +1073,7 @@ Field | Type | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 
-### Request body
+#### Request body
 
 A JSON object of type 'Order' with the following fields:
 
@@ -1182,7 +1182,7 @@ Parameters in bold are mandatory
 </aside>
 
 
-### Response
+#### Response
 
 > Response example
 
@@ -1542,7 +1542,7 @@ base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND
 order_total | number | Minimum order subtotal the discount applies to
 description | string | Description of a discount (for discounts with base == `CUSTOM`)
 
-### Errors
+#### Errors
 
 > Error response example
 
@@ -1568,7 +1568,7 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-## Convert abandoned cart to order
+### Convert abandoned cart to order
 
 > Request example
 
@@ -1584,11 +1584,11 @@ Converts the abandoned cart into a completed order in an Ecwid store.
 
 `POST https://app.ecwid.com/api/v3/{storeId}/carts/{cartID}/place?token={token}`
 
-### Request body
+#### Request body
 
 Request body is empty for this endpoint.
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -1608,7 +1608,7 @@ Field | Type |  Description
 orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
 vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
 
-### Errors
+#### Errors
 
 > Error response example
 
