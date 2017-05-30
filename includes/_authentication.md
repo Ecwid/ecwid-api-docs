@@ -4,7 +4,7 @@ The Ecwid platform provides two ways of installing and operating applications in
 
 **Native apps** work solely in the Ecwid Control Panel by adding a new tab into one of its sections. When a user visits that tab, Ecwid will load the app page in an IFRAME window. The app can interact with a store (get access token, get store information) and with the Ecwid Control Panel using [Ecwid JS SDK](#ecwid-javascript-sdk).
 
-**External apps** work outside of the Ecwid Control Panel on an external website or in the background with no setup required. These applications need to [handle the oAuth process](#get-access-token) themselves in order to get an access token. Usually, they work on the server side with their own database to store the access tokens of their users’ stores.
+**External apps** work outside of the Ecwid Control Panel on an external website or in the background with no setup required. These applications need to [handle the oAuth process](https://developers.ecwid.com/api-documentation/external-applications#get-access-token) themselves in order to get an access token. Usually, they work on the server side with their own database to store the access tokens of their users’ stores.
 
 ## Native applications
 
@@ -157,7 +157,7 @@ This method of getting access token is meant for apps that are installed outside
 
 These kinds of apps can be also displayed in the Ecwid App Market, but the oAuth flow will be performed on an external website, where developer will decide how to handle the installation. 
 
-We recommend using the simplified installation flow from the [Get access token](#get-access-token) section, however if it's not possible or the application is created **for a specific Ecwid store only**, you can use this complete oAuth flow. Before you proceed, make sure you have a [registered app](/register) to install.
+We recommend using the simplified installation flow from the [Get access token](https://developers.ecwid.com/api-documentation/external-applications#get-access-token) section, however if it's not possible or the application is created **for a specific Ecwid store only**, you can use this complete oAuth flow. Before you proceed, make sure you have a [registered app](/register) to install.
 
 Retrieving an access token in a complete oAuth flow includes the following steps:
 
@@ -278,6 +278,8 @@ There are two types of access tokens in Ecwid: **private** and **public** tokens
 
 Ecwid user grants or denies access to certain data in their store for the particular application - then the application gets its own secure access token (and optional public token) upon authorization and uses that token as a key to make REST API calls to Ecwid.
 
+**Both types of access tokens do not expire, so you can use them as long as the application is installed in a merchant's store.**
+
 <aside class="notice">
 To get private or public access token, user would need to go through Ecwid oAuth app installation flow. Learn more in the <a href="#native-applications">Native</a> and <a href="#external-applications">External</a> applications sections.
 </aside>
@@ -314,19 +316,19 @@ Public token provides limited access to public store data via REST API interface
 
 With public access token you can use these methods from anywhere (client-side JavaScript, widget integration codes, etc.):
 
-- [Get store profile](#get-store-profile)
-- [Search enabled products](#search-products)
-- [Get enabled product details](#get-a-product)
-- [Search enabled categories](#get-categories)
-- [Get enabled category details](#get-category)
-- [Get all combinations of an enabled product](#get-all-product-combinations)
-- [Get combination details of an enabled product](#get-product-combination)
-- [Search visible product types](#get-product-types)
-- [Get visible product type details](#get-product-type)
-- [Get products and profile update stats](#get-store-update-statistics)
-- [Get deleted products statistics](#get-deleted-items-statistics)
-- [Create new orders](#create-order)
-- [Calculate order details](#calculate-order-details)
+- [Get store profile](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+- [Search enabled products](https://developers.ecwid.com/api-documentation/products#search-products)
+- [Get enabled product details](https://developers.ecwid.com/api-documentation/products#get-a-product)
+- [Search enabled categories](https://developers.ecwid.com/api-documentation/categories#get-categories)
+- [Get enabled category details](https://developers.ecwid.com/api-documentation/categories#get-category)
+- [Get all combinations of an enabled product](https://developers.ecwid.com/api-documentation/product-combinations#get-all-product-combinations)
+- [Get combination details of an enabled product](https://developers.ecwid.com/api-documentation/product-combinations#get-product-combination)
+- [Search visible product types](https://developers.ecwid.com/api-documentation/product-types#get-product-types)
+- [Get visible product type details](https://developers.ecwid.com/api-documentation/product-types#get-product-type)
+- [Get products and profile update stats](https://developers.ecwid.com/api-documentation/store-information#get-store-update-statistics)
+- [Get deleted products statistics](https://developers.ecwid.com/api-documentation/store-information#get-deleted-items-statistics)
+- [Create new orders](https://developers.ecwid.com/api-documentation/orders#create-order)
+- [Calculate order details](https://developers.ecwid.com/api-documentation/carts#calculate-order-details)
 
 These methods are available for public token regardless of the other access scope your requested from a store. 
 
@@ -336,7 +338,7 @@ These methods are available for public token regardless of the other access scop
 
 To install any application from the Ecwid App Market, user would need to visit an app details page for that application first. Typical app details link in Ecwid Control Panel looks like this: 
 
-`https://my.ecwid.com/cp/CP.html#apps:view=app&name=my-cool-app`
+`https://my.ecwid.com/cp/#apps:view=app&name=my-cool-app`
 
 Where `my-cool-app` is the **appId** provided to you when you registered your application with us. App details page contains various information like app description, screenshots, pricing and other details. 
 

@@ -97,7 +97,7 @@ This method of embedding Ecwid is slower than direct embedding of Ecwid widget. 
 
 You should use `window.ecwid_dynamic_widgets` variable to enable dynamic widget creating in Ecwid. See the example on the right that shows how to create and destroy Ecwid widget through the JavaScript functions. 
 
-Please note that **this method allows to embed the storefront widget only**. If you need to embed other widgets dynamically, please, use the code for [deferred widget initialization](#delayed-widget-initialization)
+Please note that **this method allows to embed the storefront widget only**. If you need to embed other widgets dynamically, please, use the code for [deferred widget initialization](https://developers.ecwid.com/api-documentation/add-ecwid-to-the-site#delayed-widget-initialization)
 
 ### Delayed widget initialization 
 
@@ -207,7 +207,7 @@ Yes, you can! Please check out this page for more details: [How to create a them
 
 You may want to apply different CSS codes depending on the store your application is loaded. For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
 
-In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](#add-custom-javascript-code) for details.
+In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](https://developers.ecwid.com/api-documentation/add-or-modify-features-in-storefront#add-custom-javascript-code) for details.
 
 ### Change the store layout
 
@@ -633,8 +633,8 @@ Yes, the old URLs will be supported, so if someone clicks the old link anywhere 
 
 Yes, when getting information about products and categories in an Ecwid store, you can choose the URL format you wish to receive in response. For more details, see the links below: 
 
-- [How to get URLs for products](#q-how-to-get-urls-for-products)
-- [How to get URLs for categories](#q-how-to-get-urls-for-categories)
+- [How to get URLs for products](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
+- [How to get URLs for categories](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)
 
 ### Canonical URLs
 

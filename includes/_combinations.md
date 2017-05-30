@@ -664,7 +664,7 @@ When your integration changes in stock quantity of product combination in a stor
 
 This method solves this very problem: you can increase or decrease the product combination's stock quantity by a delta quantity. For example, if you need to decrease quantity by 10 items, you can use this method. 
 
-This method is also available for [products](#adjust-product-inventory).
+This method is also available for [products](https://developers.ecwid.com/api-documentation/products#adjust-product-inventory).
 
 `PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}/inventory?token={token}`
 

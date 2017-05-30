@@ -49,7 +49,7 @@ This JavaScript storage API allows to set and update values in the app storage r
 
 Use the code examples below with the help of Ecwid JS SDK to manage user details in your application's tab in Ecwid Control Panel.
 
-<aside class="notice">Your application must be a native <a href="#client-side-applications">client-side</a> application to access JavaScript Storage API.
+<aside class="notice">Your application must be a native <a href="https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#default-user-auth">client-side</a> application to access JavaScript Storage API.
 </aside>
 
 #### Save data to storage

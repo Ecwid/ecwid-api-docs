@@ -24,7 +24,7 @@ Examples:
 
 #### 1. Ecwid sends cart data to app request URL
 
-The request to your app URL can be triggered by a customer in storefront or by an API request to order details calculation [endpoint](#calculate-order-details). 
+The request to your app URL can be triggered by a customer in storefront or by an API request to order details calculation [endpoint](https://developers.ecwid.com/api-documentation/carts#calculate-order-details). 
 
 To apply new discounts for a cart in storefront, Ecwid will send a **POST request** to your endpoint with cart details: items, customer address, merchant app settings, etc.
 
@@ -40,7 +40,7 @@ The products and cart information itself can be different from what the store ac
 
 #### 2. Application returns discounts in a specific format
 
-Ecwid will expect **a response to its request** from your service within **5 second interval** to display additional discounts for an order. In the response, provide discount value, type of discount (percent or absolute) and discount description. See the response format in the [Request and response](#request-and-response) section.
+Ecwid will expect **a response to its request** from your service within **5 second interval** to display additional discounts for an order. In the response, provide discount value, type of discount (percent or absolute) and discount description. See the response format in the [Request and response](https://developers.ecwid.com/api-documentation/request-for-discount-and-response) section.
 
 <aside class="notice">
 Please mind that the response isn't a separate request back to a specific URL in Ecwid. This needs to be a response to the request Ecwid makes to the application URL.
@@ -69,7 +69,7 @@ In case if your app responds with an error or in an incorrect format, then the d
 
 #### Q: Can I create a user interface for user to select and set different duscount rules?
 
-After the installation, your app can add a page where they can configure it: provide their account details, set up discount rules, enable/disable rules, etc. We recommend using **Native apps** feature and the **Application storage** feature to provide this functionality. To manage and store those settings, see the [Advanced setup](#advanced-setup) section.
+After the installation, your app can add a page where they can configure it: provide their account details, set up discount rules, enable/disable rules, etc. We recommend using **Native apps** feature and the **Application storage** feature to provide this functionality. To manage and store those settings, see the [Advanced setup](https://developers.ecwid.com/api-documentation/user-interface-for-discount-rules) section.
 
 ## Set up custom discount
 
@@ -204,7 +204,7 @@ POST https://mycoolapp.com/discounts HTTP/1.1
 Name | Type    | Description
 ---- | ------- | --------------
 storeId |  number | Ecwid store ID
-merchantAppSettings | json | Merchant settings for your integration set up by your code. [More details](#advanced-setup)
+merchantAppSettings | json | Merchant settings for your integration set up by your code. [More details](https://developers.ecwid.com/api-documentation/user-interface-for-discount-rules)
 cart | \<*CartDetails*\> | Offset from the beginning of the returned items list (for paging)
 
 #### CartDetails

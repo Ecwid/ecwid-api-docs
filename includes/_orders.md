@@ -509,7 +509,7 @@ Get all available information about an order referring to its ID. The order deta
 
 #### Q: How can I request details of several orders at once?
 
-When you know the exact order numbers for orders you need, you can get those order details in one request (batch request). To do that, use the [Search orders](#search-orders) method: provide the order numbers you have in the `orderNumber` parameter separating them with a comma. 
+When you know the exact order numbers for orders you need, you can get those order details in one request (batch request). To do that, use the [Search orders](https://developers.ecwid.com/api-documentation/orders#search-orders) method: provide the order numbers you have in the `orderNumber` parameter separating them with a comma. 
 
 This way your app will save some time as you will be performing less requests to the Ecwid API and they will be much more efficient.
 

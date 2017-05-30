@@ -29,8 +29,8 @@ limit | number | Maximum number of returned items. Maximum allowed value: `100`.
 parent | number | ID of the parent category. Set to `0` to get the list of root categories. Leave empty to get all store categories.
 hidden_categories | boolean | By default, Ecwid returns only enabled categories. Set this parameter to `true` if you want hidden (disabled) categories to be returned. `false` is default
 productIds | boolean | Set to `true` if you want the results to contain a list of product IDs assigned to category. `false` is default
-baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](#get-store-profile)
-cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
+baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
 
 <aside class='notice'>
 To get a list of products in results for each category, set `productIds` parameter to `true` when making a request.
@@ -199,7 +199,7 @@ errorMessage | string | Error message
 
 Direct URL for each category is always available in the `url` field once you make a request to the Ecwid REST API. 
 
-In any Ecwid store there is a [storefront URL](#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide category URLs in the REST API and other connected services.
+In any Ecwid store there is a [storefront URL](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide category URLs in the REST API and other connected services.
 
 **When a store is embedded into multiple websites**
 
@@ -227,10 +227,10 @@ It is possible to use the `baseUrl` parameter together with the `cleanUrls` para
 
 **Receiving SEO-friendly (clean) URLs from the Ecwid REST API**
 
-By default, Ecwid's category URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
+By default, Ecwid's category URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
 
 <aside>
-  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="#seo-friendly-urls">SEO-friendly URLs section</a>.
+  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls">SEO-friendly URLs section</a>.
 </aside>
 
 Let's see how it works: 
@@ -273,8 +273,8 @@ Query field | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 **categoryId** | number | Internal category ID
-baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](#get-store-profile)
-cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
+baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](https://developers.ecwid.com/api-documentation/store-profile#get-store-profile)
+cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
 
 #### Response
 
@@ -375,7 +375,7 @@ HTTP Status | Meaning | Code (optional)
 
 Direct URL for each category is always available in the `url` field once you make a request to the Ecwid REST API. 
 
-In any Ecwid store there is a [storefront URL](#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide category URLs in the REST API and other connected services.
+In any Ecwid store there is a [storefront URL](https://developers.ecwid.com/api-documentation/store-profile#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide category URLs in the REST API and other connected services.
 
 **When a store is embedded into multiple websites**
 
@@ -403,10 +403,10 @@ It is possible to use the `baseUrl` parameter together with the `cleanUrls` para
 
 **Receiving SEO-friendly (clean) URLs from the Ecwid REST API**
 
-By default, Ecwid's category URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
+By default, Ecwid's category URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
 
 <aside>
-  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="#seo-friendly-urls">SEO-friendly URLs section</a>.
+  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls">SEO-friendly URLs section</a>.
 </aside>
 
 Let's see how it works: 

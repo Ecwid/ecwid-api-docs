@@ -20,11 +20,33 @@ After registering your app, contact us and provide a payment URL where Ecwid wil
 
 In the storefront, customer will see a new payment method to choose from. If they choose this new method to pay for their order, they will be directed to payment URL of your app to finish the checkout process.
 
-Upon finishing the payment, your app must [update the order status](#update-order) and return customer to the storefront.
+Upon finishing the payment, your app must [update the order status](https://developers.ecwid.com/api-documentation/orders#update-order) and return customer to the storefront.
 
 ## Set up payment method
 
 After you [registered a new application](/register) for Ecwid, send the payment URL for that new payment method by [contacting us](/contact). Ecwid will be sending order details requests to payment URL endpoint and expect the order status to be changed after the payment is complete.
+
+## Merchant settings for payment method
+
+Your application can require merchants to specify their account details in your system and any other user preferences you may require.
+
+> Merchant settings example
+
+> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/paymentSettings-1468408208.png)
+
+### Merchant settings
+
+Set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more information.
+
+When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#javascript-storage-api) (client-side) or [Ecwid REST API](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#rest-storage-api) (server-side).
+
+### Request
+
+Once the settings are saved there, Ecwid will send them in an HTML form with a **POST request** to your payment URL with order details when customer chooses to pay with the new payment method. The request will contain **all data** from your application storage, including public and other keys that were specified.
+
+You can use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
+
+Please make sure **not to pass any sensitive user data in the public application config**, as this information will be available via Ecwid Javascript API to any 3-rd party. To save and get that kind of information, use any other key names in your application storage. They will be provided in a request to your application as well as public information, but not accessible in the storefront.
 
 ## Processing payment request
 
@@ -89,7 +111,7 @@ $result = getEcwidPayload($client_secret, $ecwid_payload);
 
 When customer tries to pay with your payment method, Ecwid will send a POST request with a format as described on the right. 
 
-The value of the `data` input is encoded with a **AES-128** mechanism, where the first 16 characters is the `client_secret` of your application, which serves as a key to the decoding process. To find out more on how to decode the value, see the example code in **Step #1** of [Server-side Native Apps](#server-side-applications) section.
+The value of the `data` input is encoded with a **AES-128** mechanism, where the first 16 characters is the `client_secret` of your application, which serves as a key to the decoding process. To find out more on how to decode the value, see the example code in **Step #1** of [Server-side Native Apps](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#enhanced-security-user-auth) section.
 
 > Decoded request from Ecwid example
 
@@ -204,7 +226,7 @@ After you decode the payload, you will get a JSON formatted string with the stor
 Name | Type    | Description
 ---- | ------- | --------------
 storeId |  number | Ecwid store ID
-returnurl | string | A URL to send customer to after the payment. [More details](#returning-customer-to-storefront)
+returnurl | string | A URL to send customer to after the payment. [More details](https://developers.ecwid.com/api-documentation/processing-payment-request#returning-customer-to-storefront)
 merchantAppSettings | json | Merchant settings for your integration set up by your code. [More details](#merchant-settings-for-payment-method)
 cart | \<*CartDetails*\> | Offset from the beginning of the returned items list (for paging)
 token | string | Access token of the Ecwid store. Use it to update order status after the payment
@@ -342,28 +364,6 @@ name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value
 description | string | Handling fee description for customer
 
-### Merchant settings for payment method
-
-Your application can require merchants to specify their account details in your system and any other user preferences you may require.
-
-> Merchant settings example
-
-> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/paymentSettings-1468408208.png)
-
-**Settings**
-
-First, set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more information.
-
-When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](#javascript-storage-api) (client-side) or [Ecwid REST API](#rest-storage-api) (server-side).
-
-**Request**
-
-Once the settings are saved there, Ecwid will send them in an HTML form with a **POST request** to your payment URL with order details when customer chooses to pay with the new payment method. The request will contain **all data** from your application storage, including public and other keys that were specified.
-
-You can use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
-
-Please make sure **not to pass any sensitive user data in the public application config**, as this information will be available via Ecwid Javascript API to any 3-rd party. To save and get that kind of information, use any other key names in your application storage. They will be provided in a request to your application as well as public information, but not accessible in the storefront.
-
 ### Updating order status
 
 > Update order status example
@@ -379,7 +379,7 @@ Cache-Control: no-cache
 }
 ```
 
-For Ecwid to find out the result of the payment, your application must update the order status before returning them back to the storefront. Updating order status can be performed using a call to Ecwid's REST API and its [Orders endpoint](#update-order). 
+For Ecwid to find out the result of the payment, your application must update the order status before returning them back to the storefront. Updating order status can be performed using a call to Ecwid's REST API and its [Orders endpoint](https://developers.ecwid.com/api-documentation/orders#update-order). 
 
 In order to update an order, you will need these details: order number, store ID and an access token. All of these details are provided in a request to your application's payment URL in a corresponding fields: `orderNumber` field in the `cart` object, `storeId` and `token` fields in the request.
 

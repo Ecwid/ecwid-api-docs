@@ -1,16 +1,16 @@
 # Embedded apps
 
-The Ecwid API allows your application to be embedded right into the user Control Panel and work like it is built into Ecwid. Although this approach is not necessary and you can use the Ecwid API without embedding an application into the Control Panel, we highly recommend it. Being integrated with Ecwid this way, your app will get way more user engagement, as it will be a part of a merchant store backend.
-
 > Native app interface example
 
 > ![Edit orders interface](https://dj925myfyz5v.cloudfront.net/wp-content/uploads/nativeApp-1468407012-1485267123.png)
+
+The Ecwid API allows your application to be embedded right into the user Control Panel and work like it is built into Ecwid. Although this approach is not necessary and you can use the Ecwid API without embedding an application into the Control Panel, we highly recommend it. Being integrated with Ecwid this way, your app will get way more user engagement, as it will be a part of a merchant store backend.
 
 Overall, it works this way:
 
 - The user installs the application and allows it to add a new tab to the Ecwid Control Panel.
 - After installation, a new tab shows the page content of your specified IFRAME URL.
-- Ecwid provides a [REST API](#rest-api-reference) and a [JS SDK](#ecwid-javascript-sdk) for authentication and operations inside of the Ecwid Control Panel.
+- Ecwid provides a [REST API](#rest-api-reference) and a [JS SDK](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#ecwid-javascript-sdk) for authentication and operations inside of the Ecwid Control Panel.
 
 ## Building an embedded app
 
@@ -20,9 +20,9 @@ After the app registration you will need to provide us with additional details a
 
 Parameter | Meaning
 --------- | -------
-Iframe URL | This is a <strong>HTTPS URL</strong> of the application page hosted on your server, which will be loaded in Ecwid Control panel. Requirements: <ul><li>It must load over <strong>HTTPS</strong></li> <li>The page must not contain header/footer, i.e. you will need to design this page as an embeddable, not as a standalone application.</li><li>The page must be mobile-ready for cases when store owners go to Ecwid Control Panel on mobile devices.</li><li>The page content should not contain the word 'Ecwid', so we can offer your app to our partners</li><li>Its interface must use [Ecwid CSS Framework](#ecwid-css-framework)</li><li>The page must <a href="#init">initialize the app</a> using Ecwid Javascript SDK to be displayed</li></ul>
+Iframe URL | This is a <strong>HTTPS URL</strong> of the application page hosted on your server, which will be loaded in Ecwid Control panel. Requirements: <ul><li>It must load over <strong>HTTPS</strong></li> <li>The page must not contain header/footer, i.e. you will need to design this page as an embeddable, not as a standalone application.</li><li>The page must be mobile-ready for cases when store owners go to Ecwid Control Panel on mobile devices.</li><li>The page content should not contain the word 'Ecwid', so we can offer your app to our partners</li><li>Its interface must use [Ecwid CSS Framework](#ecwid-css-framework)</li><li>The page must <a href="https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#init">initialize the app</a> using Ecwid Javascript SDK to be displayed</li></ul>
 App page title | This will be the title of the tab in Ecwid control panel where your application resides. Please keep it short as it will reside in a row of native Ecwid tabs and other applications 
-Control panel section | The section of Ecwid control panel where you want your application to be added. Supported sections: <ul><li>*Sales* – choose this if your application works with orders or customers</li> <li>*Catalog* – choose this if your application works with products, combinations, product images etc. </li> <li>*Promotions* – this section is for the applications working with discounts, coupons, loyalty programs and other promotion features</li> <li>*Settings* – you can choose this section if you need to place your application settings at the same level as the store settings</li> <!-- <li>*Design* – this section is for the applications that customize storefront look and feel</li> --><li>*Reports* - choose this section if your app shows store statistics</li><!-- <li>*Payment* - choose this section if your app adds new payment methods to the store</li> --></ul>
+Control panel section | The section of Ecwid control panel where you want your application to be added. Supported sections: <ul><li>*Sales* – choose this if your application works with orders or customers</li> <li>*Catalog* – choose this if your application works with products, combinations, product images etc. </li> <li>*Promotions* – this section is for the applications working with discounts, coupons, loyalty programs and other promotion features</li> <li>*Settings* – you can choose this section if you need to place your application settings at the same level as the store settings</li><li>*Reports* - choose this section if your app shows store statistics</li></ul>
 
 <aside class="notice">
 Access scope required: <strong>add_to_cp</strong> 
@@ -90,7 +90,7 @@ Here you can find a starter template that you can use as a skeleton of your own 
 
 Full native application source code example for Custom URL for "Thank you" page app from [the Ecwid App Market](https://www.ecwid.com/apps/customizestorefront/custom-thank-you) is available here: [https://github.com/Ecwid/custom-thank-you-page-app](https://github.com/Ecwid/custom-thank-you-page-app)
 
-Also, see the [set up your application](#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
+Also, see the [set up your application](https://developers.ecwid.com/api-documentation/building-an-embedded-app#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
 
 
 #### Q: What is my app_id?
@@ -161,7 +161,7 @@ When using default user authentication, the app state will be delivered through 
 
 Once it's called, you can save the user details and app state into your client-side variables. See example on the right.
 
-Learn more about [Default User Authentication](#default-user-auth)
+Learn more about [Default User Authentication](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#default-user-auth)
 
 **Enhanced security user authentication**
 
@@ -184,7 +184,7 @@ When using enhanced security user authentication, the app state will be delivere
 
 You can retrieve it just like any other value of a GET parameter on a server-side and then save and use it in your app code. See example on the right.
 
-Learn more about [Enhanced Security User Authentication](#enhanced-security-user-auth)
+Learn more about [Enhanced Security User Authentication](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#enhanced-security-user-auth)
 
 ## Authentication in embedded apps
 
@@ -209,7 +209,7 @@ In the default user auth process, Ecwid will call your iframe URL like this:
 
 This process allows for simple user authentication in your app using the **Ecwid JS SDK**.
 
-[Continue with default authentication](#default-user-auth)
+[Continue with default authentication](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#default-user-auth)
 
 #### Enhanced Security User Authentication
 
@@ -219,7 +219,7 @@ In the enhanced security auth process, Ecwid will call your iframe URL like this
 
 We recommend using this type of authentication for complex applications that can modify parts of a store and require additional security measures.
 
-[Continue with enhanced security authentication](#enhanced-security-user-auth)
+[Continue with enhanced security authentication](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#enhanced-security-user-auth)
 
 <aside class="note">By default, Ecwid uses <strong>Default User Authentication</strong> process so you can start working on your application's tab right away without using server side. If you need your app to be switched to <strong>Enhanced Security User Authentication</strong>, please <a href='/contact'>contact us</a> and we will update your app.</aside>
 
@@ -288,7 +288,7 @@ The workflow can be described into the following steps:
 
 #### 1. Get store preferences and data
 
-For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](#getpayload) method specification. So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. 
+For convenience, we provide a simple Javascript SDK that you can use in your application to authenticate the user and get access to the API. As soon as the JS SDK script is used, you can call the provided `EcwidApp.getPayload()` method to retrieve the user's store ID and access token as shown in example. See also [.getPayload()](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#getpayload) method specification. So, in your application code, you will need to include Ecwid JS SDK script and use provided methods to authenticate the user as shown in the example. 
 
 If your application is going to store some user specified information, like background color, page IDs or something else, you can use [Ecwid Javascript SDK](#ecwid-javascript-sdk) to access [Storage endpoint](#application-storage) to easily store and access this data there without saving this information on your server.
 
@@ -527,8 +527,8 @@ The only parameter is a JS object with the following fields:
 Name | Type | Description
 ---- | ---- | -----------
 **app_id** | string | Namespace of your application (as set in the application settings). This is not the same as clientId. 
-autoloadedflag | boolean | Define how Ecwid should detect when your app is loaded. Set as `true`, if you want Ecwid to automatically detect the fact that you your app is loaded. Ecwid uses the window.onload event of your application document. If you want to contol when Ecwid should start displaying your app and inform it of your app's ready state, you should set this flag as `false` and use the [`EcwidApp.ready()`](#ready) method. As soon as the app is loaded, Ecwid hides the 'Loading' animation and shows the app content.
-autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust your app iframe height depending on your app content. If you want to control the iframe size yourself, set this flag as `false` and use the [`EcwidApp.setSize()`](#setsize) method.
+autoloadedflag | boolean | Define how Ecwid should detect when your app is loaded. Set as `true`, if you want Ecwid to automatically detect the fact that you your app is loaded. Ecwid uses the window.onload event of your application document. If you want to contol when Ecwid should start displaying your app and inform it of your app's ready state, you should set this flag as `false` and use the [`EcwidApp.ready()`](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#ready) method. As soon as the app is loaded, Ecwid hides the 'Loading' animation and shows the app content.
+autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust your app iframe height depending on your app content. If you want to control the iframe size yourself, set this flag as `false` and use the [`EcwidApp.setSize()`](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#setsize) method.
 
 
 ### getPayload
@@ -590,7 +590,7 @@ page | string | Hash part of of the page URL in the Control Panel. Examples: `bi
 
 ### ready
 
-You can use the `EcwidApp.ready()` method in your application to inform Ecwid of ready state of your application. For example, you may need to make a few API calls or load some additional assets before your app UI should be displayed to the user. In this way, pass `false` in the `autoloadedflag` parameter in the [`EcwidApp.init()`](#init) method and call the `.ready()` function when you are ready. 
+You can use the `EcwidApp.ready()` method in your application to inform Ecwid of ready state of your application. For example, you may need to make a few API calls or load some additional assets before your app UI should be displayed to the user. In this way, pass `false` in the `autoloadedflag` parameter in the [`EcwidApp.init()`](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#init) method and call the `.ready()` function when you are ready. 
 
 
 ### setSize
@@ -601,7 +601,7 @@ You can use the `EcwidApp.ready()` method in your application to inform Ecwid of
 EcwidApp.setSize({height: 800});
 ```
 
-We recommend using the `autoheight` parameter set as `true` in [`EcwidApp.init()`](#init) function to let Ecwid dynamically adjust your app iframe size depending on your application content size. But if you want to control the iframe size yourself, set that flag as `false` and use this `EcwidApp.setSize()` method.
+We recommend using the `autoheight` parameter set as `true` in [`EcwidApp.init()`](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#init) function to let Ecwid dynamically adjust your app iframe size depending on your application content size. But if you want to control the iframe size yourself, set that flag as `false` and use this `EcwidApp.setSize()` method.
 
 
 #### Parameters
@@ -721,7 +721,7 @@ In case when application is opened in a tab, nothing will happen.
 #### A new tab inside Ecwid Control Panel is not appearing
 You created an app and installed it on your test store, but the new tab is not appearing when you open your store. There are several possible reasons:
 
-* **The application is not configured properly** to be displayed inside Control Panel. E.g. during registration, you forgot to mention that your app will embed itself into Control Panel, or did not choose exact section inside Control Panel where Ecwid needs to display your app. See ["Set up your application"](#set-up-your-application) for the details.
+* **The application is not configured properly** to be displayed inside Control Panel. E.g. during registration, you forgot to mention that your app will embed itself into Control Panel, or did not choose exact section inside Control Panel where Ecwid needs to display your app. See ["Set up your application"](https://developers.ecwid.com/api-documentation/building-an-embedded-app#set-up-your-application) for the details.
 * **You didn't include the `add_to_cp` access scope** to the list of requested scopes while authorizing the app. While creating an oauth URL, make sure it incudes the "add_to_cp" scope in the list of requested permissions. 
 * **You're testing it in an Ecwid store which is on Free plan**. Ecwid API functionality including embedding apps is available on paid Ecwid plans only. Please upgrade your account.
 

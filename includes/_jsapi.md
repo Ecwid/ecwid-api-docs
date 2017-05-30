@@ -239,7 +239,7 @@ Ecwid.OnPageLoaded.add(function(page) {
 
 These events contain callbacks that get called on each page change inside the product browser. The difference between **OnPageLoad** and **OnPageLoaded** is that the former is called when the page is changed (e.g. a link is clicked), while the latter is called later when the corresponding page is loaded inside the product browser.
 
-The callback functions accept one parameter of type **Page** specifying which page is to be loaded (or has already been loaded). See [Page Object](#page-object) details for more info.
+The callback functions accept one parameter of type **Page** specifying which page is to be loaded (or has already been loaded). See **Page Object** details for more info.
 
 #### Page Object
 
@@ -1084,7 +1084,7 @@ console.log(cart);
 
 In order for the script to add items to cart, we need to 'tell' it what items to add. Check the example on the right on how to do this. The `cart` variable will have the generated cart content in it. 
 
-The syntax is very similar to adding products to cart via [Ecwid JavaScript API](#ecwid-cart-addproduct).
+The syntax is very similar to adding products to cart via [Ecwid JavaScript API](https://developers.ecwid.com/api-documentation/manage-customer-cart#ecwid-cart-addproduct).
 
 **Step 3: Create a link for customers**
 

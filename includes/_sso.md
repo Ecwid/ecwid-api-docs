@@ -10,7 +10,7 @@ Ecwid’s single sign-on API allows those customers to sign into a merchant’s 
 
 ### Pass user data to Ecwid
 
-To enable Storefront Single Sign-on (SSO) on merchant's website, you need to pass encrypted user information to Ecwid JavaScript API. The user data itself needs to be prepared and encrypted on the server. See [SSO Payload](#sso-payload) for the details. Then, in the code of the store web page, you should send the encrypted user data to Ecwid. There are two ways you can do that:
+To enable Storefront Single Sign-on (SSO) on merchant's website, you need to pass encrypted user information to Ecwid JavaScript API. The user data itself needs to be prepared and encrypted on the server. See [SSO Payload](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#sso-payload) for the details. Then, in the code of the store web page, you should send the encrypted user data to Ecwid. There are two ways you can do that:
 
 1. Declaring a `ecwid_sso_profile` JS variable on the store web page containing the user information
 2. Dynamically sending a user info to Ecwid by means of the `Ecwid.setSsoProfile()` JS API method

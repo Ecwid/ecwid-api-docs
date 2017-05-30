@@ -871,10 +871,10 @@ It is possible to use the `baseUrl` parameter together with the `cleanUrls` para
 
 **Receiving SEO-friendly (clean) URLs from the Ecwid REST API**
 
-By default, Ecwid's product URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
+By default, Ecwid's product URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
 
 <aside>
-  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="#seo-friendly-urls">SEO-friendly URLs section</a>.
+  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls">SEO-friendly URLs section</a>.
 </aside>
 
 Let's see how it works: 
@@ -903,7 +903,7 @@ Get all details of a specific product in an Ecwid store by its ID.
 
 #### Q: How can I request details of several products at once?
 
-If you need to do this operation for multiple products at once (batch request), you can use the [Search products](#search-products) method: provide the productIds you have in the `productId` parameter separating them with a comma. 
+If you need to do this operation for multiple products at once (batch request), you can use the [Search products](https://developers.ecwid.com/api-documentation/products#search-products) method: provide the productIds you have in the `productId` parameter separating them with a comma. 
 
 This way your app will save some time as you will be performing less requests to the Ecwid API and they will be much more efficient.
 
@@ -925,7 +925,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **productId** | number | Product ID
 **token** |  string |  oAuth token
-baseUrl | string | Storefront URL for Ecwid to use when returning product URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](#get-store-profile)
+baseUrl | string | Storefront URL for Ecwid to use when returning product URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
 
 <aside class="notice">
@@ -1385,7 +1385,7 @@ errorMessage | string | Error message
 
 Direct URL for each product is always available in the `url` field once you make a request to the Ecwid REST API. 
 
-In any Ecwid store there is a [storefront URL](#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide product URLs in the REST API and other connected services.
+In any Ecwid store there is a [storefront URL](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide product URLs in the REST API and other connected services.
 
 **When a store is embedded into multiple websites**
 
@@ -1413,10 +1413,10 @@ It is possible to use the `baseUrl` parameter together with the `cleanUrls` para
 
 **Receiving SEO-friendly (clean) URLs from the Ecwid REST API**
 
-By default, Ecwid's product URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
+By default, Ecwid's product URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
 
 <aside>
-  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="#seo-friendly-urls">SEO-friendly URLs section</a>.
+  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls">SEO-friendly URLs section</a>.
 </aside>
 
 Let's see how it works: 
@@ -1775,7 +1775,7 @@ length | number | Length of a product
 width | number | Width of a product
 height | number | Height of a product
 
-### Response
+#### Response
 
 > Response example (JSON)
 
@@ -1793,7 +1793,7 @@ Field | Type |  Description
 -------------- | -------------- | --------------
 updateCount | number | The number of updated products (`1` or `0` depending on whether the update was successful)
 
-### Errors
+#### Errors
 
 ```http
 HTTP/1.1 409 Conflict
@@ -1849,7 +1849,7 @@ When your integration changes in stock quantity of products in a store pretty of
 
 This method solves this very problem: you can increase or decrease the product's stock quantity by a delta quantity. For example, if you need to decrease quantity by 10 items, you can use this method. 
 
-This method is also available for the [product combinations](#adjust-combination-inventory).
+This method is also available for the [product combinations](https://developers.ecwid.com/api-documentation/product-combinations#adjust-combination-inventory).
 
 `PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/inventory?token={token}`
 

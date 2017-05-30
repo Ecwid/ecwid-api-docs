@@ -1,7 +1,5 @@
 # Webhooks
 
-## Webhooks overview
-
 A webhook is an HTTP POST request that occurs when something happens. In other words, it’s a simple event notification via HTTP POST. Ecwid uses webhooks to notify your application in real time about events in the merchant store.
 
 This is how your application can use webhooks:
@@ -10,10 +8,12 @@ This is how your application can use webhooks:
 * Get notified about every new order in the store so you can send a custom email or text message, generate a custom receipt, or subscribe the customer to your newsletter.
 
 <aside class="notice">
-Don’t use webhooks themselves as actionable items – please see the <a href="#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/webhooks#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
-### How it works in Ecwid
+## Webhooks overview
+
+### How webhooks work
 
 In a nutshell, webhooks in Ecwid work this way:
 
@@ -78,10 +78,10 @@ Please specify the exact event types you wish to be notified about upon register
 
 #### 3. Set custom HTTP headers (optional)
 
-You are also able to specify your custom HTTP headers to be provided by Ecwid when sending webhooks to your URL. If you want to add custom headers to your app, please [contact us](/contact). Learn more about [custom HTTP headers](#request-headers)
+You are also able to specify your custom HTTP headers to be provided by Ecwid when sending webhooks to your URL. If you want to add custom headers to your app, please [contact us](/contact). Learn more about [custom HTTP headers](https://developers.ecwid.com/api-documentation/webhook-structure#request-headers)
 
 #### 4. Get access
-Each application has scope of access that controls the set of store resources and operations permitted for the application. The same set of access scopes is used to determine which events your application can be notified of. To be notified of the product updates, make sure your app has `read_catalog` access to the store. The `read_orders` scope allows to get order webhooks. See [Access scopes](#access-scopes) for more details. 
+Each application has scope of access that controls the set of store resources and operations permitted for the application. The same set of access scopes is used to determine which events your application can be notified of. To be notified of the product updates, make sure your app has `read_catalog` access to the store. The `read_orders` scope allows to get order webhooks. See [Access scopes](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) for more details. 
 
 
 
@@ -305,7 +305,7 @@ Fields sent with all webhook requests are highlighted in <strong>bold</strong>.
 </aside>
 
 <aside class="notice">
-Don’t use webhooks themselves as actionable items – please see the <a href="#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/webhook-structure#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
@@ -325,7 +325,7 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `application.subscriptionStatusChanged` Application status changed
 * `profile.subscriptionStatusChanged` Store premium subscription status changed
 
-All order related webhooks require `read_orders` access scope and all product related webhooks require `read_catalog` [access scope](#access-scopes) to be requested from the store.
+All order related webhooks require `read_orders` access scope and all product related webhooks require `read_catalog` [access scope](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) to be requested from the store.
 
 #### Q: What is an unfinished order and how it works? 
 
@@ -360,7 +360,7 @@ After that, application can send an email to that person, following up on that u
 
 #### Q: When 'unfinished_order.deleted' event type is sent?
 
-When a merchant deletes an unfinished order in their Ecwid control panel, `hidden` field in order details becomes `true`. After that update `unfinished_order.updated` webhook is sent. So the details of this order are still available to be accessed [via Ecwid API](#get-order-details).
+When a merchant deletes an unfinished order in their Ecwid control panel, `hidden` field in order details becomes `true`. After that update `unfinished_order.updated` webhook is sent. So the details of this order are still available to be accessed [via Ecwid API](https://developers.ecwid.com/api-documentation/orders#get-order-details).
 
 To completely delete an unfinished order, make a delete order request to Ecwid API. If your app is set up to receive `unfinished_order.deleted` webhooks, Ecwid will send that webhook to endpoint of your application.
 
@@ -371,11 +371,11 @@ Contents of `data` field also lets you know the details about old status (before
 
 #### Q: How can I know the current subscription status of a store?
 
-Once you received `application.subscriptionStatusChanged` webhook, you can make a request to [Application endpoint](#get-application-status) to get the current subscription status of your app in that store.
+Once you received `application.subscriptionStatusChanged` webhook, you can make a request to [Application endpoint](https://developers.ecwid.com/api-documentation/application#get-application-status) to get the current subscription status of your app in that store.
 
 ### Request headers
 
-Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](#webhooks-security) below.
+Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](https://developers.ecwid.com/api-documentation/webhooks-best-practices#webhooks-security) below.
 
 #### Custom HTTP Headers
 
@@ -464,7 +464,7 @@ If you made sure that all of the above steps are not concerning your case, pleas
 
 #### Q: I receive webhooks for events that already happened. Why?
 
-When your application isn't sending `200OK` HTTP response back to Ecwid, the webhook event counts by Ecwid as not delivered. Such webhooks are sent again to the application URL according to the scheme described in [Responding to webhooks](#responding-to-webhooks). 
+When your application isn't sending `200OK` HTTP response back to Ecwid, the webhook event counts by Ecwid as not delivered. Such webhooks are sent again to the application URL according to the scheme described in [Responding to webhooks](https://developers.ecwid.com/api-documentation/processing-webhooks#responding-to-webhooks). 
 
 Hence, if your app somehow got the webhook the first time, it will receive more of the same webhooks until Ecwid receives back the `200OK` response from your app or the 48-hour timeout is over.
 
@@ -501,7 +501,7 @@ To verify a webhook in your appliciation:
 4. Compare the resulting string with the received webhook signature. 
 
 
-See the example in the [webhook processing example code](#webhook-processing-example). 
+See the example in the [webhook processing example code](https://developers.ecwid.com/api-documentation/webhooks-best-practices#webhook-processing-example). 
 
 
 ### Webhook processing example
