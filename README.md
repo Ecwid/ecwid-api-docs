@@ -8,6 +8,24 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## May 30, 2017
+
+- Added ability to upload files via a public URL as a request parameter to Ecwid REST API. Now you can just provide a link to an image or a file in optional `externalUrl` parameter and Ecwid will download it from there. Previous functionality of uploading files as a binary data is still available.
+
+This change is available for all file upload endpoints: 
+
+* Upload store logo (https://app.ecwid.com/api/v3/{storeId}/profile/logo)
+* Upload store invoice (https://app.ecwid.com/api/v3/{storeId}/profile/invoicelogo)
+* Upload product image (https://app.ecwid.com/api/v3/{storeId}/products/{productId}/image)
+* Upload product gallery image (https://app.ecwid.com/api/v3/{storeId}/products/{productId}/gallery)
+* Upload product file (https://app.ecwid.com/api/v3/{storeId}/products/{productId}/files)
+* Upload category image (https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}/image)
+* Upload product combination image (https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}/image)
+* Upload order item option file (https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName})
+* Upload starter site cover image (https://app.ecwid.com/api/v3/{storeId}/startersite/cover)
+* Upload starter site owner portrait (https://app.ecwid.com/api/v3/{storeId}/startersite/ownerportrait)
+* Upload starter site quote person image (https://app.ecwid.com/api/v3/{storeId}/startersite/quoteperson)
+
 ## May 12, 2017
 
 - Updates to Ecwid JS SDK and Ecwid CSS Framework. 

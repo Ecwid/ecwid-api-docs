@@ -785,8 +785,11 @@ Name | Type    | Description
 **productId** | number | Product ID
 **token** |  string |  oAuth token
 **combinationId** | number | Internal combination ID
+externalUrl | string | External file URL available for public download. If specified, Ecwid will ignore any binary file data sent in a request
 
 When uploading an image for a combination, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+
+Alternatively, you can specify an `externalURL` to your file as a request parameter and Ecwid will download it from there.
 
 #### Response
 

@@ -257,6 +257,15 @@ Parameters in bold are mandatory
                 "value": 2,
                 "description": "Silk paper wrapping"
             },
+            "predictedPackages":[  
+                {  
+                    "length":34,
+                    "width":3,
+                    "height":22,
+                    "weight":0.32,
+                    "declaredValue":29.95
+                }
+            ],
 
             // Other information
             "additionalInfo": {},
@@ -324,6 +333,7 @@ billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
+predictedPackages | \<*PredictedPackage*\> | Predicted information about the package to ship items in to customer
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 trackingNumber |  string | Shipping tracking code
@@ -461,6 +471,15 @@ Field | Type | Description
 name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value
 description | string | Handling fee description for customer
+
+### PredictedPackage
+Name | Type    | Description
+---- | ------- | --------------
+height | number | Height of a predicted package
+width | number | Width of a predicted package
+length | number | Length of a predicted package
+weight | number | Total weight of a predicted package
+declaredValue | number | Declared value of a predicted package (subtotal of items in package)
 
 #### DiscountInfo
 Field | Type | Description
@@ -723,7 +742,16 @@ Parameters in bold are mandatory
         "value": 2,
         "description": "Silk paper wrapping"
     },
-    
+    "predictedPackages":[  
+        {  
+            "length":34,
+            "width":3,
+            "height":22,
+            "weight":0.32,
+            "declaredValue":29.95
+        }
+    ],
+
     // Other information
     "additionalInfo": {},
     "paymentParams": {
@@ -778,6 +806,7 @@ billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
+predictedPackages | \<*PredictedPackage*\> | Predicted information about the package to ship items in to customer
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
@@ -916,6 +945,15 @@ Field | Type | Description
 name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value
 description | string | Handling fee description for customer
+
+### PredictedPackage
+Name | Type    | Description
+---- | ------- | --------------
+height | number | Height of a predicted package
+width | number | Width of a predicted package
+length | number | Length of a predicted package
+weight | number | Total weight of a predicted package
+declaredValue | number | Declared value of a predicted package (subtotal of items in package)
 
 #### DiscountInfo
 Field | Type | Description
@@ -2162,8 +2200,11 @@ Name | Type    | Description
 **optionName** | string | Item product option name, e.g. `Upload your photo`
 **fileName** |  string |  Uploaded file name
 **token** |  string |  oAuth token
+externalUrl | string | External file URL available for public download. If specified, Ecwid will ignore any binary file data sent in a request
 
 When uploading an item option file, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+
+Alternatively, you can specify an `externalURL` to your file as a request parameter and Ecwid will download it from there.
 
 #### Response
 
