@@ -34,7 +34,11 @@ In case if your app responds with an error or in an incorrect format, then the s
 
 ## Set up shipping method
 
-When [registering a new application](/register) for Ecwid, specify the request URL for your application. Ecwid will be sending order details requests to that endpoint and expect shipping rates in a specific format in response.
+When [registering a new application](/register) for Ecwid, specify the **request URL** for your application. Ecwid will be sending order details requests to that endpoint and expect shipping rates in a specific format in response.
+
+<aside class='notice'>
+If your application is for public use, the request URL must be working <strong>via HTTPS</strong>. Also, the certificate can only be from <strong>trusted CA's and not self-signed</strong>.
+</aside>
 
 ## Merchant settings for shipping method
 

@@ -67,8 +67,8 @@ Setup process is easy. Once your application has a webhook URL specified in the 
 #### 1. Set webhook URL
 After you successfully [registered your application](/register) with Ecwid, please contact us and provide a single webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable or modify webhooks for existing application, please contact us as well.
 
-<aside class="notice">
-This must be a <strong>publicly accessible HTTPS URL</strong>. 
+<aside class='notice'>
+If your application is for public use, the request URL must be working <strong>via HTTPS</strong>. Also, the certificate can only be from <strong>trusted CA's and not self-signed</strong>.
 </aside>
 
 #### 2. Set webhook events
