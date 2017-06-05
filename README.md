@@ -46,42 +46,42 @@ Changes to *CSS Framework*: Fixed issue with invisible option elements of a \<se
 ## April 25, 2017
 - We updated the installation flow and now it has only one option - web application. Earlier there was two options: web application and app installed on a device. 
 
-**With this change all existing apps continue to work the same way**. However, for the new applications installed on a device we recommend using the Deep linking functionality for [getting the access token](http://developers.ecwid.com/api-documentation#complete-oauth-flow) (as a `redirect_uri`)
+**With this change all existing apps continue to work the same way**. However, for the new applications installed on a device we recommend using the Deep linking functionality for [getting the access token](https://developers.ecwid.com/api-documentation/external-applications#complete-oauth-flow) (as a `redirect_uri`)
 
-- Added examples on how to enable the new SEO-friendly URL format for Ecwid stores. [Learn more](https://developers.ecwid.com/api-documentation#seo-friendly-urls)
+- Added examples on how to enable the new SEO-friendly URL format for Ecwid stores. [Learn more](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
 
-- Added a way to get not hidden abandoned sales in an Ecwid store using the `showHidden` filter when searching for abandoned sales. [Learn more](https://developers.ecwid.com/api-documentation#search-abandoned-carts)
+- Added a way to get not hidden abandoned sales in an Ecwid store using the `showHidden` filter when searching for abandoned sales. [Learn more](https://developers.ecwid.com/api-documentation/carts)
 
 ## March 31, 2017
-- **NEW** Added new REST API endpoints for working with abandoned carts in Ecwid and the date of the latest changes to them in [latest-stats](https://developers.ecwid.com/api-documentation#get-store-update-statistics) endpoint. [Learn more](https://developers.ecwid.com/api-documentation#carts)
+- **NEW** Added new REST API endpoints for working with abandoned carts in Ecwid and the date of the latest changes to them in [latest-stats](https://developers.ecwid.com/api-documentation/store-information#get-store-update-statistics) endpoint. [Learn more](https://developers.ecwid.com/api-documentation/carts)
 
 ## March 28, 2017
-- **NEW** We added an option to enable canonical URLs for Ecwid stores in storefront. To enable them, you can add a couple of lines of JavaScript code to the page where the Ecwid store is located. [Learn more](https://developers.ecwid.com/api-documentation#canonical-urls)
+- **NEW** We added an option to enable canonical URLs for Ecwid stores in storefront. To enable them, you can add a couple of lines of JavaScript code to the page where the Ecwid store is located. [Learn more](https://developers.ecwid.com/api-documentation/seo#canonical-urls)
 
 ## March 23, 2017
-- We added an option to get order details of multiple specific orders if you know their order number. To do that, use the [search orders endpoint](https://developers.ecwid.com/api-documentation#search-orders) with the `orderNumber` filer - that's where you will need to specify your order numbers separated by a comma.
+- We added an option to get order details of multiple specific orders if you know their order number. To do that, use the [search orders endpoint](https://developers.ecwid.com/api-documentation/orders#search-orders) with the `orderNumber` filer - that's where you will need to specify your order numbers separated by a comma.
 
 ## March 21, 2017
-- We updated the `priceInProductList` field for [products endpoint](https://developers.ecwid.com/api-documentation#products). Now it will take into account the default product options when returning the value as well as the combinations. This way, this field is now returning the price as it is displayed in the storefront (without taxes applied).
+- We updated the `priceInProductList` field for [products endpoint](https://developers.ecwid.com/api-documentation/products). Now it will take into account the default product options when returning the value as well as the combinations. This way, this field is now returning the price as it is displayed in the storefront (without taxes applied).
 
 ## February 16, 2017
-- **NEW** Added `showOnFrontpage` field to [products endpoint](https://developers.ecwid.com/api-documentation#products) in the Ecwid REST API. Now when you search/get/update/create products, you can control whether that product will be shown on the store front page.
+- **NEW** Added `showOnFrontpage` field to [products endpoint](https://developers.ecwid.com/api-documentation/products) in the Ecwid REST API. Now when you search/get/update/create products, you can control whether that product will be shown on the store front page.
 
 ## February 10, 2017
-- Updated [discount coupons endpoints](https://developers.ecwid.com/api-documentation#discount-coupons) in the Ecwid REST API. 
+- Updated [discount coupons endpoints](https://developers.ecwid.com/api-documentation/discount-coupons) in the Ecwid REST API. 
 
 Now you can get/update/delete a discount coupon using either its internal `id` (new) or coupon `code` itself. The `id` field is now returned when getting coupon(s) details or creating it. Also, you can filter coupons by creation/update dates when getting their details. The latest stats endpoint now also returns latest update date of discount coupons. The `discount_coupons/deleted` endpoint now returns unique coupon `id` instead of the coupon `code` field.
 
 ## January 18, 2017
-- Added support for SEO-friendly URLs for Ecwid storefronts. [Learn more](https://developers.ecwid.com/api-documentation#seo-friendly-urls)
-- SEO-friendly URLs can be retrieved from Ecwid REST API for [products](https://developers.ecwid.com/api-documentation#products) and [categories](https://developers.ecwid.com/api-documentation#categories) URLs in URL field using `cleanUrls` request parameter. Also, it's possible to change the base storefront URL for such URLs using `baseUrl` request parameter.  
+- Added support for SEO-friendly URLs for Ecwid storefronts. [Learn more](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
+- SEO-friendly URLs can be retrieved from Ecwid REST API for [products](https://developers.ecwid.com/api-documentation/products) and [categories](https://developers.ecwid.com/api-documentation/categories) URLs in URL field using `cleanUrls` request parameter. Also, it's possible to change the base storefront URL for such URLs using `baseUrl` request parameter.  
 
 ## January 17, 2017
-- **NEW** Added `Ecwid.OnOrderPlaced()` event for Ecwid JavaScript API. It allows to get order details in storefront right after it's placed by customer. [Learn more](https://developers.ecwid.com/api-documentation#ecwid-onorderplaced)
+- **NEW** Added `Ecwid.OnOrderPlaced()` event for Ecwid JavaScript API. It allows to get order details in storefront right after it's placed by customer. [Learn more](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onorderplaced)
 
 ## January 16, 2017
-- **NEW** You can now get `public_token` value in a native app interface by using `EcwidApp.getPayload()` or decrypting payload on server (for enhanced security authentication apps). [Learn more](https://developers.ecwid.com/api-documentation#getpayload)
-- To keep the digital goods of our merchants protected, we removed access token from `adminUrl` field when [getting product details](https://developers.ecwid.com/api-documentation#get-a-product). To download a file, just add the token parameter with the token as a value: `?token=abcde1234`
+- **NEW** You can now get `public_token` value in a native app interface by using `EcwidApp.getPayload()` or decrypting payload on server (for enhanced security authentication apps). [Learn more](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#getpayload)
+- To keep the digital goods of our merchants protected, we removed access token from `adminUrl` field when [getting product details](https://developers.ecwid.com/api-documentation/products#get-a-product). To download a file, just add the token parameter with the token as a value: `?token=abcde1234`
 
 ## January 5, 2017
 - **NEW** Added support for product dimensions feature. Now each product and shipping itself can be calculated according to the product dimensions specified for products.
