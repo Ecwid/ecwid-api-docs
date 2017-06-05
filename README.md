@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## June 5, 2017
+
+- Added account `email` field to the request for access token in the OAuth process. Now you can know the store owner's account email right when you request access token from Ecwid after app installation. [Learn more](https://developers.ecwid.com/api-documentation/external-applications)
+
 ## May 30, 2017
 
 - Added ability to upload files via a public URL as a request parameter to Ecwid REST API. Now you can just provide a link to an image or a file in optional `externalUrl` parameter and Ecwid will download it from there. Previous functionality of uploading files as a binary data is still available.

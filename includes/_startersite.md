@@ -389,7 +389,7 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/startersite/cover?token={token}`
+`POST https://app.ecwid.com/api/v3/{storeId}/startersite/cover?token={token}&externalUrl={externalUrl}`
 
 Name | Type    | Description
 ---- | ------- | -----------
@@ -500,7 +500,7 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/startersite/ownerportrait?token={token}`
+`POST https://app.ecwid.com/api/v3/{storeId}/startersite/ownerportrait?token={token}&externalUrl={externalUrl}`
 
 Name | Type    | Description
 ---- | ------- | -----------
@@ -606,7 +606,7 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/startersite/quoteperson?token={token}`
+`POST https://app.ecwid.com/api/v3/{storeId}/startersite/quoteperson?token={token}&externalUrl={externalUrl}`
 
 Name | Type    | Description
 ---- | ------- | -----------

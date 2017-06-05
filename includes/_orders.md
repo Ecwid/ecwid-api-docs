@@ -487,7 +487,7 @@ Field | Type | Description
 value | number | Discount value
 type | string | Discount type: `ABS` or `PERCENT`
 base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
-order_total | number | Minimum order subtotal the discount applies to
+orderTotal | number | Minimum order subtotal the discount applies to
 description | string | Description of a discount (for discounts with base == `CUSTOM`)
 
 #### CreditCardStatus
@@ -1742,7 +1742,7 @@ Field | Type | Description
 value | number | Discount value
 type | string | Discount type: `ABS` or `PERCENT`
 base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`
-order_total | number | Minimum order subtotal the discount applies to
+orderTotal | number | Minimum order subtotal the discount applies to
 
 #### CreditCardStatus
 Field | Type | Description
@@ -2092,7 +2092,7 @@ Field | Type | Description
 value | number | Discount value
 type | string | Discount type: `ABS` or `PERCENT`
 base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`
-order_total | number | Minimum order subtotal the discount applies to
+orderTotal | number | Minimum order subtotal the discount applies to
 
 #### CreditCardStatus
 Field | Type | Description
@@ -2190,7 +2190,7 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName}?fileName={fileName}token={token}`
+`POST https://app.ecwid.com/api/v3/{storeId}/orders/{orderNumber}/items/{itemId}/options/{optionName}?fileName={fileName}&token={token}&externalUrl={externalUrl}`
 
 Name | Type    | Description
 ---- | ------- | -----------

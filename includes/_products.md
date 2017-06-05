@@ -2022,7 +2022,7 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/image?token={token}`
+`POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/image?token={token}&externalUrl={externalUrl}`
 
 Name | Type    | Description
 ---- | ------- | -----------
@@ -2196,7 +2196,7 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/gallery?fileName={fileName}token={token}`
+`POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/gallery?fileName={fileName}token={token}&externalUrl={externalUrl}`
 
 Name | Type    | Description
 ---- | ------- | -----------
@@ -2504,7 +2504,7 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/files?token={token}&fileName={fileName}`
+`POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/files?token={token}&fileName={fileName}&externalUrl={externalUrl}`
 
 Name | Type    | Description
 ---- | ------- | -----------

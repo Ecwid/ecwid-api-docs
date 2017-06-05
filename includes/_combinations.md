@@ -777,7 +777,7 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}/image?token={token}`
+`POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}/image?token={token}&externalUrl={externalUrl}`
 
 Name | Type    | Description
 ---- | ------- | -----------

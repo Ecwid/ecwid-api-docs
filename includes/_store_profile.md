@@ -811,7 +811,7 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/profile/logo?token={token}`
+`POST https://app.ecwid.com/api/v3/{storeId}/profile/logo?token={token}&externalUrl={externalUrl}`
 
 Name | Type    | Description
 ---- | ------- | -----------
@@ -977,7 +977,7 @@ result = requests.post(request_url,data=image_file_data)
 print(result.status_code)
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/profile/invoicelogo?token={token}`
+`POST https://app.ecwid.com/api/v3/{storeId}/profile/invoicelogo?token={token}&externalUrl={externalUrl}`
 
 Name | Type    | Description
 ---- | ------- | -----------
