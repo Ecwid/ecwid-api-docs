@@ -961,7 +961,7 @@ Field | Type | Description
 value | number | Discount value
 type | string | Discount type: `ABS` or `PERCENT`
 base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
-order_total | number | Minimum order subtotal the discount applies to
+orderTotal | number | Minimum order subtotal the discount applies to
 description | string | Description of a discount (for discounts with base == `CUSTOM`)
 
 #### CreditCardStatus
