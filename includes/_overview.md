@@ -84,7 +84,7 @@ More details: [Native apps](#native-applications)
 
 External applications work outside of Ecwid Control panel and user would interact and control them on a separate website. This approach is great for applications that provide extensive feature set for store owners and would require implementing oAuth flow to get access token for a specific Ecwid store.
 
-More details: [External apps](#external-applications).
+More details: [External apps](#external-applications)
 
 ### Use cases
 
@@ -94,8 +94,8 @@ Create an application that will get product details from an Ecwid store and prov
 
 Suggested API requests: 
 
-- [Get store profile](#get-store-profile) to set up account
-- [Search for products](#search-products) to save in your database
+- [Get store profile](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) to set up account
+- [Search for products](https://developers.ecwid.com/api-documentation/products#search-products) to save in your database
 
 **Product marketplace**
 
@@ -103,8 +103,8 @@ Get product details from an Ecwid store to display them on a marketplace. Use we
 
 Suggested API features:
 
-- [Get store profile](#get-store-profile) to set up account
-- [Get product details](#get-a-product) to save in your database
+- [Get store profile](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) to set up account
+- [Get product details](https://developers.ecwid.com/api-documentation/products#get-a-product) to save in your database
 
 **Fulfillment service**
 
@@ -112,10 +112,10 @@ Synchronize Ecwid catalog with the fulfillment service of your choice. Update st
 
 Suggested API features:
 
-- Use [Webhooks](#webhooks) to get notifications about orders
-- [Get order details](#get-order-details) to send information to 3rd party system
-- [Check current stock levels](#search-products) of products
-- [Update stock levels](#update-a-product) of products 
+- Use [Webhooks](https://developers.ecwid.com/api-documentation/webhooks) to get notifications about orders
+- [Get order details](https://developers.ecwid.com/api-documentation/orders#get-order-details) to send information to 3rd party system
+- [Check current stock levels](https://developers.ecwid.com/api-documentation/products#search-products) of products
+- [Update stock levels](https://developers.ecwid.com/api-documentation/products#update-a-product) of products 
 
 **Affiliate program**
 
@@ -123,9 +123,9 @@ Get information about new orders and provide commissions to your ambassadors. Us
 
 Suggested API features: 
 
-- [Get store profile](#get-store-profile) to set up account
-- Use [Webhooks](#webhooks) to get notifications about orders
-- [Get order details](#get-order-details) to send information to affiliate system
+- [Get store profile](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) to set up account
+- Use [Webhooks](https://developers.ecwid.com/api-documentation/webhooks) to get notifications about orders
+- [Get order details](https://developers.ecwid.com/api-documentation/orders#get-order-details) to send information to affiliate system
 
 **Custom content in storefront**
 
@@ -133,9 +133,9 @@ Create an app to show custom content in Ecwid storefront. Store owner can update
 
 Suggested API features: 
 
-- [Add your app](#embedded-apps) to Ecwid Control Panel to show its settings page
-- [Save and pass user preferences to storefront](#public-application-config) script
-- [Append your JS and CSS file](#customize-storefront) to storefront
+- [Add your app](https://developers.ecwid.com/api-documentation/embedded-apps) to Ecwid Control Panel to show its settings page
+- [Save and pass user preferences to storefront](https://developers.ecwid.com/api-documentation/application-storage#public-application-config) script
+- [Append your JS and CSS file](https://developers.ecwid.com/api-documentation/customize-storefront) to storefront
 
 **Membership system for customers**
 
@@ -143,11 +143,11 @@ Use customer groups in the store as a tool to manage memberships. Provide discou
 
 Suggested API features:
 
-- [Get information about all customers](#search-customers) to save in 3rd party service
-- [Control customer groups](#customer-groups) in the store
-- [Get existing discount coupons](#search-coupons) details in Ecwid store
-- [Update customers' details](#update-customer) to change their customer group
-- [Update discount coupons](#update-coupon) in the store
+- [Get information about all customers](https://developers.ecwid.com/api-documentation/customers#search-customers) to save in 3rd party service
+- [Control customer groups](https://developers.ecwid.com/api-documentation/customer-groups) in the store
+- [Get existing discount coupons](https://developers.ecwid.com/api-documentation/discount-coupons#search-coupons) details in Ecwid store
+- [Update customers' details](https://developers.ecwid.com/api-documentation/customers#update-customer) to change their customer group
+- [Update discount coupons](https://developers.ecwid.com/api-documentation/discount-coupons#update-coupon) in the store
 
 **Storefront Themes**
 
@@ -155,7 +155,7 @@ Customizing Ecwid's design never been easier - apply your CSS file to all storef
 
 Suggested API features:
 
-- [Apply your custom CSS](#custom-css) file for Ecwid storefront
+- [Apply your custom CSS](https://developers.ecwid.com/api-documentation/look-and-feel#apply-custom-css) file for Ecwid storefront
 
 Learn more on how to create a theme for Ecwid: [https://developers.ecwid.com/how-to-create-a-theme-for-an-ecwid-store](https://developers.ecwid.com/how-to-create-a-theme-for-an-ecwid-store)
 
