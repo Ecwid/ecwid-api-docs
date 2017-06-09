@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## June 9, 2017
+
+- Added query-based URLs support for Ecwid storefronts to improve SEO. This is a solution for the store owners who wanted to enable the SEO-friendly URLs, but can't access the server rewrite rules to change them. [Learn more](https://developers.ecwid.com/api-documentation/seo#query-based-urls)
+
 ## June 5, 2017
 
 - Added account `email` field to the request for access token in the OAuth process. Now you can know the store owner's account email right when you request access token from Ecwid after app installation. [Learn more](https://developers.ecwid.com/api-documentation/external-applications)

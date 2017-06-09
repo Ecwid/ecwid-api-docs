@@ -343,7 +343,7 @@ The callbacks added to `Ecwid.OnCartChanged` will be called when the shopping ca
 - Clearing the cart
 - Applying a discount coupon
 - Selecting and changing the selection of the shipping method
-- Changing shippind address
+- Changing shipping address
 - Syncing the cart contents, if there are a few browser tabs with the store are opened
 - Clearing the cart upon user’s logout — in this occasion the callback receives `null` as an argument.
 

@@ -490,7 +490,6 @@ Specific configuration depends on your server:
 <strong>Do not redirect</strong> the store/anything/ to /store . The rewrite rules should only map one URL to another, without redirection. If you redirect the visitor to the /store page instead, the store pages will not be properly indexed by Google. 
 </aside>
 
-
 **Step 2. Adjust Ecwid integration code: enable the SEO URLs.**
 
 > Adjusting Ecwid integration code to enable SEO-friendly URLs
@@ -636,6 +635,10 @@ Yes, when getting information about products and categories in an Ecwid store, y
 - [How to get URLs for products](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
 - [How to get URLs for categories](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)
 
+#### Q: How can I imrpove SEO if I can't change the server settings?
+
+SEO-friendly URLs require changes on the server to enable them. If you don't have access to those settings, please see the [query-based URL schema](https://developers.ecwid.com/api-documentation/seo#query-based-urls) below.
+
 ### Canonical URLs
 
 Canonical URLs on an HTML web page help the website's search rankings. When a website has multiple pages for a single content, you can specify a single canonical URL for search engines to use when referring to all those pages. This way, you can avoid having duplicate results in the search results thus improving the search engine rankings of your website pages.
@@ -670,6 +673,49 @@ In order to enable canonical URLs functionality for your store pages, you will n
 ```
 
 The `enable_canonical_urls` setting will 'tell' Ecwid to enable the canonical URLs functionality and it will work as described above. Check out the example on the right.
+
+### Query-based URLs
+
+By default, Ecwid URLs address store pages in a hash part of the URL (after the # sign). Example: `https://www.mysite.com/store/#!/My-Product/p/123/category=0`
+To improve SEO for store pages, we recommend using the [SEO-friendly URLs method](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) described above. 
+
+However, the enabling of the SEO-friendly URLs involves modification of the server settings and some website owners simply can't access it sometimes. The query-based URLs is a workaround for this situation – all you need to enable them is to modify the Ecwid integration code.
+
+Query-based URLs for Ecwid allow to change the store URLs so that they look like this: `https://www.example.com/shop?store-page=Apple-p123` thus imrpoving the SEO standings of the store pages.
+
+#### How to enable query-based URLs
+
+> Adjusting Ecwid integration code to enable query-based URLs
+
+```html
+<script>
+  window.ec = window.ec || {};
+  window.ec.config = window.ec.config || {};
+  window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
+   
+  window.ec.config.storefrontUrls.cleanUrls = true;
+  window.ec.config.storefrontUrls.queryBasedCleanUrls = true;
+  window.ec.config.baseUrl = '/store'; // optional
+</script>
+```
+
+On the site page where you add Ecwid store, you will need to add a few lines of javascript code before the Ecwid integration code. It will tell Ecwid to enable query-based URLs on this page. See example code on the right.
+
+Make sure to replace the `/store` dummy value in the last line with the actual store page path. Ecwid will use this as a base for the query-based URLs. E.g. if you specify this URL as your base URL: `/subfolder/shop` and your site is on `https://www.mysite.com`, Ecwid will address store pages like this:
+
+- Product: `www.example.com/shop?store-page=Apple-p123`
+- Category: `www.example.com/shop?store-page=Fruit-с123`
+- Cart: `www.example.com/shop?store-page=cart`
+- Checkout shipping step: `www.example.com/shop?store-page=checkout/shipping`
+- Search: `www.example.com/shop?store-page=search&keyword=apple&category=123`
+
+etc. 
+
+You are also free to specify your custom query parameters in the `baseUrl` too - Ecwid will keep them in the URLs while customer is browsing a store.
+
+<aside class='notice'>
+We recommend using <strong>relative URLs</strong> in the <em>baseUrl</em> parameter. But you can also specify an absolute baseUrl if needed, e.g. "https://www.mysite.com/subfolder/shop/cart". <br/><br/>In such case, make sure it is under the same domain a visitor browses the site. E.g. if it includes 'www', do include 'www' in the base URL; if it contains 'https', do use 'https' in the base URL.
+</aside>
 
 ## Add or modify features in storefront
 
