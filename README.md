@@ -10,7 +10,7 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ## June 9, 2017
 
-- Added query-based URLs support for Ecwid storefronts to improve SEO. This is a solution for the store owners who wanted to enable the SEO-friendly URLs, but can't access the server rewrite rules to change them. [Learn more](https://developers.ecwid.com/api-documentation/seo#query-based-urls)
+- Added query-based clean URLs support for Ecwid storefronts to improve SEO. This is a solution for the store owners who wanted to enable the SEO-friendly URLs, but can't access the server rewrite rules to change them. [Learn more](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
 
 ## June 5, 2017
 

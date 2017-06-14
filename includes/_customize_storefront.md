@@ -472,7 +472,7 @@ Follow the steps below to enable SEO-friendly URLs in an Ecwid store.
 
 #### How to enable SEO-friendly URLs
 
-**Step 1. Configure your server: add URL rewrite rules.**
+##### Step 1. Configure your server: add URL rewrite rules
 
 In the SEO friendly URL scheme, Ecwid places a page title right after the store page path in the URL, so that it looks like a subdirectory: `www.mysite.com/store/My-Product-p123` . 
 
@@ -486,26 +486,27 @@ Specific configuration depends on your server:
 - **In Apache**, you will need to enable mod_rewrite and specify rewrite urls in `.htaccess` file See [https://httpd.apache.org/docs/2.4/rewrite/remapping.html](https://httpd.apache.org/docs/2.4/rewrite/remapping.html)
 - **In Nginx**, you will need to add rewrite instruction to the config file. See [https://www.nginx.com/blog/creating-nginx-rewrite-rules/](https://www.nginx.com/blog/creating-nginx-rewrite-rules/)
 
+See [examples codes](https://gist.github.com/makfruit/00e1c298f11bf12392f67c240e35e927)
+
 <aside class='notice'>
-<strong>Do not redirect</strong> the store/anything/ to /store . The rewrite rules should only map one URL to another, without redirection. If you redirect the visitor to the /store page instead, the store pages will not be properly indexed by Google. 
+<strong>Do not redirect</strong> the "store/anything/" to "/store" . The rewrite rules should only map one URL to another, without redirection. If you redirect the visitor to the /store page instead, the store pages will not be properly indexed by Google. 
 </aside>
 
-**Step 2. Adjust Ecwid integration code: enable the SEO URLs.**
+**When server configuration can't be changed**
 
-> Adjusting Ecwid integration code to enable SEO-friendly URLs
+The enabling of the SEO-friendly URLs involves modification of the server settings and some website owners simply can't access it sometimes. The **query-based clean URLs** is a workaround for this situation – all you need to enable them is to modify the Ecwid integration code (ignoring the **Step 1 and 2** of SEO-friendly URLs)
 
-```html
-<script>
-  window.ec = window.ec || {};
-  window.ec.config = window.ec.config || {};
-  window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
-   
-  window.ec.config.storefrontUrls.cleanUrls = true;
-  window.ec.config.baseUrl = '/store';
-</script>
-```
+**Query-based clean URLs** for Ecwid allow to change the store URLs so that they look like this: `https://www.example.com/shop?store-page=Apple-p123` thus imrpoving the SEO standings of the store pages, but without any changes to the server configuration.
 
-On the site page where you add Ecwid store, you will need to add a few lines of javascript code before the Ecwid integration code. It will tell Ecwid to enable SEO friednly URLs on this page. See example code on the right.
+**How to enable query-based clean URLs**
+
+On the site page where you add Ecwid store, you will need to add a few lines of javascript code before the Ecwid integration code. It will tell Ecwid to enable query-based URLs on this page. See [example code](https://gist.github.com/makfruit/00e1c298f11bf12392f67c240e35e927)
+
+If the `baseUrl` is specified, Ecwid will use this as a base for the query-based URLs. It is an **optional** field that is helpful when you want to have a permanent query parameter when a customer browses the store. In other cases, we suggest not using it in your code.
+
+##### Step 2. Adjust Ecwid integration code: enable the SEO URLs
+
+On the site page where you add Ecwid store, you will need to add a few lines of javascript code before the Ecwid integration code. It will tell Ecwid to enable SEO friednly URLs on this page. See [example codes](https://gist.github.com/makfruit/00e1c298f11bf12392f67c240e35e927)
 
 Make sure to replace the "/store" dummy value in the last line with the actual store page path. Ecwid will use this as a base for the clean URLs. E.g. if you specify this URL as your base URL: `/subfolder/shop` and your site is on `https://www.mysite.com`
 
@@ -516,111 +517,13 @@ Ecwid will address store pages like this:
 
 etc. 
 
-
 <aside class='notice'>
 We recommend using <strong>relative URLs</strong> in the <em>baseUrl</em> parameter. But you can also specify an absolute baseUrl if needed, e.g. "https://www.mysite.com/subfolder/shop/cart". <br/><br/>In such case, make sure it is under the same domain a visitor browses the site. E.g. if it includes 'www', do include 'www' in the base URL; if it contains https, do use https in the base URL. If the base URL domain or schema differ from the actual ones, the visitor browser will block URL rewrites and the SEO URls will not work. 
 </aside>
 
 #### Examples
 
-Below are examples of clean URLs setup on custom made websites.
-
-**1. The Ecwid store is placed on the “shop.html” page in the web root directory**
-
-> 1) Map all “shop/something” pages to shop.html in the .htaccess file:
-
-```
-  <IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteRule ^shop/.*$ shop.html
-  </IfModule>
-```
-
-> 2) Turn on clean URLs in your store integration code in the shop.html file:
-
-```html
-<script>
-  window.ec = window.ec || {};
-  window.ec.config = window.ec.config || {};
-  window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
-     
-  window.ec.config.storefrontUrls.cleanUrls = true;
-  window.ec.config.baseUrl = '/shop';
-</script>
-    
-<!-- Here goes the store integration code -->
-```
-
-Let’s say the Ecwid store was added to the `shop.html` file on a server and it’s available on a site via `example.com/shop.html` URL.
-
-You now want to enable clean URLs on that page so that the store pages URLs will look like this:
-
-* example.com/shop/My-Product-p123
-* example.com/shop/My-Category-c123
-
-Assuming your site structure looks like this:
-
-- [www]
-  - .htaccess
-  - shop.html
-
-You’ll enable clean URLs in two steps. Please see them on the right. 
-
-That's it. Now open the storefront, navigate to any product page and refresh the page in your browser. Both navigation and page opening after refresh should work fine and you should see the new clean URLs enabled.
-
-**2. The Ecwid store is placed on the site home page**
-
-
->1) Map store pages to index.html in the .htaccess file (notice how we specify only Ecwid pages here to avoid the other site pages to be redirected):
-
-```
-    <IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteRule ^.*-p[\d]+$ index.html
-    RewriteRule ^.*-c[\d]+$ index.html
-    RewriteRule ^cart$ index.html
-    RewriteRule ^search.*$ index.html
-    RewriteRule ^checkout/.+$ index.html
-    RewriteRule ^account/.+$ index.html
-    RewriteRule ^pages/.+$ index.html
-    </IfModule>
-```
-
->2) Turn on clean URLs in your store integration code in the shop.html file:
-
-```html
-<script>
-  window.ec = window.ec || {};
-  window.ec.config = window.ec.config || {};
-  window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
-     
-  window.ec.config.storefrontUrls.cleanUrls = true;
-</script>
-    
-<!-- Here goes the store integration code -->
-```
-
-Let’s say the Ecwid store is added to the `index.html` file on a server and it’s available on the site home page, e.g. `example.com` URL. 
-
-You now want to enable clean URLs on that page so that your store pages URLs will look like this:
-
-* example.com/My-Product-p123
-* example.com/My-Category-c123
-
-At the same time, you want to keep the other pages of your site to open at their current URLs, e.g. 
-
-- example.com/some_other_page.html
-
-Assuming your site structure looks like this:
-
-  - [www]
-    - .htaccess
-    - index.html
-    - some_other_page.html
-
-You’ll do that in two steps: 
-
-That's it. Now open the storefront, navigate to any product page and refresh the page in your browser. Both navigation and page opening after refresh should work fine and you should see the new clean URLs enabled.
+Please see the example codes on [this page](https://gist.github.com/makfruit/00e1c298f11bf12392f67c240e35e927)
 
 #### FAQ
 
@@ -637,7 +540,7 @@ Yes, when getting information about products and categories in an Ecwid store, y
 
 #### Q: How can I imrpove SEO if I can't change the server settings?
 
-SEO-friendly URLs require changes on the server to enable them. If you don't have access to those settings, please see the [query-based URL schema](https://developers.ecwid.com/api-documentation/seo#query-based-urls) below.
+SEO-friendly URLs require changes on the server to enable them. If you don't have access to those settings, please see the **Query-based clean URLs** above.
 
 ### Canonical URLs
 
@@ -673,49 +576,6 @@ In order to enable canonical URLs functionality for your store pages, you will n
 ```
 
 The `enable_canonical_urls` setting will 'tell' Ecwid to enable the canonical URLs functionality and it will work as described above. Check out the example on the right.
-
-### Query-based URLs
-
-By default, Ecwid URLs address store pages in a hash part of the URL (after the # sign). Example: `https://www.mysite.com/store/#!/My-Product/p/123/category=0`
-To improve SEO for store pages, we recommend using the [SEO-friendly URLs method](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) described above. 
-
-However, the enabling of the SEO-friendly URLs involves modification of the server settings and some website owners simply can't access it sometimes. The query-based URLs is a workaround for this situation – all you need to enable them is to modify the Ecwid integration code.
-
-Query-based URLs for Ecwid allow to change the store URLs so that they look like this: `https://www.example.com/shop?store-page=Apple-p123` thus imrpoving the SEO standings of the store pages.
-
-#### How to enable query-based URLs
-
-> Adjusting Ecwid integration code to enable query-based URLs
-
-```html
-<script>
-  window.ec = window.ec || {};
-  window.ec.config = window.ec.config || {};
-  window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
-   
-  window.ec.config.storefrontUrls.cleanUrls = true;
-  window.ec.config.storefrontUrls.queryBasedCleanUrls = true;
-  window.ec.config.baseUrl = '/store'; // optional
-</script>
-```
-
-On the site page where you add Ecwid store, you will need to add a few lines of javascript code before the Ecwid integration code. It will tell Ecwid to enable query-based URLs on this page. See example code on the right.
-
-Make sure to replace the `/store` dummy value in the last line with the actual store page path. Ecwid will use this as a base for the query-based URLs. E.g. if you specify this URL as your base URL: `/subfolder/shop` and your site is on `https://www.mysite.com`, Ecwid will address store pages like this:
-
-- Product: `www.example.com/shop?store-page=Apple-p123`
-- Category: `www.example.com/shop?store-page=Fruit-с123`
-- Cart: `www.example.com/shop?store-page=cart`
-- Checkout shipping step: `www.example.com/shop?store-page=checkout/shipping`
-- Search: `www.example.com/shop?store-page=search&keyword=apple&category=123`
-
-etc. 
-
-You are also free to specify your custom query parameters in the `baseUrl` too - Ecwid will keep them in the URLs while customer is browsing a store.
-
-<aside class='notice'>
-We recommend using <strong>relative URLs</strong> in the <em>baseUrl</em> parameter. But you can also specify an absolute baseUrl if needed, e.g. "https://www.mysite.com/subfolder/shop/cart". <br/><br/>In such case, make sure it is under the same domain a visitor browses the site. E.g. if it includes 'www', do include 'www' in the base URL; if it contains 'https', do use 'https' in the base URL.
-</aside>
 
 ## Add or modify features in storefront
 
