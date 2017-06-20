@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## June 20, 2017
+
+- Added controls to hide certain storefront elements, like 'In stock' label, 'Sign in' link and others with JavaScript code. It needs to be placed anywhere on a page with Ecwid integration code. [Learn more](https://developers.ecwid.com/api-documentation/look-and-feel#show-or-hide-storefront-elements)
+
 ## June 9, 2017
 
 - Added query-based clean URLs support for Ecwid storefronts to improve SEO. This is a solution for the store owners who wanted to enable the SEO-friendly URLs, but can't access the server rewrite rules to change them. [Learn more](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)

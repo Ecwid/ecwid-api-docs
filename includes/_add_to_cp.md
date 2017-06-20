@@ -729,6 +729,7 @@ You created an app and installed it on your test store, but the new tab is not a
 You created an app and installed it on your test store. The new tab appears in your Control Panel but the new tab content is not loaded and displaing the "Something went wrong" error message instead. Possible reasons:
 
 * **Ecwid cannot reach the iframe URL** that you set up for your application either because it's unavailable or because it has restricted access.
+* **The URL for the app was not set**. If you just recently registered your app, the iframe URL is not set for it yet. Thus, you can see an error when trying to open the app tab in your Ecwid Control Panel. [Contact us](/contact) and provide the URL for your app to fix this.
 * **Browser blocks the document in iframe** because it loads over HTTP while the Control Panel is working over HTTPS (the ["mixed content"](https://developer.mozilla.org/en-US/docs/Security/MixedContent) issue). Please make sure you set an HTTPS URL as the iframe URL in the app settings.
 * **Ecwid Control Panel is restricted to load your app in iframe** because your app server responds with the "SAMEORIGIN" value in [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) header. 
 * **The application in the tab is not initialized**. Make sure you initialized the app with the proper namespace using the .init() method of [Ecwid JS SDK](#ecwid-javascript-sdk). 
