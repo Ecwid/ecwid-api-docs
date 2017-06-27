@@ -90,6 +90,8 @@ Here you can find a starter template that you can use as a skeleton of your own 
 
 Full native application source code example for Custom URL for "Thank you" page app from [the Ecwid App Market](https://www.ecwid.com/apps/customizestorefront/custom-thank-you) is available here: [https://github.com/Ecwid/custom-thank-you-page-app](https://github.com/Ecwid/custom-thank-you-page-app)
 
+A sample native application with examples of how to access Ecwid REST API, save data to application storage and how to design the app is available here: [https://github.com/Ecwid/sample-native-app](https://github.com/Ecwid/sample-native-app)
+
 Also, see the [set up your application](https://developers.ecwid.com/api-documentation/building-an-embedded-app#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
 
 
