@@ -20,7 +20,7 @@ Examples:
 - And many more!
 
 
-## How it works
+## How custom discount works
 
 #### 1. Ecwid sends cart data to app request URL
 

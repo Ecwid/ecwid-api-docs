@@ -155,7 +155,7 @@ imageUrl | string | Category image URL. A resized original image to fit 1500x150
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
-url | string |  URL of the category page in the store. [Learn more](#q-how-to-get-urls-for-categories)
+url | string |  URL of the category page in the store. [Learn more](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)
 productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
@@ -336,7 +336,7 @@ imageUrl | string | Category image URL. A resized original image to fit 1500x150
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<ImageDetails\> | Details of the category image
 name | string | Category name
-url | string |  URL of the category page in the store. [Learn more](#q-how-to-get-urls-for-categories)
+url | string |  URL of the category page in the store. [Learn more](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)
 productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML

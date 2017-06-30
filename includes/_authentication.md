@@ -379,7 +379,7 @@ With public access token you can use these methods from anywhere (client-side Ja
 
 These methods are available for public token regardless of the other access scope your requested from a store. 
 
-<aside class='note'>To get public token for your application, specify <strong>public_storefront</strong> <a href="#access-scopes">access scope</a> in the oAuth process.</aside>
+<aside class='note'>To get public token for your application, specify <strong>public_storefront</strong> <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">access scope</a> in the oAuth process.</aside>
 
 ## App details page
 
