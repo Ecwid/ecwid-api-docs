@@ -248,13 +248,19 @@ Feel free to change the code to achieve the layout you need!
 > Open "Surfboards" category of Ecwid Demo store by default
 
 ```html
-<div> <script type='text/javascript' src='https://app.ecwid.com/script.js?1003'></script> <script type='text/javascript'> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","style=","defaultCategoryId=20671017"); </script> </div>
+<div> 
+  <script type='text/javascript' src='https://app.ecwid.com/script.js?1003'></script>
+  <script type='text/javascript'> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","style=","defaultCategoryId=20671017"); </script> 
+</div>
 ```
 
 > Open "PYZEL Amigo 6'2 Surfboard" product in Ecwid Demo store by default
 
 ```html
-<div> <script type='text/javascript' src='https://app.ecwid.com/script.js?1003'></script> <script type='text/javascript'> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","style=","defaultProductId=70178249"); </script> </div>
+<div> 
+  <script type='text/javascript' src='https://app.ecwid.com/script.js?1003'></script> 
+  <script type='text/javascript'> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","style=","defaultProductId=70178249"); </script> 
+</div>
 ```
 
 By default, the storefront widget opens with a list of root category. But you can configure it to show a different category or a particular product when user opens it for the first time.
@@ -269,13 +275,13 @@ or
 
 The example codes are available on the right.
 
-### Show or hide storefront elements
+#### Show or hide storefront elements
 
 Using additional configuration code you are able to hide some storefront elements without any CSS rules. These settings will override user preferences set in the Ecwid Control Panel. 
 
 Place the codes anywhere on a page where Ecwid integration code is added to apply them.
 
-#### Hide sign in link
+##### Hide sign in link
 
 ```html
 <script>
@@ -289,7 +295,7 @@ Hide the sign in link for customers in a store using the code example on the rig
 
 The config `window.ec.storefront.show_signin_link` accepts two values: `true` to show the sign in link, and `false` to hide it.
 
-#### Hide breadcrumbs
+##### Hide breadcrumbs
 
 ```html
 <script>
@@ -303,7 +309,7 @@ Hide the storefront breadcrumbs for customers using the code example on the righ
 
 The config `window.ec.storefront.show_breadcrumbs` accepts two values: `true` to show the breadcrumbs, and `false` to hide them.
 
-#### Hide 'View as' and 'Sort by' options in product listing
+##### Hide 'View as' and 'Sort by' options in product listing
 
 ```html
 <script>
@@ -317,7 +323,7 @@ Hide the options to 'View as' and 'Sort by' products for customers using the cod
 
 The config `window.ec.storefront.product_list_show_sort_viewas_options` accepts two values: `true` to show the 'View as' and 'Sort by' options, and `false` to hide them.
 
-#### Hide 'Qty' selection in product details
+##### Hide 'Qty' selection in product details
 
 ```html
 <script>
@@ -331,7 +337,7 @@ Hide the 'Qty' section for customers in product details using the code example o
 
 The config `window.ec.storefront.product_details_show_qty` accepts two values: `true` to show the 'Qty' section, and `false` to hide it.
 
-#### Hide 'In stock' label in product details
+##### Hide 'In stock' label in product details
 
 ```html
 <script>
@@ -345,7 +351,7 @@ Hide the 'In stock' label for customers in product details using the code exampl
 
 The config `window.ec.storefront.product_details_show_in_stock_label` accepts two values: `true` to show the 'In stock' label, and `false` to hide it.
 
-#### Hide number of items in stock in product details
+##### Hide number of items in stock in product details
 
 ```html
 <script>
@@ -358,6 +364,202 @@ The config `window.ec.storefront.product_details_show_in_stock_label` accepts tw
 Hide the number if items in stock for customers in product details using the code example on the right. Place the codes anywhere on a page where Ecwid integration code is added to apply them.
 
 The config `window.ec.storefront.product_details_show_number_of_items_in_stock` accepts two values: `true` to show the number of items in stock, and `false` to hide it.
+
+### New product listing
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.enable_new_product_list = true;
+</script>
+```
+
+The new product listing allows for more customization and better looking storefronts across all Ecwid stores. You can enable it in your Ecwid store using the example code on the right. 
+
+#### Customizing the new product listing
+
+Check out all the customization options for the new product listing available out of the box below.
+
+If you apply any of the changes below after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Control display mode of product title in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_title_behavior = "SHOW_ON_HOVER"; // show product title on hover
+</script>
+```
+
+Control the way **product title** is displayed in the new product listing (category pages). 
+
+Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`. 
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Control display mode of SKUs in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.window.ec.storefront.product_list_sku_behavior = "HIDE"; // hide product SKU in product listing
+</script>
+```
+
+Control the way **product SKU** is displayed in the new product listing (category pages). 
+
+Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Control display mode of prices in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_price_behavior = "HIDE"; // hide product SKU in product listing
+</script>
+```
+
+Control the way **product price** is displayed in the new product listing (category pages). 
+
+Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Control display mode of 'Buy now' buttons in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_buybutton_behavior = "HIDE"; // hide product SKU in product listing
+</script>
+```
+
+Control the way **'Buy now' buttons** are displayed in the new product listing (category pages). 
+
+Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
+
+**Important: the 'Buy now' button must first be enabled in the Ecwid Control Panel > Settings > General > Cart > Show "Buy now" buttons on products list pages**
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Control the size of images in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_image_size = "LARGE"; // set large product image size in product listing 
+</script>
+```
+
+Control the **size of product image** in the new product listing (category pages). 
+
+Possible values: `"SMALL"`, `"MEDIUM"`, `"LARGE"`. 
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Control the aspect ratio of images in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_image_aspect_ratio = "PORTRAIT_075"; // set portrait aspect ratio for images in product listing 
+</script>
+```
+
+Control the **aspect ratio of product image** in the new product listing (category pages). 
+
+Possible values: `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Apply shadow effect for images in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_image_has_shadow = false; // hide shadow effect for product images
+</script>
+```
+
+Show or hide the **shadow effect for product images** in the new product listing (category pages). If `true`, it also makes images slightly darker to make them stand out against the white background. 
+
+Possible values: `true`, `false`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Show additional image on hover in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_show_additional_image_on_hover = true; // show additional image on hover
+</script>
+```
+
+Show or hide the **additional image on hover** in the new product listing (category pages). 
+
+Possible values: `true`, `false`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Show frame / border for products in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_show_frame = true; // show frame / border for products
+</script>
+```
+
+Show or hide the **frame / border for products** in the new product listing (category pages). 
+
+Possible values: `true`, `false`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Show frame / border for products in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_product_info_layout = "LEFT"; // align name/sku/price to the left
+</script>
+```
+
+Set **align of sku/price/name** section in the new product listing (category pages). Works for name/sku/price shown below the image. **Doesn't apply to name/sku/price shown on hover.**
+
+Possible values: `"CENTER"`, `"LEFT"`, `"JUSTIFY"`, `"RIGHT"`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Set custom breadcrumbs separator in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.breadcrumbs_separator = "/"; // set breadcrumbs separator as '/', so it will look like: Store / Shoes / Children
+</script>
+```
+
+Set **custom breadcrumbs separator** in the new product listing (category pages). For example: `Store / SubCategory / SubSubCategory` or `Store -> SubCategory -> SubSubCategory` or any other custom string.
+
+Possible values: any string, e.g. `"/"`, `"*"`, `"->"`, etc.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
 ### Change storefront labels
 
