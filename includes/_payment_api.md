@@ -129,7 +129,7 @@ The value of the `data` input is encoded with a **AES-128** mechanism, where the
         "order": {
             "vendorOrderNumber": "AS64-0001",
             "subtotal": 1.15,
-            "total": 2.15,
+            "total": 14,
             "email": "john@example.com",
             "paymentModule": "CUSTOM_PAYMENT_APP-payment-integration",
             "paymentMethod": "Cool payment",
@@ -140,11 +140,11 @@ The value of the `data` input is encoded with a **AES-128** mechanism, where the
             "fulfillmentStatus": "AWAITING_PROCESSING",
             "orderNumber": 64,
             "refererUrl": "https://mdemo.ecwid.com",
-            "volumeDiscount": 0,
+            "volumeDiscount": 4,
             "membershipBasedDiscount": 0,
             "totalAndMembershipBasedDiscount": 0,
-            "discount": 0,
-            "usdTotal": 2.15,
+            "discount": 1.15,
+            "usdTotal": 14,
             "globalReferer": "https://mdemo.ecwid.com",
             "createDate": "2016-04-26 09:14:51 +0000",
             "createTimestamp": 1461662091,
@@ -204,7 +204,7 @@ The value of the `data` input is encoded with a **AES-128** mechanism, where the
             },
             "shippingOption": {
                 "shippingMethodName": "U.S.P.S. First Class",
-                "shippingRate": 14.99,
+                "shippingRate": 10,
                 "estimatedTransitTime": "2"
             },
             "handlingFee": {
