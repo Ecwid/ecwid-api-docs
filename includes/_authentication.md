@@ -66,7 +66,7 @@ User needs to go through all these steps only <strong>once</strong> in order for
 https://www.example.com/myapp?code=1234567890
 ```
 
-Upon successful installation, Ecwid redirects the user to the application's `redirect_uri` with a `code` parameter in the URL. The value of this parameter **is not an actual token for the store** and it must be exchanged for the token in the next step of the process.
+Upon successful installation, Ecwid redirects the user to the application's `redirect_uri` with a `code` parameter in the URL (contact us to change it). The value of this parameter **is not an actual token for the store** and it must be exchanged for the token in the next step of the process.
 
 ##### Return URL parameters
 
@@ -91,7 +91,7 @@ Parameter | Required | Description
 client_id | required | Application ID
 client_secret | required | Application secret key
 code | required | The temporary code received on the step #1
-redirect_uri | required | Redirect URL of your application
+redirect_uri | required | Redirect URL of your application. Contact us to change it
 grant_type | required | Must be `authorization_code`
 
 > Step #2: Response example
@@ -184,7 +184,7 @@ https://my.ecwid.com/api/oauth/authorize?client_id=abcd0123&redirect_uri=https%3
 Parameter | Required | Description
 --------- | -------- | -----------
 **client_id** | required | Application ID
-**redirect_uri** | required | URI in your app where users will be sent after authorization. It must match the domain/URL of the registered return_url specified in the app settings. I.e. if the registered return_url is `http://www.example.com`, the redirect_uri in request might be `http://www.example.com/oauth/callback.php` , but not `http://www.example2.com/`
+**redirect_uri** | required | URI in your app where users will be sent after authorization. It must match the domain/URL of the registered return_url specified in the app settings (contact us to change it). I.e. if the registered return_url is `http://www.example.com`, the redirect_uri in request might be `http://www.example.com/oauth/callback.php` , but not `http://www.example2.com/`
 **response_type** | required | `code` (must always be `code`)
 **scope** | required | Scope of access that your app requests from the user, separated by space. See all possible values in [Scopes](#access-scopes) section
 
@@ -208,7 +208,7 @@ https://www.example.com/myapp?code=1234567890
 https://www.example.com/myapp?error=access_denied
 ```
 
-Upon authorization, Ecwid redirects the user to the application's `redirect_uri` specified in request with a `code` parameter in that URL. The value of this parameter **is not an actual token for the store** and it must be exchanged for the token in the next step of the process.
+Upon authorization, Ecwid redirects the user to the application's `redirect_uri` specified in request with a `code` parameter in that URL. The value of this parameter **is not an actual token for the store** and it must be exchanged for the token in the next step of the process. You can contact us to change the `redirect_uri` value
 
 If your application is installed on a device (mobile, desktop, etc.) we suggest using a deep link to your app as a `redirect_uri`. Deep linking allows applications to direct user to a specific page within the application, just like a regular URL on the Internet. [Learn more about deep linking and how to enable it in your application](https://savvyapps.com/blog/how-to-use-deep-linking-in-your-mobile-app).
 
