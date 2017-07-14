@@ -439,7 +439,7 @@ Content-Type: application/json;charset=utf-8
 }
 ```
 
-`PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}?token={token}`
+`PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}?checkLowStockNotification={checkLowStockNotification}&token={token}`
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -447,6 +447,7 @@ Name | Type | Description
 **token** |  string | oAuth token
 **productId** | number | Internal product ID
 **combinationId** | number | Internal combination ID
+checkLowStockNotification | boolean | If `true`, makes Ecwid check whether the low stock email notification needs to be sent to merchant after request is sent
 
 #### Request body
 
@@ -666,7 +667,7 @@ This method solves this very problem: you can increase or decrease the product c
 
 This method is also available for [products](https://developers.ecwid.com/api-documentation/products#adjust-product-inventory).
 
-`PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}/inventory?token={token}`
+`PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}/inventory?checkLowStockNotification={checkLowStockNotification}&token={token}`
 
 Name | Type    | Description
 ---- | ------- | -----------
@@ -674,6 +675,7 @@ Name | Type    | Description
 **productId** | number | Product ID
 **combinationId** | number | Combination ID
 **token** |  string |  oAuth token
+checkLowStockNotification | boolean | If `true`, makes Ecwid check whether the low stock email notification needs to be sent to merchant after request is sent
 
 #### Request body
 

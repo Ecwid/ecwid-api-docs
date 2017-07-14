@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## July 14, 2017
+
+- Added `checkLowStockNotification` parameter to [update product](https://developers.ecwid.com/api-documentation/products#update-a-product), [adjust product inventory](https://developers.ecwid.com/api-documentation/products#adjust-product-inventory), [update combination](https://developers.ecwid.com/api-documentation/product-combinations#update-product-combination), [adjust product combination inventory](https://developers.ecwid.com/api-documentation/product-combinations#adjust-combination-inventory) requests. If you send `checkLowStockNotification=true` in your request, Ecwid will check whether the low stock notification needs to be sent to a merchant. This will help store owners keep track of their inventory when using applications and API integrations. 
+
 ## July 7, 2017
 
 - Added `Ecwid.resizeProductBrowser()` function to adapt Ecwid storefront layout to changes in parent container's width. [Learn more](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout)
