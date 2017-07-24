@@ -11,6 +11,7 @@
 
 #### PHP
 * [A simple Ecwid oAuth2 client](https://github.com/Ecwid/ecwid-oauth2-client-php)
+* [Connect your app with MailChimp](https://github.com/jp26jp/Ecwid-Third-Party-App-MailChimp-Integration)
 
 #### C#
 * [C# services for Ecwid API](https://github.com/kroniak/extensions-ecwid)
