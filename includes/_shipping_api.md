@@ -68,7 +68,7 @@ After you get a request from Ecwid, your application endpoint should get its com
 
 ## Shipping request and response
 
-#### Request
+### Request
 
 Ecwid will send order information in the **body** of a POST HTTP request in the following format:
 
@@ -317,7 +317,7 @@ name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value
 description | string | Handling fee description for customer
 
-### PredictedPackage
+#### PredictedPackage
 Name | Type    | Description
 ---- | ------- | --------------
 height | number | Height of a predicted package
@@ -348,7 +348,7 @@ countryCode | string | Customer's country code in Ecwid
 postalCode | string | Customer's postal code
 stateOrProvinceCode | string | Customer's state or province code in Ecwid
 
-#### Response
+### Response
 
 > Response to Ecwid example
 

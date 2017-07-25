@@ -1032,7 +1032,12 @@ Cache-Control: no-cache
                 "sku": "00004",
                 "quantity": 2,
                 "isShippingRequired": false,
-                "name": "Cherry"
+                "name": "Cherry", 
+                "dimensions": {
+                    "length": 5,
+                    "width": 4,
+                    "height": 6
+                }
             },
             {
                 "price": 4.22,
@@ -1040,7 +1045,12 @@ Cache-Control: no-cache
                 "sku": "00014",
                 "quantity": 2,
                 "isShippingRequired": true,
-                "name": "Apple"
+                "name": "Apple",
+                "dimensions": {
+                    "length": 9,
+                    "width": 8,
+                    "height": 10
+                }
             }
         ],
         "billingPerson": {
@@ -1347,6 +1357,15 @@ Parameters in bold are mandatory
     "value": 0,
     "description": ""
   },
+  "predictedPackage": [
+    {
+        "length": 17.779,
+        "width": 25.4,
+        "height": 10.16,
+        "weight": 0.88,
+        "declaredValue": 3.37
+    }
+  ],
   "additionalInfo": {},
   "paymentParams": {},
   "discountInfo": [
@@ -1402,6 +1421,7 @@ shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping 
 availableShippingOptions | Array\<*ShippingOptionInfo*\> | All calculated shipping methods for this order
 availableTaxes | Array\<*TaxInfo*\> | All calculated taxes for this order 
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
+predictedPackage | Array\<*PredictedPackage*\> | Predicted information about the package to ship items in to customer
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
@@ -1432,6 +1452,7 @@ productAvailable | boolean | `true`/`false`: shows whether the product is availa
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
+dimensions | \<ProductDimensions\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type | Description
@@ -1441,6 +1462,13 @@ value | number | Tax value in percent
 total | number | Tax amount for the item
 taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
 taxOnShipping | number | Tax on item shipping
+
+#### ProductDimensions
+Field | Type  | Description
+-------------- | -------------- | --------------
+length | number | Length of a product
+width | number | Width of a product
+height | number | Height of a product
 
 #### OrderItemOption
 Field | Type |  Description
@@ -1532,6 +1560,15 @@ Field | Type | Description
 name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value
 description | string | Handling fee description for customer
+
+### PredictedPackage
+Name | Type    | Description
+---- | ------- | --------------
+height | number | Height of a predicted package
+width | number | Width of a predicted package
+length | number | Length of a predicted package
+weight | number | Total weight of a predicted package
+declaredValue | number | Declared value of a predicted package (subtotal of items in package)
 
 #### DiscountInfo
 Field | Type | Description
