@@ -1033,7 +1033,7 @@ Cache-Control: no-cache
                 "quantity": 2,
                 "isShippingRequired": false,
                 "name": "Cherry", 
-                "dimensions": {
+                "productDimensions": {
                     "length": 5,
                     "width": 4,
                     "height": 6
@@ -1046,7 +1046,7 @@ Cache-Control: no-cache
                 "quantity": 2,
                 "isShippingRequired": true,
                 "name": "Apple",
-                "dimensions": {
+                "productDimensions": {
                     "length": 9,
                     "width": 8,
                     "height": 10
@@ -1123,6 +1123,7 @@ digital | boolean | `true`/`false`: shows whether the item has downloadable file
 productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
+productDimensions | \<*OrderItemDimensions*\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type |  Description
@@ -1149,6 +1150,13 @@ id | number | File ID
 name |  string | File name
 size |  number | File size in bytes
 url |   string | File URL
+
+#### OrderItemDimensions
+Field | Type |  Description
+--------- | -----------| -----------
+length | number | Length of a product
+width | number | Width of a product
+height | number | Height of a product
 
 #### PersonInfo
 Field | Type |  Description

@@ -614,8 +614,23 @@ Callback receives 3 arguments: **success**, **product**, **cart**
 Name | Type | Description
 ---- | ---- | -----------
 success | Boolean | indicates the overall status of addition (succeeded or failed)
-product | Object (Product) | conatins the object representation of the product added to cart, or null if adding to cart failed (wrong product ID or product is out of stock).
-cart | Object (Cart) | contains the object representation of the shopping cart after addition (same as in `Ecwid.OnCartChanged` event)
+product | \<*Product*\> | conatins the object representation of the product added to cart, or null if adding to cart failed (wrong product ID or product is out of stock).
+cart | \<*Cart*\> | contains the object representation of the shopping cart after addition (same as in `Ecwid.OnCartChanged` event)
+
+#### Product
+
+Name | Type | Description
+---- | ---- | -----------
+id | integer | Product ID
+quantity | integer | Amount of products to add to cart
+options | \<*OptionsInfo*\> | Selected product options for product
+callback | function | Function to run after the function is performed
+
+#### OptionsInfo
+
+Name | Type | Description
+---- | ---- | -----------
+optionName | string or array of string | Replace `optionName` with the real exact product option name you want to specify. Available values depend on the product option type: for checkbox options the value is `array of strings`, for all other options the value is a `string`
 
 ### Ecwid.Cart.removeProduct 
 

@@ -259,7 +259,7 @@ sku | string | Product SKU. If the chosen options match a combination, this will
 amount |  number | Amount purchased
 name |  string | Product name
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
-dimensions | \<ProductDimensions\> | Product dimensions info
+dimensions | \<*OrderItemDimensions*\> | Product dimensions info
 
 #### OrderItemOption
 Field | Type |  Description
@@ -278,7 +278,7 @@ name |  string | File name
 size |  number | File size in bytes
 url |   string | File URL
 
-#### ProductDimensions
+#### OrderItemDimensions
 Field | Type  | Description
 -------------- | -------------- | --------------
 length | number | Length of a product
