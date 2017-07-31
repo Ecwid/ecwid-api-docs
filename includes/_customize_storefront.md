@@ -420,7 +420,7 @@ This translation includes adding of a special JavaScript code with the updated l
 </script>
 ```
 
-The format of this code is presented on the right. `LABEL_NAME` is the internal name of the text label. `LABEL_VALUE` is the text that is shown in the storefront. You'll find the label names and the default values in the [attached document](https://support.ecwid.com/hc/en-us/article_attachments/115000049609/Ecwid_storefront_labels.html).
+The format of this code is presented on the right. `LABEL_NAME` is the internal name of the text label. `LABEL_VALUE` is the text that is shown in the storefront. 
 
 For example: 
 to replace the "Shopping Bag" text with "Shopping Cart" in the bag widget and "your bag" page, we need to add the following code before this line: 
@@ -440,8 +440,6 @@ on your web page. See the example one the right!
 - if you don't like to insert many JavaScript lines to your store page, you can move them to the external JavaScript file: www.ecwid.com/forums/showthread.php?p=2337#15
 
 If you're not familiar with JavaScript, but want to translate a store or change its labels, you can use [Storefront Label Editor](https://www.ecwid.com/apps/tools/storefront-label-editor) or the [Ecwid Translate Tool](http://www.ecwid.com/playground/translate-tool/). It will make the translation much easier.
-
-For more details on this functionality, please see [this article](https://support.ecwid.com/hc/en-us/articles/207808835-Custom-Translations) in our help center.
 
 ### Change default colors and fonts
 

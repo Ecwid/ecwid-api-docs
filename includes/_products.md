@@ -389,6 +389,7 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
                     "sku": "000076",
                     "quantity": 1,
                     "unlimited": false,
+                    "price": 1,
                     "weight": 0.41,
                     "warningLimit": 1
                 },
@@ -408,6 +409,7 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
                     "sku": "000075",
                     "quantity": 0,
                     "unlimited": false,
+                    "price": 1.12,
                     "weight": 0.41,
                     "warningLimit": 0
                 },
@@ -427,6 +429,7 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
                     "sku": "000072",
                     "quantity": 67,
                     "unlimited": true,
+                    "price": 1.11,
                     "warningLimit": 0
                 },
                 {
@@ -449,6 +452,7 @@ To get all products from the store, use the <strong>offset</strong> parameter. I
                     "thumbnailUrl": "https://app.ecwid.com/images/1003/397690811.jpg",
                     "imageUrl": "https://app.ecwid.com/images/1003/397690844.jpg",
                     "originalImageUrl": "https://app.ecwid.com/images/1003/397690845jpg",
+                    "price": 1.6,
                     "unlimited": false,
                     "warningLimit": 0
                 }
@@ -1102,6 +1106,7 @@ Parameters in <strong>bold</strong> are mandatory
             "sku": "000076",
             "quantity": 1,
             "unlimited": false,
+            "price": 1.4,
             "weight": 0.41,
             "warningLimit": 1
         },
@@ -1121,6 +1126,7 @@ Parameters in <strong>bold</strong> are mandatory
             "sku": "000075",
             "quantity": 0,
             "unlimited": false,
+            "price": 1.5,
             "weight": 0.41,
             "warningLimit": 0
         },
@@ -1140,6 +1146,7 @@ Parameters in <strong>bold</strong> are mandatory
             "sku": "000072",
             "quantity": 67,
             "unlimited": true,
+            "price": 1.2,
             "warningLimit": 0
         },
         {
@@ -1158,6 +1165,7 @@ Parameters in <strong>bold</strong> are mandatory
             "sku": "000071",
             "quantity": 61,
             "unlimited": false,
+            "price": 1.4,
             "warningLimit": 0
         }
     ],
