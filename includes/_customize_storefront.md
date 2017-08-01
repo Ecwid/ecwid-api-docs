@@ -389,6 +389,54 @@ Possible values: any string, e.g. `"/"`, `"*"`, `"->"`, etc.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
+##### Set spacing between categories in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_category_cell_spacing = 20; // set custom spacing between categories in the new product listing in pixels
+</script>
+```
+
+Set your custom spacing between categories in the new product listing (category pages) in pixels. If applied, categories will become smaller to allow for the set spacing. 
+
+Possible values: integer numbers. Default: not set.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Set spacing between products in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_cell_spacing = 20; // set custom spacing between categories in the new product listing in pixels 
+</script>
+```
+
+Set your custom spacing between products in the new product listing (category pages) in pixels. If applied, products will become smaller to allow for the set spacing. 
+
+Possible values: integer numbers. Default: not set.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Control display mode of category names in product listing (for new product listing)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_category_title_behavior = "HIDE"; // hide category name in product listing
+</script>
+```
+
+Control the way **category names** are displayed in the new product listing (category pages). 
+
+Possible values: `"SHOW_ON_IMAGE"` – default, `"SHOW_BELOW_IMAGE"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
 ### Change storefront labels
 
 > Format example
