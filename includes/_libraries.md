@@ -11,6 +11,7 @@
 
 #### PHP
 * [A simple Ecwid oAuth2 client](https://github.com/Ecwid/ecwid-oauth2-client-php)
+* [Alternative Ecwid OAuth 2.0 Client Provider](https://github.com/mugnate/oauth2-ecwid) for The PHP League OAuth2-Client with packagist support
 * [Connect your app with MailChimp](https://github.com/jp26jp/Ecwid-Third-Party-App-MailChimp-Integration)
 
 #### C#
