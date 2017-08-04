@@ -324,7 +324,7 @@ Field | Type | Description
 ----- | ---- | -----------
 storeId | number | Ecwid Store ID
 storeUrl | string | Storefront URL
-starterSite | \<StarterSiteInfo\> | Starter Site settings
+starterSite | \<StarterSiteInfo\> | Details of Ecwid starter site for account. Learn more about [Starter site](https://support.ecwid.com/hc/en-us/articles/207100069-Starter-site)
 
 #### Account
 Field | Type | Description

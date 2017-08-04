@@ -53,7 +53,7 @@ baseUrl | string | Storefront URL for Ecwid to use when returning product URLs i
 cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
 
 <aside class="notice">
-If no filters are set in the URL, API will return all products
+If no filters are set in the URL, API will return the first 100 products found in a store. 
 </aside>
 
 <aside class="notice">
@@ -61,7 +61,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
 </aside>
 
 <aside class="notice">
-To get all products from the store, use the <strong>offset</strong> parameter. I.e. after you got first 100 products, set <strong>offset</strong> to 100 and retrieve the next 100 products. Continue this loop to get all products in a store.
+<strong>To get all products</strong> from the store, use the <strong>offset</strong> parameter. I.e. after you got first 100 products, set <strong>offset</strong> to 100 and retrieve the next 100 products. Continue this loop increasing the <strong>offset</strong> by 100 to get all other products in a store.
 </aside>
 
 #### Response
