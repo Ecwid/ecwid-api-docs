@@ -48,10 +48,12 @@ See [External applications guideline](/external-applications) for more informati
 
 Retrieving an access token for external apps includes the following steps:
 
-1. User installs application, Ecwid redirects the user to the return URL.
+1. User installs application, Ecwid redirects the user to the return URL. [Contact us](/contact) to change it
 2. Your code requests an access token from Ecwid in the background. This access_token will be used as API key in all API calls.
 
-User will get to the first step by accessing your [App details page](#app-details-page) in the Ecwid App Market. It is a separate page dedicated to describe your application in Ecwid Control Panel. Before you proceed, make sure you have a [registered app](/register) to install and the application is registered for the Ecwid App Market.
+User will get to the first step by accessing your [App details page](#app-details-page) in the Ecwid App Market. It is a separate page dedicated to describe your application in Ecwid Control Panel. 
+
+Before you proceed, make sure you have a [registered app](/register) to install and the application is registered for the Ecwid App Market.
 
 <aside class="notice">
 User needs to go through all these steps only <strong>once</strong> in order for your app to get and store access token for that user. This token will be used in any call you make to Ecwid API on behalf of the user.
@@ -66,7 +68,7 @@ User needs to go through all these steps only <strong>once</strong> in order for
 https://www.example.com/myapp?code=1234567890
 ```
 
-Upon successful installation, Ecwid redirects the user to the application's `redirect_uri` with a `code` parameter in the URL (contact us to change it). The value of this parameter **is not an actual token for the store** and it must be exchanged for the token in the next step of the process.
+Upon successful installation, Ecwid redirects the user to the application's `redirect_uri` with a `code` parameter in the URL ([contact us](/contact) to change it). The value of this parameter **is not an actual token for the store** and it must be exchanged for the token in the next step of the process.
 
 ##### Return URL parameters
 
@@ -91,7 +93,7 @@ Parameter | Required | Description
 client_id | required | Application ID
 client_secret | required | Application secret key
 code | required | The temporary code received on the step #1
-redirect_uri | required | Redirect URL of your application. Contact us to change it
+redirect_uri | required | Redirect URL of your application. [Contact us](/contact) to change it
 grant_type | required | Must be `authorization_code`
 
 > Step #2: Response example
