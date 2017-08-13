@@ -104,7 +104,6 @@ grant_type | required | Must be `authorization_code`
  "token_type":"bearer",
  "scope":"read_store_profile update_catalog",
  "store_id":1003,
- "email": "john@store.com",
  "public_token":"public_qKDUqKkNXzcj9DejkMUqEkYLq2E6BXM9"
 }
 ```
@@ -117,7 +116,6 @@ access_token | Private authorization token. This is a key your app will use to a
 token_type | `bearer` (it's always `bearer`)
 scope | List of permissions (API access scopes) given to the app, separated by space
 store_id | Ecwid store ID (a unique Ecwid account identificator)
-email | Store owner's `accountEmail`, as provided in [store profile](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 public_token | [Public authorization token](#access-tokens). Provided if requested access scopes contain `public_storefront` scope.
 
 <aside class="notice">
