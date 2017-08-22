@@ -14,9 +14,6 @@ Each data entry is stored as a pair: a key and its value. You can get a specific
 
 **Important**: the storage of each app is isolated from other apps, so user data of your application is not available to other apps and vice versa.
 
-<aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
-</aside>
-
 ## Benefits
 
 ### For client-side applications
@@ -39,9 +36,6 @@ Application storage offers an alternative - store data on Ecwid servers and acce
 ## Storage in Ecwid API
 
 Below you can find information about two different ways you can access your application storage depending on the type of an application you have.
-
-<aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
-</aside>
 
 ### Javascript Storage API
 
@@ -422,9 +416,6 @@ HTTP Status | Meaning
 ## Public application config
 
 Storage API allows to save public app config and easily access it in a storefront. You can use  this API if your app changes the look, appearance or logic of storefronts using the [Customize Storefront](#customize-storefront) API.
-
-<aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
-</aside>
 
 Let’s say that you plan to build an app, that customizes a storefront, by displaying custom text created by store owner on a cart page.
 

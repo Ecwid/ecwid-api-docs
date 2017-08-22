@@ -335,7 +335,7 @@ shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping 
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 predictedPackages | \<*PredictedPackage*\> | Predicted information about the package to ship items in to customer
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
-paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
+paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 trackingNumber |  string | Shipping tracking code
 paymentMessage | string | Message from the payment processor if any
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
@@ -370,7 +370,7 @@ couponApplied | boolean | `true`/`false`: shows whether a discount coupon is app
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
-productDimensions | \<ProductDimensions\> | Product dimensions info
+productDimensions | \<*ProductDimensions*\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type | Description
@@ -452,8 +452,8 @@ catalogLimit |  \<*DiscountCouponCatalogLimit*\> | Products and categories the c
 #### DiscountCouponCatalogLimit
 Field | Type | Description
 ----- | ---- | -----------
-products | Array\<number\> | The list of product IDs the coupon can be applied to
-categories | Array\<number\> | The list of category IDs the coupon can be applied to
+products | Array\<*number*\> | The list of product IDs the coupon can be applied to
+categories | Array\<*number*\> | The list of category IDs the coupon can be applied to
 
 #### ShippingOptionInfo
 Field | Type | Description
@@ -808,7 +808,7 @@ shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping 
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 predictedPackages | \<*PredictedPackage*\> | Predicted information about the package to ship items in to customer
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
-paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
+paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
 paymentMessage | string | Message from the payment processor if any
@@ -844,7 +844,7 @@ couponApplied | boolean | `true`/`false`: shows whether a discount coupon is app
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
-productDimensions | \<ProductDimensions\> | Product dimensions info
+productDimensions | \<*ProductDimensions*\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type |  Description
@@ -926,8 +926,8 @@ catalogLimit |  \<*DiscountCouponCatalogLimit*\> | Products and categories the c
 #### DiscountCouponCatalogLimit
 Field | Type | Description
 ----- | ---- | -----------
-products | Array\<number\> | The list of product IDs the coupon can be applied to
-categories | Array\<number\> | The list of category IDs the coupon can be applied to
+products | Array\<*number*\> | The list of product IDs the coupon can be applied to
+categories | Array\<*number*\> | The list of category IDs the coupon can be applied to
 
 #### ShippingOptionInfo
 Field | Type | Description
@@ -1634,7 +1634,7 @@ shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in sh
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
-paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
+paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
 paymentMessage | string | Message from the payment processor if any
@@ -1716,8 +1716,8 @@ catalogLimit |  \<*DiscountCouponCatalogLimit*\> | Products and categories the c
 #### DiscountCouponCatalogLimit
 Field | Type | Description
 ----- | ---- | -----------
-products | Array\<number\> | The list of product IDs the coupon can be applied to
-categories | Array\<number\> | The list of category IDs the coupon can be applied to
+products | Array\<*number*\> | The list of product IDs the coupon can be applied to
+categories | Array\<*number*\> | The list of category IDs the coupon can be applied to
 
 #### ShippingOptionInfo
 Field | Type | Description
@@ -1977,7 +1977,7 @@ shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in sh
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
-paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
+paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
 paymentMessage | string | Message from the payment processor if any
@@ -2010,7 +2010,7 @@ productAvailable | boolean | `true`/`false`: shows whether the product is availa
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
-productDimensions | \<ProductDimensions\> | Product dimensions info
+productDimensions | \<*ProductDimensions*\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type | Description
@@ -2066,8 +2066,8 @@ catalogLimit |  \<*DiscountCouponCatalogLimit*\> | Products and categories the c
 #### DiscountCouponCatalogLimit
 Field | Type | Description
 ----- | ---- | -----------
-products | Array\<number\> | The list of product IDs the coupon can be applied to
-categories | Array\<number\> | The list of category IDs the coupon can be applied to
+products | Array\<*number*\> | The list of product IDs the coupon can be applied to
+categories | Array\<*number*\> | The list of category IDs the coupon can be applied to
 
 #### ShippingOptionInfo
 Field | Type | Description

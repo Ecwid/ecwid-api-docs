@@ -96,7 +96,7 @@ Field | Type | Description
 Field | Type  | Description
 ----- | ----- | -----------
 email | string |  Customer email
-billingPerson | *Person* | Customer's billing name/address
+billingPerson | \<*Person*\> | Customer's billing name/address
 shippingAddresses | Array\<*Person*\> | Customer address book items
 registered | number (UNIX timestamp) | Registration date
 

@@ -307,24 +307,24 @@ A JSON object of type 'Profile' with the following fields:
 #### Profile
 Field | Type | Description
 ----- | ---- | -----------
-generalInfo | \<GeneralInfo\> | Store basic data
-account | \<Account\> | Store owner's account data
-settings | \<Settings\> | Store general settings
-mailNotifications | \<MailNotifications\> | Mail notifications settings
-company | \<Company\> | Company info
-formatsAndUnits | \<FormatsAndUnits\> | Store formats/untis settings
-languages | \<Languages\> | Store language settings
-shipping | \<Shipping\> | Store shipping settings (only handling fee is included at the moment)
-taxSettings | \<TaxSettings\> | Store taxes settings
-zones | Array\<Zone\> | Store destination zones
-businessRegistrationID | \<BusinessRegistrationID\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
+generalInfo | \<*GeneralInfo*\> | Store basic data
+account | \<*Account*\> | Store owner's account data
+settings | \<*Settings*\> | Store general settings
+mailNotifications | \<*MailNotifications*\> | Mail notifications settings
+company | \<*Company*\> | Company info
+formatsAndUnits | \<*FormatsAndUnits*\> | Store formats/untis settings
+languages | \<*Languages*\> | Store language settings
+shipping | \<*Shipping*\> | Store shipping settings (only handling fee is included at the moment)
+taxSettings | \<*TaxSettings*\> | Store taxes settings
+zones | Array\<*Zone*\> | Store destination zones
+businessRegistrationID | \<*BusinessRegistrationID*\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
 
 #### GeneralInfo
 Field | Type | Description
 ----- | ---- | -----------
 storeId | number | Ecwid Store ID
 storeUrl | string | Storefront URL
-starterSite | \<StarterSiteInfo\> | Details of Ecwid starter site for account. Learn more about [Starter site](https://support.ecwid.com/hc/en-us/articles/207100069-Starter-site)
+starterSite | \<*StarterSiteInfo*\> | Details of Ecwid starter site for account. Learn more about [Starter site](https://support.ecwid.com/hc/en-us/articles/207100069-Starter-site)
 
 #### Account
 Field | Type | Description
@@ -332,7 +332,7 @@ Field | Type | Description
 accountName | string | Full store owner name
 accountNickName | string | Store owner nickname on the Ecwid forums
 accountEmail | string | Store owner email
-availableFeatures | Array\<string\> | A list of the premium features available on the store's pricing plan
+availableFeatures | Array\<*string*\> | A list of the premium features available on the store's pricing plan
 
 
 #### Settings
@@ -352,7 +352,7 @@ hideOutOfStockProductsInStorefront | boolean | `true` if out of stock products a
 #### MailNotifications
 Field | Type | Description
 ----- | ---- | -----------
-adminNotificationEmails | Array\<string\> | Email addresses, which the store admin notifications are sent to
+adminNotificationEmails | Array\<*string*\> | Email addresses, which the store admin notifications are sent to
 customerNotificationFromEmail | string | The email address used as the 'reply-to' field in the notifications to customers
 
 #### Company
@@ -399,7 +399,7 @@ orderNumberSuffix | string | Order number suffix in a store
 
 Field | Type | Description
 ----- | ---- | -----------
-enabledLanguages | Array\<string\> | A list of enabled languages in the storefront. First language code is the default language for the store.
+enabledLanguages | Array\<*string*\> | A list of enabled languages in the storefront. First language code is the default language for the store.
 facebookPreferredLocale | string | Language automatically chosen be default in Facebook storefront (if any)
 
 #### Shipping
@@ -407,7 +407,7 @@ facebookPreferredLocale | string | Language automatically chosen be default in F
 
 Field | Type | Description
 ----- | ---- | -----------
-handlingFee | \<HandlingFee\> | Handling fee settings
+handlingFee | \<*HandlingFee*\> | Handling fee settings
 
 #### HandlingFee
 *System Settings → Shipping → Handling Fee*
@@ -425,7 +425,7 @@ description | string | Handling fee description for customer
 Field | Type | Description
 ----- | ---- | -----------
 automaticTaxEnabled | boolean | `true` if taxes are calculated automatically, `else` otherwise
-taxes | Array\<Taxes\> | Manual tax settings for a store
+taxes | Array\<*Taxes*\> | Manual tax settings for a store
 
 #### Taxes
 Field | Type | Description
@@ -438,7 +438,7 @@ useShippingAddress | boolean | `true` if the tax is calculated based on shipping
 taxShipping | boolean | `true` is the tax applies to subtotal+shipping cost . `false` if the tax is applied to subtotal only
 appliedByDefault | boolean | `true` if the tax is applied to all products. `false` is the tax is only applied to thos product that have this tax enabled
 defaultTax | number | Tax value, in %, when none of the destination zones match
-rules | Array\<TaxRule\>  | Tax rates
+rules | Array\<*TaxRule*\>  | Tax rates
 
 #### TaxRule
 Field | Type | Description
@@ -453,9 +453,9 @@ Field | Type | Description
 ----- | ---- | -----------
 id | string | Unique internal zone ID
 name | string | Zone displayed name
-countryCodes | Array\<string\> | Country codes this zone includes . 
-stateOrProvinceCodes |  Array\<string\> | State or province codes the zone includes
-postCodes | Array\<string\> |   Postcode (or zipcode) templates this zone includes. More details: [Destination zones in Ecwid](http://help.ecwid.com/customer/portal/articles/1163922-destination-zones)
+countryCodes | Array\<*string*\> | Country codes this zone includes . 
+stateOrProvinceCodes |  Array\<*string*\> | State or province codes the zone includes
+postCodes | Array\<*string*\> |   Postcode (or zipcode) templates this zone includes. More details: [Destination zones in Ecwid](http://help.ecwid.com/customer/portal/articles/1163922-destination-zones)
 
 #### BusinessRegistrationID
 Field | Type | Description
@@ -564,17 +564,17 @@ A JSON object of type 'Profile' with the following fields:
 #### Profile
 Field | Type | Description
 ----- | ---- | -----------
-generalInfo | \<GeneralInfo\> | Store basic data
-account | \<Account\> | Store owner's account data
-settings | \<Settings\> | Store general settings
-mailNotifications | \<MailNotifications\> | Mail notifications settings
-company | \<Company\> | Company info
-formatsAndUnits | \<FormatsAndUnits\> | Store formats/untis settings
-languages | \<Languages\> | Store language settings
-shipping | \<Shipping\> | Store shipping settings (only handling fee is included at the moment)
-taxSettings | \<TaxSettings\> | Store taxes settings
-zones | Array\<Zone\> | Store destination zones
-businessRegistrationID | \<BusinessRegistrationID\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
+generalInfo | \<*GeneralInfo*\> | Store basic data
+account | \<*Account*\> | Store owner's account data
+settings | \<*Settings*\> | Store general settings
+mailNotifications | \<*MailNotifications*\> | Mail notifications settings
+company | \<*Company*\> | Company info
+formatsAndUnits | \<*FormatsAndUnits*\> | Store formats/untis settings
+languages | \<*Languages*\> | Store language settings
+shipping | \<*Shipping*\> | Store shipping settings (only handling fee is included at the moment)
+taxSettings | \<*TaxSettings*\> | Store taxes settings
+zones | Array\<*Zone*\> | Store destination zones
+businessRegistrationID | \<*BusinessRegistrationID*\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
 
 <aside class="notice">
 All fields are optional. Omitted field will not be affected
@@ -584,7 +584,7 @@ All fields are optional. Omitted field will not be affected
 Field | Type | Description
 ----- | ---- | -----------
 storeUrl | string | Storefront URL. If this field is empty in the store settings and omitted in the request, it will be automatically copied from the current Starter Site URL. **When updating, make sure to add protocol to the URL (`http://` or `https://`)**.
-starterSite | \<StarterSiteInfo\> | Starter Site settings
+starterSite | \<*StarterSiteInfo*\> | Starter Site settings
 
 #### Account
 Field | Type | Description
@@ -608,7 +608,7 @@ hideOutOfStockProductsInStorefront | boolean | `true` if out of stock products a
 #### MailNotifications
 Field | Type | Description
 ----- | ---- | -----------
-adminNotificationEmails | Array\<string\> | Email addresses, which the store admin notifications are sent to
+adminNotificationEmails | Array\<*string*\> | Email addresses, which the store admin notifications are sent to
 customerNotificationFromEmail | string | The email address used as the 'reply-to' field in the notifications to customers
 
 #### Company
@@ -654,14 +654,14 @@ orderNumberSuffix | string | Order number suffix in a store
 
 Field | Type | Description
 ----- | ---- | -----------
-enabledLanguages | Array\<string\> | A list of enabled languages in the storefront. Use first item to set default storefront language
+enabledLanguages | Array\<*string*\> | A list of enabled languages in the storefront. Use first item to set default storefront language
 
 #### Shipping
 *System Settings → Shipping*
 
 Field | Type | Description
 ----- | ---- | -----------
-handlingFee | \<HandlingFee\> | Handling fee settings
+handlingFee | \<*HandlingFee*\> | Handling fee settings
 
 #### HandlingFee
 *System Settings → Shipping → Handling Fee*
@@ -678,7 +678,7 @@ description | string | Handling fee description for customer
 Field | Type | Description
 ----- | ---- | -----------
 automaticTaxEnabled | boolean | `true` if taxes are calculated automatically, `else` otherwise
-taxes | Array\<Taxes\> | Manual tax settings for a store
+taxes | Array\<*Taxes*\> | Manual tax settings for a store
 
 #### Taxes
 Field | Type | Description
@@ -691,7 +691,7 @@ useShippingAddress | boolean | `true` if the tax is calculated based on shipping
 taxShipping | boolean | `true` is the tax applies to subtotal+shipping cost . `false` if the tax is applied to subtotal only
 appliedByDefault | boolean | `true` if the tax is applied to all products. `false` is the tax is only applied to thos product that have this tax enabled
 defaultTax | number | Tax value, in %, when none of the destination zones match
-rules | Array\<TaxRule\>  | Tax rates
+rules | Array\<*TaxRule*\>  | Tax rates
 
 #### TaxRule
 Field | Type | Description
@@ -706,9 +706,9 @@ Field | Type | Description
 ----- | ---- | -----------
 id | string | Unique internal zone ID
 **name** | string | Zone displayed name
-countryCodes | Array\<string\> | Country codes this zone includes
-stateOrProvinceCodes |  Array\<string\> | State or province codes the zone includes
-postCodes | Array\<string\> |   Postcode (or zipcode) templates this zone includes. More details: [Destination zones in Ecwid](http://help.ecwid.com/customer/portal/articles/1163922-destination-zones)
+countryCodes | Array\<*string*\> | Country codes this zone includes
+stateOrProvinceCodes |  Array\<*string*\> | State or province codes the zone includes
+postCodes | Array\<*string*\> |   Postcode (or zipcode) templates this zone includes. More details: [Destination zones in Ecwid](http://help.ecwid.com/customer/portal/articles/1163922-destination-zones)
 
 #### BusinessRegistrationID
 Field | Type | Description
@@ -1273,7 +1273,7 @@ total | number | The total number of found items (might be more than the number 
 count | number | The total number of the items returned in this batch
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
-items | Array<RemovedItem> | The removed items list with IDs and dates
+items | Array\<*RemovedItem*\> | The removed items list with IDs and dates
 
 #### Removed item
 Field | Type | Description

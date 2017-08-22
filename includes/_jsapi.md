@@ -74,11 +74,12 @@ console.log(widgets);
 
 Returns array containing widget types present on a page. There are four types available: 
 
-* Minicart - Minicart widget
-* SearchPanel - Search widget
-* ProductBrowser - Storefront widget
-* Categories - Categories widget
-* Product - Embedded product
+* `Minicart` - Minicart widget
+* `SearchPanel` - Search widget
+* `ProductBrowser` - Storefront widget
+* `Categories` - Categories widget
+* `SingleProduct` - Embedded product (old version)
+* `Product` - Embedded product (latest)
 
 ### Ecwid.formatCurrency
 
@@ -485,7 +486,7 @@ Ecwid.OnSetProfile.add(function(customer) {
 
 Name | Type | Description
 ---- | ---- | -----------
-billingPerson | Object (Person) | Customer’s name along with his/her billing address, as entered in the last order.
+billingPerson | \<*Person*\> | Customer’s name along with his/her billing address, as entered in the last order.
 email | String | Email address of a customer
 id | Number | Unique customer ID in Ecwid
 ownerId | number | Store ID this customer belongs to
@@ -543,8 +544,8 @@ Ecwid.Cart.addProduct(productID, callback)
 
 Name | Type | Description
 ---- | ---- | -----------|
-**productID** | Integer | the Ecwid’s internal product ID to be added to cart (can be retrieved from product export, seen in the URL of the product page or via [REST API](#search-products))
-callback | Function | the callback function to be called once the operation is complete (either succeeded or failed). See below for details.
+**productID** | integer | the Ecwid’s internal product ID to be added to cart (can be retrieved from product export, seen in the URL of the product page or via [REST API](#search-products))
+callback | function | the callback function to be called once the operation is complete (either succeeded or failed). See below for details.
 
 > Add product to cart using ID
 
@@ -1153,13 +1154,13 @@ Ecwid.OnCartChanged.add(function(cart) {
 
 Name | Type | Description
 ---- | ---- | -----------
-items | Array of \<*CartItem*\> | Enlists all items currently present in customer’s cart
-productsQuantity | Integer | Total number of product varieties in cart
-orderId | Integer | Unique internal order ID for this order (available after order is created)
-couponName | String | The name of the coupon (if any) applied to the cart. If no coupon was applied, will contain undefined. Does not contain the actual code of coupon, just the name.
-weight | Number | Total weight of the items in cart
-paymentMethod | String | The name of the selected payment method (if any)
-shippingMethod | String | The name of the selected shipping method (if any)
+items | Array\<*CartItem*\> | Enlists all items currently present in customer’s cart
+productsQuantity | integer | Total number of product varieties in cart
+orderId | integer | Unique internal order ID for this order (available after order is created)
+couponName | string | The name of the coupon (if any) applied to the cart. If no coupon was applied, will contain undefined. Does not contain the actual code of coupon, just the name.
+weight | number | Total weight of the items in cart
+paymentMethod | string | The name of the selected payment method (if any)
+shippingMethod | string | The name of the selected shipping method (if any)
 
 ### Order Object
 
@@ -1180,16 +1181,16 @@ Ecwid.Cart.calculateTotal(function(order) {
 
 Name | Type | Description
 ---- | ---- | -----------
-cart | Object (Cart) | The object describing the state or customer's cart
-couponDiscount | Integer | An absolute amount of coupon code discount for this order
-customerGroupDiscount | Integer | An absolute amount of a discount based on customer group for this order
-customerGroupVolumeDiscount | Integer | An absolute amount of a discount based on customer group and subtotal for this order
-discount | Integer | An absolute amount of a total discount for this order
-handlingFee | Integer | An absolute amount of handling fee applied to order
-shipping | Integer | An absolute amount of shipping rate applied to order
-tax | Integer | An absolute amount of tax rate applied to order
-total | Integer | Total amount of this order
-volumeDiscount | Integer | An absolute amount of a discount based on subtotal for this order
+cart | \<*Cart*\> | The object describing the state or customer's cart
+couponDiscount | integer | An absolute amount of coupon code discount for this order
+customerGroupDiscount | integer | An absolute amount of a discount based on customer group for this order
+customerGroupVolumeDiscount | integer | An absolute amount of a discount based on customer group and subtotal for this order
+discount | integer | An absolute amount of a total discount for this order
+handlingFee | integer | An absolute amount of handling fee applied to order
+shipping | integer | An absolute amount of shipping rate applied to order
+tax | integer | An absolute amount of tax rate applied to order
+total | integer | Total amount of this order
+volumeDiscount | integer | An absolute amount of a discount based on subtotal for this order
 
 
 ### CartItem Object
@@ -1211,9 +1212,9 @@ Ecwid.OnCartChanged.add(function(cart) {
 
 Name | Type | Description
 ---- | ---- | -----------
-quantity | Integer | Quantity of the given product variety in cart
-product | Array of \<*Product*\> | The map of product properties (combination properties, if the combination is added to cart)
-options | Obejct with option names and values | Map of the product options (option name as a key and option value as a value). For listboxes and radio buttons value will be the string value of the selected option. For checkboxes — names of the selected options, comma separated. For date options — string representing the selected date according to the shop’s format (Ecwid control panel > System settings > General > Formats and Units). For textboxes и textareas — the text given by the customer. For file upload options — string in the form of „4 files”
+quantity | integer | Quantity of the given product variety in cart
+product | Array\<*Product*\> | The map of product properties (combination properties, if the combination is added to cart)
+options | Object with option names and values | Map of the product options (option name as a key and option value as a value). For listboxes and radio buttons value will be the string value of the selected option. For checkboxes — names of the selected options, comma separated. For date options — string representing the selected date according to the shop’s format (Ecwid control panel > System settings > General > Formats and Units). For textboxes и textareas — the text given by the customer. For file upload options — string in the form of „4 files”
 
 ### Product Object
 
@@ -1234,13 +1235,13 @@ Ecwid.OnCartChanged.add(function(cart) {
 
 Name | Type | Description
 ---- | ---- | -----------
-id | Integer | Internal unique product ID
-name | String | Product name
-price | Integer | Product price
-shortDescription | String | Product description truncated to 120 characters
-sku | String | Product SKU
-url | String | URL to this product details page in store front (store front URL is generated from a field in Ecwid Control panel > Settings > General > Store profile)
-weight | Integer | Weight of a product
+id | integer | Internal unique product ID
+name | itring | Product name
+price | integer | Product price
+shortDescription | string | Product description truncated to 120 characters
+sku | string | Product SKU
+url | string | URL to this product details page in store front (store front URL is generated from a field in Ecwid Control panel > Settings > General > Store profile)
+weight | integer | Weight of a product
 
 ## JS API Examples
 

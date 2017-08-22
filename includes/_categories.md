@@ -153,14 +153,14 @@ hdThumbnailUrl | string  | Category HD thumbnail URL resized to fit 800x800px
 thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified in the store settings. Resized to fit 400x400px by default
 imageUrl | string | Category image URL. A resized original image to fit 1500x1500px
 originalImageUrl | string  | Link to the original (not resized) category image
-originalImage | \<ImageDetails\> | Details of the category image
+originalImage | \<*ImageDetails*\> | Details of the category image
 name | string | Category name
 url | string |  URL of the category page in the store. [Learn more](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)
 productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
 enabled | boolean | `true` if the category is enabled, `false` otherwise. Use `hidden_categories` in request to get disabled categories
-productIds | Array\<number\>  | IDs of products assigned to the category as they appear in Ecwid Control Panel > Catalog > Categories
+productIds | Array\<*number*\>  | IDs of products assigned to the category as they appear in Ecwid Control Panel > Catalog > Categories
 
 #### ImageDetails 
 Field | Type  | Description
@@ -334,14 +334,14 @@ hdThumbnailUrl | string  | Category HD thumbnail URL resized to fit 800x800px
 thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified in the store settings. Resized to fit 400x400px by default
 imageUrl | string | Category image URL. A resized original image to fit 1500x1500px
 originalImageUrl | string  | Link to the original (not resized) category image
-originalImage | \<ImageDetails\> | Details of the category image
+originalImage | \<*ImageDetails*\> | Details of the category image
 name | string | Category name
 url | string |  URL of the category page in the store. [Learn more](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)
 productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
 enabled | boolean | `true` if the category is enabled, `false` otherwise.
-productIds | Array\<number\>  | IDs of products assigned to the category as they appear in Ecwid Control Panel > Catalog > Categories
+productIds | Array\<*number*\>  | IDs of products assigned to the category as they appear in Ecwid Control Panel > Catalog > Categories
 
 #### ImageDetails 
 Field | Type  | Description
@@ -474,7 +474,7 @@ parentId | number  | ID of the parent category. Omit this field to add root cate
 orderBy | number | Sort order of the category in the parent category subcategories list
 description | string  | The category description in HTML
 enabled | boolean | `true` to make category enabled, `false` otherwise. `true` is default
-productIds | Array\<number\>  | IDs of the products to assign to the category
+productIds | Array\<*number*\>  | IDs of the products to assign to the category
 
 #### Response
 
@@ -566,7 +566,7 @@ parentId | number  | ID of the parent category
 orderBy | number | Sort order of the category in the parent category subcategories list
 description | string  | The category description in HTML
 enabled | boolean | `true` to make category enabled, `false` to disable it. `true` is default
-productIds | Array\<number\>  | IDs of the products to assign to the category
+productIds | Array\<*number*\>  | IDs of the products to assign to the category
 
 #### Response
 

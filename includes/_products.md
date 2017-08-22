@@ -681,20 +681,20 @@ imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The 
 smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 160x160px. *The original uploaded product image is available in the `originalImageUrl` field.*
 hdThumbnailUrl | string  | Product HD thumbnail URL resized to fit 800x800px
 originalImageUrl |  string  | URL of the original not resized product image
-originalImage | \<ImageDetails\> | Details of the product image
+originalImage | \<*ImageDetails*\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
-categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
-categories | Array\<CategoriesInfo\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
+categories | Array\<*CategoriesInfo*\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
-favorites | \<FavoritesStats\>  | Product favorites stats
+favorites | \<*FavoritesStats*\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Combination*\> | List of the product combinations
-dimensions | \<ProductDimensions\> | Product dimensions info
+dimensions | \<*ProductDimensions*\> | Product dimensions info
 showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
 
 #### FavoritesStats
@@ -768,7 +768,7 @@ adminUrl | string | Direct link to the file. **Important**: to download the file
 #### RelatedProducts
 Field | Type  | Description
 -------------- | -------------- | --------------
-productIds | Array\<number\>  | IDs of the related products
+productIds | Array\<*number*\>  | IDs of the related products
 relatedCategory | *RelatedCategory*  | Describes the "N random related products from a category" option
 
 #### RelatedCategory
@@ -1230,20 +1230,20 @@ imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The 
 smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 160x160px. *The original uploaded product image is available in the `originalImageUrl` field.*
 hdThumbnailUrl | string  | Product HD thumbnail URL resized to fit 800x800px
 originalImageUrl |  string  | URL of the original not resized product image
-originalImage | \<ImageDetails\> | Details of the product image
+originalImage | \<*ImageDetails*\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
-categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
-categories | Array\<CategoriesInfo\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
+categories | Array\<*CategoriesInfo*\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
-favorites | \<FavoritesStats\>  | Product favorites stats
+favorites | \<*FavoritesStats*\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Combination*\> | List of the product combinations
-dimensions | \<ProductDimensions\> | Product dimensions info
+dimensions | \<*ProductDimensions*\> | Product dimensions info
 showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
 
 #### FavoritesStats
@@ -1317,7 +1317,7 @@ adminUrl | string | Direct link to the file. **Important**: to download the file
 #### RelatedProducts
 Field | Type  | Description
 -------------- | -------------- | --------------
-productIds | Array\<number\>  | IDs of the related products
+productIds | Array\<*number*\>  | IDs of the related products
 relatedCategory | *RelatedCategory*  | Describes the "N random related products from a category" option
 
 #### RelatedCategory
@@ -1514,13 +1514,13 @@ warningLimit | number | The minimum 'warning' amount of the product items in sto
 fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 description | string  | Product description *in HTML*
-categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
+categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
-dimensions | \<ProductDimensions\> | Product dimensions info
+dimensions | \<*ProductDimensions*\> | Product dimensions info
 showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page. If no categories are assigned to product in `categoryIds` field, the `showOnFrontPage` will be `1`
 
 #### WholesalePrice
@@ -1549,7 +1549,7 @@ value | string  | Attribute value
 #### RelatedProducts
 Field | Type  | Description
 -------------- | -------------- | --------------
-**productIds** | Array\<number\>  | IDs of the related products, sort order is taken into the account
+**productIds** | Array\<*number*\>  | IDs of the related products, sort order is taken into the account
 relatedCategory | *RelatedCategory*  | Describes the "N random related products from a category" option
 
 #### RelatedCategory
@@ -1700,14 +1700,14 @@ warningLimit | number | The minimum 'warning' amount of the product items in sto
 fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 description | string  | Product description *in HTML*
-categoryIds | Array\<number\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
+categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images (for updating alt tags and sort order)
-dimensions | \<ProductDimensions\> | Product dimensions info
+dimensions | \<*ProductDimensions*\> | Product dimensions info
 showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
 
 <aside class="notice">
@@ -1744,7 +1744,7 @@ value | string  | Attribute value
 #### RelatedProducts
 Field | Type  | Description
 -------------- | -------------- | --------------
-**productIds** | Array\<number\>  | IDs of the related products, sort order is taken into the account
+**productIds** | Array\<*number*\>  | IDs of the related products, sort order is taken into the account
 relatedCategory | *RelatedCategory* | Describes the "N random related products from a category" option
 
 

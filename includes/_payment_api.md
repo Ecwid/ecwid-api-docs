@@ -235,7 +235,7 @@ token | string | Access token of the Ecwid store. Use it to update order status 
 
 Name | Type    | Description
 ---- | ------- | --------------
-currency | USD | Code of the currency currently enabled in the store
+currency | string | Code of the currency currently enabled in the store
 vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
 subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
@@ -263,7 +263,7 @@ billingPerson | \<*AddressDetails*\> | Billing address of the customer
 shippingOption | \<*ShippingOptionInfo*\> | Details of the shipping method selected
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any
-paymentParams | Map\<string,string\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
+paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unsfinished orders only.
 
 

@@ -8,6 +8,9 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## August 22, 2017
+- `update_store_profile` access scope is no longer required to use the [Application Storage](https://developers.ecwid.com/api-documentation/application-storage) features. If your app has the `read_store_profile` scope (all apps have it), you can use the application storage in your app.
+
 ## July 20, 2017
 
 - We created a sample native application code for developers to get started with native apps easily. It has some basic elements to display the app as a part of the Ecwid Control Panel and tools to access the Ecwid API. [Check it out here](https://github.com/Ecwid/sample-native-app)
