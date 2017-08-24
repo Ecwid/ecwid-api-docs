@@ -357,7 +357,7 @@ Possible values: `true`, `false`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Show frame / border for products in product listing (for new product listing)
+##### Set align of SKU, price, name in product listing (for new product listing)
 
 ```html
 <script>

@@ -108,9 +108,6 @@ Public application config is a part of application storage: data that you save t
 
 This REST API allows to set, update and delete values in the application storage. You should usually use it if your code is executed on a server, i.e. you mainly use PHP, Ruby, Python, Java, and any other server-side programming language.
 
-<aside class="notice">Access scope required: <strong>update store profile</strong>. See more information in <a href="#access-scopes">access scopes section</a>
-</aside>
-
 #### Get all storage data
 
 Retrieves all stored data for the given store ID. Public application config can be found in the `public` key of your application storage.
@@ -163,7 +160,6 @@ value | string | The stored data
 
 HTTP Status | Meaning
 ------------|--------
-403 | The access token doesn't have the `update_store_profile` access scope
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the data because of an error on the server
 
@@ -240,7 +236,6 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 
 HTTP Status | Meaning
 ------------|--------
-403 | The access token doesn't have the `update_store_profile` access scope
 404 | The key is not found
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the data because of an error on the server
@@ -303,7 +298,6 @@ success | boolean | `true` if the data has been added to the storage, `false` ot
 
 HTTP Status | Meaning
 ------------|--------
-403 | The access token doesn't have the `update_store_profile` access scope
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the data because of an error on the server
 
@@ -358,7 +352,6 @@ success | boolean | `true` if the data has been changed in the storage, `false` 
 
 HTTP Status | Meaning
 ------------|--------
-403 | The access token doesn't have the `update_store_profile` access scope
 404 | The key is not found
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the data because of an error on the server
@@ -409,7 +402,6 @@ success | boolean | `true` if the data has been removed from the storage, `false
 
 HTTP Status | Meaning
 ------------|--------
-403 | The access token doesn't have the `update_store_profile` access scope
 404 | The key is not found
 500 | Cannot retrieve the data because of an error on the server
 
