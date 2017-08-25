@@ -29,7 +29,11 @@ email | string | Customer email
 groupId | number | Customer group ID
 minOrderCount |  number | Minimum number of order a customer placed
 maxOrderCount | number | Maximum number of order a customer placed
-sortBy |  string | Sort order. Supported values: <ul><li>`NAME_ASC` *default*</li> <li>`NAME_DESC`</li> <li>`EMAIL_ASC`</li> <li>`EMAIL_DESC`</li> <li>`ORDER_COUNT_ASC`</li> <li>`ORDER_COUNT_DESC`</li><li>`REGISTERED_DATE_DESC`</li><li>`REGISTERED_DATE_ASC`</li></ul>
+createdFrom | string | Customer register date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
+createdTo | string | Customer register date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+updatedFrom | string | Customer last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+updatedTo | string | Customer last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+sortBy |  string | Sort order. Supported values: <ul><li>`NAME_ASC` *default*</li> <li>`NAME_DESC`</li> <li>`EMAIL_ASC`</li> <li>`EMAIL_DESC`</li> <li>`ORDER_COUNT_ASC`</li> <li>`ORDER_COUNT_DESC`</li><li>`REGISTERED_DATE_DESC`</li><li>`REGISTERED_DATE_ASC`</li><li>`UPDATED_DATE_DESC`</li><li>`UPDATED_DATE_ASC`</li></ul>
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
 
@@ -49,31 +53,81 @@ Parameters in bold are mandatory
 {
     "total": 3,
     "count": 3,
-    "limit": 10,
+    "limit": 100,
     "offset": 0,
     "items": [
         {
-            "id": 14145238,
-            "name": "John Darling",
-            "email": "demo4@ecwid.com",
-            "totalOrderCount": 1,
-            "customerGroupId": 12345,
-            "customerGroupName": "Extra Gold"
-        },
-        {
-            "id": 14145239,
-            "name": "Michael Darling",
-            "email": "demo5@ecwid.com",
-            "totalOrderCount": 1
-        },
-        {
-            "id": 14145235,
-            "name": "Wendy Darling",
-            "email": "demo1@ecwid.com",
+            "id": 24623050,
+            "name": "Jane Roe",
+            "email": "jr@example.com",
+            "registered": "2016-01-27 14:06:28 +0000",
+            "updated": "2016-01-27 14:06:28 +0000",
             "totalOrderCount": 0,
             "customerGroupId": 0,
-            "customerGroupName": "General"
-        }
+            "customerGroupName": "General",
+            "billingPerson": {
+                "name": "Jane Roe"
+            },
+            "shippingAddresses": [],
+            "taxExempt": false,
+            "taxIdValid": true
+        },
+        {
+            "id": 14444116,
+            "name": "John Darling [Sample]",
+            "email": "demo4@ecwid.com",
+            "registered": "2009-07-23 04:59:49 +0000",
+            "updated": "2009-07-23 04:59:49 +0000",
+            "totalOrderCount": 0,
+            "customerGroupId": 2595001,
+            "customerGroupName": "Platinum 228",
+            "billingPerson": {
+                "name": "John Darling [Sample]",
+                "street": "12840 Pennridge Dr",
+                "city": "Bridgeton",
+                "countryCode": "US",
+                "countryName": "United States",
+                "postalCode": "63044",
+                "stateOrProvinceCode": "MO",
+                "stateOrProvinceName": "Missouri",
+                "phone": "314-209-0075"
+            },
+            "shippingAddresses": [],
+            "taxExempt": false,
+            "taxIdValid": true
+        },
+        {
+            "id": 24623047,
+            "name": "John Doe",
+            "email": "john@example.com",
+            "registered": "2016-01-27 14:06:23 +0000",
+            "updated": "2016-01-27 14:06:23 +0000",
+            "totalOrderCount": 0,
+            "customerGroupId": 0,
+            "customerGroupName": "General",
+            "billingPerson": {
+                "name": "John Doe"
+            },
+            "shippingAddresses": [],
+            "taxExempt": false,
+            "taxIdValid": true
+        },
+        {
+            "id": 24623053,
+            "name": "John Doe",
+            "email": "john@cool.com",
+            "registered": "2016-01-27 14:09:36 +0000",
+            "updated": "2016-01-27 14:09:36 +0000",
+            "totalOrderCount": 0,
+            "customerGroupId": 0,
+            "customerGroupName": "General",
+            "billingPerson": {
+                "name": "John Doe"
+            },
+            "shippingAddresses": [],
+            "taxExempt": false,
+            "taxIdValid": true
+        },
     ]
 }
 ```
@@ -91,13 +145,58 @@ items | Array<CustomerSearchEntry> | The items list
 
 #### CustomerSearchEntry
 Field | Type  | Description
--------------- | -------------- | --------------
+----- | ----- | -----------
 id |  number |  Unique internal customer ID
 email | string |  Customer email
 name | string | Customer full name
 totalOrderCount | number | Number of customer's orders
+registered | string | Registration date, e.g `2014-06-06 18:57:19 +0400`
+updated | string | Last updated date, e.g `2014-06-06 18:57:19 +0400`
+billingPerson | *Person* | Customer's billing name/address
+shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
 customerGroupId | number | Customer group ID
 customerGroupName | string | Customer group name
+taxId | string | Customer tax ID
+taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
+taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
+
+#### Person
+Field | Type  | Description
+----- | ----- | -----------
+name | string | Customer full name
+companyName | string | Customer company name
+street | string | Street
+city | string | City
+countryCode | string | Country code (2-letter code)
+countryName | string | Country name
+postalCode | string | Postal code (zip code)
+stateOrProvinceCode | string | State/province code
+stateOrProvinceName | string | State/province name
+phone | string | Phone number
+
+#### ShippingAddress
+Field | Type  | Description
+------| ----- | -----------
+id | number | Internal address ID
+name | string | Customer full name
+companyName | string | Customer company name
+street | string | Street
+city | string | City
+countryCode | string | Country (2-digits code)
+countryName | string | Country name
+postalCode | string | Postal code (zip code)
+stateOrProvinceCode | string | State/province code
+stateOrProvinceName | string | State/province name
+phone | string | Phone number
+
+#### Q: When does the customer updated date change? 
+
+The `updated` field is changed in these situations: 
+
+- a new customer account created via storefront or via API
+- customer was updated in storefront or via API
+- customer group was changed in any way
+- customer was deleted from Ecwid Control Panel of via API
 
 #### Errors
 
@@ -212,6 +311,7 @@ Field | Type  | Description
 id |  number |  Unique internal customer ID
 email | string |  Customer email
 registered | string | Registration date, e.g `2014-06-06 18:57:19 +0400`
+updated | string | Last updated date, e.g `2014-06-06 18:57:19 +0400`
 billingPerson | *Person* | Customer's billing name/address
 shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
 customerGroupId | number | Customer group ID
@@ -248,6 +348,15 @@ postalCode | string | Postal code (zip code)
 stateOrProvinceCode | string | State/province code
 stateOrProvinceName | string | State/province name
 phone | string | Phone number
+
+#### Q: When does the customer updated date change? 
+
+The `updated` field is changed in these situations: 
+
+- a new customer account created via storefront or via API
+- customer was updated in storefront or via API
+- customer group was changed in any way
+- customer was deleted from Ecwid Control Panel of via API
 
 #### Errors
 
@@ -338,7 +447,7 @@ A JSON object of type 'Customer' with the following fields:
 Field | Type  | Description
 -------------- | -------------- | --------------
 **email** | string |  Customer email
-**password** | string |  Customer password
+password | string |  Customer password
 customerGroupId | number | Customer group ID
 billingPerson | <Person> | Customer's billing name/address
 shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items

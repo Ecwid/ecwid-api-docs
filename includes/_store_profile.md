@@ -1129,7 +1129,8 @@ Name | Type    | Description
     "profileUpdated": "2014-10-19 18:55:35 +0400",
     "categoriesUpdated": "2014-10-19 12:23:12 +0400",
     "discountCouponsUpdated": "2017-02-10 08:03:43 +0000",
-    "abandonedSalesUpdated": "2017-02-10 08:03:43 +0000"
+    "abandonedSalesUpdated": "2017-02-10 08:03:43 +0000",
+    "customersUpdated": "2017-02-10 08:03:43 +0000"
 }
 ```
 
@@ -1144,6 +1145,7 @@ profileUpdated | string | Date of the latest changes in store information, e.g. 
 categoriesUpdated | string | Date of the latest changes in store categories, e.g. `2014-10-19 12:23:12 +0400`
 discountCouponsUpdated | string | Date of the latest changes in store discount coupons, e.g. `2014-10-19 12:23:12 +0400`
 abandonedSalesUpdated | string | Date of the latest changes to abandoned carts in a store, e.g. `2014-10-19 12:23:12 +0400`
+customersUpdated | string | Date of the latest changes to customers in a store, e.g. `2014-10-19 12:23:12 +0400`
 
 #### Errors
 

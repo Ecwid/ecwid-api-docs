@@ -38,6 +38,10 @@ The following events are supported:
 
 `order.updated` and `unfinished_order.updated` events are triggered when any changes are made to an unfinished or completed order. [Orders endpoint](#orders) allows you to control and get information about unfinished and completed orders in a store. 
 
+<aside class="notice">
+Access scope required: <strong>read_orders</strong> (see <a href="#access-scopes">Access scopes</a>)
+</aside>
+
 #### Products
 
 * New product was created
@@ -45,6 +49,10 @@ The following events are supported:
 * Product was deleted
 
 `product.updated` events are triggered when any part of a product is updated: quantity, categories assigned, product options, combinations, attributes, images, pricing, etc. [Products endpoint](#products) allows you to control and get information about products in a store. 
+
+<aside class="notice">
+Access scope required: <strong>read_products</strong> (see <a href="#access-scopes">Access scopes</a>)
+</aside>
 
 #### Application
 
@@ -59,6 +67,18 @@ The following events are supported:
 * Store subscription plan was updated
 
 [Store profile endpoint](#store-information) allows you to get and update store information.
+
+#### Customer
+
+* Customer was created
+* Customer was updated
+* Customer was deleted
+
+[Customers endpoint](#customers) allows you to get and update customer information.
+
+<aside class="notice">
+Access scope required: <strong>read_customers</strong> (see <a href="#access-scopes">Access scopes</a>)
+</aside>
 
 ## Setting up webhooks
 
@@ -276,6 +296,51 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 }
 ```
 
+> Customer was created 
+
+```
+{
+  "eventId": "80aece08-40e8-4145-8764-6c2f0d38678",
+  "eventCreated": 7891234567,
+  "storeId": 1003,
+  "entityId": 1663830, // customer ID
+  "eventType": "customer.created",
+  "data": {
+    "customerEmail":"user@example.com" // customer email
+  }
+}
+```
+
+> Customer was updated
+
+```
+{
+  "eventId": "80aece08-40e8-4145-8764-6c2f0d38678",
+  "eventCreated": 7891234567,
+  "storeId": 1003,
+  "entityId": 1663830, // customer ID
+  "eventType": "customer.updated",
+  "data": {
+    "customerEmail":"user@example.com" // customer email
+  }
+}
+```
+
+> Customer was deleted
+
+```
+{
+  "eventId": "80aece08-40e8-4145-8764-6c2f0d38678",
+  "eventCreated": 7891234567,
+  "storeId": 1003,
+  "entityId": 1663830, // customer ID
+  "eventType": "customer.deleted",
+  "data": {
+    "customerEmail":"user@example.com" // customer email
+  }
+}
+```
+
 The request body is a JSON object with the following fields:
 
 Name | Type | Description
@@ -299,6 +364,7 @@ oldSubscriptionName | string | Previous *Ecwid store premium plan* name
 newSubscriptionName | string | New *Ecwid store premium plan* name
 oldSubscriptionStatus | string | Previous **application** subscription status before changes occurred
 newSubscriptionStatus | string | New **application** subscription status after changes occurred
+customerEmail | string | Email of a **customer**
 
 <aside class='note'>
 Fields sent with all webhook requests are highlighted in <strong>bold</strong>.
@@ -324,8 +390,11 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `application.uninstalled` Application is deleted
 * `application.subscriptionStatusChanged` Application status changed
 * `profile.subscriptionStatusChanged` Store premium subscription status changed
+* `customer.created` Customer is created
+* `customer.updated` Customer is updated
+* `customer.deleted` Customer is deleted
 
-All order related webhooks require `read_orders` access scope and all product related webhooks require `read_catalog` [access scope](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) to be requested from the store.
+All order-related webhooks require `read_orders` access scope, all product-related webhooks require `read_catalog` access scope, all customer-related webhooks require `read_customers` [access scope](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) to be requested from the store.
 
 #### Q: What is an unfinished order and how it works? 
 
@@ -432,6 +501,10 @@ Any other response (e.g. `3xx`), will indicate that the webhook is not received.
 
 There are several factors that can prevent you from getting webhooks from Ecwid. 
 
+**Webhooks are added to an existing application**
+
+If you registered your app without webhooks functionality and added it later on, please make sure to reinstall the app for the changes to apply faster in Ecwid.
+
 **Application is not installed**
 
 When you are expecting a webhook from Ecwid after a certain event, please make sure that you have a registered app that has all webhook details specified. [More details](#setting-up-webhooks)
@@ -455,10 +528,6 @@ Try sending a dummy POST request to your webhooks URL and see if it accepts the 
 **Ecwid can't access your endpoint**
 
 When [setting up webhooks](#setting-up-webhooks), make sure that your endpoint is publicly accessible by any resource (no local servers, etc.). This way, Ecwid services can successfully send and deliver POST requests to your endpoint.
-
-**Webhooks are added to an existing application**
-
-If you registered your app without webhooks functionality and added it later on, please make sure to reinstall the app for the changes to apply faster in Ecwid.
 
 If you made sure that all of the above steps are not concerning your case, please contact us and we will help you.
 

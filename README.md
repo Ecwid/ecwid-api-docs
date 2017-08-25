@@ -8,6 +8,17 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## August 25, 2017
+
+- Lots of additions for customer-related information in API: 
+
+1. new sorting and filtering options when [searching for customers](https://developers.ecwid.com/api-documentation/customers#search-customers)
+2. new `updated` field when searching and getting customer details
+3. all customer fields are now returned when [searching for customers](https://developers.ecwid.com/api-documentation/customers#search-customers)
+4. `password` field is no longer required when [creating a new customer](https://developers.ecwid.com/api-documentation/customers#create-customer)
+5. customer latest update date is now available in the [latest stats endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-update-statistics)
+6. added [webhooks](https://developers.ecwid.com/api-documentation/webhooks) for creating, updating, deleting customer with `email` field as part of `data`
+
 ## August 22, 2017
 - `update_store_profile` access scope is no longer required to use the [Application Storage](https://developers.ecwid.com/api-documentation/application-storage) features. If your app has the `read_store_profile` scope (all apps have it), you can use the application storage in your app.
 
