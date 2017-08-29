@@ -275,6 +275,10 @@ Parameters in bold are mandatory
                 "PO number": "123abcd",
                 "Buyer's full name": "John Smith"
             }
+            "extraFields": {
+                "referred_by": "Referrer is: Facebook Ads",
+                "AFF_ID": "fb-123"
+            }
         }
     ]
 }
@@ -371,6 +375,7 @@ selectedOptions | Array\<*OrderItemOption*\> | Product options values selected b
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
 productDimensions | \<*ProductDimensions*\> | Product dimensions info
+extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
 
 #### OrderItemTax
 Field | Type | Description
@@ -495,6 +500,11 @@ Field | Type | Description
 ----- | ---- | -----------
 avsMessage | string  | Address verification status returned by the payment system.
 cvvMessage | string  | Credit card verification status returned by the payment system.
+
+#### ExtraFieldsInfo
+Field | Type | Description
+----- | ---- | -----------
+YOUR_FIELD_NAME | string | Your custom name saved for the order extra field. The value length cannot exceed 255 characters
 
 #### Errors
 
@@ -760,6 +770,9 @@ Parameters in bold are mandatory
         "PO number": "123abcd",
         "Buyer's full name": "John Smith"
     }
+    "extraFields": {
+        "referred_by": "Referrer is: Facebook Ads"
+    }
 }
 ```
 
@@ -845,6 +858,7 @@ selectedOptions | Array\<*OrderItemOption*\> | Product options values selected b
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
 productDimensions | \<*ProductDimensions*\> | Product dimensions info
+extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
 
 #### OrderItemTax
 Field | Type |  Description
@@ -969,6 +983,11 @@ Field | Type | Description
 ----- | ---- | -----------
 avsMessage | string  | Address verification status returned by the payment system.
 cvvMessage | string  | Credit card verification status returned by the payment system.
+
+#### ExtraFieldsInfo
+Field | Type | Description
+----- | ---- | -----------
+YOUR_FIELD_NAME | string | Your custom name saved for the order extra field. The value length cannot exceed 255 characters
 
 #### Errors
 

@@ -113,7 +113,7 @@ Each application has scope of access that controls the set of store resources an
 > Webhook header example
 
 ```http
-POST https://www.myapp.com/callback?eventType=order.updated HTTP/1.1
+POST https://www.myapp.com/callback?eventtype=order.updated HTTP/1.1
 Host: www.myapp.com
 Content-Type: application/json; charset=UTF-8
 Content-Length: 243
@@ -374,7 +374,7 @@ Fields sent with all webhook requests are highlighted in <strong>bold</strong>.
 Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/webhook-structure#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
-The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventType=product.updated`, and avoid further processing. 
+The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventtype=product.updated`, and avoid further processing. 
 
 #### Event types
 * `unfinished_order.created` Unfinished order is created
@@ -451,7 +451,7 @@ Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-
 > Custom webhook headers example
 
 ```http
-POST https://www.myapp.com/callback?eventType=order.updated HTTP/1.1
+POST https://www.myapp.com/callback?eventtype=order.updated HTTP/1.1
 Host: www.myapp.com
 Content-Type: application/json; charset=UTF-8
 Content-Length: 243

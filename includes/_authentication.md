@@ -361,7 +361,7 @@ After the moment user installs your app, it can store that token securely in you
 
 Public token provides limited access to public store data via REST API interface. While private tokens allow you to modify something in a store, like update an order status or change storkc levels, public tokens can only get limited information from a store and create orders with limitations.
 
-With public access token you can use these methods from anywhere (client-side JavaScript, widget integration codes, etc.):
+With public access token you can use several REST API endpoints from anywhere (client-side JavaScript, widget integration codes, etc.). These methods are available for public token **regardless of the other access scope your requested** from a store – you only need the `public_storefront` scope to use them: 
 
 - [Get store profile](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 - [Search enabled products](https://developers.ecwid.com/api-documentation/products#search-products)
@@ -376,8 +376,6 @@ With public access token you can use these methods from anywhere (client-side Ja
 - [Get deleted products statistics](https://developers.ecwid.com/api-documentation/store-information#get-deleted-items-statistics)
 - [Create new orders](https://developers.ecwid.com/api-documentation/orders#create-order)
 - [Calculate order details](https://developers.ecwid.com/api-documentation/carts#calculate-order-details)
-
-These methods are available for public token regardless of the other access scope your requested from a store. 
 
 <aside class='note'>To get public token for your application, specify <strong>public_storefront</strong> <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">access scope</a> in the oAuth process.</aside>
 
