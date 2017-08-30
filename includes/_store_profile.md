@@ -490,6 +490,7 @@ In case of error, Ecwid responds with an error HTTP status code
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
+402 | The request is not available on the merchant plan. To use Ecwid API, store [must be on a paid plan](https://developers.ecwid.com/api-documentation/api-availability-on-ecwid-plans)
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the coupon info because of an error on the server
 

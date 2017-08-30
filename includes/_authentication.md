@@ -272,51 +272,6 @@ Some applications requires user to download and install them on their site rathe
 
 To implement oAuth flow in such an app, you will need enable support for multiple domains in `redirect_uri` and improve security: application will always ask user for permissions and will show the domain that requests them in the oAuth flow. [Contact us](/contact) if your application is of this kind and we will make the necessary changes.  
 
-### Single Sign On with your app
-
-After an application is installed to a store, it makes sense to provide users with an easy way to sign in to it afterwards. You can create that experience using the Ecwid's complete OAuth flow. 
-
-#### How it works
-
-1. Merchant installs the app from app details page or through complete OAuth flow
-2. Open app URL is set for the application
-3. Open app URL is prepared to handle the login flow
-
-Let's check it out in more details. 
-
-#### Step #1: Merchant installs the app from app details page or through complete OAuth flow
-
-This is the standard process described in the API documentation sections above: 
-
-- [Get access token](#get-access-token)
-- [Complete OAuth flow](#complete-oauth-flow)
-
-#### Step #2: Open app URL is set for the application
-
-Contact us and provide a URL you wish to use for the open app button. This URL can be the same as the `redirect_uri` for your access token, or a completely different page.
-
-This button will be displayed on the app details page of your application and in the 'My apps' section when the app is installed in an Ecwid store.
-
-It works very simple – Ecwid will open the exact URL you provide to us when setting the URL and it doesn't have any special parameters or workflow.
-
-#### Step #3: Open app URL is prepared to handle the login flow
-
-Prepare a page that will handle the merchants who click on the 'Open app' from the app details page or 'My apps' section of Ecwid Control Panel.
-
-One of the suggested workflows is: 
-
-1. You set the open app URL to be the same as the `redirect_uri` for getting the token
-2. Merchant visits open app URL
-3. Open app URL detects that there is no `code` parameter
-4. Open app URL redirects merchant to first step of [complete OAuth flow](#complete-oauth-flow)
-5. If that app is already installed, Ecwid will redirect to the `redirect_uri` of your application
-6. Application exchanges `code` for `accessToken` and logs user in with the data it received
-
-You can add some variation to this flow by: 
-
-- Using completely different open app URL than your `redirect_uri` to have the login and token receiving process separate
-- Specifying a URL parameter for the open app URL, for example: `https://app.service.com/ecwid/authorize?open_app=true` . This way you can be sure that merchant clicked the open app button
-
 ## Access tokens
 
 All Ecwid REST API requests require authentication. Ecwid supports **oAuth2** protocol to provide applications with an easy way to authenticate and access store data on behalf of the user with access tokens. 

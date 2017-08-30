@@ -2,135 +2,34 @@
 
 Order extra fields allow you to save additional information into the order and get it via Ecwid REST API. 
 
+> Save an extra field 'platform' to order placed by customer
+
+```js
+// Place Ecwid integration code here
+// ...
+
+// Init order fields 
+ec.order = ec.order || {};
+ec.order.extraFields = ec.order.extraFields || {};
+
+// Save a single value 'adobe_muse' for 'platform' field
+ec.order.extraFields.platform = {
+	'value': 'adobe_muse'
+}
+```
+
 For example, if you need to save a cookie into an order or if you need to ask a customer a couple of questions at checkout – it's totally possible with the order extra fields.
 
 ### How it works
 
 Learn how to save private information about storefront or a customer into an order. 
 
-1. Modify Ecwid integration code to initialize the fields
-2. Set values for fields when customer visits a store
-3. Ecwid saves the values to order details when it gets placed
-4. Get saved info in order details Ecwid REST API
+1. [Modify Ecwid integration code to initialize the fields](#get-additional-info-from-a-customer)
+2. [Set values for fields when customer visits a store](#get-additional-info-from-a-customer)
+3. [Ecwid saves the values to order details when it gets placed](#get-additional-info-from-a-customer)
+4. [Get saved info in order details Ecwid REST API](#get-extra-fields-in-rest-api)
 
-Check out more details on how to do this in the docs below. 
-
-#### Limits
-
-When saving information to an order, make sure your code follows these limits: 
-
-1. Total storage 
-All extra fields for order **must not exceed 8Kb of data in total**. If an order has over 8Kb of data saved, Ecwid will only save the data not exceeding the limit. 
-
-2. Limit per field's attribute
-The field's value, title or other attribute must not exceed a limit of `255` characters. If it exceeds the limit, the field **will not be saved to order**.
-
-## Save private data to order
-
-With order extra fields you can save any custom information into an order privately, optionally showing it in order details in storefront to customer or in the Ecwid Control Panel to merchant. 
-
-This is helpful when you need to save some technical stuff like campaign id, referring website address or something else. Check out more details on how it works below. 
-
-### Saving private data in storefront
-
-#### Step #1: Modify Ecwid integration code to initialize the fields
-
-> Initialize extra fields object
-
-```js
-ec.order = ec.order || {};
-ec.order.extraFields = ec.order.extraFields || {};
-```
-
-Your private data will be saved into a config object used by Ecwid: `ec.order` and `ec.order.extraFields`. But in order to use it, you need to initialize it on a page. 
-
-See the example code on the right.
-
-#### Step #2: Set values for fields when customer visits a store
-
-> Save your extra field to an order placed by customer
-
-```js
-ec.order = ec.order || {};
-ec.order.extraFields = ec.order.extraFields || {};
-
-// Save a single value for 'platform'
-ec.order.extraFields.platform = {
-	'value': 'adobe_muse'
-}
-```
-
-Now that we've initialized the extra fields object, we can save some value into an order. 
-
-Code on the right is an example of adding an extra field with the key `platform` and value `adobe_muse`.  
-
-After customer places that order, you will be able to get that field in the `extraFields` field when getting order details.  
-
-#### Save private data to order and show it to merchant and customer in order details
-
-> Save extra field and show it in order details to merchant 
-
-```js
-ec.order = ec.order || {};
-ec.order.extraFields = ec.order.extraFields || {};
-
-// Save extra field and show it in order details in Ecwid Control Panel
-ec.order.extraFields.referred_by = {
-	'title': 'Referred by', // title of an extra field
-	'value': 'Referrer is: Facebook Ads', 
-	'orderDetailsDisplaySection': 'customer_info' // where to display the new field
-}
-```
-
-To show the saved data from the storefront to merchant and customer in order details, use the example code on the right. 
-
-After an order gets placed, you will be able to get that field in the `extraFields` when getting order details.
-
-**To show the field successfully, all requirements must be met**: 
-
-- `title` is not empty 
-- `value` is not empty
-- `orderDetailsDisplaySection` contains supported value: `shipping_info`, `billing_info`, `customer_info`, `order_comments`. More on this below
-
-If `orderDetailsDisplaySection` contains an unsupported value, the field will still be saved in an order, but it will not be shown to merchant.
-
-#### Step #3: Ecwid saves the values to order details when it gets placed
-
-If your code executed successfully, these fields will be saved when a customer places their order in an Ecwid store. See below on how you can access them afterwards. 
-
-### Get saved private data from order
-
-After customer placed their order, you can get the saved information using the Ecwid REST API in the order details.
-
-#### Step #4: Get saved info in order details from Ecwid REST API
-
-> Get extra fields in order details
-
-> 1) Get order details 
-
-```http
-GET /api/v3/4870020/orders/20?token=1234567890qwqeertt HTTP/1.1
-Host: app.ecwid.com
-Content-Type: application/json;charset=utf-8
-Cache-Control: no-cache
-``` 
-
-> 2) Find your saved information in 'extraFields' field
-
-```json
-{
-	"total": 12.35,
-	"orderNumber": 104,
-	//...
-	"extraFields": {
-		"referred_by": "Referrer is: Facebook Ads"
-	}
-}
-```
-
-The information you saved earlier is available in the `extraFields` field in the order details. You can get order details via Ecwid REST API with [searching for orders](https://developers.ecwid.com/api-documentation/orders#search-orders) or [getting a specific order details](https://developers.ecwid.com/api-documentation/orders#get-order-details) methods. 
-
-If you specified the section to display that extra field, it will be shown to customer when they view the placed order and to a merchant when they view order details in the Ecwid Control Panel. 
+Check out more details on how to do this in the docs below.
 
 ## Get additional info from a customer
 
@@ -254,11 +153,82 @@ ec.order.extraFields.my_custom_field = {
 
 If your code executed successfully, these fields will be saved when a customer places their order in an Ecwid store. See below on how you can access them afterwards. 
 
-### Get saved user responses from order
+## Save hidden data to order
+
+With order extra fields you can save any custom information into an order privately, optionally showing it in order details in storefront to customer or in the Ecwid Control Panel to merchant. 
+
+This is helpful when you need to save some technical stuff like campaign id, referring website address or something else. Check out more details on how it works below. 
+
+### Saving hidden data in storefront
+
+#### Step #1: Modify Ecwid integration code to initialize the fields
+
+> Initialize extra fields object
+
+```js
+ec.order = ec.order || {};
+ec.order.extraFields = ec.order.extraFields || {};
+```
+
+Your hidden data will be saved into a config object used by Ecwid: `ec.order` and `ec.order.extraFields`. But in order to use it, you need to initialize it on a page. 
+
+See the example code on the right.
+
+#### Step #2: Set values for fields when customer visits a store
+
+> Save your extra field to an order placed by customer
+
+```js
+ec.order = ec.order || {};
+ec.order.extraFields = ec.order.extraFields || {};
+
+// Save a single value for 'platform'
+ec.order.extraFields.platform = {
+	'value': 'adobe_muse'
+}
+```
+
+Now that we've initialized the extra fields object, we can save some value into an order. 
+
+Code on the right is an example of adding an extra field with the key `platform` and value `adobe_muse`.  
+
+After customer places that order, you will be able to get that field in the `extraFields` field when getting order details.  
+
+#### Save hidden data to order and show it to merchant and customer in order details
+
+> Save extra field and show it in order details to merchant 
+
+```js
+ec.order = ec.order || {};
+ec.order.extraFields = ec.order.extraFields || {};
+
+// Save extra field and show it in order details in Ecwid Control Panel
+ec.order.extraFields.referred_by = {
+	'title': 'Referred by', // title of an extra field
+	'value': 'Referrer is: Facebook Ads', 
+	'orderDetailsDisplaySection': 'customer_info' // where to display the new field
+}
+```
+
+To show the saved data from the storefront to merchant and customer in order details, use the example code on the right. 
+
+After an order gets placed, you will be able to get that field in the `extraFields` when getting order details.
+
+**To show the field successfully, all requirements must be met**: 
+
+- `title` is not empty 
+- `value` is not empty
+- `orderDetailsDisplaySection` contains supported value: `shipping_info`, `billing_info`, `customer_info`, `order_comments`. More on this below
+
+If `orderDetailsDisplaySection` contains an unsupported value, the field will still be saved in an order, but it will not be shown to merchant.
+
+#### Step #3: Ecwid saves the values to order details when it gets placed
+
+If your code executed successfully, these fields will be saved when a customer places their order in an Ecwid store. See below on how you can access them afterwards. 
+
+## Get extra fields in REST API
 
 After customer placed their order, you can get the saved information using the Ecwid REST API in the order details.
-
-#### Step #4: Get user responses in order details from Ecwid REST API
 
 > Get extra fields in order details
 
@@ -288,3 +258,18 @@ The information you saved earlier is available in the `extraFields` field in the
 
 If you specified the section to display that extra field, it will be shown to customer when they view the placed order and to a merchant when they view order details in the Ecwid Control Panel. 
 
+## Extra fields examples
+
+### Examples
+
+You can find other examples of more complex functionality on this page: [https://gist.github.com/makfruit/e410e1f0ab46656beda8df46c1666154](https://gist.github.com/makfruit/e410e1f0ab46656beda8df46c1666154)
+
+### Limits
+
+When saving information to an order, make sure your code follows these limits: 
+
+1. Total storage 
+All extra fields for order **must not exceed 8Kb of data in total**. If an order has over 8Kb of data saved, Ecwid will only save the data not exceeding the limit. 
+
+2. Limit per field's attribute
+The field's value, title or other attribute must not exceed a limit of `255` characters. If it exceeds the limit, the field **will not be saved to order**.
