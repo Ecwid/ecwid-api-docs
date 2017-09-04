@@ -333,7 +333,7 @@ updateTimestamp | number | The date of the last order change in UNIX Timestamp f
 customerGroupId | number | Customer group ID
 customerGroup | string | The name of group (membership) the customer belongs to
 items | Array\<*OrderItem*\> | Order items
-billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
+billingPerson | \<*PersonInfo*\> | Name and billing address of the customer. Can be omitted, if this form is disabled by merchant in *Ecwid Control Panel > Settings > General > Cart > Ask for a billing address during checkout*
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
@@ -815,7 +815,7 @@ customerGroupId | number | Customer group ID
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 items | Array\<*OrderItem*\> | Order items
-billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
+billingPerson | \<*PersonInfo*\> | Name and billing address of the customer. Can be omitted, if this form is disabled by merchant in *Ecwid Control Panel > Settings > General > Cart > Ask for a billing address during checkout*
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information
 shippingOption | \<*ShippingOptionInfo*\> | Information about selected shipping option
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
