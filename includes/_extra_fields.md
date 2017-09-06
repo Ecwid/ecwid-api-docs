@@ -20,7 +20,7 @@ ec.order.extraFields.platform = {
 
 For example, if you need to save a cookie into an order or if you need to ask a customer a couple of questions at checkout – it's totally possible with the order extra fields.
 
-### How it works
+**How it works**
 
 Learn how to save private information about storefront or a customer into an order. 
 
@@ -36,10 +36,6 @@ Check out more details on how to do this in the docs below.
 With order extra fields you can also requrest additional information from a customer in storefront and show user responses in order details.
 
 This is helpful when a merchant needs to know some additional information like delivery date, delivery comments, company details and other. The responses will be shown in order details in Ecwid Control Panel. 
-
-### Add new fields at checkout
-
-Let's learn how to add new fields at a store's checkout process: 
 
 #### Step #1: Modify Ecwid integration code
 
@@ -159,8 +155,6 @@ With order extra fields you can save any custom information into an order privat
 
 This is helpful when you need to save some technical stuff like campaign id, referring website address or something else. Check out more details on how it works below. 
 
-### Saving hidden data in storefront
-
 #### Step #1: Modify Ecwid integration code to initialize the fields
 
 > Initialize extra fields object
@@ -258,7 +252,7 @@ The information you saved earlier is available in the `extraFields` field in the
 
 If you specified the section to display that extra field, it will be shown to customer when they view the placed order and to a merchant when they view order details in the Ecwid Control Panel. 
 
-## Extra fields examples
+## Extra fields examples and limits
 
 ### Examples
 

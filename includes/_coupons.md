@@ -144,6 +144,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
+403 | Access token doesn't have `read_discount_coupons` scope
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the coupon info because of an error on the server
 
@@ -247,6 +248,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Meaning
 ------------|--------
 400 | Malformed request parameters
+403 | Access token doesn't have `read_discount_coupons` scope
 404 | Coupon is not found
 415 | Unsupported content-type: expected `application/json` or `text/json`
 
@@ -361,6 +363,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 **HTTP Status** | **Response JSON** | Description
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
+403 | Access token doesn't have `create_discount_coupons` scope
 409 | The coupon with the given code already exists
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | The creation request failed because of an error on the server
@@ -509,6 +512,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 **HTTP Status** | **Response JSON** | Description
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
+403 | Access token doesn't have `update_discount_coupons` scope
 409 | The coupon with the given code already exists
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | The request failed because of an error on the server
@@ -576,6 +580,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 **HTTP Status** | **Response JSON** | Description
 -------------- | -------------- | --------------
 400 | Request parameters are malformed
+403 | Access token doesn't have `update_discount_coupons` scope
 500 | The request failed because of an error on the server
 
 #### Error response body (optional)

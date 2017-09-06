@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## September 6, 2017
+
+- Added **order extra fields** feature to store extra information in orders from storefront. Order extra fields can save hidden data to an order from storefront (like cookies, referrer, etc.), as well as customer input to new input fields (text, drop down, date picker) added to store checkout by your app. [Learn more](https://developers.ecwid.com/api-documentation/order-extra-fields)
+
 ## August 25, 2017
 
 - Lots of additions for customer-related information in API: 

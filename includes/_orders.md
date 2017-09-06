@@ -519,9 +519,10 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 #### HTTP codes
 
-HTTP Status | Meaning
+HTTP Status | Description
 ------------|--------
 400 | Request parameters are malformed
+403 | Access token doesn't have `read_orders` scope 
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the order info because of an error on the server
 
@@ -1002,9 +1003,10 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 #### HTTP codes
 
-HTTP Status | Meaning
+HTTP Status | Description
 ------------|--------
 400 | Request parameters are malformed
+403 | Access token doesn't have `read_orders` scope 
 404 | The order is not found
 405 | Method not allowed. Can occur when using `POST` instead of `PUT` HTTP request method
 415 | Unsupported content-type: expected `application/json` or `text/json`
@@ -1490,9 +1492,10 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 #### HTTP codes
 
-HTTP Status | Meaning
+HTTP Status | Description
 ------------|--------
 400 | Request parameters are malformed
+403 | Access token doesn't have `read_orders` scope 
 404 | The order is not found
 405 | Method not allowed. Can occur when using `PUT/POST/DELETE` HTTP request methods instead of `GET`
 415 | Unsupported content-type: expected `application/json` or `text/json`
@@ -1801,9 +1804,10 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 #### HTTP codes
 
-HTTP Status | Meaning
+HTTP Status | Description
 ------------|--------
 400 | Request parameters are invalid
+403 | Access token doesn't have `update_orders` scope 
 404 | The order is not found
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot update the order info because of an error on the server
@@ -1868,9 +1872,10 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 #### HTTP codes
 
-HTTP Status | Meaning
+HTTP Status | Description
 -------------- | --------------
 400 | Request parameters are malformed
+403 | Access token doesn't have `update_orders` scope 
 404 | The order with given number is not found
 500 | The delete request failed because of an error on the server
 
@@ -2151,9 +2156,10 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 #### HTTP codes
 
-HTTP Status | Meaning
+HTTP Status | Description
 ------------|--------
 400 | Request parameters are invalid
+403 | Access token doesn't have `create_orders` scope 
 404 | The customer or any other linked object is not found in the store
 500 | Cannot create an order because of an error on the server
 
@@ -2259,6 +2265,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 --------- | -----------| -----------
 400 | Request parameters are malformed | 
 402 | The functionality/method is not available on the merchant plan | 
+403 | Access token doesn't have `create_orders` scope | 
 404 | Order, order item or item option is not found | 
 409 | Product option type is not `FILES` | `OPTIONS_IS_NOT_FILES_TYPE`
 413 | The file is too large.  Maximum allowed file size is 100Mb. | 
@@ -2329,6 +2336,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 --------- | -----------| -----------
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
+403 | Access token doesn't have `update_orders` scope 
 404 | Order, order item or item option is not found
 409 | Product option type is not `FILES` | `OPTIONS_IS_NOT_FILES_TYPE`
 500 | Request failed -- there was an internal server error
@@ -2398,6 +2406,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 --------- | -----------| -----------
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
+403 | Access token doesn't have `update_orders` scope 
 404 | Order, order item or item option is not found
 500 | Request failed – there was an internal server error
 
