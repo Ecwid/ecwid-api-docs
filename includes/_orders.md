@@ -74,8 +74,9 @@ Parameters in bold are mandatory
             "total": 37.39,
             "usdTotal": 37.39,
             "paymentMethod": "Purchase order",
-            "paymentStatus": "PAID",
+            "paymentStatus": "PARTIALLY_REFUNDED",
             "fulfillmentStatus": "AWAITING_PROCESSING",
+            "refundedAmount": 0,
 
             // Additional information
             "refererUrl": "http://mysuperstore.ecwid.com/",
@@ -217,7 +218,16 @@ Parameters in bold are mandatory
                     }
                 }
             ],
-
+            // Refund information
+            "refundedAmount": 3.5,
+            "refunds": [
+                {
+                    "date": "2017-09-12 10:12:56 +0000",
+                    "source": "CP",
+                    "reason": "Testing!",
+                    "amount": 3.5
+                }
+            ],
             // Customer addresses
             "billingPerson": {
                 "name": "John Smith",
@@ -346,6 +356,9 @@ externalTransactionId | string | Transaction ID / invoice number of the order in
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner
+extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
+refundedAmount | number | A sum of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
+refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 
 #### OrderItem
 Field | Type |  Description
@@ -375,7 +388,6 @@ selectedOptions | Array\<*OrderItemOption*\> | Product options values selected b
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
 productDimensions | \<*ProductDimensions*\> | Product dimensions info
-extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
 
 #### OrderItemTax
 Field | Type | Description
@@ -505,6 +517,14 @@ cvvMessage | string  | Credit card verification status returned by the payment s
 Field | Type | Description
 ----- | ---- | -----------
 YOUR_FIELD_NAME | string | Your custom name saved for the order extra field. The value length cannot exceed 255 characters
+
+#### RefundsInfo
+Field | Type | Description
+----- | ---- | -----------
+date | date | The date/time of a refund, e.g `2014-06-06 18:57:19 +0000`
+source | string | What action triggered refund. Possible values: `"CP"` - changed my merchant in Ecwid CP, `"API"` - changed by another app, `"External"` - refund made from payment processor website
+reason | string | A text reason for a refund. 256 characters max
+amount | number | Amount of this specific refund (not total amount refunded for order. see `redundedAmount` field)
 
 #### Errors
 
@@ -715,7 +735,16 @@ Parameters in bold are mandatory
             }
         }
     ],
-
+    // Refund information
+    "refundedAmount": 3.5,
+    "refunds": [
+        {
+            "date": "2017-09-12 10:12:56 +0000",
+            "source": "CP",
+            "reason": "Testing!",
+            "amount": 3.5
+        }
+    ],
     // Customer addresses
     "billingPerson": {
         "name": "John Smith",
@@ -830,6 +859,9 @@ externalTransactionId | string | Transaction ID / invoice number of the order in
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner
+extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
+refundedAmount | number | A sum of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
+refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 
 #### OrderItem
 Field | Type |  Description
@@ -859,7 +891,6 @@ selectedOptions | Array\<*OrderItemOption*\> | Product options values selected b
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
 productDimensions | \<*ProductDimensions*\> | Product dimensions info
-extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
 
 #### OrderItemTax
 Field | Type |  Description
@@ -989,6 +1020,14 @@ cvvMessage | string  | Credit card verification status returned by the payment s
 Field | Type | Description
 ----- | ---- | -----------
 YOUR_FIELD_NAME | string | Your custom name saved for the order extra field. The value length cannot exceed 255 characters
+
+#### RefundsInfo
+Field | Type | Description
+----- | ---- | -----------
+date | date | The date/time of a refund, e.g `2014-06-06 18:57:19 +0000`
+source | string | What action triggered refund. Possible values: `"CP"` - changed my merchant in Ecwid CP, `"API"` - changed by another app, `"External"` - refund made from payment processor website
+reason | string | A text reason for a refund. 256 characters max
+amount | number | Amount of this specific refund (not total amount refunded for order. see `redundedAmount` field)
 
 #### Errors
 
