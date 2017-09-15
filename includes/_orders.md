@@ -76,7 +76,6 @@ Parameters in bold are mandatory
             "paymentMethod": "Purchase order",
             "paymentStatus": "PARTIALLY_REFUNDED",
             "fulfillmentStatus": "AWAITING_PROCESSING",
-            "refundedAmount": 0,
 
             // Additional information
             "refererUrl": "http://mysuperstore.ecwid.com/",

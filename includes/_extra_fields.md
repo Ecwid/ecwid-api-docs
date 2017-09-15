@@ -357,6 +357,8 @@ At the moment you are able to use the selected shipping method name as a conditi
 
 **Advanced settings for date picker extra field**
 
+> Customize date and time selection in datepicker
+
 ```html
 <script>
     // Customize time and date selection for order pickup datepicker

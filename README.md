@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## September 15, 2017
+
+- New version of Ecwid CSS Framework: 1.2.5. It includes a fix for the drop downs display in Firefox. [Get the latest CSS Framework](https://developers.ecwid.com/api-documentation/ecwid-css-framework)
+
 ## September 12, 2017
 
 - Added support for full and partial refunds for [Ecwid Payments](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-). Refund information is available in read-only mode [in order details in REST API](https://developers.ecwid.com/api-documentation/orders). 
