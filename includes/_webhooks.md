@@ -91,6 +91,10 @@ After you successfully [registered your application](/register) with Ecwid, plea
 If your application is for public use, the request URL must be working <strong>via HTTPS</strong>. Also, the certificate can only be from <strong>trusted CA's and not self-signed</strong>.
 </aside>
 
+<aside class='notice'>
+If you are planning to use <strong>specific ports in your URL</strong>, make sure you are using: `80` or `443`, or anything between `1024:65535` ports. Otherwise, the webhooks <strong>will not be sent to your URL</strong>. 
+</aside>
+
 #### 2. Set webhook events
 There are several types of events in the store that Ecwid can notify your application about, check out **Event type** section of webhook structure for more details. 
 
