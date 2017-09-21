@@ -191,7 +191,7 @@ Parameters in bold are mandatory
                             "taxOnShipping": 0
                         }
                     ],
-                    "productDimensions": {
+                    "dimensions": {
                         "length": 34,
                         "width": 3,
                         "height": 22
@@ -340,7 +340,7 @@ couponApplied | boolean | `true`/`false`: shows whether a discount coupon is app
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
-productDimensions | \<*ProductDimensions*\> | Product dimensions info
+dimensions | \<*ProductDimensions*\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type | Description
@@ -660,7 +660,7 @@ Parameters in bold are mandatory
                             "taxOnShipping": 0
                         }
                     ],
-                    "productDimensions": {
+                    "dimensions": {
                         "length": 34,
                         "width": 3,
                         "height": 22
@@ -800,7 +800,7 @@ couponApplied | boolean | `true`/`false`: shows whether a discount coupon is app
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
-productDimensions | \<*ProductDimensions*\> | Product dimensions info
+dimensions | \<*ProductDimensions*\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type | Description
@@ -1033,7 +1033,7 @@ Cache-Control: no-cache
                 "quantity": 2,
                 "isShippingRequired": false,
                 "name": "Cherry", 
-                "productDimensions": {
+                "dimensions": {
                     "length": 5,
                     "width": 4,
                     "height": 6
@@ -1046,7 +1046,7 @@ Cache-Control: no-cache
                 "quantity": 2,
                 "isShippingRequired": true,
                 "name": "Apple",
-                "productDimensions": {
+                "dimensions": {
                     "length": 9,
                     "width": 8,
                     "height": 10
@@ -1123,7 +1123,7 @@ digital | boolean | `true`/`false`: shows whether the item has downloadable file
 productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
-productDimensions | \<*OrderItemDimensions*\> | Product dimensions info
+dimensions | \<*OrderItemDimensions*\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type |  Description

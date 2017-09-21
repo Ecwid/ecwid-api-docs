@@ -210,7 +210,7 @@ Parameters in bold are mandatory
                             "taxOnShipping": 0
                         }
                     ],
-                    "productDimensions": {
+                    "dimensions": {
                         "length": 34,
                         "width": 3,
                         "height": 22
@@ -386,7 +386,7 @@ couponApplied | boolean | `true`/`false`: shows whether a discount coupon is app
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
-productDimensions | \<*ProductDimensions*\> | Product dimensions info
+dimensions | \<*ProductDimensions*\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type | Description
@@ -727,7 +727,7 @@ Parameters in bold are mandatory
                     "taxOnShipping": 0
                 }
             ],
-            "productDimensions": {
+            "dimensions": {
                 "length": 34,
                 "width": 3,
                 "height": 22
@@ -889,7 +889,7 @@ couponApplied | boolean | `true`/`false`: shows whether a discount coupon is app
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
-productDimensions | \<*ProductDimensions*\> | Product dimensions info
+dimensions | \<*ProductDimensions*\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type |  Description
@@ -1636,7 +1636,7 @@ Cache-Control: no-cache
                         "total": 4.79
                     }
                 ],
-                "productDimensions": {
+                "dimensions": {
                     "length": 34,
                     "width": 3,
                     "height": 22
@@ -2072,7 +2072,7 @@ productAvailable | boolean | `true`/`false`: shows whether the product is availa
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
-productDimensions | \<*ProductDimensions*\> | Product dimensions info
+dimensions | \<*ProductDimensions*\> | Product dimensions info
 
 #### OrderItemTax
 Field | Type | Description

@@ -12,6 +12,8 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 - Product Combinations are now renamed to **Product Variations**. All the product combinations-related labels in the Ecwid Control Panel, Help Center and API Documentation have been renamed to product variations. However, **all API endpoints and entities still refer to combinations** so that apps continue working as expected. 
 
+- Product dimensions (`productDimensions`) are now referred to as `dimensions` in the Ecwid REST API endpoints, other dimensions-related tools as well as in the API documentation.
+
 ## September 15, 2017
 
 - New version of Ecwid CSS Framework: 1.2.5. It includes a fix for the drop downs display in Firefox. [Get the latest CSS Framework](https://developers.ecwid.com/api-documentation/ecwid-css-framework)
