@@ -1,14 +1,14 @@
-## Product combinations
+## Product variations
 
-Using the methods below you can get/update/delete combinations and their details in an Ecwid store. Learn more about product combinations in the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/207100299-Product-Combinations).
+Using the methods below you can get/update/delete variations and their details in an Ecwid store. Learn more about product variations in the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/207100299-Product-Combinations).
 
 <aside class='note'>
-Product Combinations are available on the Ecwid's <a href='https://www.ecwid.com/pricing'>Business plan and higher</a>.
+Product Variations are available on the Ecwid's <a href='https://www.ecwid.com/pricing'>Business plan and higher</a>.
 </aside>
 
-### Get all product combinations
+### Get all product variations
 
-Get all combinations of a specific product in an Ecwid store.
+Get all variations of a specific product in an Ecwid store.
 
 > Request example
 
@@ -137,26 +137,26 @@ Name | Type | Description
 ]
 ```
 
-An array of JSON objects of type 'Combination' with the following fields:
+An array of JSON objects of type 'Variation' with the following fields:
 
-#### Combination
+#### Variation
 Field | Type  | Description
 ------| ----- | -----------
-id |  number |  Combination ID
-combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
-options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
-thumbnailUrl |  string | URL of the product combination thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the product combination image resized to fit 1500x1500px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-smallThumbnailUrl | string  | URL of the product combination thumbnail resized to fit 160x160px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-hdThumbnailUrl | string  | Product combination HD thumbnail URL resized to fit 800x800px. Omitted if the combination inherits the base product's image.
-originalImageUrl |  string  | URL of the original not resized product combination image. Omitted if the combination inherits the base product's image.
-quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
-unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
-price | number | Combination price. Omitted if the combination inherits the base product's price.
-wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
-weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
+id |  number |  Variation ID
+combinationNumber | number |  Variation # number, which is displayed in the variations table in Control panel
+options | Array\<*OptionValue*\> | Set of options that identifies this variation. An array of name-value pairs
+sku | string  | Variation SKU. Omitted if the variation inherits the base product's SKU
+thumbnailUrl |  string | URL of the product variation thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the product variation image resized to fit 1500x1500px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+smallThumbnailUrl | string  | URL of the product variation thumbnail resized to fit 160x160px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product variation HD thumbnail URL resized to fit 800x800px. Omitted if the variation inherits the base product's image.
+originalImageUrl |  string  | URL of the original not resized product variation image. Omitted if the variation inherits the base product's image.
+quantity | number | Amount of the variation items in stock. Omitted if the variation inherits the base product's quantity.
+unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
+price | number | Variation price. Omitted if the variation inherits the base product's price.
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
+weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
 
 #### OptionValue
 Field | Type | Description
@@ -186,14 +186,14 @@ In case of error, Ecwid responds with an error HTTP status code
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
-402 | The "Product Combinations" feature are not available on the merchant plan
+402 | The "Product Variations" feature are not available on the merchant plan
 415 | Unsupported content-type: expected `application/json` or `text/json`
-500 | Cannot get combinations because of an error on the server
+500 | Cannot get variations because of an error on the server
 
 
-### Get product combination
+### Get product variation
 
-Get a specific product combination details referring to its ID.
+Get a specific product variation details referring to its ID.
 
 > Request example
 
@@ -211,7 +211,7 @@ Name | Type | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 **productId** | number | Internal product ID
-**combinationId** | number | Internal combination ID
+**combinationId** | number | Internal variation ID
 
 
 #### Response
@@ -255,26 +255,26 @@ Name | Type | Description
 }
 ```
 
-An array of JSON objects of type 'Combination' with the following fields:
+An array of JSON objects of type 'Variation' with the following fields:
 
-#### Combination
+#### Variation
 Field | Type  | Description
 ------| ----- | -----------
-id |  number |  Combination ID
-combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
-options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
-thumbnailUrl |  string | URL of the product combination thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the product combination image resized to fit 1500x1500px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-smallThumbnailUrl | string  | URL of the product combination thumbnail resized to fit 160x160px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-hdThumbnailUrl | string  | Product combination HD thumbnail URL resized to fit 800x800px. Omitted if the combination inherits the base product's image.
-originalImageUrl |  string  | URL of the original not resized product combination image. Omitted if the combination inherits the base product's image.
-quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
-unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
-price | number | Combination price. Omitted if the combination inherits the base product's price.
-wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
-weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
+id |  number |  Variation ID
+combinationNumber | number |  Combination # number, which is displayed in the variations table in Control panel
+options | Array\<*OptionValue*\> | Set of options that identifies this variation. An array of name-value pairs
+sku | string  | Variation SKU. Omitted if the variation inherits the base product's SKU
+thumbnailUrl |  string | URL of the product variation thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the product variation image resized to fit 1500x1500px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+smallThumbnailUrl | string  | URL of the product variation thumbnail resized to fit 160x160px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product variation HD thumbnail URL resized to fit 800x800px. Omitted if the variation inherits the base product's image.
+originalImageUrl |  string  | URL of the original not resized product variation image. Omitted if the variation inherits the base product's image.
+quantity | number | Amount of the variation items in stock. Omitted if the variation inherits the base product's quantity.
+unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
+price | number | Variation price. Omitted if the variation inherits the base product's price.
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
+weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
 
 #### OptionValue
 Field | Type | Description
@@ -304,17 +304,17 @@ In case of error, Ecwid responds with an error HTTP status code
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
-402 | The "Product Combinations" feature are not available on the merchant plan
-404 | The combination is not found
+402 | The "Product Variations" feature are not available on the merchant plan
+404 | The variation is not found
 415 | Unsupported content-type: expected `application/json` or `text/json`
-500 | Cannot get the combination because of an error on the server
+500 | Cannot get the variation because of an error on the server
 
 
 
 
-### Create product combination
+### Create product variation
 
-You can create a new product combination using this method. If the options you specify in request don't exist, they will be created automatically with the type of dropdown. If you want to create options explicitly, use the [Update product](#update-a-product) call to create them. 
+You can create a new product variation using this method. If the options you specify in request don't exist, they will be created automatically with the type of dropdown. If you want to create options explicitly, use the [Update product](#update-a-product) call to create them. 
 
 > Request example
 
@@ -351,19 +351,19 @@ Name | Type | Description
 
 #### Request body
 
-A JSON object of type 'Combination' with the following fields:
+A JSON object of type 'Variation' with the following fields:
 
-#### Combination
+#### Variation
 Field | Type  | Description
 ------| ----- | -----------
-options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
-quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
-unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
-price | number | Combination price. Omitted if the combination inherits the base product's price.
-wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
-weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
+options | Array\<*OptionValue*\> | Set of options that identifies this variation. An array of name-value pairs
+sku | string  | Variation SKU. Omitted if the variation inherits the base product's SKU
+quantity | number | Amount of the variation items in stock. Omitted if the variation inherits the base product's quantity.
+unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
+price | number | Variation price. Omitted if the variation inherits the base product's price.
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
+weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
 
 #### OptionValue
 Field | Type | Description
@@ -392,7 +392,7 @@ A JSON object of type 'CreateStatus' with the following fields:
 #### CreateStatus
 Field | Type  | Description
 ----- | ----- | -----------
-id | number | ID of the created combination
+id | number | ID of the created variation
 
 
 #### Errors
@@ -411,18 +411,18 @@ In case of error, Ecwid responds with an error HTTP status code
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
-402 | The "Product Combinations" feature are not available on the merchant plan
+402 | The "Product Variations" feature are not available on the merchant plan
 404 | The product is not found
 409 | The specified sku or options variation already exists
 415 | Unsupported content-type: expected `application/json` or `text/json`
-500 | Cannot get the combination because of an error on the server
+500 | Cannot get the variation because of an error on the server
 
 
 
 
-### Update product combination
+### Update product variation
 
-Update a specific product combination details referring to its ID.
+Update a specific product variation details referring to its ID.
 
 > Request example
 
@@ -446,24 +446,24 @@ Name | Type | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 **productId** | number | Internal product ID
-**combinationId** | number | Internal combination ID
+**combinationId** | number | Internal variation ID
 checkLowStockNotification | boolean | If `true`, makes Ecwid check whether the low stock email notification needs to be sent to merchant after request is sent
 
 #### Request body
 
-A JSON object of type 'Combination' with the following fields:
+A JSON object of type 'Variation' with the following fields:
 
-#### Combination
+#### Variation
 Field | Type  | Description
 ------| ----- | -----------
-options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
-quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
-unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
-price | number | Combination price. Omitted if the combination inherits the base product's price.
-wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
-weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
+options | Array\<*OptionValue*\> | Set of options that identifies this variation. An array of name-value pairs
+sku | string  | Variation SKU. Omitted if the variation inherits the base product's SKU
+quantity | number | Amount of the variation items in stock. Omitted if the variation inherits the base product's quantity.
+unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
+price | number | Variation price. Omitted if the variation inherits the base product's price.
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
+weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
 
 #### OptionValue
 Field | Type | Description
@@ -496,7 +496,7 @@ A JSON object of type 'UpdateStatus' with the following fields:
 
 Field | Type | Description
 ----- | ---- | -----------
-updateCount | number | The number of updated combinations (`1` or `0` depending on whether the update was successful)
+updateCount | number | The number of updated variations (`1` or `0` depending on whether the update was successful)
 
 #### Errors
 
@@ -514,18 +514,18 @@ In case of error, Ecwid responds with an error HTTP status code
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
-402 | The "Product Combinations" feature are not available on the merchant plan
-404 | The product or combination is not found
+402 | The "Product Variations" feature are not available on the merchant plan
+404 | The product or variation is not found
 409 | The specified sku or options variation already exists
 415 | Unsupported content-type: expected `application/json` or `text/json`
-500 | Cannot get the combination because of an error on the server
+500 | Cannot get the variation because of an error on the server
 
 
 
 
-### Delete product combination
+### Delete product variation
 
-Delete a specific product combination referring to its ID.
+Delete a specific product variation referring to its ID.
 
 > Request example
 
@@ -542,7 +542,7 @@ Name | Type | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 **productId** | number | Internal product ID
-**combinationId** | number | Internal combination ID
+**combinationId** | number | Internal variation ID
 
 
 #### Response
@@ -561,7 +561,7 @@ A JSON object of type 'DeleteStatus' with the following fields:
 
 Field | Type |  Description
 ----- | ---- | --------------
-deleteCount | number | The number of deleted combinations (`1` or `0` depending on whether the request was successful)
+deleteCount | number | The number of deleted variations (`1` or `0` depending on whether the request was successful)
 
 
 #### Errors
@@ -580,15 +580,15 @@ In case of error, Ecwid responds with an error HTTP status code
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
-402 | The "Product Combinations" feature is not available on the merchant plan
-404 | The combination is not found
-500 | Cannot remove the combination because of an error on the server
+402 | The "Product Variations" feature is not available on the merchant plan
+404 | The variation is not found
+500 | Cannot remove the variation because of an error on the server
 
 
 
-### Delete all product combinations
+### Delete all product variations
 
-Delete all product combinations of a product in an Ecwid store.
+Delete all product variations of a product in an Ecwid store.
 
 > Request example
 
@@ -623,7 +623,7 @@ A JSON object of type 'DeleteStatus' with the following fields:
 
 Field | Type |  Description
 ----- | ---- | --------------
-deleteCount | number | The number of deleted combinations
+deleteCount | number | The number of deleted variations
 
 
 #### Errors
@@ -642,12 +642,12 @@ In case of error, Ecwid responds with an error HTTP status code
 HTTP Status | Meaning
 ------------|--------
 400 | Request parameters are malformed
-402 | The "Product Combinations" feature is not available on the merchant plan
-500 | Cannot delete combinations because of an error on the server
+402 | The "Product Variations" feature is not available on the merchant plan
+500 | Cannot delete variations because of an error on the server
 
 
 
-### Adjust combination inventory
+### Adjust variation inventory
 
 > Request example
 
@@ -661,9 +661,9 @@ Cache-Control: no-cache
     "quantityDelta": -10
 }
 ```
-When your integration changes in stock quantity of product combination in a store pretty often, it becomes harder and harder to keep track of how many items are actually in stock. For example, when at one point of time you have 3 items in stock and 5 in the very next second, then using the specific values can result in incorrect stock quantity.
+When your integration changes in stock quantity of product variation in a store pretty often, it becomes harder and harder to keep track of how many items are actually in stock. For example, when at one point of time you have 3 items in stock and 5 in the very next second, then using the specific values can result in incorrect stock quantity.
 
-This method solves this very problem: you can increase or decrease the product combination's stock quantity by a delta quantity. For example, if you need to decrease quantity by 10 items, you can use this method. 
+This method solves this very problem: you can increase or decrease the product variation's stock quantity by a delta quantity. For example, if you need to decrease quantity by 10 items, you can use this method. 
 
 This method is also available for [products](https://developers.ecwid.com/api-documentation/products#adjust-product-inventory).
 
@@ -673,7 +673,7 @@ Name | Type    | Description
 ---- | ------- | -----------
 **storeId** |  number | Ecwid store ID
 **productId** | number | Product ID
-**combinationId** | number | Combination ID
+**combinationId** | number | Variation ID
 **token** |  string |  oAuth token
 checkLowStockNotification | boolean | If `true`, makes Ecwid check whether the low stock email notification needs to be sent to merchant after request is sent
 
@@ -734,9 +734,9 @@ errorMessage | string | Error message
 
 
 
-### Upload combination image
+### Upload variation image
 
-Upload a custom image for a specific product combination referring to its ID.
+Upload a custom image for a specific product variation referring to its ID.
 
 > Request example
 
@@ -786,10 +786,10 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **productId** | number | Product ID
 **token** |  string |  oAuth token
-**combinationId** | number | Internal combination ID
+**combinationId** | number | Internal variation ID
 externalUrl | string | External file URL available for public download. If specified, Ecwid will ignore any binary file data sent in a request
 
-When uploading an image for a combination, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+When uploading an image for a variation, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
 Alternatively, you can specify an `externalURL` to your file as a request parameter and Ecwid will download it from there.
 
@@ -832,7 +832,7 @@ In case of error, Ecwid responds with an error HTTP status code and JSON-formatt
 --------- | -----------| -----------
 400 | Request parameters are malformed
 402 | The functionality/method is not available on the merchant plan
-404 | Product or combination in request are not found
+404 | Product or variation in request are not found
 413 | The image file is too large (Maximum allowed file size is 20Mb)
 422 | The uploaded file is not an image
 415 | Unsupported content-type: expected `application/octet-stream`
@@ -849,9 +849,9 @@ errorMessage | string | Error message
 
 
 
-### Delete combination image
+### Delete variation image
 
-Delete an image of a specific product combination in an Ecwid store.
+Delete an image of a specific product variation in an Ecwid store.
 
 > Request example
 
@@ -869,7 +869,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **productId** | number | Product ID
 **token** |  string |  oAuth token
-**combinationId** | number | Internal combination ID
+**combinationId** | number | Internal variation ID
 
 #### Response
 
@@ -906,8 +906,8 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 **HTTP Status** | Description
 --------- | -----------| -----------
 400 | Request parameters are malformed
-402 | The Product combinations are not available on the merchant plan
-404 | Product or combination in request are not found
+402 | The Product variations are not available on the merchant plan
+404 | Product or variation in request are not found
 500 | Request failed or there was an internal server error while processing a file
 
 #### Error response body (optional)

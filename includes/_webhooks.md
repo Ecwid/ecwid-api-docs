@@ -48,7 +48,7 @@ Access scope required: <strong>read_orders</strong> (see <a href="#access-scopes
 * Product was updated
 * Product was deleted
 
-`product.updated` events are triggered when any part of a product is updated: quantity, categories assigned, product options, combinations, attributes, images, pricing, etc. [Products endpoint](#products) allows you to control and get information about products in a store. 
+`product.updated` events are triggered when any part of a product is updated: quantity, categories assigned, product options, variations, attributes, images, pricing, etc. [Products endpoint](#products) allows you to control and get information about products in a store. 
 
 <aside class="notice">
 Access scope required: <strong>read_products</strong> (see <a href="#access-scopes">Access scopes</a>)

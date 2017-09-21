@@ -132,7 +132,7 @@ Access scope | Notes
 ------------ | -----
 read_store_profile | Get store name and general settings, get store admin email, get updates statistics etc. *Requested in all cases even if not specified*
 update_store_profile | Set taxes, update invoice logo, change Starter Site domain, close store for maintenance etc.
-read_catalog | Search products, get product options/combinations etc. Also allows to receive push updates (webhooks) about changes in store products.
+read_catalog | Search products, get product options/variations etc. Also allows to receive push updates (webhooks) about changes in store products.
 update_catalog | Update product prices, upload images and e-goods, modify product attributes etc.
 create_catalog | Create new products
 read_orders | Get sales for a given period, retrieve order details etc. Also allows to receive push updates (webhooks) about changes in store orders.
@@ -323,8 +323,8 @@ With public access token you can use several REST API endpoints from anywhere (c
 - [Get enabled product details](https://developers.ecwid.com/api-documentation/products#get-a-product)
 - [Search enabled categories](https://developers.ecwid.com/api-documentation/categories#get-categories)
 - [Get enabled category details](https://developers.ecwid.com/api-documentation/categories#get-category)
-- [Get all combinations of an enabled product](https://developers.ecwid.com/api-documentation/product-combinations#get-all-product-combinations)
-- [Get combination details of an enabled product](https://developers.ecwid.com/api-documentation/product-combinations#get-product-combination)
+- [Get all variations of an enabled product](https://developers.ecwid.com/api-documentation/product-variations#get-all-product-variations)
+- [Get variation details of an enabled product](https://developers.ecwid.com/api-documentation/product-variations#get-product-variation)
 - [Search visible product types](https://developers.ecwid.com/api-documentation/product-types#get-product-types)
 - [Get visible product type details](https://developers.ecwid.com/api-documentation/product-types#get-product-type)
 - [Get products and profile update stats](https://developers.ecwid.com/api-documentation/store-information#get-store-update-statistics)

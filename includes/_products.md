@@ -47,7 +47,7 @@ enabled | boolean | `true` to get only enabled products, `false` to get only dis
 inStock | boolean | `true` to get only products in stock, `false` to get out of stock products
 field{attributeName} | string | Filter by product attribute values. Format: field{attributeName}=param[,param], where "attributeName" is the attribute name and "param" is the attribute value. You can place several values separated by comma. In that case values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `fieldBrand=Apple&fieldCapacity=32GB,64GB` 
 field{attributeId} | string | Filter by product attribute values. Works the same as the filter by `field{attributeName}` but attribute IDs are used instead of attribute names. This way is insensitive to attributes renaming.
-sku | string | Product or combination SKU. Ecwid will return details of a product containing that SKU, if SKU value is an exact match. If SKU is specified, other search parameters are ignored, except for product ID.
+sku | string | Product or variation SKU. Ecwid will return details of a product containing that SKU, if SKU value is an exact match. If SKU is specified, other search parameters are ignored, except for product ID.
 productId | number | Internal Ecwid product ID or multiple productIds separated by a comma. If this field is specified, other search parameters are ignored.
 baseUrl | string | Storefront URL for Ecwid to use when returning product URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](#get-store-profile)
 cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
@@ -653,13 +653,13 @@ items | Array<ProductEntry> | The items list
 Field | Type  | Description
 -------------- | -------------- | --------------
 id |  number |  Unique integer product identifier
-sku | string |  Product SKU. Items with options can have several SKUs specified in the product combinations.
+sku | string |  Product SKU. Items with options can have several SKUs specified in the product variations.
 quantity |  number | Amount of product items in stock. *This field is omitted for the products with unlimited stock*
 unlimited | boolean | `true` if the product has unlimited stock
-inStock | boolean | `true` if the product or any of its combinations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
+inStock | boolean | `true` if the product or any of its variations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
 price | number |  Base product price
-priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has options and combinations and the default combination's price is different from the base product price. **Does not include taxes**
+priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. **Does not include taxes**
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
@@ -675,7 +675,7 @@ options | Array\<*ProductOption*\> | A list of the product options. Empty (`[]`)
 warningLimit | number | The minimum 'warning' amount of the product items in stock, if set. When the product quantity reaches this level, the store administrator gets an email notification.
 fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
-defaultCombinationId |  number |  Identifier of the default product combination, which is defined by the default values of product options.
+defaultCombinationId |  number |  Identifier of the default product variation, which is defined by the default values of product options.
 thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of the biggest dimension is 400px. *The original uploaded product image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The original uploaded product image is available in the `originalImageUrl` field.*
 smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 160x160px. *The original uploaded product image is available in the `originalImageUrl` field.*
@@ -693,7 +693,7 @@ favorites | \<*FavoritesStats*\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
-combinations | Array\<*Combination*\> | List of the product combinations
+combinations | Array\<*Variation*\> | List of the product variations
 dimensions | \<*ProductDimensions*\> | Product dimensions info
 showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
 
@@ -778,24 +778,24 @@ enabled | boolean | `true` if the "N random related products from a category" op
 categoryId |  number |  Id of the related category. Zero value means "any category", that is, random products from the whole store.
 productCount |  number |  Number of random products from the given category to be shown as related
 
-#### Combination
+#### Variation
 Field | Type  | Description
 ------| ----- | -----------
-id |  number |  Combination ID
-combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
-options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
-thumbnailUrl |  string | URL of the product combination thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the product combination image resized to fit 1500x1500px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-smallThumbnailUrl | string  | URL of the product combination thumbnail resized to fit 160x160px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-hdThumbnailUrl | string  | Product combination HD thumbnail URL resized to fit 800x800px. Omitted if the combination inherits the base product's image.
-originalImageUrl |  string  | URL of the original not resized product combination image. Omitted if the combination inherits the base product's image.
-quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
-unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
-price | number | Combination price. Omitted if the combination inherits the base product's price.
-wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
-weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
+id |  number |  Variation ID
+combinationNumber | number |  Variation # number, which is displayed in the variations table in Control panel
+options | Array\<*OptionValue*\> | Set of options that identifies this variation. An array of name-value pairs
+sku | string  | Variation SKU. Omitted if the variation inherits the base product's SKU
+thumbnailUrl |  string | URL of the product variation thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the product variation image resized to fit 1500x1500px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+smallThumbnailUrl | string  | URL of the product variation thumbnail resized to fit 160x160px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product variation HD thumbnail URL resized to fit 800x800px. Omitted if the variation inherits the base product's image.
+originalImageUrl |  string  | URL of the original not resized product variation image. Omitted if the variation inherits the base product's image.
+quantity | number | Amount of the variation items in stock. Omitted if the variation inherits the base product's quantity.
+unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
+price | number | Variation price. Omitted if the variation inherits the base product's price.
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
+weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
 
 #### OptionValue
 Field | Type  | Description
@@ -1203,13 +1203,13 @@ A JSON object of type 'Product' with the following fields:
 Field | Type  | Description
 -------------- | -------------- | --------------
 id |  number |  Unique integer product identifier
-sku | string |  Product SKU. Items with options can have several SKUs specified in the product combinations.
+sku | string |  Product SKU. Items with options can have several SKUs specified in the product variations
 quantity |  number | Amount of product items in stock. *This field is omitted for the products with unlimited stock*
 unlimited | boolean | `true` if the product has unlimited stock
-inStock | boolean | `true` if the product or any of its combinations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
+inStock | boolean | `true` if the product or any of its variations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
 price | number |  Base product price
-priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has options and combinations and the default combination's price is different from the base product price. **Does not include taxes**
+priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. **Does not include taxes**
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
@@ -1225,7 +1225,7 @@ options | Array\<*ProductOption*\> | A list of the product options. Empty (`[]`)
 warningLimit | number | The minimum 'warning' amount of the product items in stock, if set. When the product quantity reaches this level, the store administrator gets an email notification.
 fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
-defaultCombinationId |  number |  Identifier of the default product combination, which is defined by the default values of product options.
+defaultCombinationId |  number |  Identifier of the default product variation, which is defined by the default values of product options.
 thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. *The original uploaded product image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The original uploaded product image is available in the `originalImageUrl` field.*
 smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 160x160px. *The original uploaded product image is available in the `originalImageUrl` field.*
@@ -1243,7 +1243,7 @@ favorites | \<*FavoritesStats*\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
-combinations | Array\<*Combination*\> | List of the product combinations
+combinations | Array\<*Variation*\> | List of the product variations
 dimensions | \<*ProductDimensions*\> | Product dimensions info
 showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
 
@@ -1328,24 +1328,24 @@ enabled | boolean | `true` if the "N random related products from a category" op
 categoryId |  number |  Id of the related category. Zero value means "any category", that is, random products from the whole store.
 productCount |  number |  Number of random products from the given category to be shown as related
 
-#### Combination
+#### Variation
 Field | Type  | Description
 ------| ----- | -----------
-id |  number |  Combination ID
-combinationNumber | number |  Combination # number, which is displayed in the combinations table in Control panel
-options | Array\<*OptionValue*\> | Set of options that identifies this combination. An array of name-value pairs
-sku | string  | Combination SKU. Omitted if the combination inherits the base product's SKU
-thumbnailUrl |  string | URL of the product combination thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the product combination image resized to fit 1500x1500px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-smallThumbnailUrl | string  | URL of the product combination thumbnail resized to fit 160x160px. Omitted if the combination inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
-hdThumbnailUrl | string  | Product combination HD thumbnail URL resized to fit 800x800px. Omitted if the combination inherits the base product's image.
-originalImageUrl |  string  | URL of the original not resized product combination image. Omitted if the combination inherits the base product's image.
-quantity | number | Amount of the combination items in stock. Omitted if the combination inherits the base product's quantity.
-unlimited | boolean | `true` if the combination has unlimited stock (that is, never runs out)
-price | number | Combination price. Omitted if the combination inherits the base product's price.
-wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the combination's wholesale price tiers (quantity limit and price). Omitted if the combination inherits the base product's tiered price settings. 
-weight | number | Combination weight in the units defined in store settings. Omitted if the combination inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this combination, if set. When the combination in stock amount reaches this level, the store administrator gets an email notification. Omitted if the combination inherits the base product's settings.
+id |  number |  Variation ID
+combinationNumber | number |  Variation # number, which is displayed in the variations table in Control panel
+options | Array\<*OptionValue*\> | Set of options that identifies this variation. An array of name-value pairs
+sku | string  | Variation SKU. Omitted if the variation inherits the base product's SKU
+thumbnailUrl |  string | URL of the product variation thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the product variation image resized to fit 1500x1500px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+smallThumbnailUrl | string  | URL of the product variation thumbnail resized to fit 160x160px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product variation HD thumbnail URL resized to fit 800x800px. Omitted if the variation inherits the base product's image.
+originalImageUrl |  string  | URL of the original not resized product variation image. Omitted if the variation inherits the base product's image.
+quantity | number | Amount of the variation items in stock. Omitted if the variation inherits the base product's quantity.
+unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
+price | number | Variation price. Omitted if the variation inherits the base product's price.
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
+weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
 
 #### OptionValue
 Field | Type  | Description
@@ -1861,7 +1861,7 @@ When your integration changes in stock quantity of products in a store pretty of
 
 This method solves this very problem: you can increase or decrease the product's stock quantity by a delta quantity. For example, if you need to decrease quantity by 10 items, you can use this method. 
 
-This method is also available for the [product combinations](https://developers.ecwid.com/api-documentation/product-combinations#adjust-combination-inventory).
+This method is also available for the [product variations](https://developers.ecwid.com/api-documentation/product-variations#adjust-variation-inventory).
 
 `PUT https://app.ecwid.com/api/v3/{storeId}/products/{productId}/inventory?checkLowStockNotification={checkLowStockNotification}&token={token}`
 

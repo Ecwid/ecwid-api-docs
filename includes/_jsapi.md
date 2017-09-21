@@ -555,7 +555,7 @@ Ecwid.Cart.addProduct(productId);
 ```
 The most simple call to `Ecwid.Cart.addProduct` only requires to pass the numeric product ID. See example code on the right. This code adds 1 item of the given product ID to cart.
 
-If this product contains combinations and the base product is out of stock, the first combination that is in stock will be added to cart instead. If the product is out of stock (and there are no combinations in stock for this product), nothing is added to cart.
+If this product contains variations and the base product is out of stock, the first variation that is in stock will be added to cart instead. If the product is out of stock (and there are no variations in stock for this product), nothing is added to cart.
 
 #### Adding with extended options
 
@@ -582,7 +582,7 @@ Ecwid.Cart.addProduct(product);
 
 If it is necessary to specify options or quantity of product to be added to cart, the product parameter needs to be passed as an object.
 
-Since this method allows to specify the exact options to be added to cart, only the base product or combination matching those options will be added to cart. So, if the base product or matching combination is out of stock, the addProduct call will not add anything to cart, even if there are other combinations in stock.
+Since this method allows to specify the exact options to be added to cart, only the base product or variation matching those options will be added to cart. So, if the base product or matching variation is out of stock, the addProduct call will not add anything to cart, even if there are other variations in stock.
 
 **Callback**
 
@@ -1213,7 +1213,7 @@ Ecwid.OnCartChanged.add(function(cart) {
 Name | Type | Description
 ---- | ---- | -----------
 quantity | integer | Quantity of the given product variety in cart
-product | Array\<*Product*\> | The map of product properties (combination properties, if the combination is added to cart)
+product | Array\<*Product*\> | The map of product properties (variation properties, if the variation is added to cart)
 options | Object with option names and values | Map of the product options (option name as a key and option value as a value). For listboxes and radio buttons value will be the string value of the selected option. For checkboxes — names of the selected options, comma separated. For date options — string representing the selected date according to the shop’s format (Ecwid control panel > System settings > General > Formats and Units). For textboxes и textareas — the text given by the customer. For file upload options — string in the form of „4 files”
 
 ### Product Object

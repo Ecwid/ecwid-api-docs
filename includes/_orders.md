@@ -368,7 +368,7 @@ categoryId |  number  | ID of the category this product belongs to. If the produ
 price | number | Price of ordered item in the cart
 productPrice | number | Basic product price without options markups, wholesale discounts etc.
 weight |  number | Product weight
-sku | string | Product SKU. If the chosen options match a combination, this will be a combination SKU.
+sku | string | Product SKU. If the chosen options match a variation, this will be a variation SKU.
 quantity |  number | Amount purchased
 shortDescription | string | Product description truncated to 120 characters
 tax | number | Tax amount applied to the item
@@ -871,7 +871,7 @@ categoryId |  number  | ID of the category this product belongs to. If the produ
 price | number | Price of ordered item in the cart
 productPrice | number | Basic product price without options markups, wholesale discounts etc.
 weight |  number | Product weight
-sku | string | Product SKU. If the chosen options match a combination, this will be a combination SKU.
+sku | string | Product SKU. If the chosen options match a variation, this will be a variation SKU.
 quantity |  number | Amount purchased
 shortDescription | string | Product description truncated to 120 characters
 tax | number | Tax amount applied to the item
@@ -1714,7 +1714,7 @@ categoryId |  number  | ID of the category this product belongs to. If the produ
 price | number | Price of ordered item in the cart
 productPrice | number | Basic product price without options markups, wholesale discounts etc.
 weight |  number | Product weight
-sku |   string | Product/Combination SKU
+sku |   string | Product/variation SKU
 shortDescription | string | Product description truncated to 120 characters
 tax | number | Tax amount applied to the item
 shipping | number| Order item shipping cost 

@@ -242,7 +242,7 @@ productId | number | Store product ID
 categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
 price | number | Price of ordered item in the cart
 weight |  number | Product weight
-sku | string | Product SKU. If the chosen options match a combination, this will be a combination SKU.
+sku | string | Product SKU. If the chosen options match a variation, this will be a variation SKU.
 amount |  number | Amount purchased
 name |  string | Product name
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
@@ -355,7 +355,7 @@ Response parameters in <strong>bold</strong> are mandatory
 
 ## User interface for discount rules
 
-You can create a user interface for merchants to specify their own promo rule combinations or any other user preferences you may require for your app. 
+You can create a user interface for merchants to specify their own promo rule variations or any other user preferences you may require for your app. 
 
 We recommend adding a new tab into the Ecwid Control Panel's promotion section for optimal experience using the: [Native applications](#native-applications) feature and [Application storage](#application-storage) features.
 

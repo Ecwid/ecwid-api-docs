@@ -87,7 +87,7 @@ xhttp.onreadystatechange = function() {
 };
 ```
 
-We suggest using [public access token](#access-tokens) to get information about: store details, enabled products, enabled categories, combinations of enabled products, visible product types and deleted items statistics on demand with Ecwid REST API. Check out example on how to do this on the right.
+We suggest using [public access token](#access-tokens) to get information about: store details, enabled products, enabled categories, variations of enabled products, visible product types and deleted items statistics on demand with Ecwid REST API. Check out example on how to do this on the right.
 
 With public access token you can safely make requests to Ecwid REST API without creating a buffer in a form of a server-side code, which requested information for your client-side code. You can make an Ajax request to Ecwid API with your JavaScript code and have a completely serverless application.
 
