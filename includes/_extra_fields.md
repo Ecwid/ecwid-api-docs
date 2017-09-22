@@ -2,9 +2,10 @@
 
 Order extra fields allow you to save additional information into the order and get it via Ecwid REST API. 
 
-> Save an extra field 'platform' to order placed by customer
+> Add a new field to order comments at store checkout
 
-```js
+```html
+<script>
 // Place Ecwid integration code here
 // ...
 
@@ -12,9 +13,25 @@ Order extra fields allow you to save additional information into the order and g
 ec.order = ec.order || {};
 ec.order.extraFields = ec.order.extraFields || {};
 
-// Save a single value 'adobe_muse' for 'platform' field
-ec.order.extraFields.platform = {
-    'value': 'adobe_muse'
+// Add new text field to order comments section at checkout
+ec.order.extraFields.how_you_found_us = {
+    'title': 'How did you find us?',
+    'type': 'text',
+    'checkoutDisplaySection': 'order_comments'
+};
+</script>
+```
+
+> Find your saved information in order details via REST API
+
+```json
+{
+    "total": 12.35,
+    "orderNumber": 104,
+    //...
+    "extraFields": {
+        "how_you_found_us": "I clicked an ad on Facebook."
+    }
 }
 ```
 
@@ -24,36 +41,25 @@ For example, if you need to save a cookie into an order or if you need to ask a 
 
 Learn how to save private information about storefront or a customer into an order. 
 
-1. [Modify Ecwid integration code to initialize the fields](#get-additional-info-from-a-customer)
-2. [Set values for extra fields when customer visits a store](#get-additional-info-from-a-customer)
-3. [Ecwid saves the values to order details when it gets placed](#get-additional-info-from-a-customer)
-4. [Get saved info in order details in Ecwid REST API](#get-extra-fields-in-rest-api)
+1. [Modify Ecwid integration code to initialize the fields](https://developers.ecwid.com/api-documentation/order-extra-fields#add-new-fields-to-checkout)
+2. [Set values for extra fields when customer visits a store](https://developers.ecwid.com/api-documentation/order-extra-fields#add-new-fields-to-checkout)
+3. [Get saved info in order details in Ecwid REST API](https://developers.ecwid.com/api-documentation/order-extra-fields#get-extra-fields-in-rest-api)
 
 Check out more details on how to do this in the docs below.
 
-## Get additional info from a customer
+## Add new fields to checkout
 
 With order extra fields you can also request additional information from a customer in storefront and show user responses in order details.
 
 This is helpful when a merchant needs to know some additional information like delivery date, delivery comments, company details and other. The responses will be shown in order details in Ecwid Control Panel. 
 
-#### Step #1: Modify Ecwid integration code
-
-> Initialize extra fields object
-
-```js
-ec.order = ec.order || {};
-ec.order.extraFields = ec.order.extraFields || {};
-```
-The extra fields you add to checkout will be saved into a config object used by Ecwid: `ec.order` and `ec.order.extraFields`. 
-
-Start by initializing the objects using the code on the right. 
-
-#### Step #2: Create new fields at checkout
+#### Step #1: Create new fields at checkout
 
 > Init and display your custom field at checkout
 
-```js
+```html
+<script>
+// Initialize extra fields
 ec.order = ec.order || {};
 ec.order.extraFields = ec.order.extraFields || {};
 
@@ -66,7 +72,10 @@ ec.order.extraFields.wrapping_box_signature = {
     'required': false,
     'checkoutDisplaySection': 'shipping_address'
 };
+</script>
 ```
+
+The extra fields you add to checkout will be saved into a config object used by Ecwid: `ec.order` and `ec.order.extraFields`. Start by initializing the objects using the code on the right. 
 
 Now that we've initialized the extra fields object, we can create a new text input in the shipping address form at checkout. See example on the right. 
 
@@ -118,13 +127,7 @@ You can add an extra field for customers in several parts of the checkout:
 
 If `checkoutDisplaySection` contains an unsupported value, the field will not be shown to a customer. If the corresponding form is not shown to customer (order comments are disabled, etc.) then the field will be ignored too, **even if it's required**.
 
-**To show the field and value to merchant and customer successfully, all requirements must be met**: 
-
-- `title` is not empty 
-- `value` is not empty
-- `orderDetailsDisplaySection` contains supported value: `shipping_info`, `billing_info`, `customer_info`, `order_comments`
-
-If `orderDetailsDisplaySection` contains an unsupported value, the field will still be saved in an order, but it will not be shown.
+[Learn how to show field to customer and merchant in order details](https://developers.ecwid.com/api-documentation/show-extra-fields-in-order)
 
 **Examples of other field types**
 
@@ -160,9 +163,7 @@ ec.order.extraFields.my_custom_field = {
 </script>
 ```
 
-#### Step #3: Ecwid saves the values to order details when it gets placed
-
-If your code executed successfully, these fields will be saved when a customer places their order in an Ecwid store. See below on how you can access them afterwards. 
+If your code executed successfully, these fields will be saved when a customer places their order in an Ecwid store. See [Get extra fields in REST API](https://developers.ecwid.com/api-documentation/get-extra-fields-in-rest-api) section to access them afterwards. 
 
 ## Save hidden data to order
 
@@ -170,23 +171,7 @@ With order extra fields you can save any custom information into an order privat
 
 This is helpful when you need to save some technical stuff like campaign id, referring website address or something else. Check out more details on how it works below. 
 
-#### Step #1: Modify Ecwid integration code to initialize the fields
-
-> Initialize extra fields object
-
-```html
-<script>
-// Initialize extra fields
-ec.order = ec.order || {};
-ec.order.extraFields = ec.order.extraFields || {};
-</script>
-```
-
-Your hidden data will be saved into a config object used by Ecwid: `ec.order` and `ec.order.extraFields`. But in order to use it, you need to initialize it on a page. 
-
-See the example code on the right.
-
-#### Step #2: Set values for fields when customer visits a store
+#### Step #1: Set values for fields when customer visits a store
 
 > Save your extra field to an order placed by customer
 
@@ -203,54 +188,19 @@ ec.order.extraFields.platform = {
 </script>
 ```
 
-Now that we've initialized the extra fields object, we can save some value into an order. 
+Your hidden data will be saved into a config object used by Ecwid: `ec.order` and `ec.order.extraFields`. But in order to use it, you need to initialize it on a page. See the example code on the right.
 
-Code on the right is an example of adding an extra field with the key `platform` and value `adobe_muse`.  
+Now that we've initialized the extra fields object, we can save some value into an order. Code on the right is an example of adding an extra field with the key `platform` and value `adobe_muse`.  
 
-After customer places that order, you will be able to get that field in the `extraFields` field when getting order details in REST API.  
+[Learn how to show field to customer and merchant in order details](https://developers.ecwid.com/api-documentation/show-extra-fields-in-order)
 
-#### Save hidden data to order and show it to merchant and customer in order details
-
-> Save extra field and show it in order details to merchant 
-
-```html
-<script>
-// Initialize Extra fields
-ec.order = ec.order || {};
-ec.order.extraFields = ec.order.extraFields || {};
-
-// Save extra field and show it in order details in Ecwid Control Panel
-ec.order.extraFields.referred_by = {
-    'title': 'Referred by', // title of an extra field
-    'value': 'Referrer is: Facebook Ads', 
-    'orderDetailsDisplaySection': 'customer_info' // where to display the new field
-}
-</script>
-```
-
-To show the saved data from the storefront to merchant and customer in order details, use the example code on the right. 
-
-After an order gets placed, you will be able to get that field in the `extraFields` when getting order details.
-
-**To show the field to merchant and customer successfully, all requirements must be met**: 
-
-- `title` is not empty 
-- `value` is not empty
-- `orderDetailsDisplaySection` contains supported value: `shipping_info`, `billing_info`, `customer_info`, `order_comments`. More on this below
-
-If `orderDetailsDisplaySection` contains an unsupported value, the field will still be saved to an order, but it will not be shown.
-
-#### Step #3: Ecwid saves the values to order details when it gets placed
-
-If your code executed successfully, these fields will be saved when a customer places their order in an Ecwid store. See below on how you can access them afterwards. 
+If your code executed successfully, these fields will be saved when a customer places their order in an Ecwid store. See [Get extra fields in REST API](https://developers.ecwid.com/api-documentation/get-extra-fields-in-rest-api) section to access them afterwards. 
 
 ## Get extra fields in REST API
 
-After customer placed their order, you can get the saved information using the Ecwid REST API in the order details.
-
 > Get extra fields in order details
 
-> 1) Get order details 
+> Request
 
 ```http
 GET /api/v3/4870020/orders/20?token=1234567890qwqeertt HTTP/1.1
@@ -259,7 +209,7 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ``` 
 
-> 2) Find your saved information in 'extraFields' field
+> Response
 
 ```json
 {
@@ -267,83 +217,88 @@ Cache-Control: no-cache
     "orderNumber": 104,
     //...
     "extraFields": {
-        "referred_by": "Referrer is: Facebook Ads"
+        "referred_by": "Facebook Ads"
     }
 }
 ```
 
+After customer placed their order, you can get the saved information using the Ecwid REST API in the order details.
+
 The information you saved earlier is available in the `extraFields` field in the order details. You can get order details via Ecwid REST API with [searching for orders](https://developers.ecwid.com/api-documentation/orders#search-orders) or [getting a specific order details](https://developers.ecwid.com/api-documentation/orders#get-order-details) methods. 
 
-If you specified the section to display that extra field, it will be shown to customer when they view the placed order and to a merchant when they view order details in the Ecwid Control Panel. 
+[Learn how to show field to customer and merchant in order details](https://developers.ecwid.com/api-documentation/show-extra-fields-in-order)
+
+## Show extra fields in order
+
+> Add a new field to order comments at store checkout
+
+```html
+<script>
+// Place Ecwid integration code here
+// ...
+
+// Init order fields 
+ec.order = ec.order || {};
+ec.order.extraFields = ec.order.extraFields || {};
+
+// Add new text field to order comments section at checkout
+ec.order.extraFields.how_you_found_us = {
+    'title': 'How did you find us?',
+    'textPlaceholder': 'Describe here please!',
+    'type': 'text',
+    'required': false,
+    'checkoutDisplaySection': 'order_comments', // show new field in order comments block
+    'orderDetailsDisplaySection': 'order_comments' // show saved data in order comments block in order details to merchant and customer
+};
+</script>
+```
+
+You can show your saved extra field title and value in order details. It will be displayed to both merchant and customer who placed that order. 
+
+It is possible to customize the position of this information with `orderDetailsDisplaySection` field. Possible values for it include: `shipping_info`, `billing_info`, `customer_info`, `order_comments`.
+
+<aside class='note'>
+    <strong>For customer in storefront</strong>, the saved data will <strong>always be displayed below order comments section</strong>, regardless of the value set for 'orderDetailsDisplaySection' (except for if that value is not supported).
+</aside>
+
+Check a basic example on the right. 
+
+**Field display requirements**: 
+
+- `title` is not empty 
+- `value` is not empty
+- `orderDetailsDisplaySection` contains supported value: `shipping_info`, `billing_info`, `customer_info`, `order_comments`. More on this below
+
+<aside class='note'>
+    If `orderDetailsDisplaySection` contains an unsupported value, the field will still be saved to an order, but it will not be shown.
+</aside>
 
 ## Customize extra fields 
 
 Extra fields provide some options for customization. Let's see them in more details below. 
 
-**Change extra field attribute based on selected shipping method**
-
-> Show text input for pickup and regular shipping methods
-
-```
-<script>
-// Initialize extra fields
-ec.order = ec.order || {};
-ec.order.extraFields = ec.order.extraFields || {};
-
-// Add a new optional text input 'How should we sign the package?' to shipping address form
-ec.order.extraFields.wrapping_box_signature = {
-    'title': 'How should we sign the package?',
-    'textPlaceholder': 'Package sign',
-    'type': 'text',
-    'tip': 'We will put a label on a box so the recipient knows who it is from',
-    'orderDetailsDisplaySection': 'order_comments',
-    'required': false,
-    'available': true,
-    'checkoutDisplaySection': 'shipping_address', // Default display section
-
-    // Use 'overrides' to change extra field attributes based on condition
-    'overrides': [
-        {
-            // If customer's selected shipping method meets the condition
-            'conditions': {
-                    'shippingMethod' : 'In-store Pickup'
-                },
-            // We overrid the field attribute 'checkoutDisplaySection'
-            'fieldsToOverride': {
-                'checkoutDisplaySection': 'pickup_details' // Display section used if condition is met
-            }
-        }
-    ],
-};
-</script>
-```
+### Change extra field based on shipping method
 
 > Save different hidden data based on selected shipping method
 
-```
+```html
 <script>
 // Initialize extra fields
-ec.order = ec.order || {};
-ec.order.extraFields = ec.order.extraFields || {};
+//...
 
 // Save type of shipping selected to order as hidden data
 ec.order.extraFields.shipping_type = {
-    'value': 'none',
+    // We save 'flat rate' value by default
+    'value': 'flat rate',
     'overrides' : [
+    // We can use multiple conditions / shipping methods 
         {
             'conditions': {
                 'shippingMethod' : 'In-store Pickup'
             },
             'fieldsToOverride': {
-                'value': 'pickup' // If selected shipping is 'In-store Pickup', we save 'pickup'
-            }
-        },
-        {
-            'conditions': {
-                'shippingMethod' : 'Flat Rate'
-            },
-            'fieldsToOverride': {
-                'value': 'flat rate' // If selected shipping is 'Flat Rate', we save 'flate rate'
+                // If selected shipping is 'In-store Pickup', we save 'pickup'
+                'value': 'pickup' 
             }
         }
     ]
@@ -355,7 +310,7 @@ You can change the attributes of an extra field based on a shipping method selec
 
 At the moment you are able to use the selected shipping method name as a condition only. However, you can add several `conditions` to a single extra field, so you can use different override rules for different shipping methods selected. 
 
-**Advanced settings for date picker extra field**
+### Advanced settings for date picker
 
 > Customize date and time selection in datepicker
 
@@ -520,7 +475,7 @@ Specify time frames for each day of the week, multiple timeframes are available,
 
 Specify time frames which are not available to select, see example on the right.
 
-## Extra fields examples and limits
+## More about extra fields
 
 ### Examples
 
