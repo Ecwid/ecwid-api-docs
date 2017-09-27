@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## September 27, 2017
+
+- Added new function to JS API in storefront: `Ecwid.getFeatureToggles()`. It returns enabled or disabled new storefront features, like new product listing (category pages with products). [Learn more](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getfeaturetoggles)
+
 ## September 21, 2017
 
 - Product Combinations are now renamed to **Product Variations**. All the product combinations-related labels in the Ecwid Control Panel, Help Center and API Documentation have been renamed to product variations. However, **all API endpoints and entities still refer to combinations** so that apps continue working as expected. 

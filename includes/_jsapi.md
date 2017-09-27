@@ -79,7 +79,7 @@ Returns array containing widget types present on a page. There are four types av
 * `ProductBrowser` - Storefront widget
 * `Categories` - Categories widget
 * `SingleProduct` - Embedded product (old version)
-* `Product` - Embedded product (latest)
+* `Product` - Embedded product (latest version)
 
 ### Ecwid.formatCurrency
 
@@ -162,8 +162,8 @@ Ecwid.getAppPublicToken(appId);
 var publicToken = Ecwid.getAppPublicToken('my-cool-app');
 
 console.log(publicToken);
-// prints
-// public_qKDUqKkNXzcj9DejkMUqEkYLq2E6BXM9
+
+// 'public_qKDUqKkNXzcj9DejkMUqEkYLq2E6BXM9'
 
 ```
 
@@ -174,6 +174,28 @@ Returns public applicaiton token for an Ecwid store. In order for this function 
 Name | Type | Description
 ---- | ---- | -----------
 **appId** | String | Namespace of your application (as set in the application settings).
+
+### Ecwid.getFeatureToggles
+
+```js
+var ecwidFeatureTogglesInfo = Ecwid.getFeatureToggles();
+
+console.log(ecwidFeatureTogglesInfo);
+
+// {
+//  newProductList: false, 
+//  newDetailsPage: false
+// }
+```
+
+`Ecwid.getFeatureToggles()` function returns enabled or disabled storefront features we released over the years and just recently. 
+
+**Returned fields:**
+
+Name | Type | Description
+---- | ---- | -----------
+newProductList | boolean | `true` if [new product listing](https://developers.ecwid.com/api-documentation/look-and-design#new-product-listing) is enabled in a store. `false` otherwise
+newDetailsPage | boolean | `true` if new product details page is enabled in a store. `false` otherwise
 
 ### Page Object
 
