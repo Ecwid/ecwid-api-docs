@@ -10,7 +10,7 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ## September 27, 2017
 
-- Added new function to JS API in storefront: `Ecwid.getFeatureToggles()`. It returns enabled or disabled new storefront features, like new product listing (category pages with products). [Learn more](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getfeaturetoggles)
+- Added new function to Ecwid JS API in storefront: `Ecwid.getFeatureToggles()`. It returns enabled or disabled new storefront features, like new product listing (category pages with products). [Learn more](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getfeaturetoggles)
 
 ## September 21, 2017
 

@@ -133,16 +133,16 @@ Access scope | Notes
 read_store_profile | Get store name and general settings, get store admin email, get updates statistics etc. *Requested in all cases even if not specified*
 update_store_profile | Set taxes, update invoice logo, change Starter Site domain, close store for maintenance etc.
 read_catalog | Search products, get product options/variations etc. Also allows to receive push updates (webhooks) about changes in store products.
-update_catalog | Update product prices, upload images and e-goods, modify product attributes etc.
+update_catalog | Update product prices, upload images and e-goods, modify product attributes, delete products and categories, etc.
 create_catalog | Create new products
 read_orders | Get sales for a given period, retrieve order details etc. Also allows to receive push updates (webhooks) about changes in store orders.
-update_orders | Change order totals, switch order status, cancel orders etc. Requires `read_orders` scope to function
+update_orders | Change order totals, switch order status, cancel orders, delete orders, etc. Requires `read_orders` scope to function
 create_orders | Place a new order in the store
 read_customers | Search customers or retrieve some particular customer data
-update_customers | Change customer profile data, add items to the customer address book etc.
+update_customers | Change customer profile data, add items to the customer address book, delete customers, etc.
 create_customers | Add a new customer to the store's Customers list
 read_discount_coupons | Get the list of discount coupons or retrieve some particular coupon details
-update_discount_coupons | Change the coupon expiration date or limit its number of use, update coupon code etc.
+update_discount_coupons | Change the coupon expiration date or limit its number of use, update coupon code, delete coupon codes, etc.
 create_discount_coupons | Add a new discount coupon
 customize_storefront | Attach a custom JS/CSS to the storefront on the fly to modify its look and feel (see [Customizing storefront](#customize-storefront))
 add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
