@@ -8,6 +8,11 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## October 16, 2017
+
+- Added a way to open any page in storefront from within your application – `Ecwid.openPage`. Now you can open any custom page in storefront for your users on demand. [Learn more](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-openpage)
+- Added a way to dynamically set storefront base URL for SEO-friendly URLs – `Ecwid.setStorefrontBaseUrl`. It can be useful when your solution updates query parameters of a page URL dynamically and you need to preserve them. [Learn more](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-setstorefrontbaseurl)
+
 ## September 27, 2017
 
 - Added new function to Ecwid JS API in storefront: `Ecwid.getFeatureToggles()`. It returns enabled or disabled new storefront features, like new product listing (category pages with products). [Learn more](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getfeaturetoggles)

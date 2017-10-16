@@ -232,6 +232,150 @@ productId | integer | for type==’PRODUCT’: the internal id of the displaying
 orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
 vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
 
+### Ecwid.setStorefrontBaseUrl 
+
+> Set storefront base URL to a custom URL after store is loaded
+
+```js
+Ecwid.setStorefrontBaseUrl('https://www.ecwid.com/demo/?ipad&lang=en');
+```
+
+Dynamically updates storefront base URL. 
+
+Typically is used for [SEO URLs feature](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) to preserve dynamically added query parameters in a page URL. Works similarly to `window.ec.config.baseUrl` method.
+
+
+### Ecwid.openPage
+
+> Open cart page in storefront
+
+```js
+Ecwid.openPage('cart');
+```
+
+When customer browses the store, Ecwid makes the navigation easy and fast due to the Ajax technology without any page reloads. However, sometimes you may need to open a specific page in storefront automatically or after a user clicks on a link. This is where `Ecwid.openPage` method can be useful. 
+
+The pages in storefront can be of two types: 
+
+* general page like `cart` and shipping stage at checkout
+* page with parameters, like product, category, search, etc.
+
+For general pages, you can only specify the name of the page you want to open. However, for pages with parameters, it is necessary that you specify what page you want to open exactly. 
+
+#### Pages with parameters
+
+> Open product details page of product with ID: 12345
+
+```js
+Ecwid.openPage('product', {'id': 12345});
+```
+
+To open a page with parameters, you must specify them in the object in second argument of `Ecwid.openPage` function. See example on the right. 
+
+**Product**
+
+For product details pages, the first argument of `Ecwid.openPage` function will be `'product'`. 
+
+Additional parameters include: `'id'` and `'name'`. 
+
+`'id'` is a required parameter, which helps Ecwid identify which exact product page to open in storefront. If it is not specified, the function call will be ignored. 
+
+> Open product page and set product name in page URL as 'Apple'
+
+```js
+Ecwid.openPage('product', {'id': 72585497, 'name': "Apple"});
+```
+
+`'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original product name set by store owner.
+
+The example on the right opens product details page of a specific product and uses a custom name we set for it in [Ecwid demo store](https://www.ecwid.com/demo/). As a result, the URL will look like: `https://www.ecwid.com/demo/Apple-p72585497`
+
+**Category**
+
+For category pages, the first argument of `Ecwid.openPage` function will be `'category'`.
+
+Additional parameters include: `'id'` and `'name'`. 
+
+`'id'` is a required parameter, which helps Ecwid identify which exact category page to open in storefront. If it is not set, Ecwid will use store home page, i.e. id will be `0` 
+
+> Open category page and set product name in URL as 'Fruit' 
+
+```js
+Ecwid.openPage('category', {'id': 20671017, 'name': "Fruit"});
+```
+
+`'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original category name set by store owner.
+
+The example on the right opens product details page of a specific product and uses a custom name we set for it in [Ecwid demo store](https://www.ecwid.com/demo/). As a result, the URL will look like: `https://www.ecwid.com/demo/Apple-p72585497`
+
+**Search**
+
+> Open search page and search for 'surfboard' products in a storefront
+
+```js
+Ecwid.openPage('search', {'keywords': 'surfboard'});
+```
+
+> Open search page and search for products under $50
+
+```js
+Ecwid.openPage('search', {'priceTo': '50'});
+```
+
+For the search page, the first argument of `Ecwid.openPage` function will be `'search'`.
+
+Additional parameters include: 
+
+- `'priceFrom'`: the minimum products’ price (base price). The decimal separator is dot. No currency symbol.
+- `'priceTo'`: the maximum products’ price (base price). The decimal separator is dot. No currency symbol. 
+- `'category'`: the category ID, to which products belong. This partially duplicates functions of the Categories widget and provides you with the more flexible results. For example, you can mix several parameters: to select all the products which cost less than $30 and belong to the ‘t-shirt’ category. Instructions: How to get category ID
+- `'withSubcategory'`: whether to show products from subcategories, if the "category" parameter is indicated. Possible values: true, any other value is treated as false. 
+- `'field{Name}=param[,param]'`: search by product attributes. "Name" is the attribute name (spaces will work). "Param" is the attribute value. You can place several values separated by comma. In that case values will be connected through "OR", and if the product has at least one of them it will be shown. Important note: if you need to search for an exact attribute value you should enclose it in the quotation marks. For information about product attributes please refer to this article.
+- `'field{id}=param[,param]'`: it is the same parameter as `field[Name]` but attribute ID is used instead attribute name. In this case you need to get the attribute ID number through the API. It is more complex but resistant to attributes renaming.
+- `'keywords'`: it is a search string. The search result will be products with title, description, or some other fields containing these keywords.
+inStock=true: returns the list of "In stock" products. Otherwise the search shows both "In stock" and "Out of stock" products. 
+
+
+**Sign in**
+
+> Open sign in page and redirect user to a custom page on success
+
+```js
+Ecwid.openPage('signin', {'returnurl': 'https://www.ecwid.com/demo/Surfboards-c20671017'});
+```
+
+For the search page, the first argument of `Ecwid.openPage` function will be `'signin'`.
+
+Additional parameters include: `'returnurl'`
+
+`'returnurl'` is an optional parameter, which can redirect user to a specific URL after the successful login. 
+
+#### Pages without parameters
+
+> Open cart page in storefront 
+
+```js
+Ecwid.openPage('cart');
+```
+
+Open the following pages by setting page name as first argument of `Ecwid.openPage` function. 
+
+- `'cart'`
+- `'checkout/shipping'`
+- `'checkout/payment'`
+- `'checkout/place-order'`
+- `'checkout/order-confirmation'`
+- `'account/settings'`
+- `'account/orders'`
+- `'account/address-book'`
+- `'account/favorites'`
+- `'pages/about'`
+- `'pages/shipping-payment'`
+- `'pages/returns'`
+- `'pages/terms'`
+- `'pages/privacy-policy'`
+
+
 ## Subscribe To Events
 
 Find various useful events and execute your functions with them.
