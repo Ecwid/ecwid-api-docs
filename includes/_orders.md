@@ -358,6 +358,7 @@ privateAdminNotes | string | Private note about the order from store owner
 extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
 refundedAmount | number | A sum of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
+pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 
 #### OrderItem
 Field | Type |  Description
@@ -861,6 +862,7 @@ privateAdminNotes | string | Private note about the order from store owner
 extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
 refundedAmount | number | A sum of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
+pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 
 #### OrderItem
 Field | Type |  Description
@@ -1644,7 +1646,8 @@ Cache-Control: no-cache
             }
         ],
         "hidden": false,
-        "privateAdminNotes": "Must be delivered till Sunday."
+        "privateAdminNotes": "Must be delivered till Sunday.",
+        "pickupTime": "2017-10-17 05:00:00 +0000"
     }
 ```
 
@@ -1702,6 +1705,7 @@ externalTransactionId | string | Transaction ID / invoice number of the order in
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner
+pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 
 #### OrderItem
 Field | Type |  Description
@@ -2047,6 +2051,7 @@ externalTransactionId | string | Transaction ID / invoice number of the order in
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner. Ignored when creating orders with [public token](#access-tokens)
+pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 
 #### OrderItem
 Field | Type | Description
