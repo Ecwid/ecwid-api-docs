@@ -1,9 +1,7 @@
 # Storefront JS API
 
-The JavaScript API we described is available for all Ecwid users. The API is intended for better integrating Ecwid with the surrounding website. The API is based on two concepts: objects and events. Objects are simple containers for methods, while events are containers for the user-supplied callbacks (or extensions).
-
 > Check out [Customize Storefront](#customize-storefront) section for general details on changing Ecwid's storefront.
-> 
+>
 > Access Page object to find the current page type
 
 ```javascript
@@ -11,14 +9,20 @@ Ecwid.OnPageLoad.add(function(page) {
         alert("My page load handler: " + page.type);
 });
 ```
+
 > 
 > See also: [App working in storefront source code example](https://github.com/Ecwid/custom-thank-you-page-app)
 
-Extensions are added to the events using the `add()` method, see example code on the right.
+Storefront JS API allows your app to integrate with storefront on a deeper level. It provides access to events (page changed, cart changed), entities (product, cart, order) and others. 
 
-This sample adds a function that is called every time a new page is loading in the product browser. Callbacks may be objects with multiple functions instead of just one function as shown in the example above, which may return useful values. The form of the extensions, their parameters, and the need of a return value depends on the event that occurs.
+Get started with this list of available use cases: 
 
-Note that the `add()` method is located in the script.js file of the standard Ecwid integration code. It is important to include script.js before you use the API methods. Moreover, because of the staged loading of Ecwid, only few API methods are available during the page load. Most of the Ecwid JavaScript API is available after Ecwid is loaded completely. All JavaScript API methods will be available after you hook into the `Ecwid.OnAPILoaded` event.
+- [Get basic storefront details (store ID, public token, public app config)](https://developers.ecwid.com/api-documentation/get-storefront-details)
+- [Subscribe to store events (page changes, cart changes, user login)](https://developers.ecwid.com/api-documentation/subscribe-to-events)
+- [Get details of a logged in customer (email, name, billing address)](https://developers.ecwid.com/api-documentation/get-customer-details)
+- [Manage customer's cart (add product, remove product, clear cart)](https://developers.ecwid.com/api-documentation/manage-customer-cart)
+- [Get cart details (get items in cart, get selected payment/shipping method, calculate order total)](https://developers.ecwid.com/api-documentation/get-cart-details)
+- [JS API Examples](https://developers.ecwid.com/api-documentation/js-api-examples)
 
 <aside class="notice">
 Ecwid Storefront JavaScript API is available on any Ecwid plan.
@@ -244,8 +248,7 @@ Dynamically updates storefront base URL.
 
 Typically is used for [SEO URLs feature](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) to preserve dynamically added query parameters in a page URL. Works similarly to `window.ec.config.baseUrl` method.
 
-
-### Ecwid.openPage
+## Open Page in Storefront
 
 > Open cart page in storefront
 
@@ -262,7 +265,7 @@ The pages in storefront can be of two types:
 
 For general pages, you can only specify the name of the page you want to open. However, for pages with parameters, it is necessary that you specify what page you want to open exactly. 
 
-#### Pages with parameters
+### Pages with parameters
 
 > Open product details page of product with ID: 12345
 
@@ -350,7 +353,7 @@ Additional parameters include: `'returnurl'`
 
 `'returnurl'` is an optional parameter, which can redirect user to a specific URL after the successful login. 
 
-#### Pages without parameters
+### Pages without parameters
 
 > Open cart page in storefront 
 
@@ -375,8 +378,7 @@ Open the following pages by setting page name as first argument of `Ecwid.openPa
 - `'pages/terms'`
 - `'pages/privacy-policy'`
 
-
-## Subscribe To Events
+## Subscribe to Events
 
 Find various useful events and execute your functions with them.
 
