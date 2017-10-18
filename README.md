@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## October 18, 2017
+
+- We extended information provided from Ecwid for Custom [Shipping](https://developers.ecwid.com/api-documentation/add-shipping-method) and [Discount](https://developers.ecwid.com/api-documentation/add-custom-discount) requests to 3rd party applications. Now apps get more information about order items, selected payment method, customer email, handling fee and extra fields. 
+
 ## October 16, 2017
 
 - Added a way to open any page in storefront from within your application – `Ecwid.openPage`. Now you can open any custom page in storefront for your users on demand. [Learn more](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-openpage)

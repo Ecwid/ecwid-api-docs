@@ -41,9 +41,9 @@ For example, if you need to save a cookie into an order or if you need to ask a 
 
 Learn how to save private information about storefront or a customer into an order. 
 
-1. [Modify Ecwid integration code to initialize the fields](https://developers.ecwid.com/api-documentation/order-extra-fields#add-new-fields-to-checkout)
-2. [Set values for extra fields when customer visits a store](https://developers.ecwid.com/api-documentation/order-extra-fields#add-new-fields-to-checkout)
-3. [Get saved info in order details in Ecwid REST API](https://developers.ecwid.com/api-documentation/order-extra-fields#get-extra-fields-in-rest-api)
+1. [Modify Ecwid integration code to initialize the fields](https://developers.ecwid.com/api-documentation/save-hidden-data-to-order)
+2. [Set values for extra fields when customer visits a store](https://developers.ecwid.com/api-documentation/save-hidden-data-to-order)
+3. [Get saved info in order details in Ecwid REST API](https://developers.ecwid.com/api-documentation/get-extra-fields-in-rest-api)
 
 Check out more details on how to do this in the docs below.
 

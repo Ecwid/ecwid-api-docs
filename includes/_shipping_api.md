@@ -100,6 +100,9 @@ POST https://mycoolapp.com/integration HTTP/1.1
         "customerGroupId": 123456,
         "customerGroup": "Gold members",
         "customerId": 23649002,
+        "paymentMethod": "Purchase order",
+        "email": "johnsmith@example.com",
+
         "discountCoupon": {
                 "name": "Coupon # 3",
                 "code": "5PERCENTOFF",
@@ -141,44 +144,69 @@ POST https://mycoolapp.com/integration HTTP/1.1
             "description": ""
         },
         "items": [
-            {
-                "weight": 1.2,
-                "price": 2,
-                "amount": 1,
-                "productId": 65955001,
-                "name": "Apple",
-                "categoryId": 19175294,
-                "sku": "30022537",
-                "selectedOptions": [
-                    {
-                        "name": "Box type",
-                        "value": "Big",
-                        "valuesArray": [
-                            "Big"
-                        ]
-                    }
-                ],
-                "dimensions": {
-                    "height": 3.5,
-                    "width": 6,
-                    "length": 12.5
-                }
-            },
-            {
-                "weight": 0.3,
-                "price": 5.08,
-                "amount": 1,
-                "productId": 66568001,
-                "name": "Orange",
-                "categoryId": 19175294,
-                "sku": "02266183",
-                "selectedOptions": null,
-                "dimensions": {
-                    "height": 0,
-                    "width": 0,
-                    "length": 0
-                }
-            }
+            {  
+                "weight":0.25,
+                "price":18.95,
+                "amount":1,
+                "productId":85607123,
+                "name":"All-Weather\u0026trade; Solid Black Mini Umbrella",
+                "categoryId":-1,
+                "sku":"GFUMLT",
+                "selectedOptions":null,
+                "dimensions":{  
+                   "length":9.0,
+                   "width":1.0,
+                   "height":7.0
+                },
+                "productPrice":18.95,
+                "categoryIds":[],
+                "categories":[],
+                "quantity":16658,
+                "unlimited":false,
+                "inStock":true,
+                "priceInProductList":18.95,
+                "isShippingRequired":true,
+                "productClassId":0,
+                "enabled":true,
+                "warningLimit":0,
+                "fixedShippingRateOnly":false,
+                "fixedShippingRate":0.0,
+                "options":null,
+                "wholesalePrices":null,
+                "compareToPrice":null,
+                "url":"https://mdemo.ecwid.com/#!/All-Weather\u0026trade-Solid-Black-Mini-Umbrella/p/85607123",
+                "created":"2017-06-06 11:47:18 +0000",
+                "updated":"2017-09-18 08:22:29 +0000",
+                "createTimestamp":1496749638,
+                "updateTimestamp":1505722949,
+                "defaultCombinationId":0,
+                "imageUrl":null,
+                "thumbnailUrl":null,
+                "smallThumbnailUrl":null,
+                "hdThumbnailUrl":null,
+                "originalImageUrl":null,
+                "originalImage":null,
+                "borderInfo":null,
+                "galleryImages":[],
+                "defaultCategoryId":0,
+                "seoTitle":"All-Weather\u0026trade; Solid Black Mini Umbrella",
+                "seoDescription":"This 40\u0026quot; super mini umbrella folds up to a compact 9\u0026quot; x 1-3/4\u0026quot; x 1-1/4\u0026quot; to carry in your purse or briefcase. The uni-chrome ribs, plastic handle and self tips combine to make this a sturdy and functional accessory. Comes in a clear, plastic polypropylene case.",
+                "favorites":{  
+                   "count":0,
+                   "displayedCount":"0"
+                },
+                "attributes":[],
+                "relatedProducts":{  
+                   "productIds":[],
+                   "relatedCategory":{  
+                      "enabled":false,
+                      "categoryId":0,
+                      "productCount":1
+                   }
+                },
+                "combinations":[],
+                "showOnFrontpage":1
+             }
         ],
         "predictedPackages":[  
             {  
@@ -207,7 +235,25 @@ POST https://mycoolapp.com/integration HTTP/1.1
         "weight": 1.5,
         "weightUnit": "lbs",
         "currency": "USD",
-        "dimensionUnit" : "MM"
+        "dimensionUnit" : "MM",
+        "handlingFee": {
+            "name": "Wrapping",
+            "value": 2,
+            "description": "Silk paper wrapping"
+        },
+        "extraFields": {
+            "platform": {
+                "value": "adobe_muse"
+            },
+            "AFF_ID": {
+                "value": "fb-123"
+            },
+            "how_did_you_find_us": {
+                "title": "How you found us?",
+                "value": "TV show",
+                "order_details_display_section": "order_comments"
+            }
+        }
     }
 }
 ```
@@ -247,6 +293,10 @@ predictedPackages | Array\<*PredictedPackage*\> | Predicted information about th
 shippingAddress | \<*ShippingAddressInfo*\> | Shipping address details (destination)
 originAddress | \<*OriginAdressInfo*\> | Origin address details (departure)
 dimensionUnit | string | Active dimension units of a store at the moment of the request. Possible values: `IN`,`YD`,`CM`,`MM`
+paymentMethod | string | Payment method used by customer
+handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
+email | string  | Customer email address
+extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
 
 #### OrderItems
 Field | Type |  Description
@@ -260,6 +310,45 @@ amount |  number | Amount purchased
 name |  string | Product name
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 dimensions | \<*OrderItemDimensions*\> | Product dimensions info
+quantity |  number | Amount of product items in stock. *This field is omitted for the products with unlimited stock*
+unlimited | boolean | `true` if the product has unlimited stock
+inStock | boolean | `true` if the product or any of its variations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
+name |  string |  Product title
+productPrice | number | Product price set by store owner
+priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. **Does not include taxes**
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
+compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
+isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
+url | string |  URL of the product's details page in the store. [Learn more](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
+created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
+updated |  string | Product last update date/time
+createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`
+updateTimestamp | number | Product last update date in UNIX Timestamp format, e.g `1427268654`
+productClassId |  number | Id of the class (type) that this product belongs to. `0` value means the product is of the default 'General' class. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
+enabled | boolean | `true` if product is enabled, `false` otherwise. Disabled products are not displayed in the store front.
+options | Array\<*ProductOption*\> | A list of the product options. Empty (`[]`) if no options are specified for the product. 
+warningLimit | number | The minimum 'warning' amount of the product items in stock, if set. When the product quantity reaches this level, the store administrator gets an email notification.
+fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
+fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
+defaultCombinationId |  number |  Identifier of the default product variation, which is defined by the default values of product options.
+thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of the biggest dimension is 400px. *The original uploaded product image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The original uploaded product image is available in the `originalImageUrl` field.*
+smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 160x160px. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product HD thumbnail URL resized to fit 800x800px
+originalImageUrl |  string  | URL of the original not resized product image
+originalImage | \<*ImageDetails*\> | Details of the product image
+galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
+categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
+categories | Array\<*CategoriesInfo*\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
+seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
+defaultCategoryId | number  | Identifier of the default category of the product
+favorites | \<*FavoritesStats*\>  | Product favorites stats
+attributes | Array\<*AttributeValue*\> | Product attributes and their values
+relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
+combinations | Array\<*Variation*\> | List of the product variations
+showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
+
 
 #### OrderItemOption
 Field | Type |  Description
@@ -284,6 +373,110 @@ Field | Type  | Description
 length | number | Length of a product
 width | number | Width of a product
 height | number | Height of a product
+
+#### FavoritesStats
+Field | Type  | Description
+----- | ----- | -----------
+count | number | The actual number of 'likes' of this product
+displayedCount | string | The displayed number of likes. May differ from the `count` if, for example, the value is more than 1000, than it will show 1K instead of the precise number
+
+#### WholesalePrice
+Field | Type  | Description
+----- | ----- | -----------
+quantity |  number |  Number of product items on this wholesale tier
+price | number |  Product price on the tier
+
+#### ProductOption
+Field | Type  | Description
+----- | ----- | -----------
+type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
+name |  string |  Product option name, e.g. `Color`
+choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
+defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT`, `CHECKBOX` or `RADIO`.
+required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
+
+#### ImageDetails 
+Field | Type  | Description
+----- | ----- | -----------
+url | string | Image URL
+width | integer | Image width
+height | integer | Image height
+
+#### GalleryImage
+Field | Type  | Description
+----- | ----- | -----------
+id | number | Internal gallery image ID
+alt | string |  Image description, displayed in the image tag's *alt* attribute
+url | string |  **Deprecated**. Original image URL. Equals `originalImageUrl`
+thumbnail | string  | **Deprecated**. Image thumbnail URL resized to fit 160x160px. Equals `smallThumbnailUrl`
+thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of the biggest dimension is 400px. *The original uploaded product image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The original uploaded product image is available in the `originalImageUrl` field.*
+smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 160x160px. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product HD thumbnail URL resized to fit 800x800px
+originalImageUrl |  string  | URL of the original not resized product image
+width | number |  Image width
+height |  number |  Image height
+orderby |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
+
+#### CategoriesInfo
+Field | Type  | Description
+----- | ----- | -----------
+id | number | Category ID
+enabled | boolean | `true` if category is enabled, `false` otherwise
+
+#### AttributeValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
+name |  string |  Attribute displayed name
+value | string  | Attribute value
+type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit’ attributes. The 'type’ field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
+show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` 
+
+#### RelatedProducts
+Field | Type  | Description
+-------------- | -------------- | --------------
+productIds | Array\<*number*\>  | IDs of the related products
+relatedCategory | *RelatedCategory*  | Describes the "N random related products from a category" option
+
+#### RelatedCategory
+Field | Type  | Description
+-------------- | -------------- | --------------
+enabled | boolean | `true` if the "N random related products from a category" option is enabled. `false` otherwise
+categoryId |  number |  Id of the related category. Zero value means "any category", that is, random products from the whole store.
+productCount |  number |  Number of random products from the given category to be shown as related
+
+#### Variation
+Field | Type  | Description
+------| ----- | -----------
+id |  number |  Variation ID
+combinationNumber | number |  Variation # number, which is displayed in the variations table in Control panel
+options | Array\<*OptionValue*\> | Set of options that identifies this variation. An array of name-value pairs
+sku | string  | Variation SKU. Omitted if the variation inherits the base product's SKU
+thumbnailUrl |  string | URL of the product variation thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+imageUrl |  string  | URL of the product variation image resized to fit 1500x1500px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+smallThumbnailUrl | string  | URL of the product variation thumbnail resized to fit 160x160px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
+hdThumbnailUrl | string  | Product variation HD thumbnail URL resized to fit 800x800px. Omitted if the variation inherits the base product's image.
+originalImageUrl |  string  | URL of the original not resized product variation image. Omitted if the variation inherits the base product's image.
+quantity | number | Amount of the variation items in stock. Omitted if the variation inherits the base product's quantity.
+unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
+price | number | Variation price. Omitted if the variation inherits the base product's price.
+wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
+weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
+
+#### OptionValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+name |  string |  Option name
+value | string |  Option value
+
+#### ProductOptionChoice
+Field | Type  | Description
+-------------- | -------------- | --------------
+text |  string | Option selection text, e.g. 'Green'.
+priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
+priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
 
 #### DiscountCouponInfo
 Field | Type  | Description
@@ -347,6 +540,13 @@ city | string | Customer's city
 countryCode | string | Customer's country code in Ecwid
 postalCode | string | Customer's postal code
 stateOrProvinceCode | string | Customer's state or province code in Ecwid
+
+#### HandlingFeeInfo
+Field | Type | Description
+----- | ---- | -----------
+name | string | Handling fee name set by store admin. E.g. `Wrapping`
+value | number | Handling fee value
+description | string | Handling fee description for customer
 
 ### Response
 
