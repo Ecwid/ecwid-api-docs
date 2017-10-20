@@ -2,6 +2,21 @@
 
 Ecwid REST API allows your application to manage Ecwid store on behalf of an Ecwid user. Create products, update orders, delete a customer and many many more.
 
+**List of available endpoints**:
+
+- [Store information](https://developers.ecwid.com/api-documentation/store-information)
+- [Products](https://developers.ecwid.com/api-documentation/products)
+- [Categories](https://developers.ecwid.com/api-documentation/categories)
+- [Product Variations](https://developers.ecwid.com/api-documentation/product-variations)
+- [Product Types](https://developers.ecwid.com/api-documentation/product-types)
+- [Orders](https://developers.ecwid.com/api-documentation/orders)
+- [Carts](https://developers.ecwid.com/api-documentation/carts)
+- [Customers](https://developers.ecwid.com/api-documentation/customers)
+- [Customer Groups](https://developers.ecwid.com/api-documentation/customer-groups)
+- [Discount Coupons](https://developers.ecwid.com/api-documentation/discount-coupons)
+- [Application](https://developers.ecwid.com/api-documentation/application)
+- [Starter Site](https://developers.ecwid.com/api-documentation/starter-site)
+
 #### API basics
 
 **RESTful / oAuth2**

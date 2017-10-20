@@ -6,6 +6,13 @@ With the Custom Payment API you can integrate a new payment method for customers
 Access scope required: <strong>add_payment_method</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
+**Table of contents**: 
+
+- [How it works](https://developers.ecwid.com/api-documentation/how-payment-method-works)
+- [Set up your application](https://developers.ecwid.com/api-documentation/set-up-payment-method)
+- [Saving merchant settings](https://developers.ecwid.com/api-documentation/merchant-settings-for-payment-method)
+- [Payment request from Ecwid – Details](https://developers.ecwid.com/api-documentation/processing-payment-request)
+
 ## How payment method works
 
 #### 1. User configures app settings in settings tab

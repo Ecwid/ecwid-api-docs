@@ -1,20 +1,26 @@
 # Application storage
 
-The Ecwid API offers simple key-value storage for apps. You can use it to save private user preferences and public storefront settings, or as a database for your app.
-
 > App storage data example
 
 > ![App storage data example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/appStorage-1468406476.png)
 
+The Ecwid API offers simple key-value storage for apps. You can use it to save private user preferences and public storefront settings, or as a database for your app.
+
 This storage allows you to create complex client-side (JavaScript) apps and skip using a database on a server (like MySQL, etc.).
 
-So now you can save user data (e.g. preferences like color, font size, the position of a widget in the storefront, whether a widget is active, etc.) right in the Ecwid API, so you can use it as the database of your application.
+[Learn more about Application Storage benefits](https://developers.ecwid.com/api-documentation/benefits-of-application-storage)
 
-Each data entry is stored as a pair: a key and its value. You can get a specific value right away by checking a corresponding key. It is available for both embeddable and storefront apps.
+Each data entry is stored as a pair: a key and its value. You can get a specific value right away by checking a corresponding key. It is available for both embeddable and storefront apps. 
 
-**Important**: the storage of each app is isolated from other apps, so user data of your application is not available to other apps and vice versa.
+[Using application storage in your app](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api)
 
-## Benefits
+<aside class="note">
+  <strong>Important</strong>: the storage of each app is isolated from other apps, so user data of your application is not available to other apps and vice versa.
+</aside>
+
+You can also retrieve public app configuration (user preferences, etc.) saved in the application storage when your app works in storefront. [Learn more](https://developers.ecwid.com/api-documentation/public-application-config)
+
+## Benefits of application storage
 
 ### For client-side applications
 

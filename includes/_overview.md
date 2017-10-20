@@ -1,10 +1,30 @@
 # Overview
 
-The documentation below describes various ways to interact with the Ecwid store by using the API. In each section you can find a detailed description, as well as code examples for managing store data that will help you create your own application.
+The documentation below describes various ways to interact with the Ecwid store by using the API. 
+
+In each section you can find a detailed description, as well as code examples for managing store data that will help you create your own application.
 
 To find out more about the Ecwid platform and get some basic details about it, please visit the [Get Started](/get-started) page.
 
 Learn more on how to start developing an app here: [https://developers.ecwid.com/developing-your-app](/developing-your-app)
+
+**Table of contents**:
+
+- [Overview](https://developers.ecwid.com/api-documentation/overview)
+- [Authentication](https://developers.ecwid.com/api-documentation/authentication)
+- [REST API Reference](https://developers.ecwid.com/api-documentation/rest-api-reference)
+- [Order Extra Fields](https://developers.ecwid.com/api-documentation/order-extra-fields)
+- [Webhooks](https://developers.ecwid.com/api-documentation/webhooks)
+- [Application Storage](https://developers.ecwid.com/api-documentation/application-storage)
+- [Native Apps](https://developers.ecwid.com/api-documentation/embedded-apps)
+- [Add Shipping Method](https://developers.ecwid.com/api-documentation/add-shipping-method)
+- [Add Payment Method](https://developers.ecwid.com/api-documentation/add-payment-method)
+- [Add Custom Discount](https://developers.ecwid.com/api-documentation/add-custom-discount)
+- [Customize Storefront](https://developers.ecwid.com/api-documentation/customize-storefront)
+- [Storefront JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api)
+- [Single Sign-On](https://developers.ecwid.com/api-documentation/single-signon)
+- [Examples and Libraries](https://developers.ecwid.com/api-documentation/examples-and-libraries)
+
 
 ## API features
 

@@ -8,7 +8,15 @@ The Ecwid API platform allows you to customize storefront in various ways:
 - add tracking pixels or any other third-party conversion-tracking scripts to the checkout page
 - and more
 
-Check out the sections below to find out what other features are available and how to use them.
+**Most popular modifications include**:
+
+- [Apply custom CSS file](https://developers.ecwid.com/api-documentation/look-and-design#apply-custom-css)
+- [Apply custom JavaScript file](https://developers.ecwid.com/api-documentation/logic-and-code#add-custom-javascript-code)
+- [Change store layout](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout)
+- [Apply SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
+- [Change default colors and fonts](https://developers.ecwid.com/api-documentation/look-and-design#change-default-colors-and-fonts)
+- [Generate link to cart with products](https://developers.ecwid.com/api-documentation/logic-and-code#generate-cart-with-products)
+- [Access storefront JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api)
 
 ## Look and design
 

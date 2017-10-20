@@ -4,7 +4,11 @@ The Ecwid platform provides two ways of installing and operating applications in
 
 **Native apps** work solely in the Ecwid Control Panel by adding a new tab into one of its sections. When a user visits that tab, Ecwid will load the app page in an IFRAME window. The app can interact with a store (get access token, get store information) and with the Ecwid Control Panel using [Ecwid JS SDK](#ecwid-javascript-sdk).
 
+[Get started with a Native app](https://developers.ecwid.com/api-documentation/native-applications)
+
 **External apps** work outside of the Ecwid Control Panel on an external website or in the background with no setup required. These applications need to [handle the oAuth process](https://developers.ecwid.com/api-documentation/external-applications#get-access-token) themselves in order to get an access token. Usually, they work on the server side with their own database to store the access tokens of their users’ stores.
+
+[Get started with an External app](https://developers.ecwid.com/api-documentation/external-applications)
 
 ## Native applications
 

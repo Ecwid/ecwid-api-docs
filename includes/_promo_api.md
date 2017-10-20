@@ -6,6 +6,13 @@ With the Custom Discount API you can apply custom discounts to the order total w
 Access scope required: <strong>customize_cart_calculation</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
+**Table of contents**: 
+
+- [How it works](https://developers.ecwid.com/api-documentation/how-custom-discount-works)
+- [Set up your application](https://developers.ecwid.com/api-documentation/set-up-custom-discount)
+- [Saving merchant settings](https://developers.ecwid.com/api-documentation/user-interface-for-discount-rules)
+- [Discount request from Ecwid – Details](https://developers.ecwid.com/api-documentation/request-for-discount-and-response)
+
 #### Discount types examples
 
 The Custom Discount API allows you to apply an absolute or percent discount to an order. While this sounds simple enough, it provides many possibilities and different ways to use it in a store.

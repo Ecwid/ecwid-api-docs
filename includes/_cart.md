@@ -1569,7 +1569,7 @@ name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value
 description | string | Handling fee description for customer
 
-### PredictedPackage
+#### PredictedPackage
 Name | Type    | Description
 ---- | ------- | --------------
 height | number | Height of a predicted package

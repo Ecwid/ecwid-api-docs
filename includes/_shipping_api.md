@@ -6,6 +6,14 @@ Using the Custom Shipping API, you can integrate a new shipping carrier to provi
 Access scope required: <strong>add_shipping_method</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
+**Table of contents**: 
+
+- [How it works](https://developers.ecwid.com/api-documentation/how-shipping-method-works)
+- [Set up your application](https://developers.ecwid.com/api-documentation/set-up-shipping-method)
+- [Saving merchant settings](https://developers.ecwid.com/api-documentation/merchant-settings-for-shipping-method)
+- [Shipping request from Ecwid – Details](https://developers.ecwid.com/api-documentation/shipping-request-and-response)
+- [Troubleshooting](https://developers.ecwid.com/api-documentation/troubleshooting-shipping)
+
 ## How shipping method works
 
 #### 1. User configures app settings in settings tab

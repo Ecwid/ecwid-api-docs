@@ -4,13 +4,24 @@
 
 > ![Edit orders interface](https://dj925myfyz5v.cloudfront.net/wp-content/uploads/nativeApp-1468407012-1485267123.png)
 
-The Ecwid API allows your application to be embedded right into the user Control Panel and work like it is built into Ecwid. Although this approach is not necessary and you can use the Ecwid API without embedding an application into the Control Panel, we highly recommend it. Being integrated with Ecwid this way, your app will get way more user engagement, as it will be a part of a merchant store backend.
+The Ecwid API allows your application to be embedded right into the user Control Panel and work like it is built into Ecwid. 
 
 Overall, it works this way:
 
 - The user installs the application and allows it to add a new tab to the Ecwid Control Panel.
 - After installation, a new tab shows the page content of your specified IFRAME URL.
 - Ecwid provides a [REST API](#rest-api-reference) and a [JS SDK](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#ecwid-javascript-sdk) for authentication and operations inside of the Ecwid Control Panel.
+
+Although this approach is not necessary and you can use the Ecwid API without embedding an application into the Control Panel, we highly recommend it. Being integrated with Ecwid this way, your app will get way more user engagement, as it will be a part of a merchant store backend. 
+
+**Links to get started quickly**: 
+
+- [Set your app to embed into Ecwid Control Panel](https://developers.ecwid.com/api-documentation/building-an-embedded-app#set-up-your-application)
+- [Build your app interface from a template](https://developers.ecwid.com/api-documentation/building-an-embedded-app#app-page-template)
+- [Available user authentication types](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#user-authentication)
+- [Ecwid CSS Framework for Native Apps](https://developers.ecwid.com/api-documentation/ecwid-css-framework)
+- [Ecwid JavaScript SDK for Native Apps](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk)
+- [Troubleshooting issues with Native apps](https://developers.ecwid.com/api-documentation/troubleshooting)
 
 ## Building an embedded app
 

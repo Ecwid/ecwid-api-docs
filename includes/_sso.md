@@ -1,10 +1,20 @@
 # Single Sign-On
 
-Single sign-on (SSO) is a tool that allows a user to access multiple applications with one login and password. If a merchant already has a customer base on their website, customers may find it rather inconvenient that they have to log into the website and the store separately.
+Single Sign-On (SSO) allows user to access multiple applications with one login and password. 
 
-Ecwid’s single sign-on API allows those customers to sign into a merchant’s website and use the entire Ecwid store without having to log in again. In other words, if a customer is logged in on a website, they are automatically logged in on the Ecwid store too, even if they didn’t have an account there before.
+If a merchant already has a customer base on their website, customers may find it rather inconvenient that they have to log into the website and the store separately.
+
+Ecwid’s Single Sign-On API allows those customers to sign into a merchant’s website and use the entire Ecwid store without having to log in again. 
+
+In other words, if a customer is logged in on a website, they are automatically logged in on the Ecwid store too, even if they didn’t have an account there before. 
 
 <aside class="notice">Access scope required: <strong>create_customers</strong>. See more information in <a href="#access-scopes">access scopes section</a></aside>
+
+**Table of contents**:
+
+- [Add Single Sign-On to a website](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website)
+- [Customize Single Sign-On](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#customize-sso-workflow)
+- [Single Sign-On implementation examples](https://developers.ecwid.com/api-documentation/sso-implementation-examples)
 
 ## Implement SSO on a website
 
@@ -197,7 +207,7 @@ Field | Type  | Description
 **signOut** | function | This function is called when `canSignOut` returns true and the customer clicks the 'Sign out' link inside the store widget
 
 <aside class="notice">
-`Ecwid.setSsoProfile` works only when Ecwid is in SSO mode, that is, when the global variable ecwid_sso_profile is also defined.
+<em><strong>Ecwid.setSsoProfile</strong></em> works only when Ecwid is in SSO mode, that is, when the global variable <em><strong>ecwid_sso_profile</strong></em> is also defined.
 </aside>
 
 ### Notes

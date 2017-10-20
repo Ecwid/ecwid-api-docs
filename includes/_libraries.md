@@ -1,5 +1,7 @@
 # Examples and libraries
 
+Check out examples and libraries build for the Ecwid API platform by Ecwid and 3rd party developers. 
+
 #### Community libraries
 
 #### HTML/JavaScript
