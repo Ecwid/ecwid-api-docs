@@ -1,4 +1,4 @@
-## Starter Site
+## Starter site
 
 Ecwid API features several endpoints to control the presentation of Starter site. Learn more about the [Ecwid Starter site](https://support.ecwid.com/hc/en-us/articles/207100069-Starter-site)
 

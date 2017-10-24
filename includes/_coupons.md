@@ -1,4 +1,4 @@
-## Discount Coupons
+## Discount coupons
 
 Discount coupons allow customers to get discounts on their orders in the checkout process. For store owners it's a great way to increase sales or make a temporary promotion.
 

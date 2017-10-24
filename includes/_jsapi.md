@@ -29,7 +29,7 @@ Ecwid Storefront JavaScript API is available on any Ecwid plan.
 </aside>
 
 
-## Get Storefront Details
+## Get storefront details
 
 Get basic storefront information to use in your script.
 
@@ -201,9 +201,7 @@ Name | Type | Description
 newProductList | boolean | `true` if [new product listing](https://developers.ecwid.com/api-documentation/look-and-design#new-product-listing) is enabled in a store. `false` otherwise
 newDetailsPage | boolean | `true` if new product details page is enabled in a store. `false` otherwise
 
-### Page Object
-
-Describes the page displaying inside the product browser.
+### Get opened page info
 
 > Get page type after new page is loaded 
 
@@ -216,7 +214,14 @@ Ecwid.OnPageLoaded.add(function(page){
 // Current page is of type: CATEGORY
 ```
 
-**Fields:**
+Get basic information about a page user opened in storefront. 
+
+How to do it: 
+1. Subscribe to `Ecwid.OnPageLoad` or `Ecwid.OnPageLoaded` event
+2. Extract page information from `page` object with your code
+3. When event happens, your callback code is executed
+
+**Page object fields**:
 
 Name | Type | Description
 ---- | ----- | -----------
@@ -248,12 +253,14 @@ Dynamically updates storefront base URL.
 
 Typically is used for [SEO URLs feature](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) to preserve dynamically added query parameters in a page URL. Works similarly to `window.ec.config.baseUrl` method.
 
-## Open Page in Storefront
+## Open page in storefront
 
 > Open cart page in storefront
 
 ```js
-Ecwid.openPage('cart');
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('cart');
+}
 ```
 
 When customer browses the store, Ecwid makes the navigation easy and fast due to the Ajax technology without any page reloads. However, sometimes you may need to open a specific page in storefront automatically or after a user clicks on a link. This is where `Ecwid.openPage` method can be useful. 
@@ -270,7 +277,9 @@ For general pages, you can only specify the name of the page you want to open. H
 > Open product details page of product with ID: 12345
 
 ```js
-Ecwid.openPage('product', {'id': 12345});
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('product', {'id': 12345});
+}
 ```
 
 To open a page with parameters, you must specify them in the object in second argument of `Ecwid.openPage` function. See example on the right. 
@@ -286,7 +295,9 @@ Additional parameters include: `'id'` and `'name'`.
 > Open product page and set product name in page URL as 'Apple'
 
 ```js
-Ecwid.openPage('product', {'id': 72585497, 'name': "Apple"});
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('product', {'id': 72585497, 'name': "Apple"});
+}
 ```
 
 `'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original product name set by store owner.
@@ -304,7 +315,9 @@ Additional parameters include: `'id'` and `'name'`.
 > Open category page and set product name in URL as 'Fruit' 
 
 ```js
-Ecwid.openPage('category', {'id': 20671017, 'name': "Fruit"});
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('category', {'id': 20671017, 'name': "Fruit"});
+}
 ```
 
 `'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original category name set by store owner.
@@ -316,13 +329,17 @@ The example on the right opens product details page of a specific product and us
 > Open search page and search for 'surfboard' products in a storefront
 
 ```js
-Ecwid.openPage('search', {'keywords': 'surfboard'});
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('search', {'keywords': 'surfboard'});
+}
 ```
 
 > Open search page and search for products under $50
 
 ```js
-Ecwid.openPage('search', {'priceTo': '50'});
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('search', {'priceTo': '50'});
+}
 ```
 
 For the search page, the first argument of `Ecwid.openPage` function will be `'search'`.
@@ -344,7 +361,9 @@ inStock=true: returns the list of "In stock" products. Otherwise the search show
 > Open sign in page and redirect user to a custom page on success
 
 ```js
-Ecwid.openPage('signin', {'returnurl': 'https://www.ecwid.com/demo/Surfboards-c20671017'});
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('signin', {'returnurl': 'https://www.ecwid.com/demo/Surfboards-c20671017'});
+}
 ```
 
 For the search page, the first argument of `Ecwid.openPage` function will be `'signin'`.
@@ -358,7 +377,9 @@ Additional parameters include: `'returnurl'`
 > Open cart page in storefront 
 
 ```js
-Ecwid.openPage('cart');
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('cart');
+}
 ```
 
 Open the following pages by setting page name as first argument of `Ecwid.openPage` function. 
@@ -378,7 +399,7 @@ Open the following pages by setting page name as first argument of `Ecwid.openPa
 - `'pages/terms'`
 - `'pages/privacy-policy'`
 
-## Subscribe to Events
+## Subscribe to events
 
 Find various useful events and execute your functions with them.
 
@@ -410,7 +431,7 @@ These events contain callbacks that get called on each page change inside the pr
 
 The callback functions accept one parameter of type **Page** specifying which page is to be loaded (or has already been loaded). See **Page Object** details for more info.
 
-#### Page Object
+#### Page object
 
 Describes the page displaying inside the product browser.
 
@@ -629,7 +650,7 @@ Name | Type | Description
 name | string | Customer's name
 email | string | Customer's email
 
-## Get Customer Details
+## Get customer details
 
 Find out more about customer that is currently logged in a store.
 
@@ -690,7 +711,7 @@ stateOrProvinceCode | string, optional | The person’s region/state/province co
 countryName | string, optional | Country name, if applicable
 phone | string, optional | Phone number, if applicable
 
-## Manage Customer Cart
+## Manage customer cart
 
 Manage cart on customer's behalf.
 
@@ -1299,7 +1320,7 @@ Generated link with products added automatically to cart for Ecwid demo store wi
 Please note that this is an example link and it will not work in Ecwid's demo store. Please test this feature in your own website.
 </aside>
 
-## Get Cart Details
+## Get cart details
 
 Find out more about cart in its current state.
 
@@ -1411,7 +1432,7 @@ sku | string | Product SKU
 url | string | URL to this product details page in store front (store front URL is generated from a field in Ecwid Control panel > Settings > General > Store profile)
 weight | integer | Weight of a product
 
-## JS API Examples
+## JS API examples
 
 Redirect Ecwid Paypal Orders to Custom “Thank You” Page:
 [http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/](http://stevestruemph.com/redirect-ecwid-paypal-orders-to-custom-thank-you-page/)
