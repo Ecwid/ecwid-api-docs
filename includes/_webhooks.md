@@ -12,6 +12,7 @@ You can receive webhooks about these store entities:
 - Abandoned sale (created, updated, deleted)
 - Order (created, updated, deleted)
 - Product (created, updated, deleted)
+- Category (created, updated, deleted)
 - Customer (created, updated, deleted)
 - Store profile (subscription plan updated)
 - Application (installed, subscription status updated, uninstalled)
@@ -69,6 +70,18 @@ Access scope required: <strong>read_orders</strong> (see <a href="#access-scopes
 
 <aside class="notice">
 Access scope required: <strong>read_products</strong> (see <a href="#access-scopes">Access scopes</a>)
+</aside>
+
+#### Categories
+
+* New category created
+* Category was updated
+* Category was deleted
+
+`category.updated` events are triggered when any [part of category](https://developers.ecwid.com/api-documentation/categories#get-category) is updated: parentId, order by index, category image, name, product list, description, enabled status. [Category endpoint](https://developers.ecwid.com/api-documentation/categories) allows you to control and get category information in a store.
+
+<aside class="notice">
+Access scope required: <strong>read_catalog</strong> OR <strong>create_catalog</strong> OR <strong>update_catalog</strong> (see <a href="#access-scopes">Access scopes</a>).
 </aside>
 
 #### Application
@@ -261,6 +274,42 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 }
 ```
 
+> Category with ID 66722483 created webhook body example
+
+```
+{
+  "eventId":"08a78904-0aa0-4c1a-953a-2e33c56236f0",
+  "eventCreated":1469429912,
+  "storeId":1003, 
+  "entityId":66722483, 
+  "eventType":"category.created"
+}
+```
+
+> Category with ID 66722483 updated webhook body example
+
+```
+{
+  "eventId":"08a78904-0aa0-4c1a-953a-2e123c236f0",
+  "eventCreated":1469429912,
+  "storeId":1003, 
+  "entityId":66722483, 
+  "eventType":"category.updated"
+}
+```
+
+> Category with ID 66722483 deleted webhook body example
+
+```
+{
+  "eventId":"08a78904-0aa0-4c1a-953a-2e33c562336f0",
+  "eventCreated":1469429912,
+  "storeId":1003, 
+  "entityId":66722483, 
+  "eventType":"category.deleted"
+}
+```
+
 > Application was installed webhook body example
 
 ```
@@ -370,7 +419,7 @@ Name | Type | Description
 **eventType** | string | Type of the occurred event.
 **eventCreated** | timestamp | Unix timestamp of the occurred event.
 **storeId** | number | Store ID of the store where the event occured.
-**entityId** | number | Id of the updated entity. Can contain `productId`, `orderNumber`, `storeId` depending on the `eventType`.
+**entityId** | number | Id of the updated entity. Can contain `productId`, `categoryId`, `orderNumber`, `storeId` depending on the `eventType`.
 data | \<*WebhookData*\> | Optional field. Describes changes made to an entity. Is provided for `order.*` and `application.subscriptionStatusChanged` event types.
 
 #### WebhookData
@@ -407,6 +456,9 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `product.created` New product is created
 * `product.updated` Product is updated
 * `product.deleted` Product is deleted
+* `category.created` New category is created
+* `category.updated` Category is updated
+* `category.deleted` Category is deleted
 * `application.installed` Application is installed
 * `application.uninstalled` Application is deleted
 * `application.subscriptionStatusChanged` Application status changed
@@ -415,7 +467,7 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `customer.updated` Customer is updated
 * `customer.deleted` Customer is deleted
 
-All order-related webhooks require `read_orders` access scope, all product-related webhooks require `read_catalog` access scope, all customer-related webhooks require `read_customers` [access scope](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) to be requested from the store.
+All order-related webhooks require `read_orders` access scope, all product- and category-related webhooks require `read_catalog` access scope, all customer-related webhooks require `read_customers` [access scope](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) to be requested from the store.
 
 #### Q: What is an unfinished order and how it works? 
 
