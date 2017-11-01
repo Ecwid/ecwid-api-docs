@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## November 1, 2017
+
+- Added legal pages support in the Ecwid REST API. Now you can read and modify legal pages information on merchant's behalf. [Learn more](https://developers.ecwid.com/api-documentation/store-information)
+
 ## October 31, 2017
 
 - Added category-related events to webhooks functionality. Now you can subscribe to events like: `category.created`, `category.updated` and `category.deleted`. [Learn more](https://developers.ecwid.com/api-documentation/webhooks)

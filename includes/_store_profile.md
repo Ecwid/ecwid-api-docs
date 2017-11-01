@@ -186,6 +186,51 @@ Name | Type    | Description
     "businessRegistrationID": {
         "name": "VAT Reg No",
         "value": "GB999 9999 73"
+    },
+    "legalPagesSettings": {
+      "requireTermsAgreementAtCheckout": true,
+      "legalPages": [
+        {
+          "type": "LEGAL_INFO",
+          "enabled": false,
+          "title": "About Us",
+          "display": "INLINE",
+          "text": "",
+          "externalUrl": ""
+        },
+        {
+          "type": "SHIPPING_COST_PAYMENT_INFO",
+          "enabled": true,
+          "title": "Shipping & Payment Info",
+          "display": "EXTERNAL_URL",
+          "text": "",
+          "externalUrl": "https://mycoolsite.com/shipping"
+        },
+        {
+          "type": "PRIVACY_STATEMENT",
+          "enabled": true,
+          "title": "Privacy Policy",
+          "display": "EXTERNAL_URL",
+          "text": "",
+          "externalUrl": "https://mycoolsite.com/privacy"
+        },
+        {
+          "type": "TERMS",
+          "enabled": true,
+          "title": "Terms & Conditions",
+          "display": "EXTERNAL_URL",
+          "text": "",
+          "externalUrl": "https://mycoolsite.com/terms"
+        },
+        {
+          "type": "REVOCATION_TERMS",
+          "enabled": false,
+          "title": "Return Policy",
+          "display": "INLINE",
+          "text": "",
+          "externalUrl": ""
+        }
+      ]
     }
 }
 ```
@@ -193,7 +238,7 @@ Name | Type    | Description
 > Public token request example
 
 ```http
-GET /api/v3/4870020/profile?token=public_123abcd HTTP/1.1
+GET /api/v3/4870020/profile?token=public_bpFwyLBELRZa43vaFWVryxu199eYDaaz HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
 ```
@@ -317,7 +362,8 @@ languages | \<*Languages*\> | Store language settings
 shipping | \<*Shipping*\> | Store shipping settings (only handling fee is included at the moment)
 taxSettings | \<*TaxSettings*\> | Store taxes settings
 zones | Array\<*Zone*\> | Store destination zones
-businessRegistrationID | \<*BusinessRegistrationID*\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
+businessRegistrationID | \<*BusinessRegistrationID*\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel
+legalPagesSettings | \<*LegalPagesSettingsDetails*\> | Legal pages settings for a store (*System Settings → General → Legal Pages*)
 
 #### GeneralInfo
 Field | Type | Description
@@ -473,6 +519,24 @@ customDomain | string | Custom Starter site domain, e.g. `www.mysuperstore.com`
 generatedUrl | string | Starter Site generated URL, e.g. `http://mysuperstore.ecwid.com/`
 storeLogoUrl | string | Starter Site logo URL
 
+#### LegalPagesSettingsDetails
+*System Settings → General → Legal Pages*
+
+Field | Type | Description
+----- | ---- | -----------
+requireTermsAgreementAtCheckout | boolean | `true` if customers must agree to store's terms of service at checkout
+legalPages | \<*LegalPagesInfo*\> | Information about the legal pages set up in a store
+
+#### LegalPagesInfo
+
+Field | Type | Description
+----- | ---- | -----------
+type | string | Legal page type. One of: `"LEGAL_INFO"`, `"SHIPPING_COST_PAYMENT_INFO"`, `"REVOCATION_TERMS"`, `"TERMS"`, `"PRIVACY_STATEMENT"`
+enabled | boolean | `true` if legal page is shown at checkout process, `false` otherwise
+title | string | Legal page title
+display | string | Legal page display mode – in a popup or on external URL. One of: `"INLINE"`, `"EXTERNAL_URL"`
+text | string | HTML contents of a legal page
+externalUrl | string | URL to external location of a legal page
 
 #### Errors
 
@@ -525,6 +589,14 @@ Cache-Control: no-cache
       postalCode: "92024",
       stateOrProvinceCode: "CA",
       phone: "1(800)5555555"
+    },
+    legalPagesSettings: {
+      legalPages: [
+      {
+        "type": "LEGAL_INFO",
+        "enabled": false
+      }
+      ]
     }
 }
 ```
@@ -575,7 +647,8 @@ languages | \<*Languages*\> | Store language settings
 shipping | \<*Shipping*\> | Store shipping settings (only handling fee is included at the moment)
 taxSettings | \<*TaxSettings*\> | Store taxes settings
 zones | Array\<*Zone*\> | Store destination zones
-businessRegistrationID | \<*BusinessRegistrationID*\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel.
+businessRegistrationID | \<*BusinessRegistrationID*\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel
+legalPagesSettings | \<*LegalPagesSettingsDetails*\> | Legal pages settings for a store (*System Settings → General → Legal Pages*)
 
 <aside class="notice">
 All fields are optional. Omitted field will not be affected
@@ -724,6 +797,25 @@ Field | Type | Description
 ----- | ---- | -----------
 ecwidSubdomain | string | Store subdomain on ecwid.com domain, e.g. `mysuperstore.ecwid.com`
 customDomain | string | Custom Starter site domain, e.g. `www.mysuperstore.com`
+
+#### LegalPagesSettingsDetails
+*System Settings → General → Legal Pages*
+
+Field | Type | Description
+----- | ---- | -----------
+requireTermsAgreementAtCheckout | boolean | `true` if customers must agree to store's terms of service at checkout
+legalPages | \<*LegalPagesInfo*\> | Information about the legal pages set up in a store
+
+#### LegalPagesInfo
+
+Field | Type | Description
+----- | ---- | -----------
+type | string | Legal page type. One of: `"LEGAL_INFO"`, `"SHIPPING_COST_PAYMENT_INFO"`, `"REVOCATION_TERMS"`, `"TERMS"`, `"PRIVACY_STATEMENT"`
+enabled | boolean | `true` if legal page is shown at checkout process, `false` otherwise
+title | string | Legal page title
+display | string | Legal page display mode – in a popup or on external URL. One of: `"INLINE"`, `"EXTERNAL_URL"`
+text | string | HTML contents of a legal page
+externalUrl | string | URL to external location of a legal page
 
 #### Response
 

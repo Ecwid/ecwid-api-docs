@@ -616,7 +616,7 @@ So please make sure that your webhooks endpoint always respods with `200OK` HTTP
 
 Webhooks in Ecwid are sent out to many applications every minute. We have several servers processing the delivery of webhook requests. 
 
-When there are too many events that need to be processed, a queue is created to deliver those requests to their respective URLs. Also, sometimes the application URLs are not responding in a proper way, so [we perform retries](https://developers.ecwid.com/api-documentation/processing-webhooks#q-i-receive-webhooks-for-events-that-already-happened-why) to make sure we deliver the webhooks. 
+When there are too many events that need to be processed, a queue is created to deliver those requests to their respective URLs. Also, sometimes the application URLs are not responding in a proper way, so [we perform retries](https://developers.ecwid.com/api-documentation/processing-webhooks#responding-to-webhooks) to make sure we deliver the webhooks. 
 
 All these factors can influence on when your app is going to get the webhook. So it may be delivered with a delay, which size depends on the load of our servers.
 

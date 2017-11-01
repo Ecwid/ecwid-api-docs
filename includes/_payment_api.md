@@ -265,8 +265,8 @@ globalReferer | string | URL that the customer came to the store from
 createDate | date | The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
 createTimestamp | number | The date of order placement in UNIX Timestamp format, e.g `1427268654`
 items | Array\<*OrderItem*\> | Array of customer's order items
-shippingPerson | \<*AddressDetails*\> |  Shipping address details of a customer
-billingPerson | \<*AddressDetails*\> | Billing address of the customer
+shippingPerson | \<*AddressDetails*\> |  Shipping address details of a customer. Can be missing if no products in cart require shipping
+billingPerson | \<*AddressDetails*\> | Billing address of the customer. Can be missing if merchant disabled it in Ecwid Control Panel > Settings > General > Cart.
 shippingOption | \<*ShippingOptionInfo*\> | Details of the shipping method selected
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any
