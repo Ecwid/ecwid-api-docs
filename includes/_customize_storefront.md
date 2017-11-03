@@ -191,7 +191,7 @@ The config `window.ec.storefront.product_details_show_number_of_items_in_stock` 
 <script type='text/javascript'>
 
 window.addEventListener('load',  function(e) {
-  setEcwidPopupCentering('#myframe');
+  setupEcwidPopupCentering('#myframe');
 });
 
 </script>
@@ -199,7 +199,7 @@ window.addEventListener('load',  function(e) {
 
 Ecwid can be embedded to a website in many ways. Sometimes a storefront can be inserted in an iframe container due to the limitations of a platform. To make sure that all popup windows such as customer account login popup are displayed in the center of an iframe, use the example code on the right **in a main frame of your page**.
 
-`setEcwidPopupCentering()` function accepts one argument, which is the ID of an iframe element, where Ecwid storefront is loaded. In order to work, `setEcwidPopupCentering()` function needs to have `iframeintegration.js` file loaded for that frame. 
+`setupEcwidPopupCentering()` function accepts one argument, which is the ID of an iframe element, where Ecwid storefront is loaded. In order to work, `setupEcwidPopupCentering()` function needs to have `iframeintegration.js` file loaded for that frame. 
 
 ### New product listing
 

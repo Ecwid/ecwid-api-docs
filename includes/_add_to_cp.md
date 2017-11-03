@@ -58,7 +58,7 @@ If you already have a registered app and want to make it native, you can [contac
   <script>
     // Initialize the application
     EcwidApp.init({
-      app_id: "my-super-app", // place your application namespace here (not clientID)
+      app_id: "my-super-app", // your client_id
       autoloadedflag: true, 
       autoheight: true
     });
@@ -520,7 +520,7 @@ To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfro
 ...
 // Initialize the application
 EcwidApp.init({
-  app_id: "my-super-app", // use your application namespace
+  app_id: "my-super-app", // use your application client_id
   autoloadedflag: true, 
   autoheight: true
 });
