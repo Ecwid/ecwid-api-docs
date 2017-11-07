@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## November 7, 2017
+
+- Added `EcwidApp.sendUserToUpgrade()` function to Ecwid JavaScript SDK for Native applications. Now you are able to send a user to upgrade to a higher Ecwid plan specifying only the target feature needed for your app. [Learn more](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#sendusertoupgrade)
+
 ## November 1, 2017
 
 - Added legal pages support in the Ecwid REST API. Now you can read and modify legal pages information on merchant's behalf. [Learn more](https://developers.ecwid.com/api-documentation/store-information)

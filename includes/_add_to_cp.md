@@ -729,6 +729,31 @@ When a native application is opened in a popup window in Ecwid Control Panel, ex
 
 In case when application is opened in a tab, nothing will happen. 
 
+### sendUserToUpgrade
+
+> Send user to upgrade usage
+
+```
+EcwidApp.sendUserToUpgrade(features);
+```
+
+> Send user to upgrade examples
+
+```js
+// Send user to upgrade to get Product Variations feature
+EcwidApp.sendUserToUpgrade(["COMBINATIONS"]);
+
+// Send user to upgrade to the minimal plan where Order Editor and Marketplaces features are available
+EcwidApp.sendUserToUpgrade(["ORDER_EDITOR", "MARKETPLACES"]);
+
+```
+
+Ecwid JS SDK allows your app interface to initiate the upgrade process for a user. The upgrade process is launched using the `EcwidApp.sendUserToUpgrade()` function, where you should provide the feature to upgrade to.
+
+When you pass `features` array as argument, Ecwid will determine the minimum required plan for merchant to use them and initiate upgrade process
+
+Features list is available in the [Store profile endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) of Ecwid REST API. [Contact Ecwid team](/contact) to find out the feature name if it's missing in your store.
+
 ## Troubleshooting
 
 #### A new tab inside Ecwid Control Panel is not appearing

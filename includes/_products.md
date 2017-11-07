@@ -695,7 +695,7 @@ files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the pr
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Variation*\> | List of the product variations
 dimensions | \<*ProductDimensions*\> | Product dimensions info
-showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
+showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A missing field means the product is not shown in the store front page (for private tokens)
 
 #### FavoritesStats
 Field | Type  | Description
@@ -1245,7 +1245,7 @@ files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the pr
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 combinations | Array\<*Variation*\> | List of the product variations
 dimensions | \<*ProductDimensions*\> | Product dimensions info
-showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
+showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A missing field means the product is not shown in the store front page (for private tokens)
 
 #### FavoritesStats
 Field | Type  | Description
@@ -1523,7 +1523,7 @@ defaultCategoryId | number  | Identifier of the default category of the product
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 dimensions | \<*ProductDimensions*\> | Product dimensions info
-showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page. If no categories are assigned to product in `categoryIds` field, the `showOnFrontPage` will be `1`
+showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. If no categories are assigned to product in `categoryIds` field, the `showOnFrontPage` will be `1`
 
 #### WholesalePrice
 Field | Type  | Description

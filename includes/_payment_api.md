@@ -37,15 +37,35 @@ After you [registered a new application](/register) for Ecwid, send the payment 
 
 Your application can require merchants to specify their account details in your system and any other user preferences you may require.
 
+### Merchant settings
+
 > Merchant settings example
 
 > ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/paymentSettings-1468408208.png)
 
-### Merchant settings
-
 Set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more information.
 
 When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#javascript-storage-api) (client-side) or [Ecwid REST API](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#rest-storage-api) (server-side).
+
+### Payment method name, position and description
+
+When your app is installed in merchant's store, merchants are able to change its name, position and description just like any other payment method. 
+
+**Editing**
+
+Editing is possible in Ecwid Control Panel > Settings > Payment > Select payment method > Actions > Edit.
+
+A merchant will see a standard interface for editing payment method: edit payment method name, description, instruction title and text.
+
+**Sorting**
+
+Using the Actions button merchant can also sort payment methods in the way they prefer – move it up or down the list of available methods. 
+
+**Account settings**
+
+If a merchant clicks on Account Settings, then Ecwid will open embedded interface of your application in a popup on the same page.
+
+Important: Account Settings button will only be visible if your app is [Native](https://developers.ecwid.com/api-documentation/native-applications).
 
 ### Request
 
