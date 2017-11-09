@@ -15,19 +15,78 @@ Access scope required: <strong>add_payment_method</strong> (see <a href="#access
 
 ## How payment method works
 
+### Payment method workflow overview
+
 #### 1. User configures app settings in settings tab
 
-After the installation, user would need a page where they can configure it. We recommend using [Native apps feature](#embedded-apps) to provide this functionality.
+After the installation, user would need a page where they can configure it. We recommend using [Native apps feature](#embedded-apps) to provide this functionality. 
+
+In any case, your payment method will be displayed in the payment settings of the store control panel to edit the title, description, position at checkout, and availability.
 
 #### 2. Ecwid sends order data to app payment URL
 
-After registering your app, contact us and provide a payment URL where Ecwid will send **POST request** with order data as well as the [Merchant app settings](#merchant-settings-for-payment-method) when customer is at checkout stage. Your app will need to get request details, decrypt it and allow user to make a payment for the order.
+After registering your app, contact us and provide a payment URL where Ecwid will send **POST request** with order data as well as the Merchant app settings](#merchant-settings-for-payment-method) when customer is at checkout stage. 
+
+Your app will need to get order details from the request, decrypt it and the information to a payment processor in a correct format, where customer can pay for that order. 
 
 #### 3. Customer finishes the checkout
 
-In the storefront, customer will see a new payment method to choose from. If they choose this new method to pay for their order, they will be directed to payment URL of your app to finish the checkout process.
+In a storefront, customer will see a new payment method to choose from. If they choose this new method to pay for their order, they will be directed to payment URL of your app to finish the checkout process.
 
-Upon finishing the payment, your app must [update the order status](https://developers.ecwid.com/api-documentation/orders#update-order) and return customer to the storefront.
+Upon finishing the payment, your app must [update the order status](https://developers.ecwid.com/api-documentation/orders#update-order) and [return customer to the storefront](https://developers.ecwid.com/api-documentation/processing-payment-request#returning-customer-to-storefront).
+
+### Payment method installation process
+
+There are two sources where merchants can add new payment methods: 
+
+1. Payment settings in the Ecwid Control Panel
+2. A search in the Ecwid App Market
+
+Let's check them in more details: 
+
+#### Payment settings in the Ecwid Control Panel
+
+**Find new payment method**
+
+Payment settings are located in *Ecwid Control Panel > Settings > Payment*. On that page merchants can edit existing payment methods and add new ones.  
+
+If your payment application has been published in the Ecwid App Market and it's publicly available, merchants can find it in: *Add new payment methods > Other ways to get paid > Choose payment processor*.
+
+Merchant will see your payment method in the drop down list depending on availability in their country. Make sure to specify the countries when submitting your app for review. 
+
+The payment method name and logo will be used from your existing app settings. 
+
+**Add new payment method**
+
+When a merchant clicks on your payment method from the available list, Ecwid will automatically install your application into that store. 
+
+Then, the payment method of your application will appear in the list of added payment methods in the payment settings of that store.
+
+If your application [works in the Ecwid Control Panel](https://developers.ecwid.com/api-documentation/native-applications), Ecwid will open your app interface in a popup. If your application [works externally](https://developers.ecwid.com/api-documentation/external-applications), Ecwid will redirect merchant to a new tab to continue the set up.
+
+### A search in the Ecwid App Market
+
+**Find new payment method**
+
+Merchants can search for your payment method in the Ecwid App Market. If your app is published and is publicly available, it will appear in the search results.
+
+Next, a merchant will click on your application and will be directed to your app details page. It will describe your integration in more details with screenshots. 
+
+**Add new payment method**
+
+To add a payment method from app details page, merchants will click the 'Install' button and the installation will be the same as any other application from the Ecwid App Market. 
+
+If your applicaiton [works in the Ecwid Control Panel](https://developers.ecwid.com/api-documentation/native-applications), user will be directed to your application tab and set up the connection. If your app [works externally](https://developers.ecwid.com/api-documentation/external-applications), the installation will continue on your website. 
+
+As a result, a new payment method will appear among existing ones in the payment settings of merchant's Ecwid Control Panel.
+
+### Payment method availability
+
+The payment method added by your app works just like any other payment method added by a merchant. 
+
+It is possible to quickly enable/disable the payment method in a storefront right in the payment settings of the Ecwid Control Panel: find your payment method > switch the toggle to the disabled state.
+
+If you need to remove the payment method completely, go to Ecwid Control Panel > Apps > My Apps and remove the app from the list.
 
 ## Set up payment method
 
@@ -37,7 +96,7 @@ After you [registered a new application](/register) for Ecwid, send the payment 
 
 Your application can require merchants to specify their account details in your system and any other user preferences you may require.
 
-### Merchant settings
+### Merchant account settings
 
 > Merchant settings example
 
@@ -47,13 +106,13 @@ Set up a new tab in Ecwid Control Panel, which will serve as a settings page for
 
 When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#javascript-storage-api) (client-side) or [Ecwid REST API](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#rest-storage-api) (server-side).
 
-### Payment method name, position and description
+### Edit payment method
 
 When your app is installed in merchant's store, merchants are able to change its name, position and description just like any other payment method. 
 
-**Editing**
+**Change title and description**
 
-Editing is possible in Ecwid Control Panel > Settings > Payment > Select payment method > Actions > Edit.
+You can edit payment method added by your app just like any other payment method in *Ecwid Control Panel > Settings > Payment > Select payment method > Actions > Edit*.
 
 A merchant will see a standard interface for editing payment method: edit payment method name, description, instruction title and text.
 
@@ -66,6 +125,12 @@ Using the Actions button merchant can also sort payment methods in the way they 
 If a merchant clicks on Account Settings, then Ecwid will open embedded interface of your application in a popup on the same page.
 
 Important: Account Settings button will only be visible if your app is [Native](https://developers.ecwid.com/api-documentation/native-applications).
+
+**Availability**
+
+It is possible to quickly enable/disable the payment method in a storefront right in the payment settings of the Ecwid Control Panel: *find your payment method > switch the toggle to the disabled state*.
+
+If a merchant needs to remove a payment method completely, go to *Ecwid Control Panel > Apps > My Apps > remove the app from the list*.
 
 ### Request
 

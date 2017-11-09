@@ -53,7 +53,7 @@ If you already have a registered app and want to make it native, you can [contac
 
 <head>
   <!-- Include Ecwid JS SDK -->
-  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.3/ecwid-app.js"></script>
+  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.4/ecwid-app.js"></script>
 
   <script>
     // Initialize the application
