@@ -684,8 +684,8 @@ originalImageUrl |  string  | URL of the original not resized product image
 originalImage | \<*ImageDetails*\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
-categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
-categories | Array\<*CategoriesInfo*\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+categoryIds | Array\<*number*\> | **Private token**: List of the categories, which the product belongs to. **Public token**: List of the *enabled* categories the product belongs to. **Any token**: If no categories provided, product is displayed on the store front page, see `showOnFrontpage` field, or all categories of that product are disabled 
+categories | Array\<*CategoriesInfo*\> | List of the categories the product belongs to with brief details (*for any access token*). If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product
@@ -1234,8 +1234,8 @@ originalImageUrl |  string  | URL of the original not resized product image
 originalImage | \<*ImageDetails*\> | Details of the product image
 description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
-categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
-categories | Array\<*CategoriesInfo*\> | List of the categories, which the product belongs to, with brief details. If no categories provided, product belogs to store front page, see `showOnFrontpage` field
+categoryIds | Array\<*number*\> | **Private token**: List of the categories, which the product belongs to. **Public token**: List of the **enabled** categories the product belongs to. **Any access token**: If no categories provided, product is displayed on the store front page, see `showOnFrontpage` field, or all categories of that product are disabled 
+categories | Array\<*CategoriesInfo*\> | List of the categories the product belongs to with brief details (*for any access token*). If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
 defaultCategoryId | number  | Identifier of the default category of the product

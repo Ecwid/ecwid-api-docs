@@ -260,7 +260,7 @@ Typically is used for [SEO URLs feature](https://developers.ecwid.com/api-docume
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('cart');
-}
+})
 ```
 
 When customer browses the store, Ecwid makes the navigation easy and fast due to the Ajax technology without any page reloads. However, sometimes you may need to open a specific page in storefront automatically or after a user clicks on a link. This is where `Ecwid.openPage` method can be useful. 
@@ -279,7 +279,7 @@ For general pages, you can only specify the name of the page you want to open. H
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('product', {'id': 12345});
-}
+})
 ```
 
 To open a page with parameters, you must specify them in the object in second argument of `Ecwid.openPage` function. See example on the right. 
@@ -297,7 +297,7 @@ Additional parameters include: `'id'` and `'name'`.
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('product', {'id': 72585497, 'name': "Apple"});
-}
+})
 ```
 
 `'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original product name set by store owner.
@@ -317,7 +317,7 @@ Additional parameters include: `'id'` and `'name'`.
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('category', {'id': 20671017, 'name': "Fruit"});
-}
+})
 ```
 
 `'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original category name set by store owner.
@@ -331,7 +331,7 @@ The example on the right opens product details page of a specific product and us
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('search', {'keywords': 'surfboard'});
-}
+})
 ```
 
 > Open search page and search for products under $50
@@ -339,7 +339,7 @@ Ecwid.OnAPILoaded.add(function() {
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('search', {'priceTo': '50'});
-}
+})
 ```
 
 For the search page, the first argument of `Ecwid.openPage` function will be `'search'`.
@@ -363,7 +363,7 @@ inStock=true: returns the list of "In stock" products. Otherwise the search show
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('signin', {'returnurl': 'https://www.ecwid.com/demo/Surfboards-c20671017'});
-}
+})
 ```
 
 For the search page, the first argument of `Ecwid.openPage` function will be `'signin'`.
@@ -379,7 +379,7 @@ Additional parameters include: `'returnurl'`
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('cart');
-}
+})
 ```
 
 Open the following pages by setting page name as first argument of `Ecwid.openPage` function. 
