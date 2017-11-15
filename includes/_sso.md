@@ -1,32 +1,53 @@
 # Single Sign-On
 
-Single Sign-On (SSO) allows user to access multiple applications with one login and password. 
+Single Sign-On (SSO) allows customer to login to Ecwid store if they are already logged in to your website.
 
 If a merchant already has a customer base on their website, customers may find it rather inconvenient that they have to log into the website and the store separately.
 
-Ecwid’s Single Sign-On API allows those customers to sign into a merchant’s website and use the entire Ecwid store without having to log in again. 
+Ecwid’s Single Sign-On feature allows those customers to sign into a merchant’s website and use the entire Ecwid store without having to log in again. 
 
-In other words, if a customer is logged in on a website, they are automatically logged in on the Ecwid store too, even if they didn’t have an account there before. 
+<aside class="notice">Access scope required: <strong>create_customers</strong>. See more information in <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">access scopes section</a></aside>
 
-<aside class="notice">Access scope required: <strong>create_customers</strong>. See more information in <a href="#access-scopes">access scopes section</a></aside>
-
-**Table of contents**:
+#### Table of contents
 
 - [Add Single Sign-On to a website](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website)
-- [Customize Single Sign-On](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#customize-sso-workflow)
+- [Customize Single Sign-On flow](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#customize-sso-workflow)
 - [Single Sign-On implementation examples](https://developers.ecwid.com/api-documentation/sso-implementation-examples)
+
+#### How it works
+
+There are two situations that can happen: customer is logged into your website or not: 
+
+**Logged in user**
+
+When user is logged into your website, it should pass an authentication information to Ecwid on a page with Ecwid widgets: what user to log in and any other additional info.
+
+If Ecwid detects that information and it's valid – the user will be automatically logged into the account your website provided. If that user doesn't exist, Ecwid will create account for them. 
+
+After the login, Ecwid will hide any sign in links and behave as if the user is logged into their customer account in the Ecwid storefront. 
+
+**Logged out user**
+
+When user is not logged into your website, Ecwid will show sign in links, which can lead to custom URLs – login functionality of your website. Once the login is done, everything works the same as described for logged in users. 
+
+**Provide authentication information**
+
+There are two ways you can provide authentication information to Ecwid: JS variable and Ecwid JS API function call. For more info, see [Pass user data to Ecwid](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#pass-user-data-to-ecwid)
 
 ## Implement SSO on a website
 
 ### Pass user data to Ecwid
 
-To enable Storefront Single Sign-on (SSO) on merchant's website, you need to pass encrypted user information to Ecwid JavaScript API. The user data itself needs to be prepared and encrypted on the server. See [SSO Payload](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#sso-payload) for the details. Then, in the code of the store web page, you should send the encrypted user data to Ecwid. There are two ways you can do that:
+To enable Storefront Single Sign-on (SSO) on merchant's website, you need to pass encrypted user information to Ecwid JavaScript API. 
+
+The user data itself needs to be prepared and encrypted on the server. See [SSO Payload](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#sso-payload) for the details. 
+
+Then, in the code of the store web page, you should send the encrypted user data to Ecwid. There are two ways you can do that:
 
 1. Declaring a `ecwid_sso_profile` JS variable on the store web page containing the user information
 2. Dynamically sending a user info to Ecwid by means of the `Ecwid.setSsoProfile()` JS API method
 
-
-### ecwid_sso_profile
+#### ecwid_sso_profile
 
 > Send user information in an SSO payload to Ecwid
 
@@ -70,7 +91,6 @@ Here is how you will use that:
 
 To specify that no user is logged in, pass an empty payload either to the `ecwid_sso_profile` variable or to `Ecwid.setSsoProfile()` method. Ecwid will 'understand' that nobody is logged in at the moment and log out the current user if any.
 
-
 ### SSO payload
 
 > Generate SSO payload and send it to Ecwid to log the user in Ecwid (Example)
@@ -86,11 +106,11 @@ To specify that no user is logged in, pass an empty payload either to the `ecwid
 ?>
 ```
 
-When you passing the user information to Ecwid either in `ecwid_sso_profile` JS variable or with `Ecwid.setSsoProfile()` method, you need to create and sign the payload. SSO payload contains of the following parts connected with a space character:
+When you pass user information to Ecwid either in `ecwid_sso_profile` JS variable or with `Ecwid.setSsoProfile()` method, you need to create and sign the payload. SSO payload contains of the following parts connected with a space character:
 
-- Message
-- Signature
-- Timestamp
+- [Message](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#message)
+- [Signature](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#signature)
+- [Timestamp](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#timestamp)
 
 #### Message
 
@@ -135,6 +155,12 @@ Every message should have different signature. If a message has a signature that
 
 UNIX timestamp. The system clock on your server must be in sync with the actual time, otherwise signatures generated by your server will fail to validate in Ecwid. Ecwid allows this timestamp to be up to 10 minutes late. The timestamp ensures that the message cannot be intercepted and misused later.
 
+### FAQ
+
+#### Q: Is SSO available to all stores?
+
+Single Sign On is available for [paid Ecwid users only](http://www.ecwid.com/pricing). If an Ecwid store has no paid subscription, Ecwid stops processing SSO requests for that store and will behave as if no user is logged in.
+
 #### Q: How do I know that SSO is working? 
 
 When `ecwid_sso_profile` variable is set on a page, Ecwid will hide the Sign In and Sign Out links in a storefront. However in some cases this doesn't mean that the SSO functionality is working successfully. 
@@ -145,9 +171,17 @@ Another clear indicator can be the email field in the payment method selection o
 
 When troubleshooting this issue, please make sure to check if the **client_secret** that you specified in your code is correct. You can find out more about it in the **Signature** section above.
 
-### Customize SSO workflow
+#### Q: Can I use SSO for existing customer account in a store?
 
-#### Add log in link to the store in SSO mode
+Ecwid does not allow two customers with the same email address in one store. If a customer with the same email already exists and has different SSO appClientId/userId, or does not have them at all, then Ecwid will fail to create a customer account and will behave as if no user is logged in. 
+
+For example, If you have a customer `customer@example.com` from Facebook, you cannot have another `customer@example.com` signing in using SSO. Ecwid will simply ignore `customer@example.com` passed in to SSO.
+
+## Customize SSO workflow
+
+SSO workflow can be tailored to specifics of merchant's website. Check out the available customizations below.
+
+### Add log in link to the store in SSO mode
 
 > Enable Sign in / Sign out links
 
@@ -169,6 +203,8 @@ Field | Type  | Description
 **signInUrl** | string | URL where your customer will be redirected to log in to your site
 signOutUrl | string | URL where your customer will be redirected, when they click the 'Log out' link in the store. This parameter is optional. If not specified, Ecwid will not show the ’sign out’ link. 
 
+<aside class="notice">Parameters in <strong>bold</strong> are mandatory</aside>
+
 When you use `setSignInUrls()` extension, the customer will be redirected to the specified URL in the following situations:
 
 - They click the 'Sign in' link in the product browser
@@ -176,7 +212,7 @@ When you use `setSignInUrls()` extension, the customer will be redirected to the
 - They go to checkout and your store settings require a user to be registered to place an order
 
 
-#### Custom Sign in / Sign out handlers
+### Custom Sign in / Sign out handlers
 
 > Customizing of Sign in / Sign out functionality in SSO mode
 
@@ -197,7 +233,7 @@ Ecwid.OnAPILoaded.add(function() {
 });
 ```
 
-Ecwid SSO API provides a tool for advanced customization of the login functionality in Single Sign-on mode – `Ecwid.setSignInProvider()` extension. 
+Ecwid SSO API provides a tool for advanced customization of the login functionality in Single Sign-on mode – `Ecwid.setSignInProvider()` method. 
 
 Field | Type  | Description
 ----- | ----- | -----------
@@ -210,12 +246,7 @@ Field | Type  | Description
 <em><strong>Ecwid.setSsoProfile</strong></em> works only when Ecwid is in SSO mode, that is, when the global variable <em><strong>ecwid_sso_profile</strong></em> is also defined.
 </aside>
 
-### Notes
-
-- Ecwid does not allow two customers with the same email address in one store. If a customer with the same email already exists and has different SSO appClientId/userId, or does not have them at all, then Ecwid will fail to create a customer account and will behave as if no user is logged in. For example, If you have a customer `customer@example.com` from Facebook, you cannot have another `customer@example.com` signing in using SSO. Ecwid will simply ignore `customer@example.com` passed in to SSO.
-- SSO API is available for [paid Ecwid users only](http://www.ecwid.com/pricing). If an Ecwid store has no paid subscription, Ecwid stops processing SSO requests for that store and will behave as if no user is logged in.
-
-## SSO implementation examples
+## SSO flow examples
 
 > Ecwid SSO API implementation (Example)
 
