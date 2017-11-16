@@ -15,7 +15,7 @@ Access scope required: <strong>add_payment_method</strong> (see <a href="#access
 
 ## How payment method works
 
-### Payment method workflow overview
+### Payment overview
 
 #### 1. User configures app settings in settings tab
 
@@ -25,7 +25,7 @@ In any case, your payment method will be displayed in the payment settings of th
 
 #### 2. Ecwid sends order data to app payment URL
 
-After registering your app, contact us and provide a payment URL where Ecwid will send **POST request** with order data as well as the Merchant app settings](#merchant-settings-for-payment-method) when customer is at checkout stage. 
+After registering your app, contact us and provide a payment URL where Ecwid will send **POST request** with order data as well as the [Merchant app settings](#merchant-settings-for-payment-method) when customer is at checkout stage. 
 
 Your app will need to get order details from the request, decrypt it and the information to a payment processor in a correct format, where customer can pay for that order. 
 
@@ -35,7 +35,7 @@ In a storefront, customer will see a new payment method to choose from. If they 
 
 Upon finishing the payment, your app must [update the order status](https://developers.ecwid.com/api-documentation/orders#update-order) and [return customer to the storefront](https://developers.ecwid.com/api-documentation/processing-payment-request#returning-customer-to-storefront).
 
-### Payment method installation process
+### Payment installation process
 
 There are two sources where merchants can add new payment methods: 
 
@@ -64,7 +64,7 @@ Then, the payment method of your application will appear in the list of added pa
 
 If your application [works in the Ecwid Control Panel](https://developers.ecwid.com/api-documentation/native-applications), Ecwid will open your app interface in a popup. If your application [works externally](https://developers.ecwid.com/api-documentation/external-applications), Ecwid will redirect merchant to a new tab to continue the set up.
 
-### A search in the Ecwid App Market
+#### A search in the Ecwid App Market
 
 **Find new payment method**
 
@@ -80,7 +80,7 @@ If your applicaiton [works in the Ecwid Control Panel](https://developers.ecwid.
 
 As a result, a new payment method will appear among existing ones in the payment settings of merchant's Ecwid Control Panel.
 
-### Payment method availability
+### Payment availability
 
 The payment method added by your app works just like any other payment method added by a merchant. 
 

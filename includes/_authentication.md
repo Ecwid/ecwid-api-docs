@@ -284,7 +284,7 @@ There are two types of access tokens in Ecwid: **private** and **public** tokens
 
 Ecwid user grants or denies access to certain data in their store for the particular application - then the application gets its own secure access token (and optional public token) upon authorization and uses that token as a key to make REST API calls to Ecwid.
 
-**Both types of access tokens do not expire, so you can use them as long as the application is installed in a merchant's store.**
+<aside class="notice"><strong>Both types of access tokens do not expire</strong>, so you can use them as long as the application is installed in a merchant's store.</aside>
 
 <aside class="notice">
 To get private or public access token, user would need to go through Ecwid oAuth app installation flow. Learn more in the <a href="#native-applications">Native</a> and <a href="#external-applications">External</a> applications sections.
