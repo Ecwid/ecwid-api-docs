@@ -1479,7 +1479,26 @@ Cache-Control: no-cache
   "productClassId": 0,
   "created":"2014-01-01",
   "fixedShippingRateOnly": false,
-  "fixedShippingRate": 1.2
+  "fixedShippingRate": 1.2,
+  "options": [
+    {
+      "type": "RADIO",
+      "name": "Size",
+      "choices": [
+        {
+          "text": "Small",
+          "priceModifier": 0,
+          "priceModifierType": "ABSOLUTE"
+        },
+        {
+          "text": "Large",
+          "priceModifier": 0.5,
+          "priceModifierType": "ABSOLUTE"
+        }
+      ],
+        "defaultChoice": 0,
+        "required": false
+    }
 }
 ```
 
@@ -1525,21 +1544,27 @@ relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" produc
 dimensions | \<*ProductDimensions*\> | Product dimensions info
 showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. If no categories are assigned to product in `categoryIds` field, the `showOnFrontPage` will be `1`
 
+#### ProductOption
+Field | Type  | Description
+-------------- | -------------- | --------------
+**type** |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
+**name** |  string |  Product option name, e.g. `Color`
+**required** |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
+choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *Omit this field for product options with no selection (e.g. text, datepicker or upload file options)*
+defaultChoice | number  | The number, starting from `0`, of the option's default selection for the options types `SELECT`, `CHECKBOX` or `RADIO`.
+
+#### ProductOptionChoice
+Field | Type  | Description
+-------------- | -------------- | --------------
+**text** |  string | Option selection text, e.g. 'Green'.
+**priceModifier** | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
+**priceModifierType** | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
+
 #### WholesalePrice
 Field | Type  | Description
 -------------- | -------------- | --------------
 **quantity** |  number |  Number of product items on this wholesale tier
 **price** | number |  Product price on the tier
-
-
-#### ProductOption
-Field | Type  | Description
--------------- | -------------- | --------------
-type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
-**name** |  string |  Product option name, e.g. `Color`
-choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *Omit this field for product options with no selection (e.g. text, datepicker or upload file options)*
-defaultChoice | number  | The number, starting from `0`, of the option's default selection for the options types `SELECT`, `CHECKBOX` or `RADIO`.
-required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
 
 #### AttributeValue
 Field | Type  | Description
@@ -1560,19 +1585,6 @@ Field | Type  | Description
 enabled | boolean | `true` if the "N random related products from a category" option is enabled. `false` otherwise
 **categoryId** |  number |  Id of the related category. Zero value means "any category", that is, random products from the whole store.
 productCount |  number |  Number of random products from the given category to be shown as related
-
-#### OptionValue
-Field | Type |  Description
--------------- | -------------- | --------------
-**name** |  string |  Option name, as in Product.options[i].name
-value | string |  Option value one of Product.options[i].choices[j].text
-
-#### ProductOptionChoice
-Field | Type  | Description
--------------- | -------------- | --------------
-**text** |  string | Option selection text, e.g. 'Green'.
-priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
-priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
 
 #### ProductDimensions
 Field | Type  | Description
