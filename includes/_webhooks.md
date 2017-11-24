@@ -21,7 +21,7 @@ You can receive webhooks about these store entities:
 
 Use these links to quickly get started with webhooks: 
 
-- [Set up webhooks for your app](https://developers.ecwid.com/api-documentation/setting-up-webhooks)
+- [Set up webhooks for your app](https://developers.ecwid.com/api-documentation/set-up-webhooks)
 - [Troubleshooting webhooks](https://developers.ecwid.com/api-documentation/processing-webhooks#troubleshooting-webhooks)
 - [Webhooks best practices](https://developers.ecwid.com/api-documentation/webhooks-best-practices)
 
@@ -110,32 +110,47 @@ Access scope required: <strong>read_catalog</strong> OR <strong>create_catalog</
 Access scope required: <strong>read_customers</strong> (see <a href="#access-scopes">Access scopes</a>)
 </aside>
 
-## Setting up webhooks
+## Set up webhooks
 
-Setup process is easy. Once your application has a webhook URL specified in the settings and has a token with appropriate access level for the store, it will receive notifications automatically. More details on these are below.
+To start sending webhooks to an app, Ecwid needs this information: 
 
-#### 1. Set webhook URL
-After you successfully [registered your application](/register) with Ecwid, please contact us and provide a single webhook URL – Ecwid will send a request to this URL each time a supported event occurs. To enable or modify webhooks for existing application, please contact us as well.
+- Webhook URL
+- Webhook events
+
+[Contact Ecwid team](/contact) to set webhooks for your application. 
+
+Learn more about setting up webhooks below.
+
+### Set webhook URL
+
+After you [registered your application](/register) with Ecwid, please contact us and provide a single webhook URL. 
+
+Ecwid will send a request to this URL each time a supported event occurs. To enable or modify webhooks for existing application, please contact us as well.
 
 <aside class='notice'>
 If your application is for public use, the request URL must be working <strong>via HTTPS</strong>. Also, the certificate can only be from <strong>trusted CA's and not self-signed</strong>.
 </aside>
 
 <aside class='notice'>
-If you are planning to use <strong>specific ports in your URL</strong>, make sure you are using: `80` or `443`, or anything between `1024:65535` ports. Otherwise, the webhooks <strong>will not be sent to your URL</strong>. 
+If you are planning to use <strong>specific ports in your URL</strong>, make sure you are using: '80' or '443', or anything between '1024:65535' ports. Otherwise, the webhooks <strong>will not be sent to your URL</strong>. 
 </aside>
 
-#### 2. Set webhook events
+### Set webhook events
 There are several types of events in the store that Ecwid can notify your application about, check out **Event type** section of webhook structure for more details. 
 
 Please specify the exact event types you wish to be notified about upon registering your application or [contact us](/contact) if you already have an app.
 
-#### 3. Set custom HTTP headers (optional)
+### Set custom HTTP headers (optional)
 
 You are also able to specify your custom HTTP headers to be provided by Ecwid when sending webhooks to your URL. If you want to add custom headers to your app, please [contact us](/contact). Learn more about [custom HTTP headers](https://developers.ecwid.com/api-documentation/webhook-structure#request-headers)
 
-#### 4. Get access
-Each application has scope of access that controls the set of store resources and operations permitted for the application. The same set of access scopes is used to determine which events your application can be notified of. To be notified of the product updates, make sure your app has `read_catalog` access to the store. The `read_orders` scope allows to get order webhooks. See [Access scopes](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) for more details. 
+### Get access
+
+Each application requests access scopes from a store owner. The same set of access scopes is used to send webhooks to your app.
+
+To be notified of updates to products, make sure your app has `read_catalog` access scope. The `read_orders` scope allows to get order-related webhooks and so on. 
+
+See [supported events](https://developers.ecwid.com/api-documentation/webhooks-overview#supported-events) for more details. 
 
 
 

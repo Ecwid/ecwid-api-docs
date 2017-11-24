@@ -366,7 +366,7 @@ Ecwid.OnAPILoaded.add(function() {
 })
 ```
 
-For the search page, the first argument of `Ecwid.openPage` function will be `'signin'`.
+For the sign in page, the first argument of `Ecwid.openPage` function will be `'signin'`.
 
 Additional parameters include: `'returnurl'`
 

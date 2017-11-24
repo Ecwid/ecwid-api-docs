@@ -470,7 +470,7 @@ description | string | Handling fee description for customer
 
 Field | Type | Description
 ----- | ---- | -----------
-automaticTaxEnabled | boolean | `true` if taxes are calculated automatically, `else` otherwise
+automaticTaxEnabled | boolean | `true` if store taxes are calculated automatically, `else` otherwise. As seen in the *Ecwid Control Panel > Settings > Taxes > Automatic*
 taxes | Array\<*Taxes*\> | Manual tax settings for a store
 
 #### Taxes
