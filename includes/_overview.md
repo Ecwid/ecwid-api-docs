@@ -6,7 +6,7 @@ In each section you can find a detailed description, as well as code examples fo
 
 To find out more about the Ecwid platform and get some basic details about it, please visit the [Get Started](/get-started) page.
 
-Learn more on how to start developing an app here: [https://developers.ecwid.com/developing-your-app](/developing-your-app)
+Learn more on how to start developing an app here: [https://developers.ecwid.com/begin-development](/begin-development)
 
 **Table of contents**:
 

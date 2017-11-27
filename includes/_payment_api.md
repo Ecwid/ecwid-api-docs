@@ -17,6 +17,10 @@ Access scope required: <strong>add_payment_method, read_orders, update_orders</s
 
 ### Payment overview
 
+> Checkout flow for payment apps
+
+> ![Checkout flow for payment apps](https://don16obqbay2c.cloudfront.net/wp-content/uploads/Payment-Method-Diagram-1511788692.png)
+
 #### 1. User configures app settings in settings tab
 
 After the installation, user would need a page where they can configure it. We recommend using [Native apps feature](#embedded-apps) to provide this functionality. 
