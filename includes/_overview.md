@@ -25,7 +25,6 @@ Learn more on how to start developing an app here: [https://developers.ecwid.com
 - [Single Sign-On](https://developers.ecwid.com/api-documentation/single-signon)
 - [Examples and Libraries](https://developers.ecwid.com/api-documentation/examples-and-libraries)
 
-
 ## API features
 
 **REST API**
@@ -86,9 +85,13 @@ Ecwid is a widget, that can be inserted to any website. Many websites have their
 
 More information: [Storefront Single Sign-On](#single-sign-on)
 
-## Applications for Ecwid
+## Access Ecwid API Platform
 
-In Ecwid there can be two main categories of applications: Native and External apps. 
+**All modifications** to Ecwid stores, incl. REST API, Webhooks, Payment and Shipping methods and others, **are done by applications**. [Register](/register) your app to get started. 
+
+There are two types of apps for Ecwid: **Native** and **External**. Learn about each of them below. 
+
+Both app types are hosted on external services and Ecwid only stores URLs to corresponding pages: for webhooks, for payment and shipping requests and others.
 
 > Check out app examples
 
@@ -96,13 +99,17 @@ In Ecwid there can be two main categories of applications: Native and External a
 
 ### Native apps
 
-Native applications work inside of Ecwid Control Panel in a separate tab, just like Shipping Settings or Design. This way of embedding your app into user interface puts your app right before the day-to-day workflow of an Ecwid store owner and it is a great way to design an app for Ecwid. Using Ecwid JS SDK it's very easy to get access token for a store.
+Native applications work inside of Ecwid Control Panel in a separate tab, just like Shipping or Design Settings. 
+
+This puts your app right into the day-to-day workflow of an Ecwid store owner and it is a great way to design an app for Ecwid. Using Ecwid JS SDK it's very easy to get access token for a store.
 
 More details: [Native apps](#native-applications)
 
 ### External apps
 
-External applications work outside of Ecwid Control panel and user would interact and control them on a separate website. This approach is great for applications that provide extensive feature set for store owners and would require implementing oAuth flow to get access token for a specific Ecwid store.
+External applications work outside of Ecwid Control panel and user would interact and control them on a separate website. 
+
+This approach is great for applications that provide extensive feature set for store owners and would require implementing OAuth flow to get access token for a specific Ecwid store. 
 
 More details: [External apps](#external-applications)
 

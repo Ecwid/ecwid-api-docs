@@ -13,6 +13,8 @@ Access scope required: <strong>add_payment_method, read_orders, update_orders</s
 - [Saving merchant settings](https://developers.ecwid.com/api-documentation/merchant-settings-for-payment-method)
 - [Payment request from Ecwid – Details](https://developers.ecwid.com/api-documentation/processing-payment-request)
 
+You can find existing payment processor integrations on this page: [Payment Gateways](https://www.ecwid.com/apps/paymentgateways)
+
 ## How payment method works
 
 ### Payment overview

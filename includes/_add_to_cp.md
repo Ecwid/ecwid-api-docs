@@ -94,6 +94,7 @@ If you already have a registered app and want to make it native, you can [contac
 Here you can find a starter template that you can use as a skeleton of your own application.
 
 #### Notes
+
 * The `EcwidApp.init()` method initializes the application within Ecwid Control panel and allows it to show the page content
 * The `EcwidApp.getPayload()` method allows you to get the Store ID and REST API access token. See details in the further sections
 * Ecwid will load your app's *Iframe URL* with a payload to help identify the merchant's store. To find out more about the store authentication process in the app tab, see the [Authentication section](#authentication-in-embedded-apps).
@@ -113,6 +114,12 @@ When user opens the application tab, the browser's address bar URL will have a f
 `https://my.ecwid.com/cp/#app:name=my-cool-app&parent-menu=sales&app_state=orderId%3A%2012`
 
 Where the `my-cool-app` is your **app_id** which you will need to use in this code template to initiale the application on the page. The `sales` part is the Ecwid Control Panel section where the app is embedded into.
+
+#### Q: Do I need to use Ecwid styles for my app? 
+
+Native apps become a part of an Ecwid Control Panel, hence they need to look like a part of it. You can use Ecwid CSS Framework to achieve it in your app. 
+
+Ecwid CSS Framework allows you to create interface faster and easier. If your application is a custom solution for your own store, we still recommend using the Ecwid styles, but it's not mandatory. 
 
 ## Deep linking
 
