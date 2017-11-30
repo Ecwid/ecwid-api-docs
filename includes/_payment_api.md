@@ -225,7 +225,7 @@ The value of the `data` input is encoded with a **AES-128** mechanism, where the
     "cart": {
         "currency": "USD",
         "order": {
-            "vendorOrderNumber": "AS64-0001",
+            "referenceTransactionId":"transaction_55885213",
             "subtotal": 1.15,
             "total": 14,
             "email": "john@example.com",
@@ -236,7 +236,6 @@ The value of the `data` input is encoded with a **AES-128** mechanism, where the
             "couponDiscount": 0,
             "paymentStatus": "INCOMPLETE",
             "fulfillmentStatus": "AWAITING_PROCESSING",
-            "orderNumber": 64,
             "refererUrl": "https://mdemo.ecwid.com",
             "volumeDiscount": 4,
             "membershipBasedDiscount": 0,
@@ -334,8 +333,8 @@ token | string | Access token of the Ecwid store. Use it to update order status 
 Name | Type    | Description
 ---- | ------- | --------------
 currency | string | Code of the currency currently enabled in the store
-vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
 subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+referenceTransactionId | string | Unique transaction identification. Used to update order status after payment is processed. See [Updating order status](https://developers.ecwid.com/api-documentation/processing-payment-request#updating-order-status)
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
 paymentMethod | string | Payment method name as specified when registering the app
@@ -345,7 +344,6 @@ ipAddress | string  | Customer IP
 couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
-orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
@@ -467,7 +465,7 @@ description | string | Handling fee description for customer
 > Update order status example
 
 ```http
-PUT /api/v3/4870020/orders/20?token=1234567890qwqeertt HTTP/1.1
+PUT /api/v3/4870020/orders/transaction_55885213?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -477,11 +475,17 @@ Cache-Control: no-cache
 }
 ```
 
-For Ecwid to find out the result of the payment, your application must update the order status before returning them back to the storefront. Updating order status can be performed using a call to Ecwid's REST API and its [Orders endpoint](https://developers.ecwid.com/api-documentation/orders#update-order). 
+For Ecwid to find out the result of the payment, your application must update the order status before returning them back to the storefront. 
 
-In order to update an order, you will need these details: order number, store ID and an access token. All of these details are provided in a request to your application's payment URL in a corresponding fields: `orderNumber` field in the `cart` object, `storeId` and `token` fields in the request.
+To update order status, you will need these details: **reference transaction id**, **store ID** and **access token**. 
 
-Once the order is updated with correct status, your app should return the customer back to the store.
+All of these details are provided in a request to your application's payment URL in corresponding fields: 
+
+- `referenceTransactionId` field in the `cart` object of a request body
+- `storeId` field in the request body
+- `token` field in the request body
+
+Once the order is updated with correct status, your app should return the customer back to the store – see below. 
 
 ### Returning customer to storefront
 
@@ -492,6 +496,12 @@ When a customer is finished making their payment for an order, your app needs to
 After user is directed to that page, Ecwid will check that order and depending on its status, the action will be different: 
 
 - If the order is in `PAID` or `QUEUED` payment status, customer's cart will be cleared and they will see 'Thank you for your order' page
-- If the order is in `INCOMPLETE` payment status, customer will see the cart page of Ecwid storefront
-- If the order is in `CANCELLED` payment status, Ecwid will show the 'Payment error' page.
+- If the order is in `INCOMPLETE` payment status, customer will see the cart page of Ecwid storefront with the same items
+- If the order is in `CANCELLED` payment status, Ecwid will show the 'Payment error' page
+
+
+
+
+
+
 

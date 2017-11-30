@@ -114,10 +114,10 @@ Access scope required: <strong>read_customers</strong> (see <a href="#access-sco
 
 To start sending webhooks to an app, Ecwid needs this information: 
 
-- Webhook URL
-- Webhook events
+- [Webhook URL](https://developers.ecwid.com/api-documentation/set-up-webhooks#set-webhook-url)
+- [Webhook events](https://developers.ecwid.com/api-documentation/set-up-webhooks#set-webhook-events)
 
-[Contact Ecwid team](/contact) to set webhooks for your application. 
+[Provide Ecwid team](/contact) with webhook URL and webhook events to set for your application. 
 
 Learn more about setting up webhooks below.
 
@@ -136,7 +136,8 @@ If you are planning to use <strong>specific ports in your URL</strong>, make sur
 </aside>
 
 ### Set webhook events
-There are several types of events in the store that Ecwid can notify your application about, check out **Event type** section of webhook structure for more details. 
+
+There are several types of events in the store that Ecwid can notify your application about, check out [Event types](https://developers.ecwid.com/api-documentation/webhooks-overview#supported-events) section for more details.
 
 Please specify the exact event types you wish to be notified about upon registering your application or [contact us](/contact) if you already have an app.
 

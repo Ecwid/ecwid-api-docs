@@ -19,10 +19,13 @@ Cache-Control: no-cache
 
 #### Q: How to get info about abandoned sales? 
 
-To get abandoned sale information, specify `INCOMPLETE` for `paymentStatus` filter when searching for orders.
-Also, check out the [carts endpoint](#carts) methods for additional info.
+To get abandoned sale information, specify `INCOMPLETE` status for `paymentStatus` filter when searching for orders.
 
-**Coming soon**: Abandoned sales will not have an `orderNumber` or `vendorOrderNumber` assigned to them. Instead, they will have a unique order id in `orderNumber` and `vendorOrderNumber` field. 
+Also, check the [carts endpoint](#carts) methods for accessing abandoned carts
+
+<aside class="notice">
+If no filters are set in the URL, API will return all orders <strong>except for unfinished orders</strong>. To get unfinished orders, use <i>INCOMPLETE</i> value for <strong>paymentStatus</strong> parameter.
+</aside>
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -45,10 +48,6 @@ paymentMethod | string | Payment method used by customer
 shippingMethod | string | Shipping method chosen by customer
 paymentStatus | string | Comma separated list of order payment statuses to search. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string | Comma separated list of order fulfilment statuses to search. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
-
-<aside class="notice">
-If no filters are set in the URL, API will return all orders <strong>except for unfinished orders</strong>. To get unfinished orders, use <i>INCOMPLETE</i> value for <strong>paymentStatus</strong> parameter.
-</aside>
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -307,8 +306,8 @@ items | Array\<*OrderEntry*\> | The items list
 #### OrderEntry
 Field | Type |  Description
 ------| -----| ------------
-orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`. **COMING SOON:** For **completed orders** `orderNumber` will work as usual. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `orderNumber` will be a unique order ID.
-vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`. **COMING SOON:** For **completed orders**, `vendorOrderNumber` will work as usual. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `vendorOrderNumber` will be a unique order ID.
+orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
+vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
 subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
@@ -563,6 +562,12 @@ When you know the exact order numbers for orders you need, you can get those ord
 
 This way your app will save some time as you will be performing less requests to the Ecwid API and they will be much more efficient.
 
+#### Q: How to get info about abandoned sales? 
+
+To get abandoned sale information, specify `INCOMPLETE` status for `paymentStatus` filter when searching for orders.
+
+Also, check the [carts endpoint](#carts) methods for accessing abandoned carts
+
 > Request example
 
 ```http
@@ -578,7 +583,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
+**orderNumber** | number | Order number. Use the `orderNumber` value here only, not the `vendorOrderNumber` or anything else
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -811,8 +816,8 @@ A JSON object of type 'Order' with the following fields:
 #### Order
 Field | Type |  Description
 ------| -----| ------------
-orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`. **COMING SOON:** For **completed orders** `orderNumber` will work as usual. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `orderNumber` will be a unique order ID.
-vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`. **COMING SOON:** For **completed orders**, `vendorOrderNumber` will work as usual. For **abandoned sales** i.e. the `paymentStatus` is `INCOMPLETE`, `vendorOrderNumber` will be a unique order ID.
+orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
+vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
 subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
@@ -1657,7 +1662,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber` for completed orders. **Coming soon**: you can also use order id you got from the order details in the `orderNumber` field for abandoned sales (`paymentStatus` == `INCOMPLETE`).
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 
 #### Request body
 
@@ -1879,8 +1884,8 @@ Cache-Control: no-cache
 Name | Type    | Description
 ---- | ------- | -----------
 **storeId** |  number | Ecwid store ID
-**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 **token** |  string |  oAuth token
+**orderNumber** | number | Order number. Make sure to use the `orderNumber` value here and not the `vendorOrderNumber`
 
 #### Response
 
