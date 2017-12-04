@@ -602,11 +602,28 @@ EcwidApp.openPage('products');
 
 The `EcwidApp.openPage()` method allows you to direct the user to some particular page in the Control Panel
 
+To open a page in Ecwid CP, you will need to get its identification after the hash (#) part in the URL. 
+
 #### Parameters
 Name | Type | Description
 ---- | ---- | -----------
 page | string | Hash part of of the page URL in the Control Panel. Examples: `billing` will open the Billing page, `products` will open the Catalog page.
 
+**Examples**: 
+
+1) Open Catalog page 
+
+Target URL: `https://my.ecwid.com/store/1003#products`
+What we need use: `products`
+
+The result: `EcwidApp.openPage('products');`
+
+2) Open specific order details page
+
+Target URL: `https://my.ecwid.com/store/5035009#order:id=938&return=orders`
+What we need to use: `order:id=938&return=orders`
+
+The result: `EcwidApp.openPage('order:id=938&return=orders');`
 
 ### ready
 
