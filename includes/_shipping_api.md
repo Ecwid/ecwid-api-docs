@@ -16,6 +16,10 @@ Access scope required: <strong>add_shipping_method</strong> (see <a href="#acces
 
 ## How shipping method works
 
+> Checkout flow for shipping apps
+> 
+> ![Checkout flow for shipping apps](https://don16obqbay2c.cloudfront.net/wp-content/uploads/Shipping-Method-Diagram-1512471104.png)
+
 #### 1. User configures app settings in settings tab
 
 After the installation, user would need a page where they can configure it: provide their account details, set up dimensions, etc. We recommend using [Native apps feature](#embedded-apps) to provide this functionality. To manage and store those settings, see the [Merchant app settings](#merchant-settings-for-shipping-method) section.

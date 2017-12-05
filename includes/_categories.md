@@ -273,7 +273,7 @@ Query field | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 **categoryId** | number | Internal category ID
-baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](https://developers.ecwid.com/api-documentation/store-profile#get-store-profile)
+baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
 
 #### Response
@@ -381,7 +381,7 @@ HTTP Status | Meaning | Code (optional)
 
 Direct URL for each category is always available in the `url` field once you make a request to the Ecwid REST API. 
 
-In any Ecwid store there is a [storefront URL](https://developers.ecwid.com/api-documentation/store-profile#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide category URLs in the REST API and other connected services.
+In any Ecwid store there is a [storefront URL](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide category URLs in the REST API and other connected services.
 
 **When a store is embedded into multiple websites**
 

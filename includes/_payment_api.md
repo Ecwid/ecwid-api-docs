@@ -20,7 +20,7 @@ You can find existing payment processor integrations on this page: [Payment Gate
 ### Payment overview
 
 > Checkout flow for payment apps
-
+> 
 > ![Checkout flow for payment apps](https://don16obqbay2c.cloudfront.net/wp-content/uploads/Payment-Method-Diagram-1511788692.png)
 
 #### 1. User configures app settings in settings tab
