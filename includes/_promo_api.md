@@ -80,7 +80,15 @@ After the installation, your app can add a page where they can configure it: pro
 
 ## Set up custom discount
 
-When [registering a new application](/register) for Ecwid, specify the request URL for your application. Ecwid will be sending cart details requests to that endpoint and expect discounts in a specific format in response.
+After you [registered a new application](/register) for Ecwid, **send your custom discount URL** to [Ecwid team](/contact). 
+
+Ecwid will be sending order details requests to that endpoint and expect discounts in a specific format in response.
+
+Next, start working on discount calculations according to the documentation: [https://developers.ecwid.com/api-documentation/request-for-discount-and-response](https://developers.ecwid.com/api-documentation/request-for-discount-and-response)
+
+<aside class='notice'>
+If your application is for a public use, the request URL must be working <strong>via HTTPS</strong>. Also, the certificate can only be from <strong>trusted CA's and not self-signed</strong>.
+</aside>
 
 ## Request for discount and response
 

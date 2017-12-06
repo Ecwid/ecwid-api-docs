@@ -96,7 +96,12 @@ If you need to remove the payment method completely, go to Ecwid Control Panel >
 
 ## Set up payment method
 
-After you [registered a new application](/register) for Ecwid, send the payment URL for that new payment method by [contacting us](/contact). Ecwid will be sending order details requests to payment URL endpoint and expect the order status to be changed after the payment is complete.
+After you [registered a new application](/register) for Ecwid, **send your payment URL** to [Ecwid team](/contact). 
+
+Ecwid will be sending order details requests to payment URL endpoint and expect the order status to be changed after the payment is complete.
+
+Next, start working on payment processing page according to the documentation: [https://developers.ecwid.com/api-documentation/processing-payment-request](https://developers.ecwid.com/api-documentation/processing-payment-request)
+
 
 ## Merchant settings for payment method
 
