@@ -1095,7 +1095,7 @@ Name | Type | Description
 -----|------|------------
 name | string | Customer's name
 companyName | string | Customer's company name
-street | string | Customer's street address
+street | string | Customer's street address. Use `\n` to place text in Address Line 2
 city | string | Customer's city
 countryName | string | Customer's country name. `countryCode` can be used instead
 countryCode | string | Customer's country code. `countryName` can be used instead
@@ -1189,7 +1189,7 @@ Name | Type | Description
 -----|------|------------
 name | string | Customer's name
 companyName | string | Customer's company name
-street | string | Customer's street address
+street | string | Customer's street address. Use `\n` to place text in Address Line 2
 city | string | Customer's city
 countryName | string | Customer's country name. `countryCode` can be used instead
 countryCode | string | Customer's country code. `countryName` can be used instead

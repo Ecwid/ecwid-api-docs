@@ -718,7 +718,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 
 HTTP Status | Description
 -------------- | --------------
-400 | Request parameters are malformed
+400 | Request parameters are malformed: SKU for combination is not set, etc.
 402 | This functionality is not available on this plan
 404 | Product not found
 415 | Unsupported content-type: expected `application/json` or `text/json`
