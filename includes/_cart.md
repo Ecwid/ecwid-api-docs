@@ -247,8 +247,8 @@ Parameters in bold are mandatory
                 "PO number": "123abcd",
                 "Buyer's full name": "John Smith"
             },
-            "recovered_order_id": 1231245,
-            "recovery_email_sent_timestamp": "1427272209"
+            "recoveredOrderId": 223,
+            "recoveryEmailSentTimestamp": "2017-12-14 13:33:15 +0000"
         }
     ]
 }
@@ -310,8 +310,8 @@ paymentMessage | string | Message from the payment processor if any
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
-recovered_order_id | string | Internal order ID. Is present if the abandoned cart was successfully recovered
-recovery_email_sent_timestamp | string | UNIX timestamp of a date when abandoned cart recovery email was sent to customer
+recoveredOrderId | number | Order number. Is present if the abandoned cart was successfully recovered
+recoveryEmailSentTimestamp | string | The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
 
 #### OrderItem
 Field | Type |  Description
@@ -716,8 +716,8 @@ Parameters in bold are mandatory
                 "PO number": "123abcd",
                 "Buyer's full name": "John Smith"
             },
-            "recovered_order_id": 1231245,
-            "recovery_email_sent_timestamp": "1427272209"
+            "recoveredOrderId": 223,
+            "recoveryEmailSentTimestamp": "2017-12-14 13:33:15 +0000"
         }
     ]
 }
@@ -770,8 +770,8 @@ paymentMessage | string | Message from the payment processor if any
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
-recovered_order_id | string | Internal order ID. Is present if the abandoned cart was successfully recovered
-recovery_email_sent_timestamp | string | UNIX timestamp of a date when abandoned cart recovery email was sent to customer
+recoveredOrderId | number | Order number. Is present if the abandoned cart was successfully recovered
+recoveryEmailSentTimestamp | string | The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
 
 #### OrderItem
 Field | Type |  Description
@@ -1023,7 +1023,9 @@ POST /api/v3/4870020/order/calculate?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+```
 
+```json
 {
         "items": [
             {

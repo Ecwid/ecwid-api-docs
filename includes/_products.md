@@ -172,7 +172,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           ],
           "seoTitle": "Orange",
           "seoDescription": "It's a tasty orange for you and your family!",
-          "defaultCategoryId": 0,
+          "defaultCategoryId": 19976006,
           "favorites": {
             "count": 0,
             "displayedCount": "0"
@@ -688,7 +688,7 @@ categoryIds | Array\<*number*\> | **Private token**: List of the categories, whi
 categories | Array\<*CategoriesInfo*\> | List of the categories the product belongs to with brief details (*for any access token*). If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
-defaultCategoryId | number  | Identifier of the default category of the product
+defaultCategoryId | number  | Default category ID of the product. If value is `0`, then product does not have a default category and is not shown anywhere in storefront
 favorites | \<*FavoritesStats*\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
@@ -1238,7 +1238,7 @@ categoryIds | Array\<*number*\> | **Private token**: List of the categories, whi
 categories | Array\<*CategoriesInfo*\> | List of the categories the product belongs to with brief details (*for any access token*). If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
-defaultCategoryId | number  | Identifier of the default category of the product
+defaultCategoryId | number  | Default category ID of the product. If value is `0`, then product does not have a default category and is not shown anywhere in storefront
 favorites | \<*FavoritesStats*\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 files | Array\<*ProductFile*\> | Downloadable files (E-goods) attached to the product
@@ -1538,7 +1538,7 @@ description | string  | Product description *in HTML*
 categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
-defaultCategoryId | number  | Identifier of the default category of the product
+defaultCategoryId | number  | Default category ID of the product. If value is `0`, then product does not have a default category and is not shown anywhere in storefront
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 dimensions | \<*ProductDimensions*\> | Product dimensions info
@@ -1718,7 +1718,7 @@ description | string  | Product description *in HTML*
 categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
-defaultCategoryId | number  | Identifier of the default category of the product
+defaultCategoryId | number  | Default category ID of the product. If value is `0`, then product does not have a default category and is not shown anywhere in storefront
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images (for updating alt tags and sort order)
