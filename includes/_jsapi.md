@@ -678,6 +678,7 @@ Name | Type | Description
 billingPerson | \<*Person*\> | Customer’s name along with his/her billing address, as entered in the last order.
 email | String | Email address of a customer
 id | Number | Unique customer ID in Ecwid
+membership | \<*CustomerGroup*\> | Customer group details. Present only if customer belongs to a customer group
 ownerId | number | Store ID this customer belongs to
 registered | UNIX Timestamp | Registration date of this customer
 shippingAddresses | Array of \<*ShippingAddress*\> | A list of addresses in the customer’s address book
@@ -710,6 +711,18 @@ postalCode | string, optional | The person’s postal code or ZIP code, if appli
 stateOrProvinceCode | string, optional | The person’s region/state/province code by ISO 3166-2. Please note that not all countries regional codes are listed in the Ecwid database so far.
 countryName | string, optional | Country name, if applicable
 phone | string, optional | Phone number, if applicable
+
+### CustomerGroup Object
+
+Customer group information 
+
+**Fields:**
+
+Name | Type | Description
+---- | ---- | -----------
+id | number | The unique id of a customer group
+name | string | Name of the customer group
+ownerid | number | Ecwid store ID 
 
 ## Manage customer cart
 
