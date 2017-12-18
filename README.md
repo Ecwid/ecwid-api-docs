@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## December 18, 2017
+
+Added `couponAmount` and `discounts` for order and abandoned cart items. Now you can know how much discount or discount coupon amount was applied to a specific item. 
+
+The values apply as is, meaning if an order is changed manually in the future, they will not be automatically recalculated. 
+
 ## November 7, 2017
 
 - Added `EcwidApp.sendUserToUpgrade()` function to Ecwid JavaScript SDK for Native applications. Now you are able to send a user to upgrade to a higher Ecwid plan specifying only the target feature needed for your app. [Learn more](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#sendusertoupgrade)

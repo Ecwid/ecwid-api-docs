@@ -213,7 +213,19 @@ Parameters in bold are mandatory
                         "length": 34,
                         "width": 3,
                         "height": 22
-                    }
+                    },
+                    "couponAmount": 2.3,
+                    "discounts": [
+                        {
+                            "discountInfo": {
+                                "value": 4,
+                                "type": "ABS",
+                                "base": "ON_TOTAL",
+                                "orderTotal": 1
+                            },
+                            "total": 2.19
+                        }
+                    ]
                 }
             ],
             // Refund information
@@ -387,6 +399,8 @@ selectedOptions | Array\<*OrderItemOption*\> | Product options values selected b
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
 dimensions | \<*ProductDimensions*\> | Product dimensions info
+couponAmount | number | Coupon discount amount applied to item. Provided if discount applied to order. Is not recalculated if order is updated later manually
+discounts | Array\<*OrderItemDiscounts*\> | Discounts applied to order item 'as is'. Provided if discounts are applied to order (not including discount coupons) and are not recalculated if order is updated later manually
 
 #### OrderItemTax
 Field | Type | Description
@@ -447,6 +461,20 @@ postalCode | string  | Postal/ZIP code
 stateOrProvinceCode |   string  | State code, e.g. `NY`
 stateOrProvinceName | string | State/province name
 phone | string  | Phone number
+
+#### OrderItemDiscounts
+Field | Type  | Description
+----- | ----- | -----------
+discountInfo | \<*OrderItemDiscountInfo*\> | Info about discounts applied to item
+total | number | Total order item discount value for this discount
+
+#### OrderItemDiscountInfo
+Field | Type  | Description
+----- | ----- | -----------
+value | number | Discount value
+type | string | Discount type: `ABS` or `PERCENT`
+base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
+orderTotal | number | Minimum order subtotal the discount applies to
 
 #### DiscountCouponInfo
 Field | Type  | Description
@@ -737,7 +765,19 @@ Parameters in bold are mandatory
                 "length": 34,
                 "width": 3,
                 "height": 22
-            }
+            },
+            "couponAmount": 2.3,
+            "discounts": [
+                {
+                    "discountInfo": {
+                    "value": 4,
+                    "type": "ABS",
+                    "base": "ON_TOTAL",
+                    "orderTotal": 1
+                },
+                    "total": 2.19
+                }
+            ]
         }
     ],
     // Refund information
@@ -897,6 +937,8 @@ selectedOptions | Array\<*OrderItemOption*\> | Product options values selected b
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
 dimensions | \<*ProductDimensions*\> | Product dimensions info
+couponAmount | number | Coupon discount amount applied to item. Provided if discount applied to order. Is not recalculated if order is updated later manually
+discounts | Array\<*OrderItemDiscounts*\> | Discounts applied to order item 'as is'. Provided if discounts are applied to order (not including discount coupons) and are not recalculated if order is updated later manually
 
 #### OrderItemTax
 Field | Type |  Description
@@ -957,6 +999,20 @@ postalCode | string  | Postal/ZIP code
 stateOrProvinceCode |   string  | State code, e.g. `NY`
 stateOrProvinceName | string | State/province name, e.g. `New York`
 phone | string  | Phone number
+
+#### OrderItemDiscounts
+Field | Type  | Description
+----- | ----- | -----------
+discountInfo | \<*OrderItemDiscountInfo*\> | Info about discounts applied to item
+total | number | Total order item discount value for this discount
+
+#### OrderItemDiscountInfo
+Field | Type  | Description
+----- | ----- | -----------
+value | number | Discount value
+type | string | Discount type: `ABS` or `PERCENT`
+base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
+orderTotal | number | Minimum order subtotal the discount applies to
 
 #### DiscountCouponInfo
 Field | Type  | Description
@@ -1765,6 +1821,20 @@ postalCode | string  | Postal/ZIP code
 stateOrProvinceCode |   string  | State code, e.g. `NY`
 phone | string  | Phone number
 
+#### OrderItemDiscounts
+Field | Type  | Description
+----- | ----- | -----------
+discountInfo | \<*OrderItemDiscountInfo*\> | Info about discounts applied to item
+total | number | Total order item discount value for this discount
+
+#### OrderItemDiscountInfo
+Field | Type  | Description
+----- | ----- | -----------
+value | number | Discount value
+type | string | Discount type: `ABS` or `PERCENT`
+base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
+orderTotal | number | Minimum order subtotal the discount applies to
+
 #### DiscountCouponInfo
 Field | Type  | Description
 ----- | ----- | -----------
@@ -1941,7 +2011,9 @@ POST /api/v3/4870020/orders?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+```
 
+```json
 {
         "subtotal": 30,
         "total": 40,
