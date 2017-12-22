@@ -682,6 +682,18 @@ You may want to apply different CSS codes depending on the store your applicatio
 
 In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](https://developers.ecwid.com/api-documentation/add-or-modify-features-in-storefront#add-custom-javascript-code) for details.
 
+### Storefront interface translations
+
+When the app adds new features to storefront that need translations, most likely the app loads its external JavaScript code too.
+
+The app can determine the current language of storefront using the JS API method: [Ecwid.getStorefrontLang](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getstorefrontlang)
+
+To translate the app in storefront, use these steps: 
+
+1/ [Determine storefront language](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getstorefrontlang) before initializing the app
+2. Set/load the required translated text labels for app interface
+
+If the current language is not supported, use the fallback labels. For example, load English texts if user is Spanish and you don't have Spanish translations yet. 
 
 ## Logic and code
 

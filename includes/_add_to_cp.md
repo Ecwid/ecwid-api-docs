@@ -121,6 +121,27 @@ Native apps become a part of an Ecwid Control Panel, hence they need to look lik
 
 Ecwid CSS Framework allows you to create interface faster and easier. If your application is a custom solution for your own store, we still recommend using the Ecwid styles, but it's not mandatory. 
 
+### Native interface translations
+
+You are able to translate native applicaiton interface based on the language of Ecwid Control Panel. 
+
+The current language of Ecwid Control Panel is provided in the authentication payload your application receives.
+
+Authentication Payload can be sent in two modes: 
+
+- client-side (via hash `#`)
+- server-side (URL query string: `?` and `&`)
+
+So to translate the app interface inside of Ecwid Control Panel, you will need to: 
+
+1. Find out how your app gets the payload (check your app iframe URL in browser's dev tools)
+2. Get `lang` field value from the payload
+3. Load the interface based on that value
+
+If the current language is not supported, use the fallback labels. For example, load English texts if user is Spanish and you don't have Spanish translations yet. 
+
+More info on getting and parsing authentication payload: https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#app-authentication
+
 ## Deep linking
 
 Native apps in Ecwid Control Panel support deep linking, which means that they can receive information prior to being loaded and opened. This can provide your app with a new level of interactivity with a user by reacting to the context, sent to your app.
