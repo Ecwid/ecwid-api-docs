@@ -304,7 +304,7 @@ Field | Type  | Description
 **name** |  string | Coupon title
 **code** |  string | Unique coupon code, length limit is 128 characters.
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING` . Default is `ABS`
-status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP` . Default is `ACTIVE`
+status | string | Discount coupon state: `ACTIVE`, `PAUSED`. Discount coupon states `EXPIRED` and `USEDUP` are set by Ecwid store only and not available in API
 discount | number | Discount amount . `0` is default
 launchDate | string | The date of coupon launch
 expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`
@@ -455,8 +455,8 @@ Field | Type  | Description
 name |  string | Coupon title
 code |  string | Unique coupon code, length limit is 128 characters.
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING` . 
-status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP` .
-discount | number | Discount amount .
+status | string | Discount coupon state: `ACTIVE`, `PAUSED`. Discount coupon states `EXPIRED` and `USEDUP` are set by Ecwid store only and not available in API
+discount | number | Discount amount
 launchDate | string | The date of coupon launch
 expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`
 totalLimit | number  | The minimum order subtotal the coupon applies to

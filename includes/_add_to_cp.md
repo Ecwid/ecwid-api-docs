@@ -123,16 +123,16 @@ Ecwid CSS Framework allows you to create interface faster and easier. If your ap
 
 ### Native interface translations
 
-You are able to translate native applicaiton interface based on the language of Ecwid Control Panel. 
+You are able to translate native application interface based on the language of Ecwid Control Panel. 
 
 The current language of Ecwid Control Panel is provided in the authentication payload your application receives.
 
-Authentication Payload can be sent in two modes: 
+[Authentication Payload](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#app-authentication) can be sent in two modes: 
 
 - client-side (via hash `#`)
 - server-side (URL query string: `?` and `&`)
 
-So to translate the app interface inside of Ecwid Control Panel, you will need to: 
+**Use these steps to translate your Native app**: 
 
 1. Find out how your app gets the payload (check your app iframe URL in browser's dev tools)
 2. Get `lang` field value from the payload
@@ -140,7 +140,7 @@ So to translate the app interface inside of Ecwid Control Panel, you will need t
 
 If the current language is not supported, use the fallback labels. For example, load English texts if user is Spanish and you don't have Spanish translations yet. 
 
-More info on getting and parsing authentication payload: https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#app-authentication
+More info on getting and parsing authentication payload: [https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#app-authentication](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#app-authentication)
 
 ## Deep linking
 
