@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## December 26, 2017
+
+Added `taxOnShipping` field to [orders](https://developers.ecwid.com/api-documentation/orders), [abandoned carts](https://developers.ecwid.com/api-documentation/carts) and [calculation of order details](https://developers.ecwid.com/api-documentation/carts#calculate-order-details) endpoints in Ecwid REST API.
+
+Now you can know how much tax total was applied to shipping charge, only if tax is applied to both subtotal and shipping. 
+
+The values apply 'as is', meaning if an order is changed manually in the future, they will not be automatically recalculated. 
+
 ## December 18, 2017
 
 Added `couponAmount` and `discounts` for order and abandoned cart items. Now you can know how much discount or discount coupon amount was applied to a specific item. 

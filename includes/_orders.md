@@ -298,7 +298,14 @@ Parameters in bold are mandatory
             "extraFields": {
                 "referred_by": "Referrer is: Facebook Ads",
                 "AFF_ID": "fb-123"
-            }
+            },
+            "taxesOnShipping": [
+                {
+                    "name": "Tax X",
+                    "value": 20,
+                    "total": 2.86
+                }
+            ]
         }
     ]
 }
@@ -370,6 +377,8 @@ extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about orde
 refundedAmount | number | A sum of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping 'as is'. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if order is updated later manually
+
 
 #### OrderItem
 Field | Type |  Description
@@ -552,6 +561,13 @@ date | date | The date/time of a refund, e.g `2014-06-06 18:57:19 +0000`
 source | string | What action triggered refund. Possible values: `"CP"` - changed my merchant in Ecwid CP, `"API"` - changed by another app, `"External"` - refund made from payment processor website
 reason | string | A text reason for a refund. 256 characters max
 amount | number | Amount of this specific refund (not total amount refunded for order. see `redundedAmount` field)
+
+#### TaxOnShipping
+Field | Type | Description
+----- | ---- | -----------
+name | string | Tax name
+value | number | Tax value in store settings, applied to destination zone
+total | number | Tax total applied to shipping
 
 #### Errors
 
@@ -847,7 +863,14 @@ Parameters in bold are mandatory
     }
     "extraFields": {
         "referred_by": "Referrer is: Facebook Ads"
-    }
+    },
+    "taxesOnShipping": [
+        {
+            "name": "Tax X",
+            "value": 20,
+            "total": 2.86
+        }
+    ]
 }
 ```
 
@@ -939,6 +962,7 @@ files | Array\<*OrderItemProductFile*\> | Files attached to the order item
 dimensions | \<*ProductDimensions*\> | Product dimensions info
 couponAmount | number | Coupon discount amount applied to item. Provided if discount applied to order. Is not recalculated if order is updated later manually
 discounts | Array\<*OrderItemDiscounts*\> | Discounts applied to order item 'as is'. Provided if discounts are applied to order (not including discount coupons) and are not recalculated if order is updated later manually
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if order is updated later manually
 
 #### OrderItemTax
 Field | Type |  Description
@@ -1090,6 +1114,13 @@ date | date | The date/time of a refund, e.g `2014-06-06 18:57:19 +0000`
 source | string | What action triggered refund. Possible values: `"CP"` - changed my merchant in Ecwid CP, `"API"` - changed by another app, `"External"` - refund made from payment processor website
 reason | string | A text reason for a refund. 256 characters max
 amount | number | Amount of this specific refund (not total amount refunded for order. see `redundedAmount` field)
+
+#### TaxOnShipping
+Field | Type | Description
+----- | ---- | -----------
+name | string | Tax name
+value | number | Tax value in store settings, applied to destination zone
+total | number | Tax total applied to shipping
 
 #### Errors
 
@@ -1626,7 +1657,9 @@ PUT /api/v3/4870020/orders/20?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+```
 
+```json
 {
         "subtotal": 35,
         "total": 45,
@@ -1708,7 +1741,14 @@ Cache-Control: no-cache
         ],
         "hidden": false,
         "privateAdminNotes": "Must be delivered till Sunday.",
-        "pickupTime": "2017-10-17 05:00:00 +0000"
+        "pickupTime": "2017-10-17 05:00:00 +0000",
+        "taxesOnShipping": [
+            {
+                "name": "Tax X",
+                "value": 20,
+                "total": 2.86
+            }
+        ]
     }
 ```
 
@@ -1767,6 +1807,7 @@ affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if order is updated later manually
 
 #### OrderItem
 Field | Type |  Description
@@ -1886,8 +1927,15 @@ orderTotal | number | Minimum order subtotal the discount applies to
 #### CreditCardStatus
 Field | Type | Description
 ----- | ---- | -----------
-avsMessage | string  | Address verification status returned by the payment system.
-cvvMessage | string  | Credit card verification status returned by the payment system.
+avsMessage | string  | Address verification status returned by the payment system
+cvvMessage | string  | Credit card verification status returned by the payment system
+
+#### TaxOnShipping
+Field | Type | Description
+----- | ---- | -----------
+name | string | Tax name
+value | number | Tax value in store settings, applied to destination zone
+total | number | Tax total applied to shipping
 
 #### Response
 
@@ -2241,8 +2289,8 @@ orderTotal | number | Minimum order subtotal the discount applies to
 #### CreditCardStatus
 Field | Type | Description
 ----- | ---- | -----------
-avsMessage | string  | Address verification status returned by the payment system.
-cvvMessage | string  | Credit card verification status returned by the payment system.
+avsMessage | string  | Address verification status returned by the payment system
+cvvMessage | string  | Credit card verification status returned by the payment system
 
 #### Response
 

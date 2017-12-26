@@ -260,7 +260,14 @@ Parameters in bold are mandatory
                 "Buyer's full name": "John Smith"
             },
             "recoveredOrderId": 223,
-            "recoveryEmailSentTimestamp": "2017-12-14 13:33:15 +0000"
+            "recoveryEmailSentTimestamp": "2017-12-14 13:33:15 +0000",
+            "taxesOnShipping": [
+                {
+                    "name": "Tax X",
+                    "value": 20,
+                    "total": 2.86
+                }
+            ]
         }
     ]
 }
@@ -324,6 +331,7 @@ affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 recoveredOrderId | number | Order number. Is present if the abandoned cart was successfully recovered
 recoveryEmailSentTimestamp | string | The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old carts, `[]` for carts with taxes applied to subtotal only. Are not recalculated if cart is updated later manually
 
 #### OrderItem
 Field | Type |  Description
@@ -485,6 +493,13 @@ Field | Type | Description
 ----- | ---- | -----------
 avsMessage | string  | Address verification status returned by the payment system.
 cvvMessage | string  | Credit card verification status returned by the payment system.
+
+#### TaxOnShipping
+Field | Type | Description
+----- | ---- | -----------
+name | string | Tax name
+value | number | Tax value in store settings, applied to destination zone
+total | number | Tax total applied to shipping
 
 #### Errors
 
@@ -759,6 +774,13 @@ Parameters in bold are mandatory
             },
             "recoveredOrderId": 223,
             "recoveryEmailSentTimestamp": "2017-12-14 13:33:15 +0000"
+            "taxesOnShipping": [
+                {
+                    "name": "Tax X",
+                    "value": 20,
+                    "total": 2.86
+                }
+            ]
         }
     ]
 }
@@ -813,6 +835,7 @@ affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 recoveredOrderId | number | Order number. Is present if the abandoned cart was successfully recovered
 recoveryEmailSentTimestamp | string | The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old carts, `[]` for carts with taxes applied to subtotal only. Are not recalculated if cart is updated later manually
 
 #### OrderItem
 Field | Type |  Description
@@ -971,8 +994,15 @@ description | string | Description of a discount (for discounts with base == `CU
 #### CreditCardStatus
 Field | Type | Description
 ----- | ---- | -----------
-avsMessage | string  | Address verification status returned by the payment system.
-cvvMessage | string  | Credit card verification status returned by the payment system.
+avsMessage | string  | Address verification status returned by the payment system
+cvvMessage | string  | Credit card verification status returned by the payment system
+
+#### TaxOnShipping
+Field | Type | Description
+----- | ---- | -----------
+name | string | Tax name
+value | number | Tax value in store settings, applied to destination zone
+total | number | Tax total applied to shipping
 
 #### Errors
 
@@ -1031,7 +1061,14 @@ Parameters in bold are mandatory
 
 ```json
 {
-  "hidden": true
+    "hidden": true,
+    "taxesOnShipping": [
+        {
+            "name": "Tax X",
+            "value": 20,
+            "total": 2.86
+        }
+    ]
 }
 ```
 
@@ -1040,7 +1077,15 @@ A JSON object of type 'Order' with the following fields:
 #### Order
 Field | Type |  Description
 ------| -----| ------------
-hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
+hidden | boolean | Determines if the order is hidden (removed from the list). Applies to abandoned carts only
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if cart is updated later manually
+
+#### TaxOnShipping
+Field | Type | Description
+----- | ---- | -----------
+name | string | Tax name
+value | number | Tax value in store settings, applied to destination zone
+total | number | Tax total applied to shipping
 
 #### Errors
 
@@ -1183,8 +1228,8 @@ productAvailable | boolean | `true`/`false`: shows whether the product is availa
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 dimensions | \<*OrderItemDimensions*\> | Product dimensions info
-couponAmount | number | Coupon discount amount applied to item. Provided if discount applied to order. Is not recalculated if order is updated later manually
-discounts | Array\<*OrderItemDiscounts*\> | Discounts applied to order item 'as is'. Provided if discounts are applied to order (not including discount coupons) and are not recalculated if order is updated later manually
+couponAmount | number | Coupon discount amount applied to item. Provided if discount applied to order. Is not recalculated if cart is updated later manually
+discounts | Array\<*OrderItemDiscounts*\> | Discounts applied to order item 'as is'. Provided if discounts are applied to cart (not including discount coupons) and are not recalculated if cart is updated later manually
 
 #### OrderItemTax
 Field | Type |  Description
@@ -1281,196 +1326,203 @@ Parameters in bold are mandatory
 
 ```json
 {
-  "subtotal": 38.44,
-  "total": 3093.93,
-  "tax": 3.87,
-  "couponDiscount": 0,
-  "paymentStatus": "INCOMPLETE",
-  "fulfillmentStatus": "AWAITING_PROCESSING",
-  "volumeDiscount": 15,
-  "membershipBasedDiscount": 0.77,
-  "totalAndMembershipBasedDiscount": 0,
-  "discount": 20,
-  "usdTotal": 0,
-  "createDate": "2016-02-25 15:12:14 +0000",
-  "createTimestamp": 1456413134,
-  "items": [
-    {
-      "id": 938012012,
-      "productId": 123456789,
-      "price": 15,
-      "productPrice": 0,
-      "sku": "00004",
-      "quantity": 2,
-      "tax": 0,
-      "shipping": 0,
-      "quantityInStock": 0,
-      "name": "Cherry",
-      "isShippingRequired": true,
-      "weight": 0.32,
-      "trackQuantity": false,
-      "fixedShippingRateOnly": false,
-      "fixedShippingRate": 0,
-      "digital": false,
-      "productAvailable": true,
-      "couponApplied": false
-    },
-    {
-      "id": 1023921938,
-      "productId": 123456788,
-      "price": 4.22,
-      "productPrice": 0,
-      "sku": "00014",
-      "quantity": 2,
-      "tax": 0,
-      "shipping": 0,
-      "quantityInStock": 0,
-      "name": "Apple",
-      "isShippingRequired": true,
-      "weight": 0.12,
-      "trackQuantity": false,
-      "fixedShippingRateOnly": false,
-      "fixedShippingRate": 0,
-      "digital": false,
-      "productAvailable": true,
-      "couponApplied": false
-    }
-  ],
-  "billingPerson": {
-    "name": "Peter Doe",
-    "companyName": "Awesome store inc.",
-    "street": "My Personal Street",
-    "city": "San Diego",
-    "countryCode": "US",
-    "countryName": "United States",
-    "postalCode": "90002",
-    "stateOrProvinceCode": "CA",
-    "stateOrProvinceName": "California",
-    "phone": "123141321"
-  },
-  "shippingPerson": {
-    "name": "Mary Watson",
-    "companyName": "Best Brownies Inc.",
-    "street": "The other street",
-    "city": "San Diego",
-    "countryCode": "US",
-    "countryName": "United States",
-    "postalCode": "90001",
-    "stateOrProvinceCode": "CA",
-    "stateOrProvinceName": "California",
-    "phone": "123141321"
-  },
-  "shippingOption": {
-    "shippingCarrierName": "U.S.P.S.",
-    "shippingMethodName": "U.S.P.S. Priority Mail Express 2-Day™",
-    "shippingRate": 3071.62,
-    "estimatedTransitTime": "1"
-  },
-  "availableShippingOptions": [
-    {
-      "shippingCarrierName": "U.S.P.S.",
-      "shippingMethodName": "U.S.P.S. Priority Mail Express 2-Day™",
-      "shippingRate": 3071.62,
-      "estimatedTransitTime": "1"
-    },
-    {
-      "shippingCarrierName": "U.S.P.S.",
-      "shippingMethodName": "U.S.P.S. Priority Mail Express 2-Day™ Hold For Pickup",
-      "shippingRate": 3071.62,
-      "estimatedTransitTime": "1"
-    },
-    {
-      "shippingCarrierName": "U.S.P.S.",
-      "shippingMethodName": "U.S.P.S. Library Mail Parcel",
-      "shippingRate": 234.87,
-      "estimatedTransitTime": "2-9"
-    },
-    {
-      "shippingCarrierName": "U.S.P.S.",
-      "shippingMethodName": "U.S.P.S. Media Mail Parcel",
-      "shippingRate": 246.34,
-      "estimatedTransitTime": "2-9"
-    },
-    {
-      "shippingMethodName": "Fixed rate",
-      "shippingRate": 10
-    },
-    {
-      "shippingMethodName": "Local store pickup",
-      "isPickup": true,
-      "pickupInstruction": "Bring your receipt and order number."
-    }
-  ],
-  "availableTaxes": [
-    {
-      "id": 1939536453,
-      "name": "VAT",
-      "enabled": true,
-      "includeInPrice": true,
-      "useShippingAddress": true,
-      "taxShipping": false,
-      "appliedByDefault": true,
-      "defaultTax": 21,
-      "rules": [
+    "subtotal": 38.44,
+    "total": 3093.93,
+    "tax": 3.87,
+    "couponDiscount": 0,
+    "paymentStatus": "INCOMPLETE",
+    "fulfillmentStatus": "AWAITING_PROCESSING",
+    "volumeDiscount": 15,
+    "membershipBasedDiscount": 0.77,
+    "totalAndMembershipBasedDiscount": 0,
+    "discount": 20,
+    "usdTotal": 0,
+    "createDate": "2016-02-25 15:12:14 +0000",
+    "createTimestamp": 1456413134,
+    "items": [
         {
-          "zoneId": "3772-1438789680791",
-          "tax": 21
-        }
-      ]
-    },
-    {
-      "id": 1117939047,
-      "name": "World tax",
-      "enabled": false,
-      "includeInPrice": false,
-      "useShippingAddress": true,
-      "taxShipping": false,
-      "appliedByDefault": true,
-      "defaultTax": 5,
-      "rules": [
+          "id": 938012012,
+          "productId": 123456789,
+          "price": 15,
+          "productPrice": 0,
+          "sku": "00004",
+          "quantity": 2,
+          "tax": 0,
+          "shipping": 0,
+          "quantityInStock": 0,
+          "name": "Cherry",
+          "isShippingRequired": true,
+          "weight": 0.32,
+          "trackQuantity": false,
+          "fixedShippingRateOnly": false,
+          "fixedShippingRate": 0,
+          "digital": false,
+          "productAvailable": true,
+          "couponApplied": false
+        },
         {
-          "zoneId": "7715-1423477610739",
-          "tax": 5
+          "id": 1023921938,
+          "productId": 123456788,
+          "price": 4.22,
+          "productPrice": 0,
+          "sku": "00014",
+          "quantity": 2,
+          "tax": 0,
+          "shipping": 0,
+          "quantityInStock": 0,
+          "name": "Apple",
+          "isShippingRequired": true,
+          "weight": 0.12,
+          "trackQuantity": false,
+          "fixedShippingRateOnly": false,
+          "fixedShippingRate": 0,
+          "digital": false,
+          "productAvailable": true,
+          "couponApplied": false
         }
-      ]
-    }
-  ],
-  "handlingFee": {
-    "name": "Handling Fee",
-    "value": 0,
-    "description": ""
-  },
-  "predictedPackage": [
-    {
-        "length": 17.779,
-        "width": 25.4,
-        "height": 10.16,
-        "weight": 0.88,
-        "declaredValue": 3.37
-    }
-  ],
-  "additionalInfo": {},
-  "paymentParams": {},
-  "discountInfo": [
-    {
-      "value": 15,
-      "type": "ABS",
-      "base": "ON_TOTAL",
-      "orderTotal": 1
+    ],
+    "billingPerson": {
+        "name": "Peter Doe",
+        "companyName": "Awesome store inc.",
+        "street": "My Personal Street",
+        "city": "San Diego",
+        "countryCode": "US",
+        "countryName": "United States",
+        "postalCode": "90002",
+        "stateOrProvinceCode": "CA",
+        "stateOrProvinceName": "California",
+        "phone": "123141321"
     },
-    {
-      "value": 2,
-      "type": "PERCENT",
-      "base": "ON_MEMBERSHIP"
+    "shippingPerson": {
+        "name": "Mary Watson",
+        "companyName": "Best Brownies Inc.",
+        "street": "The other street",
+        "city": "San Diego",
+        "countryCode": "US",
+        "countryName": "United States",
+        "postalCode": "90001",
+        "stateOrProvinceCode": "CA",
+        "stateOrProvinceName": "California",
+        "phone": "123141321"
     },
-    {
-      "value": 10,
-      "type": "ABSOLUTE",
-      "base": "CUSTOM",
-      "description": "Buy one get one free for T-shirts"
-    }
-  ],
-  "hidden": false
+    "shippingOption": {
+        "shippingCarrierName": "U.S.P.S.",
+        "shippingMethodName": "U.S.P.S. Priority Mail Express 2-Day™",
+        "shippingRate": 3071.62,
+        "estimatedTransitTime": "1"
+    },
+    "availableShippingOptions": [
+        {
+          "shippingCarrierName": "U.S.P.S.",
+          "shippingMethodName": "U.S.P.S. Priority Mail Express 2-Day™",
+          "shippingRate": 3071.62,
+          "estimatedTransitTime": "1"
+        },
+        {
+          "shippingCarrierName": "U.S.P.S.",
+          "shippingMethodName": "U.S.P.S. Priority Mail Express 2-Day™ Hold For Pickup",
+          "shippingRate": 3071.62,
+          "estimatedTransitTime": "1"
+        },
+        {
+          "shippingCarrierName": "U.S.P.S.",
+          "shippingMethodName": "U.S.P.S. Library Mail Parcel",
+          "shippingRate": 234.87,
+          "estimatedTransitTime": "2-9"
+        },
+        {
+          "shippingCarrierName": "U.S.P.S.",
+          "shippingMethodName": "U.S.P.S. Media Mail Parcel",
+          "shippingRate": 246.34,
+          "estimatedTransitTime": "2-9"
+        },
+        {
+          "shippingMethodName": "Fixed rate",
+          "shippingRate": 10
+        },
+        {
+          "shippingMethodName": "Local store pickup",
+          "isPickup": true,
+          "pickupInstruction": "Bring your receipt and order number."
+        }
+    ],
+    "availableTaxes": [
+        {
+          "id": 1939536453,
+          "name": "VAT",
+          "enabled": true,
+          "includeInPrice": true,
+          "useShippingAddress": true,
+          "taxShipping": false,
+          "appliedByDefault": true,
+          "defaultTax": 21,
+          "rules": [
+            {
+              "zoneId": "3772-1438789680791",
+              "tax": 21
+            }
+          ]
+        },
+        {
+          "id": 1117939047,
+          "name": "World tax",
+          "enabled": false,
+          "includeInPrice": false,
+          "useShippingAddress": true,
+          "taxShipping": false,
+          "appliedByDefault": true,
+          "defaultTax": 5,
+          "rules": [
+            {
+              "zoneId": "7715-1423477610739",
+              "tax": 5
+            }
+          ]
+        }
+    ],
+    "handlingFee": {
+        "name": "Handling Fee",
+        "value": 0,
+        "description": ""
+    },
+    "predictedPackage": [
+        {
+            "length": 17.779,
+            "width": 25.4,
+            "height": 10.16,
+            "weight": 0.88,
+            "declaredValue": 3.37
+        }
+    ],
+    "additionalInfo": {},
+    "paymentParams": {},
+    "discountInfo": [
+        {
+          "value": 15,
+          "type": "ABS",
+          "base": "ON_TOTAL",
+          "orderTotal": 1
+        },
+        {
+          "value": 2,
+          "type": "PERCENT",
+          "base": "ON_MEMBERSHIP"
+        },
+        {
+          "value": 10,
+          "type": "ABSOLUTE",
+          "base": "CUSTOM",
+          "description": "Buy one get one free for T-shirts"
+        }
+    ],
+    "hidden": false,
+    "taxesOnShipping": [
+        {
+            "name": "Tax X",
+            "value": 20,
+            "total": 2.86
+        }
+    ]
 }
 ```
 
@@ -1508,6 +1560,7 @@ predictedPackage | Array\<*PredictedPackage*\> | Predicted information about the
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only
 
 #### OrderItem
 Field | Type |  Description
@@ -1536,6 +1589,8 @@ couponApplied | boolean | `true`/`false`: shows whether a discount coupon is app
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 dimensions | \<*ProductDimensions*\> | Product dimensions info
+couponAmount | number | Coupon discount amount applied to item. Provided if discount applied to order. Is not recalculated if cart is updated later manually
+discounts | Array\<*OrderItemDiscounts*\> | Discounts applied to cart item 'as is'. Provided if discounts are applied to cart (not including discount coupons) and are not recalculated if cart is updated later manually
 
 #### OrderItemTax
 Field | Type | Description
@@ -1583,6 +1638,20 @@ postalCode | string  | Postal/ZIP code
 stateOrProvinceCode |   string  | State code, e.g. `NY`
 stateOrProvinceName | string | State/province name, e.g. `New York`
 phone | string  | Phone number
+
+#### OrderItemDiscounts
+Field | Type  | Description
+----- | ----- | -----------
+discountInfo | \<*OrderItemDiscountInfo*\> | Info about discounts applied to item
+total | number | Total order item discount value for this discount
+
+#### OrderItemDiscountInfo
+Field | Type  | Description
+----- | ----- | -----------
+value | number | Discount value
+type | string | Discount type: `ABS` or `PERCENT`
+base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
+orderTotal | number | Minimum order subtotal the discount applies to
 
 #### DiscountCouponInfo
 Field | Type  | Description
@@ -1661,6 +1730,13 @@ type | string | Discount type: `ABS` or `PERCENT`
 base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
 order_total | number | Minimum order subtotal the discount applies to
 description | string | Description of a discount (for discounts with base == `CUSTOM`)
+
+#### TaxOnShipping
+Field | Type | Description
+----- | ---- | -----------
+name | string | Tax name
+value | number | Tax value in store settings, applied to destination zone
+total | number | Tax total applied to shipping
 
 #### Errors
 
