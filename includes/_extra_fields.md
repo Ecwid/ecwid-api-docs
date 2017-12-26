@@ -37,15 +37,14 @@ ec.order.extraFields.how_you_found_us = {
 
 For example, if you need to save a cookie into an order or if you need to ask a customer a couple of questions at checkout – it's totally possible with the order extra fields. Later it can be retrieved via the Ecwid REST API when getting order details or searching for orders. 
 
-**How it works**
+**Table of contents**
 
-Learn how to save private information about storefront or a customer into an order. 
-
-1. [Modify Ecwid integration code to initialize the fields](https://developers.ecwid.com/api-documentation/save-hidden-data-to-order)
-2. [Set values for extra fields when customer visits a store](https://developers.ecwid.com/api-documentation/save-hidden-data-to-order)
-3. [Get saved info in order details in Ecwid REST API](https://developers.ecwid.com/api-documentation/get-extra-fields-in-rest-api)
-
-Check out more details on how to do this in the docs below.
+- [Add a custom field to checkout](https://developers.ecwid.com/api-documentation/add-new-fields-to-checkout)
+- [Saving hidden data to order](https://developers.ecwid.com/api-documentation/save-hidden-data-to-order)
+- [Getting extra fields after order is placed](https://developers.ecwid.com/api-documentation/get-extra-fields-in-rest-api)
+- [Show extra fields in order details](https://developers.ecwid.com/api-documentation/show-extra-fields-in-an-order)
+- [Customize extra fields](https://developers.ecwid.com/api-documentation/customize-extra-fields)
+- [Limits and examples](https://developers.ecwid.com/api-documentation/more-about-extra-fields)
 
 ## Add new fields to checkout
 
