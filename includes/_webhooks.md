@@ -171,26 +171,26 @@ Cache-Control: no-cache
 X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 ```
 
-> Unfinished order #105 created webhook body example
+> Unfinished order created webhook body example
 
 ```json
 {
   "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
-  "entityId":105, // this is the number of the unfinished order
+  "entityId":-1, // order number of the unfinished order (for older stores)
   "eventType":"unfinished_order.created"
 }
 ```
 
-> Unfinished order #105 updated webhook body example
+> Unfinished order updated webhook body example
 
 ```json
 {
   "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
-  "entityId":105, // this is the number of the updated unfinished order
+  "entityId":-1, // order number of the unfinished order (for older stores)
   "eventType":"unfinished_order.updated"
 }
 ```
@@ -202,7 +202,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
   "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
   "storeId":1003,
-  "entityId":105, // this is the number of the deleted unfinished order
+  "entityId":-1, // order number of the unfinished order (for older stores)
   "eventType":"unfinished_order.deleted"
 }
 ```
@@ -256,7 +256,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Product with ID 667251253 created webhook body example
 
-```
+```json
 {
   "eventId":"08a78904-4c1a-0aa0-953a-2e33c56236f1",
   "eventCreated":1469429915,
@@ -268,7 +268,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Product with ID 66722483 updated webhook body example
 
-```
+```json
 {
   "eventId":"08a78904-0aa0-4c1a-953a-2e33c56236f0",
   "eventCreated":1469429912,
@@ -280,7 +280,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Product with ID 667251253 deleted webhook body example
 
-```
+```json
 {
   "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1469429915,
@@ -292,7 +292,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Category with ID 66722483 created webhook body example
 
-```
+```json
 {
   "eventId":"08a78904-0aa0-4c1a-953a-2e33c56236f0",
   "eventCreated":1469429912,
@@ -304,7 +304,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Category with ID 66722483 updated webhook body example
 
-```
+```json
 {
   "eventId":"08a78904-0aa0-4c1a-953a-2e123c236f0",
   "eventCreated":1469429912,
@@ -316,7 +316,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Category with ID 66722483 deleted webhook body example
 
-```
+```json
 {
   "eventId":"08a78904-0aa0-4c1a-953a-2e33c562336f0",
   "eventCreated":1469429912,
@@ -328,7 +328,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Application was installed webhook body example
 
-```
+```json
 {
   "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
@@ -340,7 +340,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Application subscription status changed webhook body example
 
-```
+```json
 {
   "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
@@ -356,7 +356,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Application was deleted webhook body example
 
-```
+```json
 {
   "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1234567,
@@ -368,7 +368,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Store has switched from Business to Unlimited plan
 
-```
+```json
 {
   "eventId":"80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated":1494503041,
@@ -384,7 +384,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Customer was created 
 
-```
+```json
 {
   "eventId": "80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated": 7891234567,
@@ -399,7 +399,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Customer was updated
 
-```
+```json
 {
   "eventId": "80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated": 7891234567,
@@ -414,7 +414,7 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 > Customer was deleted
 
-```
+```json
 {
   "eventId": "80aece08-40e8-4145-8764-6c2f0d38678",
   "eventCreated": 7891234567,
@@ -435,7 +435,7 @@ Name | Type | Description
 **eventType** | string | Type of the occurred event.
 **eventCreated** | timestamp | Unix timestamp of the occurred event.
 **storeId** | number | Store ID of the store where the event occured.
-**entityId** | number | Id of the updated entity. Can contain `productId`, `categoryId`, `orderNumber`, `storeId` depending on the `eventType`.
+**entityId** | number | Id of the updated entity. Can contain `productId`, `categoryId`, `orderNumber`, `storeId` depending on the `eventType`. Is `-1` for `unfinished_order.*` webhook events for newer stores
 data | \<*WebhookData*\> | Optional field. Describes changes made to an entity. Is provided for `order.*` and `application.subscriptionStatusChanged` event types.
 
 #### WebhookData
@@ -483,7 +483,7 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `customer.updated` Customer is updated
 * `customer.deleted` Customer is deleted
 
-All order-related webhooks require `read_orders` access scope, all product- and category-related webhooks require `read_catalog` access scope, all customer-related webhooks require `read_customers` [access scope](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) to be requested from the store.
+All order-related webhooks require `read_orders` access scope, all product- and category-related webhooks require `read_catalog` access scope, all customer-related webhooks require `read_customers` [access scope](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) to be requested from the store
 
 #### Q: What is an unfinished order and how it works? 
 
@@ -495,11 +495,15 @@ The typical process of ordering in Ecwid store is:
 - goes to payment processor and pays for order
 - customer returns to store
 
-An [unfinished order](https://help.ecwid.com/customer/en/portal/articles/1163955-orders#Unfinishedsales) is created when a customer goes to payment processor or order confirmation page. In case if customer pays for their order, then it is placed among other successful orders in store sales history. However, if customer fails to make a payment and never completes the order, then it will stay as unfinished order. 
+An [unfinished order](https://support.ecwid.com/hc/en-us/articles/115004446065) (or abandoned cart) is created when a customer goes to payment processor or order confirmation page. In case if customer pays for their order, then it is placed among other successful orders in store sales history. However, if customer fails to make a payment and never completes the order, then it will stay as unfinished order. 
 
-There is a separate tab in Ecwid control panel > My Sales > Unfinished orders where merchants can see all those orders and their details.
+There is a separate tab in Ecwid control panel > My Sales > Abandoned carts where merchants can see all those orders and their details.
 
-`unfinished_order.*` webhook event types are providing timely updates about unfinished orders in Ecwid store. Here's how the process works in technical terms:
+`unfinished_order.*` webhook event types are providing timely updates about unfinished orders in Ecwid store. 
+
+For newer stores, the `entityId` field contains `-1` value as the order number hasn't been assigned yet. For older stores, the `entityId` field contains actual order number that your app can reference the order with. 
+
+Here's how the process works in technical terms:
  
 - when customer goes to payment processor, `unfinished_order.created` webhook is sent
 (if customer was able to pay for an order within **1 second** of that,`order.created` is sent instead)
