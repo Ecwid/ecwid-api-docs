@@ -13,6 +13,7 @@ The Ecwid API platform allows you to customize storefront in various ways:
 - [Apply custom CSS file](https://developers.ecwid.com/api-documentation/look-and-design#apply-custom-css)
 - [Apply custom JavaScript file](https://developers.ecwid.com/api-documentation/logic-and-code#add-custom-javascript-code)
 - [Change store layout](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout)
+- [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout#add-new-element-to-products-in-category-pages)
 - [Apply SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
 - [Change default colors and fonts](https://developers.ecwid.com/api-documentation/look-and-design#change-default-colors-and-fonts)
 - [Generate link to cart with products](https://developers.ecwid.com/api-documentation/logic-and-code#generate-cart-with-products)
@@ -23,6 +24,58 @@ The Ecwid API platform allows you to customize storefront in various ways:
 ### Change the store layout
 
 Ecwid integration code provides a number of modifications to the store layout: number of products per row, default view mode and more. See the details below. 
+
+#### Add new element to products in category pages
+
+> Add new element to product in new product listing
+
+```js
+Ecwid.OnPageLoaded.add(function (page) {
+        // Apply changes only to category pages
+        if (page.type == 'CATEGORY') {
+
+          // Remove any previously added elements when new page changes 
+          // If you change class name here, make sure to update it below too
+          var removingButtons = document.getElementsByClassName('custom_app_button');
+          for (i = removingButtons.length - 1; i >= 0; i--) {
+            removingButtons[i].parentNode.removeChild(removingButtons[i]);
+          }
+
+          // Loop to add new element to each product in product listing
+          for (i = 0; i < document.querySelectorAll('.grid-product').length; i++) {
+            var elem = document.querySelector('.grid-product:nth-child(' + (i + 1) + ') .grid-product__wrap-inner');
+
+            // Create our custom element
+            var container = document.createElement("div");
+
+            // Set custom class to locate our new element
+            // If you change class name here, make sure to update it above too
+            container.setAttribute('class', 'custom_app_button'); 
+
+            // Change vertical order position of new element using 'order' value. Bigger = lower; smaller = higher
+            container.setAttribute('style', 'order: 6; padding:0;');
+
+            // Set the content of our new element
+            container.innerHTML = '<div><div class="label label--flag label--success"><div class="label__text">Sale 2018</div></div></div>';
+
+            // (OPTIONAL) Show alert when user clicks on new container
+            container.addEventListener("click", function (event) {
+              event.stopImmediatePropagation();
+              alert('SALE MESSAGE');
+            });
+
+            // Add new element to products
+            elem.appendChild(container);
+          }
+        }
+})
+```
+
+In the new product listing the pages are created differently. 
+
+Check how to add new elements to products in the new product listing in example displayed on the right. 
+
+[How to enable new product listing in your test store](https://developers.ecwid.com/api-documentation/look-and-design#new-product-listing)
 
 #### Adapt storefront layout to changed container width
 
@@ -218,6 +271,12 @@ The new product listing allows for more customization and better looking storefr
 Check out all the customization options for the new product listing available out of the box below.
 
 If you apply any of the changes below after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Adding new elements to new product listing 
+
+Ecwid's latest version of product listing (category pages) works in a different way, which requires different approach to adding new elements to a page.
+
+Check this page for code example: [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout#add-new-element-to-products-in-category-pages)
 
 ##### Control display mode of product title in product listing (for new product listing)
 

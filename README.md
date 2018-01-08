@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## January 8, 2018
+
+Added an example for creating new elements for each product block in category pages (new product listing) in storefront. [Learn more](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout#add-new-element-to-products-in-category-pages)
+
 ## December 26, 2017
 
 Added `taxOnShipping` field to [orders](https://developers.ecwid.com/api-documentation/orders), [abandoned carts](https://developers.ecwid.com/api-documentation/carts) and [calculation of order details](https://developers.ecwid.com/api-documentation/carts#calculate-order-details) endpoints in Ecwid REST API.
