@@ -90,7 +90,7 @@ error | If the user does not allow authorization to the application, query param
 https://my.ecwid.com/api/oauth/token?client_id=abcd0123&client_secret=01234567890abcdefg&code=987654321hgfdsa&redirect_uri=https%3A%2F%2Fwww%2Eexample%2Ecom%2Fmyapp&grant_type=authorization_code
 ```
 
-`POST https://my.ecwid.com/api/oauth/token?client_id={client_id}&client_secret={client_secret}&code={code}&redirect_uri={redirect_uri}&grant_type=authorization_code`
+`GET https://my.ecwid.com/api/oauth/token?client_id={client_id}&client_secret={client_secret}&code={code}&redirect_uri={redirect_uri}&grant_type=authorization_code`
 
 Parameter | Required | Description
 --------- | -------- | -----------
@@ -232,7 +232,7 @@ error | If the user does not allow authorization to the application, query param
 https://my.ecwid.com/api/oauth/token?client_id=abcd0123&client_secret=01234567890abcdefg&code=987654321hgfdsa&redirect_uri=https%3A%2F%2Fwww%2Eexample%2Ecom%2Fmyapp&grant_type=authorization_code
 ```
 
-`POST https://my.ecwid.com/api/oauth/token?client_id={client_id}&client_secret={client_secret}&code={code}&redirect_uri={redirect_uri}&grant_type=authorization_code`
+`GET https://my.ecwid.com/api/oauth/token?client_id={client_id}&client_secret={client_secret}&code={code}&redirect_uri={redirect_uri}&grant_type=authorization_code`
 
 Parameter | Required | Description
 --------- | -------- | -----------
