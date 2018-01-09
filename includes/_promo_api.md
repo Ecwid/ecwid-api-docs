@@ -29,6 +29,10 @@ Examples:
 
 ## How custom discount works
 
+> Checkout flow for discount apps
+
+> ![Checkout flow for discount apps](https://don16obqbay2c.cloudfront.net/wp-content/uploads/Custom-Discount-Diagram-1515505409.png)
+
 #### 1. Ecwid sends cart data to app request URL
 
 The request to your app URL can be triggered by a customer in storefront or by an API request to order details calculation [endpoint](https://developers.ecwid.com/api-documentation/carts#calculate-order-details). 
