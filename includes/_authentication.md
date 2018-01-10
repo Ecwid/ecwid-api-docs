@@ -320,6 +320,14 @@ After the moment user installs your app, it can store that token securely in you
 
 Public token provides limited access to public store data via REST API interface. While private tokens allow you to modify something in a store, like update an order status or change storkc levels, public tokens can only get limited information from a store and create orders with limitations.
 
+You are able to retrieve public token in any part of your application: 
+
+- [Native app interface](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#default-user-auth)
+- [Storefront](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getapppublictoken)
+- [External app](https://developers.ecwid.com/api-documentation/external-applications#get-access-token)
+
+<aside class='note'>Public token will be available only if your app requests <strong>public_storefront</strong> <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">access scope</a> from a merchant.</aside>
+
 With public access token you can use several REST API endpoints from anywhere (client-side JavaScript, widget integration codes, etc.). These methods are available for public token **regardless of the other access scope your requested** from a store – you only need the `public_storefront` scope to use them: 
 
 - [Get store profile](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
@@ -335,8 +343,6 @@ With public access token you can use several REST API endpoints from anywhere (c
 - [Get deleted products statistics](https://developers.ecwid.com/api-documentation/store-information#get-deleted-items-statistics)
 - [Create new orders](https://developers.ecwid.com/api-documentation/orders#create-order)
 - [Calculate order details](https://developers.ecwid.com/api-documentation/carts#calculate-order-details)
-
-<aside class='note'>To get public token for your application, specify <strong>public_storefront</strong> <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">access scope</a> in the oAuth process.</aside>
 
 ## App details page
 
