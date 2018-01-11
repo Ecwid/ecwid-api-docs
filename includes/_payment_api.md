@@ -316,7 +316,11 @@ The value of the `data` input is encoded with a **AES-128** mechanism, where the
                 "google_customer_id": "123123.12312312"
             },
             "paymentParams": {},
-            "hidden": false
+            "hidden": false,
+            "extraFields": {
+                "referred_by": "Referrer is: Facebook Ads",
+                "AFF_ID": "fb-123"
+            }
         }
     },
     "token": "abcdefghijklmnopqrstuv1234567890"
@@ -365,8 +369,8 @@ shippingOption | \<*ShippingOptionInfo*\> | Details of the shipping method selec
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 additionalInfo | Map\<*string,string*\> | Additional order information if any
 paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
-hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unsfinished orders only.
-
+hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unsfinished orders only
+extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
 
 #### OrderItem
 
@@ -464,6 +468,11 @@ Field | Type | Description
 name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Handling fee value
 description | string | Handling fee description for customer
+
+#### ExtraFieldsInfo
+Field | Type | Description
+----- | ---- | -----------
+YOUR_FIELD_NAME | string | Your custom name saved for the order extra field. The value length cannot exceed 255 characters
 
 ### Updating order status
 

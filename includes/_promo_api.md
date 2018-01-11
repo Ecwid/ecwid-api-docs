@@ -531,12 +531,10 @@ type | string | Discount type: `ABS` or `PERCENT`
 base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`
 order_total | number | Minimum order subtotal the discount applies to
 
-#### HandlingFeeInfo
+#### ExtraFieldsInfo
 Field | Type | Description
 ----- | ---- | -----------
-name | string | Handling fee name set by store admin. E.g. `Wrapping`
-value | number | Handling fee value
-description | string | Handling fee description for customer
+YOUR_FIELD_NAME | string | Your custom name saved for the order extra field. The value length cannot exceed 255 characters
 
 #### PredictedPackage
 Name | Type    | Description
