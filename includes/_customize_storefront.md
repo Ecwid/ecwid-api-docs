@@ -276,7 +276,7 @@ If you apply any of the changes below after storefront has loaded, you can updat
 
 Ecwid's latest version of product listing (category pages) works in a different way, which requires different approach to adding new elements to a page.
 
-Check this page for code example: [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout#add-new-element-to-products-in-category-pages)
+Check this page for code example: [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#add-new-element-to-products-in-category-pages)
 
 ##### Control display mode of product title in product listing (for new product listing)
 

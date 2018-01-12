@@ -4,11 +4,7 @@ Order extra fields allow you to save additional information into the order and g
 
 > Add a new field to order comments at store checkout
 
-```html
-<script>
-// Place Ecwid integration code here
-// ...
-
+```js
 // Init order fields 
 ec.order = ec.order || {};
 ec.order.extraFields = ec.order.extraFields || {};
@@ -19,7 +15,6 @@ ec.order.extraFields.how_you_found_us = {
     'type': 'text',
     'checkoutDisplaySection': 'order_comments'
 };
-</script>
 ```
 
 > Find your saved information in order details via REST API
@@ -56,8 +51,7 @@ This is helpful when a merchant needs to know some additional information like d
 
 > Init and display your custom field at checkout
 
-```html
-<script>
+```js
 // Initialize extra fields
 ec.order = ec.order || {};
 ec.order.extraFields = ec.order.extraFields || {};
@@ -71,7 +65,6 @@ ec.order.extraFields.wrapping_box_signature = {
     'required': false,
     'checkoutDisplaySection': 'shipping_address'
 };
-</script>
 ```
 
 The extra fields you add to checkout will be saved into a config object used by Ecwid: `ec.order` and `ec.order.extraFields`. Start by initializing the objects using the code on the right. 
@@ -136,8 +129,7 @@ Check out the examples of other field types you can add to storefront on the rig
 
 > Various extra fields added to checkout examples
 
-```html
-<script>
+```js
 // The field "how_did_you_find_us" asks user about how they found the store. Drop down type
 ec.order.extraFields.how_did_you_find_us = {
     'title': 'How did you find us?',
@@ -161,7 +153,6 @@ ec.order.extraFields.ecwid_pickup_time = {
 ec.order.extraFields.my_custom_field = {
     'value': 'abcd12345'
 };
-</script>
 ```
 
 If your code executed successfully, these fields will be saved when a customer places their order in an Ecwid store. See [Get extra fields in REST API](https://developers.ecwid.com/api-documentation/get-extra-fields-in-rest-api) section to access them afterwards. 
@@ -176,8 +167,7 @@ This is helpful when you need to save some technical stuff like campaign id, ref
 
 > Save your extra field to an order placed by customer
 
-```html
-<script>
+```js
 // Initialize extra fields
 ec.order = ec.order || {};
 ec.order.extraFields = ec.order.extraFields || {};
@@ -191,7 +181,6 @@ ec.order.extraFields.platform = {
 ec.order.extraFields.affiliate = {
     'value': "Nick's warehouse"
 }
-</script>
 ```
 
 Your hidden data will be saved into a config object used by Ecwid: `ec.order` and `ec.order.extraFields`. But in order to use it, you need to initialize it on a page. See the example code on the right.
@@ -242,12 +231,8 @@ The information you saved earlier is available in the `extraFields` field in the
 
 > Add a new field to order comments at store checkout
 
-```html
-<script>
-// Place Ecwid integration code here
-// ...
-
-// Init order fields 
+```js
+// Initialize order fields 
 ec.order = ec.order || {};
 ec.order.extraFields = ec.order.extraFields || {};
 
@@ -260,7 +245,6 @@ ec.order.extraFields.how_you_found_us = {
     'checkoutDisplaySection': 'order_comments', // show new field in order comments block
     'orderDetailsDisplaySection': 'order_comments' // show saved data in order comments block in order details to merchant and customer
 };
-</script>
 ```
 
 You can show your saved extra field title and value in order details. It will be displayed to both merchant and customer who placed that order. 
@@ -293,10 +277,10 @@ Extra fields provide some options for customization. Let's see them in more deta
 
 > Save different hidden data based on selected shipping method
 
-```html
-<script>
+```js
 // Initialize extra fields
-//...
+ec.order = ec.order || {};
+ec.order.extraFields = ec.order.extraFields || {};
 
 // Save type of shipping selected to order as hidden data
 ec.order.extraFields.shipping_type = {
@@ -315,7 +299,6 @@ ec.order.extraFields.shipping_type = {
         }
     ]
 }
-</script>
 ```
 
 You can change the attributes of an extra field based on a shipping method selected by customer. This is done by adding overriding rules to the existing extra field attributes – `overrides` array of conditions. 
@@ -326,8 +309,7 @@ At the moment you are able to use the selected shipping method name as a conditi
 
 > Customize date and time selection in datepicker
 
-```html
-<script>
+```js
     // Customize time and date selection for order pickup datepicker
     ec.order.extraFields.pickup_time_select = {
         'title': 'Select date of pickup',
@@ -444,7 +426,6 @@ At the moment you are able to use the selected shipping method name as a conditi
             }
         ]
     };
-</script>
 ```
 
 You are also able to customize the date picker: what hours are available, what is the minimum time to choose, show or hide time selection and more. 
