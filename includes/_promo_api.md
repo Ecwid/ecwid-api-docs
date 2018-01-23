@@ -9,7 +9,7 @@ Access scope required: <strong>customize_cart_calculation</strong> (see <a href=
 **Table of contents**: 
 
 - [How it works](https://developers.ecwid.com/api-documentation/how-custom-discount-works)
-- [Set up your application](https://developers.ecwid.com/api-documentation/set-up-custom-discount)
+- [Set up custom discounts](https://developers.ecwid.com/api-documentation/set-up-custom-discount)
 - [Saving merchant settings](https://developers.ecwid.com/api-documentation/user-interface-for-discount-rules)
 - [Discount request from Ecwid – Details](https://developers.ecwid.com/api-documentation/request-for-discount-and-response)
 

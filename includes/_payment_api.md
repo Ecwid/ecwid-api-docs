@@ -9,7 +9,7 @@ Access scope required: <strong>add_payment_method, read_orders, update_orders</s
 **Table of contents**: 
 
 - [How it works](https://developers.ecwid.com/api-documentation/how-payment-method-works)
-- [Set up your application](https://developers.ecwid.com/api-documentation/set-up-payment-method)
+- [Set up payment URL](https://developers.ecwid.com/api-documentation/set-up-payment-method)
 - [Saving merchant settings](https://developers.ecwid.com/api-documentation/merchant-settings-for-payment-method)
 - [Payment request from Ecwid – Details](https://developers.ecwid.com/api-documentation/processing-payment-request)
 

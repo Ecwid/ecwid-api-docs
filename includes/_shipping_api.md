@@ -9,7 +9,7 @@ Access scope required: <strong>add_shipping_method</strong> (see <a href="#acces
 **Table of contents**: 
 
 - [How it works](https://developers.ecwid.com/api-documentation/how-shipping-method-works)
-- [Set up your application](https://developers.ecwid.com/api-documentation/set-up-shipping-method)
+- [Set up custom shipping](https://developers.ecwid.com/api-documentation/set-up-shipping-method)
 - [Saving merchant settings](https://developers.ecwid.com/api-documentation/merchant-settings-for-shipping-method)
 - [Shipping request from Ecwid – Details](https://developers.ecwid.com/api-documentation/shipping-request-and-response)
 - [Troubleshooting](https://developers.ecwid.com/api-documentation/troubleshooting-shipping)
