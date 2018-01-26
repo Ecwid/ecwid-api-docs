@@ -992,7 +992,7 @@ Error code | Error message
 > Function
 
 ```js
-Ecwid.Cart.setAddress(orderComments, successCallback, errorCallback)
+Ecwid.Cart.setOrderComments(orderComments, successCallback, errorCallback)
 ```
 
 > Set order comments example
