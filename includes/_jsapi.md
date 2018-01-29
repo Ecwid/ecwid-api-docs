@@ -239,7 +239,9 @@ errorType | one of the following: ‘expired’, ‘invalid’, ‘limit’ | fo
 key | integer, optional | for type==’DOWNLOAD_ERROR’: the downloading file internal id
 productId | integer | for type==’PRODUCT’: the internal id of the displaying product (not to be confused with SKU).
 orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
-vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
+vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix)
+entryPage | boolean | `true` if current page is the first page opened by visitor. `false` otherwise
+hasPrevious | boolean | `true` if customer visited some previous pages earlier and current page is not the entry page. `false` if current page is entry page
 
 ### Ecwid.setStorefrontBaseUrl 
 
@@ -464,7 +466,9 @@ errorType | one of the following: ‘expired’, ‘invalid’, ‘limit’ | fo
 key | integer, optional | for type==’DOWNLOAD_ERROR’: the downloading file internal id
 productId | integer | for type==’PRODUCT’: the internal id of the displaying product (not to be confused with SKU).
 orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
-vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix).
+vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix)
+entryPage | boolean | `true` if current page is the first page opened by visitor. `false` otherwise
+hasPrevious | boolean | `true` if customer visited some previous pages earlier and current page is not the entry page. `false` if current page is entry page
 
 ### Ecwid.OnSetProfile
 
@@ -985,7 +989,6 @@ Error code | Error message
 -----------|--------------
 0 | Missing argument
 100 | Incorrect data passed
-1000 | Store owner disabled this functionality
 
 ### Ecwid.Cart.setOrderComments
 
@@ -1038,8 +1041,6 @@ errMsg | string | Error message
 
 Error code | Error message
 -----------|--------------
-0 | Missing argument
-100 | Incorrect data passed
 1000 | Store owner disabled this functionality
 
 ### Ecwid.Cart.setAddress
@@ -1133,8 +1134,6 @@ errMsg | string | Error message
 Error code | Error message
 -----------|--------------
 0 | Missing argument
-100 | Incorrect data passed
-1000 | Store owner disabled this functionality
 
 ### Ecwid.Cart.setBillingAddress
 
@@ -1227,8 +1226,6 @@ errMsg | string | Error message
 Error code | Error message
 -----------|--------------
 0 | Missing argument
-100 | Incorrect data passed
-1000 | Store owner disabled this functionality
 
 ### Generate cart with products
 

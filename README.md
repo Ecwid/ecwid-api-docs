@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## January 29, 2018
+
+- Added example of updating order status in PHP and cURL for payment applications: [https://developers.ecwid.com/api-documentation/processing-payment-request#updating-order-status](https://developers.ecwid.com/api-documentation/processing-payment-request#updating-order-status)
+
+- Added `entryPage` and `hasPrevious` fields to `page` object in the `Ecwid.OnPageLoad(ed)` event. [Learn more](https://developers.ecwid.com/api-documentation/get-storefront-details#get-opened-page-info)
+
 ## January 8, 2018
 
 Added an example for creating new elements for each product block in category pages (new product listing) in storefront. [Learn more](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout#add-new-element-to-products-in-category-pages)

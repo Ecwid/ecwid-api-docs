@@ -489,6 +489,24 @@ Cache-Control: no-cache
 }
 ```
 
+> cURL request in PHP example
+
+```php
+$url = "https://app.ecwid.com/api/v3/4870020/orders/transaction_55885213?token=1234567890qwqeertt";
+$data = array('paymentStatus'=>'PAID');
+$data_json = json_encode($data);
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($data_json)));
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_json);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$response  = curl_exec($ch);
+curl_close($ch);
+```
+
 For Ecwid to find out the result of the payment, your application must update the order status before returning them back to the storefront. 
 
 To update order status, you will need these details: **reference transaction id**, **store ID** and **access token**. 
