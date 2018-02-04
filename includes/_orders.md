@@ -368,7 +368,7 @@ predictedPackages | \<*PredictedPackage*\> | Predicted information about the pac
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 trackingNumber |  string | Shipping tracking code
-paymentMessage | string | Message from the payment processor if any
+paymentMessage | string | Message from the payment processor if any. It is present and visible in order details only if order status is not paid. When order becomes paid, `paymentMessage` is cleared
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
@@ -922,7 +922,7 @@ additionalInfo | Map\<*string,string*\> | Additional order information if any (*
 paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
-paymentMessage | string | Message from the payment processor if any
+paymentMessage | string | Message from the payment processor if any. It is present and visible in order details only if order status is not paid. When order becomes paid, `paymentMessage` is cleared
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
@@ -1801,7 +1801,7 @@ additionalInfo | Map\<*string,string*\> | Additional order information if any (*
 paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
-paymentMessage | string | Message from the payment processor if any
+paymentMessage | string | Message from the payment processor if any. It is present and visible in order details only if order status is not paid. When order becomes paid, `paymentMessage` is cleared
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
@@ -2171,7 +2171,7 @@ additionalInfo | Map\<*string,string*\> | Additional order information if any (*
 paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 trackingNumber |  string | Shipping tracking code
-paymentMessage | string | Message from the payment processor if any
+paymentMessage | string | Message from the payment processor if any. It is present and visible in order details only if order status is not paid. When order becomes paid, `paymentMessage` is cleared
 externalTransactionId | string | Transaction ID / invoice number of the order in the payment system (e.g. PayPal transaction ID)
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment

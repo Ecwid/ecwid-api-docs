@@ -706,6 +706,24 @@ var data = '{ "color" : "red", "page_id" : "123456" }';
 EcwidApp.setAppPublicConfig(data, callback);
 ```
 
+> Get app public config in your native app
+
+```js
+var publicConfig;
+
+EcwidApp.getAppStorage('public', function(value){
+  console.log(value);
+  // '{ "color" : "red", "page_id" : "123456" }'
+
+  publicConfig = value;
+})
+
+publicConfig = JSON.parse(publicConfig);
+
+console.log(publicConfig.color);
+// 'red'
+```
+
 #### Parameters
 
 `EcwidApp.setAppPublicConfig` accepts two parameters: 
@@ -715,10 +733,18 @@ Name | Type | Description
 **data** | String | Place json string you want to add in public storage
 callback | Function | Specify your callback function if needed
 
-The string that you provide in `data` variable will be specified for `public` key in application storage. You will be able to retrieve it using Ecwid Javascript API in storefront. If you need to pass more than one value, you can specify your data in a json string and parse that string in Ecwid storefront. This method accepts only string type values in your data object, so make sure all values in your object, such as 'red', are of type `string`.
+**The string that you provide in `data` variable will be specified for `public` key in application storage.**
+
+You will be able to retrieve it using [Ecwid Javascript API](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getapppublicconfig) in storefront. 
+
+If you need to pass more than one value, you can specify your data in a json string and parse that string in Ecwid storefront. 
+
+<aside class="note">
+This method accepts <strong>string type values only</strong> in your data object, so make sure all values in your object, such as 'red', are of type <strong>'string'</strong>.
+</aside>
 
 <aside class="notice">
-Data that you save for public access can't exceed <strong>64Kb</strong>
+Data that you save for public access cannot exceed <strong>64Kb</strong>
 </aside>
 
 ### getAppStorage

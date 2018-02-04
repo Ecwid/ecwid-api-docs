@@ -466,6 +466,10 @@ There are two ways to save user’s data to app public config:
 
 2. For external or server-side applications, use REST API for saving user data to ‘public’ key of application storage 
 
+<aside class="note">
+Check out examples on how to save and get multiple fields in app public config: [https://developers.ecwid.com/api-documentation/public-application-config#examples](https://developers.ecwid.com/api-documentation/public-application-config#examples)
+</aside>
+
 **Important:**
 
 - App public config can accept any string with the size less than 64Kb. Please make sure to store the required data only.
@@ -478,11 +482,13 @@ Check out example on how to save data to app public config on the right. To find
 
 ### Get public data
 
-> Initialize app on a specific category page
+> Initialize app on a specific category page in storefront
 
 ```js
 Ecwid.OnPageLoaded.add(function(page){
-  var category_id = Ecwid.getAppPublicConfig('my-cool-app'); // 'my-cool-app' is your appId value
+  // Get public config in storefront
+  // 'my-cool-app' is your appId value
+  var category_id = Ecwid.getAppPublicConfig('my-cool-app'); 
 
   category_id = parseInt(category_id);
 
@@ -494,6 +500,27 @@ Ecwid.OnPageLoaded.add(function(page){
 })
 ```
 
+> Get app public config in your native app
+
+```js
+// variable to store our public config
+var publicConfig;
+
+// get app public config in native app
+EcwidApp.getAppStorage('public', function(value){
+  console.log(value);
+  // '{ "color" : "red", "page_id" : "123456" }'
+
+  publicConfig = value;
+})
+
+// parse the string to a JS object
+publicConfig = JSON.parse(publicConfig);
+
+console.log(publicConfig.color);
+// 'red'
+```
+
 If your app customizes Ecwid storefront, you can get public config of your app using Ecwid JS API. 
 
 In your Javascript file, which is executed when a storefront is loaded, you should get config using this API call: `Ecwid.getAppPublicConfig('appId')`. It will return a string value that you saved previously.
@@ -502,14 +529,18 @@ To get the value, specify your `appId` (app `client_id`) as its parameter and st
 
 App public config is available to your app as soon as storefront starts to load. 
 
-### Examples
+<aside class="note">
+Check out examples on how to save and get multiple fields in app public config: [https://developers.ecwid.com/api-documentation/public-application-config#examples](https://developers.ecwid.com/api-documentation/public-application-config#examples)
+</aside>
+
+### Access single or multiple values
 
 #### Access a single public value
 
 > Check whether widget needs to be shown
 
 ```js
-// Save data to app public config in native client-side app
+// Save data to app public config in native app (default authentication)
 
 var widget_enabled = 'true';
 
@@ -517,7 +548,7 @@ EcwidApp.setAppPublicConfig(widget_enabled, function(){
   console.log('Public app config saved!');
 });
 
-// Get data from app public config in storefront example
+// Get data from app public config in storefront 
 
 Ecwid.OnPageLoaded.add(function(page){
   var widget_enabled = Ecwid.getAppPublicConfig('ecwid-example-app');
@@ -530,7 +561,9 @@ Ecwid.OnPageLoaded.add(function(page){
 })
 ```
 
-Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in storefront. For example, you can store the status of your widget (enabled / disabled) based on user preferences in [native applications](#embedded-apps) and then access it in storefront using `Ecwid.getAppPublicConfig`.
+Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in storefront. 
+
+For example, you can store the status of your widget (enabled / disabled) based on user preferences in [native applications](#embedded-apps) and then access it in storefront using `Ecwid.getAppPublicConfig`.
 
 #### Access multiple public user data
 

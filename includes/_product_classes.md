@@ -217,22 +217,55 @@ errorMessage | string | Error message
 
 Update the details of a specific product type referring to its ID.
 
+If you need to update existing product attributes, refer to their IDs in your request. 
+
+If you want to add new product attributes to existing product type, send your new attributes AND all existing attributes for that product type. Otherwise you will reset the existing attributes in that product type.
+
 #### Request
 
-> Request example
+> Update existing attribute and create a new one
 
 ```http
 PUT /api/v3/4870020/classes/4208002?token=123abcd HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
+```
 
+```json
 {
-    "name": "New Class Name",
+    "name": "New Class Name", 
     "attributes": [
         {
-            name: "New attribute name",
-            type: "CUSTOM",
-            show: "DESCR"            
+            "id": 5508062, // set id to update existing attribute. Omit to create new one
+            "name": "New attribute name",
+            "type": "CUSTOM",
+            "show": "DESCR"            
+        },
+        {
+            "name": "Model ID",
+            "type": "CUSTOM",
+            "show": "DESCR"            
+        }
+    ]
+}
+```
+
+> Remove all existing attributes and create a new one instead
+
+```http
+PUT /api/v3/4870020/classes/4208002?token=123abcd HTTP/1.1
+Host: app.ecwid.com
+Cache-Control: no-cache
+```
+
+```json
+{
+    "name": "New Class Name", 
+    "attributes": [
+        {
+            "name": "Model ID",
+            "type": "CUSTOM",
+            "show": "DESCR"            
         }
     ]
 }
@@ -253,7 +286,7 @@ A JSON object of type 'ProductClass' with the following fields:
 #### ProductClass
 Field | Type | Description
 ----- | ---- | -----------
-name | string | Product type name
+name | string | Product type name. Isn't available to change for 'General' product type
 attributes | Array\<*Attribute*\> | Product type attributes
 
 #### Attribute
