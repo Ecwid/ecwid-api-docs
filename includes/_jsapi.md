@@ -171,7 +171,7 @@ console.log(publicToken);
 
 ```
 
-Returns public applicaiton token for an Ecwid store. In order for this function to work, your app has to ask for `public_storefront` scope from a store. [Learn more](#access-tokens)
+Returns public applicaiton token for an Ecwid store. In order for this function to work, your app has to ask for `public_storefront` scope from a store. [Learn more](https://developers.ecwid.com/api-documentation/access-tokens)
 
 `Ecwid.getAppPublicToken()` receives one argument: 
 

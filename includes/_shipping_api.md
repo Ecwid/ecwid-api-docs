@@ -28,9 +28,11 @@ After the installation, user would need a page where they can configure it: prov
 
 The request to your app URL can be triggered by a customer in storefront or by an API request to order details calculation [endpoint](https://developers.ecwid.com/api-documentation/carts#calculate-order-details).
 
-To show new shipping methods in storefront, Ecwid will send a **POST request** to your endpoint with order details: items, customer address, merchant app settings, etc. That endpoint must respond to the request with the shipping rates for this configuration.
+To show new shipping methods in storefront, Ecwid will send a **POST request** to your endpoint with order details: items that require shipping and have shipping set as [global or global + fixed rate per item](https://support.ecwid.com/hc/en-us/articles/115005899725-Setting-up-shipping-rates#Shippingfreightnbsp), customer address, merchant app settings, etc. That endpoint must respond to the request with the shipping rates for this configuration.
 
-In the case of an API request for calculating order details, the products and cart information itself can be different from what the store has. For example, some other application can create a custom storefront where it requests order calculation with items that are not present in the store. For these cases, your application should also provide correct discount calculations for the amount of cart information available.
+In the case of an API request for calculating order details, the products and cart information itself can be different from what the store has:  
+
+for example, some other application can create a custom storefront where it requests order calculation with items that are not present in the store. For these cases, your application should also provide correct discount calculations for the amount of cart information available.
 
 #### 3. Application returns the rates in a specific format
 
@@ -301,7 +303,7 @@ customerGroupId | number | Customer group ID
 customerGroup | string | The name of group (membership) the customer belongs to
 handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
-items | Array\<*OrderItems*\> | Array of customer's order items with basic details
+items | Array\<*OrderItems*\> | Array of customer's order items with basic details. **Only includes items that that require shipping and have shipping set as [global or global + fixed rate per item](https://support.ecwid.com/hc/en-us/articles/115005899725-Setting-up-shipping-rates#Shippingfreightnbsp)**
 weight | number | Total weight of the order
 weightUnit | string | Active weight units in the store at the moment of the request. [Formats and units](https://developers.ecwid.com/api-documentation/shipping-request-and-response#weight-units)
 currency | string | Active currency in the store at the moment of the request
