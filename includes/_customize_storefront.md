@@ -10,7 +10,6 @@ The Ecwid API platform allows you to customize storefront in various ways:
 
 **Most popular modifications include**:
 
-- [Apply custom CSS file](https://developers.ecwid.com/api-documentation/look-and-design#apply-custom-css)
 - [Apply custom JavaScript file](https://developers.ecwid.com/api-documentation/logic-and-code#add-custom-javascript-code)
 - [Change store layout](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout)
 - [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout#add-new-element-to-products-in-category-pages)
@@ -27,7 +26,7 @@ Ecwid integration code provides a number of modifications to the store layout: n
 
 #### Add new element to products in category pages
 
-> Add new element to product in new product listing
+> Add new element to product in product listing
 
 ```js
 Ecwid.OnPageLoaded.add(function (page) {
@@ -71,11 +70,9 @@ Ecwid.OnPageLoaded.add(function (page) {
 })
 ```
 
-In the new product listing the pages are created differently. 
+Check how to add new elements to products in product listing in example displayed on the right. 
 
-Check how to add new elements to products in the new product listing in example displayed on the right. 
-
-[How to enable new product listing in your test store](https://developers.ecwid.com/api-documentation/look-and-design#new-product-listing)
+[How to enable latest version of product listing in your test store](https://developers.ecwid.com/api-documentation/look-and-design#product-listing)
 
 #### Adapt storefront layout to changed container width
 
@@ -254,7 +251,7 @@ Ecwid can be embedded to a website in many ways. Sometimes a storefront can be i
 
 `setupEcwidPopupCentering()` function accepts one argument, which is the ID of an iframe element, where Ecwid storefront is loaded. In order to work, `setupEcwidPopupCentering()` function needs to have `iframeintegration.js` file loaded for that frame. 
 
-### New product listing
+### Product listing
 
 ```html
 <script>
@@ -264,21 +261,21 @@ Ecwid can be embedded to a website in many ways. Sometimes a storefront can be i
 </script>
 ```
 
-The new product listing allows for more customization and better looking storefronts across all Ecwid stores. You can enable it in your Ecwid store using the example code on the right. 
+The recent version of product listing allows for more customization and better looking storefronts across all Ecwid stores. You can enable it in your Ecwid store using the example code on the right. 
 
-#### Customizing the new product listing
+#### Customizing product listing
 
-Check out all the customization options for the new product listing available out of the box below.
+Check out all the customization options for the product listing available out of the box below.
 
 If you apply any of the changes below after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Adding new elements to new product listing 
+##### Adding new elements to product listing 
 
 Ecwid's latest version of product listing (category pages) works in a different way, which requires different approach to adding new elements to a page.
 
 Check this page for code example: [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#add-new-element-to-products-in-category-pages)
 
-##### Control display mode of product title in product listing (for new product listing)
+##### Control display mode of product title in product listing
 
 ```html
 <script>
@@ -288,13 +285,13 @@ Check this page for code example: [Add new element to products in category pages
 </script>
 ```
 
-Control the way **product title** is displayed in the new product listing (category pages). 
+Control the way **product title** is displayed in product listing (category pages). 
 
 Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`. 
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Control display mode of SKUs in product listing (for new product listing)
+##### Control display mode of SKUs in product listing 
 
 ```html
 <script>
@@ -304,13 +301,13 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Control the way **product SKU** is displayed in the new product listing (category pages). 
+Control the way **product SKU** is displayed in product listing (category pages). 
 
 Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Control display mode of prices in product listing (for new product listing)
+##### Control display mode of prices in product listing 
 
 ```html
 <script>
@@ -320,13 +317,13 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Control the way **product price** is displayed in the new product listing (category pages). 
+Control the way **product price** is displayed in product listing (category pages). 
 
 Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Control display mode of 'Buy now' buttons in product listing (for new product listing)
+##### Control display mode of 'Buy now' buttons in product listing
 
 ```html
 <script>
@@ -336,7 +333,7 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Control the way **'Buy now' buttons** are displayed in the new product listing (category pages). 
+Control the way **'Buy now' buttons** are displayed in product listing (category pages). 
 
 Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
 
@@ -344,7 +341,7 @@ Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Control the size of images in product listing (for new product listing)
+##### Control the size of images in product listing 
 
 ```html
 <script>
@@ -354,13 +351,13 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Control the **size of product image** in the new product listing (category pages). 
+Control the **size of product image** in product listing (category pages). 
 
 Possible values: `"SMALL"`, `"MEDIUM"`, `"LARGE"`. 
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Control the aspect ratio of images in product listing (for new product listing)
+##### Control the aspect ratio of images in product listing 
 
 ```html
 <script>
@@ -370,13 +367,13 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Control the **aspect ratio of product image** in the new product listing (category pages). 
+Control the **aspect ratio of product image** in product listing (category pages). 
 
 Possible values: `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Apply shadow effect for images in product listing (for new product listing)
+##### Apply shadow effect for images in product listing 
 
 ```html
 <script>
@@ -386,13 +383,13 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Show or hide the **shadow effect for product images** in the new product listing (category pages). If `true`, it also makes images slightly darker to make them stand out against the white background. 
+Show or hide the **shadow effect for product images** in product listing (category pages). If `true`, it also makes images slightly darker to make them stand out against the white background. 
 
 Possible values: `true`, `false`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Show additional image on hover in product listing (for new product listing)
+##### Show additional image on hover in product listing
 
 ```html
 <script>
@@ -402,13 +399,13 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Show or hide the **additional image on hover** in the new product listing (category pages). 
+Show or hide the **additional image on hover** in product listing (category pages). 
 
 Possible values: `true`, `false`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Show frame / border for products in product listing (for new product listing)
+##### Show frame / border for products in product listing 
 
 ```html
 <script>
@@ -418,13 +415,13 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Show or hide the **frame / border for products** in the new product listing (category pages). 
+Show or hide the **frame / border for products** in product listing (category pages). 
 
 Possible values: `true`, `false`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Set align of SKU, price, name in product listing (for new product listing)
+##### Set align of SKU, price, name in product listing 
 
 ```html
 <script>
@@ -434,13 +431,13 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Set **align of sku/price/name** section in the new product listing (category pages). Works for name/sku/price shown below the image. **Doesn't apply to name/sku/price shown on hover.**
+Set **align of sku/price/name** section in product listing (category pages). Works for name/sku/price shown below the image. **Doesn't apply to name/sku/price shown on hover.**
 
 Possible values: `"CENTER"`, `"LEFT"`, `"JUSTIFY"`, `"RIGHT"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Set custom breadcrumbs separator in product listing (for new product listing)
+##### Set custom breadcrumbs separator in product listing 
 
 ```html
 <script>
@@ -450,45 +447,45 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Set **custom breadcrumbs separator** in the new product listing (category pages). For example: `Store / SubCategory / SubSubCategory` or `Store -> SubCategory -> SubSubCategory` or any other custom string.
+Set **custom breadcrumbs separator** in product listing (category pages). For example: `Store / SubCategory / SubSubCategory` or `Store -> SubCategory -> SubSubCategory` or any other custom string.
 
 Possible values: any string, e.g. `"/"`, `"*"`, `"->"`, etc.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Set spacing between categories in product listing (for new product listing)
+##### Set spacing between categories in product listing 
 
 ```html
 <script>
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_category_cell_spacing = 20; // set custom spacing between categories in the new product listing in pixels
+  window.ec.storefront.product_list_category_cell_spacing = 20; // set custom spacing between categories in product listing in pixels
 </script>
 ```
 
-Set your custom spacing between categories in the new product listing (category pages) in pixels. If applied, categories will become smaller to allow for the set spacing. 
+Set your custom spacing between categories in product listing (category pages) in pixels. If applied, categories will become smaller to allow for the set spacing. 
 
 Possible values: integer numbers. Default: not set.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Set spacing between products in product listing (for new product listing)
+##### Set spacing between products in product listing 
 
 ```html
 <script>
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_cell_spacing = 20; // set custom spacing between categories in the new product listing in pixels 
+  window.ec.storefront.product_list_cell_spacing = 20; // set custom spacing between categories in product listing in pixels 
 </script>
 ```
 
-Set your custom spacing between products in the new product listing (category pages) in pixels. If applied, products will become smaller to allow for the set spacing. 
+Set your custom spacing between products in product listing (category pages) in pixels. If applied, products will become smaller to allow for the set spacing. 
 
 Possible values: integer numbers. Default: not set.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Control display mode of category names in product listing (for new product listing)
+##### Control display mode of category names in product listing
 
 ```html
 <script>
@@ -498,7 +495,7 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-Control the way **category names** are displayed in the new product listing (category pages). 
+Control the way **category names** are displayed in product listing (category pages). 
 
 Possible values: `"SHOW_ON_IMAGE"` – default, `"SHOW_BELOW_IMAGE"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
 
@@ -685,7 +682,7 @@ Using the global Ecwid config object `window.ec.config` you can control the font
 
 `auto` value allows Ecwid to detect the website's main font to adapt its font automatically. You can also set a specific font-family for a storefront manually.
 
-### Apply custom CSS
+### Custom themes
 
 > Example of custom CSS to modify storefront
 
@@ -713,19 +710,19 @@ div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-backgrounde
 }
 ```
 
-**Add custom CSS in Ecwid Control Panel (for a single store)**
+**Add custom CSS theme in Ecwid Control Panel (for a single store)**
 
 Ecwid provides a merchant with a built-in CSS customization tool in their control panel in the 'Design' section: Ecwid automatically loads the CSS code entered by user in their storefront. This allows merchants to customize their store look and feel flexibly. See also ["How to change Ecwid design"](http://help.ecwid.com/customer/portal/articles/1083332-how-to-change-ecwid-design) article in our knowledge base.
 
-**Add custom CSS in an app (for multiple stores at once)**
+**Add custom CSS theme in an app (for multiple stores at once)**
 
 Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom CSS code and Ecwid automatically loads that code in the user storefront. So you don't need to put the CSS on user site manually or ask a merchant to do that. 
 
 In more details: 
 
-1. After your app is registered, [contact us](/contact) and provide the https URL of the `.css` and/or `.js` file you’d like to load in the user storefront.
+1. After your app is registered, [contact us](/contact) and provide the https URL of the `.css` and file you’d like to load in the user storefront.
 2. When asking a user to install your app, Ecwid will request the `customize_storefront` permission from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the OAuth process.*)
-3. The next time the user storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
+3. The next time merchant's storefront is loaded in any browser or website, your external CSS file will be automatically appended, loaded, and executed on that page.
 
 <aside class="notice">
 Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
@@ -737,9 +734,11 @@ Yes, you can! Please check out this page for more details: [How to create a them
 
 #### Store-specific custom CSS
 
-You may want to apply different CSS codes depending on the store your application is loaded. For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
+You may want to apply different CSS codes depending on the store your application is loaded. 
 
-In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript](https://developers.ecwid.com/api-documentation/add-or-modify-features-in-storefront#add-custom-javascript-code) for details.
+For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
+
+In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript files](https://developers.ecwid.com/api-documentation/add-or-modify-features-in-storefront#add-custom-javascript-code) for details.
 
 ### Storefront interface translations
 

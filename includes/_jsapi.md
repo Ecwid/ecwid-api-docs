@@ -344,6 +344,21 @@ Ecwid.OnAPILoaded.add(function() {
 })
 ```
 
+> Open search page and search for in stock shoes that have Brand attribute equal 'Nike'
+
+```js
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage(
+    'search', 
+    {
+      'keywords': 'shoes', 
+      'fieldBrand': 'Nike',
+      'inStock': 'true'
+    }
+  );
+})
+```
+
 For the search page, the first argument of `Ecwid.openPage` function will be `'search'`.
 
 Additional parameters include: 
