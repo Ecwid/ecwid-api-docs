@@ -11,22 +11,22 @@ The Ecwid API platform allows you to customize storefront in various ways:
 **Most popular modifications include**:
 
 - [Apply custom JavaScript file](https://developers.ecwid.com/api-documentation/logic-and-code#add-custom-javascript-code)
-- [Change store layout](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout)
-- [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#change-the-store-layout#add-new-element-to-products-in-category-pages)
+- [Change store layout](https://developers.ecwid.com/api-documentation/look-and-design#change-store-layout)
+- [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#add-new-element-for-each-product-in-product-grid)
 - [Apply SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
 - [Change default colors and fonts](https://developers.ecwid.com/api-documentation/look-and-design#change-default-colors-and-fonts)
 - [Generate link to cart with products](https://developers.ecwid.com/api-documentation/logic-and-code#generate-cart-with-products)
 - [Access storefront JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api)
 
-## Look and design
+## Customize appearance
 
-### Change the store layout
+### Change store layout
 
-Ecwid integration code provides a number of modifications to the store layout: number of products per row, default view mode and more. See the details below. 
+Ecwid integration code provides a number of modifications to the store layout. See the details below. 
 
-#### Add new element to products in category pages
+#### Add new element for each product in product grid
 
-> Add new element to product in product listing
+> Add button below each product in product grid
 
 ```js
 Ecwid.OnPageLoaded.add(function (page) {
@@ -70,45 +70,9 @@ Ecwid.OnPageLoaded.add(function (page) {
 })
 ```
 
-Check how to add new elements to products in product listing in example displayed on the right. 
+The latest version of product grid requires specific approach to adding new elements. Check out the example on the right. 
 
 [How to enable latest version of product listing in your test store](https://developers.ecwid.com/api-documentation/look-and-design#product-listing)
-
-#### Adapt storefront layout to changed container width
-
-By default, Ecwid is a responsive widget which adapts to the changing screen width. That's usually when the container for storefront changes its width also. 
-
-However, if the screen width stays the same but the container for storefront changes its width, you will need to call the `Ecwid.resizeProductBrowser()` function to adapt Ecwid's layout to this change.
-
-#### Change the number of products/categories on a page
-
->Add Ecwid storefront to your website
-
-```html
-<div id="my-store-1003"></div><div> <script type="text/javascript" src="https://app.ecwid.com/script.js?1003" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","id=my-store-1003");</script></div>
-```
-
-Find the following code in the widget code on the right:
-
-`"categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list"`
-
-This code defines products and categories listing styles. Let's see its parts:
-
-- `"categoriesPerRow=3"` -- defines number of categories per row
-- `"views=grid(3,3) list(10) table(20)"` - defines the available views and their settings. If you want to remove any view, just remove the `grid(3,3)` or `list(10)` or `table(20)` text from the settings.
-
-The number in braces is number of products in the particular view. I.e.:
-
-- `grid(K,L)` - `K` is a number of products in a column, `L` - number of products in a row in grid view
-- `list(M)` - `M` is a number of products on one page in list view
-- `table(N)` - `N` is a number of products on one page in table view
-
-Default view mode settings:
-
-- `"categoryView=grid"` - defines the default view for products in categories. Possible values: `list`, `grid`, `table`
-- `"searchView=list"` - defines the default view for search results. Possible values: `list`, `grid`, `table`.
-
-Feel free to change the code to achieve the layout you need!
 
 #### Set default product or category page
 
@@ -269,11 +233,11 @@ Check out all the customization options for the product listing available out of
 
 If you apply any of the changes below after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Adding new elements to product listing 
+##### Adding new elements to product grid 
 
 Ecwid's latest version of product listing (category pages) works in a different way, which requires different approach to adding new elements to a page.
 
-Check this page for code example: [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#add-new-element-to-products-in-category-pages)
+Check this page for code example: [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#add-new-element-for-each-product-in-product-grid)
 
 ##### Control display mode of product title in product listing
 
@@ -753,7 +717,7 @@ To translate the app in storefront, use these steps:
 
 If the current language is not supported, use the fallback labels. For example, load English texts if user is Spanish and you don't have Spanish translations yet. 
 
-## Logic and code
+## Customize behaviour
 
 ### Add Ecwid to the site
 
@@ -803,6 +767,12 @@ where `PB_URL` is the full URL of the page where your product browser widget (i.
 For example: 
 
 `<script>var ecwid_ProductBrowserURL = "http://www.example.com/store.html";</script>`
+
+#### Adapt storefront layout to container width
+
+By default, Ecwid is a responsive widget which adapts to the changing screen width. That's usually when the container for storefront changes its width also.
+
+However, if the screen width stays the same but the container for storefront changes its width, you will need to call the `Ecwid.resizeProductBrowser()` function to adapt Ecwid's layout to this change.
 
 ### Embed or remove storefront on demand
 

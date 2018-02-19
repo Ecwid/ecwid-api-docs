@@ -23,11 +23,13 @@ Although this approach is not necessary and you can use the Ecwid API without em
 - [Ecwid JavaScript SDK for Native Apps](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk)
 - [Troubleshooting issues with Native apps](https://developers.ecwid.com/api-documentation/troubleshooting)
 
-## Building an embedded app
+## Building a native app
 
 ### Set up your application
 
-After the app registration you will need to provide us with additional details about your app interface in the Ecwid Control Panel. These details are necessary to properly show your page, please see the required details below:
+After the app registration you will need to provide us with additional details about your app interface in the Ecwid Control Panel. 
+
+These details are necessary to properly show your page, please see the required details below:
 
 Parameter | Meaning
 --------- | -------
@@ -225,9 +227,9 @@ When using enhanced security user authentication, the app state will be delivere
 
 You can retrieve it just like any other value of a GET parameter on a server-side and then save and use it in your app code. See example on the right.
 
-Learn more about [Enhanced Security User Authentication](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#enhanced-security-user-auth)
+Learn more about [Enhanced Security User Authentication](https://developers.ecwid.com/api-documentation/authentication-in-native-apps#enhanced-security-user-auth)
 
-## Authentication in embedded apps
+## Authentication in native apps
 
 ### User authentication
 
@@ -250,7 +252,7 @@ In the default user auth process, Ecwid will call your iframe URL like this:
 
 This process allows for simple user authentication in your app using the **Ecwid JS SDK**.
 
-[Continue with default authentication](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#default-user-auth)
+[Continue with default authentication](https://developers.ecwid.com/api-documentation/authentication-in-native-apps#default-user-auth)
 
 #### Enhanced Security User Authentication
 
@@ -260,7 +262,7 @@ In the enhanced security auth process, Ecwid will call your iframe URL like this
 
 We recommend using this type of authentication for complex applications that can modify parts of a store and require additional security measures.
 
-[Continue with enhanced security authentication](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#enhanced-security-user-auth)
+[Continue with enhanced security authentication](https://developers.ecwid.com/api-documentation/authentication-in-native-apps#enhanced-security-user-auth)
 
 <aside class="note">By default, Ecwid uses <strong>Default User Authentication</strong> process so you can start working on your application's tab right away without using server side. If you need your app to be switched to <strong>Enhanced Security User Authentication</strong>, please <a href='/contact'>contact us</a> and we will update your app.</aside>
 
@@ -337,7 +339,7 @@ See functions `EcwidApp.getAppStorage`, `EcwidApp.setAppStorage` and `EcwidApp.s
 
 #### 2. Initialize your application functionality
 
-So once you know the store you are working with and you have the settings and other data specific to that store, you can use that information in your embedded application to start is stndard workflow.
+So once you know the store you are working with and you have the settings and other data specific to that store, you can use that information in your native application to start is stndard workflow.
 
 ### Enhanced Security User Auth
 
@@ -349,7 +351,7 @@ The workflow of such applications can be divided into several steps:
 2. Get store specific data (optional)
 3. Initialize your application functionality
 
-So let's look a little closer on how to create a your embedded server-side application:
+So let's look a little closer on how to create a your native server-side application:
 
 #### 1. Decrypt the payload from the Ecwid Control Panel
 
@@ -519,7 +521,7 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.5/ecwid-app-ui.css"/>
 ```
 
-1. Add this CSS file to your app embedded into Ecwid Control Panel: 
+1. Add this CSS file to your native app: 
 `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.5/ecwid-app-ui.css`
 
 2. Use this guide to find the elements and CSS classes you need: [http://developers.ecwid.com/ecwid-css-framework/](/ecwid-css-framework)
@@ -598,7 +600,7 @@ autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust you
 
 `EcwidApp.getPayload()`
 
-Above, we explained how your app can be a client-side HTML/JS application and still access Ecwid API right from Ecwid Control Panel (see [Authentication in embedded apps](#authentication-in-embedded-apps) section). There, we used the `EcwidApp.getPayload()` method to get the store ID and API access token. 
+Above, we explained how your app can be a client-side HTML/JS application and still access Ecwid API right from Ecwid Control Panel (see [Authentication in native apps](#authentication-in-native-apps) section). There, we used the `EcwidApp.getPayload()` method to get the store ID and API access token. 
 
 The payload is a JSON with the following fields:
 
@@ -830,7 +832,7 @@ Features list is available in the [Store profile endpoint](https://developers.ec
 #### A new tab inside Ecwid Control Panel is not appearing
 You created an app and installed it on your test store, but the new tab is not appearing when you open your store. There are several possible reasons:
 
-* **The application is not configured properly** to be displayed inside Control Panel. E.g. during registration, you forgot to mention that your app will embed itself into Control Panel, or did not choose exact section inside Control Panel where Ecwid needs to display your app. See ["Set up your application"](https://developers.ecwid.com/api-documentation/building-an-embedded-app#set-up-your-application) for the details.
+* **The application is not configured properly** to be displayed inside Control Panel. E.g. during registration, you forgot to mention that your app will embed itself into Control Panel, or did not choose exact section inside Control Panel where Ecwid needs to display your app. See ["Set up your application"](https://developers.ecwid.com/api-documentation/building-a-native-app#set-up-your-application) for the details.
 * **You didn't include the `add_to_cp` access scope** to the list of requested scopes while authorizing the app. While creating an oauth URL, make sure it incudes the "add_to_cp" scope in the list of requested permissions. 
 * **You're testing it in an Ecwid store which is on Free plan**. Ecwid API functionality including embedding apps is available on paid Ecwid plans only. Please upgrade your account.
 

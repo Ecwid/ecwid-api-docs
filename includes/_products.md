@@ -2595,7 +2595,7 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 402 | The functionality/method is not available on the merchant plan
 403 | Access token doesn't have `update_catalog` scope 
 404 | Product is not found
-413 | The file is too large (Maximum allowed size is 100Mb)
+413 | The file size exceeds [allowed size for plan](https://www.ecwid.com/pricing)
 415 | Unsupported content-type: expected `application/octet-stream`
 500 | Uploading of the file failed or there was an internal server error while processing a file
 
