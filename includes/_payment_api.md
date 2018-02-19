@@ -378,7 +378,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 id | number | Order item ID. Can be used to address the item in the order, e.g. to manage ordered items.
 productId | number | Store product ID
-categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
+categoryId |  number  | ID of category this product was added to cart from. If the product was added to cart from API or Search page, `categoryID` will return `-1`
 price | number | Price of ordered item in the cart
 productPrice | number | Basic product price without options markups, wholesale discounts etc.
 weight |  number | Product weight

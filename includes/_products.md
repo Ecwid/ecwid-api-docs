@@ -1462,7 +1462,9 @@ POST /api/v3/4870020/products?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
+```
 
+```json
 {
   "sku": "000012199",
   "quantity": 10,
@@ -1499,6 +1501,7 @@ Cache-Control: no-cache
         "defaultChoice": 0,
         "required": false
     }
+  ]
 }
 ```
 

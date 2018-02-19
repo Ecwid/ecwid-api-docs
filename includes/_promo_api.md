@@ -106,183 +106,304 @@ Ecwid will send the cart details in a **body** of POST HTTP request in the follo
 POST https://mycoolapp.com/discounts HTTP/1.1
 ```
 ```json
-{
-    "storeId": 35002,
-    "merchantAppSettings": {
-        "public":"{color : \"red\", storeName : \"Cool Socks Ltd.\"}",
-        "dimensions": "5x10x7",
-        "userId": "12345"
-    },
-    "cart": {
-        "subtotal": 7.08,
-        "ipAddress": "127.0.0.1",
-        "couponDiscount": 0,
-        "paymentStatus": "INCOMPLETE",
-        "fulfillmentStatus": "NEW",
-        "refererUrl": "https://mdemo.ecwid.com/",
-        "orderComments": "Leave at the front porch.",
-        "volumeDiscount": 5,
-        "membershipBasedDiscount": 0.14,
-        "totalAndMembershipBasedDiscount": 1,
-        "discount": 6.14,
-        "customerGroupId": 123456,
-        "customerGroup": "Gold members",
-        "customerId": 23649002,
-        "paymentMethod": "Purchase order",
-        "email": "johnsmith@example.com",
-
-        "discountCoupon": {
-                "name": "Coupon # 3",
-                "code": "5PERCENTOFF",
-                "discountType": "PERCENT",
-                "status": "ACTIVE",
-                "discount": 5,
-                "launchDate": "2014-06-06 00:00:00 +0000",
-                "usesLimit": "UNLIMITED",
-                "repeatCustomerOnly": false,
-                "creationDate": "2014-09-20 19:58:49 +0000",
-                "orderCount": 0
-        },
-        "discountInfo": [
-            {
-                "orderTotal": 1,
-                "value": 5,
-                "type": "ABS",
-                "base": "ON_TOTAL",
-                "membershipId": 0
+{  
+   "storeId":1003,
+   "merchantAppSettings":{  
+      "syncOrders":"tXXXe",
+      "accountName":"cXXXs",
+      "exists":"yXXXs"
+   },
+   "cart":{  
+      "subtotal":24.15,
+      "ipAddress":null,
+      "couponDiscount":5.0,
+      "paymentStatus":"INCOMPLETE",
+      "fulfillmentStatus":"NEW",
+      "refererUrl":"https://mdemo.ecwid.com/",
+      "orderComments":null,
+      "volumeDiscount":4.0,
+      "membershipBasedDiscount":0.0,
+      "totalAndMembershipBasedDiscount":0.0,
+      "discount":4.0,
+      "customerGroupId":null,
+      "customerGroup":null,
+      "customerId":40201284,
+      "customerEmail":"riq363@gmail.com",
+      "discountCoupon":{  
+         "id":27718364,
+         "name":"SALE",
+         "code":"AB0708",
+         "discountType":"ABS",
+         "status":"ACTIVE",
+         "discount":5.0,
+         "launchDate":"Dec 12, 2017 8:00:00 PM",
+         "expirationDate":"Sep 1, 2020 7:59:59 PM",
+         "usesLimit":"UNLIMITED",
+         "catalogLimit":null,
+         "repeatCustomerOnly":false,
+         "creationDate":"Feb 16, 2018 2:27:01 PM",
+         "orderCount":0,
+         "updateDate":"Dec 13, 2017 1:35:31 PM"
+      },
+      "discountInfo":[  
+         {  
+            "orderTotal":1.0,
+            "value":4.0,
+            "type":"ABS",
+            "base":"ON_TOTAL",
+            "membershipId":0,
+            "description":null
+         }
+      ],
+      "handlingFee":{  
+         "name":"Handling Fee",
+         "value":4.0,
+         "description":""
+      },
+      "hidden":false,
+      "items":[  
+         {  
+            "weight":0.0,
+            "price":0.0,
+            "amount":1,
+            "productId":66722516,
+            "name":"SCH-R850",
+            "categoryId":-1,
+            "sku":"00034",
+            "selectedOptions":[  
+               {  
+                  "name":"Size",
+                  "value":"M",
+                  "valuesArray":[  
+                     "M"
+                  ],
+                  "type":"CHOICE",
+               }
+            ],
+            "dimensions":{  
+               "length":0.0,
+               "width":0.0,
+               "height":0.0
             },
-            {
-                "orderTotal": 1,
-                "value": 2,
-                "type": "PERCENT",
-                "base": "ON_MEMBERSHIP",
-                "membershipId": 0
+            "productPrice":0.0,
+            "categoryIds":[],
+            "categories":[],
+            "quantity":null,
+            "unlimited":true,
+            "inStock":true,
+            "priceInProductList":0.0,
+            "isShippingRequired":true,
+            "productClassId":0,
+            "enabled":true,
+            "warningLimit":0,
+            "fixedShippingRateOnly":false,
+            "fixedShippingRate":0.0,
+            "options":[  
+               {  
+                  "type":"RADIO",
+                  "name":"Size",
+                  "defaultChoice":0,
+                  "required":false,
+                  "choices":[  
+                     {  
+                        "text":"S",
+                        "priceModifier":0.0,
+                        "priceModifierType":"PERCENT"
+                     },
+                     {  
+                        "text":"M",
+                        "priceModifier":1.0,
+                        "priceModifierType":"PERCENT"
+                     },
+                     {  
+                        "text":"L",
+                        "priceModifier":2.0,
+                        "priceModifierType":"PERCENT"
+                     },
+                     {  
+                        "text":"XL",
+                        "priceModifier":3.0,
+                        "priceModifierType":"PERCENT"
+                     }
+                  ]
+               }
+            ],
+            "wholesalePrices":null,
+            "compareToPrice":null,
+            "url":"https://mdemo.ecwid.com/#!/SCH-R850/p/66722516",
+            "created":"2016-05-30 06:13:17 +0000",
+            "updated":"2018-02-15 14:33:39 +0000",
+            "createTimestamp":1464588797,
+            "updateTimestamp":1518705219,
+            "defaultCombinationId":0,
+            "imageUrl":"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/389587699.jpg",
+            "thumbnailUrl":"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/469445162.jpg",
+            "smallThumbnailUrl":"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/469445166.jpg",
+            "hdThumbnailUrl":"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/469445168.jpg",
+            "originalImageUrl":"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/389587700.jpg",
+            "originalImage":{  
+               "url":"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/389587700.jpg",
+               "width":257,
+               "height":599
             },
-            {
-                "orderTotal": 1,
-                "value": 1,
-                "type": "ABS",
-                "base": "ON_TOTAL_AND_MEMBERSHIP",
-                "membershipId": 0
-            }
-        ],
-        "handlingFee": {
-            "name": "Handling Fee",
-            "value": 0,
-            "description": ""
-        },
-        "items": [
-            {  
-                "weight":0.25,
-                "price":18.95,
-                "amount":1,
-                "productId":85607123,
-                "name":"All-Weather\u0026trade; Solid Black Mini Umbrella",
-                "categoryId":-1,
-                "sku":"GFUMLT",
-                "selectedOptions":null,
-                "dimensions":{  
-                   "length":9.0,
-                   "width":1.0,
-                   "height":7.0
-                },
-                "productPrice":18.95,
-                "categoryIds":[],
-                "categories":[],
-                "quantity":16658,
-                "unlimited":false,
-                "inStock":true,
-                "priceInProductList":18.95,
-                "isShippingRequired":true,
-                "productClassId":0,
-                "enabled":true,
-                "warningLimit":0,
-                "fixedShippingRateOnly":false,
-                "fixedShippingRate":0.0,
-                "options":null,
-                "wholesalePrices":null,
-                "compareToPrice":null,
-                "url":"https://mdemo.ecwid.com/#!/All-Weather\u0026trade-Solid-Black-Mini-Umbrella/p/85607123",
-                "created":"2017-06-06 11:47:18 +0000",
-                "updated":"2017-09-18 08:22:29 +0000",
-                "createTimestamp":1496749638,
-                "updateTimestamp":1505722949,
-                "defaultCombinationId":0,
-                "imageUrl":null,
-                "thumbnailUrl":null,
-                "smallThumbnailUrl":null,
-                "hdThumbnailUrl":null,
-                "originalImageUrl":null,
-                "originalImage":null,
-                "borderInfo":null,
-                "galleryImages":[],
-                "defaultCategoryId":0,
-                "seoTitle":"All-Weather\u0026trade; Solid Black Mini Umbrella",
-                "seoDescription":"This 40\u0026quot; super mini umbrella folds up to a compact 9\u0026quot; x 1-3/4\u0026quot; x 1-1/4\u0026quot; to carry in your purse or briefcase. The uni-chrome ribs, plastic handle and self tips combine to make this a sturdy and functional accessory. Comes in a clear, plastic polypropylene case.",
-                "favorites":{  
-                   "count":0,
-                   "displayedCount":"0"
-                },
-                "attributes":[],
-                "relatedProducts":{  
-                   "productIds":[],
-                   "relatedCategory":{  
-                      "enabled":false,
-                      "categoryId":0,
-                      "productCount":1
-                   }
-                },
-                "combinations":[],
-                "showOnFrontpage":1
-             }
-        ],
-        "predictedPackages":[  
-            {  
-                "length":12.5,
-                "width":6,
-                "height":3.5,
-                "weight":1.5,
-                "declaredValue":7.08
-            }
-        ],
-        "shippingAddress": {
-            "street": "5th Avenue",
-            "city": "New York",
-            "countryCode": "US",
-            "postalCode": "10002",
-            "stateOrProvinceCode": "NY",
-            "stateOrProvinceName": "New York"
-        },
-        "originAddress": {
-            "street": "Columbus Street, 5",
-            "city": "Idaho Falls",
-            "countryCode": "US",
-            "postalCode": "30135",
-            "stateOrProvinceCode": "GA"
-        },
-        "weight": 1.5,
-        "weightUnit": "lbs",
-        "currency": "USD",
-        "dimensionUnit" : "MM",
-        "handlingFee": {
-            "name": "Wrapping",
-            "value": 2,
-            "description": "Silk paper wrapping"
-        },
-        "extraFields": {
-            "platform": {
-                "value": "adobe_muse"
+            "galleryImages":[],
+            "defaultCategoryId":0,
+            "seoTitle":"",
+            "seoDescription":"",
+            "favorites":{  
+               "count":0,
+               "displayedCount":"0"
             },
-            "AFF_ID": {
-                "value": "fb-123"
+            "attributes":[],
+            "relatedProducts":{  
+               "productIds":[],
+               "relatedCategory":{  
+                  "enabled":false,
+                  "categoryId":0,
+                  "productCount":1
+               }
             },
-            "how_did_you_find_us": {
-                "title": "How you found us?",
-                "value": "TV show",
-                "order_details_display_section": "order_comments"
-            }
+            "combinations":[],
+            "showOnFrontpage":4
+         },
+         {  
+            "weight":0.0,
+            "price":27.049999999999997,
+            "amount":1,
+            "productId":97548001,
+            "name":"Testing",
+            "categoryId":-1,
+            "sku":"CP007C",
+            "selectedOptions":[  
+               {  
+                  "name":"Size",
+                  "value":"M",
+                  "valuesArray":[  
+                     "M"
+                  ],
+                  "type":"CHOICE",
+                  "files":null
+               }
+            ],
+            "dimensions":{  
+               "length":0.0,
+               "width":0.0,
+               "height":0.0
+            },
+            "productPrice":23.0,
+            "categoryIds":[],
+            "categories":[],
+            "quantity":null,
+            "unlimited":true,
+            "inStock":true,
+            "priceInProductList":23.0,
+            "isShippingRequired":true,
+            "productClassId":0,
+            "enabled":true,
+            "warningLimit":0,
+            "fixedShippingRateOnly":false,
+            "fixedShippingRate":0.0,
+            "options":[  
+               {  
+                  "type":"RADIO",
+                  "name":"Size",
+                  "defaultChoice":0,
+                  "required":false,
+                  "choices":[  
+                     {  
+                        "text":"S",
+                        "priceModifier":0.0,
+                        "priceModifierType":"PERCENT"
+                     },
+                     {  
+                        "text":"M",
+                        "priceModifier":1.0,
+                        "priceModifierType":"PERCENT"
+                     },
+                     {  
+                        "text":"L",
+                        "priceModifier":2.0,
+                        "priceModifierType":"PERCENT"
+                     },
+                     {  
+                        "text":"XL",
+                        "priceModifier":3.0,
+                        "priceModifierType":"PERCENT"
+                     }
+                  ]
+               }
+            ],
+            "wholesalePrices":null,
+            "compareToPrice":null,
+            "url":"https://mdemo.ecwid.com/#!/Testing/p/97548001",
+            "created":"2017-12-07 06:12:20 +0000",
+            "updated":"2018-02-15 14:33:39 +0000",
+            "createTimestamp":1512627140,
+            "updateTimestamp":1518705219,
+            "defaultCombinationId":0,
+            "imageUrl":null,
+            "thumbnailUrl":null,
+            "smallThumbnailUrl":null,
+            "hdThumbnailUrl":null,
+            "originalImageUrl":null,
+            "originalImage":null,
+            "borderInfo":null,
+            "galleryImages":[],
+            "defaultCategoryId":0,
+            "seoTitle":"",
+            "seoDescription":"",
+            "favorites":{  
+               "count":0,
+               "displayedCount":"0"
+            },
+            "attributes":[],
+            "relatedProducts":{  
+               "productIds":[],
+               "relatedCategory":{  
+                  "enabled":false,
+                  "categoryId":0,
+                  "productCount":1
+               }
+            },
+            "combinations":[],
+            "showOnFrontpage":3
+         }
+      ],
+      "shippingAddress":{  
+         "street":"324",
+         "city":"423",
+         "countryCode":"RU",
+         "postalCode":"324",
+         "stateOrProvinceCode":"73",
+         "stateOrProvinceName":"Ulyanovskaya oblast"
+      },
+      "originAddress":{  
+         "street":"av 127",
+         "city":"Bogota",
+         "countryCode":"FI",
+         "postalCode":"21293",
+         "stateOrProvinceCode":"09"
+      },
+      "weight":0.0,
+      "weightUnit":"kg",
+      "dimensionUnit":"CM",
+      "currency":"AUD",
+      "predictedPackages":null,
+      "paymentMethod":null,
+      "extraFields": {
+        "platform": {
+          "value": "adobe_muse"
+        },
+        "AFF_ID": {
+          "value": "fb-123"
+        },
+        "how_did_you_find_us": {
+          "title": "How you found us?",
+          "value": "TV show",
+          "order_details_display_section": "order_comments"
         }
-    }
+      }      
+   }
 }
 ```
 
@@ -296,7 +417,7 @@ cart | \<*CartDetails*\> | Offset from the beginning of the returned items list 
 
 Name | Type    | Description
 ---- | ------- | --------------
-subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order without taxes, but including product variations and options
 ipAddress | string  | Customer IP
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li></ul>
@@ -330,8 +451,8 @@ extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about orde
 Field | Type |  Description
 --------- | -----------| -----------
 productId | number | Store product ID
-categoryId |  number  | ID of the category this product belongs to. If the product belongs to many categories, categoryID will return the ID of the default product category. If the product doesn't belong to any category, `0` is returned
-price | number | Price of ordered item in the cart
+categoryId |  number  | ID of category this product was added to cart from. If the product was added to cart from API or Search page, `categoryID` will return `-1`
+price | number | Price of ordered item in the cart. **Includes taxes in product price and product variations/options**
 weight |  number | Product weight
 sku | string | Product SKU. If the chosen options match a variation, this will be a variation SKU.
 amount |  number | Amount purchased
@@ -509,6 +630,7 @@ priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOL
 #### DiscountCouponInfo
 Field | Type  | Description
 ----- | ----- | -----------
+id | number | Internal unique coupon ID
 name |  string | Coupon title in store control panel
 code |  string | Coupon code
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
@@ -516,12 +638,19 @@ status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDU
 discount | number | Discount amount
 launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000`
 expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0000`
+creationDate |  string | Coupon creation date. Format example: `2016-06-29 11:36:55 +0000`
+updateDate | string | Coupon update date. Format example: `2016-06-29 11:36:55 +0000`
 totalLimit | number| The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
-creationDate |  string | Coupon creation date
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | Products and categories the coupon can be applied to
+
+#### DiscountCouponCatalogLimit
+Field | Type | Description
+----- | ---- | -----------
+products | Array\<number\> | The list of product IDs the coupon can be applied to
+categories | Array\<number\> | The list of category IDs the coupon can be applied to
 
 #### DiscountInfo
 Field | Type | Description
