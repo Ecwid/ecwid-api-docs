@@ -114,6 +114,8 @@ Place the codes anywhere on a page where Ecwid integration code is added to appl
 
 ##### Hide sign in link
 
+> Hide sign in link
+
 ```html
 <script>
   window.ec = window.ec || Object();
@@ -127,6 +129,8 @@ Hide the sign in link for customers in a store using the code example on the rig
 The config `window.ec.storefront.show_signin_link` accepts two values: `true` to show the sign in link, and `false` to hide it.
 
 ##### Hide breadcrumbs
+
+> Hide breadcrumbs
 
 ```html
 <script>
@@ -142,6 +146,8 @@ The config `window.ec.storefront.show_breadcrumbs` accepts two values: `true` to
 
 ##### Hide 'View as' and 'Sort by' options in product listing
 
+> Hide 'View as' and 'Sort by' options
+
 ```html
 <script>
   window.ec = window.ec || Object();
@@ -155,6 +161,8 @@ Hide the options to 'View as' and 'Sort by' products for customers using the cod
 The config `window.ec.storefront.product_list_show_sort_viewas_options` accepts two values: `true` to show the 'View as' and 'Sort by' options, and `false` to hide them.
 
 ##### Hide 'Qty' selection in product details
+
+> Hide 'Qty' selection in product pages
 
 ```html
 <script>
@@ -170,6 +178,8 @@ The config `window.ec.storefront.product_details_show_qty` accepts two values: `
 
 ##### Hide 'In stock' label in product details
 
+> Hide 'In stock' label in product pages
+
 ```html
 <script>
   window.ec = window.ec || Object();
@@ -183,6 +193,8 @@ Hide the 'In stock' label for customers in product details using the code exampl
 The config `window.ec.storefront.product_details_show_in_stock_label` accepts two values: `true` to show the 'In stock' label, and `false` to hide it.
 
 ##### Hide number of items in stock in product details
+
+> Hide number of items in stock in product pages
 
 ```html
 <script>
@@ -217,6 +229,8 @@ Ecwid can be embedded to a website in many ways. Sometimes a storefront can be i
 
 ### Product listing
 
+> Enable latest product listing
+
 ```html
 <script>
   window.ec = window.ec || Object();
@@ -233,13 +247,24 @@ Check out all the customization options for the product listing available out of
 
 If you apply any of the changes below after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
+**Table of contents:** 
+- [Adding new elements to product grid](#adding-new-elements-to-product-grid)
+- [Control display of elements in product grid](#control-display-of-elements-in-product-grid)
+- [Customize images in product listing](#customize-images-in-product-listing)
+- [Set custom spacing between grid elements](#set-custom-spacing-between-grid-elements)
+
+
 ##### Adding new elements to product grid 
 
 Ecwid's latest version of product listing (category pages) works in a different way, which requires different approach to adding new elements to a page.
 
 Check this page for code example: [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#add-new-element-for-each-product-in-product-grid)
 
-##### Control display mode of product title in product listing
+##### Control display of elements in product grid
+
+###### Control display mode of product title in product listing
+
+> Control display mode of product title in product listing
 
 ```html
 <script>
@@ -255,7 +280,9 @@ Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Control display mode of SKUs in product listing 
+###### Control display mode of SKUs in product listing
+
+> Control display mode of SKUs in product listing 
 
 ```html
 <script>
@@ -271,7 +298,9 @@ Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Control display mode of prices in product listing 
+###### Control display mode of prices in product listing
+
+> Control display mode of prices in product listing
 
 ```html
 <script>
@@ -287,7 +316,9 @@ Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Control display mode of 'Buy now' buttons in product listing
+###### Control display mode of 'Buy now' buttons in product listing
+
+> Control display mode of 'Buy now' buttons in product listing
 
 ```html
 <script>
@@ -305,71 +336,9 @@ Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Control the size of images in product listing 
+###### Show frame / border for products in product listing 
 
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_image_size = "LARGE"; // set large product image size in product listing 
-</script>
-```
-
-Control the **size of product image** in product listing (category pages). 
-
-Possible values: `"SMALL"`, `"MEDIUM"`, `"LARGE"`. 
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-##### Control the aspect ratio of images in product listing 
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_image_aspect_ratio = "PORTRAIT_075"; // set portrait aspect ratio for images in product listing 
-</script>
-```
-
-Control the **aspect ratio of product image** in product listing (category pages). 
-
-Possible values: `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-##### Apply shadow effect for images in product listing 
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_image_has_shadow = false; // hide shadow effect for product images
-</script>
-```
-
-Show or hide the **shadow effect for product images** in product listing (category pages). If `true`, it also makes images slightly darker to make them stand out against the white background. 
-
-Possible values: `true`, `false`.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-##### Show additional image on hover in product listing
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_show_additional_image_on_hover = true; // show additional image on hover
-</script>
-```
-
-Show or hide the **additional image on hover** in product listing (category pages). 
-
-Possible values: `true`, `false`.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-##### Show frame / border for products in product listing 
+> Show frame / border for products in product listing 
 
 ```html
 <script>
@@ -385,7 +354,9 @@ Possible values: `true`, `false`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Set align of SKU, price, name in product listing 
+###### Set align of SKU, price, name in product listing 
+
+> Set align of SKU, price, name in product listing 
 
 ```html
 <script>
@@ -401,7 +372,9 @@ Possible values: `"CENTER"`, `"LEFT"`, `"JUSTIFY"`, `"RIGHT"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Set custom breadcrumbs separator in product listing 
+###### Set custom breadcrumbs separator in product listing 
+
+> Set custom breadcrumbs separator in product listing 
 
 ```html
 <script>
@@ -417,7 +390,85 @@ Possible values: any string, e.g. `"/"`, `"*"`, `"->"`, etc.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Set spacing between categories in product listing 
+##### Customize images in product listing
+
+###### Control the size of images in product listing 
+
+> Control the size of images in product listing 
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_image_size = "LARGE"; // set large product image size in product listing 
+</script>
+```
+
+Control the **size of product image** in product listing (category pages). 
+
+Possible values: `"SMALL"`, `"MEDIUM"`, `"LARGE"`. 
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Control the aspect ratio of images in product listing 
+
+> Control the aspect ratio of images in product listing 
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_image_aspect_ratio = "PORTRAIT_075"; // set portrait aspect ratio for images in product listing 
+</script>
+```
+
+Control the **aspect ratio of product image** in product listing (category pages). 
+
+Possible values: `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Apply shadow effect for images in product listing 
+
+> Apply shadow effect for images in product listing 
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_image_has_shadow = false; // hide shadow effect for product images
+</script>
+```
+
+Show or hide the **shadow effect for product images** in product listing (category pages). If `true`, it also makes images slightly darker to make them stand out against the white background. 
+
+Possible values: `true`, `false`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Show additional image on hover in product listing
+
+> Show additional image on hover in product listing
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_show_additional_image_on_hover = true; // show additional image on hover
+</script>
+```
+
+Show or hide the **additional image on hover** in product listing (category pages). 
+
+Possible values: `true`, `false`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Set custom spacing between grid elements
+
+###### Set spacing between categories in product listing 
+
+> Set spacing between categories in product listing 
 
 ```html
 <script>
@@ -433,7 +484,9 @@ Possible values: integer numbers. Default: not set.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
-##### Set spacing between products in product listing 
+###### Set spacing between products in product listing 
+
+> Set spacing between products in product listing 
 
 ```html
 <script>
@@ -451,6 +504,8 @@ If you apply the change after storefront has loaded, you can update its look on 
 
 ##### Control display mode of category names in product listing
 
+> Control display mode of category names in product listing
+
 ```html
 <script>
   window.ec = window.ec || Object();
@@ -462,6 +517,834 @@ If you apply the change after storefront has loaded, you can update its look on 
 Control the way **category names** are displayed in product listing (category pages). 
 
 Possible values: `"SHOW_ON_IMAGE"` – default, `"SHOW_BELOW_IMAGE"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+### Product pages
+
+> Enable latest product listing
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.enable_new_product_details = true;
+</script>
+```
+
+The most recent version of product pages allows for more customization and better looking storefronts across all Ecwid stores. You can enable it in your Ecwid store using the example code on the right.
+
+#### Customizing product pages
+
+Check out all the customization options for the product details pages available out of the box below.
+
+If you apply any of the changes below after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+**Table of contents:** 
+
+- [Setting values for product options](#setting-values-for-product-options)
+- [Set layout of product pages](#set-layout-of-product-pages)
+- [Product name](#product-name-on-product-pages)
+- [Breadcrumbs](#breadcrumbs-on-product-pages)
+- [SKU](#sku-on-product-pages)
+- [Price](#price-on-product-pages)
+- [Sale price](#sale-price-on-product-pages)
+- [Product options](#product-options-on-product-pages)
+- [Buy button block](#buy-button-block-on-product-pages)
+- ['Qty' block](#qty-block-on-product-pages)
+- ['In stock' label](#in-stock-label-on-product-pages)
+- [Wholesale pricing table](#wholesale-pricing-table-on-product-pages)
+- ['Save for later' block](#save-for-later-block-on-product-pages)
+- [Share buttons](#share-buttons-on-product-pages)
+- [Gallery](#gallery-on-product-pages)
+
+##### Setting values for product options 
+
+> Set value for product options on product pages
+
+```js
+// Product details page is opened
+
+// Change value of select in DOM
+document.querySelector('.details-product-option--select .form-control--select select').value = 'XLarge';
+
+// At this moment the value was changed, but Ecwid doesn't know about it. So the changes are not applied yet
+
+// Sent 'change' event to Ecwid to record the change
+document.querySelector('.details-product-option--select .form-control--select select').dispatchEvent(new Event('change'));
+
+// Now if a customer adds this product to cart, it will be added with this user selection
+```
+
+Product details pages can have different product options for customers to choose from. Use the instructions below for changing product options for customer. 
+
+**How to set value for product option**: 
+
+1. Change the value of the input in DOM
+2. Send 'change' event to Ecwid that value was changed
+
+**Example**
+
+Check out an example code on the right. 
+
+##### Set layout of product pages
+
+> Set layout of product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_layout = "THREE_COLUMNS_SIDEBAR_ON_THE_RIGHT"; // set product page layout
+</script>
+```
+
+Set different **layout of product pages**. Defines how many columns the page contains, the column width, etc. 
+
+Possible values: `"TWO_COLUMNS_SIDEBAR_ON_THE_LEFT"`, `"TWO_COLUMNS_SIDEBAR_ON_THE_RIGHT"`, `"THREE_COLUMNS_SIDEBAR_ON_THE_RIGHT"`, `"THREE_COLUMNS_SIDEBAR_ON_THE_LEFT"`.
+
+Defalut value: `"TWO_COLUMNS_SIDEBAR_ON_THE_RIGHT"`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Product name on product pages
+
+###### Hide product name on product pages
+
+> Show or hide product name
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_product_name = false; // hide product name on product page
+</script>
+```
+
+Show or hide **product name**. Defines the visibility of the product name on product pages.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Product name position on product pages
+
+> Set product name position
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_position_product_name = 500; // position product name lower in sidebar
+</script>
+```
+
+Defines the **position of the product name**. The less number, the higher the element on the page
+
+Defalut value: `100`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Product name position on mobile on product pages
+
+> Show product name always first on mobile
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_product_name_always_first_on_mobile = true; // position product name always on top on mobiles
+</script>
+```
+
+Defines the **position of the product name** on mobile. If `true`, the product name always shows on top on the mobile version
+
+Possible values: `true`, `false`
+
+Defalut value: `false`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Breadcrumbs on product pages
+
+###### Hide breadcrumbs on product pages
+
+> Hide breadcrumbs on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_breadcrumbs = false; // hide breadcrumbs on product pages
+</script>
+```
+
+Defines the **visibility of breadcrumbs on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+
+###### Set breadcrumbs position on product pages
+
+> Set breadcrumbs position on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_position_breadcrumbs = 200; // change breadcrumbs position on product pages
+</script>
+```
+
+Defines the **position of the breadcrumbs within the sidebar**. The less the number is, the higher the element on the page**.
+
+Defalut value: `200`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### SKU on product pages
+
+###### Hide SKU on product pages
+
+> Hide SKU on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_product_sku = false; // hide SKU on product pages
+</script>
+```
+
+Defines the **visibility of SKU on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+
+###### Set SKU position on product pages
+
+> Set SKU position on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_position_product_sku = 300; // set SKU position on product pages
+</script>
+```
+
+Defines the **position of the SKU within the sidebar**. The less the number is, the higher the element on the page**.
+
+Defalut value: `300`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Price on product pages
+
+###### Hide price on product pages
+
+> Hide price on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_product_price = false; // hide price on product pages
+</script>
+```
+
+Defines the **visibility of price on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Set price position on product pages
+
+> Set price position on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_position_product_price = 400; // set price position on product pages
+</script>
+```
+
+Defines the **position of the SKU within the sidebar**. The less the number is, the higher the element on the page**.
+
+Defalut value: `400`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Sale price on product pages
+
+###### Hide sale price on product pages
+
+> Hide sale price on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_sale_price = false; // hide sale price on product pages
+</script>
+```
+
+Defines the **visibility of sale price on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+
+###### Hide price per unit on product pages
+
+> Hide sale price on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_price_per_unit = false; // hide price per unit on product pages
+</script>
+```
+
+Defines the **visibility of price per unit on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Tax on product pages
+
+###### Hide tax on product pages
+
+> Hide tax on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_tax = false; // hide tax on product pages
+</script>
+```
+
+Defines the **visibility of tax on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Product options on product pages
+
+###### Hide product options on product pages
+
+> Hide product options on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_product_options = false; // hide product options on product pages
+</script>
+```
+
+Defines the **visibility of product options on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Set product options position on product pages
+
+> Set product options position on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_position_product_options = 500; // set product options position on product pages
+</script>
+```
+
+Defines the **position of the product options within the sidebar**. The less the number is, the higher the element on the page**.
+
+Defalut value: `500`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Hide price modifiers on product pages
+
+> Hide price modifiers on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.config.product_options.hide_price_modifiers = true; // hide price modifiers on product pages
+</script>
+```
+
+Defines the **visibility of price modifiers on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `false`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+
+##### Buy button block on product pages
+
+###### Hide buy button block on product pages
+
+> Hide buy button block on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_buy_button = false; // hide buy button block on product pages
+</script>
+```
+
+Defines the **visibility of buy button block on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Set buy button block position on product pages
+
+> Set buy button block position on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_position_product_options = 600; // set buy button block position on product pages
+</script>
+```
+
+Defines the **position of the buy button block within the sidebar**. The less the number is, the higher the element on the page**.
+
+Defalut value: `600`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### 'Qty' block on product pages
+
+###### Hide 'Qty' on product pages
+
+> Hide 'Qty' on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_qty = true; // hide 'Qty' on product pages
+</script>
+```
+
+Defines the **visibility of 'Qty' on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `false`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Hide number of items in stock on product pages
+
+> Hide number of items in stock on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_number_of_items_in_stock = false; // hide number of items in stock on product pages
+</script>
+```
+
+Defines the **visibility of number of items in stock on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### 'In stock' label on product pages
+
+###### Hide 'In stock' label on product pages
+
+> Hide 'In stock' label on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_in_stock_label = false; // hide 'In stock' label on product pages
+</script>
+```
+
+Defines the **visibility of 'In stock' label on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Wholesale pricing table on product pages
+
+###### Hide wholesale prices on product pages
+
+> Hide wholesale prices on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_wholesale_prices = false; // hide wholesale prices on product pages
+</script>
+```
+
+Defines the **visibility of wholesale prices on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Set wholesale pricing table position on product pages
+
+> Set wholesale pricing table position on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_position_wholesale_prices = 700; // set wholesale pricing table position on product pages
+</script>
+```
+
+Defines the **position of the wholesale pricing table within the sidebar**. The less the number is, the higher the element on the page**.
+
+Defalut value: `700`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Product description on product pages
+
+###### Hide product description on product pages
+
+> Hide product description on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_product_description = false; // hide product description on product pages
+</script>
+```
+
+Defines the **visibility of product description on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Set product description position on product pages
+
+> Set product description position on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_position_product_description = 800; // set wholesale pricing table position on product pages
+</script>
+```
+
+Defines the **position of the product description within the sidebar**. The less the number is, the higher the element on the page**.
+
+Defalut value: `800`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Cut product description to one paragraph
+
+> Cut product description to one paragraph
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_cut_product_description_in_sidebar = true; // cut product description on product pages to one paragraph
+</script>
+```
+
+If `true`, cuts long product description and displays only one paragraph and "Show more" link to see full info. If `false`, the description shows as is no matter its size.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Show description under main image (for right sidebar layout)
+
+> Show description under main image (for right sidebar layout)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_two_columns_with_right_sidebar_show_product_description_on_sidebar = false; // Show description under main image (for right sidebar layout)
+</script>
+```
+
+If `true`, the product description shows in sidebar according to its position. Otherwise it shows below product image. For two column layout with sidebar on the right only. See [product page layout](#set-layout-of-product-pages)
+
+Possible values: `true`, `false`
+
+Defalut value: `false`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Show description under main image (for left sidebar layout)
+
+> Show description under main image (for left sidebar layout)
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_two_columns_with_left_sidebar_show_product_description_on_sidebar = false; // Show description under main image (for left sidebar layout)
+</script>
+```
+
+If `true`, the product description shows in sidebar according to its position. Otherwise it shows below product image. For two column layout with sidebar on the left only. See [product page layout](#set-layout-of-product-pages)
+
+Possible values: `true`, `false`
+
+Defalut value: `false`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### 'Save for later' block on product pages
+
+###### Hide 'Save for Later' block on product pages
+
+> Hide 'Save for Later' block on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_save_for_later = false; // hide 'Save for Later' block on product pages
+</script>
+```
+
+Defines the **visibility of 'Save for Later' block on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Set 'Save for Later' block position on product pages
+
+> Set 'Save for Later' block position on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_position_save_for_later = 900; // set 'Save for Later' block position on product pages
+</script>
+```
+
+Defines the **position of the 'Save for Later' block within the sidebar**. The less the number is, the higher the element on the page**.
+
+Defalut value: `900`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Share buttons on product pages
+
+###### Hide share buttons on product pages
+
+> Hide share buttons on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_show_share_buttons = false; // hide share buttons on product pages
+</script>
+```
+
+Defines the **visibility of share buttons on product page**.
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Set share buttons position on product pages
+
+> Set share buttons position on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_position_share_buttons = 1000; // set share buttons position on product pages
+</script>
+```
+
+Defines the **position of the share buttons within the sidebar**. The less the number is, the higher the element on the page**.
+
+Defalut value: `1000`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+##### Gallery on product pages
+
+###### Set layout of gallery on product pages
+
+> Set layout of gallery on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_gallery_layout = "IMAGE_FEED"; // set product gallery layout on product pages
+</script>
+```
+
+Set different **layout of gallery on product pages**. 
+
+- `"THUMBNAILS_HORIZONTAL"` shows them below image in a classic way with small thumbnails next to each other. 
+- `"THUMBNAILS_VERTICAL"` shows additional product images on the left from the main image. 
+- `"FEED"` shows the them as feed with large detaied images.
+
+Possible values: `"IMAGE_SINGLE_THUMBNAILS_HORIZONTAL"`, `"IMAGE_SINGLE_THUMBNAILS_VERTICAL"`, `"IMAGE_FEED"`.
+
+Defalut value: `"IMAGE_SINGLE_THUMBNAILS_HORIZONTAL"`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Preview gallery images in full screen on click
+
+> Preview gallery images in full screen on click
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_additional_images_preview_on_click = false; // Preview gallery images in full screen on click
+</script>
+```
+
+Defines the **gallery behaviour on image click**. If `true`, shows the additional product image in the place of main product image when clicking on gallery thumbnail. If `false`, the image viewer opens when clicking on image thumbnails. 
+
+**Not relevant if 'product_details_gallery_layout==FEED'**
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Add shadow to gallery images
+
+> Add shadow to gallery images
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_additional_images_has_shadow = true; // add shadow to gallery images
+</script>
+```
+
+Defines the **shadow visibility for gallery images**. If "true", adds shadow to gallery thumbnails. Makes the thumbnails slightly darker to make them stand out against the white background.
+
+Possible values: `true`, `false`
+
+Defalut value: `false`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+
+###### Set aspect ratio for gallery thumbnails
+
+> Set aspect ratio for gallery thumbnails
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_thumbnails_aspect_ratio = "PORTRAIT_075"; // Set aspect ratio for gallery thumbnails
+</script>
+```
+
+Set the **image aspect ratio for gallery tumbnails**. If `"AUTO"` each tumbnails has the ratio that closest to its actual proportions. Hovever you can force different ratio to all tumbnails. 
+
+Possible values: `"AUTO"`, `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`.
+
+Defalut value: `"AUTO"`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Allow scroll of gallery images on product pages
+
+> Allow scroll of gallery images on product pages
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_details_image_carousel = false; // allow scroll of gallery images on product pages
+</script>
+```
+
+Defines the **shadow visibility for gallery images**. If `true`, adds the ability to scroll product images without opening full-screen image viewer
+
+Possible values: `true`, `false`
+
+Defalut value: `true`
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
