@@ -248,11 +248,11 @@ Check out all the customization options for the product listing available out of
 If you apply any of the changes below after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
 **Table of contents:** 
-- [Adding new elements to product grid](#adding-new-elements-to-product-grid)
-- [Control display of elements in product grid](#control-display-of-elements-in-product-grid)
-- [Customize images in product listing](#customize-images-in-product-listing)
-- [Set custom spacing between grid elements](#set-custom-spacing-between-grid-elements)
 
+- [Adding new elements to product grid](https://developers.ecwid.com/api-documentation/customize-appearance#adding-new-elements-to-product-grid)
+- [Control display of elements in product grid](https://developers.ecwid.com/api-documentation/customize-appearance#control-display-of-elements-in-product-grid)
+- [Customize images in product listing](https://developers.ecwid.com/api-documentation/customize-appearance#customize-images-in-product-listing)
+- [Set custom spacing between grid elements](https://developers.ecwid.com/api-documentation/customize-appearance#set-custom-spacing-between-grid-elements)
 
 ##### Adding new elements to product grid 
 
@@ -522,7 +522,7 @@ If you apply the change after storefront has loaded, you can update its look on 
 
 ### Product pages
 
-> Enable latest product listing
+> Enable latest design of product pages
 
 ```html
 <script>
@@ -542,21 +542,21 @@ If you apply any of the changes below after storefront has loaded, you can updat
 
 **Table of contents:** 
 
-- [Setting values for product options](#setting-values-for-product-options)
-- [Set layout of product pages](#set-layout-of-product-pages)
-- [Product name](#product-name-on-product-pages)
-- [Breadcrumbs](#breadcrumbs-on-product-pages)
-- [SKU](#sku-on-product-pages)
-- [Price](#price-on-product-pages)
-- [Sale price](#sale-price-on-product-pages)
-- [Product options](#product-options-on-product-pages)
-- [Buy button block](#buy-button-block-on-product-pages)
-- ['Qty' block](#qty-block-on-product-pages)
-- ['In stock' label](#in-stock-label-on-product-pages)
-- [Wholesale pricing table](#wholesale-pricing-table-on-product-pages)
-- ['Save for later' block](#save-for-later-block-on-product-pages)
-- [Share buttons](#share-buttons-on-product-pages)
-- [Gallery](#gallery-on-product-pages)
+- [Setting values for product options](https://developers.ecwid.com/api-documentation/customize-appearance#setting-values-for-product-options)
+- [Set layout of product pages](https://developers.ecwid.com/api-documentation/customize-appearance#set-layout-of-product-pages)
+- [Product name](https://developers.ecwid.com/api-documentation/customize-appearance#product-name-on-product-pages)
+- [Breadcrumbs](https://developers.ecwid.com/api-documentation/customize-appearance#breadcrumbs-on-product-pages)
+- [SKU](https://developers.ecwid.com/api-documentation/customize-appearance#sku-on-product-pages)
+- [Price](https://developers.ecwid.com/api-documentation/customize-appearance#price-on-product-pages)
+- [Sale price](https://developers.ecwid.com/api-documentation/customize-appearance#sale-price-on-product-pages)
+- [Product options](https://developers.ecwid.com/api-documentation/customize-appearance#product-options-on-product-pages)
+- [Buy button block](https://developers.ecwid.com/api-documentation/customize-appearance#buy-button-block-on-product-pages)
+- ['Qty' block](https://developers.ecwid.com/api-documentation/customize-appearance#qty-block-on-product-pages)
+- ['In stock' label](https://developers.ecwid.com/api-documentation/customize-appearance#in-stock-label-on-product-pages)
+- [Wholesale pricing table](https://developers.ecwid.com/api-documentation/customize-appearance#wholesale-pricing-table-on-product-pages)
+- ['Save for later' block](https://developers.ecwid.com/api-documentation/customize-appearance#save-for-later-block-on-product-pages)
+- [Share buttons](https://developers.ecwid.com/api-documentation/customize-appearance#share-buttons-on-product-pages)
+- [Gallery](https://developers.ecwid.com/api-documentation/customize-appearance#gallery-on-product-pages)
 
 ##### Setting values for product options 
 
