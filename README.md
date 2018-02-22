@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## February 22, 2018
+
+- Added ability to get all set up payment methods of a store via Ecwid REST API in **read-only mode**. If accessed via public token, Ecwid will respond with enabled payment methods only. [Learn more](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+
+- Added options to customize product details pages with Ecwid JS API. [Learn more](https://developers.ecwid.com/api-documentation/customize-appearance#product-pages)
+
 ## January 29, 2018
 
 - Added example of updating order status in PHP and cURL for payment applications: [https://developers.ecwid.com/api-documentation/processing-payment-request#updating-order-status](https://developers.ecwid.com/api-documentation/processing-payment-request#updating-order-status)

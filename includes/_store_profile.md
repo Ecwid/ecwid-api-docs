@@ -231,6 +231,66 @@ Name | Type    | Description
           "externalUrl": ""
         }
       ]
+    },
+    "payment": {
+      "paymentOptions": [
+        {
+          "id": "1794210895-1490949002653",
+          "enabled": true,
+          "checkoutTitle": "Stripe",
+          "checkoutDescription": "Pay with credit card",
+          "paymentProcessorId": "stripe",
+          "paymentProcessorTitle": "Stripe",
+          "orderBy": 0,
+          "appClientId": "",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via Stripe",
+            "instructions": "<p>Here are the instructions on how to pay with Stripe</p>"
+          }
+        },
+        {
+          "id":"1794210895-1490949002653",
+          "enabled":false,
+          "checkoutTitle": "Phone Order", 
+          "checkoutDescription": "", 
+          "paymentProcessorId": "offline", 
+          "paymentProcessorTitle": "",
+          "orderBy": 10,
+          "appClientId": "",
+          "instructionsForCustomer":{
+            "instructionsTitle": "Phone Order payment instructions",
+            "instructions": "<p>Some instructions.</p>" 
+          }
+        },        
+        {
+          "id": "1570107140-1510749490171",
+          "enabled": false,
+          "checkoutTitle": "Credit or debit card (PayU Latam)",
+          "checkoutDescription": "",
+          "paymentProcessorId": "customPaymentApp",
+          "paymentProcessorTitle": "CUSTOM_PAYMENT_APP-payu-latam-integration",
+          "orderBy": 20,
+          "appClientId": "payu-latam-integration",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via PayU Latam",
+            "instructions": "<p>Here are the instructions on how to pay with PayU Latam</p>"
+          }
+        },
+        {
+          "id": "1794210895-1490949002653",
+          "enabled": true,
+          "checkoutTitle": "Credit or Debit Card",
+          "checkoutDescription": "",
+          "paymentProcessorId": "ecwidPayments",
+          "paymentProcessorTitle": "Ecwid Payments",
+          "orderBy": 30,
+          "appClientId": "",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via PayU Latam",
+            "instructions": "<p>Here are the instructions on how to pay with PayU Latam</p>"
+          }
+        }
+      ]
     }
 }
 ```
@@ -343,7 +403,53 @@ Cache-Control: no-cache
       "zh_TW"
     ],
     "facebookPreferredLocale": "en_US"
-  }
+  },
+  "payment": {
+      "paymentOptions": [
+        {
+          "id": "1794210895-1490949002653",
+          "enabled": true,
+          "checkoutTitle": "Stripe",
+          "checkoutDescription": "Pay with credit card",
+          "paymentProcessorId": "stripe",
+          "paymentProcessorTitle": "Stripe",
+          "orderBy": 0,
+          "appClientId": "",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via Stripe",
+            "instructions": "<p>Here are the instructions on how to pay with Stripe</p>"
+          }
+        },
+        {
+          "id": "1570107140-1510749490171",
+          "enabled": false,
+          "checkoutTitle": "Credit or debit card (PayU Latam)",
+          "checkoutDescription": "",
+          "paymentProcessorId": "customPaymentApp",
+          "paymentProcessorTitle": "CUSTOM_PAYMENT_APP-payu-latam-integration",
+          "orderBy": 20,
+          "appClientId": "payu-latam-integration",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via PayU Latam",
+            "instructions": "<p>Here are the instructions on how to pay with PayU Latam</p>"
+          }
+        },        
+        {
+          "id": "1794210895-1490949002653",
+          "enabled": true,
+          "checkoutTitle": "Credit or Debit Card",
+          "checkoutDescription": "",
+          "paymentProcessorId": "ecwidPayments",
+          "paymentProcessorTitle": "Ecwid Payments",
+          "orderBy": 30,
+          "appClientId": "",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via Credit Card",
+            "instructions": "<p>Here are the instructions on how to pay with Credit Card</p>"
+          }
+        }
+      ]
+    }
 }
 ```
 
@@ -364,6 +470,7 @@ taxSettings | \<*TaxSettings*\> | Store taxes settings
 zones | Array\<*Zone*\> | Store destination zones
 businessRegistrationID | \<*BusinessRegistrationID*\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel
 legalPagesSettings | \<*LegalPagesSettingsDetails*\> | Legal pages settings for a store (*System Settings → General → Legal Pages*)
+payment | \<*PaymentInfo*\> | Store payment settings information
 
 #### GeneralInfo
 Field | Type | Description
@@ -537,6 +644,33 @@ title | string | Legal page title
 display | string | Legal page display mode – in a popup or on external URL. One of: `"INLINE"`, `"EXTERNAL_URL"`
 text | string | HTML contents of a legal page
 externalUrl | string | URL to external location of a legal page
+
+#### PaymentInfo
+
+Field | Type | Description
+----- | ---- | -----------
+paymentOptions | Array\<*PaymentOptionInfo*\> | Details of all payment methods set up in that store
+
+#### PaymentOptionInfo
+
+Field | Type | Description
+----- | ---- | -----------
+id | string | Payment method ID in a store
+enabled | boolean | `true` if payment method is enabled and shown in storefront, `false` otherwise
+checkoutTitle | string | Payment method title at checkout 
+checkoutDescription | string | Payment method description at checkout (subtitle)
+paymentProcessorId | string | Payment processor ID in Ecwid
+paymentProcessorTitle | string | Payment processor title. The same as `paymentModule` in order details in REST API
+orderBy | number | Payment method position at checkout and in Ecwid Control Panel. The smaller the number, the higher the position is
+appClientId | 'string' | client_id value of payment application. `""` if not an application 
+instructionsForCustomer | \<*InstructionsForCustomerInfo*\> | Customer instructions details
+
+#### InstructionsForCustomerInfo
+
+Field | Type | Description
+----- | ---- | -----------
+instructionsTitle | string | Payment instructions title
+instructions | string | Payment instructions content. Can contain HTML tags
 
 #### Errors
 
