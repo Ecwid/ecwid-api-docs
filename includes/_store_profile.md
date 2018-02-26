@@ -264,7 +264,7 @@ Name | Type    | Description
         },        
         {
           "id": "1570107140-1510749490171",
-          "enabled": false,
+          "enabled": true,
           "checkoutTitle": "Credit or debit card (PayU Latam)",
           "checkoutDescription": "",
           "paymentProcessorId": "customPaymentApp",
@@ -422,7 +422,7 @@ Cache-Control: no-cache
         },
         {
           "id": "1570107140-1510749490171",
-          "enabled": false,
+          "enabled": true,
           "checkoutTitle": "Credit or debit card (PayU Latam)",
           "checkoutDescription": "",
           "paymentProcessorId": "customPaymentApp",

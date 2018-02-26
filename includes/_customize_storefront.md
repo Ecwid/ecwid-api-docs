@@ -464,6 +464,57 @@ Possible values: `true`, `false`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
+###### Set product image display mode in product list
+
+> Set product image display mode to fit the block in product list
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_image_position = "FIT"; // Set product image display mode to fit the block in product list
+</script>
+```
+
+Set **product image display mode** in product listing (category pages). 
+
+**COVER**: product image is set as block background proportionally to remove any empty spaces. 
+
+**FIT**: product image is set to fit into block. Any empty space is filled with an image background color.
+
+**AUTO**: Ecwid fits the image based on its parameters.
+
+Possible values: `"AUTO"`, `"COVER"`, `"FIT"`
+Default: `"AUTO"`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Set category image display mode in product list
+
+> Set category list image display mode to fit the block
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_category_image_position = "FIT"; // Set category image display mode to fit the block in product list
+</script>
+```
+
+Set **category image display mode** in product listing (category pages). 
+
+**COVER**: category image is set as block background proportionally to remove any empty spaces. 
+
+**FIT**: category image is set to fit into block. Any empty space is filled with an image background color.
+
+**AUTO**: Ecwid fits the image based on its parameters.
+
+Possible values: `"AUTO"`, `"COVER"`, `"FIT"`
+
+Default: depends on the setting in Ecwid Control Panel – category name position. `"COVER"` if category name is shown on image, `"AUTO"` for other values.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
 ##### Set custom spacing between grid elements
 
 ###### Set spacing between categories in product listing 
