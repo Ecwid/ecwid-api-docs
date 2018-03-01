@@ -68,7 +68,11 @@ Parameters in bold are mandatory
   "showInstagram": true,
   "showMeetowner": true,
   "showLocation": true,
-  "showContactus": true
+  "showContactus": true,
+  "cleanUrlsEnabled": true,
+  "storeName": "Awesome store 123",
+  "allowSearchEnginesIndexing": true,
+  "customHeaderHtmlCode": "<meta name='keywords' content='HTML,CSS,XML,JavaScript'>"
 }
 ```
 
@@ -128,6 +132,10 @@ showInstagram | boolean | `true` if Instagram feed section is shown. `false` oth
 showMeetowner | boolean | `true` if "Meet the Owner" section is shown. `false` otherwise. Default is `true`
 showLocation | boolean | `true` if store location section is shown. `false` otherwise. Default is `true`
 showContactus | boolean | `true` if "Contact Us" section is shown. `false` otherwise. Default is `true`
+cleanUrlsEnabled | boolean | `true` if [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) are enabled. `false` otherwise
+storeName | string | Store name
+allowSearchEnginesIndexing | boolean | `true` if search engines are allowed to index starter site. `false` otherwise
+customHeaderHtmlCode | string | Custom HTML added to HEAD tag in starter site. **Is not processed in any way and executed 'as is'. Use caution**
 
 #### LocationHoursInfo
 
@@ -228,7 +236,11 @@ Parameters in bold are mandatory
   "showInstagram": true,
   "showMeetowner": true,
   "showLocation": false,
-  "showContactus": true
+  "showContactus": true,
+  "cleanUrlsEnabled": true,
+  "storeName": "Awesome store 123",
+  "allowSearchEnginesIndexing": true,
+  "customHeaderHtmlCode": "<meta name='keywords' content='HTML,CSS,XML,JavaScript'>"
 }
 ```
 
@@ -282,6 +294,10 @@ showInstagram | boolean | Set to `false` to hide Instagram feed section. `true` 
 showMeetowner | boolean | Set to `false` to hide "Meet the Owner" section. `true` otherwise. Default is `true`
 showLocation | boolean | Set to `false` to hide store location section. `true` otherwise. Default is `true`
 showContactus | boolean | Set to `false` to hide "Contact Us" section. `true` otherwise. Default is `true`
+cleanUrlsEnabled | boolean | `true` if [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) are enabled. `false` otherwise
+storeName | string | Store name
+allowSearchEnginesIndexing | boolean | `true` if search engines are allowed to index starter site. `false` otherwise
+customHeaderHtmlCode | string | Custom HTML added to HEAD tag in starter site. **Is not processed in any way and executed 'as is'. Use caution**
 
 #### LocationHoursInfo
 
