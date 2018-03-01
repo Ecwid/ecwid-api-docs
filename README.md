@@ -8,6 +8,16 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## February 28, 2018
+
+Added `defaultDisplayedPrice` field to `/products` endpoint of Ecwid REST API. 
+
+It provides default price of a product that is displayed in storefront. It includes product combinations, product options as well as taxes applied to products. [Learn more](https://developers.ecwid.com/api-documentation/products)
+
+## February 26, 2018
+
+Added store information updated webhook event. [Learn more](https://developers.ecwid.com/api-documentation/webhooks-overview#supported-events)
+
 ## February 22, 2018
 
 - Added ability to get all set up payment methods of a store via Ecwid REST API in **read-only mode**. If accessed via public token, Ecwid will respond with enabled payment methods only. [Learn more](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)

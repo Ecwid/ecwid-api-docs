@@ -84,7 +84,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           "inStock": true,
           "name": "Orange",
           "price": 10,
-          "priceInProductList": 10,
+          "defaultDisplayedPrice": 10,
           "wholesalePrices": [
             {
               "quantity": 2,
@@ -232,7 +232,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "inStock": true,
             "name": "Radish",
             "price": 1.15,
-            "priceInProductList": 1.15,
+            "defaultDisplayedPrice": 1.15,
             "wholesalePrices": [
                 {
                     "quantity": 10,
@@ -494,7 +494,7 @@ Cache-Control: no-cache
           "inStock": true,
           "name": "Orange",
           "price": 10,
-          "priceInProductList": 10,
+          "defaultDisplayedPrice": 10,
           "wholesalePrices": [
             {
               "quantity": 2,
@@ -659,7 +659,7 @@ unlimited | boolean | `true` if the product has unlimited stock
 inStock | boolean | `true` if the product or any of its variations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
 price | number |  Base product price
-priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. **Does not include taxes**
+defaultDisplayedPrice | number |  Product price displayed in a storefront for logged out customer for default location (store location). May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. It also includes taxes
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
@@ -950,7 +950,7 @@ Parameters in <strong>bold</strong> are mandatory
     "inStock": true,
     "name": "Radish",
     "price": 1.15,
-    "priceInProductList": 1.15,
+    "defaultDisplayedPrice": 1.15,
     "wholesalePrices": [
         {
             "quantity": 10,
@@ -1209,7 +1209,7 @@ unlimited | boolean | `true` if the product has unlimited stock
 inStock | boolean | `true` if the product or any of its variations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
 price | number |  Base product price
-priceInProductList | number |  Product price displayed in a storefront. May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. **Does not include taxes**
+defaultDisplayedPrice | number |  Product price displayed in a storefront for logged out customer for default location (store location). May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. It also includes taxes
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise

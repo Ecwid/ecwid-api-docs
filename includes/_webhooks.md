@@ -14,7 +14,7 @@ You can receive webhooks about these store entities:
 - Product (created, updated, deleted)
 - Category (created, updated, deleted)
 - Customer (created, updated, deleted)
-- Store profile (subscription plan updated)
+- Store profile (updated, subscription plan updated)
 - Application (installed, subscription status updated, uninstalled)
 
 [Learn more about webhooks and supported events](https://developers.ecwid.com/api-documentation/webhooks-overview)
@@ -94,9 +94,10 @@ Access scope required: <strong>read_catalog</strong> OR <strong>create_catalog</
 
 #### Profile
 
+* Store information updated
 * Store subscription plan was updated
 
-[Store profile endpoint](#store-information) allows you to get and update store information.
+[Store profile endpoint](#store-information) allows you to get and update store information. 
 
 #### Customer
 
@@ -427,6 +428,18 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 }
 ```
 
+> Store information updated
+
+```json
+{
+  "eventId": "80aece08-40e8-4145-8764-6c2f0d38678",
+  "eventCreated": 7891234567,
+  "storeId": 1003,
+  "entityId": 1003
+  "eventType": "profile.updated"
+}
+```
+
 The request body is a JSON object with the following fields:
 
 Name | Type | Description
@@ -478,6 +491,7 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `application.installed` Application is installed
 * `application.uninstalled` Application is deleted
 * `application.subscriptionStatusChanged` Application status changed
+* `profile.updated` Store information updated
 * `profile.subscriptionStatusChanged` Store premium subscription status changed
 * `customer.created` Customer is created
 * `customer.updated` Customer is updated
