@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## March 2, 2018
+
+Updated Ecwid CSS Framework and Sample Native App to use the latest improvements and changes to design of pages in Ecwid Control Panel. 
+
+New CSS Framework version is 1.3.0: [https://developers.ecwid.com/api-documentation/ecwid-css-framework](https://developers.ecwid.com/api-documentation/ecwid-css-framework)
+
+[Sample Native App](https://github.com/Ecwid/sample-native-app) has been improved to utilize vertical page structure and cards for various settings and stats.
+
 ## February 28, 2018
 
 Added `defaultDisplayedPrice` field to `/products` endpoint of Ecwid REST API. 

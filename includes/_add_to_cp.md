@@ -83,11 +83,14 @@ If you already have a registered app and want to make it native, you can [contac
   </script>
 
   <!-- Include Ecwid CSS Framework -->
-  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.5/ecwid-app-ui.css"/>  
+  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.0/ecwid-app-ui.css"/>  
 </head>
 
 <body class='normalized'>
   <div>Show something</div>
+
+<!-- JS for CSS Framework components -->
+  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.0/ecwid-app-ui.min.js"></script>
 </body>
 
 </html>
@@ -518,13 +521,25 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 #### How to use it?
 
 ```html
-<link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.5/ecwid-app-ui.css"/>
+<head>
+  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.0/ecwid-app-ui.css"/>
+</head>
+
+<body>
+  
+  <div>Some content</div>
+
+  <script type="text/javascript" src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.0/ecwid-app-ui.css"></script>
+</body>
 ```
 
-1. Add this CSS file to your native app: 
-`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.2.5/ecwid-app-ui.css`
+1) Add this CSS file to your native app: 
+`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.0/ecwid-app-ui.css`
 
-2. Use this guide to find the elements and CSS classes you need: [http://developers.ecwid.com/ecwid-css-framework/](/ecwid-css-framework)
+2) Add this JS file at before closing the BODY tag: 
+`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.0/ecwid-app-ui.min.js`
+
+3) Use this guide to find the elements and CSS classes you need: [http://developers.ecwid.com/ecwid-css-framework/](/ecwid-css-framework)
 
 <aside class="note">If some elements don't apply correct styles, make sure to add <strong><em>.normalized</em></strong> class to the <em>body</em> or any other top DOM element of your application page in Ecwid Control Panel to fix this.</aside>
 
