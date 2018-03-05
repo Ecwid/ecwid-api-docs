@@ -102,11 +102,215 @@ Name | Type    | Description
             "name": "Handling Fee",
             "value": 5,
             "description": "Silk paper wrapping"
-        }
+        },
+        "shippingOrigin": {
+          "companyName": "My Super Store",
+          "email": "example@example.com",
+          "street": "W 3d st",
+          "city": "New York",
+          "countryCode": "US",
+          "postalCode": "10001",
+          "stateOrProvinceCode": "NY",
+          "phone": "234324234"
+        },
+        "shippingOptions": [
+          // Flat rate shipping method
+          {
+            "id": "8329-1495610692625",
+            "title": "Flat rate",
+            "enabled": false,
+            "orderby": 170,
+            "destinationZone": {
+              "id": "7715-1423477610739",
+              "name": "US",
+              "countryCodes": [
+                "US"
+              ],
+              "stateOrProvinceCodes": [
+                "US-AL",
+                "US-AK",
+                "US-AZ",
+                "US-AR",
+                "US-AA",
+                "US-AE",
+                "US-AP",
+                "US-CA",
+                "US-CO",
+                "US-CT",
+                "US-DE",
+                "US-DC",
+                "US-FL",
+                "US-GA",
+                "US-GU",
+                "US-HI",
+                "US-ID",
+                "US-IL",
+                "US-IN",
+                "US-IA",
+                "US-KS",
+                "US-KY",
+                "US-LA",
+                "US-ME",
+                "US-MD",
+                "US-MA",
+                "US-MI",
+                "US-MN",
+                "US-MS",
+                "US-MO",
+                "US-MT",
+                "US-NE",
+                "US-NV",
+                "US-NH",
+                "US-NJ",
+                "US-NM",
+                "US-NY",
+                "US-NC",
+                "US-ND",
+                "US-PR",
+                "US-RI",
+                "US-SC",
+                "US-SD",
+                "US-TN",
+                "US-TX",
+                "US-UT",
+                "US-VT",
+                "US-VI",
+                "US-VA",
+                "US-WA",
+                "US-WV",
+                "US-WI",
+                "US-WY"
+              ]
+            },
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "flat",
+            "flatRate": {
+              "rateType": "ABSOLUTE",
+              "rate": 22
+            },
+            "carrier": ""
+          },
+          // Carrier-calculated rates
+          {
+            "id": "7835-1442850313554",
+            "title": "The World: UPS",
+            "enabled": true,
+            "orderby": 0,
+            "destinationZone": {
+              "id": "WORLD",
+              "name": "WORLD"
+            },
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "carrier-calculated",
+            "carrierMethodsEnabled": [
+                    "UPS Expedited SM",
+                    "UPS Express Early A.M. SM",
+                    "UPS Express Plus",
+                    "UPS Next Day Air Saver®",
+                    "UPS Next Day Air®",
+                    "UPS Saver",
+                    "UPS Second Day Air A.M.®",
+                    "UPS Second Day Air®",
+                    "UPS Standard",
+                    "UPS Three-Day Select®",
+                    "UPS Today Dedicated Courrier SM",
+                    "UPS Today Express",
+                    "UPS Today Express Saver",
+                    "UPS Today Intercity",
+                    "UPS Today Standard SM",
+                    "UPS Worldwide Expedited SM",
+                    "UPS Worldwide Express Plus SM",
+                    "UPS Worldwide Express SM"
+            ],
+            "shippingCostMarkup": 0,
+            "carrierSettings": {
+              "defaultCarrierAccountEnabled": false,
+              "defaultPostageDimensions": {
+                "length": 0.0254,
+                "width": 0.0254,
+                "height": 0.0254
+              }
+            },
+            "carrier": "UPS"
+          },
+          // Custom table rates
+          {
+            "id": "9327-1430948461738",
+            "title": "Standard shipping",
+            "enabled": true,
+            "orderby": 1250,
+            "destinationZone": {
+              "id": "WORLD",
+              "name": "WORLD"
+            },
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "table",
+            "ratesTable": {
+              "tableBasedOn": "weight",
+              "rates": [
+                {
+                  "conditions": {
+                    "weightFrom": 0,
+                    "weightTo": 12
+                  },
+                  "rate": {
+                    "perOrder": 10,
+                    "percent": 2,
+                    "perItem": 3,
+                    "perWeight": 2
+                  }
+                },
+                {
+                  "conditions": {
+                    "weightFrom": 12.01
+                  },
+                  "rate": {
+                    "perOrder": 20,
+                    "percent": 3,
+                    "perItem": 4,
+                    "perWeight": 3
+                  }
+                }
+              ]
+            },
+            "deliveryTimeDays": "1-2",
+            "carrier": ""
+          },
+          // In-store pickup method
+          {
+            "id": "6633-1504595502395",
+            "title": "In-store Pickup",
+            "enabled": true,
+            "orderby": 130,
+            "destinationZone": {
+              "id": "WORLD",
+              "name": "WORLD"
+            },
+            "fulfilmentType": "pickup",
+            "pickupInstruction": "<p><strong>Pickup location:</strong></p><p>    Cool Guys, 5th Avenue, Москва, Guam, 11950, United States</p><p>    <strong>Store hours:</strong></p><p>    9AM – 6PM Mon-Fri</p>",
+            "scheduledPickup": true,
+            "pickupPreparationTimeHours": 60,
+            "pickupBusinessHours": "{\"MON\":[[\"09:00\",\"18:00\"]], \"TUE\":[[\"09:00\",\"18:00\"]], \"THU\":[[\"09:00\",\"10:00\"]], \"FRI\":[[\"09:00\",\"18:00\"]], \"SAT\":[[\"09:00\",\"10:30\"]]}"
+          },
+          // Custom shipping app
+          {
+            "id": "1095449637-1519976902346",
+            "title": "Doba Drop Shipping",
+            "enabled": true,
+            "orderby": 10,
+            "destinationZone": {
+              "id": "WORLD",
+              "name": "WORLD"
+            },
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "app",
+            "appClientId": "doba-integration"
+          }
+        ]
     },
     "zones": [
         {
-            "id": "1",
+            "id": "43-1423477610132",
             "name": "United States",
             "countryCodes": [
                 "US",
@@ -115,7 +319,7 @@ Name | Type    | Description
             ]
         },
         {
-            "id": "2",
+            "id": "334-112332610739",
             "name": "US & Canada",
             "countryCodes": [
                 "CA",
@@ -125,38 +329,67 @@ Name | Type    | Description
             ]
         },
         {
-            "id": "3",
-            "name": "Europe (EC)",
+            "id": "7715-1423477610739",
+            "name": "US",
             "countryCodes": [
-                "AT",
-                "BE",
-                "BG",
-                "CY",
-                "CZ",
-                "DK",
-                "EE",
-                "FI",
-                "FR",
-                "DE",
-                "GR",
-                "HU",
-                "IE",
-                "IT",
-                "LV",
-                "LT",
-                "LU",
-                "MT",
-                "NL",
-                "PL",
-                "PT",
-                "RO",
-                "SK",
-                "SI",
-                "ES",
-                "SE",
-                "GB"
+                "US"
+            ],
+            "stateOrProvinceCodes": [
+                "US-AL",
+                "US-AK",
+                "US-AZ",
+                "US-AR",
+                "US-AA",
+                "US-AE",
+                "US-AP",
+                "US-CA",
+                "US-CO",
+                "US-CT",
+                "US-DE",
+                "US-DC",
+                "US-FL",
+                "US-GA",
+                "US-GU",
+                "US-HI",
+                "US-ID",
+                "US-IL",
+                "US-IN",
+                "US-IA",
+                "US-KS",
+                "US-KY",
+                "US-LA",
+                "US-ME",
+                "US-MD",
+                "US-MA",
+                "US-MI",
+                "US-MN",
+                "US-MS",
+                "US-MO",
+                "US-MT",
+                "US-NE",
+                "US-NV",
+                "US-NH",
+                "US-NJ",
+                "US-NM",
+                "US-NY",
+                "US-NC",
+                "US-ND",
+                "US-PR",
+                "US-RI",
+                "US-SC",
+                "US-SD",
+                "US-TN",
+                "US-TX",
+                "US-UT",
+                "US-VT",
+                "US-VI",
+                "US-VA",
+                "US-WA",
+                "US-WV",
+                "US-WI",
+                "US-WY"
             ]
-        },
+        }
     ],
     "taxSettings": {
         "automaticTaxEnabled": true,
@@ -449,7 +682,60 @@ Cache-Control: no-cache
           }
         }
       ]
-    }
+    },
+    "shipping": {
+        "handlingFee": {
+            "name": "Handling Fee",
+            "value": 5,
+            "description": "Silk paper wrapping"
+        },
+        "shippingOptions": [
+          {
+            "id": "7835-1442850313554",
+            "title": "The World: UPS",
+            "enabled": true,
+            "orderby": 0,
+            "destinationZone": {},
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "carrier-calculated",
+            "carrier": "UPS"
+          },
+          {
+            "id": "9327-1430948461738",
+            "title": "Standard shipping",
+            "enabled": true,
+            "orderby": 1250,
+            "destinationZone": {},
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "table",
+            "ratesTable": {},
+              "deliveryTimeDays": "1-2",
+              "carrier": ""
+          },
+          {
+            "id": "6633-1504595502395",
+            "title": "In-store Pickup",
+            "enabled": true,
+            "orderby": 130,
+            "destinationZone": {},
+            "fulfilmentType": "pickup",
+            "pickupInstruction": "<p><strong>Pickup location:</strong></p><p>    Cool Guys, 5th Avenue, Москва, Guam, 11950, United States</p><p>    <strong>Store hours:</strong></p><p>    9AM – 6PM Mon-Fri</p>",
+            "scheduledPickup": true,
+            "pickupPreparationTimeHours": 60,
+            "pickupBusinessHours": "{\"MON\":[[\"09:00\",\"18:00\"]], \"TUE\":[[\"09:00\",\"18:00\"]], \"THU\":[[\"09:00\",\"10:00\"]], \"FRI\":[[\"09:00\",\"18:00\"]], \"SAT\":[[\"09:00\",\"10:30\"]]}"
+          },
+          {
+            "id": "1095449637-1519976902346",
+            "title": "Doba Drop Shipping",
+            "enabled": true,
+            "orderby": 10,
+            "destinationZone": {},
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "app",
+            "appClientId": "doba-integration"
+          }
+        ]
+    }    
 }
 ```
 
@@ -561,6 +847,8 @@ facebookPreferredLocale | string | Language automatically chosen be default in F
 Field | Type | Description
 ----- | ---- | -----------
 handlingFee | \<*HandlingFee*\> | Handling fee settings
+shippingOrigin | \<*ShippingOrigin*\> | Shipping origin address. If matches company address, company address is returned. Available in read-only mode only
+shippingOptions | Array \<*ShippingOption*\> | Details of each shipping option present in a store. **For public tokens enabled methods are returned** only. Available in read-only mode only
 
 #### HandlingFee
 *System Settings → Shipping → Handling Fee*
@@ -571,6 +859,108 @@ name | string | Handling fee name set by store admin. E.g. `Wrapping`
 value | number | Hndling fee value
 description | string | Handling fee description for customer
 
+#### ShippingOrigin
+*Settings → Shipping & Pickup → Origin address*
+
+Field | Type | Description
+----- | ---- | -----------
+companyName | string | The company name displayed on the invoice
+email | string | Company (store administrator) email
+street | string | Company address. 1 or 2 lines separated by a new line character
+city    | string  | Company city
+countryCode | string  | A two-letter ISO code of the country
+postalCode  | string  | Postal code or ZIP code
+stateOrProvinceCode | string  | State code (e.g. `NY`) or a region name
+phone | string  | Company phone number
+
+#### ShippingOption
+
+Field | Type | Description
+----- | ---- | -----------
+id | string | Unique ID of shipping option
+title | string | Title of shipping option in store settings
+enabled | boolean | `true` if shipping option is used at checkout to calculate shipping. `false` otherwise
+orderby | number | Sort position or shipping option at checkout and in store settings. The smaller the number, the higher the position
+fulfilmentType | string | Fulfillment type. `"pickup"` for in-store pickup methods, `"shipping"` for everything else
+destinationZone | \<*Zone*\> | Destination zone set for shipping option. **Empty for public token**
+deliveryTimeDays | string | Estimated delivery time in days. Formats accepted: empty `""`, number `"5"`, several days estimate `"4-9"`
+carrier | string | Carrier used for shipping the order. Is provided for carrier-calculated shipping options
+carrierMethodsEnabled | Array of string | Carrier-calculated shipping methods available for this shipping option
+carrierSettings | \<*CarrierSettings*\> | Carrier-calculated shipping option settings
+ratesCalculationType | string | Rates calculation type. One of `"carrier-calculated"`, `"table"`, `"flat"`, `"app"`
+shippingCostMarkup | number | Shipping cost markup for carrier-calculated methods
+flatRate | \<*FlatRate*\> | Flat rate details
+ratesTable | \<*TableRatesDetails*\> | Custom table rates details
+appClientId | string | `client_id` value of the app (for custom shipping apps only)
+pickupInstruction | string | String of HTML code of instructions on in-store pickup
+scheduledPickup | boolean | `true` if pickup time is scheduled, `false` otehrwise. (*Ask for Pickup Date and Time at Checkout* option in pickup settings)
+pickupPreparationTimeHours | number | Amount of time required for store to prepare pickup (*Order Fulfillment Time* setting)
+pickupBusinessHours | string \<*PickupBusinessHours*\> | Available and scheduled times to pickup orders
+
+#### CarrierSettings
+
+Field | Type | Description
+----- | ---- | -----------
+defaultCarrierAccountEnabled | boolean | `true` if default Ecwid account is enabled to calculate the rates. `false` otherwise
+defaultPostageDimensions | \<*DefaultPostageDimensions*\> | Default postage dimensions for this shipping option
+
+#### DefaultPostageDimensions
+Field | Type | Description
+----- | ---- | -----------
+length | number | Length of postage
+width | number | Width of postage
+height | string | Height of postage
+
+#### FlatRate
+
+Field | Type | Description
+----- | ---- | -----------
+rateType | string | One of `"ABSOLUTE"`, `"PERCENT"`
+rate | number | Shipping rate
+
+#### TableRatesDetails
+
+Field | Type | Description
+----- | ---- | -----------
+tableBasedOn | string | What is this table rate based on. Possible values: `"subtotal"`, `"discountedSubtotal"`, `"weight"`
+rates | Array \<*TableRateDetails*\> | Details of table rate
+
+#### TableRate
+
+conditions | \<*TableRateConditions*\> | Conditions for this shipping rate in custom table
+rate | Array \<*TableRate*\> | Table rate details
+
+#### TableRateConditions
+
+Field | Type | Description
+----- | ---- | -----------
+weightFrom | number | "Weight from" condition value
+weightTo | number | "Weight to" condition value
+subtotalFrom | number | "Subtotal from" condition value
+subtotalTo | number | "Subtotal to" condition value
+discountedSubtotalFrom | number | "Discounted subtotal from" condition value
+discountedSubtotalTo | number | "Discounted subtotal from" condition value
+
+#### TableRateDetails
+
+Field | Type | Description
+----- | ---- | -----------
+perOrderAbs | number | Absolute per order rate
+perOrderPercent | number | Percent per order rate
+perItem | number | Absolute per item rate
+perWeightUnitRate | number | Absolute per weight rate
+
+#### PickupBusinessHours
+
+Field | Type | Description
+----- | ---- | -----------
+MON | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+TUE | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+WED | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+THU | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+FRI | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+SAT | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+SUN | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
 
 #### TaxSettings
 *System Settings → Taxes*

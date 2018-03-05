@@ -13,7 +13,7 @@ Get all variations of a specific product in an Ecwid store.
 > Request example
 
 ```http
-GET /api/v3/4870020/products/8383892837/combinations?token=1234567890qwqeertt HTTP/1.1
+GET /api/v3/4870020/products/8383237/combinations?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -198,7 +198,7 @@ Get a specific product variation details referring to its ID.
 > Request example
 
 ```http
-GET /api/v3/4870020/products/8383892837/combinations/772828388?token=1234567890qwqeertt HTTP/1.1
+GET /api/v3/4870020/products/8392837/combinations/772828388?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -319,7 +319,7 @@ You can create a new product variation using this method. If the options you spe
 > Request example
 
 ```http
-POST /api/v3/4870020/products/8383892837/combinations?token=1234567890qwqeertt HTTP/1.1
+POST /api/v3/4870020/products/8392837/combinations?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 
@@ -427,7 +427,7 @@ Update a specific product variation details referring to its ID.
 > Request example
 
 ```http
-PUT /api/v3/4870020/products/8383892837/combinations/772828388?token=1234567890qwqeertt HTTP/1.1
+PUT /api/v3/4870020/products/8392837/combinations/7728288?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 
@@ -530,7 +530,7 @@ Delete a specific product variation referring to its ID.
 > Request example
 
 ```http
-DELETE /api/v3/4870020/products/8383892837/combinations/772828388?token=1234567890qwqeertt HTTP/1.1
+DELETE /api/v3/4870020/products/8392837/combinations/7728388?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 ```
@@ -593,7 +593,7 @@ Delete all product variations of a product in an Ecwid store.
 > Request example
 
 ```http
-DELETE /api/v3/4870020/products/8383892837/combinations?token=1234567890qwqeertt HTTP/1.1
+DELETE /api/v3/4870020/products/8392837/combinations?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 ```
@@ -652,7 +652,7 @@ HTTP Status | Meaning
 > Request example
 
 ```http
-PUT /api/v3/4870020/products/8383892837/combinations/772828388/inventory?token=1234567890qwqeertt HTTP/1.1
+PUT /api/v3/4870020/products/8392837/combinations/7728288/inventory?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -741,7 +741,7 @@ Upload a custom image for a specific product variation referring to its ID.
 > Request example
 
 ```http
-POST /api/v3/4870020/products/1234657/combinations/463737373/image?token=123456789abcd HTTP/1.1
+POST /api/v3/4870020/products/8392837/combinations/463737373/image?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: image/jpeg
 Cache-Control: no-cache
@@ -856,7 +856,7 @@ Delete an image of a specific product variation in an Ecwid store.
 > Request example
 
 ```http
-DELETE /api/v3/4870020/products/1234657/combinations/463737373/image?token=123456789abcd HTTP/1.1
+DELETE /api/v3/4870020/products/8392837/combinations/463737373/image?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache

@@ -38,7 +38,6 @@ Sometimes server-side applications need to store user’s data as well as the cl
 
 Application storage offers an alternative - store data on Ecwid servers and access it using REST API. Why it can be helpful: now there is no need for mySQL databases, your code becomes simpler and you don’t have to worry about storing the private merchant data on your servers. 
 
-
 ## Storage in Ecwid API
 
 Below you can find information about two different ways you can access your application storage depending on the type of an application you have.
@@ -413,7 +412,17 @@ HTTP Status | Meaning
 
 ## Public application config
 
-Storage API allows to save public app config and easily access it in a storefront. You can use  this API if your app changes the look, appearance or logic of storefronts using the [Customize Storefront](#customize-storefront) API.
+Application Storage allows to save public app config and easily access it in a storefront. 
+
+You can use this feature if your app changes the look, appearance or logic of storefronts – [Customize Storefront](#customize-storefront) feature.
+
+Public application config represents value of the `public` key in application storage and it is **always of a string type**. Application storage can be accessed from both Ecwid Javascript SDK and REST API. 
+
+This provides equal access to storage for native and external applications, which operate outside of the Ecwid Control Panel. To get the public config in storefront, use a simple Ecwid Javascript API function.
+
+See sections below for more details on how to work with app public config.
+
+**Use case example**
 
 Let’s say that you plan to build an app, that customizes a storefront, by displaying custom text created by store owner on a cart page.
 
@@ -425,17 +434,11 @@ Ecwid.getAppPublicConfig('my-cool-app')
 ```
 > See also: [App utilizing the app public config source code example](https://github.com/Ecwid/custom-thank-you-page-app)
 
-Or you can create a fully customizable widget, where merchant can input custom text, change its size, color, background and do other customizations. 
+Or you create a fully customizable widget, where merchant can input custom text, change its size, color, background and do other customizations. 
 
-To do all of the above, your app will need to request all these fields from a merchant and then apply them in storefront pages. 
+To do all of the above, your app will need to request all these fields from a merchant first and then apply them in storefront pages. 
 
-User preferences or unique data can be carried over to merchant’s storefront using public app config. To do that, save necessary merchant settings in public configuration of your app and access them in storefront using Ecwid JS API.
-
-App public config represents a value of the `public` key in application storage and it is always a string type. Application storage can be accessed from both Ecwid Javascript SDK and REST API. 
-
-This provides equal access to storage for native apps and external applications, which operate outside of Ecwid control panel. To get the public config in storefront, use a simple Ecwid Javascript API function.
-
-See sections below for more details on how to work with app public config.
+User preferences or unique data can be carried over to storefront using public app config. To do that, save necessary merchant settings in public configuration of your app and access them in storefront using Ecwid JS API.
 
 ### Save public data
 
@@ -462,12 +465,12 @@ Cache-Control: no-cache
 
 There are two ways to save user’s data to app public config: 
 
-1. For native client-side applications, created in Javascript, use setAppPublicConfig function of Ecwid Javascript SDK
+1. For native client-side applications, created in Javascript, use `setAppPublicConfig()` function of the Ecwid Javascript SDK
 
-2. For external or server-side applications, use REST API for saving user data to ‘public’ key of application storage 
+2. For external or server-side applications, use **REST API** for saving user data to `public` key of application storage 
 
 <aside class="note">
-Check out examples on how to save and get multiple fields in app public config: [https://developers.ecwid.com/api-documentation/public-application-config#examples](https://developers.ecwid.com/api-documentation/public-application-config#examples)
+Check out examples on how to save and get multiple fields in app public config: <a href="https://developers.ecwid.com/api-documentation/public-application-config#examples">https://developers.ecwid.com/api-documentation/public-application-config#examples</a>
 </aside>
 
 **Important:**
@@ -530,7 +533,7 @@ To get the value, specify your `appId` (app `client_id`) as its parameter and st
 App public config is available to your app as soon as storefront starts to load. 
 
 <aside class="note">
-Check out examples on how to save and get multiple fields in app public config: [https://developers.ecwid.com/api-documentation/public-application-config#examples](https://developers.ecwid.com/api-documentation/public-application-config#examples)
+Check out examples on how to save and get multiple fields in app public config: <a href="https://developers.ecwid.com/api-documentation/public-application-config#examples">https://developers.ecwid.com/api-documentation/public-application-config#examples</a>
 </aside>
 
 ### Access single or multiple values

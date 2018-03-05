@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## March 5, 2018
+
+Added ability to get all store shipping options via Ecwid REST API in **read-only mode**. If accessed via public token, Ecwid will respond with enabled shipping options only. [Learn more](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+
 ## March 2, 2018
 
 Updated Ecwid CSS Framework and Sample Native App to use the latest improvements and changes to design of pages in Ecwid Control Panel. 
