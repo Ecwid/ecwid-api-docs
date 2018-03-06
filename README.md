@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## March 6, 2018
+
+Added information about enabled or disabled new features of a store and their visibility status in `featureToggles` object in `/profile` endpoint. [Learn more](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+
 ## March 5, 2018
 
 Added ability to get all store shipping options via Ecwid REST API in **read-only mode**. If accessed via public token, Ecwid will respond with enabled shipping options only. [Learn more](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)

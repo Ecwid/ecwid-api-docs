@@ -524,7 +524,64 @@ Name | Type    | Description
           }
         }
       ]
-    }
+    },
+    "featureToggles": [
+        {
+            "name": "CONSECUTIVE_ORDER_IDS",
+            "visible": true,
+            "enabled": true
+        },
+        {
+            "name": "INDIVIDUAL_GOOGLE_CATEGORY_IN_FEEDS",
+            "visible": true,
+            "enabled": true
+        },
+        {
+            "name": "NEW_STARTERSITE",
+            "visible": true,
+            "enabled": true
+        },
+        {
+            "name": "NEW_DASHBOARD",
+            "visible": false,
+            "enabled": true
+        },
+        {
+            "name": "NEW_SALES_LIST",
+            "visible": true,
+            "enabled": true
+        },
+        {
+            "name": "VERTICAL_CP_MENU",
+            "visible": false,
+            "enabled": true
+        },
+        {
+            "name": "CUSTOMER_LOGIN_BY_LINK",
+            "visible": true,
+            "enabled": true
+        },
+        {
+            "name": "NEW_PRODUCT_LIST",
+            "visible": false,
+            "enabled": false
+        },
+        {
+            "name": "NEW_DETAILS_PAGE",
+            "visible": false,
+            "enabled": true
+        },
+        {
+            "name": "NEW_FB_SHOPS_INTEGRATION",
+            "visible": true,
+            "enabled": false
+        },
+        {
+            "name": "NEW_CATALOG_CP_PAGE",
+            "visible": false,
+            "enabled": true
+        }
+    ]    
 }
 ```
 
@@ -757,6 +814,7 @@ zones | Array\<*Zone*\> | Store destination zones
 businessRegistrationID | \<*BusinessRegistrationID*\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel
 legalPagesSettings | \<*LegalPagesSettingsDetails*\> | Legal pages settings for a store (*System Settings → General → Legal Pages*)
 payment | \<*PaymentInfo*\> | Store payment settings information
+featureToggles | \<*FeatureTogglesInfo*\> | Information about enabled/disabled new store features and their visibility in Ecwid Control Panel. Not provided via public token. Some of them are available in [Ecwid JS API](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getfeaturetoggles)
 
 #### GeneralInfo
 Field | Type | Description
@@ -772,7 +830,6 @@ accountName | string | Full store owner name
 accountNickName | string | Store owner nickname on the Ecwid forums
 accountEmail | string | Store owner email
 availableFeatures | Array\<*string*\> | A list of the premium features available on the store's pricing plan
-
 
 #### Settings
 Field | Type | Description
@@ -927,6 +984,8 @@ rates | Array \<*TableRateDetails*\> | Details of table rate
 
 #### TableRate
 
+Field | Type | Description
+----- | ---- | -----------
 conditions | \<*TableRateConditions*\> | Conditions for this shipping rate in custom table
 rate | Array \<*TableRate*\> | Table rate details
 
@@ -1061,6 +1120,14 @@ Field | Type | Description
 ----- | ---- | -----------
 instructionsTitle | string | Payment instructions title
 instructions | string | Payment instructions content. Can contain HTML tags
+
+#### FeatureTogglesInfo 
+
+Field | Type | Description
+----- | ---- | -----------
+name | string | Feature name
+visible | boolean | `true` if feature is shown to merchant in *Ecwid Control Panel > Settings > What's new*. `false` otherwise
+enabled | boolean | `true` if feature is enabled and active in store
 
 #### Errors
 

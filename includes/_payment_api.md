@@ -278,7 +278,17 @@ The value of the `data` input is encoded with a **AES-128** mechanism, where the
                     "value": "Blue",
                     "valuesArray": ["Blue"],
                     "type": "CHOICE"
-                }]
+                }],
+                "discounts": [
+                    {
+                      "discountInfo": {
+                        "value": 1.15,
+                        "type": "ABS",
+                        "base": "ON_TOTAL",
+                        "orderTotal": 14
+                      },
+                    "total": 1.15
+                    }],
             }],
             "billingPerson": {
                 "name": "John Doe",
@@ -379,8 +389,8 @@ Name | Type    | Description
 id | number | Order item ID. Can be used to address the item in the order, e.g. to manage ordered items.
 productId | number | Store product ID
 categoryId |  number  | ID of category this product was added to cart from. If the product was added to cart from API or Search page, `categoryID` will return `-1`
-price | number | Price of ordered item in the cart
-productPrice | number | Basic product price without options markups, wholesale discounts etc.
+price | number | Price of ordered item in the cart including product options and variations. Excludes discounts, taxes
+productPrice | number | Product price as set by merchant in Ecwid Control Panel including product variation pricing. Excludes product options markups, wholesale discounts etc. 
 weight |  number | Product weight
 sku | string | Product SKU. If the chosen options match a variation, this will be a variation SKU.
 quantity |  number | Amount purchased
@@ -400,6 +410,8 @@ couponApplied | boolean | `true`/`false`: shows whether a discount coupon is app
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 files | Array\<*OrderItemProductFile*\> | Files attached to the order item
+couponAmount | number | Coupon discount amount applied to item. Provided if discount applied to order. Is not recalculated if order is updated later manually
+discounts | Array\<*OrderItemDiscounts*\> | Discounts applied to order item 'as is'. Provided if discounts are applied to order (not including discount coupons) and are not recalculated if order is updated later manually
 
 #### OrderItemTax
 Field | Type | Description
@@ -439,6 +451,15 @@ id | number | File ID
 name |  string | File name
 size |  number | File size in bytes
 url |   string | File URL
+
+#### DiscountInfo
+Field | Type | Description
+----- | ---- | -----------
+value | number | Discount value
+type | string | Discount type: `ABS` or `PERCENT`
+base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
+orderTotal | number | Minimum order subtotal the discount applies to
+description | string | Description of a discount (for discounts with base == `CUSTOM`)
 
 #### AddressDetails
 
