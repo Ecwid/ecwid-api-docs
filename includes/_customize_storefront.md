@@ -515,6 +515,48 @@ Default: depends on the setting in Ecwid Control Panel – category name positio
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
+###### Show "ON SALE" label on product image
+
+> Show "ON SALE" label on product image in product listing
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_show_on_sale_label = true; // show "ON SALE" label on product image in product listing
+</script>
+```
+
+Show or hide the **"ON SALE" label** in product listing (category pages). Label will be displayed only when product has "compare to" price set.
+
+Possible values: `true`, `false`.
+Default: `true`
+
+If both "SOLD OUT" and "ON SALE" labels are enabled, the "SOLD OUT" label will be shown only.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+###### Show "SOLD OUT" label on product image
+
+> Show "SOLD OUT" label on product image in product listing
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_show_sold_out_label  = true; // show "SOLD OUT" label on product image in product listing
+</script>
+```
+
+Show or hide the **"SOLD OUT" label** in product listing (category pages). Label will be displayed only when product is out of stock.
+
+Possible values: `true`, `false`.
+Default: `true`.
+
+If both "SOLD OUT" and "ON SALE" labels are enabled, the "SOLD OUT" label will be shown only.
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
 ##### Set custom spacing between grid elements
 
 ###### Set spacing between categories in product listing 

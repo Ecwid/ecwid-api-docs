@@ -8,6 +8,16 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## March 7, 2018
+
+Added enable/disable controls for "ON SALE" and "SOLD OUT" labels in product listing. 
+
+If enabled, "ON SALE" label will display on all products with "compare to" price set. If enabled, "SOLD OUT" label will display on all products that are out of stock. 
+
+Only one label can be shown on a product at a time. "SOLD OUT" label has priority over "ON SALE" label, meaning if both labels apply to a product and are enabled, Ecwid will only show "SOLD OUT" label.
+
+[Learn more](https://developers.ecwid.com/api-documentation/customize-appearance#product-listing)
+
 ## March 6, 2018
 
 Added information about enabled or disabled new features of a store and their visibility status in `featureToggles` object in `/profile` endpoint. [Learn more](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
