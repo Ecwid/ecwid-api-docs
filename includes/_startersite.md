@@ -135,7 +135,7 @@ showContactus | boolean | `true` if "Contact Us" section is shown. `false` other
 cleanUrlsEnabled | boolean | `true` if [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) are enabled. `false` otherwise
 storeName | string | Store name
 allowSearchEnginesIndexing | boolean | `true` if search engines are allowed to index starter site. `false` otherwise
-customHeaderHtmlCode | string | Custom HTML added to HEAD tag in starter site. **Is not processed in any way and executed 'as is'. Use caution**
+customHeaderHtmlCode | string | Custom HTML added to HEAD tag in starter site. When updating the field, read the current value first and append the new code below. **This field not preprocessed in any way and executed 'as is'. Use caution**
 
 #### LocationHoursInfo
 
@@ -297,7 +297,7 @@ showContactus | boolean | Set to `false` to hide "Contact Us" section. `true` ot
 cleanUrlsEnabled | boolean | `true` if [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) are enabled. `false` otherwise
 storeName | string | Store name
 allowSearchEnginesIndexing | boolean | `true` if search engines are allowed to index starter site. `false` otherwise
-customHeaderHtmlCode | string | Custom HTML added to HEAD tag in starter site. **Is not processed in any way and executed 'as is'. Use caution**
+customHeaderHtmlCode | string | Custom HTML added to HEAD tag in starter site. When updating the field, read the current value first and append the new code below. **This field not preprocessed in any way and executed 'as is'. Use caution**
 
 #### LocationHoursInfo
 

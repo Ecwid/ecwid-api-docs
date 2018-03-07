@@ -510,18 +510,16 @@ Ecwid.OnPageLoaded.add(function(page){
 var publicConfig;
 
 // get app public config in native app
-EcwidApp.getAppStorage('public', function(value){
+EcwidApp.getAppPublicConfig(function(value){
   console.log(value);
   // '{ "color" : "red", "page_id" : "123456" }'
 
   publicConfig = value;
+  // parse the string to a JS object
+  publicConfig = JSON.parse(publicConfig);
+  console.log(publicConfig.color);
+  // 'red'
 })
-
-// parse the string to a JS object
-publicConfig = JSON.parse(publicConfig);
-
-console.log(publicConfig.color);
-// 'red'
 ```
 
 If your app customizes Ecwid storefront, you can get public config of your app using Ecwid JS API. 

@@ -10,13 +10,19 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ## March 7, 2018
 
-Added enable/disable controls for "ON SALE" and "SOLD OUT" labels in product listing. 
+1) Added enable/disable controls for "ON SALE" and "SOLD OUT" labels in product listing. 
 
 If enabled, "ON SALE" label will display on all products with "compare to" price set. If enabled, "SOLD OUT" label will display on all products that are out of stock. 
 
 Only one label can be shown on a product at a time. "SOLD OUT" label has priority over "ON SALE" label, meaning if both labels apply to a product and are enabled, Ecwid will only show "SOLD OUT" label.
 
 [Learn more](https://developers.ecwid.com/api-documentation/customize-appearance#product-listing)
+
+2) Updated Ecwid JS SDK for Native Apps to version `1.2.5`: 
+`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.5/ecwid-app.js`
+
+**Changelog:**
+- Added `EcwidApp.getAppPublicConfig()` function to Ecwid JS SDK. Now you can read the value of public application config easier. [Learn more](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#getapppublicconfig)
 
 ## March 6, 2018
 

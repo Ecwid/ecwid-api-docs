@@ -55,7 +55,7 @@ If you already have a registered app and want to make it native, you can [contac
 
 <head>
   <!-- Include Ecwid JS SDK -->
-  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.4/ecwid-app.js"></script>
+  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.5/ecwid-app.js"></script>
 
   <script>
     // Initialize the application
@@ -550,12 +550,12 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 
 ```html
 <!-- Include Ecwid JS SDK -->
-<script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.4/ecwid-app.js"></script>
+<script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.5/ecwid-app.js"></script>
 ```
 
 Ecwid Javascript SDK is a simple JS framework with a set of basic JS functions that will help you to embed your app to Ecwid Control Panel and interact with Ecwid from within your application.
 
-To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.4/ecwid-app.js` .
+To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/js/1.2.5/ecwid-app.js` .
 
 ### init
 
@@ -711,7 +711,10 @@ Name | Type | Description
 callback | Function | Specify your callback function if needed
 
 Your object data as specified in example will be stored as corresponding keys in your application storage in `'key' : 'value'` format.
+
 This method accepts only string type values in your data object, so make sure all values in your object, such as 'red', are of type `string`.
+
+Learn more about application storage: [https://developers.ecwid.com/api-documentation/application-storage](https://developers.ecwid.com/api-documentation/application-storage)
 
 ### setAppPublicConfig
 
@@ -750,7 +753,7 @@ Name | Type | Description
 **data** | String | Place json string you want to add in public storage
 callback | Function | Specify your callback function if needed
 
-**The string that you provide in `data` variable will be specified for `public` key in application storage.**
+**The string that you provide in `data` variable will be specified for `public` key in application storage.** [Learn more](https://developers.ecwid.com/api-documentation/public-application-config)
 
 You will be able to retrieve it using [Ecwid Javascript API](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getapppublicconfig) in storefront. 
 
@@ -806,6 +809,36 @@ key | string | Specify key that you need to get value from. If no key specified,
 **callback** | Function | Specify your callback function
 
 Using this method you can retrieve either all keys and their values that are located in your application storage or get the value of a specific key.
+
+Learn more about application storage: [https://developers.ecwid.com/api-documentation/application-storage](https://developers.ecwid.com/api-documentation/application-storage)
+
+### getAppPublicConfig
+
+> Get app public config value function usage
+
+```js
+EcwidApp.getAppPublicConfig(callback);
+```
+
+> Get app public config value example
+
+```js
+EcwidApp.getAppPublicConfig(function(publicData) {
+  // returns value of 'public' key in application storage
+  console.log(publicData);
+});
+```
+
+
+#### Parameters
+
+`EcwidApp.getAppPublicConfig` accepts two parameters: 
+
+Name | Type | Description
+---- | ---- | -----------
+**callback** | Function | Specify your callback function
+
+Using this method you can retrieve the value of public application config stored in your application storage. Learn more about public app config: [https://developers.ecwid.com/api-documentation/public-application-config](https://developers.ecwid.com/api-documentation/public-application-config)
 
 ### closeAppPopup
 
