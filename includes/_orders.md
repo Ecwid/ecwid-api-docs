@@ -175,6 +175,13 @@ Parameters in bold are mandatory
                             "valuesArray" : [
                               "Big"
                             ],
+                            "selections": [
+                                {
+                                    "selectionTitle": "Big",
+                                    "selectionPriceModifier": 4,
+                                    "selectionPriceModifierType": "PERCENT"
+                                }
+                            ],
                             "type": "CHOICE"
                         },
                         {
@@ -441,6 +448,7 @@ type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button
 value | string | Selected/entered option value(s) as a string. For the `CHOICES` type, provides a string with all chosen values (comma-separated). You can use this to simply print out all selected values.
 valuesArray | Array | Selected option values as an array. For the `CHOICES` type, provides an array with the chosen values so you can iterate through them in your app.
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
+selections | Array\<*SelectionInfo*\> | Details of selected product options. If sent in update order request, other fields will be regenerated based on information in this field
 
 #### OrderItemOptionFile
 Field | Type |  Description
@@ -449,6 +457,13 @@ id | number | File ID
 name |  string | File name
 size |  number | File size in bytes
 url |   string | File URL
+
+#### SelectionInfo
+Field | Type |  Description
+--------- | -----------| -----------
+selectionTitle | string | Selection title, as set by merchant
+selectionModifier | number | Selection price modifier amount. Value is negative for negative modifiers
+selectionModifierType | string | Price modifier type: `"PERCENT"` or `"ABSOLUTE"`
 
 #### ProductDimensions
 Field | Type  | Description
@@ -743,6 +758,13 @@ Parameters in bold are mandatory
                     "valuesArray" : [
                       "Big"
                     ],
+                    "selections": [
+                        {
+                            "selectionTitle": "Big",
+                            "selectionPriceModifier": 4,
+                            "selectionPriceModifierType": "PERCENT"
+                        }
+                    ],                    
                     "type": "CHOICE"
                 },
                 {
@@ -994,6 +1016,7 @@ type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button
 value | string | Selected/entered option value(s) as a string. For the `CHOICES` type, provides a string with all chosen values (comma-separated). You can use this to simply print out all selected values.
 valuesArray | Array | Selected option values as an array. For the `CHOICES` type, provides an array with the chosen values so you can iterate through them in your app.
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
+selections | Array\<*SelectionInfo*\> | Details of selected product options. If sent in update order request, other fields will be regenerated based on information in this field
 
 #### OrderItemOptionFile
 Field | Type |  Description
@@ -1002,6 +1025,13 @@ id | number | File ID
 name |  string | File name
 size |  number | File size in bytes
 url |   string | File URL
+
+#### SelectionInfo
+Field | Type |  Description
+--------- | -----------| -----------
+selectionTitle | string | Selection title, as set by merchant
+selectionModifier | number | Selection price modifier amount. Value is negative for negative modifiers
+selectionModifierType | string | Price modifier type: `"PERCENT"` or `"ABSOLUTE"`
 
 #### ProductDimensions
 Field | Type  | Description
@@ -1717,6 +1747,13 @@ Cache-Control: no-cache
                     {
                         "name": "Size",
                         "value": "Big",
+                        "selections": [
+                            {
+                                "selectionTitle": "Big",
+                                "selectionPriceModifier": 1,
+                                "selectionPriceModifierType": "PERCENT"
+                            }
+                        ],
                         "type": "CHOICE"
                     },                  
                     {
@@ -1849,6 +1886,14 @@ Field | Type |  Description
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 **value** | string | Selected/entered value by customer. Multiple values separated by comma in a single string
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
+selections | Array\<*SelectionInfo*\> | Details of selected product options. If sent in update order request, other fields will be regenerated based on information in this field
+
+#### SelectionInfo
+Field | Type |  Description
+--------- | -----------| -----------
+selectionTitle | string | Selection title, as set by merchant
+selectionModifier | number | Selection price modifier amount. Value is negative for negative modifiers
+selectionModifierType | string | Price modifier type: `"PERCENT"` or `"ABSOLUTE"`
 
 #### PersonInfo
 Field | Type |  Description
@@ -2218,6 +2263,14 @@ Field | Type | Description
 type |  string | Option type. One of: <ul><li>`CHOICE` (dropdown or radio button)</li><li>`CHOICES` (checkboxes)</li><li>`TEXT` (text input and text area)</li><li>`DATE` (date/time)</li><li>`FILES` (upload file option)</li></ul>
 **value** | string | Selected/entered value by customer. Multiple values separated by comma in a single string
 files | Array\<*OrderItemOptionFile*\> | Attached files (if the option type is `FILES`)
+selections | Array\<*SelectionInfo*\> | Details of selected product options. If sent in update order request, other fields will be regenerated based on information in this field
+
+#### SelectionInfo
+Field | Type |  Description
+--------- | -----------| -----------
+selectionTitle | string | Selection title, as set by merchant
+selectionModifier | number | Selection price modifier amount. Value is negative for negative modifiers
+selectionModifierType | string | Price modifier type: `"PERCENT"` or `"ABSOLUTE"`
 
 #### ProductDimensions
 Field | Type  | Description

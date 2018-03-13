@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## March 13, 2018
+
+Added customer selection of product options in order item details. Now you can know how each option influences the price of a purchased product. [Learn more](https://developers.ecwid.com/api-documentation/orders)
+
 ## March 7, 2018
 
 1) Added enable/disable controls for "ON SALE" and "SOLD OUT" labels in product listing. 
