@@ -178,8 +178,8 @@ Parameters in bold are mandatory
                             "selections": [
                                 {
                                     "selectionTitle": "Big",
-                                    "selectionPriceModifier": 4,
-                                    "selectionPriceModifierType": "PERCENT"
+                                    "selectionModifier": 4,
+                                    "selectionModifierType": "PERCENT"
                                 }
                             ],
                             "type": "CHOICE"
@@ -761,8 +761,8 @@ Parameters in bold are mandatory
                     "selections": [
                         {
                             "selectionTitle": "Big",
-                            "selectionPriceModifier": 4,
-                            "selectionPriceModifierType": "PERCENT"
+                            "selectionModifier": 4,
+                            "selectionModifierType": "PERCENT"
                         }
                     ],                    
                     "type": "CHOICE"
@@ -1750,8 +1750,8 @@ Cache-Control: no-cache
                         "selections": [
                             {
                                 "selectionTitle": "Big",
-                                "selectionPriceModifier": 1,
-                                "selectionPriceModifierType": "PERCENT"
+                                "selectionModifier": 1,
+                                "selectionModifierType": "PERCENT"
                             }
                         ],
                         "type": "CHOICE"

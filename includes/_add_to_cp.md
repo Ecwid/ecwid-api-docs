@@ -529,7 +529,7 @@ We provide a set of ready UI components in a form of CSS framework to help you e
   
   <div>Some content</div>
 
-  <script type="text/javascript" src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.0/ecwid-app-ui.css"></script>
+  <script type="text/javascript" src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.0/ecwid-app-ui.min.js"></script>
 </body>
 ```
 
