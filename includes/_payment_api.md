@@ -164,7 +164,7 @@ Please make sure **not to pass any sensitive user data in the public application
 // Custom styles for icons for our application
 
     var customStyleForPaymentIcons = document.createElement('style');
-    customStyleForPaymentIcons.innerHTML = ".ecwid-PaymentMethodsBlockSvgCustom { display: inline-block; width: 40px; height: 26px; background-color: #fff; border: 1px solid #e2e2e2;}";
+    customStyleForPaymentIcons.innerHTML = ".ecwid-PaymentMethodsBlockSvgCustom { display: inline-block; width: 40px; height: 26px; background-color: #fff !important; border: 1px solid #e2e2e2 !important;}";
 
     document.querySelector('body').appendChild(customStyleForPaymentIcons);
 
@@ -212,7 +212,7 @@ Please make sure **not to pass any sensitive user data in the public application
                         image.setAttribute('src', iconsSrcList[i]);
                         image.setAttribute('class', 'ecwid-PaymentMethodsBlockSvgCustom');
                         if (container.children.length !== 0) {
-                            image.style.paddingLeft = '5px';
+                            image.style.marginLeft = '5px';
                         }
                         container.appendChild(image);
                     }
