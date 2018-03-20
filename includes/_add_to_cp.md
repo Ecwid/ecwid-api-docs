@@ -159,7 +159,7 @@ A typical native application URL looks like this: `https://my.ecwid.com/cp/CP.ht
 
 In case of your app being called using deep linking, that URL will also have a new parameter - `app_state` :
 
-`https://my.ecwid.com/cp/#app:name=my-cool-app&parent-menu=sales&app_state=orderId%3A%2012`
+`https://my.ecwid.com/cp/#app:name=my-cool-app&app_state=orderId%3A%2012`
 
 The `app_state` parameter value is a URL encoded string with a specific application state your app can understand and process. 
 
