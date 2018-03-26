@@ -301,7 +301,7 @@ Parameters in bold are mandatory
                 "Job position": "Manager",
                 "PO number": "123abcd",
                 "Buyer's full name": "John Smith"
-            }
+            },
             "extraFields": {
                 "referred_by": "Referrer is: Facebook Ads",
                 "AFF_ID": "fb-123"
@@ -882,7 +882,7 @@ Parameters in bold are mandatory
         "Job position": "Manager",
         "PO number": "123abcd",
         "Buyer's full name": "John Smith"
-    }
+    },
     "extraFields": {
         "referred_by": "Referrer is: Facebook Ads"
     },

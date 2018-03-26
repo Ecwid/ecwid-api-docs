@@ -8,6 +8,22 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## March 26, 2018
+
+Updated version of Ecwid CSS Framework – `1.3.1`: 
+
+> https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.1/ecwid-app-ui.css
+
+Changelog: 
+- fixes for some colors
+- updated fonts for custom-checkbox
+- added prefixes for components `fieldsets-batch`, `cta-block`, `iconable-block`, `status-block`
+- added disabled state for radio buttons
+- added styles for `draggable-item`, `settings-area` components
+- fixed paddings for `settings-page`
+- fixed display of long titles for `titled-value`
+- fixed display of buttons for `FeatureCard`
+
 ## March 13, 2018
 
 Added customer selection of product options in order item details. Now you can know how each option influences the price of a purchased product. [Learn more](https://developers.ecwid.com/api-documentation/orders)

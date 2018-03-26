@@ -112,8 +112,8 @@ code |  string | Unique coupon code
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
-launchDate | string | The date of coupon launch
-expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day
 totalLimit | number | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
@@ -216,8 +216,8 @@ code |  string | Unique coupon code
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
-launchDate | string | The date of coupon launch
-expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day
+expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
@@ -306,8 +306,8 @@ Field | Type  | Description
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING` . Default is `ABS`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`. Discount coupon states `EXPIRED` and `USEDUP` are set by Ecwid store only and not available in API
 discount | number | Discount amount . `0` is default
-launchDate | string | The date of coupon launch
-expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day
+expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE` . `UNLIMITED` is default
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers. `false` is default
@@ -457,8 +457,8 @@ code |  string | Unique coupon code, length limit is 128 characters.
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING` . 
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`. Discount coupon states `EXPIRED` and `USEDUP` are set by Ecwid store only and not available in API
 discount | number | Discount amount
-launchDate | string | The date of coupon launch
-expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day
+expirationDate | string | Coupon expliration date, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE` . 
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers.
