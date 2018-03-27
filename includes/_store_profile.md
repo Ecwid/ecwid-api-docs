@@ -883,8 +883,8 @@ weightPrecision | number | Numbers of digits after decimal point in weights disp
 weightGroupSeparator | string | Weight thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``
 weightDecimalSeparator | string | Weight decimal separator. Possible values: `.` or `,` 
 weightTruncateZeroFractional |  boolean | Hide zero fractional part of the weight values in storefront. `true` or `false` . 
-dateFormat | string | Date format, e.g. `MMM d, yyyy`
-timeFormat | string | Time format, e.g. `hh:mm a`
+dateFormat | string | Date format. Only these formats are accepted: `"dd-MM-yyyy"`, `"dd/MM/yyyy"`, `"dd.MM.yyyy"`, `"MM-dd-yyyy"`, `"MM/dd/yyyy"`, `"yyyy/MM/dd"`, `"MMM d, yyyy"`, `"MMMM d, yyyy"`, `"EEE, MMM d, ''yy"`, `"EEE, MMMM d, yyyy"`
+timeFormat | string | Time format. Only these formats are accepted: `"HH:mm:ss"`, `"HH:mm"`, `"hh.mm.ss a"`, `"hh:mm a"`
 timezone | string | Store timezone, e.g. `Europe/Moscow`
 dimensionsUnit | string | Product dimensions units
 orderNumberPrefix | string | Order number prefix in a store
@@ -1307,8 +1307,8 @@ weightPrecision | number | Numbers of digits after decimal point in weights disp
 weightGroupSeparator | string | Weight thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``
 weightDecimalSeparator | string | Weight decimal separator. Possible values: `.` or `,` 
 weightTruncateZeroFractional |  boolean | Hide zero fractional part of the weight values in storefront. `true` or `false` . 
-dateFormat | string | Date format, e.g. `MMM d, yyyy`
-timeFormat | string | Time format, e.g. `hh:mm a`
+dateFormat | string | Date format. Only these formats are accepted: `"dd-MM-yyyy"`, `"dd/MM/yyyy"`, `"dd.MM.yyyy"`, `"MM-dd-yyyy"`, `"MM/dd/yyyy"`, `"yyyy/MM/dd"`, `"MMM d, yyyy"`, `"MMMM d, yyyy"`, `"EEE, MMM d, ''yy"`, `"EEE, MMMM d, yyyy"`
+timeFormat | string | Time format. Only these formats are accepted: `"HH:mm:ss"`, `"HH:mm"`, `"hh.mm.ss a"`, `"hh:mm a"`
 timezone | string | Store timezone, e.g. `Europe/Moscow`
 dimensionsUnit | string | Product dimensions units. Possible values: `IN`,`CM`,`MM`,`YD`
 orderNumberPrefix | string | Order number prefix in a store

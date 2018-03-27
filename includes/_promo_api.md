@@ -61,6 +61,8 @@ Please mind that the response isn't a separate request back to a specific URL in
 
 Based on the response from your app, Ecwid will display the discounts for customers on the cart page. Customer can view the amount and the reason for a discount that your solution sent to Ecwid. All the discount details will be saved for that order and they will be displayed in related order information.
 
+### Custom discounts FAQ
+
 #### Q: In what order does Ecwid calculate the order total?
 
 Ecwid calculates the order total in this order: 
@@ -77,6 +79,19 @@ Please keep this in mind when creating an app for Ecwid.
 #### Q: What happens, if my URL responds with an error? 
 
 In case if your app responds with an error or in an incorrect format, then the discounts from your app will not be shown to customer at checkout stage and they will be able to shop in the store as usual. If your store has applicable discounts methods set up using the default means of creating discounts in Ecwid, then they will be shown to customer and applied to order.
+
+#### Q: Does Ecwid cache the requests in any way? 
+
+Yes. Ecwid will not make a request to your URL on these conditions: 
+
+- previous request happened less than 5 minutes ago
+- request details are exactly the same as in previous request
+
+In other cases, Ecwid will make a new request to your endpoint.
+
+For example, a new product was added to cart, shipping/payment method was changed, customer address was changed, etc. 
+
+Any event that changes the order details will reset the cache and Ecwid will make a new request to your endpoint.
 
 #### Q: Can I create a user interface for user to select and set different duscount rules?
 
@@ -96,7 +111,11 @@ If your application is for a public use, the request URL must be working <strong
 
 ## Request for discount and response
 
-Ecwid will send the cart details in a **body** of POST HTTP request in the following format:
+Ecwid will send the cart details in a **body** of POST HTTP request in the following format. 
+
+<aside class="note">
+Ecwid can cache the requests to your endpoint. <a href="https://developers.ecwid.com/api-documentation/how-custom-discount-works#q-does-ecwid-cache-the-requests-in-any-way">Learn more</a>
+</aside>
 
 #### Request
 

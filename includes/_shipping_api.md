@@ -42,9 +42,24 @@ Ecwid will expect a response from your service within 10 second interval to disp
 
 Based on the response from your app, Ecwid will display the shipping methods for customers at the checkout. Customer can select them just like any other shipping method in that Ecwid store and it will be shown in the order details. Shipping methods from the application will be added to any currently enabled shipping methods a store has enabled.
 
+### Custom shipping FAQ
+
 #### Q: What happens, if my URL responds with an error? 
 
 In case if your app responds with an error or in an incorrect format, then the shipping methods from your app will not be shown to customer at checkout stage. If your store has applicable shipping methods set up using the default means of creating shipping methods in Ecwid, then they will be shown to customer.
+
+#### Q: Does Ecwid cache the requests in any way? 
+
+Yes. Ecwid will not make a request to your URL on these conditions: 
+
+- previous request happened less than 5 minutes ago
+- request details are exactly the same as in previous request
+
+In other cases, Ecwid will make a new request to your endpoint.
+
+For example, a new product was added to cart, shipping/payment method was changed, customer address was changed, etc. 
+
+Any event that changes the order details will reset the cache and Ecwid will make a new request to your endpoint.
 
 ## Set up shipping method
 
@@ -88,7 +103,11 @@ After you get a request from Ecwid, your application endpoint should get its com
 
 ### Request
 
-Ecwid will send order information in the **body** of a POST HTTP request in the following format:
+Ecwid will send order information in the **body** of a POST HTTP request in the following format. 
+
+<aside class="note">
+Ecwid can cache the requests to your endpoint. <a href="https://developers.ecwid.com/api-documentation/how-shipping-method-works#q-does-ecwid-cache-the-requests-in-any-way">Learn more</a>
+</aside>
 
 > Request from Ecwid example
 
