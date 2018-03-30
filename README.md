@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## March 30, 2018
+
+Added feature to open specific product variation in storefront via query parameter in URL. 
+
+You can use either variation ID or selection index in drop down or radio button product options. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#open-specific-product-variation)
+
 ## March 26, 2018
 
 Updated version of Ecwid CSS Framework – `1.3.1`: 

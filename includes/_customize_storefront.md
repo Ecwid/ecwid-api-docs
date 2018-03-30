@@ -1750,6 +1750,50 @@ By default, Ecwid is a responsive widget which adapts to the changing screen wid
 
 However, if the screen width stays the same but the container for storefront changes its width, you will need to call the `Ecwid.resizeProductBrowser()` function to adapt Ecwid's layout to this change.
 
+### Open specific product variation
+
+When opening a product that has options or variations, it can be useful to open them with preset values right away. This will save customer's time and improve the buying process. 
+
+**How to open a product variation**
+
+1) Determine the product you want to open: get a direct URL to product details page you would need to use.
+
+For example: `https://www.ecwid.com/demo/Rip-Curl-Channel-Island-p72585497`
+
+2) Add a query parameter `variation` to the URL with a value of desired variation ID. You can [retrieve the variation ID](https://developers.ecwid.com/api-documentation/product-variations) via the Ecwid REST API
+
+Resulting URL: `https://www.ecwid.com/demo/Rip-Curl-Channel-Island-p72585497?variation=16351010`
+
+It will open a product "Rip Curl Channel Island" with options: Size - Any, Color - Dark grey.
+
+**How to open a custom product variation**
+
+If your product doesn't have product variations but has product options, you can still open details page with preset values (selections). Use `options` query parameter instead. 
+
+1) Determine the product you want to open: get a direct URL to product details page you would need to use.
+
+For example: `https://www.ecwid.com/demo/Rip-Curl-Channel-Island-p72585497`
+
+2) Add a query parameter `options` to the URL with values of product options separated by comma: `?options=A,B,C`
+
+Each value will be assigned to product options depending on its index in the list of available selections. The index starts at `1`. **This method supports drop down and radio button product options only**
+
+Any incorrect and out of range values will be ignored.
+
+Example: `?options=4,5,6`
+
+These values mean that: 
+
+- for product option 1 the value will be: 4th selection
+- for product option 2 the value will be: 5th selection
+- for product option 3 the value will be: 6th selection
+
+And so on. 
+
+Resulting URL: `https://www.ecwid.com/demo/Rip-Curl-Channel-Island-p72585497?options=2,2`
+
+It will open a product "Rip Curl Channel Island" with options: Size - Medium, Color - Dark grey.
+
 ### Embed or remove storefront on demand
 
 > Dynamic embedding of Ecwid storefront widget
