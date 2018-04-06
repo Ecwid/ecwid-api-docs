@@ -1,6 +1,8 @@
 ## Carts
 
-When a customer leaves an online store without making a purchase it is recorded as an abandoned cart in Ecwid. The methods below describe how you can search for abandoned carts, place them as completed orders or update its contents. Learn more about abandoned carts in the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/207806235-Orders#Unfinishedsales).
+When a customer leaves an online store without making a purchase it is recorded as an abandoned cart in Ecwid. 
+
+The methods below describe how you can search for abandoned carts, place them as completed orders or update its contents. Learn more about abandoned carts in the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/207806235-Orders#Unfinishedsales).
 
 You can also calculate the order total and available shipping methods using the [special endpoint](https://developers.ecwid.com/api-documentation/carts#calculate-order-details) in the Ecwid API. It is useful for storefronts with a custom checkout process.
 

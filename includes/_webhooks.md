@@ -4,8 +4,8 @@ A webhook is an HTTP POST request that occurs when something happens. In other w
 
 This is how your application can use webhooks:
 
-* Receive a request from Ecwid every time a new product is created or an existing product is changed so you can synchronize the store catalog with your local database. Get the updated product data and make your app in sync in one HTTP request instead of downloading the whole catalog.
-* Get notified about every new order in the store so you can send a custom email or text message, generate a custom receipt, or subscribe the customer to your newsletter.
+* Receive a request from Ecwid every time a new product is created or an existing product is changed so you can synchronize the store catalog with your local database. Get the updated product data from Ecwid REST API and make your app in sync in one HTTP request instead of downloading the whole catalog.
+* Get notified about every new order in the store so you can send a custom email or text message, generate a custom receipt, or subscribe the customer to your newsletter. Once webhook is received, get order details from Ecwid REST API and continue your app flow
 
 You can receive webhooks about these store entities: 
 
@@ -40,6 +40,10 @@ In a nutshell, webhooks in Ecwid work this way:
 * Each supported event in the store (e.g. new order is placed) triggers an HTTP POST request to the URL your specified
 * Your application receives the requests and replies with `200 OK` to identify that it's received
 * Then your app processes the webhook request and performs further steps to handle the event
+
+<aside class="notice">
+Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/webhooks#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+</aside>
 
 ### Supported events
 

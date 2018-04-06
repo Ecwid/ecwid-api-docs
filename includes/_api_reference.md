@@ -44,7 +44,21 @@ Date/time values returned by Ecwid API are in UTC.
 This document describes *Ecwid REST API v.3* 
 
 **API calls limits**
-You are free to build your app with as many API calls as you need to make your service awesome for Ecwid merchants, but keep in mind the [usage policy](#usage-policy).
+
+Ecwid REST API has the following limits: 
+
+- 800 requests per minute per store ID + burst 100
+- 6000 requests per minute per IP + burst 50
+
+This means that in one minute you can make 6050 requests to Ecwid REST API from one IP in total. 
+
+If you exceed 6050 requests per minute, all following requests face **429 Too Many Requests** response. 
+
+In the next minute and during the whole time you get close to the limitation, we will limit total request number for this IP to 6000 requests (no burst).
+
+Once the request number gets lower, the burst request amount will return and you will be able to make 50 more requests per minute.
+
+When building your app, keep in mind the [usage policy](#usage-policy) for the best experience. 
 
 #### Usage policy
 
