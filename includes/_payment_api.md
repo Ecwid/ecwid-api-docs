@@ -639,8 +639,9 @@ After user is directed to that page, Ecwid will check that order and depending o
 - If the order is in `INCOMPLETE` payment status, customer will see the cart page of Ecwid storefront with the same items
 - If the order is in `CANCELLED` payment status, Ecwid will show the 'Payment error' page
 
-
-
+<aside class="note">
+Before returning customer to storefront, make sure to <a href="https://developers.ecwid.com/api-documentation/processing-payment-request#updating-order-status">update the order payment status</a> first. This way Ecwid will be able to show relevant content to customers at all times.    
+</aside>
 
 
 

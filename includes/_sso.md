@@ -194,7 +194,9 @@ Ecwid.OnAPILoaded.add(function() {
 });
 ```
 
-By default, when SSO is used on a web page, Ecwid hides Sign in and Sign out links in the storefront assuming that the user logs in by means of your site login form. We recommend adding Sign in / Sign out links to your store and link them to your site login form to make login process more convenient for your customers.
+By default, when SSO is used on a web page, Ecwid hides Sign in and Sign out links in the storefront assuming that the user logs in by means of your site login form. 
+
+Alternatively, you can customize the Sign in / Sign out links in a store and link them to the site login form to make login process more convenient for your customers.
 
 This can be done by means of `Ecwid.setSignInUrls()` API extension, which accepts two parameters:
 
