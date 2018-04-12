@@ -81,7 +81,7 @@ Field | Type |  Description
 --------- | -----------| -----------
 ***title*** | string | Title of a new field. It prompts user to enter the value
 **checkoutDisplaySection** | string | Accepts several values: `shipping_address`, `pickup_details`, `billing_address`, `order_comments`. More on this below
-*orderDetailsDisplaySection* | string | Where the extra field will be shown to customer and merchant. Supported values: `shipping_info`, `billing_info`, `customer_info`, `order_comments`
+*orderDetailsDisplaySection* | string | Defines where the extra field will be shown to customer and merchant. Supported values: `shipping_info`, `billing_info`, `customer_info`, `order_comments`. If an unsupported value is used, the field will be hidden from customer and merchant
 *value* | string | Default value used to prefill the extra field's value for user
 type | string | Accepts several values: `text`, `select`, `datetime`. Default is `text`. More on this below
 tip | string | Show a tip for filling the field under the input

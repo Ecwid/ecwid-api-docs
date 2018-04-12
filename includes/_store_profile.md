@@ -966,7 +966,7 @@ Field | Type | Description
 ----- | ---- | -----------
 length | number | Length of postage
 width | number | Width of postage
-height | string | Height of postage
+height | number | Height of postage
 
 #### FlatRate
 
@@ -980,14 +980,14 @@ rate | number | Shipping rate
 Field | Type | Description
 ----- | ---- | -----------
 tableBasedOn | string | What is this table rate based on. Possible values: `"subtotal"`, `"discountedSubtotal"`, `"weight"`
-rates | Array \<*TableRateDetails*\> | Details of table rate
+rates | Array \<*TableRate*\> | Details of table rate
 
 #### TableRate
 
 Field | Type | Description
 ----- | ---- | -----------
 conditions | \<*TableRateConditions*\> | Conditions for this shipping rate in custom table
-rate | Array \<*TableRate*\> | Table rate details
+rate | Array \<*TableRateDetails*\> | Table rate details
 
 #### TableRateConditions
 

@@ -751,7 +751,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **value** | number | Discount amount
 type | number | Discount type: `ABSOLUTE` or `PERCENT`. Default is `ABSOLUTE`
-description | string | Discount description
+description | string | Discount description. Is displayed to customer at cart page and in order details
 
 <aside class="notice">
 Response parameters in <strong>bold</strong> are mandatory
