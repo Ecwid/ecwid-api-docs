@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## April 17, 2018
+
+- Added option to disable force scrolling to Ecwid storefront on store navigation. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#disable-force-scrolling-to-storefront)
+
+- Updated the name for main storefront URL configuration from `ecwid_ProductBrowserURL` to: `window.ec.config.store_main_page_url`. The old value is still supported. If both are used on a page – the new one has more priority. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#set-main-storefront-url-for-widgets)
+
 ## March 30, 2018
 
 Added feature to open specific product variation in storefront via query parameter in URL. 

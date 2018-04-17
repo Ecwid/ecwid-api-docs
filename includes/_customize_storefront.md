@@ -1711,12 +1711,16 @@ To add an Ecwid store to the website, use the code example on the right. The `10
 
 When you add store widgets, like search, minicart, categories menu, to a site page separate from the storefront widget, the storefront will open in a pop-up. This pop-up contains the whole store and works just fine. But in some cases it is more convenient to open the store on another website page instead of the pop-up.
  
-You can do this with the help of the `ecwid_ProductBrowserURL` option.
+You can do this with the help of the `window.ec.config.store_main_page_url` option.
 
 > 'Tell' Ecwid widgets that storefront is located at "http://www.example.com/store.html"
 
 ```html
-<script>var ecwid_ProductBrowserURL = "http://www.example.com/store.html";</script>
+<script>
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.store_main_page_url = "http://www.example.com/store.html";
+</script>
 ```
 
 **How Ecwid works by default**
@@ -1726,25 +1730,36 @@ You can do this with the help of the `ecwid_ProductBrowserURL` option.
 
 **How Ecwid works with this option**
 
-When a merchant uses a storefront widget placed on another page of a website, you should use the `ecwid_ProductBrowserURL` option. If it's set up, Ecwid works in such way: 
+When a merchant uses a storefront widget placed on another page of a website, you should use the `window.ec.config.store_main_page_url` option. If it's set up, Ecwid works in such way: 
 
 - if a visitor uses the "minicart/vertical categories/search box" widget and the storefront widget isn't added on this page, **they will be redirected to the URL speicified in the code and then the necessary actions will be performed there**
 
-For example, if a customer searches for a product on the page without a storefront, they will be redirected to a URL specified in `ecwid_ProductBrowserURL` variable and then Ecwid will show the search results on that page.
+For example, if a customer searches for a product on the page without a storefront, they will be redirected to a URL specified in `window.ec.config.store_main_page_url` variable and then Ecwid will show the search results on that page.
 
 **How to set up this option**
 
-In order to use it, you need to add the following JavaScript code to all pages, where Ecwid widgets are installed:
+In order to use it, you need to add the JavaScript code on the right to all pages, where Ecwid widgets are installed.
 
-`<script>var ecwid_ProductBrowserURL = "PB_URL";</script>`
+### Disable force scrolling to storefront
 
-where `PB_URL` is the full URL of the page where your product browser widget (i.e. your Ecwid store) is installed.
+> Disable force scrolling to storefront
 
-For example: 
+```js
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.navigation_scrolling = "DISABLED";
+```
 
-`<script>var ecwid_ProductBrowserURL = "http://www.example.com/store.html";</script>`
+When Ecwid storefront widget is added to a website, the page will be scrolled to the beginning of storefront by default. 
 
-#### Adapt storefront layout to container width
+If you want to disable this behaviour, use the `window.ec.config.navigation_scrolling` config variable. It has two possible values: 
+
+- `"DISABLED"`
+- `"IMMEDIATELY"`
+
+Default value: `"IMMEDIATELY"`
+
+### Adapt storefront layout to container width
 
 By default, Ecwid is a responsive widget which adapts to the changing screen width. That's usually when the container for storefront changes its width also.
 

@@ -987,7 +987,7 @@ rates | Array \<*TableRate*\> | Details of table rate
 Field | Type | Description
 ----- | ---- | -----------
 conditions | \<*TableRateConditions*\> | Conditions for this shipping rate in custom table
-rate | Array \<*TableRateDetails*\> | Table rate details
+rate | \<*TableRateDetails*\> | Table rate details
 
 #### TableRateConditions
 
