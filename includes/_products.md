@@ -715,7 +715,7 @@ Field | Type  | Description
 type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
 name |  string |  Product option name, e.g. `Color`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
-defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT`, `CHECKBOX` or `RADIO`.
+defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
 
 #### ImageDetails 
@@ -1265,7 +1265,7 @@ Field | Type  | Description
 type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
 name |  string |  Product option name, e.g. `Color`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
-defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT`, `CHECKBOX` or `RADIO`.
+defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
 
 #### ImageDetails 
@@ -1554,7 +1554,7 @@ Field | Type  | Description
 **name** |  string |  Product option name, e.g. `Color`
 **required** |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *Omit this field for product options with no selection (e.g. text, datepicker or upload file options)*
-defaultChoice | number  | The number, starting from `0`, of the option's default selection for the options types `SELECT`, `CHECKBOX` or `RADIO`.
+defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 
 #### ProductOptionChoice
 Field | Type  | Description
@@ -1746,7 +1746,7 @@ Field | Type  | Description
 type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
 **name** |  string |  Product option name, e.g. `Color`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *Omit this field for product options with no selection (e.g. text, datepicker or upload file options)*
-defaultChoice | number  | The number, starting from `0`, of the option's default selection for the options types `SELECT`, `CHECKBOX` or `RADIO`.
+defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is mandatory, `false` otherwise. Default is `false`
 
 
