@@ -223,9 +223,13 @@ window.addEventListener('load',  function(e) {
 </script>
 ```
 
-Ecwid can be embedded to a website in many ways. Sometimes a storefront can be inserted in an iframe container due to the limitations of a platform. To make sure that all popup windows such as customer account login popup are displayed in the center of an iframe, use the example code on the right **in a main frame of your page**.
+Ecwid can be embedded to a website in many ways. Sometimes a storefront can be inserted in an iframe container due to the limitations of a platform. 
+
+To make sure that all popup windows such as customer account login popup are displayed in the center of an iframe, use the example code on the right **in a main frame of your page**.
 
 `setupEcwidPopupCentering()` function accepts one argument, which is the ID of an iframe element, where Ecwid storefront is loaded. In order to work, `setupEcwidPopupCentering()` function needs to have `iframeintegration.js` file loaded for that frame. 
+
+P.S. this solution also works for the popups in the Ecwid Control Panel embedded in an iframe container.
 
 ### Product listing
 
@@ -2249,6 +2253,13 @@ To find our more about it, plesae see the [Storefront JavsScript API Documentati
 
 ## SEO 
 
+Check out the tools to improve the store's SEO. 
+
+**Table of contents:**
+
+- [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
+- [Canonical URLs](https://developers.ecwid.com/api-documentation/seo#canonical-urls)
+
 ### SEO-friendly URLs
 
 By default, Ecwid URLs address store pages in a hash part of the URL (after the # sign). Example: `https://www.mysite.com/store/#!/My-Product/p/123/category=0`
@@ -2356,8 +2367,6 @@ If canonical URLs functionality is enabled, Ecwid will dynamically update the ca
 
 #### How to enable canonical URLs
 
-In order to enable canonical URLs functionality for your store pages, you will need to adjust the Ecwid integration code on your website by adding some JavaScript code. If you are using Ecwid starter site as the main store website then no action is required from you – the canonical URLs are already enabled there.
-
 > Adjusting Ecwid integration code to enable canonical URLs
 
 ```html
@@ -2368,5 +2377,7 @@ In order to enable canonical URLs functionality for your store pages, you will n
   window.ec.config.enable_canonical_urls = true;
 </script>
 ```
+
+In order to enable canonical URLs functionality for your store pages, you will need to adjust the Ecwid integration code on your website by adding some JavaScript code. If you are using Ecwid starter site as the main store website then no action is required from you – the canonical URLs are already enabled there.
 
 The `enable_canonical_urls` setting will 'tell' Ecwid to enable the canonical URLs functionality and it will work as described above. Check out the example on the right.
