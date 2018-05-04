@@ -1754,14 +1754,30 @@ window.ec.config = window.ec.config || Object();
 window.ec.config.navigation_scrolling = "DISABLED";
 ```
 
+> Use custom scrolling to any position on the page
+
+```js
+window.ec = window.ec || Object();
+window.ec.config = window.ec.config || Object();
+window.ec.config.navigation_scrolling = "CUSTOM";
+
+window.ec.config.custom_scroller = function() {
+  window.scrollTo(500, 0);
+};
+```
+
 When Ecwid storefront widget is added to a website, the page will be scrolled to the beginning of storefront by default. 
 
-If you want to disable this behaviour, use the `window.ec.config.navigation_scrolling` config variable. It has two possible values: 
+If you want to disable this behaviour, use the `window.ec.config.navigation_scrolling` config variable. Possible values: 
 
 - `"DISABLED"`
 - `"IMMEDIATELY"`
+- `"CUSTOM"`
 
 Default value: `"IMMEDIATELY"`
+
+If you need to scroll to a custom position when navigating the Ecwid store, use the `"CUSTOM"` value and set your custom scrolling function in the `window.ec.config.custom_scroller` configuration. 
+
 
 ### Adapt storefront layout to container width
 

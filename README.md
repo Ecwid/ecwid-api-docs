@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## May 4, 2018
+
+Added option to use custom scrolling handler when navigating the Ecwid storefront. Set your custom function to scroll to a custom position on a page with `window.ec.config.custom_scroller` config and `"CUSTOM"` value for `window.ec.config.navigation_scrolling` config. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#disable-force-scrolling-to-storefront)
+
 ## April 17, 2018
 
 - Added option to disable force scrolling to Ecwid storefront on store navigation. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#disable-force-scrolling-to-storefront)
