@@ -103,7 +103,7 @@ Here you can find a starter template that you can use as a skeleton of your own 
 * The `EcwidApp.init()` method initializes the application within Ecwid Control panel and allows it to show the page content
 * The `EcwidApp.getPayload()` method allows you to get the Store ID and REST API access token. See details in the further sections
 * Ecwid will load your app's *Iframe URL* with a payload to help identify the merchant's store. To find out more about the store authentication process in the app tab, see the [Authentication section](#authentication-in-embedded-apps).
-* See the detailed description of the `init()` and `getPayload()` functions here: [Ecwid JS SDK](#ecwid-javascript-sdk) .
+* See the detailed description of the `init()` and `getPayload()` functions here: [Ecwid JS SDK](#ecwid-javascript-sdk).
 
 Full native application source code example for Custom URL for "Thank you" page app from [the Ecwid App Market](https://www.ecwid.com/apps/customizestorefront/custom-thank-you) is available here: [https://github.com/Ecwid/custom-thank-you-page-app](https://github.com/Ecwid/custom-thank-you-page-app)
 
@@ -584,7 +584,7 @@ The only parameter is a JS object with the following fields:
 
 Name | Type | Description
 ---- | ---- | -----------
-**app_id** | string | Namespace of your application (as set in the application settings). This is not the same as clientId. 
+**app_id** | string | Namespace of your application (as set in the application settings)
 autoloadedflag | boolean | Define how Ecwid should detect when your app is loaded. Set as `true`, if you want Ecwid to automatically detect the fact that you your app is loaded. Ecwid uses the window.onload event of your application document. If you want to contol when Ecwid should start displaying your app and inform it of your app's ready state, you should set this flag as `false` and use the [`EcwidApp.ready()`](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#ready) method. As soon as the app is loaded, Ecwid hides the 'Loading' animation and shows the app content.
 autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust your app iframe height depending on your app content. If you want to control the iframe size yourself, set this flag as `false` and use the [`EcwidApp.setSize()`](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#setsize) method.
 
