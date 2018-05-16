@@ -61,7 +61,7 @@ Parameters in bold are mandatory
   "contactusFacebook": "https://www.facebook.com/ecwid",
   "contactusTwitter": "https://twitter.com/ecwid",
   "contactusInstagram": "https://www.instagram.com/ecwid",
-  "contactUsList": "{\"title\": \"Contact us\", \"channels\": [{\"type\": \"phone\", \"title\": \"Phone\", \"value\": \"1-800-555-0123\"}, {\"type\": \"email\", \"title\": \"Email\", \"value\": \"john.doe@example.com\"}], \"channelsTitle\": \"Connect with us\"}",
+  "contactusList": "{\"title\": \"Contact us\", \"channels\": [{\"type\": \"phone\", \"title\": \"Phone\", \"value\": \"1-800-555-0123\"}, {\"type\": \"email\", \"title\": \"Email\", \"value\": \"john.doe@example.com\"}], \"channelsTitle\": \"Connect with us\"}",
   "showCoverImage": true,
   "showWhyUs": true,
   "showQuote": true,
@@ -104,7 +104,7 @@ locationDescription | string | Text for the "Location" block. HTML tags allowed:
 locationAddress | string | Address line for store's location
 locationLong | string | Longitude coordinate of a store
 locationLat | string | Lattitude coordinate of a store
-locationHours | \<*LocationHoursInfo*\> | Working hours of a store
+locationHours | JSON string of type \<*LocationHoursInfo*\> | Working hours of a store
 contactusFacebook | string | URL to store's Facebook page
 contactusTwitter | string | URL to store's Twitter profile
 contactusPinterest | string | URL to store's Twitter profile
@@ -124,7 +124,7 @@ contactusTelegram | string | URL to store's Telegram profile
 contactusMessenger | string | URL to store's Messenger profile
 contactusLine | string | URL to store's Line profile
 contactusViber | string | URL to store's Viber profile
-contactUsList | \<*ContactUsListInfo*\> | Contact a store block
+contactusList | \<*ContactUsListInfo*\> | Contact a store block
 showCoverImage | boolean | `true` if "Cover image" section is shown. `false` otherwise. Default is `true`
 showWhyUs | boolean | `true` if "Why Us?" section is shown. `false` otherwise. Default is `true`
 showQuote | boolean | `true` if quote section is shown. `false` otherwise. Default is `true`
@@ -152,6 +152,22 @@ dayfrom | string | Day of the week at the start of period
 dayto | string | Day of the week at the end of period
 hourfrom | string | Opening hours of a working day
 hourto | string | Closing hours of a working day
+
+#### ContactUsListInfo
+
+Field | Type | Description
+----- | ---- | -----------
+title | string | Title of the Contact Us block
+channels | Array\<*ContactUsChannelInfo*\> | Details of contact channels
+channelsTitle | string | Title of social media accounts block 'connect with us'
+
+#### ContactUsChannelInfo
+
+Field | Type | Description
+----- | ---- | -----------
+type | string | Type of contact us channel. One of: `"phone"`, `"url"`, `"email"`
+title | string | Title of contact us channel
+value | string | Value of contact us channel. For example, a phone number or email address
 
 #### Errors
 
@@ -207,6 +223,10 @@ Parameters in bold are mandatory
 
 ```json
 {
+  "coverImageUrl": "https://s3.amazonaws.com/images.ecwid.com/startersite/images/123456/1468931238307.jpg",
+  "coverImageMobileUrl": "https://s3.amazonaws.com/images.ecwid.com/startersite/images/123456/1468931236454.jpg",
+  "coverImageThumbnail": "data:image/jpeg;base64,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",
+  "coverImageMobileThumbnail": "data:image/jpeg;base64,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",
   "coverTitle": "Your store name here",
   "coverSubtitle": "Write a brief explanation about your store. It can be a brief description, slogan, motto, etc.<br>Example: &quot;Your one stop gift shop for any occasion&quot;.",
   "whyusTitle": "Why Choose Us?",
@@ -229,7 +249,7 @@ Parameters in bold are mandatory
   "contactusFacebook": "https://www.facebook.com/ecwid",
   "contactusTwitter": "https://twitter.com/ecwid",
   "contactusInstagram": "https://www.instagram.com/ecwid",
-  "contactUsList": "{\"title\": \"Contact us\", \"channels\": [{\"type\": \"phone\", \"title\": \"Phone\", \"value\": \"1-800-555-0123\"}, {\"type\": \"email\", \"title\": \"Email\", \"value\": \"john.doe@example.com\"}], \"channelsTitle\": \"Connect with us\"}",
+  "contactusList": "{\"title\": \"Contact us\", \"channels\": [{\"type\": \"phone\", \"title\": \"Phone\", \"value\": \"1-800-555-0123\"}, {\"type\": \"email\", \"title\": \"Email\", \"value\": \"john.doe@example.com\"}], \"channelsTitle\": \"Connect with us\"}",
   "showCoverImage": true,
   "showWhyUs": true,
   "showQuote": false,
@@ -250,6 +270,10 @@ A JSON object of type 'StarterSiteInfo' with the following fields:
 
 Field | Type | Description
 ----- | ---- | -----------
+coverImageUrl | string | URL to the main image, displayed in background when starter site is opened.
+coverImageThumbnail | base64 | Thumbnail cover image.
+coverImageMobileUrl | string | URL to the main image, displayed in background when starter site is opened on mobiles.
+coverImageMobileThumbnail | base64 | Thumbnail cover image for mobile devices
 coverTitle | string | The main title displayed on top of cover image
 coverSubtitle | string | Subtitle displayed under the `coverTitle`
 whyusTitle | string | Title for "Why us?" section
@@ -266,7 +290,7 @@ locationDescription | string | Text for the "Location" block. HTML tags allowed:
 locationAddress | string | Address line for store's location
 locationLong | string | Longitude coordinate of a store
 locationLat | string | Lattitude coordinate of a store
-locationHours | \<*LocationHoursInfo*\> | Working hours of a store
+locationHours | JSON string of type \<*LocationHoursInfo*\> | Working hours of a store
 contactusFacebook | string | URL to store's Facebook page
 contactusTwitter | string | URL to store's Twitter profile
 contactusPinterest | string | URL to store's Twitter profile
@@ -286,7 +310,7 @@ contactusTelegram | string | URL to store's Telegram profile
 contactusMessenger | string | URL to store's Messenger profile
 contactusLine | string | URL to store's Line profile
 contactusViber | string | URL to store's Viber profile
-contactUsList | \<*ContactUsListInfo*\> | Contact a store block
+contactusList | JSON string of type \<*ContactUsListInfo*\> | Contact a store block
 showCoverImage | boolean | Set to `false` to hide the "Cover image" section. `true` otherwise. Default is `true`
 showWhyUs | boolean | Set to `false` to hide "Why Us?" section. `true` otherwise. Default is `true`
 showQuote | boolean | Set to `false` to hide quote section. `true` otherwise. Default is `true`
@@ -315,6 +339,21 @@ dayto | string | Day of the week at the end of period
 hourfrom | string | Opening hours of a working day
 hourto | string | Closing hours of a working day
 
+#### ContactUsListInfo
+
+Field | Type | Description
+----- | ---- | -----------
+title | string | Title of the Contact Us block
+channels | Array\<*ContactUsChannelInfo*\> | Details of contact channels
+channelsTitle | string | Title of social media accounts block 'connect with us'
+
+#### ContactUsChannelInfo
+
+Field | Type | Description
+----- | ---- | -----------
+type | string | Type of contact us channel. One of: `"phone"`, `"url"`, `"email"`
+title | string | Title of contact us channel
+value | string | Value of contact us channel. For example, a phone number or email address
 
 #### Response
 
@@ -362,7 +401,9 @@ errorMessage | string | Error message
 
 ### Upload cover image
 
-Upload starter site cover. The image itself is to be placed in the request body.
+Upload image to prepare it for a starter site cover. 
+
+<aside class="note">Once you get a successful result, get the JSON response and send it via <a href="https://developers.ecwid.com/api-documentation/starter-site#create-and-update-starter-site-content-details">Update starter site content</a> request to update the starter site cover image.</aside>
 
 > Request example
 
@@ -471,9 +512,12 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-### Upload owner portrait
+### Upload owner portrait image
 
-Upload starter site owner portrait. The image itself is to be placed in the request body.
+Upload image to prepare it for an owner portrait. 
+
+<aside class="note">Once you get a successful result, get the JSON response and send it via <a href="https://developers.ecwid.com/api-documentation/starter-site#create-and-update-starter-site-content-details">Update starter site content</a> request to update the starter site owner portrait.
+</aside>
 
 > Request example
 
@@ -579,7 +623,10 @@ errorMessage | string | Error message
 
 ### Upload quote person image
 
-Upload starter site quote person image. The image itself is to be placed in the request body.
+Upload starter site quote person image to prepare it.
+
+<aside class="note">Once you get a successful result, get the JSON response and send it via <a href="https://developers.ecwid.com/api-documentation/starter-site#create-and-update-starter-site-content-details">Update starter site content</a> request to update the starter site quote person image.
+</aside>
 
 > Request example
 
