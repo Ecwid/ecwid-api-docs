@@ -157,7 +157,11 @@ Please make sure **not to pass any sensitive user data in the public application
 
 ```js
 
-// Set payment method title that matches merchant's payment method title set in Ecwid Control Panel. Use public token to get it from store profile
+// Set payment method title that matches merchant's payment method title set in Ecwid Control Panel. Use public access token to get it from payment settings in store profile
+//
+// Public token: https://developers.ecwid.com/api-documentation/access-tokens#public-access-token
+//
+// Store profile: https://developers.ecwid.com/api-documentation/store-information#get-store-profile
 
     var paymentMethodTitle = "PayPal";
 
@@ -175,7 +179,7 @@ Please make sure **not to pass any sensitive user data in the public application
         'https://djqizrxa6f10j.cloudfront.net/apps/ecwid-api-docs/payment-icons-svg/mastercard.svg',
         'https://djqizrxa6f10j.cloudfront.net/apps/ecwid-api-docs/payment-icons-svg/visa.svg',
         'https://djqizrxa6f10j.cloudfront.net/apps/ecwid-api-docs/payment-icons-svg/amex.svg'
-    ]
+    ];
 
 // Function to process current payment in the list
 
@@ -228,7 +232,7 @@ Please make sure **not to pass any sensitive user data in the public application
         if(page.type == "CHECKOUT_PAYMENT_DETAILS"){
             ecwidUpdatePaymentData();
         }
-    })
+    });
 
 ```
 
