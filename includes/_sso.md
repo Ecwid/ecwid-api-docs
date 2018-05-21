@@ -6,13 +6,13 @@ If a merchant already has a customer base on their website, customers may find i
 
 Ecwid’s Single Sign-On feature allows those customers to sign into a merchant’s website and use the entire Ecwid store without having to log in again. 
 
-<aside class="notice">Access scope required: <strong>create_customers</strong>. See more information in <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">access scopes section</a></aside>
-
-#### Table of contents
+**Table of contents**
 
 - [Add Single Sign-On to a website](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website)
 - [Customize Single Sign-On flow](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#customize-sso-workflow)
 - [Single Sign-On implementation examples](https://developers.ecwid.com/api-documentation/sso-implementation-examples)
+
+<aside class="notice">Access scope required: <strong>create_customers</strong>. See more information in <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">access scopes section</a></aside>
 
 #### How it works
 
