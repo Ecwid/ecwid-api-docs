@@ -259,7 +259,7 @@ Check a basic example on the right.
 
 ### Extra field display requirements
 
-Extra fields will only be shown in an order details to customer and store admin if these conditions are met: 
+Extra fields will only be shown in order details to customer and store admin if these conditions are met: 
 
 - `title` is not empty 
 - `value` is not empty
@@ -268,6 +268,13 @@ Extra fields will only be shown in an order details to customer and store admin 
 <aside class='note'>
     If 'orderDetailsDisplaySection' contains an unsupported value, the extra field will still be saved to an order, but it will not be shown in order details to merchant and customer.
 </aside>
+
+### Order extra fields in invoices and emails
+
+Check out these articles in the Ecwid Help Center to learn how to show all or partial details of order extra fields: 
+
+- [Email notifications](https://support.ecwid.com/hc/en-us/articles/207808345#extraFields)
+- [Invoices](https://support.ecwid.com/hc/en-us/articles/207101479#extraFields)
 
 ## Customize extra fields 
 
