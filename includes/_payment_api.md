@@ -102,55 +102,6 @@ Ecwid will be sending order details requests to payment URL endpoint and expect 
 
 Next, start working on payment processing page according to the documentation: [https://developers.ecwid.com/api-documentation/processing-payment-request](https://developers.ecwid.com/api-documentation/processing-payment-request)
 
-
-## Merchant settings for payment method
-
-Your application can require merchants to specify their account details in your system and any other user preferences you may require.
-
-### Merchant account settings
-
-> Merchant settings example
-
-> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/paymentSettings-1468408208.png)
-
-Set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more information.
-
-When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#javascript-storage-api) (client-side) or [Ecwid REST API](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#rest-storage-api) (server-side).
-
-### Edit payment method
-
-When your app is installed in merchant's store, merchants are able to change its name, position and description just like any other payment method. 
-
-**Change title and description**
-
-You can edit payment method added by your app just like any other payment method in *Ecwid Control Panel > Settings > Payment > Select payment method > Actions > Edit*.
-
-A merchant will see a standard interface for editing payment method: edit payment method name, description, instruction title and text.
-
-**Sorting**
-
-Using the Actions button merchant can also sort payment methods in the way they prefer – move it up or down the list of available methods. 
-
-**Account settings**
-
-If a merchant clicks on Account Settings, then Ecwid will open embedded interface of your application in a popup on the same page.
-
-Important: Account Settings button will only be visible if your app is [Native](https://developers.ecwid.com/api-documentation/native-applications).
-
-**Availability**
-
-It is possible to quickly enable/disable the payment method in a storefront right in the payment settings of the Ecwid Control Panel: *find your payment method > switch the toggle to the disabled state*.
-
-If a merchant needs to remove a payment method completely, go to *Ecwid Control Panel > Apps > My Apps > remove the app from the list*.
-
-### Request
-
-Once the settings are saved there, Ecwid will send them in an HTML form with a **POST request** to your payment URL with order details when customer chooses to pay with the new payment method. The request will contain **all data** from your application storage, including public and other keys that were specified.
-
-You can use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
-
-Please make sure **not to pass any sensitive user data in the public application config**, as this information will be available via Ecwid Javascript API to any 3-rd party. To save and get that kind of information, use any other key names in your application storage. They will be provided in a request to your application as well as public information, but not accessible in the storefront.
-
 ### Show payment options as icons
 
 > Add payment options icons below your payment method example
@@ -241,6 +192,54 @@ To show various payment options, i.e. Paypal, MasterCard, Visa, etc. you can add
 Check the example of that code on the right. 
 
 To add a new custom JS to the storefront, check [Customizing Storefront](https://developers.ecwid.com/api-documentation/customize-behaviour#add-custom-javascript-code)
+
+## Merchant settings for payment method
+
+Your application can require merchants to specify their account details in your system and any other user preferences you may require.
+
+### Merchant account settings
+
+> Merchant settings example
+
+> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/paymentSettings-1468408208.png)
+
+Set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more information.
+
+When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#javascript-storage-api) (client-side) or [Ecwid REST API](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#rest-storage-api) (server-side).
+
+### Edit payment method
+
+When your app is installed in merchant's store, merchants are able to change its name, position and description just like any other payment method. 
+
+**Change title and description**
+
+You can edit payment method added by your app just like any other payment method in *Ecwid Control Panel > Settings > Payment > Select payment method > Actions > Edit*.
+
+A merchant will see a standard interface for editing payment method: edit payment method name, description, instruction title and text.
+
+**Sorting**
+
+Using the Actions button merchant can also sort payment methods in the way they prefer – move it up or down the list of available methods. 
+
+**Account settings**
+
+If a merchant clicks on Account Settings, then Ecwid will open embedded interface of your application in a popup on the same page.
+
+Important: Account Settings button will only be visible if your app is [Native](https://developers.ecwid.com/api-documentation/native-applications).
+
+**Availability**
+
+It is possible to quickly enable/disable the payment method in a storefront right in the payment settings of the Ecwid Control Panel: *find your payment method > switch the toggle to the disabled state*.
+
+If a merchant needs to remove a payment method completely, go to *Ecwid Control Panel > Apps > My Apps > remove the app from the list*.
+
+### Request
+
+Once the settings are saved there, Ecwid will send them in an HTML form with a **POST request** to your payment URL with order details when customer chooses to pay with the new payment method. The request will contain **all data** from your application storage, including public and other keys that were specified.
+
+You can use the `public` key of the application storage to save data for accessing in the storefront. More details on how to handle such data: [Public application config](#public-application-config).
+
+Please make sure **not to pass any sensitive user data in the public application config**, as this information will be available via Ecwid Javascript API to any 3-rd party. To save and get that kind of information, use any other key names in your application storage. They will be provided in a request to your application as well as public information, but not accessible in the storefront.
 
 ## Processing payment request
 

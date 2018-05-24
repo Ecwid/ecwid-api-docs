@@ -121,3 +121,16 @@ We suggest using [public access token](#access-tokens) to get information about:
 With public access token you can safely make requests to Ecwid REST API without creating a buffer in a form of a server-side code, which requested information for your client-side code. You can make an Ajax request to Ecwid API with your JavaScript code and have a completely serverless application.
 
 For more information on using custom JavaScript in Ecwid storefront, see [Customize Storefront](/api-documentation/logic-and-code#add-custom-javascript-code) section
+
+#### Static information in Ecwid 
+
+In Ecwid there are different formats and units used for each store. 
+
+To make sure your solution supports them and provides a great service, use the spreadsheet below: 
+
+[Static information in Ecwid](https://docs.google.com/spreadsheets/d/1UAYgxdNFpdUAcZ1AXRGBCT-rE4_wu8jR0yUt6ZNVnso/edit?usp=sharing)
+
+
+
+
+

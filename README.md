@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## May 24, 2018
+
+Added a reference spreadsheet for static information in Ecwid stores – currencies, weight units and country codes. [Learn more](https://docs.google.com/spreadsheets/d/1UAYgxdNFpdUAcZ1AXRGBCT-rE4_wu8jR0yUt6ZNVnso/edit?usp=sharing)
+
 ## May 22, 2018
 
 Added support for order extra fields in invoice and email notification templates. [Learn more](https://developers.ecwid.com/api-documentation/show-extra-fields-in-an-order#order-extra-fields-in-invoices-and-emails)
