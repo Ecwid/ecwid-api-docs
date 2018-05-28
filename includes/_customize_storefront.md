@@ -10,12 +10,12 @@ The Ecwid API platform allows you to customize storefront in various ways:
 
 **Most popular modifications include**:
 
-- [Apply custom JavaScript file](https://developers.ecwid.com/api-documentation/logic-and-code#add-custom-javascript-code)
-- [Change store layout](https://developers.ecwid.com/api-documentation/look-and-design#change-store-layout)
-- [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#add-new-element-for-each-product-in-product-grid)
+- [Apply custom JavaScript file](https://developers.ecwid.com/api-documentation/customize-behaviour#add-custom-javascript-code)
+- [Change store layout](https://developers.ecwid.com/api-documentation/customize-appearance#change-store-layout)
+- [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/customize-appearance#add-new-element-for-each-product-in-product-grid)
 - [Apply SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
-- [Change default colors and fonts](https://developers.ecwid.com/api-documentation/look-and-design#change-default-colors-and-fonts)
-- [Generate link to cart with products](https://developers.ecwid.com/api-documentation/logic-and-code#generate-cart-with-products)
+- [Change default colors and fonts](https://developers.ecwid.com/api-documentation/customize-appearance#change-default-colors-and-fonts)
+- [Generate link to cart with products](https://developers.ecwid.com/api-documentation/customize-behaviour#generate-cart-with-products)
 - [Access storefront JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api)
 
 ## Customize appearance
@@ -67,12 +67,12 @@ Ecwid.OnPageLoaded.add(function (page) {
             elem.appendChild(container);
           }
         }
-})
+});
 ```
 
 The latest version of product grid requires specific approach to adding new elements. Check out the example on the right. 
 
-[How to enable latest version of product listing in your test store](https://developers.ecwid.com/api-documentation/look-and-design#product-listing)
+[How to enable latest version of product listing in your test store](https://developers.ecwid.com/api-documentation/customize-appearance#product-listing)
 
 #### Set default product or category page
 
@@ -262,7 +262,7 @@ If you apply any of the changes below after storefront has loaded, you can updat
 
 Ecwid's latest version of product listing (category pages) works in a different way, which requires different approach to adding new elements to a page.
 
-Check this page for code example: [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/look-and-design#add-new-element-for-each-product-in-product-grid)
+Check this page for code example: [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/customize-appearance#add-new-element-for-each-product-in-product-grid)
 
 ##### Control display of elements in product grid
 
@@ -1669,7 +1669,7 @@ In more details:
 3. The next time merchant's storefront is loaded in any browser or website, your external CSS file will be automatically appended, loaded, and executed on that page.
 
 <aside class="notice">
-Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
+Permission required: <strong>customize_storefront</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
 </aside>
 
 #### Q: Can I create new themes as apps?
@@ -1682,7 +1682,7 @@ You may want to apply different CSS codes depending on the store your applicatio
 
 For example, if your application provides new design themes for merchant storefront, you may need to give a merchant ability to choose the theme they want to enable and change the applied CSS code according to their choice. 
 
-In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript files](https://developers.ecwid.com/api-documentation/add-or-modify-features-in-storefront#add-custom-javascript-code) for details.
+In such cases, you will need to use custom JS files to dynamically detect merchant store ID and load different styles depending on the user store ID. See [Custom JavaScript files](https://developers.ecwid.com/api-documentation/customize-behaviour#add-custom-javascript-code) for details.
 
 ### Storefront interface translations
 
@@ -1867,7 +1867,7 @@ This method of embedding Ecwid is slower than direct embedding of Ecwid widget. 
 
 You should use `window.ecwid_dynamic_widgets` variable to enable dynamic widget creating in Ecwid. See the example on the right that shows how to create and destroy Ecwid widget through the JavaScript functions. 
 
-Please note that **this method allows to embed the storefront widget only**. If you need to embed other widgets dynamically, please, use the code for [deferred widget initialization](https://developers.ecwid.com/api-documentation/add-ecwid-to-the-site#delayed-widget-initialization)
+Please note that **this method allows to embed the storefront widget only**. If you need to embed other widgets dynamically, please, use the code for [deferred widget initialization](https://developers.ecwid.com/api-documentation/customize-behaviour#delayed-widget-initialization)
 
 ### Delayed widget initialization 
 
@@ -1972,14 +1972,14 @@ var color = Ecwid.getAppPublicConfig(appId);
 
 As soon as your script is loaded on the page with Ecwid storefront, you can access the page DOM and do pretty much everything you want by means of native JavaScript or whatever framework you want. If you use a JS framework, please make sure it's already loaded on the page by the moment you start using it. 
 
-In addition, Ecwid provides a [JavaScript API](#storefront-js-api) that you can use to retrieve store information and track Ecwid events on the page. For example:
+In addition, Ecwid provides a [JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api) that you can use to retrieve store information and track Ecwid events on the page. For example:
 
 * `Ecwid.getOwnerId()` returns the store ID. You may want to use it to identify which store your script is loaded in now
 * `Ecwid.OnPageLoad()` and `Ecwid.OnPageLoaded()` help you to track store page switch and identify which page is opened
 * `Ecwid.Cart` object and its methods allow to manage the customer cart
 * `EcwidApp.getAppPublicConfig` will return store-specific data from application storage
 
-More details: [Ecwid JavaScript API](#storefront-js-api)
+More details: [Ecwid JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api)
 
 #### How to load custom JavaScript anytime storefront is loaded
 
@@ -1992,7 +1992,7 @@ In more details:
 3. The next time the user storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
 
 <aside class="notice">
-Permission required: <strong>customize_storefront</strong> (see <a href="#access-scopes">Access scopes</a>)
+Permission required: <strong>customize_storefront</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
 </aside>
 
 #### Q: How to know what Ecwid widgets are on a page?
@@ -2041,7 +2041,7 @@ App public config allows apps to access user specific data in storefront as soon
 
 For example, using this method you can pass store ID to a storefront, category or product ID where the changes need to apply or whether your widget needs to be shown in storefront. 
 
-To find out more about this process, please check [Public App Config](#public-application-config) section.
+To find out more about this process, please check [Public App Config](https://developers.ecwid.com/api-documentation/public-application-config) section.
 
 #### Store-specific custom JavaScript
 
@@ -2074,7 +2074,7 @@ In most cases, your application behavior will vary depending on the store it is 
 
 For example, let's say you need to dynamically add a store-specific configuration to your script when it's executed in some particular storefront. You can detect the store ID in your script and call a script on your server containing the store-specific code. 
 
-To get information for that specific store you can use `Ecwid.getAppPublicConfig` function in [Ecwid Javascript API](#storefront-js-api). See more details on how to access that data in **Application data** section of documentation.
+To get information for that specific store you can use `Ecwid.getAppPublicConfig` function in [Ecwid Javascript API](https://developers.ecwid.com/api-documentation/storefront-js-api). See more details on how to access that data in **Application data** section of documentation.
 
 #### Caching JavaScript file contents
 
