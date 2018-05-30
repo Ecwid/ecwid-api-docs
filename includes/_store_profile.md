@@ -581,7 +581,41 @@ Name | Type    | Description
             "visible": false,
             "enabled": true
         }
-    ]    
+    ],
+    "designSettings": {
+        "product_list_image_size": "MEDIUM",
+        "product_list_image_aspect_ratio": "SQUARE",
+        "product_list_product_info_layout": "CENTER",
+        "product_list_show_additional_image_on_hover": false,
+        "product_list_title_behavior": "SHOW",
+        "product_list_price_behavior": "SHOW",
+        "product_list_sku_behavior": "HIDE",
+        "product_list_buybutton_behavior": "SHOW",
+        "product_list_category_title_behavior": "SHOW_ON_IMAGE",
+        "product_list_image_has_shadow": true,
+        "show_signin_link": true,
+        "show_footer_menu": true,
+        "show_breadcrumbs": true,
+        "product_list_show_sort_viewas_options": true,
+        "product_details_show_product_sku": true,
+        "product_details_layout": "TWO_COLUMNS_SIDEBAR_ON_THE_RIGHT",
+        "product_details_two_columns_with_right_sidebar_show_product_description_on_sidebar": false,
+        "product_details_show_product_name": true,
+        "product_details_show_breadcrumbs": true,
+        "product_details_show_product_price": true,
+        "product_details_show_sale_price": true,
+        "product_details_show_tax": true,
+        "product_details_show_product_description": true,
+        "product_details_show_product_options": true,
+        "product_details_show_wholesale_prices": true,
+        "product_details_show_save_for_later": true,
+        "product_details_show_share_buttons": true,
+        "product_details_show_price_per_unit": true,
+        "product_details_show_qty": true,
+        "product_details_show_in_stock_label": true,
+        "product_details_show_number_of_items_in_stock": true,
+        "product_details_gallery_layout": "IMAGE_SINGLE_THUMBNAILS_VERTICAL"
+    } 
 }
 ```
 
@@ -792,7 +826,41 @@ Cache-Control: no-cache
             "appClientId": "doba-integration"
           }
         ]
-    }    
+    },
+    "designSettings": {
+        "product_list_image_size": "MEDIUM",
+        "product_list_image_aspect_ratio": "SQUARE",
+        "product_list_product_info_layout": "CENTER",
+        "product_list_show_additional_image_on_hover": false,
+        "product_list_title_behavior": "SHOW",
+        "product_list_price_behavior": "SHOW",
+        "product_list_sku_behavior": "HIDE",
+        "product_list_buybutton_behavior": "SHOW",
+        "product_list_category_title_behavior": "SHOW_ON_IMAGE",
+        "product_list_image_has_shadow": true,
+        "show_signin_link": true,
+        "show_footer_menu": true,
+        "show_breadcrumbs": true,
+        "product_list_show_sort_viewas_options": true,
+        "product_details_show_product_sku": true,
+        "product_details_layout": "TWO_COLUMNS_SIDEBAR_ON_THE_RIGHT",
+        "product_details_two_columns_with_right_sidebar_show_product_description_on_sidebar": false,
+        "product_details_show_product_name": true,
+        "product_details_show_breadcrumbs": true,
+        "product_details_show_product_price": true,
+        "product_details_show_sale_price": true,
+        "product_details_show_tax": true,
+        "product_details_show_product_description": true,
+        "product_details_show_product_options": true,
+        "product_details_show_wholesale_prices": true,
+        "product_details_show_save_for_later": true,
+        "product_details_show_share_buttons": true,
+        "product_details_show_price_per_unit": true,
+        "product_details_show_qty": true,
+        "product_details_show_in_stock_label": true,
+        "product_details_show_number_of_items_in_stock": true,
+        "product_details_gallery_layout": "IMAGE_SINGLE_THUMBNAILS_VERTICAL"
+    }
 }
 ```
 
@@ -815,6 +883,7 @@ businessRegistrationID | \<*BusinessRegistrationID*\> | Company registration ID,
 legalPagesSettings | \<*LegalPagesSettingsDetails*\> | Legal pages settings for a store (*System Settings → General → Legal Pages*)
 payment | \<*PaymentInfo*\> | Store payment settings information
 featureToggles | \<*FeatureTogglesInfo*\> | Information about enabled/disabled new store features and their visibility in Ecwid Control Panel. Not provided via public token. Some of them are available in [Ecwid JS API](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getfeaturetoggles)
+designSettings | \<*DesignSettingsInfo*\> | Design settings of an Ecwid store. Can be overriden by [updating store profile](https://developers.ecwid.com/api-documentation/store-information#update-store-profile) or by [customizing design](https://developers.ecwid.com/api-documentation/customize-appearance) via JS config in storefront. 
 
 #### GeneralInfo
 Field | Type | Description
@@ -874,13 +943,13 @@ currency | string | 3-letters code of the store currency (ISO 4217). Examples: `
 currencyPrefix | string |  Currency prefix (e.g. $)
 currencySuffix | string | Currency suffix
 currencyPrecision | number  | Numbers of digits after decimal point in the store prices. E.g. `2` ($2.99) or `0` (¥500).
-currencyGroupSeparator | string | Price thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``.
+currencyGroupSeparator | string | Price thousands separator. Supported values: space `" "`, dot `"."`, comma `","`  or empty value `""`.
 currencyDecimalSeparator |  string | Price decimal separator. Possible values: `.` or `,` 
 currencyTruncateZeroFractional | boolean | Hide zero fractional part of the prices in storefront. `true` or `false` . 
 currencyRate | number | Currency rate in U.S. dollars, as set in the merchant control panel
 weightUnit |    string |    Weight unit. Supported values: `CARAT`, `GRAM`, `OUNCE`, `POUND`, `KILOGRAM`
 weightPrecision | number | Numbers of digits after decimal point in weights displayed in the store
-weightGroupSeparator | string | Weight thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``
+weightGroupSeparator | string | Weight thousands separator. Supported values: space `" "`, dot `"."`, comma `","`  or empty value `""`
 weightDecimalSeparator | string | Weight decimal separator. Possible values: `.` or `,` 
 weightTruncateZeroFractional |  boolean | Hide zero fractional part of the weight values in storefront. `true` or `false` . 
 dateFormat | string | Date format. Only these formats are accepted: `"dd-MM-yyyy"`, `"dd/MM/yyyy"`, `"dd.MM.yyyy"`, `"MM-dd-yyyy"`, `"MM/dd/yyyy"`, `"yyyy/MM/dd"`, `"MMM d, yyyy"`, `"MMMM d, yyyy"`, `"EEE, MMM d, ''yy"`, `"EEE, MMMM d, yyyy"`
@@ -1129,6 +1198,12 @@ name | string | Feature name
 visible | boolean | `true` if feature is shown to merchant in *Ecwid Control Panel > Settings > What's new*. `false` otherwise
 enabled | boolean | `true` if feature is enabled and active in store
 
+#### DesignSettingsInfo
+
+Field | Type | Description
+----- | ---- | -----------
+DESIGN_CONFIG_FIELD_NAME | string or boolean | Store design settings as seen in [storefront design customization](https://developers.ecwid.com/api-documentation/customize-appearance). If a specific config field is not provided, it will not be changed
+
 #### Errors
 
 > Error response example
@@ -1159,35 +1234,44 @@ Update basic store information in an Ecwid store: settings, store location, emai
 PUT /api/v3/4870020/profile?token=123abcd HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
+```
 
+```json
 {
-    generalInfo: {
-        storeUrl: "http://www.example.com/store/"
+    "generalInfo": {
+        "storeUrl": "http://www.example.com/store/"
     },
-    settings: {
-        closed: false,
-        storeName: "My Cool Store",
+    "settings": {
+        "closed": false,
+        "storeName": "My Cool Store",
         "googleRemarketingEnabled": false,
         "googleAnalyticsId": "UA-654321-1",
         "hideOutOfStockProductsInStorefront": false
     },
-    company: {
-      companyName: "My Company, Inc",
-      email: "store@example.com",
-      street: "144 West D Street",
-      city: "Encinitas",
-      countryCode: "US",
-      postalCode: "92024",
-      stateOrProvinceCode: "CA",
-      phone: "1(800)5555555"
+    "company": {
+      "companyName": "My Company, Inc",
+      "email": "store@example.com",
+      "street": "144 West D Street",
+      "city": "Encinitas",
+      "countryCode": "US",
+      "postalCode": "92024",
+      "stateOrProvinceCode": "CA",
+      "phone": "1(800)5555555"
     },
-    legalPagesSettings: {
-      legalPages: [
-      {
-        "type": "LEGAL_INFO",
-        "enabled": false
-      }
+    "legalPagesSettings": {
+      "legalPages": [
+        {
+          "type": "LEGAL_INFO",
+          "enabled": false
+        }
       ]
+    },
+    "designSettings": {
+        "product_list_image_size": "MEDIUM",
+        "product_list_image_aspect_ratio": "SQUARE",
+        "product_list_product_info_layout": "CENTER",
+        "product_list_show_additional_image_on_hover": true,
+        "product_list_title_behavior": "SHOW",
     }
 }
 ```
@@ -1198,7 +1282,9 @@ Cache-Control: no-cache
 PUT /api/v3/4870020/profile?token=123abcd HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
+```
 
+```json
 {
     "zones": [
         {
@@ -1240,6 +1326,7 @@ taxSettings | \<*TaxSettings*\> | Store taxes settings
 zones | Array\<*Zone*\> | Store destination zones
 businessRegistrationID | \<*BusinessRegistrationID*\> | Company registration ID, e.g. VAT reg number or company ID, which is set under Settings / Invoice in Control panel
 legalPagesSettings | \<*LegalPagesSettingsDetails*\> | Legal pages settings for a store (*System Settings → General → Legal Pages*)
+designSettings | \<*DesignSettingsInfo*\> | Design settings of an Ecwid store. Can be overriden by [updating store profile](https://developers.ecwid.com/api-documentation/store-information#update-store-profile) or by [customizing design](https://developers.ecwid.com/api-documentation/customize-appearance) via JS config in storefront. If `designSettings` field is not provided in request, it will not be changed
 
 <aside class="notice">
 All fields are optional. Omitted field will not be affected
@@ -1407,6 +1494,12 @@ title | string | Legal page title
 display | string | Legal page display mode – in a popup or on external URL. One of: `"INLINE"`, `"EXTERNAL_URL"`
 text | string | HTML contents of a legal page
 externalUrl | string | URL to external location of a legal page
+
+#### DesignSettingsInfo
+
+Field | Type | Description
+----- | ---- | -----------
+DESIGN_CONFIG_FIELD_NAME | string or boolean | Store design settings as seen in [storefront design customization](https://developers.ecwid.com/api-documentation/customize-appearance). If a specific config field is not provided, it will not be changed
 
 #### Response
 

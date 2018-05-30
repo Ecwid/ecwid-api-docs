@@ -109,6 +109,10 @@ Full native application source code example for Custom URL for "Thank you" page 
 
 A sample native application with examples of how to access Ecwid REST API, save data to application storage and how to design the app is available here: [https://github.com/Ecwid/sample-native-app](https://github.com/Ecwid/sample-native-app)
 
+<aside class="note">
+If your app for public use, it is required to use <a href='https://github.com/Ecwid/sample-native-app'>Sample Native App</a> interface for its user interface. 
+</aside>
+
 Also, see the [set up your application](https://developers.ecwid.com/api-documentation/building-an-embedded-app#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
 
 
@@ -562,14 +566,12 @@ To use the SDK, include this file into your app: `https://djqizrxa6f10j.cloudfro
 > Example of using EcwidApp.init() method
 
 ```js
-...
 // Initialize the application
 EcwidApp.init({
   app_id: "my-super-app", // use your application client_id
   autoloadedflag: true, 
   autoheight: true
 });
-...
 ```
 
 The `EcwidApp.init()` method initializes your app inside Ecwid Control Panel. Call it once at the beginning of executable code in your app.
@@ -594,7 +596,6 @@ autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust you
 > Retrieving store ID and access token using Ecwid JavaScript SDK 
 
 ```js
-...
     var storeData = EcwidApp.getPayload();
     var storeId = storeData.store_id;
     var accessToken = storeData.access_token;
@@ -610,7 +611,6 @@ autoheight | boolean | Set as `true` if you want Ecwid to dynamically adjust you
     }
 
     // now you know the user you interact with and can access Ecwid API on their behalf
-...
 ```
 
 `EcwidApp.getPayload()`
@@ -665,7 +665,23 @@ The result: `EcwidApp.openPage('order:id=938&return=orders');`
 
 ### ready
 
-You can use the `EcwidApp.ready()` method in your application to inform Ecwid of ready state of your application. For example, you may need to make a few API calls or load some additional assets before your app UI should be displayed to the user. In this way, pass `false` in the `autoloadedflag` parameter in the [`EcwidApp.init()`](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#init) method and call the `.ready()` function when you are ready. 
+> Show app UI when your app is ready to show it
+
+```js
+// Initialize the application
+EcwidApp.init({
+  app_id: "my-super-app", // use your application client_id
+  autoloadedflag: false, 
+  autoheight: true
+});
+
+// Show app UI
+EcwidApp.ready();
+```
+
+You can use the `EcwidApp.ready()` method in your application to inform Ecwid of ready state of your application. 
+
+For example, you may need to make a few API calls or load some additional assets before your app UI should be displayed to the user. In this way, pass `false` in the `autoloadedflag` parameter in the [`EcwidApp.init()`](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk#init) method and call the `.ready()` function when you are ready. 
 
 
 ### setSize
@@ -796,7 +812,7 @@ EcwidApp.getAppStorage(key, callback);
 EcwidApp.getAppStorage('color', function(value){
   //prints 'red' 
   console.log(value);
-})
+});
 ```
 
 #### Parameters
@@ -843,7 +859,7 @@ Using this method you can retrieve the value of public application config stored
 ### closeAppPopup
 
 ```js
-EcwidApp.closeAppPopup()
+EcwidApp.closeAppPopup();
 ```
 
 When a native application is opened in a popup window in Ecwid Control Panel, executing this function will close that popup for the user.

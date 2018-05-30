@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## May 30, 2018
+
+Added option to get and update store design settings in [store profile endpoint](https://developers.ecwid.com/api-documentation/store-information). The design settings and possible values are available in [appearance customization](https://developers.ecwid.com/api-documentation/customize-appearance) section. 
+
 ## May 24, 2018
 
 Added a reference spreadsheet for static information in Ecwid stores – currencies, weight units and country codes. [Learn more](https://docs.google.com/spreadsheets/d/1UAYgxdNFpdUAcZ1AXRGBCT-rE4_wu8jR0yUt6ZNVnso/edit?usp=sharing)
