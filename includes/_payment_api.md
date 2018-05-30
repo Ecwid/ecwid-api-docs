@@ -306,6 +306,12 @@ When customer tries to pay with your payment method, Ecwid will send a POST requ
 
 The value of the `data` input is encoded with a **AES-128** mechanism, where the first 16 characters is the `client_secret` of your application, which serves as a key to the decoding process. To find out more on how to decode the value, see the example code in **Step #1** of [Server-side Native Apps](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#enhanced-security-user-auth) section.
 
+**If you are using C# language**
+
+For correct payload decryption, create additional padding to make the payload a multiple of 4: 
+
+`base64 = base64.PadRight(base64.Length + (4 - (base64.Length % 4)), '=');`
+
 > Decoded request from Ecwid example
 
 ```json

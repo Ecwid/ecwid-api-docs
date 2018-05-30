@@ -334,12 +334,12 @@ Field | Type |  Description
 ------| -----| ------------
 orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
 vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
-subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order (item's `price` x `quantity`)
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
-tax | number | Tax total
+tax | number | Tax total for order. Sum of all tax in order items, unless they were modified after order was placed
 customerTaxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 customerTaxId | string | Customer tax ID
 customerTaxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
@@ -351,7 +351,7 @@ refererUrl | string | URL of the page when order was placed (without hash (#) pa
 orderComments | string  | Order comments
 couponDiscount | number | Discount applied to order using a coupon
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
-discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values
+discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values. Total order discount is a sum of all discounts applied to items (both regular discount and discount coupons) unless they were modified after order was placed
 membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
@@ -903,12 +903,12 @@ Field | Type |  Description
 ------| -----| ------------
 orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
 vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
-subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order (item's `price` x `quantity`)
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
-tax | number | Tax total
+tax | number | Tax total for order. Sum of all tax in order items, unless they were modified after order was placed
 customerTaxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 customerTaxId | string | Customer tax ID
 customerTaxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
@@ -924,7 +924,7 @@ customerId | number  | Unique customer internal ID (if the order is placed by a 
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
 membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field 
-discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values
+discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values. Total order discount is a sum of all discounts applied to items (both regular discount and discount coupons) unless they were modified after order was placed
 usdTotal | number | Order total in USD
 globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
@@ -1804,12 +1804,12 @@ A JSON object of type 'Order' with the following fields:
 #### Order
 Field | Type |  Description
 ------| -----| ------------
-subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order (item's `price` x `quantity`)
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
-tax | number | Tax total
+tax | number | Tax total for order. Sum of all tax in order items, unless they were modified after order was placed
 customerTaxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 customerTaxId | string | Customer tax ID
 customerTaxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
@@ -1825,7 +1825,7 @@ customerId | number  | Unique customer internal ID (if the order is placed by a 
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
 membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field 
-discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values
+discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values. Total order discount is a sum of all discounts applied to items (both regular discount and discount coupons) unless they were modified after order was placed
 globalReferer | string | URL that the customer came to the store from
 customerGroup | string | The name of group (membership) the customer belongs to
 discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
@@ -2181,12 +2181,12 @@ A JSON object of type 'Order' with the following fields:
 #### Order
 Field | Type |  Description
 ------| -----| ------------
-subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
+subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order (item's `price` x `quantity`)
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
 email | string  | Customer email address
 paymentMethod | string |  Payment method name
 paymentModule | string | Payment processor name
-tax | number | Tax total
+tax | number | Tax total for order. Sum of all tax in order items, unless they were modified after order was placed
 customerTaxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
 customerTaxId | string | Customer tax ID
 customerTaxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
@@ -2202,7 +2202,7 @@ customerId | number  | Unique customer internal ID (if the order is placed by a 
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
 membershipBasedDiscount | number | Sum of discounts based on customer group. Is included into the `discount` field
 totalAndMembershipBasedDiscount | number | The sum of discount based on subtotal AND customer group. Is included into the `discount` field 
-discount | number | The sum of applied discounts without coupon discount. 
+discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values. Total order discount is a sum of all discounts applied to items (both regular discount and discount coupons) unless they were modified after order was placed
 globalReferer | string | URL that the customer came to the store from
 createDate | date |  The date/time of order placement, e.g `2014-06-06 18:57:19 +0000`
 customerGroup | string | The name of group (membership) the customer belongs to

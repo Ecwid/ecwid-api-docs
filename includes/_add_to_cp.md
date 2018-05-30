@@ -204,7 +204,6 @@ GET https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b65
   if (storeData.app_state !== undefined){
     var appState = storeData.app_state;
   }
-...
 ```
 
 When using default user authentication, the app state will be delivered through the Ecwid JavaScript SDK in the `EcwidApp.getPayload()` method.
@@ -350,7 +349,9 @@ So once you know the store you are working with and you have the settings and ot
 
 ### Enhanced Security User Auth
 
-By default, all applications are registered as **client-side** so you can start working on your application's tab right away without using server side. If you need your app to be switched to server-side, please [contact us](/contact) and we will update your app.
+By default, all applications are registered as **client-side** so you can start working on your application's tab right away without using server side. 
+
+If you need your app to be switched to server-side, please [contact us](/contact) and we will update your app.
 
 The workflow of such applications can be divided into several steps: 
 
@@ -377,7 +378,7 @@ https://www.example.com/my-app-iframe-page?payload=353035362c226163636573735f746
 ```
 
 
-> Workflow of server-side applications
+> Workflow of server-side applications (PHP)
 
 ```php
 <?php
@@ -503,6 +504,12 @@ view_mode | string | Mode used to display the application interface: in a `POPUP
 #### Decryption of payload on your server
 
 Ecwid uses *AES-128* to encrypt the payload. The key is the first 16 symbols (128 bit) of your application secret key (**client_secret**). It is provided when you register an app with us. See a PHP example of decryption to get better idea on how to receive and decrypt the payload.
+
+**If you are using C# language**
+
+For correct payload decryption, create additional padding to make the payload a multiple of 4: 
+
+`base64 = base64.PadRight(base64.Length + (4 - (base64.Length % 4)), '=');`
 
 #### 2. Get store preferences and data
 
