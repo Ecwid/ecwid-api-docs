@@ -8,6 +8,28 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## May 31, 2018
+
+Updated Ecwid CSS Framework version to `1.3.2`
+
+Get it here: 
+
+- `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.2/ecwid-app-ui.css`
+- `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.2/ecwid-app-ui.min.js`
+
+Changelog: 
+
+- OpenSans font was removed. Now the font-family is: `-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, sans-serif`
+- Updated the colors
+- Fixed sizes and icon positioning in StatusCard, CTACard
+- FeatureCard component now only shows the icon in mobile mode. Image will be hidden
+- Removed pointer events for buttons with loading animation
+- Added styles for Columned, EditableData, EditableOptionList, CountableBlock, CustomContentCard, DateTimePicker, FlexTableBlock, InputCard, InlineAlert components
+- Limited the width of EditableData and Columned inside ACard components to 600px
+- Added styles for Subtitle and Footer elements in the FlexTable component
+- Added states for NamedArea component: FixedVerticalLayout, WithDescriptionInFooter, WithFooterInMobile, HeadlessMobile
+- Added styles for prefixes and suffixes for Input elements
+
 ## May 30, 2018
 
 Added option to get and update store design settings in [store profile endpoint](https://developers.ecwid.com/api-documentation/store-information). The design settings and possible values are available in [appearance customization](https://developers.ecwid.com/api-documentation/customize-appearance) section. 
