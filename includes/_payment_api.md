@@ -253,7 +253,7 @@ POST https://mycoolapp.com/integration HTTP/1.1
 
 ```html
 <form action="https://mycoolapp.com/integration" method="POST" accept-charset='utf-8'>
-<input type='hidden' name='data' value="u2D5lOdpstoEc9W9r5Jqdoth0bMMqqfo9eFouhpUVeSondZqlTVGrW13vFujYHjQlm5H8WU1E1Qu1Fr6-YehYtj4W9Jkt6se-KzJ1FEZHCsv_Qp_hfRoysvOlzJCh8kw5tmOdhesRJnXs8ITVEVP4PGMPteytrKrBDPdF0f4IPYd3lnyp-3SzH-dnixtDMlzszaXy29nYxAr7D2EkgL_DBT5vW-uWm0it_K1fCmGFjCvAHxYbwjNhyRRLP_W5LB0PGhSVYxpyGqLD757zahu__rAwqSSKpew1FSX383nF6Q5BffWdUoG_zmHLYlCxsyv0c_sSw4n5IwiPxwQatie3ibLiro-6GpN6LBNzywewptA8u_Smgup4KmI9qBsywxgGCY7BAeFR5gLoxY147ZXv1Hnganjk79xDIruEN3pqgca4-mfaEJjQIAcuDxmd6Twy9BPUTGFIgnEWUfbief44ZKgG41N5fkqSMmAScBN1LYMuMj9BOME0DH6iho-txy3YgRrCPQgqxSRe2-ytKC6chXfwvWdWs5rQz7Jctl9S6Iobp_whWk6hV8xY1QxpujJP2kOnX9ysMpcmt2aCP1ES6kXPzDr1Y9u4cxnepgagX2Jth9j41mO5e4C-AYdTRFndMMSBkp6r4RvpA64cULBMJLbAD6eI4A4zqmTQR4PJ4s7eyvvlmkPFSnN0PMOn2WO9qsFweLAztTp6neuiECUvsELWPj20UY49Z5idejOmXsq5SAPdv7iDnEBEjIxY2xrgAQ6R5baGo8UtCmA2rfgROCx1UiMViCU5XjIBibI09NqYJxKCTrXGShANsZpigwssc8i3DxxWQJY7D7Axo8AYIBRqFhtssAU00iF2Xqn5Sa3Mzcf5Z4onA0RdLf9bOkKNijik5bt4vVHRxk89O-mhp2vS2o78WYhw8cf4R3DiiTaSvKzJi6DtKgIeJAxuvL5Iw1UDSQkC8GfRXRdXfDvG2cCmmWrNJgIfY8pDZEedsSEBxJN-5-hcajkc3Naf-QCj6WioljyVt8Pm090SLdxUEyZhKUegF9zz78ZXEWBQfUdKvqDVopPxwba5nbrwjaMKompDELrqBAViALX_9_IFriq7Jt3tMIQX2JdVJFfyTWJ3LJefDTZUmadEVc96yBN2AawIhGXpUwp-86PZmHgrB-A_ehvhovsP6mdINPs_iV822ft86wlG7lOivKGfjhUmtL8CBJh1bC11QRkUxDJhm3oXFlBISzwv_hOlMYG3DAPasjPb80rEWR7hYy3fe4BzCQozER40OJ0-z2eXkXSAY0r2kyW62jtdiKnO-MwWRvZ7rqYjpSpJA7nLcRULpjiXEGcvs5GGdJcZ7KKrFWC6UTFvamWmz9KUG7Mr_ENmbCqUs9J5WBAj6DlpFPONU54omrOQTk3qhD6lyPzVlazIteoE3Yh-r0kPaWBZZPk1vhWkM6rX4w5z1UDNWYAGOPUSpfLlsV5_AqBjn3BqMkM0gjGn72hYWNX6xdb1fLMq_mH_imaaUrk0Xmpt9ZcqSPo2oHmP93RQZQ5CcKl-G3YC8H0s0Mt5pZarJLDJwrwaQC35V8zkaASB-AKBETcqh7f_7vGD8FasDpJBGD3Aoln615Nh31VzIhPy4hwW2EwDD8Gz2R2OLpuzlkV7gxnytmBWD08KTfdaiPKBXfWZS651ggBWB_ZLTEez1uFCuIDjJf3kJb2US77sU7ov8CJcRau4k92vgSFoY8QQGUPo9wjYRs1VOP05c0UXLLf6IRQ0q8b0uZUqF6hleLqC2FKpTw_8Yx3lHXUzg7zYUWpnBRktbDc64kSnmr3Qwq1MNuwz7iU2k3alOuD9WMxA8NRd4RIEWNFt333wqmPwKqEWtR0faVLldhUIwi2lBygqwFAIP-Bb5a0fOXL6ahiYVgli8CFU_3BnvCgH1C4zbO1tXhdNMhLyH4l97v7F5TPs8iIminifBgWVztDJsmtEUDjmc_AUUjaNbqw3KPGt6KYGYZB1m-JTdwQhm189OZx2KnnurMiEZHjaggxIeVX8H_8ZjK9xssuOrtQwV4XYyWSTjzllxVPyi15qzZvlMkwATi_BoFO_Uktd9DmkhX2M01tn_j3lipWegcgFcml-oODVQuqQQYkCuA9Se1vx0o8ocxpBpY220gy_E3Osp4cI-GX56ldB8wa3-keD930OXBTj9fWI4iVc7nMLmdIYmRZajc7UMcQq0C_BNSfEYpxxxasMgtIHGQ-Qp6r_KcwPJd2HungtBqsY4QdjFAwhugZfrRqBWs4vbmNUbAYArMwjQLGqRGStDIQ563IdfGmzyIf9cKSqFvJL2nHlgPs5_DRZH9vnK1L8lZImJoakq7mLD8AJJHlZ2lyS2Xaqi5q-b9uzN-DiZCZ15BQVEQ851q1ftwwVZdU2X6Cdl4B0uEweeigGFc1R6ArhGk8cu7FeNve25FonEbK_9Ts0qdJfWEQ0xvVneTYzQgM23hZPcCMNCp6LTswXFW-71ca3ReXLELxPoT0tiRm1iwjSWPg_QQ1kLZ3mKlhKTH--whU8fVtoVBRBccsQpWuyNW6i9usRDgHwGW2se73qV5PDhtvwA8Wshf4fiOxl-akOvAcfRK0l_Z52YiVfLcZ2yFszwy59jVol5In9W0iDzmgRse1LNubavQ4iCvdgLnjfn8niCCZO8ymUE2-1TondrOIfpWqq6yyezgZoMlXgquttgGValadzXbiR12cyvJpqDU6YkxDJlwUqGydfZ4PSuOuJyBXrzw3dRIrC3H8lEcGq0LCBRs_tFKBR8JgZiHcT43HhDL9fs2BA59QTi_gR75S3PRVNspXZWz56rUkPBnImzcYrTUAJh0xNpURNpv__RbpYJmE1chOsYoGTLHyljl2CTnN_MoJM8Aw8FWbJZJSc77LBIlj-SXOqvHfJCjRGwx3KptOnrZPSbIM45HRgX1HGhp4MYlZGIPchMJNlguwhGzW2_E_UnXMpNtHFhN5-_nYVRUP8Q8t9YY2cNvZolgy0tm0Gr87JOlGJjpu85Hi0vrYwiB47ot52W94Jn2TbziuODM7a-3kt0tF3utrdfOc6vewoTiImk9UK1TKxi7NAioyZhbxJu3Rp9U5dgK0Egsf2U8gTT9_F0CVpLxelye9DFArnDXpLmoya0uGxX10yZCHfeUa0M44BFFRJh046r_rL1MBVZ9cLcsrAFPXrHIO3vPgVe7gzM7HC-2aN9q-qsVym85tLrdK7fc5QkroeBd5JcXiuNikFD__7x7yKx7hPpqjBOHDkLUSZmBCOLlwiwu-whPI-gl3kG2lxyuvzKfj_lI_EwdEYfPRAFb6AGaD7iN3ytwi34MGRCp2WrUmSNzYOECGdZrECUgIwsqvB06Xk6URc7QMvlk5ewEdvoy2wxIFbu1RX-bNq7jvWvE5qLwmvBizybffIZhRSPxe1HkrqvC8lqaXl5TVMBFMfjuIeSsEEFxgaBEKLrH3CQc__vlEJF6AelXwJi1IYOFGratDV4gmY0LNqLc0XLMUuruE-4jtI7NCAtnZQ2LKG7YD3fMqcAcukjEaKSCo2Pknt1ldcanX5raCE4oYh--AD85Rbtwc52nX0CeX2rnRU6jx40eujusktUb7UXWURvttpoocIH-tqmbSuawNFNlIjagft0wVhzhXF1UewGzRnDHV1yJCo9X8Oe7ln_2unSsdh7ziblt4C5_5yFPvyF6WgMzP2YuCpW9JRXUq9oWYHLUIzGjqW9cx74nZxsJWaG880-8QzRVrSuC6ExYWcQiK3gppWToxgm1xTUumeqJm5dDa6hdytAQ6DC9BzNlRCLhhWMGoUOWFid1aNw__DRO2G_y9O3jdaaT1cD5FuQ"/>
+<input type='hidden' name='data' value="2sO2fxaXOZz9aZMxwuwvEpFSBFKd6yPTeyk3R3V6ieXIDc9romK5vpTv9kTCoMZVmxJd8kabS-bEJy7ON6vzpG4X8QMb3CYhl_WF2T7VAX883FfMverEo4jY9VlEUS9ZSJuuBVeUPnG5FE-bLTPNrMbWFXltyzt3cz5mHu8ha50oPXPDJ7mcihSH-H-i32LLTvwkfgqJa7CNd3n4XM985B1smvJEw4o6acsy1RO62eJVWJZ7k1_UTfa5S3AhrmcY0OxZuTQ3pTVVG0uKsnB73eZMhijPkPlx5Rehu_9IaMylrwOy2E15hzTnmAYActRgFVGSH8NevL9lGnTifYTp6thUqJn1HhiFjIvNQveEHIPIq5n-uOn9wkodVoDeEsuin_96t_eP5uJUFjHEpnXsDdtJpE9BVzCJrDEU2wprzYCGdc_p28f9J6jEyH4Ld2FrF0kRv_GacJwIKghGQixu_BlTlrBO1DZ1B3AhBS2IHmZVCj_U2Ux9s20-5ZTgJRgsMyeObj1I8byMPc29GGXXSJVbYfcWjk8PGtcToQu9tSFV-zYur9VB7T8ewdxst-_kTnnAPmIdKFfxHpaRIu3GYVpubytnvOMhsIuoeN3lmZ0scX_leX6w4ZE1iduEKQT3GWopZoHBTKF1-441PDY4MemDDSfUTHqkvr9LrOC4gxvXlB2EddTqUfpFFX1QZX_jpvxttQp0RXwyIi5WDVJ0pU6b-De69-QHkzeaaLbbTzJvpzkKDOmQq_TNgZnPY7sdCLpQ8ECgadWxdIxmRGCY8s-HP_sOB8Pbp5T_BHHnr8Dzk6qFcay_MHy8IVn8kP0T3USxTBkdr44KTgq-5jZa77SojW9CwvaA-GqdIRxJwjabvWPGhYsiZBxJu8pyiYDHCadc9WeXAzk5yILd9peyp0ADZAHS5l4f7jnMJOfqElTqfSg_Xq16OwX74IQBx_Isu4swQkQX4whAcaJTDo0AsE2AkQJKXjkdqxfFUtDPyMwW6wmcK7DD81xmybcOVpxU0ZiA12L-Gg8Pczgr7GeUYUVm3aLQu5IbP_o2B1woLivNaT-fvs7ssw1LiRzGkFfsBdWhJkJe7g9OWW3QKs1T91IxWGRNLMA55UIxNXVYKLsOOSKQRUKH0KUe6llAR4ptYJoLl0fULwuGZjXdTePTu791tZ-0tPZrychVMHsvqCIvdFlMVQ9C50q8deRkozQ8YHbKu0ih6nKB2xDQ6dDhS-GPz5cQn-2xZFASZHkniqvzJvA6Iy-NMU-IYpnTXzleQixN4fyQMSAkQTOfnMmg54vvFL0esX4LTBXgRx58hqzxXDM3PffUznq2bbhS_ey8ytRM9gfXcNKLTSwdHtX89Uh_pez7mgAqTnp2RiaLyN-hsJryO3xnlPj-HoTgA_jZz_yxB9jaNBO5fLbDuWdftIVPJ9wTjrSgwvUYM0esD-QZvtrAx__drHeovLgsSZwPsZAdbQdY912NH30xTAYsuZISGB2stEiY3-jZMKTPbuWHAzyiWCrgOwEVuAAW9HgptffCkD28dAkqjPnJUaRMLzjzG1lrtAcolhr1TNzI3-qoKNMawvoN73-Mu1hshd3W81MyQSVVN4A1Mq46RA0QgGby2L26YcJ2zgJvbAwWFCk4Z4yLEOzwwRJvnmJ213ncBYAMKAlOgRijKHWaEWOBxztPQxP6WMjXrbAXIJhB_V8uLHkPYI3HO_5ntpLjHv8iPtRpRInZKqXLDinkA2Oez3EAj0gctLtsRCAPxFnC2dFABP_nIbogsaAkoWwXLdPVcp-CT3mtsuFo9Lrnbjp2T9aGAF9Ni0EAYDn1JI1hKmSLa_9jPnFzg5TDxbIBCS6UVfgD0oahf0fVOTChwaig8L6n92qJDhzpZ2YkBGIMgmp15F65OzNrpblRk0GFxdxKVpvetvWqqD4bT5BDoima5qqwnqvxiGp3kn_Y-oj5W3m98pT7DfjUALQzSwwmmHPsowFqdpBxrCcCqeoS2KgdvCn02w5vaYeOjCTr64hUHYzvMKhTS77U2JOp6lYU5009CSssK9mdQM134qW53d3uy_pnjD980rcvv0vbrjTN1qQYQFYOzggkgHLMqyELVZz8NPqoBO7NKyFXlevhkhm3vOMQdaILCVv-QVrLsAA3jwSLeWIeG9a2dL8xJyLj6qRoMzZ6TAEw4jfXAdNi3u6ap6AmyN8H2i0UTce6HrtEY92iPWXi-fEe9eLRkFZKbaNQK_1oEFLs6W_Owd3LTlXUIDqTxYXpxPOEMz0XjjYKa3BZhWES1xMVXsk9IP03GI3DNzKhJOBNJrsBn1Wn-qFB-bmnAvdUVVQeR9tdOYkcfqRiyOYAlBN4fijuO2Spz1s2jmZ0qF7XFjb_5YovtBnCnyQmz-HSNLvfo3Db_WEw1Yq56mozW4ztsRExQK4Mnq6IoTlDYJHE0DMGYeRO1tIV-aMqnlnBkeu8Rgs5zA3pPTuZvrzLd_2fNyI9HkOzr5cQ_ebaXrFHzs4NVdYVcZbogPysMwD1INj6_gAQdsvvgWt22XUTIOCNX8ZtTx-kCk8__zMTeEr0foXEO9JTupdCletliNAVJ7zbGQBj_q8o9Pc_7uOZo3rhv37Tc1plVcmyQDCWKh3iAsoOgZTFW0R7AWhigqtueH14m8IruynORJ6l1Y3ubr1JmCN1DzqHWxS7k04Sdp7zjfpU-_aQgslGTp7M7hJksm3v7lrvy8cr26zzAiSqtbab6pIpXJfbGCRBJb4Y7i_gc3ljJvmwLPmFY_mQ6AsCwKmzE1LEKrtOUm8BbJlecpwjH0ig-ynGX9nHs_j8_-jQilsHbstJ_a9O5HuuxJfQPPSTfkN0R7NUwoFZH9kxer1Y_QNC37yFalfZIB-z2i1h9ughCE4bYsoorFb2bTVb_R0DH42ZvwES9AAWLifa8v1p-uDVyPtFjk1k6wbaTp8tWdrU3T8MVY0fPVaxE1vdiBdHHcXwnEz-XplQsAd3FHVlowoqGeNHs9FKAv779MZGKa1O49IQOY2TLadd6Hcqwzm10DXB81Re92-pPROQSNGb7Vt876s0IO71k8j0aTD2GaqQlmoZ6GJJFzpK6yMEE-n4SFAsIIj9aEipeVwblroAYYN_ma2-5Gr02-fX9vKHby6TgDq71Z2stYQheUWvUVvcPiyWijrkdWhrYc3SeloJdJeVvhEMYsJ3IgZ3sSBtpRX-5vccpjN03LBih_PCQXQVWdQEAv8bTpMU6uDL804f09-86WFXu54v4p2pqPT-s214Hvnjm6jLZYJRksOOPxAduMSrDTz8JGidezE3n7-F3jZnFSNb6Juv5HXfRhxxJ2WGtgm2SUIvsJSVPWHKlE8PkrGOISjg7m0EUfD-ypzz3Fnv7sWnkfGg7HNwr69gWb--9dadxSUbWy82twCnaMm3OKpsW3ZQ__HE1_NPCpfyc-vW90hkj_hYa7Bpcq3jlY-5tTG6dqe8UNGdH7sKqVnYM98-VRuEBMj3ihQW_hfujErqWCo5JD748IV0Orz1yNo0NSt7kBqKJK9gSGkPDc5M9qS_EkIwIH7PLVpWItSuPvgvE8jso4qf-ywHzevlbcM7uBFBIaMhiRxYh33U6u02zUgT42ZFMPe3dV4SkIIFxqufnsmWn-iw2EszIoJrhNN_bllGikZ-sodTS66D5ygscvI-NqOTmoqjaV3jKMmppj42Rxe6rMTx2u9MiifRxJlg2iLHE273wJmLu5_RWKRNJpoWgeqFRQ9iuWrAyV72BwNeYbk2AI5tL74iiI567CgpdSmHwC7VUAV9F8AztFTq0kt1uTpIvf129ytt6l5hlvlDPFvvksG7dUFEMcryevPoJNo4rghBxY5Ru7MNb1FME3RGgk2pXI4nRPjOOFfEG8WyOK6TfseJSRXNhBH0irQnukRROCB1NXR9dq35TlXGT-L05oSYUaoiSomOC-J9qC3FkWglzRs3ZuDXPP8uab0v_rN3CSJYX8_nnlbu-VUo6A3BCEIVUsiZfi6Vrpb3-BpvCkbA_fXTo1kIzERK82OD3UYfcragvSFH8TrtbmuusnY_NTUOYuiylYStUjCT0ohXyxf8fStd60fNqFLR4Oa-g7IZf3cf8JdJelFiMF99XNdD3TrApnMpAq8QE01_bCAL77PZGWEsPQRcqGR6zFRhJ3a_H0KPhrlSwvcZ6XtZUvbPskj-PjwbDtLcvuCOSaKe-JEbN4Ljk_8G6sZgTJy_tSGCqVcgHCjbio7oN_Q0609cZ6nAOIwjKrmzKrdc086ALFWhebI3dIjV80YJays7clppo9rDv-WrmOH1-IOh7cneew8MhiQAzE_GA32oYimXRShBahMrbfSSC24WuJYDpixr38OUa8CQZdDmMD2j9pHziAtY5tEiVenmZM7OPiHy3Ywb_gHQk0Re_lo-LT1kocMShMJxCaS949oDkO6TM1kbkmAbVSqlrLzJzIG2lYqixmTH3JSmPZZsUrtzggp8uhGttozGyEgsvpvvcCCZ453YBrN1KylPY116f1VhI02FEOXBb3zUHuYyGPuO9ux7en50jMWWPu9npljgOL37b28JY0WX_Md5TOEnQa0xxEEygIQ0OZUpThOX8ySEr6ArFfrmd5T4ZYzlNiyK0W6z6JTg6_YDAYo7Xesg7AJvhow36vffbeyVN9QgJULywade_7xmJGSsqaOX_mrmqe_J5jSdXvn2eqWHbeMAx7J4tW7dzhuAbOK4k8AJcty1C0UJ5xQqlTGlvNRnqfSCG__w__lg7yF3e35DBSmJjAqVjkuVnYOaL4YMnDTEjWsaVrPsYM51Zl4nBAmW5IRwthwPCONovaw4ME_oR1xWp01iPF5ntntijBg1A1PgDVy_hPnb4boJMb2CAXElqpT-2AtgTok8hJtbM6mhZ6hZHlsZwHW16CJgqGbnuBI0UWvstrQu02WrgJHykbTLG2nkk1m59ytCh1cPmxFWAehikumciywABuwWN51r9HzMmgjdoVQh5ht68Qp9tyrgNc0HAEQmlkjqeopw8MF60vd5CMEStcOZwYkJOVSta26oKb0wkHz1M5PVDy1s922xha0I71N06VykH270dMa1NPdU-zC-OCJFDMCURiiIjFBWkigfKZ5M9rJKOJFNwtNEJZi3BI2VIwmlEjSPc6cDz3ayDmluaVToe6vsko4awBrD7OYrVRwxaZGsdxEzQ_wg3uaxPZkcBMChwoFBMpx_LLtCXv_H04urW8Ej6Dh3-fWZWwwtR7HDYNvrWCZZyunpAW3R5UTh18qBul5Xn5eW_A5vDHR2P64-Ve5GoI_Ey5cZ4KLGsD84AqjsayotHlucUtfNuMTG_Cb_27ja3SzMxGOpCRpQ-lVXutOVhy6yItmXSWuxNGmoQTaFlP2rH5VbAuO-4o4flCGDd6GW7Q2g58UTVggn7PqcSlbMSgnPvjApEqzTzHjlLct5kJk7w_-VuLO-JSmgascIWUWJKMBYz0kTyjs7N4_MeDiR52myYExUQt8g-d5UAT0xxlRhcYfMvHFRE2TQ-gGEuOIDCCdKJaEo-NTsb8IQ_dPz-VSog33o1y1UUQ24D_wsG8m5dhbMc2HVXZOgRb1jBYxiW8WTpMjaV6zHM7xFmyLV-EuWivHZmME1Mf1b4vayfV0TE9xDEZix8Omixln-Tg8G4iPqvlBwVcLVqjhvOi-iiolasL65VuO2w8JoA7XdAezLgkmmZoeiQUbqVyWEBeepF8lH-zEvABtivbSurZqk_aj2IQo-cyOZmd3n9s_q3jv-uYU6j-VNXAH8w41bmUWTGJeHrc-Xv_94eMCwxNNTyxS72FspNIqHVtoPklFyLi_Yp_Q7451NiZixX5ixAmdLaQEdcs6cYuVzp4zpnA3xB0GX1uueGY04llv50z0G8u3zjy4g5bF9vFUrZZHmdWZnFXlPOHsMX_deIOXow3rSdH7RD096nq5NSX5D8c99QdnQU6QMKrp6T-llbAdD5h9_e-8Px6N8ofEBxn50ukKYzblv51_q5e1wxo4qqNjmSDGttmQk3OJyQgvKRg6z1t343jjcx-LwKZilHV87__pkfpzXiACYlwPQUtU5FMOU-P2Au7zLbdof-7PZVSGk8JG3yifoZasz66cDEdgSgZw0yno8Z-bR9ukecfOFhRSCoz-dOeislyl8_Hr_emOinGLu2pNAuNrFonKrcek7arqNUgtyWZtrncbkGGEUG2OasoWkHxgyylwqNcEhcBCqQDX9XGXFTNretk4VfSjasMcPMS_N4o3jJhFnxMQMV0AXjksK3OpWVIljGDYjlGJqrb_Ils7tkFd5T-F8fcwKoTMSp7a8AOt4gRMrmS9mUeSbgzRJTjYlTr0a-0aI7mhejw47aO8eGI1GPP5zyUykgOmfnFny1uT5QrZ6mEHogLfP-0aecdOu5beutfTQM-VZYxDeq9KXKvSI5LljDM67D3W5UPdWDBEfJFZaKvBIxfgXzAFFrR7lXzzseEyYU_VkZb1yQy9O7YsKgageFg9P6UC0MkgDkguldH8BWKWq7dSqpNiIXzJ1tgpMz5xQKSkQHS-WSIIby10rgUvTpclxfqbyv-q1SPY558VSf-vwM5KZzvpKNxMP6YP-zYn_P3uqLPV7sEECDRVjs4Ti3xWjGJJ7IfvMm7T5dTii9YdSBVJ1dOJ19NpLZG6IeWczt1j2tbalO9D1ouhkyG2SZOfPtYZmIjgxwpB5eCOixPGA4rhh7ejRLQBLZ3BHhoPAq3e9bPmSUWjioYefytDGGlf7DvgP3y8bGTVyrtT7iEY7ut0xHMFa4rcYAlOW8WmMvo0PDbQjptz6fzvYawrSgUaJ6zF7VhecDhEuvs6tM1JtB4BD64uugpsJQfvQXM_nkrZArApYvFhHYTLqKaOVN7bUa17eHukScPTqcSJqpWGTecL9MBvroHMr8LJckXH9UKjZruoItLpGTjiIQVYTn03zqu54XclIPh2q5q5rCnltj7MAgxOyVGACj4PDOt-Q5riiTk-A-zmm9qYeMLx40UI1psE9cre8wrGURve9pOtjbKU5s6jRfgqrbU5CEm4aBnJZUiku8cBQkP_4HqqltzlCiAD40tsR--eDo5M0F1nqneMOOTL5V8kDn1V38Qh96Pwv50esv5JWxLA-gBI5YWBfiQGuoVSfXi1coRtPkquXmvJL6o-UhcO0KYOBwzkNrx9IZBWbKLLrxoMf6vSQwRk2sL8CgjCSX6nf9XaoQ17Ji0_TSICxIBo-tfz0pXq_x8Nq_lqgATk747QSBqWkj3KjGimAQYhWU_PZZDt4FMG5ROVen3bSKJ7zQvF_V5cNRCmn0pfhGzKCIS0OcNcq6WlSXmUPluqY"/>
 </form>
 ```
 
@@ -315,121 +315,326 @@ For correct payload decryption, create additional padding to make the payload a 
 > Decoded request from Ecwid example
 
 ```json
-{
-    "storeId": 41002,
-    "returnUrl": "https://mdemo.ecwid.com/?orderId=106002&clientId=payment-integration",
-    "merchantAppSettings": {
-        "public":"{color : \"red\", storeName : \"Cool Mittens Ltd.\"}",
-        "id": "1234567890",
-        "username": "mittensstore"
-    },
-    "cart": {
-        "currency": "USD",
-        "order": {
-            "referenceTransactionId":"transaction_55885213",
-            "subtotal": 1.15,
-            "total": 14,
-            "email": "john@example.com",
-            "paymentModule": "CUSTOM_PAYMENT_APP-payment-integration",
-            "paymentMethod": "Cool payment",
-            "tax": 0,
-            "ipAddress": "127.0.0.1",
-            "couponDiscount": 0,
-            "paymentStatus": "INCOMPLETE",
-            "fulfillmentStatus": "AWAITING_PROCESSING",
-            "refererUrl": "https://mdemo.ecwid.com",
-            "volumeDiscount": 4,
-            "membershipBasedDiscount": 0,
-            "totalAndMembershipBasedDiscount": 0,
-            "discount": 1.15,
-            "usdTotal": 14,
-            "globalReferer": "https://mdemo.ecwid.com",
-            "createDate": "2016-04-26 09:14:51 +0000",
-            "createTimestamp": 1461662091,
-            "items": [{
-                "id": 111001,
-                "productId": 61003,
-                "categoryId": 48003,
-                "price": 1.15,
-                "productPrice": 1.15,
-                "sku": "00007",
-                "quantity": 1,
-                "shortDescription": "Radish \n The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in ...",
-                "tax": 0,
-                "shipping": 1,
-                "quantityInStock": 0,
-                "name": "Radish",
-                "isShippingRequired": true,
-                "weight": 0.31,
-                "trackQuantity": false,
-                "fixedShippingRateOnly": false,
-                "imageUrl": "https://images.ecwid.com/store/default-store/00007-sq.jpg",
-                "smallThumbnailUrl": "https://images.ecwid.com/store/default-store/00007-80-sq.jpg",
-                "fixedShippingRate": 0,
-                "digital": false,
-                "productAvailable": true,
-                "couponApplied": false,
-                "selectedOptions": [{
-                    "name": "Color",
-                    "value": "Blue",
-                    "valuesArray": ["Blue"],
-                    "type": "CHOICE"
-                }],
-                "discounts": [
-                    {
-                      "discountInfo": {
-                        "value": 1.15,
-                        "type": "ABS",
-                        "base": "ON_TOTAL",
-                        "orderTotal": 14
-                      },
-                    "total": 1.15
-                    }],
-            }],
-            "billingPerson": {
-                "name": "John Doe",
-                "companyName": "Some Company",
-                "street": "5th Avenue",
-                "city": "New York",
-                "countryCode": "US",
-                "countryName": "United States",
-                "postalCode": "10002",
-                "stateOrProvinceCode": "NY",
-                "stateOrProvinceName": "New York",
-                "phone": ""
+{  
+   "storeId":1003,
+   "returnUrl":"https://app.ecwid.com/custompaymentapps/1003?orderId=65306446&clientId=mollie-pg",
+   "merchantAppSettings":{  
+      "apiKey":"\"XXX\""
+   },
+   "cart":{  
+      "currency":"USD",
+      "order":{  
+         "vendorOrderNumber":"65306446",
+         "refundedAmount":0,
+         "subtotal":1076.64,
+         "total":2014.97,
+         "email":"mscott@gmail.com",
+         "paymentModule":"CUSTOM_PAYMENT_APP-mollie-pg",
+         "paymentMethod":"Credit or debit card (Mollie)",
+         "tax":488.48,
+         "customerTaxExempt":false,
+         "customerTaxId":"",
+         "customerTaxIdValid":false,
+         "reversedTaxApplied":false,
+         "ipAddress":"195.151.247.241",
+         "couponDiscount":22,
+         "paymentStatus":"INCOMPLETE",
+         "fulfillmentStatus":"AWAITING_PROCESSING",
+         "orderNumber":65306446,
+         "refererUrl":"https://mdemo.ecwid.com/",
+         "orderComments":"555",
+         "volumeDiscount":4,
+         "customerId":40201284,
+         "membershipBasedDiscount":0,
+         "totalAndMembershipBasedDiscount":0,
+         "customDiscount":[  
+
+         ],
+         "discount":4,
+         "usdTotal":2014.97,
+         "globalReferer":"https://my.ecwid.com/",
+         "createDate":"2018-05-31 15:08:36 +0000",
+         "createTimestamp":1527779316,
+         "discountCoupon":{  
+            "id":29567026,
+            "name":"API Testing",
+            "code":"APITESTING",
+            "discountType":"ABS",
+            "status":"ACTIVE",
+            "discount":22,
+            "launchDate":"2018-05-24 20:00:00 +0000",
+            "usesLimit":"UNLIMITED",
+            "repeatCustomerOnly":false,
+            "creationDate":"2018-05-31 15:08:33 +0000",
+            "updateDate":"2018-05-24 13:40:32 +0000",
+            "orderCount":0
+         },
+         "items":[  
+            {  
+               "id":140273658,
+               "productId":66722487,
+               "categoryId":19563207,
+               "price":1060,
+               "productPrice":1000,
+               "sku":"ABCA-IAC",
+               "quantity":1,
+               "shortDescription":"",
+               "tax":331.01,
+               "shipping":0,
+               "quantityInStock":0,
+               "name":"iMac",
+               "isShippingRequired":true,
+               "weight":0,
+               "trackQuantity":false,
+               "fixedShippingRateOnly":false,
+               "imageUrl":"https://ecwid-images-ru.gcdn.co/images/5035009/391870914.jpg",
+               "smallThumbnailUrl":"https://ecwid-images-ru.gcdn.co/images/5035009/650638292.jpg",
+               "hdThumbnailUrl":"https://ecwid-images-ru.gcdn.co/images/5035009/650638293.jpg",
+               "fixedShippingRate":0,
+               "digital":false,
+               "productAvailable":true,
+               "couponApplied":true,
+               "selectedOptions":[  
+                  {  
+                     "name":"Price-Optimizer",
+                     "value":"6",
+                     "valuesArray":[  
+                        "6"
+                     ],
+                     "selections":[  
+                        {  
+                           "selectionTitle":"6",
+                           "selectionModifier":6,
+                           "selectionModifierType":"PERCENT"
+                        }
+                     ],
+                     "type":"CHOICE"
+                  }
+               ],
+               "taxes":[  
+                  {  
+                     "name":"New Tax 2",
+                     "value":12,
+                     "total":124.13,
+                     "taxOnDiscountedSubtotal":124.13,
+                     "taxOnShipping":0
+                  },
+                  {  
+                     "name":"TVA",
+                     "value":20,
+                     "total":206.88,
+                     "taxOnDiscountedSubtotal":206.88,
+                     "taxOnShipping":0
+                  }
+               ],
+               "dimensions":{  
+                  "length":0,
+                  "width":0,
+                  "height":0
+               },
+               "couponAmount":21.66,
+               "discounts":[  
+                  {  
+                     "discountInfo":{  
+                        "value":4,
+                        "type":"ABS",
+                        "base":"ON_TOTAL",
+                        "orderTotal":1
+                     },
+                     "total":3.94
+                  }
+               ]
             },
-            "shippingPerson": {
-                "name": "John Doe",
-                "companyName": "Some Company",
-                "street": "5th Avenue",
-                "city": "New York",
-                "countryCode": "US",
-                "countryName": "United States",
-                "postalCode": "10002",
-                "stateOrProvinceCode": "NY",
-                "stateOrProvinceName": "New York",
-                "phone": ""
-            },
-            "shippingOption": {
-                "shippingMethodName": "U.S.P.S. First Class",
-                "shippingRate": 10,
-                "estimatedTransitTime": "2"
-            },
-            "handlingFee": {
-                "value": 0
-            },
-            "additionalInfo": {
-                "google_customer_id": "123123.12312312"
-            },
-            "paymentParams": {},
-            "hidden": false,
-            "extraFields": {
-                "referred_by": "Referrer is: Facebook Ads",
-                "AFF_ID": "fb-123"
+            {  
+               "id":140273659,
+               "productId":66821181,
+               "categoryId":0,
+               "price":16.64,
+               "productPrice":16,
+               "sku":"001001",
+               "quantity":1,
+               "shortDescription":"This sturdy white, glossy ceramic mug is an essential to your cupboard. This brawny version of ceramic mugs shows it’s ...",
+               "tax":157.47,
+               "shipping":471.85,
+               "quantityInStock":0,
+               "name":"Mug",
+               "isShippingRequired":true,
+               "weight":0.4,
+               "trackQuantity":false,
+               "fixedShippingRateOnly":false,
+               "imageUrl":"https://ecwid-images-ru.gcdn.co/images/5035009/389900000.jpg",
+               "smallThumbnailUrl":"https://ecwid-images-ru.gcdn.co/images/5035009/475772545.jpg",
+               "hdThumbnailUrl":"https://ecwid-images-ru.gcdn.co/images/5035009/408631478.jpg",
+               "fixedShippingRate":0,
+               "digital":false,
+               "productAvailable":true,
+               "couponApplied":true,
+               "selectedOptions":[  
+                  {  
+                     "name":"Color",
+                     "value":"White",
+                     "valuesArray":[  
+                        "White"
+                     ],
+                     "selections":[  
+                        {  
+                           "selectionTitle":"White",
+                           "selectionModifier":0,
+                           "selectionModifierType":"ABSOLUTE"
+                        }
+                     ],
+                     "type":"CHOICE"
+                  },
+                  {  
+                     "name":"Size",
+                     "value":"11oz",
+                     "valuesArray":[  
+                        "11oz"
+                     ],
+                     "selections":[  
+                        {  
+                           "selectionTitle":"11oz",
+                           "selectionModifier":0,
+                           "selectionModifierType":"ABSOLUTE"
+                        }
+                     ],
+                     "type":"CHOICE"
+                  },
+                  {  
+                     "name":"Price-Optimizer",
+                     "value":"4",
+                     "valuesArray":[  
+                        "4"
+                     ],
+                     "selections":[  
+                        {  
+                           "selectionTitle":"4",
+                           "selectionModifier":4,
+                           "selectionModifierType":"PERCENT"
+                        }
+                     ],
+                     "type":"CHOICE"
+                  }
+               ],
+               "taxes":[  
+                  {  
+                     "name":"New Tax 2",
+                     "value":12,
+                     "total":59.05,
+                     "taxOnDiscountedSubtotal":1.95,
+                     "taxOnShipping":57.1
+                  },
+                  {  
+                     "name":"TVA",
+                     "value":20,
+                     "total":98.42,
+                     "taxOnDiscountedSubtotal":3.25,
+                     "taxOnShipping":95.17
+                  }
+               ],
+               "dimensions":{  
+                  "length":0,
+                  "width":0,
+                  "height":0
+               },
+               "couponAmount":0.34,
+               "discounts":[  
+                  {  
+                     "discountInfo":{  
+                        "value":4,
+                        "type":"ABS",
+                        "base":"ON_TOTAL",
+                        "orderTotal":1
+                     },
+                     "total":0.06
+                  }
+               ]
             }
-        }
-    },
-    "token": "abcdefghijklmnopqrstuv1234567890"
+         ],
+         "refunds":[  
+
+         ],
+         "billingPerson":{  
+            "name":"Michael Scott",
+            "companyName":"",
+            "street":"555 Lackawanna Ave",
+            "city":"Scranton",
+            "countryCode":"US",
+            "countryName":"United States",
+            "postalCode":"18508",
+            "stateOrProvinceCode":"PA",
+            "stateOrProvinceName":"Pennsylvania",
+            "phone":""
+         },
+         "shippingPerson":{  
+            "name":"Michael Scott",
+            "companyName":"",
+            "street":"555 Lackawanna Ave",
+            "city":"Scranton",
+            "countryCode":"US",
+            "countryName":"United States",
+            "postalCode":"18508",
+            "stateOrProvinceCode":"PA",
+            "stateOrProvinceName":"Pennsylvania",
+            "phone":""
+         },
+         "shippingOption":{  
+            "shippingCarrierName":"Shipping app the-printful",
+            "shippingMethodName":"USPS Priority Mail",
+            "shippingRate":471.85,
+            "estimatedTransitTime":"1-3",
+            "isPickup":false
+         },
+         "handlingFee":{  
+            "name":"Handling Fee",
+            "value":4,
+            "description":""
+         },
+         "predictedPackage":[  
+            {  
+               "length":0,
+               "width":0,
+               "height":0,
+               "weight":0.4,
+               "declaredValue":1076.64
+            }
+         ],
+         "additionalInfo":{  
+            "google_customer_id":"2008512504.1526280224"
+         },
+         "paymentParams":{  
+
+         },
+         "extraFields":{  
+            "lang":"en",
+            "askHowYouFoundUsApp":"From a friend",
+            "kliken_vid":"99aa74d7-75a4-4624-9ed6-87892f1c165e"
+         },
+         "discountInfo":[  
+            {  
+               "value":4,
+               "type":"ABS",
+               "base":"ON_TOTAL",
+               "orderTotal":1
+            }
+         ],
+         "hidden":false,
+         "referenceTransactionId":"transaction_65306446",
+         "taxesOnShipping":[  
+            {  
+               "name":"New Tax 2",
+               "value":12,
+               "total":57.1
+            },
+            {  
+               "name":"TVA",
+               "value":20,
+               "total":95.17
+            }
+         ]
+      }
+   },
+   "token":"abcdefghijklmnopqrstuv1234567890"
 }
 ```
 

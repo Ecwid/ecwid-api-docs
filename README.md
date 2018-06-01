@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## June 1, 2018
+
+- Added control for favorites feature in storefront – `favoritesEnabled` field in store profile endpoint. 
+
+- Added toggle for "Ask for company name" field at checkout - `askCompanyName` field in store profile endpoint.
+
+[Learn more](https://developers.ecwid.com/api-documentation/store-information)
+
 ## May 31, 2018
 
 Updated Ecwid CSS Framework version to `1.3.2`

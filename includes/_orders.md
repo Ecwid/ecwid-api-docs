@@ -66,31 +66,31 @@ Parameters in bold are mandatory
     "items": [
         {
             // Basic information
-            "vendorOrderNumber": "20",
-            "orderNumber": 20,
-            "tax": 1.79,
-            "subtotal": 29.95,
-            "total": 37.39,
-            "usdTotal": 37.39,
-            "paymentMethod": "Purchase order",
+            "vendorOrderNumber": "lala1028001",
+            "orderNumber": 1028,
+            "subtotal": 1076.64,
+            "total": 2014.97,
+            "usdTotal": 2014.97,
+            "tax": 488.48,
+            "paymentMethod": "Credit or debit card (Mollie)",
             "paymentStatus": "PARTIALLY_REFUNDED",
-            "fulfillmentStatus": "AWAITING_PROCESSING",
-
+            "fulfillmentStatus": "DELIVERED",
+            
             // Additional information
-            "refererUrl": "http://mysuperstore.ecwid.com/",
-            "globalReferer": "",
-            "createDate": "2014-09-20 19:59:43 +0000",
-            "updateDate": "2014-09-21 00:00:12 +0000",
-            "createTimestamp": 1427268654,
-            "updateTimestamp": 1427272209,
+            "refererUrl": "https://mdemo.ecwid.com/",
+            "globalReferer": "https://my.ecwid.com/",
+            "createDate": "2018-05-31 15:08:36 +0000",
+            "updateDate": "2018-05-31 15:09:35 +0000",
+            "createTimestamp": 1527779316,
+            "updateTimestamp": 1527779375,
             "hidden": false,
             "orderComments": "Test order comments",
             "privateAdminNotes": "Must be delivered till Sunday.",
 
             // Basic customer information
-            "email": "johnsmith@example.com",
-            "ipAddress": "83.217.8.241",
-            "customerId": 15319410,
+            "email": "mscott@gmail.com",
+            "ipAddress": "123.431.234.243",
+            "customerId": 40201284,
             "customerGroupId": 12345,
             "customerGroup": "Gold",
             "customerTaxExempt": false,
@@ -99,129 +99,100 @@ Parameters in bold are mandatory
             "reversedTaxApplied": false,
 
             // Discounts in order
+            "discount": 4,
+            "couponDiscount": 22,
+            "volumeDiscount": 4,
             "membershipBasedDiscount": 0,
-            "totalAndMembershipBasedDiscount": 2.85,
-            "couponDiscount": 1.5,
-            "discount": 2.85,
-            "volumeDiscount": 0,
+            "totalAndMembershipBasedDiscount": 0,
+            "customDiscount": [],
             "discountCoupon": {
-                "name": "Coupon # 3",
-                "code": "5PERCENTOFF",
-                "discountType": "PERCENT",
+                "id": 29567026,
+                "name": "API Testing",
+                "code": "APITESTING",
+                "discountType": "ABS",
                 "status": "ACTIVE",
-                "discount": 5,
-                "launchDate": "2014-06-06 00:00:00 +0000",
+                "discount": 22,
+                "launchDate": "2018-05-24 20:00:00 +0000",
                 "usesLimit": "UNLIMITED",
                 "repeatCustomerOnly": false,
-                "creationDate": "2014-09-20 19:58:49 +0000",
+                "creationDate": "2018-05-31 15:08:33 +0000",
+                "updateDate": "2018-05-24 13:40:32 +0000",
                 "orderCount": 0
             },
             "discountInfo": [
                 {
-                    "value": 10,
-                    "type": "PERCENT",
-                    "base": "ON_TOTAL_AND_MEMBERSHIP",
-                    "orderTotal": 15
-                },
-                {
-                    "value": 2,
-                    "type": "ABSOLUTE",
-                    "base": "CUSTOM",
-                    "description": "Buy more than 3 cherries and get $2 off!"
+                    "value": 4,
+                    "type": "ABS",
+                    "base": "ON_TOTAL",
+                    "orderTotal": 1
                 }
             ],
-
+            
             // Order items details
             "items": [
                 {
-                    "id": 40989227,
-                    "productId": 37208342,
-                    "categoryId": 9691094,
-                    "price": 5.99,
-                    "productPrice": 5.99,
-                    "weight": 0.32,
-                    "sku": "00004",
-                    "quantity": 5,
-                    "shortDescription": "Cherry\nThe word cherry refers to a fleshy fruit (drupe) that contains a single stony seed. The cherry belongs to the fa...",
-                    "tax": 1.79,
-                    "shipping": 10,
-                    "quantityInStock": 1981,
-                    "name": "Cherry",
+                    "id": 140273658,
+                    "productId": 66722487,
+                    "categoryId": 19563207,
+                    "price": 1060,
+                    "productPrice": 1000,
+                    "sku": "ABCA-IAC",
+                    "quantity": 1,
+                    "shortDescription": "",
+                    "tax": 331.01,
+                    "shipping": 0,
+                    "quantityInStock": 0,
+                    "name": "iMac",
                     "isShippingRequired": true,
-                    "trackQuantity": true,
+                    "weight": 0,
+                    "trackQuantity": false,
                     "fixedShippingRateOnly": false,
-                    "imageUrl": "http://app.ecwid.com/default-store/00006-sq.jpg",
-                    "fixedShippingRate": 1,
-                    "digital": true,
+                    "imageUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/391870914.jpg",
+                    "smallThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/650638292.jpg",
+                    "hdThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/650638293.jpg",
+                    "fixedShippingRate": 0,
+                    "digital": false,
                     "productAvailable": true,
-                    "couponApplied": false,
-                    "files": [
-                        {
-                            "productFileId": 7215101,
-                            "maxDownloads": 0,
-                            "remainingDownloads": 0,
-                            "expire": "2014-10-26 20:34:34 +0000",
-                            "name": "myfile.jpg",
-                            "description": "Sunflower",
-                            "size": 54492,
-                            "adminUrl": "https://app.ecwid.com/api/v3/4870020/products/37208340/files/7215101?token=123123123",
-                            "customerUrl": "http://mysuperstore.ecwid.com/download/4870020/a2678e7d1d1c557c804c37e4/myfile.jpg"
-                        }
-                    ],
+                    "couponApplied": true,
                     "selectedOptions": [
                         {
-                            "name": "Size",
-                            "value": "Big",
-                            "valuesArray" : [
-                              "Big"
+                            "name": "Price-Optimizer",
+                            "value": "6",
+                            "valuesArray": [
+                                "6"
                             ],
                             "selections": [
                                 {
-                                    "selectionTitle": "Big",
-                                    "selectionModifier": 4,
+                                    "selectionTitle": "6",
+                                    "selectionModifier": 6,
                                     "selectionModifierType": "PERCENT"
                                 }
                             ],
                             "type": "CHOICE"
-                        },
-                        {
-                            "name": "Attach a file",
-                            "type": "FILES",
-                            "files": [
-                                {
-                                    "id": 5973037,
-                                    "name": "makfruit_ava_sunnyflower_200_200.jpg",
-                                    "size": 54492,
-                                    "url": "https://app.ecwid.com/orderfile/4870020/5973037/54492/makfruit_ava_sunnyflower_200_200.jpg"
-                                }
-                            ]
-                        },
-                        {
-                            "name": "Choose date",
-                            "value": "2014-09-10",
-                            "type": "DATE"
-                        },
-                        {
-                            "name": "Any text",
-                            "value": "Test text",
-                            "type": "TEXT"
                         }
                     ],
                     "taxes": [
                         {
-                            "name": "Tax X",
-                            "value": 7,
-                            "total": 1.79,
-                            "taxOnDiscountedSubtotal": 1.79,
+                            "name": "State tax",
+                            "value": 12,
+                            "total": 124.13,
+                            "taxOnDiscountedSubtotal": 124.13,
+                            "taxOnShipping": 0
+                        },
+                        {
+                            "name": "TVA",
+                            "value": 20,
+                            "total": 206.88,
+                            "taxOnDiscountedSubtotal": 206.88,
                             "taxOnShipping": 0
                         }
                     ],
                     "dimensions": {
-                        "length": 34,
-                        "width": 3,
-                        "height": 22
+                        "length": 0,
+                        "width": 0,
+                        "height": 0
                     },
-                    "couponAmount": 2.3,
+                    "couponAmount": 21.66,
                     "discounts": [
                         {
                             "discountInfo": {
@@ -230,11 +201,117 @@ Parameters in bold are mandatory
                                 "base": "ON_TOTAL",
                                 "orderTotal": 1
                             },
-                            "total": 2.19
+                            "total": 3.94
+                        }
+                    ]
+                },
+                {
+                    "id": 140273659,
+                    "productId": 66821181,
+                    "categoryId": 0,
+                    "price": 16.64,
+                    "productPrice": 16,
+                    "sku": "001001",
+                    "quantity": 1,
+                    "shortDescription": "This sturdy white, glossy ceramic mug is an essential to your cupboard. This brawny version of ceramic mugs shows it’s ...",
+                    "tax": 157.47,
+                    "shipping": 471.85,
+                    "quantityInStock": 0,
+                    "name": "Mug",
+                    "isShippingRequired": true,
+                    "weight": 0.4,
+                    "trackQuantity": false,
+                    "fixedShippingRateOnly": false,
+                    "imageUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/389900000.jpg",
+                    "smallThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/475772545.jpg",
+                    "hdThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/408631478.jpg",
+                    "fixedShippingRate": 0,
+                    "digital": false,
+                    "productAvailable": true,
+                    "couponApplied": true,
+                    "selectedOptions": [
+                        {
+                            "name": "Color",
+                            "value": "White",
+                            "valuesArray": [
+                                "White"
+                            ],
+                            "selections": [
+                                {
+                                    "selectionTitle": "White",
+                                    "selectionModifier": 0,
+                                    "selectionModifierType": "ABSOLUTE"
+                                }
+                            ],
+                            "type": "CHOICE"
+                        },
+                        {
+                            "name": "Size",
+                            "value": "11oz",
+                            "valuesArray": [
+                                "11oz"
+                            ],
+                            "selections": [
+                                {
+                                    "selectionTitle": "11oz",
+                                    "selectionModifier": 0,
+                                    "selectionModifierType": "ABSOLUTE"
+                                }
+                            ],
+                            "type": "CHOICE"
+                        },
+                        {
+                            "name": "Price-Optimizer",
+                            "value": "4",
+                            "valuesArray": [
+                                "4"
+                            ],
+                            "selections": [
+                                {
+                                    "selectionTitle": "4",
+                                    "selectionModifier": 4,
+                                    "selectionModifierType": "PERCENT"
+                                }
+                            ],
+                            "type": "CHOICE"
+                        }
+                    ],
+                    "taxes": [
+                        {
+                            "name": "State tax",
+                            "value": 12,
+                            "total": 59.05,
+                            "taxOnDiscountedSubtotal": 1.95,
+                            "taxOnShipping": 57.1
+                        },
+                        {
+                            "name": "TVA",
+                            "value": 20,
+                            "total": 98.42,
+                            "taxOnDiscountedSubtotal": 3.25,
+                            "taxOnShipping": 95.17
+                        }
+                    ],
+                    "dimensions": {
+                        "length": 0,
+                        "width": 0,
+                        "height": 0
+                    },
+                    "couponAmount": 0.34,
+                    "discounts": [
+                        {
+                            "discountInfo": {
+                                "value": 4,
+                                "type": "ABS",
+                                "base": "ON_TOTAL",
+                                "orderTotal": 1
+                            },
+                            "total": 0.06
                         }
                     ]
                 }
             ],
+
             // Refund information
             "refundedAmount": 3.5,
             "refunds": [
@@ -245,74 +322,78 @@ Parameters in bold are mandatory
                     "amount": 3.5
                 }
             ],
+
             // Customer addresses
             "billingPerson": {
-                "name": "John Smith",
-                "companyName": "Unreal Company",
-                "street": "W 3d st",
-                "city": "New York",
+                "name": "Michael Scott",
+                "companyName": "",
+                "street": "555 Lackawanna Ave",
+                "city": "Scranton",
                 "countryCode": "US",
                 "countryName": "United States",
-                "postalCode": "10001",
-                "stateOrProvinceCode": "NY",
-                "stateOrProvinceName": "New York",
-                "phone": "+1234567890"
+                "postalCode": "18508",
+                "stateOrProvinceCode": "PA",
+                "stateOrProvinceName": "Pennsylvania",
+                "phone": ""
             },
             "shippingPerson": {
-                "name": "John Smith",
-                "companyName": "Unreal Company",
-                "street": "W 3d st",
-                "city": "New York",
+                "name": "Michael Scott",
+                "companyName": "",
+                "street": "555 Lackawanna Ave",
+                "city": "Scranton",
                 "countryCode": "US",
                 "countryName": "United States",
-                "postalCode": "10001",
-                "stateOrProvinceCode": "NY",
-                "stateOrProvinceName": "New York",
-                "phone": "+1234567890"
+                "postalCode": "18508",
+                "stateOrProvinceCode": "PA",
+                "stateOrProvinceName": "Pennsylvania",
+                "phone": ""
             },
 
-            // Shipping information
+            // Shipping information    
             "shippingOption": {
-                "shippingMethodName": "2nd day delivery",
-                "shippingRate": 10,
-                "estimatedTransitTime": "5",
-                "isPickup": false,
-                "pickupInstruction": ""
+                "shippingCarrierName": "Shipping app the-printful",
+                "shippingMethodName": "USPS Priority Mail",
+                "shippingRate": 471.85,
+                "estimatedTransitTime": "1-3",
+                "isPickup": false
             },
             "handlingFee": {
-                "name": "Wrapping",
-                "value": 2,
-                "description": "Silk paper wrapping"
+                "name": "Handling Fee",
+                "value": 4,
+                "description": ""
             },
-            "predictedPackages":[  
-                {  
-                    "length":34,
-                    "width":3,
-                    "height":22,
-                    "weight":0.32,
-                    "declaredValue":29.95
+            "predictedPackage": [
+                {
+                    "length": 0,
+                    "width": 0,
+                    "height": 0,
+                    "weight": 0.4,
+                    "declaredValue": 1076.64
                 }
             ],
-
-            // Other information
-            "additionalInfo": {},
-            "paymentParams": {
-                "Company name": "Unreal Company",
-                "Job position": "Manager",
-                "PO number": "123abcd",
-                "Buyer's full name": "John Smith"
-            },
-            "extraFields": {
-                "referred_by": "Referrer is: Facebook Ads",
-                "AFF_ID": "fb-123"
-            },
             "taxesOnShipping": [
                 {
-                    "name": "Tax X",
+                    "name": "State tax",
+                    "value": 12,
+                    "total": 57.1
+                },
+                {
+                    "name": "TVA",
                     "value": 20,
-                    "total": 2.86
+                    "total": 95.17
                 }
-            ]
+            ],    
+
+            // Other information
+            "paymentModule": "CUSTOM_PAYMENT_APP-mollie-pg",
+            "additionalInfo": {
+                "google_customer_id": "2008512504.1526280224"
+            },
+            "paymentParams": {},
+            "extraFields": {
+                "lang": "en",
+                "askHowYouFoundUsApp": "From a friend"
+            }
         }
     ]
 }
@@ -655,169 +736,252 @@ Parameters in bold are mandatory
 ```json
 {
     // Basic information
-    "vendorOrderNumber": "20",
-    "orderNumber": 20,
-    "tax": 1.79,
-    "subtotal": 29.95,
-    "total": 37.39,
-    "usdTotal": 37.39,
-    "paymentMethod": "Purchase order",
-    "paymentStatus": "PAID",
-    "fulfillmentStatus": "AWAITING_PROCESSING",
-
+    "vendorOrderNumber": "lala1028001",
+    "orderNumber": 1028,
+    "subtotal": 1076.64,
+    "total": 2014.97,
+    "usdTotal": 2014.97,
+    "tax": 488.48,
+    "paymentMethod": "Credit or debit card (Mollie)",
+    "paymentStatus": "PARTIALLY_REFUNDED",
+    "fulfillmentStatus": "DELIVERED",
+    
     // Additional information
-    "refererUrl": "http://mysuperstore.ecwid.com/",
-    "globalReferer": "",
-    "createDate": "2014-09-20 19:59:43 +0000",
-    "updateDate": "2014-09-21 00:00:12 +0000",
-    "createTimestamp": 1427268654,
-    "updateTimestamp": 1427272209,
+    "refererUrl": "https://mdemo.ecwid.com/",
+    "globalReferer": "https://my.ecwid.com/",
+    "createDate": "2018-05-31 15:08:36 +0000",
+    "updateDate": "2018-05-31 15:09:35 +0000",
+    "createTimestamp": 1527779316,
+    "updateTimestamp": 1527779375,
     "hidden": false,
     "orderComments": "Test order comments",
     "privateAdminNotes": "Must be delivered till Sunday.",
 
     // Basic customer information
-    "email": "johnsmith@example.com",
-    "ipAddress": "83.217.8.241",
-    "customerId": 15319410,
+    "email": "mscott@gmail.com",
+    "ipAddress": "123.431.234.243",
+    "customerId": 40201284,
     "customerGroupId": 12345,
     "customerGroup": "Gold",
     "customerTaxExempt": false,
     "customerTaxId": "",
     "customerTaxIdValid": false,
-    "reversedTaxApplied": false,    
+    "reversedTaxApplied": false,
 
     // Discounts in order
+    "discount": 4,
+    "couponDiscount": 22,
+    "volumeDiscount": 4,
     "membershipBasedDiscount": 0,
-    "totalAndMembershipBasedDiscount": 2.85,
-    "couponDiscount": 1.5,
-    "discount": 2.85,
-    "volumeDiscount": 0,
+    "totalAndMembershipBasedDiscount": 0,
+    "customDiscount": [],
     "discountCoupon": {
-        "name": "Coupon # 3",
-        "code": "5PERCENTOFF",
-        "discountType": "PERCENT",
+        "id": 29567026,
+        "name": "API Testing",
+        "code": "APITESTING",
+        "discountType": "ABS",
         "status": "ACTIVE",
-        "discount": 5,
-        "launchDate": "2014-06-06 00:00:00 +0000",
+        "discount": 22,
+        "launchDate": "2018-05-24 20:00:00 +0000",
         "usesLimit": "UNLIMITED",
         "repeatCustomerOnly": false,
-        "creationDate": "2014-09-20 19:58:49 +0000",
+        "creationDate": "2018-05-31 15:08:33 +0000",
+        "updateDate": "2018-05-24 13:40:32 +0000",
         "orderCount": 0
     },
     "discountInfo": [
         {
-            "value": 10,
-            "type": "PERCENT",
-            "base": "ON_TOTAL_AND_MEMBERSHIP",
-            "orderTotal": 15
+            "value": 4,
+            "type": "ABS",
+            "base": "ON_TOTAL",
+            "orderTotal": 1
         }
     ],
-
+    
     // Order items details
     "items": [
         {
-            "id": 40989227,
-            "productId": 37208342,
-            "categoryId": 9691094,
-            "price": 5.99,
-            "productPrice": 5.99,
-            "weight": 0.32,
-            "sku": "00004",
-            "quantity": 5,
-            "shortDescription": "Cherry\nThe word cherry refers to a fleshy fruit (drupe) that contains a single stony seed. The cherry belongs to the fa...",
-            "tax": 1.79,
-            "shipping": 10,
-            "quantityInStock": 1981,
-            "name": "Cherry",
+            "id": 140273658,
+            "productId": 66722487,
+            "categoryId": 19563207,
+            "price": 1060,
+            "productPrice": 1000,
+            "sku": "ABCA-IAC",
+            "quantity": 1,
+            "shortDescription": "",
+            "tax": 331.01,
+            "shipping": 0,
+            "quantityInStock": 0,
+            "name": "iMac",
             "isShippingRequired": true,
-            "trackQuantity": true,
+            "weight": 0,
+            "trackQuantity": false,
             "fixedShippingRateOnly": false,
-            "imageUrl": "http://app.ecwid.com/default-store/00006-sq.jpg",
-            "fixedShippingRate": 1,
-            "digital": true,
+            "imageUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/391870914.jpg",
+            "smallThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/650638292.jpg",
+            "hdThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/650638293.jpg",
+            "fixedShippingRate": 0,
+            "digital": false,
             "productAvailable": true,
-            "couponApplied": false,
-            "files": [
-                {
-                    "productFileId": 7215101,
-                    "maxDownloads": 0,
-                    "remainingDownloads": 0,
-                    "expire": "2014-10-26 20:34:34 +0000",
-                    "name": "myfile.jpg",
-                    "description": "Sunflower",
-                    "size": 54492,
-                    "adminUrl": "https://app.ecwid.com/api/v3/4870020/products/37208340/files/7215101?token=123123123",
-                    "customerUrl": "http://mysuperstore.ecwid.com/download/4870020/a2678e7d1d1c557c804c37e4/myfile.jpg"
-                }
-            ],
+            "couponApplied": true,
             "selectedOptions": [
                 {
-                    "name": "Size",
-                    "value": "Big",
-                    "valuesArray" : [
-                      "Big"
+                    "name": "Price-Optimizer",
+                    "value": "6",
+                    "valuesArray": [
+                        "6"
                     ],
                     "selections": [
                         {
-                            "selectionTitle": "Big",
-                            "selectionModifier": 4,
+                            "selectionTitle": "6",
+                            "selectionModifier": 6,
                             "selectionModifierType": "PERCENT"
                         }
-                    ],                    
+                    ],
                     "type": "CHOICE"
-                },
-                {
-                    "name": "Attach a file",
-                    "type": "FILES",
-                    "files": [
-                        {
-                            "id": 5973037,
-                            "name": "makfruit_ava_sunnyflower_200_200.jpg",
-                            "size": 54492,
-                            "url": "https://app.ecwid.com/orderfile/4870020/5973037/54492/makfruit_ava_sunnyflower_200_200.jpg"
-                        }
-                    ]
-                },
-                {
-                    "name": "Choose date",
-                    "value": "2014-09-10",
-                    "type": "DATE"
-                },
-                {
-                    "name": "Any text",
-                    "value": "Test text",
-                    "type": "TEXT"
                 }
             ],
             "taxes": [
                 {
-                    "name": "Tax X",
-                    "value": 7,
-                    "total": 1.79,
-                    "taxOnDiscountedSubtotal": 1.79,
+                    "name": "State tax",
+                    "value": 12,
+                    "total": 124.13,
+                    "taxOnDiscountedSubtotal": 124.13,
+                    "taxOnShipping": 0
+                },
+                {
+                    "name": "TVA",
+                    "value": 20,
+                    "total": 206.88,
+                    "taxOnDiscountedSubtotal": 206.88,
                     "taxOnShipping": 0
                 }
             ],
             "dimensions": {
-                "length": 34,
-                "width": 3,
-                "height": 22
+                "length": 0,
+                "width": 0,
+                "height": 0
             },
-            "couponAmount": 2.3,
+            "couponAmount": 21.66,
             "discounts": [
                 {
                     "discountInfo": {
-                    "value": 4,
-                    "type": "ABS",
-                    "base": "ON_TOTAL",
-                    "orderTotal": 1
+                        "value": 4,
+                        "type": "ABS",
+                        "base": "ON_TOTAL",
+                        "orderTotal": 1
+                    },
+                    "total": 3.94
+                }
+            ]
+        },
+        {
+            "id": 140273659,
+            "productId": 66821181,
+            "categoryId": 0,
+            "price": 16.64,
+            "productPrice": 16,
+            "sku": "001001",
+            "quantity": 1,
+            "shortDescription": "This sturdy white, glossy ceramic mug is an essential to your cupboard. This brawny version of ceramic mugs shows it’s ...",
+            "tax": 157.47,
+            "shipping": 471.85,
+            "quantityInStock": 0,
+            "name": "Mug",
+            "isShippingRequired": true,
+            "weight": 0.4,
+            "trackQuantity": false,
+            "fixedShippingRateOnly": false,
+            "imageUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/389900000.jpg",
+            "smallThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/475772545.jpg",
+            "hdThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/408631478.jpg",
+            "fixedShippingRate": 0,
+            "digital": false,
+            "productAvailable": true,
+            "couponApplied": true,
+            "selectedOptions": [
+                {
+                    "name": "Color",
+                    "value": "White",
+                    "valuesArray": [
+                        "White"
+                    ],
+                    "selections": [
+                        {
+                            "selectionTitle": "White",
+                            "selectionModifier": 0,
+                            "selectionModifierType": "ABSOLUTE"
+                        }
+                    ],
+                    "type": "CHOICE"
                 },
-                    "total": 2.19
+                {
+                    "name": "Size",
+                    "value": "11oz",
+                    "valuesArray": [
+                        "11oz"
+                    ],
+                    "selections": [
+                        {
+                            "selectionTitle": "11oz",
+                            "selectionModifier": 0,
+                            "selectionModifierType": "ABSOLUTE"
+                        }
+                    ],
+                    "type": "CHOICE"
+                },
+                {
+                    "name": "Price-Optimizer",
+                    "value": "4",
+                    "valuesArray": [
+                        "4"
+                    ],
+                    "selections": [
+                        {
+                            "selectionTitle": "4",
+                            "selectionModifier": 4,
+                            "selectionModifierType": "PERCENT"
+                        }
+                    ],
+                    "type": "CHOICE"
+                }
+            ],
+            "taxes": [
+                {
+                    "name": "State tax",
+                    "value": 12,
+                    "total": 59.05,
+                    "taxOnDiscountedSubtotal": 1.95,
+                    "taxOnShipping": 57.1
+                },
+                {
+                    "name": "TVA",
+                    "value": 20,
+                    "total": 98.42,
+                    "taxOnDiscountedSubtotal": 3.25,
+                    "taxOnShipping": 95.17
+                }
+            ],
+            "dimensions": {
+                "length": 0,
+                "width": 0,
+                "height": 0
+            },
+            "couponAmount": 0.34,
+            "discounts": [
+                {
+                    "discountInfo": {
+                        "value": 4,
+                        "type": "ABS",
+                        "base": "ON_TOTAL",
+                        "orderTotal": 1
+                    },
+                    "total": 0.06
                 }
             ]
         }
     ],
+
     // Refund information
     "refundedAmount": 3.5,
     "refunds": [
@@ -828,71 +992,78 @@ Parameters in bold are mandatory
             "amount": 3.5
         }
     ],
+
     // Customer addresses
     "billingPerson": {
-        "name": "John Smith",
-        "companyName": "Unreal Company",
-        "street": "W 3d st",
-        "city": "New York",
+        "name": "Michael Scott",
+        "companyName": "",
+        "street": "555 Lackawanna Ave",
+        "city": "Scranton",
         "countryCode": "US",
         "countryName": "United States",
-        "postalCode": "10001",
-        "stateOrProvinceCode": "NY",
-        "stateOrProvinceName": "New York",
-        "phone": "+1234567890"
+        "postalCode": "18508",
+        "stateOrProvinceCode": "PA",
+        "stateOrProvinceName": "Pennsylvania",
+        "phone": ""
     },
     "shippingPerson": {
-        "name": "John Smith",
-        "companyName": "Unreal Company",
-        "street": "W 3d st",
-        "city": "New York",
+        "name": "Michael Scott",
+        "companyName": "",
+        "street": "555 Lackawanna Ave",
+        "city": "Scranton",
         "countryCode": "US",
         "countryName": "United States",
-        "postalCode": "10001",
-        "stateOrProvinceCode": "NY",
-        "stateOrProvinceName": "New York",
-        "phone": "+1234567890"
+        "postalCode": "18508",
+        "stateOrProvinceCode": "PA",
+        "stateOrProvinceName": "Pennsylvania",
+        "phone": ""
     },
 
-    // Shipping information
+    // Shipping information    
     "shippingOption": {
-        "shippingMethodName": "2nd day delivery",
-        "shippingRate": 10,
-        "estimatedTransitTime": "5"
+        "shippingCarrierName": "Shipping app the-printful",
+        "shippingMethodName": "USPS Priority Mail",
+        "shippingRate": 471.85,
+        "estimatedTransitTime": "1-3",
+        "isPickup": false
     },
     "handlingFee": {
-        "name": "Wrapping",
-        "value": 2,
-        "description": "Silk paper wrapping"
+        "name": "Handling Fee",
+        "value": 4,
+        "description": ""
     },
-    "predictedPackages":[  
-        {  
-            "length":34,
-            "width":3,
-            "height":22,
-            "weight":0.32,
-            "declaredValue":29.95
+    "predictedPackage": [
+        {
+            "length": 0,
+            "width": 0,
+            "height": 0,
+            "weight": 0.4,
+            "declaredValue": 1076.64
         }
     ],
-
-    // Other information
-    "additionalInfo": {},
-    "paymentParams": {
-        "Company name": "Unreal Company",
-        "Job position": "Manager",
-        "PO number": "123abcd",
-        "Buyer's full name": "John Smith"
-    },
-    "extraFields": {
-        "referred_by": "Referrer is: Facebook Ads"
-    },
     "taxesOnShipping": [
         {
-            "name": "Tax X",
+            "name": "State tax",
+            "value": 12,
+            "total": 57.1
+        },
+        {
+            "name": "TVA",
             "value": 20,
-            "total": 2.86
+            "total": 95.17
         }
-    ]
+    ],    
+
+    // Other information
+    "paymentModule": "CUSTOM_PAYMENT_APP-mollie-pg",
+    "additionalInfo": {
+        "google_customer_id": "2008512504.1526280224"
+    },
+    "paymentParams": {},
+    "extraFields": {
+        "lang": "en",
+        "askHowYouFoundUsApp": "From a friend",
+    }
 }
 ```
 
