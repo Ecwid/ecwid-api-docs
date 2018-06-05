@@ -38,9 +38,9 @@ Get basic storefront information to use in your script.
 > Get Static Base Url code example
 
 ```javascript
-var StaticBaseUrl = Ecwid.getStaticBaseUrl()
+var StaticBaseUrl = Ecwid.getStaticBaseUrl();
 
-console.log(StaticBaseUrl)
+console.log(StaticBaseUrl);
 
 // prints
 // "https://d3fi9i0jj23cau.cloudfront.net/gz/"
@@ -90,9 +90,9 @@ Returns array containing widget types present on a page. There are four types av
 > Format a number using currency format of a store
 
 ```javascript
-var currencyFormat = Ecwid.formatCurrency(12.99)
+var currencyFormat = Ecwid.formatCurrency(12.99);
 
-console.log(currencyFormat)
+console.log(currencyFormat);
 
 // prints
 // "$12.99"
@@ -263,7 +263,7 @@ Typically is used for [SEO URLs feature](https://developers.ecwid.com/api-docume
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('cart');
-})
+});
 ```
 
 When customer browses the store, Ecwid makes the navigation easy and fast due to the Ajax technology without any page reloads. However, sometimes you may need to open a specific page in storefront automatically or after a user clicks on a link. This is where `Ecwid.openPage` method can be useful. 
@@ -282,7 +282,7 @@ For general pages, you can only specify the name of the page you want to open. H
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('product', {'id': 12345});
-})
+});
 ```
 
 To open a page with parameters, you must specify them in the object in second argument of `Ecwid.openPage` function. See example on the right. 
@@ -300,7 +300,7 @@ Additional parameters include: `'id'` and `'name'`.
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('product', {'id': 72585497, 'name': "Apple"});
-})
+});
 ```
 
 `'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original product name set by store owner.
@@ -311,7 +311,7 @@ The example on the right opens product details page of a specific product and us
 
 For category pages, the first argument of `Ecwid.openPage` function will be `'category'`.
 
-Additional parameters include: `'id'` and `'name'`. 
+Additional parameters include: `'id'`, `'name'` and `'page'`
 
 `'id'` is a required parameter, which helps Ecwid identify which exact category page to open in storefront. If it is not set, Ecwid will use store home page, i.e. id will be `0` 
 
@@ -319,11 +319,13 @@ Additional parameters include: `'id'` and `'name'`.
 
 ```js
 Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('category', {'id': 20671017, 'name': "Fruit"});
-})
+  Ecwid.openPage('category', {'id': 20671017, 'name': "Fruit", 'page': 3});
+});
 ```
 
 `'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original category name set by store owner.
+
+`'page'` is an optional parameter, used to open a specific page with products. If the page value is bigger than there are pages in category, Ecwid will open the last available page. If integer value is not passed, `'page'` parameter is ignored.
 
 The example on the right opens product details page of a specific product and uses a custom name we set for it in [Ecwid demo store](https://www.ecwid.com/demo/). As a result, the URL will look like: `https://www.ecwid.com/demo/Apple-p72585497`
 
@@ -333,8 +335,8 @@ The example on the right opens product details page of a specific product and us
 
 ```js
 Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('search', {'keywords': 'surfboard'});
-})
+  Ecwid.openPage('search', {'keywords': 'surfboard', 'page': 2});
+});
 ```
 
 > Open search page and search for products under $50
@@ -342,7 +344,7 @@ Ecwid.OnAPILoaded.add(function() {
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('search', {'priceTo': '50'});
-})
+});
 ```
 
 > Open search page and search for in stock shoes that have Brand attribute equal 'Nike'
@@ -354,10 +356,11 @@ Ecwid.OnAPILoaded.add(function() {
     {
       'keywords': 'shoes', 
       'fieldBrand': 'Nike',
-      'inStock': 'true'
+      'inStock': 'true',
+      'page': 5
     }
   );
-})
+});
 ```
 
 For the search page, the first argument of `Ecwid.openPage` function will be `'search'`.
@@ -371,8 +374,8 @@ Additional parameters include:
 - `'field{Name}=param[,param]'`: search by product attributes. "Name" is the attribute name (spaces will work). "Param" is the attribute value. You can place several values separated by comma. In that case values will be connected through "OR", and if the product has at least one of them it will be shown. Important note: if you need to search for an exact attribute value you should enclose it in the quotation marks. For information about product attributes please refer to this article.
 - `'field{id}=param[,param]'`: it is the same parameter as `field[Name]` but attribute ID is used instead attribute name. In this case you need to get the attribute ID number through the API. It is more complex but resistant to attributes renaming.
 - `'keywords'`: it is a search string. The search result will be products with title, description, or some other fields containing these keywords.
-inStock=true: returns the list of "In stock" products. Otherwise the search shows both "In stock" and "Out of stock" products. 
-
+inStock=true: returns the list of "In stock" products. Otherwise the search shows both "In stock" and "Out of stock" products.
+- `'page'` is an optional parameter, used to open a specific page with products. If the page value is bigger than there are pages in category, Ecwid will open the last available page. If integer value is not passed, `'page'` parameter is ignored.
 
 **Sign in**
 
@@ -381,7 +384,7 @@ inStock=true: returns the list of "In stock" products. Otherwise the search show
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('signin', {'returnurl': 'https://www.ecwid.com/demo/Surfboards-c20671017'});
-})
+});
 ```
 
 For the sign in page, the first argument of `Ecwid.openPage` function will be `'signin'`.
@@ -397,7 +400,7 @@ Additional parameters include: `'returnurl'`
 ```js
 Ecwid.OnAPILoaded.add(function() {
   Ecwid.openPage('cart');
-})
+});
 ```
 
 Open the following pages by setting page name as first argument of `Ecwid.openPage` function. 
@@ -458,7 +461,7 @@ Describes the page displaying inside the product browser.
 ```js
 Ecwid.OnPageLoaded.add(function(page){
   console.log("Current page is of type: " + page.type);
-})
+});
 
 // prints
 // Current page is of type: CATEGORY
@@ -537,7 +540,7 @@ If no customer is logged in, these functions receive **null**. Whenever a custom
 ```javascript
 Ecwid.OnCartChanged.add(function(cart){
     // your code here
-}) 
+});
 ```
 
 This event contains callback functions that get called each time when a shopping cart is changed — either by the customer or due to system events.
@@ -566,7 +569,7 @@ The passed `cart` object represents only the basic properties of the shopping ca
 ```javascript
 Ecwid.OnProductOptionsChanged.add(function(productid) {
    window.alert("Options changed, product id:" + productid);    
-})
+});
 ```
 
 This event executes callback function each time when product option was changed. The callback functions accept one parameter: **productid**, specifying ID of the product changed. 
@@ -580,7 +583,7 @@ This event executes callback function each time when product option was changed.
 ```js
 Ecwid.OnOrderPlaced.add(function(order){
   console.log(order.orderNumber);
-})
+});
 
 // 781
 ```
@@ -684,7 +687,7 @@ Customer object describes details of a customer in the store
 Ecwid.OnSetProfile.add(function(customer) {
   console.log(customer.email);
   console.log(customer.billingPerson.countryName);
-})
+});
 
 // prints
 // supercoder@matrix.com
@@ -759,7 +762,7 @@ There are 2 possible ways to call this function: adding products by product ID o
 > Add product function
 
 ```javascript
-Ecwid.Cart.addProduct(productID, callback)
+Ecwid.Cart.addProduct(productID, callback);
 ```
 
 `addProduct()` can accept 2 arguments: **productId** and **callback**.
@@ -816,7 +819,7 @@ Adding to cart is done asynchronously, so if it is important to know the result 
 Ecwid.Cart.addProduct(productID, function(success, product, cart){
   console.log(success); // true or false
   console.log(product.name);
-})
+});
 ```
 
 > Add product to cart with callback function, example 2
@@ -829,7 +832,7 @@ Ecwid.Cart.addProduct({
     console.log(success); // true or false
     console.log(product.name);
   }
-})
+});
 ```
 
 Callback receives 3 arguments: **success**, **product**, **cart**
@@ -888,7 +891,7 @@ index | integer | index of a product in cart object you need to remove from cust
 > Clear cart contents
 
 ```js
-Ecwid.Cart.clear()
+Ecwid.Cart.clear();
 ```
 
 Clears the cart contents.
@@ -929,7 +932,7 @@ Since the calculation needs a server connection, it might fail due to network co
 > Send customer to checkout
 
 ```js
-Ecwid.Cart.gotoCheckout()
+Ecwid.Cart.gotoCheckout();
 ```
 
 `Ecwid.Cart.gotoCheckout()` function allows you to send customer to the first step of the checkout process in a store. Customer will be sent there only if agreeing to terms and conditions is not required in the store. You can find this setting in Ecwid Control Panel > Settings > General > Legal Pages > "Show “I agree with Terms & Conditions” checkbox during checkout" or check it using `Ecwid.Cart.canGotoCheckout()` function.
@@ -939,7 +942,7 @@ Ecwid.Cart.gotoCheckout()
 ```js
 Ecwid.Cart.gotoCheckout(function(){
   alert("Checkout process started");
-})
+});
 ```
 
 You can also execute a callback function if a customer was successfully sent to the first step of the checkout process in a store. See example code on the right.
@@ -951,7 +954,7 @@ You can also execute a callback function if a customer was successfully sent to 
 ```js
 Ecwid.Cart.canGotoCheckout(function(callback){
   console.log(callback);
-})
+});
 ```
 
 Using `Ecwid.Cart.canGotoCheckout()` function you can check whether you can send customers to the first step of checkout process in a store. 
@@ -967,13 +970,13 @@ callback | boolean | `true` if you can send customer to the checkout process, `f
 > Function description
 
 ```js
-Ecwid.Cart.setCustomerEmail(email, successCallback, errorCallback)
+Ecwid.Cart.setCustomerEmail(email, successCallback, errorCallback);
 ```
 
 > Set customer email example
 
 ```js
-Ecwid.Cart.setCustomerEmail('james@coolstore.com')
+Ecwid.Cart.setCustomerEmail('james@coolstore.com');
 ```
 
 `Ecwid.Cart.setCustomerEmail()` allows you to set customer's email in checkout process. Make sure to use it on pages, where the email is not shown so that it is always up-to-date.
@@ -1011,7 +1014,7 @@ Error code | Error message
 > Function
 
 ```js
-Ecwid.Cart.setOrderComments(orderComments, successCallback, errorCallback)
+Ecwid.Cart.setOrderComments(orderComments, successCallback, errorCallback);
 ```
 
 > Set order comments example
@@ -1029,7 +1032,7 @@ Ecwid.Cart.setOrderComments('Leave order at the door.',
   },
   function(){
     console.log('Error setting order comments.');
-})
+});
 ```
 
 `Ecwid.Cart.setOrderComments` allows you to set the order comments field on the fly. It's quite useful to pass some additional information for an order, which will be provided in email notifications to customer and store admin as well as the order details in Ecwid Control Panel and Ecwid API.
@@ -1064,7 +1067,7 @@ Error code | Error message
 > Function
 
 ```js
-Ecwid.Cart.setAddress(address, successCallback, errorCallback)
+Ecwid.Cart.setAddress(address, successCallback, errorCallback);
 ```
 
 > Set shipping address example
@@ -1102,7 +1105,7 @@ Ecwid.Cart.setAddress({
   function(){
     console.log('Error setting the address');
   }
-)
+);
 ```
 
 `Ecwid.Cart.setAddress()` allows you to set shipping address for customer in storefront. You can use it to prefill and hide fields in checkout process to simplify it. 
@@ -1156,7 +1159,7 @@ Error code | Error message
 > Function
 
 ```js
-Ecwid.Cart.setBillingAddress(address, successCallback, errorCallback)
+Ecwid.Cart.setBillingAddress(address, successCallback, errorCallback);
 ```
 
 > Set billing address example
@@ -1194,7 +1197,7 @@ Ecwid.Cart.setBillingAddress({
   function(){
    console.log('Error setting the address');
   }
-)
+);
 ```
 
 `Ecwid.Cart.setBillingAddress()` allows you to set billing address for customer in storefront. You can use it to specify some address from your custom form on your website. 
@@ -1359,7 +1362,7 @@ Cart object is a snapshot of essential shopping cart properties, passed via vari
 ```js
 Ecwid.OnCartChanged.add(function(cart) {
   console.log("Products in cart now: " + cart.productsQuantity);
-})
+});
 
 // prints
 // Products in cart now: 1
@@ -1386,7 +1389,7 @@ Order object represents details of current customer's order.
 ```js
 Ecwid.Cart.calculateTotal(function(order) {
   console.log(order.total);
-})
+});
 
 // prints
 // 13.25
@@ -1417,7 +1420,7 @@ CartItem represents a single item (product variety) in cart.
 ```js
 Ecwid.OnCartChanged.add(function(cart) {
   console.log("There are " + cart.items[0].quantity + " items of " + cart.items[0].product.name + " in cart now.");
-})
+});
 
 // prints
 // There are 1 items of Apple product in cart now.
@@ -1440,7 +1443,7 @@ Product object represents details of a specific product in cart
 ```js
 Ecwid.OnCartChanged.add(function(cart) {
   console.log(cart.items[0].product.name + " in the cart has SKU: " + cart.items[0].product.sku);
-})
+});
 
 // prints
 // Apple product in the cart has SKU: TEST-1234
