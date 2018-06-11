@@ -10,9 +10,11 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ## June 11, 2018
 
-Added information about product's taxes in Ecwid REST API. 
+1) Added information about product's taxes in Ecwid REST API. 
 
 Get and update all enabled manual taxes for product, or learn the default tax rate that Ecwid includes in product price for default store location. [Learn more](https://developers.ecwid.com/api-documentation/products)
+
+2) Updated behaviour of the `launchDate` and `expirationDate` fields for [discount coupons endpoint](https://developers.ecwid.com/api-documentation/discount-coupons) in Ecwid REST API. Now the date will be automatically converted to UTC
 
 ## June 5, 2018
 

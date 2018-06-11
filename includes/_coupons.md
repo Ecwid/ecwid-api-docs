@@ -112,8 +112,8 @@ code |  string | Unique coupon code
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
-launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day. Any date provided will be corrected to 00:00 in store's timezone 
-expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day. Any date provided will be corrected to 23:59 in store's timezone 
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
 totalLimit | number | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
@@ -216,8 +216,8 @@ code |  string | Unique coupon code
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`, `EXPIRED` or `USEDUP`
 discount | number | Discount amount
-launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day. Any date provided will be corrected to 00:00 in store's timezone 
-expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day. Any date provided will be corrected to 23:59 in store's timezone 
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
@@ -266,7 +266,9 @@ POST /api/v3/4870020/discount_coupons?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
+```
 
+```json
 {
     "name": "Coupon # 1",
     "code": "MOXQ3YCWXRXA",
@@ -306,8 +308,8 @@ Field | Type  | Description
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING` . Default is `ABS`
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`. Discount coupon states `EXPIRED` and `USEDUP` are set by Ecwid store only and not available in API
 discount | number | Discount amount . `0` is default
-launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day. Any date provided will be corrected to 00:00 in store's timezone 
-expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day. Any date provided will be corrected to 23:59 in store's timezone 
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE` . `UNLIMITED` is default
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers. `false` is default
@@ -388,7 +390,9 @@ PUT /api/v3/4870020/discount_coupons/12MOXQ3YCWXRXA?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
+```
 
+```json
 {
     "name": "Coupon # 1",
     "code": "MOXQ3YCWXRXA",
@@ -416,7 +420,9 @@ PUT /api/v3/4870020/discount_coupons/123213123?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
+```
 
+```json
 {
     "name": "Coupon # 1",
     "code": "MOXQ3YCWXRXA",
@@ -457,8 +463,8 @@ code |  string | Unique coupon code, length limit is 128 characters.
 discountType | string | Discount type: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING` . 
 status | string | Discount coupon state: `ACTIVE`, `PAUSED`. Discount coupon states `EXPIRED` and `USEDUP` are set by Ecwid store only and not available in API
 discount | number | Discount amount
-launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day. Any date provided will be corrected to 00:00 in store's timezone 
-expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. If the time between `launchDate` and `expirationDate` is less than 24 hours, Ecwid will update them to be at least a full day. Any date provided will be corrected to 23:59 in store's timezone 
+launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
+expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE` . 
 repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers.
