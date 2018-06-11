@@ -275,13 +275,23 @@ Extra fields will only be shown in order details to customer and store admin if 
 
 - `title` is not empty 
 - `value` is not empty
-- `orderDetailsDisplaySection` contains supported value: `shipping_info`, `billing_info`, `customer_info`, `order_comments`. More on this below
+- `orderDetailsDisplaySection` contains supported value: `shipping_info`, `billing_info`, `customer_info`, `order_comments`
 
 <aside class='note'>
-    If 'orderDetailsDisplaySection' contains an unsupported value, the extra field will still be saved to an order, but it will not be shown in order details to merchant and customer.
+If 'orderDetailsDisplaySection' contains an unsupported value, the extra field will still be saved to an order, but it will not be shown in order details to merchant and customer.
 </aside>
 
 ### Order extra fields in invoices and emails
+
+> Show all order extra fields set to be visible in order details (title and orderDisplaySection is specified)
+
+```
+<#list order.extraFields as extraField>
+    <#if extraField.title && extraField.orderDisplaySection?has_content>
+        ${extraField.title}: ${extraField.value}
+    </#if>
+</#list>
+```
 
 Check out these articles in the Ecwid Help Center to learn how to show all or partial details of order extra fields: 
 

@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## June 11, 2018
+
+Added information about product's taxes in Ecwid REST API. 
+
+Get and update all enabled manual taxes for product, or learn the default tax rate that Ecwid includes in product price for default store location. [Learn more](https://developers.ecwid.com/api-documentation/products)
+
 ## June 5, 2018
 
 Added optional parameter to Storefront JS API method `Ecwid.openPage` - `'page'`. It allows you to open any page in the results for `category` and `search` page types. [Learn more](https://developers.ecwid.com/api-documentation/open-page-in-storefront)

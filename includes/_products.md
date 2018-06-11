@@ -85,6 +85,12 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           "name": "Orange",
           "price": 10,
           "defaultDisplayedPrice": 10,
+          "tax": {
+            "defaultLocationIncludedTaxRate": 0,
+              "enabledManualTaxes": [
+                1117939047
+              ]
+          },
           "wholesalePrices": [
             {
               "quantity": 2,
@@ -233,6 +239,12 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "name": "Radish",
             "price": 1.15,
             "defaultDisplayedPrice": 1.15,
+            "tax": {
+              "defaultLocationIncludedTaxRate": 5,
+                "enabledManualTaxes": [
+                  1117939042
+                ]
+            },  
             "wholesalePrices": [
                 {
                     "quantity": 10,
@@ -495,6 +507,12 @@ Cache-Control: no-cache
           "name": "Orange",
           "price": 10,
           "defaultDisplayedPrice": 10,
+          "tax": {
+            "defaultLocationIncludedTaxRate": 5,
+              "enabledManualTaxes": [
+                1117939042
+              ]
+          },
           "wholesalePrices": [
             {
               "quantity": 2,
@@ -660,6 +678,7 @@ inStock | boolean | `true` if the product or any of its variations is in stock (
 name |  string |  Product title
 price | number |  Base product price
 defaultDisplayedPrice | number |  Product price displayed in a storefront for logged out customer for default location (store location). May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. It also includes taxes
+tax | \<*TaxInfo*\> | Detailed information about product's taxes
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
@@ -817,6 +836,12 @@ length | number | Length of a product
 width | number | Width of a product
 height | number | Height of a product
 
+#### TaxInfo
+Field | Type  | Description
+-------------- | -------------- | --------------
+defaultLocationIncludedTaxRate | number | Default tax rate (%) for including into product price. Is a sum of all enabled taxes included in product price for the store location. Read only
+enabledManualTaxes | Array\<*TaxId*\> | Array of tax IDs, as listed in (store information)[https://developers.ecwid.com/api-documentation/store-information#get-store-profile]. Empty array if no manual taxes are enabled or automatic taxes are enabled
+
 #### Errors
 
 > Error response example
@@ -951,6 +976,12 @@ Parameters in <strong>bold</strong> are mandatory
     "name": "Radish",
     "price": 1.15,
     "defaultDisplayedPrice": 1.15,
+    "tax": {
+      "defaultLocationIncludedTaxRate": 5,
+        "enabledManualTaxes": [
+          1117939042
+        ]
+    },
     "wholesalePrices": [
         {
             "quantity": 10,
@@ -1210,6 +1241,7 @@ inStock | boolean | `true` if the product or any of its variations is in stock (
 name |  string |  Product title
 price | number |  Base product price
 defaultDisplayedPrice | number |  Product price displayed in a storefront for logged out customer for default location (store location). May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. It also includes taxes
+tax | \<*TaxInfo*\> | Detailed information about product's taxes
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
@@ -1367,6 +1399,12 @@ length | number | Length of a product
 width | number | Width of a product
 height | number | Height of a product
 
+#### TaxInfo
+Field | Type  | Description
+-------------- | -------------- | --------------
+defaultLocationIncludedTaxRate | number | Default tax rate (%) for including into product price. Is a sum of all enabled taxes included in product price for the store location. Read only
+enabledManualTaxes | Array\<*TaxId*\> | Array of tax IDs, as listed in (store information)[https://developers.ecwid.com/api-documentation/store-information#get-store-profile]. Empty array if no manual taxes are enabled or automatic taxes are enabled
+
 #### Errors
 
 ```http
@@ -1482,6 +1520,11 @@ Cache-Control: no-cache
   "created":"2014-01-01",
   "fixedShippingRateOnly": false,
   "fixedShippingRate": 1.2,
+  "tax": {
+    "enabledManualTaxes": [
+      1117939042
+    ]
+  },  
   "options": [
     {
       "type": "RADIO",
@@ -1519,6 +1562,10 @@ Name | Type    | Description
 
 A JSON object of type 'Product' with the following fields:
 
+<aside class="notice">
+Parameters in bold are mandatory
+</aside>
+
 #### Product
 Field | Type |  Description
 ------| ---- | ------------
@@ -1529,6 +1576,7 @@ unlimited | boolean | Set as `true` to make Unlimited stock for the product and 
 price | number |  Base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
+tax | \<*TaxInfo*\> | Detailed information about product's taxes
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Leave empty for intangible products*
 productClassId |  number | Id of the class (type) that this product belongs to. `0` value means the product is of the default 'General' class. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
@@ -1596,10 +1644,10 @@ length | number | Length of a product
 width | number | Width of a product
 height | number | Height of a product
 
-<aside class="notice">
-Parameters in bold are mandatory
-</aside>
-
+#### TaxInfo
+Field | Type  | Description
+-------------- | -------------- | --------------
+enabledManualTaxes | Array\<*TaxId*\> | Array of tax IDs, as listed in (store information)[https://developers.ecwid.com/api-documentation/store-information#get-store-profile]. Empty array if no manual taxes are enabled or automatic taxes are enabled
 
 #### Response
 
@@ -1647,6 +1695,8 @@ HTTP Status | Description | Code (optional)
 409 | Specified wholesale price can't be negative | `WHOLESALE_PRICES_CANT_BE_NEGATIVE` 
 409 | Specified wholesale price is too big | `WHOLESALE_PRICES_TOO_BIG`
 409 | Specified wholesale price quantity is too small | `WHOLESALE_PRICES_QUANTITY_TOO_SMALL`
+409 | Specified manual taxes cannot be assigned because store has automatic taxes enabled | 
+409 | Specified manual taxes cannot be assigned because this tax is disabled in store | 
 415 | Unsupported content-type: expected `application/json` or `text/json` | 
 
 #### Error response body (optional)
@@ -1668,12 +1718,19 @@ PUT /api/v3/4870020/products/39766764?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+```
 
+```json
 {
   "compareToPrice": 24.99,
   "categoryIds": [
     9691094
   ],
+  "tax": {
+    "enabledManualTaxes": [
+      1117939042
+    ]
+  },  
   "attributes": [
     {
       "id": 12974019,
@@ -1710,6 +1767,7 @@ price | number |  Base product price
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
+tax | \<*TaxInfo*\> | Detailed information about product's taxes
 weight |  number | Product weight in the units defined in store settings. *Leave empty for intangible products*
 productClassId |  number | Id of the product type that this product belongs to. `0` value means the product is of the default 'General' type. See also: [Product types and attributes in Ecwid](http://help.ecwid.com/customer/portal/articles/1167365-product-types-and-attributes)
 enabled | boolean | `true` to make product enabled, `false` otherwise. Disabled products are not displayed in the store front.
@@ -1801,6 +1859,11 @@ length | number | Length of a product
 width | number | Width of a product
 height | number | Height of a product
 
+#### TaxInfo
+Field | Type  | Description
+-------------- | -------------- | --------------
+enabledManualTaxes | Array\<*TaxId*\> | Array of tax IDs, as listed in (store information)[https://developers.ecwid.com/api-documentation/store-information#get-store-profile]. Empty array if no manual taxes are enabled or automatic taxes are enabled
+
 #### Response
 
 > Response example (JSON)
@@ -1848,6 +1911,8 @@ HTTP Status | Description | Code (optional)
 409 | Specified wholesale price can't be negative | `WHOLESALE_PRICES_CANT_BE_NEGATIVE` 
 409 | Specified wholesale price is too big | `WHOLESALE_PRICES_TOO_BIG`
 409 | Specified wholesale price quantity is too small | `WHOLESALE_PRICES_QUANTITY_TOO_SMALL`
+409 | Specified manual taxes cannot be assigned because store has automatic taxes enabled | 
+409 | Specified manual taxes cannot be assigned because this tax is disabled in store | 
 415 | Unsupported content-type: expected `application/json` or `text/json` | 
 
 #### Error response body (optional)

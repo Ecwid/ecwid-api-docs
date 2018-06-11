@@ -340,7 +340,7 @@ affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 recoveredOrderId | number | Order number. Is present if the abandoned cart was successfully recovered
 recoveryEmailSentTimestamp | string | The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
-taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old carts, `[]` for carts with taxes applied to subtotal only. Are not recalculated if cart is updated later manually
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old carts, `[]` for carts with taxes applied to subtotal only. Are not recalculated if cart is updated later manually. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
 
 #### OrderItem
 Field | Type |  Description
@@ -859,7 +859,7 @@ affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 recoveredOrderId | number | Order number. Is present if the abandoned cart was successfully recovered
 recoveryEmailSentTimestamp | string | The date/time of the last order change, e.g `2014-06-06 18:57:19 +0000`
-taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old carts, `[]` for carts with taxes applied to subtotal only. Are not recalculated if cart is updated later manually
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old carts, `[]` for carts with taxes applied to subtotal only. Are not recalculated if cart is updated later manually. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
 
 #### OrderItem
 Field | Type |  Description
@@ -1110,7 +1110,7 @@ A JSON object of type 'Order' with the following fields:
 Field | Type |  Description
 ------| -----| ------------
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to abandoned carts only
-taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if cart is updated later manually
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if cart is updated later manually. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
 
 #### TaxOnShipping
 Field | Type | Description
@@ -1600,7 +1600,7 @@ predictedPackage | Array\<*PredictedPackage*\> | Predicted information about the
 additionalInfo | Map\<*string,string*\> | Additional order information if any (*reserved for future use*)
 paymentParams | Map\<*string,string*\> |  Additional payment parameters entered by customer on checkout, e.g. `PO number` in "Purchase order" payments
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
-taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only
+taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
 
 #### OrderItem
 Field | Type |  Description
