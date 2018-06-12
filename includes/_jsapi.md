@@ -1353,33 +1353,6 @@ Please note that this is an example link and it will not work in Ecwid's demo st
 
 Find out more about cart in its current state.
 
-### Cart Object
-
-Cart object is a snapshot of essential shopping cart properties, passed via various callbacks. Cart object does not provide direct memory access to the actual cart that Ecwid uses — i.e. changing this exact object will not alter the actual cart Ecwid uses for placing the order.
-
-> Get quantity of products in cart example
-
-```js
-Ecwid.OnCartChanged.add(function(cart) {
-  console.log("Products in cart now: " + cart.productsQuantity);
-});
-
-// prints
-// Products in cart now: 1
-```
-
-**Fields:**
-
-Name | Type | Description
----- | ---- | -----------
-items | Array\<*CartItem*\> | Enlists all items currently present in customer’s cart
-productsQuantity | integer | Total number of product varieties in cart
-orderId | integer | Unique internal order ID for this order (available after order is created)
-couponName | string | The name of the coupon (if any) applied to the cart. If no coupon was applied, will contain undefined. Does not contain the actual code of coupon, just the name.
-weight | number | Total weight of the items in cart
-paymentMethod | string | The name of the selected payment method (if any)
-shippingMethod | string | The name of the selected shipping method (if any)
-
 ### Order Object
 
 Order object represents details of current customer's order.
@@ -1409,6 +1382,42 @@ shipping | integer | An absolute amount of shipping rate applied to order
 tax | integer | An absolute amount of tax rate applied to order
 total | integer | Total amount of this order
 volumeDiscount | integer | An absolute amount of a discount based on subtotal for this order
+
+### Cart Object
+
+Cart object is a snapshot of essential shopping cart properties, passed via various callbacks. Cart object does not provide direct memory access to the actual cart that Ecwid uses — i.e. changing this exact object will not alter the actual cart Ecwid uses for placing the order.
+
+> Get full cart details
+
+```js
+Ecwid.Cart.get(function(cart){
+  console.log(cart);
+});
+```
+
+> Get quantity of products in cart example
+
+```js
+Ecwid.OnCartChanged.add(function(cart) {
+  console.log("Products in cart now: " + cart.productsQuantity);
+});
+
+// prints
+// Products in cart now: 1
+```
+
+**Fields:**
+
+Name | Type | Description
+---- | ---- | -----------
+items | Array\<*CartItem*\> | Enlists all items currently present in customer’s cart
+productsQuantity | integer | Total number of product varieties in cart
+orderId | integer | Unique internal order ID for this order (available after order is created)
+couponName | string | The name of the coupon (if any) applied to the cart. If no coupon was applied, will contain undefined. Does not contain the actual code of coupon, just the name.
+weight | number | Total weight of the items in cart
+paymentMethod | string | The name of the selected payment method (if any)
+shippingMethod | string | The name of the selected shipping method (if any)
+cartId | string | Cart ID you can use later in the [cart endpoint](https://developers.ecwid.com/api-documentation/carts) of Ecwid REST API
 
 
 ### CartItem Object
