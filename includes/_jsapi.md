@@ -374,7 +374,7 @@ Additional parameters include:
 - `'field{Name}=param[,param]'`: search by product attributes. "Name" is the attribute name (spaces will work). "Param" is the attribute value. You can place several values separated by comma. In that case values will be connected through "OR", and if the product has at least one of them it will be shown. Important note: if you need to search for an exact attribute value you should enclose it in the quotation marks. For information about product attributes please refer to this article.
 - `'field{id}=param[,param]'`: it is the same parameter as `field[Name]` but attribute ID is used instead attribute name. In this case you need to get the attribute ID number through the API. It is more complex but resistant to attributes renaming.
 - `'keywords'`: it is a search string. The search result will be products with title, description, or some other fields containing these keywords.
-inStock=true: returns the list of "In stock" products. Otherwise the search shows both "In stock" and "Out of stock" products.
+- `'inStock'`: if `true` returns the list of products "In stock". Otherwise the search shows both "In stock" and "Out of stock" products.
 - `'page'` is an optional parameter, used to open a specific page with products. If the page value is bigger than there are pages in category, Ecwid will open the last available page. If integer value is not passed, `'page'` parameter is ignored.
 
 **Sign in**
