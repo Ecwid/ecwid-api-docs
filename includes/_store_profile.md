@@ -43,6 +43,7 @@ Name | Type    | Description
     "settings": {
         "closed": false,
         "storeName": "My Super Store",
+        "storeDescription": "<p>Welcome to my store! Check out the latest and coolest products below. </p>",
         "invoiceLogoUrl": "https://dpbfm6h358sh7.cloudfront.net/images/4870020/253584290.jpg",
         "emailLogoUrl": "https://dpbfm6h358sh7.cloudfront.net/images/4870020/298177033.jpg",
         "googleRemarketingEnabled": true,
@@ -642,6 +643,7 @@ Cache-Control: no-cache
   "settings": {
     "closed": false,
     "storeName": "Awesome store",
+    "storeDescription": "<p>Welcome to my store! Check out the latest and coolest products below. </p>",
     "googleAnalyticsId": ""
   },
   "mailNotifications": {
@@ -907,6 +909,7 @@ Field | Type | Description
 ----- | ---- | -----------
 closed | boolean | `true` if the store is closed for maintenance, `false` otherwise
 storeName | string | The store name displayed in Starter Site
+storeDescription | string | HTML description for the main store page – Store Front page
 invoiceLogoUrl | string | Company logo displayed on the invoice
 emailLogoUrl | string | Company logo displayed in the store email notifications
 googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
@@ -1248,6 +1251,7 @@ Cache-Control: no-cache
     "settings": {
         "closed": false,
         "storeName": "My Cool Store",
+        "storeDescription": "<p>Welcome to my store!</p>",
         "googleRemarketingEnabled": false,
         "googleAnalyticsId": "UA-654321-1",
         "hideOutOfStockProductsInStorefront": false,
@@ -1356,6 +1360,7 @@ Field | Type | Description
 ----- | ---- | -----------
 closed | string | `true` if the store is closed for maintenance, `false` otherwise
 storeName | string | The store name displayed in Starter Site
+storeDescription | string | HTML description for the main store page – Store Front page
 googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
 googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/customer/en/portal/articles/1170264-google-analytics) connected to a store
 orderCommentsEnabled | boolean | Use `true` to enable order comments feature, `false` otherwise

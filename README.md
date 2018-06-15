@@ -8,6 +8,15 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## June 15, 2018
+
+1) Added Store Front page description to the Ecwid REST API – `storeDescription`. Now it is possible to read and update the description of the main store page. [Learn more](https://developers.ecwid.com/api-documentation/store-information)
+
+2) Updated sort order for [search products](https://developers.ecwid.com/api-documentation/products#search-products) (`/products`) endpoint in the Ecwid REST API: 
+
+- If `keyword` parameter is passed but `sortBy` is not, sort order will be `"RELEVANCE"`. No changes here
+- If both `keyword` and `sorBy` parameters are not passed, sort order will be **defined by the store owner**
+
 ## June 11, 2018
 
 1) Added information about product's taxes in Ecwid REST API. 

@@ -10,6 +10,11 @@ Search or filter products in a store catalog. The response provides full details
 To get products from Store Front Page, specify <strong>&category=0</strong> in your request.
 </aside>
 
+<aside class='notice'>
+<ul><li>If 'keyword' parameter is passed but 'sortBy' is not, sort order will be 'RELEVANCE'</li>
+<li>If both 'keyword' and 'sorBy' parameters are not passed, sort order will be defined by store owner</li></ul>
+</aside>
+
 #### Request
 
 > Request examples
@@ -36,7 +41,7 @@ priceFrom |  number | Minimum product price
 priceTo | number | Maximum product price
 category | number | Category ID. To get Store Front Page products, specify `&category=0` in the request
 withSubcategories |  boolean | `true`/`false`: defines whether Ecwid should search in subcategories of the category you set in `category` field. Ignored if `category` field is not set . `false` is the default value
-sortBy |  string | Sort order. Supported values: <ul><li>`RELEVANCE` *default*</li> <li>`ADDED_TIME_DESC`</li> <li>`ADDED_TIME_ASC`</li> <li>`NAME_ASC`</li> <li>`NAME_DESC`</li> <li>`PRICE_ASC`</li> <li>`PRICE_DESC`</li><li>`UPDATED_TIME_ASC`</li><li>`UPDATED_TIME_DESC`</li></ul>
+sortBy |  string | Sort order. Supported values: <ul><li>`RELEVANCE` *default*</li> <li>`ADDED_TIME_DESC`</li> <li>`ADDED_TIME_ASC`</li> <li>`NAME_ASC`</li> <li>`NAME_DESC`</li> <li>`PRICE_ASC`</li> <li>`PRICE_DESC`</li><li>`UPDATED_TIME_ASC`</li><li>`UPDATED_TIME_DESC`</li></ul>. If `sortBy` and `keyword` are not passed, sort order will be defined by the store owner
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
 createdFrom | string | Product creation date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
