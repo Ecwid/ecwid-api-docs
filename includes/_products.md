@@ -90,6 +90,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           "name": "Orange",
           "price": 10,
           "defaultDisplayedPrice": 10,
+          "defaultDisplayedPriceFormatted": "$10.00",
           "tax": {
             "defaultLocationIncludedTaxRate": 0,
               "enabledManualTaxes": [
@@ -107,6 +108,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             }
           ],
           "compareToPrice": 23,
+          "compareToPriceFormatted": "$23.00",
           "isShippingRequired": true,
           "weight": 0,
           "url": "http://app.ecwid.com#!/Orange/p/37208339",
@@ -244,6 +246,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "name": "Radish",
             "price": 1.15,
             "defaultDisplayedPrice": 1.15,
+            "defaultDisplayedPriceFormatted": "$1.15",
             "tax": {
               "defaultLocationIncludedTaxRate": 5,
                 "enabledManualTaxes": [
@@ -257,6 +260,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                 }
             ],
             "compareToPrice": 1.34,
+            "compareToPriceFormatted": "$1.34",
             "isShippingRequired": true,
             "weight": 0.31,
             "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208339",
@@ -512,6 +516,7 @@ Cache-Control: no-cache
           "name": "Orange",
           "price": 10,
           "defaultDisplayedPrice": 10,
+          "defaultDisplayedPriceFormatted": "$10.00",
           "tax": {
             "defaultLocationIncludedTaxRate": 5,
               "enabledManualTaxes": [
@@ -529,6 +534,7 @@ Cache-Control: no-cache
             }
           ],
           "compareToPrice": 23,
+          "compareToPriceFormatted": "$23.00",
           "isShippingRequired": true,
           "weight": 0,
           "url": "http://app.ecwid.com#!/Orange/p/37208339",
@@ -683,9 +689,11 @@ inStock | boolean | `true` if the product or any of its variations is in stock (
 name |  string |  Product title
 price | number |  Base product price
 defaultDisplayedPrice | number |  Product price displayed in a storefront for logged out customer for default location (store location). May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. It also includes taxes
+defaultDisplayedPriceFormatted | string | Formatted display of `defaultDisplayedPrice` in the store's formatting for prices
 tax | \<*TaxInfo*\> | Detailed information about product's taxes
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
+compareToPriceFormatted | string | Formatted display of `compareToPrice` in the store's formatting for prices
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store. [Learn more](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
@@ -981,6 +989,7 @@ Parameters in <strong>bold</strong> are mandatory
     "name": "Radish",
     "price": 1.15,
     "defaultDisplayedPrice": 1.15,
+    "defaultDisplayedPriceFormatted": "$1.15",
     "tax": {
       "defaultLocationIncludedTaxRate": 5,
         "enabledManualTaxes": [
@@ -994,6 +1003,7 @@ Parameters in <strong>bold</strong> are mandatory
         }
     ],
     "compareToPrice": 1.34,
+    "compareToPriceFormatted": "$1.34",
     "isShippingRequired": true,
     "weight": 0.31,
     "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208339",
@@ -1246,9 +1256,11 @@ inStock | boolean | `true` if the product or any of its variations is in stock (
 name |  string |  Product title
 price | number |  Base product price
 defaultDisplayedPrice | number |  Product price displayed in a storefront for logged out customer for default location (store location). May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. It also includes taxes
+defaultDisplayedPriceFormatted | string | Formatted display of `defaultDisplayedPrice` in the store's formatting for prices
 tax | \<*TaxInfo*\> | Detailed information about product's taxes
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
+compareToPriceFormatted | string | Formatted display of `compareToPrice` in the store's formatting for prices
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store. [Learn more](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)

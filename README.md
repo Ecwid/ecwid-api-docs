@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## June 18, 2018
+
+Added `defaultDisplayedPriceFormatted` and `compareToPriceFormatted` fields to products endpoint in Ecwid REST API. 
+
+Now you can get the default displayed price and compare to price in a format merchant has set in store settings when getting info about products. [Learn more](https://developers.ecwid.com/api-documentation/products)
+
 ## June 15, 2018
 
 1) Added Store Front page description to the Ecwid REST API – `storeDescription`. Now it is possible to read and update the description of the main store page. [Learn more](https://developers.ecwid.com/api-documentation/store-information)
