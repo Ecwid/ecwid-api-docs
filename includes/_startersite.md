@@ -57,7 +57,7 @@ Parameters in bold are mandatory
   "locationAddress": "144 West D Street, Encinitas, CA 92024 USA",
   "locationLong": "-117.2967266",
   "locationLat": "33.0460986",
-  "locationHours": "{\"hours\": [{\"dayto\": \"Friday\", \"hourto\": \"9:30 PM\", \"dayfrom\": \"Monday\", \"hourfrom\": \"10:00 AM\"}, {\"hourto\": \"7:00 PM\", \"dayfrom\": \"Saturday\", \"hourfrom\": \"Noon\"}, {\"dayfrom\": \"Sunday\", \"hourfrom\": \"Closed\"}], \"title\": \"Store Hours\"}",
+  "locationHours": "{\"hours\": [{\"day\": \"October 15, 2016\", \"hour\": \"3:00 PM — 6:00 PM\"}, {\"day\": \"Monday-Friday\", \"hour\": \"1:00 PM - 8:00 PM\"}, {\"day\": \"Saturday-Sunday\", \"hour\": \"10:00 AM - 4:00 PM\"}], \"title\": \"We are open!\"}",
   "contactusFacebook": "https://www.facebook.com/ecwid",
   "contactusTwitter": "https://twitter.com/ecwid",
   "contactusInstagram": "https://www.instagram.com/ecwid",
@@ -148,10 +148,8 @@ hours | \<*LocationHoursDetailedInfo*\> | Detailed location working hours inform
 
 Field | Type | Description
 ----- | ---- | -----------
-dayfrom | string | Day of the week at the start of period
-dayto | string | Day of the week at the end of period
-hourfrom | string | Opening hours of a working day
-hourto | string | Closing hours of a working day
+day | string | Days of the week or dates
+hour | string | Opening and closing hours for the set days
 
 #### ContactUsListInfo
 
@@ -245,7 +243,7 @@ Parameters in bold are mandatory
   "locationAddress": "144 West D Street, Encinitas, CA 92024 USA",
   "locationLong": "-117.2967266",
   "locationLat": "33.0460986",
-  "locationHours": "{\"hours\": [{\"dayto\": \"Friday\", \"hourto\": \"9:30 PM\", \"dayfrom\": \"Monday\", \"hourfrom\": \"10:00 AM\"}, {\"hourto\": \"7:00 PM\", \"dayfrom\": \"Saturday\", \"hourfrom\": \"Noon\"}, {\"dayfrom\": \"Sunday\", \"hourfrom\": \"Closed\"}], \"title\": \"Store Hours\"}",
+  "locationHours": "{\"hours\": [{\"day\": \"October 15, 2016\", \"hour\": \"3:00 PM — 6:00 PM\"}, {\"day\": \"Monday-Friday\", \"hour\": \"1:00 PM - 8:00 PM\"}, {\"day\": \"Saturday-Sunday\", \"hour\": \"10:00 AM - 4:00 PM\"}], \"title\": \"We are open!\"}",
   "contactusFacebook": "https://www.facebook.com/ecwid",
   "contactusTwitter": "https://twitter.com/ecwid",
   "contactusInstagram": "https://www.instagram.com/ecwid",
@@ -334,10 +332,8 @@ hours | \<*LocationHoursDetailedInfo*\> | Detailed location working hours inform
 
 Field | Type | Description
 ----- | ---- | -----------
-dayfrom | string | Day of the week at the start of period
-dayto | string | Day of the week at the end of period
-hourfrom | string | Opening hours of a working day
-hourto | string | Closing hours of a working day
+day | string | Days of the week or dates
+hour | string | Opening and closing hours for the set days
 
 #### ContactUsListInfo
 
