@@ -53,7 +53,8 @@ Name | Type    | Description
         "orderCommentsRequired": false,
         "hideOutOfStockProductsInStorefront": true,
         "askCompanyName": false,
-        "favoritesEnabled": true
+        "favoritesEnabled": true,
+        "defaultProductSortOrder": "DEFINED_BY_STORE_OWNER"
     },
     "mailNotifications": {
         "adminNotificationEmails": [
@@ -920,6 +921,7 @@ orderCommentsRequired | boolean | `true` if order comments are required to be fi
 hideOutOfStockProductsInStorefront | boolean | `true` if out of stock products are hidden in storefront, `false` otherwise. This setting is located in Ecwid Control Panel > Settings > General > Cart
 askCompanyName | boolean | `true` if "Ask for the company name" in checkout settings is enabled, `false` otherwise
 favoritesEnabled | boolean | `true` if favorites feature is enabled for storefront, `false` otherwise
+defaultProductSortOrder | string | Default products sort order setting from *Settings > Cart & Checkout*. Possible values: `"DEFINED_BY_STORE_OWNER"`, `"ADDED_TIME_DESC"`, `"PRICE_ASC"`, `"PRICE_DESC"`, `"NAME_ASC"`, `"NAME_DESC"`
 
 #### MailNotifications
 Field | Type | Description

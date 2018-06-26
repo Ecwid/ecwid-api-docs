@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## June 26, 2018
+
+Added `defaultProductSortOrder` field to the store information endpoint of Ecwid REST API. 
+
+Now you can get the default sort order the merchant has set in their checkout settings. [Learn more](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+
 ## June 18, 2018
 
 Added `defaultDisplayedPriceFormatted` and `compareToPriceFormatted` fields to products endpoint in Ecwid REST API. 
