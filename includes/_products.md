@@ -10,7 +10,7 @@ Search or filter products in a store catalog. The response provides full details
 To get products from Store Front Page, specify <strong>&category=0</strong> in your request.
 </aside>
 
-<aside class='notice'>
+<aside class='notice'>Note about product sorting: 
 <ul><li>If 'keyword' parameter is passed but 'sortBy' is not, sort order will be 'RELEVANCE'</li>
 <li>If both 'keyword' and 'sorBy' parameters are not passed, sort order will be defined by store owner</li></ul>
 </aside>
@@ -65,8 +65,7 @@ If no filters are set in the URL, API will return the first 100 products found i
 To search for exact match, put the keyword in quotes like this: "ABC123". For example, you can use this to get a product by SKU. 
 </aside>
 
-<aside class="notice">
-<strong>To get all products</strong> from the store, use the <strong>offset</strong> parameter. I.e. after you got first 100 products, set <strong>offset</strong> to 100 and retrieve the next 100 products. Continue this loop increasing the <strong>offset</strong> by 100 to get all other products in a store.
+<aside class="notice"><strong>To get all products</strong> from the store, use the <strong>offset</strong> parameter. I.e. after you got first 100 products, set <strong>offset</strong> to 100 and retrieve the next 100 products. Continue this loop increasing the <strong>offset</strong> by 100 to get all other products in a store.
 </aside>
 
 #### Response

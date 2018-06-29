@@ -8,6 +8,18 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## June 29, 2018
+
+Added new application type for discount coupons – new customers only. It allows merchants to send out coupons that only work for new customers. 
+
+With this change we are deprecating the `repeatCustomerOnly` field for discount coupons, replacing it with `applicationLimit` with these possible values: `"UNLIMITED"`, `"NEW_CUSTOMER_ONLY"`, `"REPEAT_CUSTOMER_ONLY"`.
+
+If you are creating or updating a discount coupon, make sure to use the old `repeatCustomerOnly` field or the new `applicationLimit` field **only**.
+
+In a situation where both these fields are sent, the priority will be given to the new field – `applicationLimit`. 
+
+[Discount coupons in the Ecwid REST API](https://developers.ecwid.com/api-documentation/discount-coupons)
+
 ## June 26, 2018
 
 Added `defaultProductSortOrder` field to the store information endpoint of Ecwid REST API. 

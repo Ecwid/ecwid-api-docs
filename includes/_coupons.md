@@ -61,8 +61,8 @@ Parameters in bold are mandatory
             "status": "ACTIVE",
             "discount": 1,
             "launchDate": "2014-06-06 08:00:00 +0400",
-            "usesLimit": "UNLIMITED",
-            "repeatCustomerOnly": false,
+            "usesLimit": "ONCEPERCUSTOMER",
+            "applicationLimit": "NEW_CUSTOMER_ONLY",
             "creationDate": "2014-06-06 18:57:19 +0400",
             "updateDate": "2017-01-10 02:03:43 +0000",
             "orderCount": 0,
@@ -83,7 +83,7 @@ Parameters in bold are mandatory
             "discount": 5,
             "launchDate": "2014-06-06 08:00:00 +0400",
             "usesLimit": "UNLIMITED",
-            "repeatCustomerOnly": false,
+            "applicationLimit": "UNLIMITED",
             "creationDate": "2014-06-06 08:00:00 +0400",
             "updateDate": "2017-02-10 08:03:43 +0000",
             "orderCount": 0
@@ -116,7 +116,8 @@ launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400
 expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
 totalLimit | number | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
-repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+repeatCustomerOnly | boolean | **Deprecated. Use applicationLimit instead**. Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+applicationLimit | string | Application limit for discount coupons. Possible values: `"UNLIMITED"`, `"NEW_CUSTOMER_ONLY"`, `"REPEAT_CUSTOMER_ONLY"`. If you are creating or updating a discount coupon, make sure to use the old `repeatCustomerOnly` field or the new `applicationLimit` field **only**. When both these fields are sent, the priority will be given to the new field – `applicationLimit`
 creationDate |  string | Coupon creation date. Format example: `2016-06-29 11:36:55 +0000`
 updateDate | string | Coupon update date. Format example: `2016-06-29 11:36:55 +0000`
 orderCount | number | Number of uses
@@ -190,7 +191,7 @@ Name | Type    | Description
     "discount": 1,
     "launchDate": "2014-06-06 08:00:00 +0400",
     "usesLimit": "UNLIMITED",
-    "repeatCustomerOnly": false,
+    "applicationLimit": "UNLIMITED",
     "creationDate": "2014-06-06 18:57:19 +0400",
     "updateDate": "2017-02-10 08:03:43 +0000",
     "orderCount": 0,
@@ -220,7 +221,8 @@ launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400
 expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
-repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+repeatCustomerOnly | boolean | **Deprecated. Use applicationLimit instead**. Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+applicationLimit | string | Application limit for discount coupons. Possible values: `"UNLIMITED"`, `"NEW_CUSTOMER_ONLY"`, `"REPEAT_CUSTOMER_ONLY"`. If you are creating or updating a discount coupon, make sure to use the old `repeatCustomerOnly` field or the new `applicationLimit` field **only**. When both these fields are sent, the priority will be given to the new field – `applicationLimit`
 creationDate |  string | Coupon creation date. Format example: `2016-06-29 11:36:55 +0000`
 updateDate | string | Coupon update date. Format example: `2016-06-29 11:36:55 +0000`
 orderCount | number | Number of uses
@@ -277,7 +279,7 @@ Cache-Control: no-cache
     "discount": 1,
     "launchDate": "2014-06-06 08:00:00 +0400",
     "usesLimit": "UNLIMITED",
-    "repeatCustomerOnly": false,
+    "applicationLimit": "UNLIMITED",
     "orderCount": 0,
     "catalogLimit": {
         "products": [
@@ -312,7 +314,8 @@ launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400
 expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE` . `UNLIMITED` is default
-repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers. `false` is default
+repeatCustomerOnly | boolean | **Deprecated. Use applicationLimit instead**. Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+applicationLimit | string | Application limit for discount coupons. Possible values: `"UNLIMITED"`, `"NEW_CUSTOMER_ONLY"`, `"REPEAT_CUSTOMER_ONLY"`. If you are creating or updating a discount coupon, make sure to use the old `repeatCustomerOnly` field or the new `applicationLimit` field **only**. When both these fields are sent, the priority will be given to the new field – `applicationLimit`
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | The products and categories the coupon can be applied to
 
@@ -401,7 +404,7 @@ Cache-Control: no-cache
     "discount": 1,
     "launchDate": "2014-06-06 08:00:00 +0400",
     "usesLimit": "UNLIMITED",
-    "repeatCustomerOnly": false,
+    "applicationLimit": "NEW_CUSTOMER_ONLY",
     "orderCount": 0,
     "catalogLimit": {
         "products": [
@@ -431,7 +434,7 @@ Cache-Control: no-cache
     "discount": 1,
     "launchDate": "2014-06-06 08:00:00 +0400",
     "usesLimit": "UNLIMITED",
-    "repeatCustomerOnly": false,
+    "applicationLimit": "REPEAT_CUSTOMER_ONLY",
     "orderCount": 0,
     "catalogLimit": {
         "products": [
@@ -467,7 +470,8 @@ launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0400
 expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0400`. Any date provided will be corrected to the UTC timezone
 totalLimit | number  | The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE` . 
-repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers.
+repeatCustomerOnly | boolean | **Deprecated. Use applicationLimit instead**. Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+applicationLimit | string | Application limit for discount coupons. Possible values: `"UNLIMITED"`, `"NEW_CUSTOMER_ONLY"`, `"REPEAT_CUSTOMER_ONLY"`. If you are creating or updating a discount coupon, make sure to use the old `repeatCustomerOnly` field or the new `applicationLimit` field **only**. When both these fields are sent, the priority will be given to the new field – `applicationLimit`
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | The products and categories the coupon can be applied to
 
