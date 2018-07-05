@@ -108,13 +108,17 @@ The example codes are available on the right.
 
 #### Show or hide storefront elements
 
-Using additional configuration code you are able to hide some storefront elements without any CSS rules. These settings will override user preferences set in the Ecwid Control Panel. 
+> Apply new storefront configuration
 
-Place the codes anywhere on a page where Ecwid integration code is added to apply them.
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.CONFIG_NAME = VALUE; 
+</script>
+```
 
-##### Hide sign in link
-
-> Hide sign in link
+> Hide sign in link example
 
 ```html
 <script>
@@ -124,89 +128,18 @@ Place the codes anywhere on a page where Ecwid integration code is added to appl
 </script>
 ```
 
-Hide the sign in link for customers in a store using the code example on the right. Place the codes anywhere on a page where Ecwid integration code is added to apply them.
+Using additional configuration code you are able to hide some storefront elements without any CSS rules. These settings will override user preferences set in the Ecwid Control Panel. 
 
-The config `window.ec.storefront.show_signin_link` accepts two values: `true` to show the sign in link, and `false` to hide it.
+Place the codes anywhere on a page where Ecwid integration code is added to apply them.
 
-##### Hide breadcrumbs
-
-> Hide breadcrumbs
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.show_breadcrumbs = false; // hides the breadcrumbs
-</script>
-```
-
-Hide the storefront breadcrumbs for customers using the code example on the right. Place the codes anywhere on a page where Ecwid integration code is added to apply them.
-
-The config `window.ec.storefront.show_breadcrumbs` accepts two values: `true` to show the breadcrumbs, and `false` to hide them.
-
-##### Hide 'View as' and 'Sort by' options in product listing
-
-> Hide 'View as' and 'Sort by' options
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_show_sort_viewas_options = false; // hides the 'View as' and 'Sort by' options
-</script>
-```
-
-Hide the options to 'View as' and 'Sort by' products for customers using the code example on the right. Place the codes anywhere on a page where Ecwid integration code is added to apply them.
-
-The config `window.ec.storefront.product_list_show_sort_viewas_options` accepts two values: `true` to show the 'View as' and 'Sort by' options, and `false` to hide them.
-
-##### Hide 'Qty' selection in product details
-
-> Hide 'Qty' selection in product pages
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_details_show_qty = false; // hides the 'Qty' selection
-</script>
-```
-
-Hide the 'Qty' section for customers in product details using the code example on the right. Place the codes anywhere on a page where Ecwid integration code is added to apply them.
-
-The config `window.ec.storefront.product_details_show_qty` accepts two values: `true` to show the 'Qty' section, and `false` to hide it.
-
-##### Hide 'In stock' label in product details
-
-> Hide 'In stock' label in product pages
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_details_show_in_stock_label = false; // hides the 'In stock' label
-</script>
-```
-
-Hide the 'In stock' label for customers in product details using the code example on the right. Place the codes anywhere on a page where Ecwid integration code is added to apply them.
-
-The config `window.ec.storefront.product_details_show_in_stock_label` accepts two values: `true` to show the 'In stock' label, and `false` to hide it.
-
-##### Hide number of items in stock in product details
-
-> Hide number of items in stock in product pages
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_details_show_number_of_items_in_stock = false; // hides the number of items in stock
-</script>
-```
-
-Hide the number if items in stock for customers in product details using the code example on the right. Place the codes anywhere on a page where Ecwid integration code is added to apply them.
-
-The config `window.ec.storefront.product_details_show_number_of_items_in_stock` accepts two values: `true` to show the number of items in stock, and `false` to hide it.
+Config name | Type | Description
+------------|------|------------
+show_signin_link | boolean | Hide the sign in link for customers in a store. Possible values: `true` to show the sign in link, and `false` to hide it
+show_breadcrumbs | boolean | Hide the storefront breadcrumbs for customers in a store. Possible values: `true` to show the breadcrumbs, and `false` to hide them
+product_list_show_sort_viewas_options | boolean | Hide the options to 'View as' and 'Sort by' products for customers in a store. Possible values: `true` to show the 'View as' and 'Sort by' options, and `false` to hide them
+product_details_show_qty | boolean | Hide the 'Qty' section for customers in product details pages. Possible values: `true` to show the 'Qty' section, and `false` to hide it
+product_details_show_in_stock_label | boolean | Hide the 'In stock' label for customers in product details pages. Possible values: `true` to show the 'In stock' label, and `false` to hide it
+product_details_show_number_of_items_in_stock | boolean | Hide the number if items in stock for customers in product details pages. Possible values: `true` to show the number of items in stock, and `false` to hide it
 
 #### Center popups in iframe storefronts
 
