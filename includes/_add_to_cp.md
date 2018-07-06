@@ -499,7 +499,7 @@ store_id | number | Ecwid store ID
 lang | string | User language (which is currently set in their Control Panel). Use this parameter to translate your application UI to the user language.
 access_token | string | Secure oAuth token for Ecwid REST API
 public_token | string | Public oAuth token for Ecwid REST API
-view_mode | string | Mode used to display the application interface: in a `POPUP` or in a `PAGE`. `PAGE` is a default mode when app is displayed in a separate tab in Ecwid Control Panel
+view_mode | string | Mode used to display the application interface: `POPUP`, `PAGE` or `INLINE`. `PAGE` is a default mode when app is displayed in a separate tab in Ecwid Control Panel, `POPUP` is used when the app UI is displayed in a popup on any page of Ecwid CP, `INLINE` type is used for displaying the interface inside an element on a page where other elements are also present
 
 #### Decryption of payload on your server
 
@@ -633,7 +633,7 @@ Name | Type | Description
 **access_token** | string | Secure oAuth token
 app_state | string | URL Encoded application state
 public_token | string | Public oAuth token for Ecwid REST API
-view_mode | string | Mode used to display the application interface: in a `POPUP` or in a `PAGE`. `PAGE` is a default mode when app is displayed in a separate tab in Ecwid Control Panel
+view_mode | string | Mode used to display the application interface: `POPUP`, `PAGE` or `INLINE`. `PAGE` is a default mode when app is displayed in a separate tab in Ecwid Control Panel, `POPUP` is used when the app UI is displayed in a popup on any page of Ecwid CP, `INLINE` type is used for displaying the interface inside an element on a page where other elements are also present
 
 <aside class="note">Fields marked in <strong>bold</strong> are always sent in the payload. Others are sent depending on conditions.</aside>
 

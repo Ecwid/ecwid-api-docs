@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## July 6, 2018
+
+Added new type of *view_mode* field for native apps – `INLINE`. This mode is used when app interface is added to the page inside an existing element where other elements are present as well. [Learn more](https://developers.ecwid.com/api-documentation/authentication-in-native-apps)
+
 ## June 29, 2018
 
 Added new application type for discount coupons – new customers only. It allows merchants to send out coupons that only work for new customers. 
