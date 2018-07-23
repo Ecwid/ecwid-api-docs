@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## July 23, 2018
+
+1) Added abandoned sales settings to store information endpoint in the Ecwid REST API. Now you can read and update the setting for automated email reminders about abandoned sales. [Learn more](https://developers.ecwid.com/api-documentation/store-information)
+
+2) Added option to set custom discounts when calculating order details - `discountInfo` field. [Learn more](https://developers.ecwid.com/api-documentation/carts#calculate-order-details)
+
 ## July 6, 2018
 
 Added new type of *view_mode* field for native apps – `INLINE`. This mode is used when app interface is added to the page inside an existing element where other elements are present as well. [Learn more](https://developers.ecwid.com/api-documentation/authentication-in-native-apps)

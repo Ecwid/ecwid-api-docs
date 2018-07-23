@@ -1208,7 +1208,26 @@ Cache-Control: no-cache
             "postalCode": "90001",
             "stateOrProvinceCode": "CA",
             "phone": "123141321"
-        }
+        },
+        "discountInfo": [
+            {
+              "value": 15,
+              "type": "ABS",
+              "base": "ON_TOTAL",
+              "orderTotal": 1
+            },
+            {
+              "value": 2,
+              "type": "PERCENT",
+              "base": "ON_MEMBERSHIP"
+            },
+            {
+              "value": 10,
+              "type": "ABSOLUTE",
+              "base": "CUSTOM",
+              "description": "Buy one get one free for T-shirts"
+            }
+        ]
 }
 ```
 
@@ -1233,6 +1252,7 @@ discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 **items** | Array\<*OrderItem*\> | Order items
 billingPerson | \<*PersonInfo*\> | Name and billing address of the customer
 shippingPerson | \<*PersonInfo*\> | Name and address of the person entered in shipping information. If no `shippingPerson` provided, the values are taken from `billingPerson`
+discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 
 #### OrderItem
 Field | Type |  Description
@@ -1354,6 +1374,15 @@ Field | Type | Description
 ----- | ---- | -----------
 products | Array\<*number*\> | The list of product IDs the coupon can be applied to
 categories | Array\<*number*\> | The list of category IDs the coupon can be applied to
+
+#### DiscountInfo
+Field | Type | Description
+----- | ---- | -----------
+value | number | Discount value
+type | string | Discount type: `ABS` or `PERCENT`
+base | string | Discount base, one of `ON_TOTAL`, `ON_MEMBERSHIP`, `ON_TOTAL_AND_MEMBERSHIP`, `CUSTOM`
+orderTotal | number | Minimum order subtotal the discount applies to
+description | string | Description of a discount (for discounts with base == `CUSTOM`)
 
 <aside class="notice">
 Parameters in bold are mandatory

@@ -81,7 +81,7 @@ The latest version of product grid requires specific approach to adding new elem
 ```html
 <div> 
   <script type='text/javascript' src='https://app.ecwid.com/script.js?1003'></script>
-  <script type='text/javascript'> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","style=","defaultCategoryId=20671017"); </script> 
+  <script type='text/javascript'> xProductBrowser("defaultCategoryId=20671017"); </script> 
 </div>
 ```
 
@@ -90,7 +90,7 @@ The latest version of product grid requires specific approach to adding new elem
 ```html
 <div> 
   <script type='text/javascript' src='https://app.ecwid.com/script.js?1003'></script> 
-  <script type='text/javascript'> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","style=","defaultProductId=70178249"); </script> 
+  <script type='text/javascript'> xProductBrowser("defaultProductId=70178249"); </script> 
 </div>
 ```
 
@@ -1637,7 +1637,7 @@ If the current language is not supported, use the fallback labels. For example, 
 > Add Ecwid storefront to your website
 
 ```html
-<div id="my-store-1003"></div><div> <script type="text/javascript" src="https://app.ecwid.com/script.js?1003" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list","id=my-store-1003");</script></div>
+<div id="my-store-1003"></div><div> <script type="text/javascript" src="https://app.ecwid.com/script.js?1003" charset="utf-8"></script><script type="text/javascript"> xProductBrowser("id=my-store-1003");</script></div>
 ```
 
 This is the most important Ecwid widget. It shows and includes a full-featured shopping cart with products, categories, catalog, checkout pages, etc.
@@ -1776,7 +1776,7 @@ window.ecwid_dynamic_widgets = true;
    window._xnext_initialization_scripts = [{
         widgetType: 'ProductBrowser',
         id: 'my-store-1003',
-        arg: ["categoriesPerRow=3","views=grid(3,3) list(10) table(20)","categoryView=grid","searchView=list"]
+        arg: ["id=productBrowser"]
       }];
 
   if (!document.getElementById('ecwid-script')) {
@@ -1821,7 +1821,7 @@ Please note that **this method allows to embed the storefront widget only**. If 
 
   window._xnext_initialization_scripts = [
       { widgetType: 'ProductBrowser', id: 'productBrowser', arg: [
-          '"categoriesPerRow=3","views=grid(4,4) list(10) table(20)","categoryView=grid","searchView=list","style=","responsive=yes","id=productBrowser"'
+          '"id=productBrowser"'
       ] }
   ];
 </script>

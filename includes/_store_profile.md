@@ -54,7 +54,10 @@ Name | Type    | Description
         "hideOutOfStockProductsInStorefront": true,
         "askCompanyName": false,
         "favoritesEnabled": true,
-        "defaultProductSortOrder": "DEFINED_BY_STORE_OWNER"
+        "defaultProductSortOrder": "DEFINED_BY_STORE_OWNER",
+        "abandonedSales": {
+          "autoAbandonedSalesRecovery": true
+        }
     },
     "mailNotifications": {
         "adminNotificationEmails": [
@@ -922,6 +925,7 @@ hideOutOfStockProductsInStorefront | boolean | `true` if out of stock products a
 askCompanyName | boolean | `true` if "Ask for the company name" in checkout settings is enabled, `false` otherwise
 favoritesEnabled | boolean | `true` if favorites feature is enabled for storefront, `false` otherwise
 defaultProductSortOrder | string | Default products sort order setting from *Settings > Cart & Checkout*. Possible values: `"DEFINED_BY_STORE_OWNER"`, `"ADDED_TIME_DESC"`, `"PRICE_ASC"`, `"PRICE_DESC"`, `"NAME_ASC"`, `"NAME_DESC"`
+abandonedSales | \<*AbandonedSalesSettings*\> | Abandoned sales settings
 
 #### MailNotifications
 Field | Type | Description
@@ -1213,6 +1217,13 @@ Field | Type | Description
 ----- | ---- | -----------
 DESIGN_CONFIG_FIELD_NAME | string or boolean | Store design settings as seen in [storefront design customization](https://developers.ecwid.com/api-documentation/customize-appearance). If a specific config field is not provided, it will not be changed
 
+#### AbandonedSalesSettings
+
+Field | Type | Description
+----- | ---- | -----------
+autoAbandonedSalesRecovery | boolean | `true` if abandoned sale recovery emails are sent automatically, `false` otherwise
+
+
 #### Errors
 
 > Error response example
@@ -1258,7 +1269,10 @@ Cache-Control: no-cache
         "googleAnalyticsId": "UA-654321-1",
         "hideOutOfStockProductsInStorefront": false,
         "askCompanyName": true,
-        "favoritesEnabled": false
+        "favoritesEnabled": false,
+        "abandonedSales": {
+          "autoAbandonedSalesRecovery": true
+        }
     },
     "company": {
       "companyName": "My Company, Inc",
@@ -1371,6 +1385,7 @@ orderCommentsRequired | boolean | Use `true` to require order comments to be fil
 hideOutOfStockProductsInStorefront | boolean | `true` if out of stock products are hidden in storefront, `false` otherwise. This setting is located in Ecwid Control Panel > Settings > General > Cart
 askCompanyName | boolean | `true` if "Ask for the company name" in checkout settings is enabled, `false` otherwise
 favoritesEnabled | boolean | `true` if favorites feature is enabled for storefront, `false` otherwise
+abandonedSales | \<*AbandonedSalesSettings*\> | Abandoned sales settings
 
 #### MailNotifications
 Field | Type | Description
@@ -1516,6 +1531,12 @@ Field | Type | Description
 ----- | ---- | -----------
 DESIGN_CONFIG_FIELD_NAME | string or boolean | Store design settings as seen in [storefront design customization](https://developers.ecwid.com/api-documentation/customize-appearance). If a specific config field is not provided, it will not be changed
 
+#### AbandonedSalesSettings
+
+Field | Type | Description
+----- | ---- | -----------
+autoAbandonedSalesRecovery | boolean | `true` if abandoned sale recovery emails are sent automatically, `false` otherwise
+
 #### Response
 
 > Response example (JSON)
@@ -1530,6 +1551,7 @@ DESIGN_CONFIG_FIELD_NAME | string or boolean | Store design settings as seen in 
 A JSON object of type 'UpdateStatus' with the following fields:
 
 #### UpdateStatus
+
 Field | Type |  Description
 ------| ---- | --------------
 updateCount | number | The number of updated entities (`1` or `0` depending on whether the update was successful)
