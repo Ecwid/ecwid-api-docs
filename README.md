@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## July 24, 2018
+
+Added `whiteLabel` flag to the account information of a store. It returns `true` if Ecwid brand is not mentioned in merchant's interface, `false` otherwise. Read only field. [Learn more](https://developers.ecwid.com/api-documentation/store-information)
+
 ## July 23, 2018
 
 1) Added abandoned sales settings to store information endpoint in the Ecwid REST API. Now you can read and update the setting for automated email reminders about abandoned sales. [Learn more](https://developers.ecwid.com/api-documentation/store-information)

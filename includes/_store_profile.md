@@ -38,7 +38,8 @@ Name | Type    | Description
     "account": {
         "accountName": "John Smith",
         "accountNickName": "JSmith",
-        "accountEmail": "example@example.com"
+        "accountEmail": "example@example.com",
+        "whiteLabel": false
     },
     "settings": {
         "closed": false,
@@ -907,6 +908,7 @@ accountName | string | Full store owner name
 accountNickName | string | Store owner nickname on the Ecwid forums
 accountEmail | string | Store owner email
 availableFeatures | Array\<*string*\> | A list of the premium features available on the store's pricing plan
+whiteLabel | boolean | `true` if Ecwid brand is not mentioned in merchant's interface, `false` otherwise. Read only
 
 #### Settings
 Field | Type | Description
