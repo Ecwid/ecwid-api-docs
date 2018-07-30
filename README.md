@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## July 30, 2018
+
+Added `storeCoverButton` and `storeLocationAddressSubtitle` fields to the Starter Site endpoint in the Ecwid REST API. 
+
+`storeCoverButton` controls whether to show or hide the Shop Now button at the top of Starter Site and `storeLocationAddressSubtitle` controls the text for store location address subtitle. [Learn more](https://developers.ecwid.com/api-documentation/starter-site)
+
 ## July 24, 2018
 
 Added `whiteLabel` flag to the account information of a store. It returns `true` if Ecwid brand is not mentioned in merchant's interface, `false` otherwise. Read only field. [Learn more](https://developers.ecwid.com/api-documentation/store-information)
