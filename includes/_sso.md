@@ -36,6 +36,14 @@ There are two ways you can provide authentication information to Ecwid: JS varia
 
 ## Implement SSO on a website
 
+### Getting started
+
+You will need to go through these steps to get started with the SSO for your store: 
+
+- have [a registered application](https://developers.ecwid.com/register) for Ecwid with `create_customers` access scope
+- install that app in your Ecwid store using instructions from Ecwid
+- use application keys (`client_*`) for the SSO features – see [Implement SSO on a website](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website)
+
 ### Pass user data to Ecwid
 
 To enable Storefront Single Sign-on (SSO) on merchant's website, you need to pass encrypted user information to Ecwid JavaScript API. 
