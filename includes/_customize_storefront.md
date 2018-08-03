@@ -208,17 +208,8 @@ product_list_image_size | string | Control the **size of product image** in prod
 product_list_image_aspect_ratio | string | Control the **aspect ratio of product image** in product listing (category pages). Possible values: `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`
 product_list_image_has_shadow | boolean | Show or hide the **shadow effect for product images** in product listing (category pages). If `true`, it also makes images slightly darker to make them stand out against the white background. Possible values: `true`, `false`
 product_list_show_additional_image_on_hover | boolean | Show or hide the **additional image on hover** in product listing (category pages). Possible values: `true`, `false`
-product_list_image_position | string | Set **product image display mode** in product listing (category pages). 
-
-<ul><li>**COVER**: product image is set as block background proportionally to remove any empty spaces.</li>
-<li>**FIT**: product image is set to fit into block. Any empty space is filled with an image background color.</li>
-<li>**AUTO**: Ecwid fits the image based on its parameters.</li></ul>Possible values: `"AUTO"`, `"COVER"`, `"FIT"`. Default: `"AUTO"`
-product_list_category_image_position | string | Set **category image display mode** in product listing (category pages) 
-
-
-<ul><li>**COVER**: category image is set as block background proportionally to remove any empty spaces.</li>
-<li>**FIT**: category image is set to fit into block. Any empty space is filled with an image background color.</li>
-<li>**AUTO**: Ecwid fits the image based on its parameters.</li></ul>Possible values: `"AUTO"`, `"COVER"`, `"FIT"`. Default: depends on the setting in Ecwid Control Panel – category name position. `"COVER"` if category name is shown on image, `"AUTO"` for other values
+product_list_image_position | string | Set **product image display mode** in product listing (category pages). <ul><li>**COVER**: product image is set as block background proportionally to remove any empty spaces.</li><li>**FIT**: product image is set to fit into block. Any empty space is filled with an image background color.</li><li>**AUTO**: Ecwid fits the image based on its parameters.</li></ul>Possible values: `"AUTO"`, `"COVER"`, `"FIT"`. Default: `"AUTO"`
+product_list_category_image_position | string | Set **category image display mode** in product listing (category pages).<ul><li>**COVER**: category image is set as block background proportionally to remove any empty spaces.</li><li>**FIT**: category image is set to fit into block. Any empty space is filled with an image background color.</li><li>**AUTO**: Ecwid fits the image based on its parameters.</li></ul>Possible values: `"AUTO"`, `"COVER"`, `"FIT"`. Default: depends on the setting in Ecwid Control Panel – category name position. `"COVER"` if category name is shown on image, `"AUTO"` for other values
 product_list_show_on_sale_label | boolean | Show or hide the **"ON SALE" label** in product listing (category pages). Label will be displayed only when product has "compare to" price set. Possible values: `true`, `false`. Default: `true`. If both "SOLD OUT" and "ON SALE" labels are enabled, the "SOLD OUT" label will be shown only.
 product_list_show_sold_out_label | boolean | Show or hide the **"SOLD OUT" label** in product listing (category pages). Label will be displayed only when product is out of stock. Possible values: `true`, `false`. Default: `true`. If both "SOLD OUT" and "ON SALE" labels are enabled, the "SOLD OUT" label will be shown only
 
