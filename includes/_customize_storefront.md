@@ -156,6 +156,16 @@ Check this page for code example: [Add new element to products in category pages
 </script>
 ```
 
+> Show product SKU on hover example
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_sku_behavior = "SHOW_ON_HOVER"; // shows product SKU on hover in product list
+</script>
+```
+
 Config name | Type | Description
 ------------|------|------------
 product_list_title_behavior | string | Control display mode of **product title** in product listing (category pages). Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`
@@ -182,16 +192,31 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
+> Show shadow for products in product list
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.product_list_image_has_shadow = true; // shows shadow for products in product list
+</script>
+```
+
 Config name | Type | Description
 ------------|------|------------
 product_list_image_size | string | Control the **size of product image** in product listing (category pages). Possible values: `"SMALL"`, `"MEDIUM"`, `"LARGE"`
 product_list_image_aspect_ratio | string | Control the **aspect ratio of product image** in product listing (category pages). Possible values: `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`
 product_list_image_has_shadow | boolean | Show or hide the **shadow effect for product images** in product listing (category pages). If `true`, it also makes images slightly darker to make them stand out against the white background. Possible values: `true`, `false`
 product_list_show_additional_image_on_hover | boolean | Show or hide the **additional image on hover** in product listing (category pages). Possible values: `true`, `false`
-product_list_image_position | string | Set **product image display mode** in product listing (category pages). <ul><li>**COVER**: product image is set as block background proportionally to remove any empty spaces.</li>
+product_list_image_position | string | Set **product image display mode** in product listing (category pages). 
+
+<ul><li>**COVER**: product image is set as block background proportionally to remove any empty spaces.</li>
 <li>**FIT**: product image is set to fit into block. Any empty space is filled with an image background color.</li>
 <li>**AUTO**: Ecwid fits the image based on its parameters.</li></ul>Possible values: `"AUTO"`, `"COVER"`, `"FIT"`. Default: `"AUTO"`
-product_list_category_image_position | string | Set **category image display mode** in product listing (category pages). <ul><li>**COVER**: category image is set as block background proportionally to remove any empty spaces.</li>
+product_list_category_image_position | string | Set **category image display mode** in product listing (category pages) 
+
+
+<ul><li>**COVER**: category image is set as block background proportionally to remove any empty spaces.</li>
 <li>**FIT**: category image is set to fit into block. Any empty space is filled with an image background color.</li>
 <li>**AUTO**: Ecwid fits the image based on its parameters.</li></ul>Possible values: `"AUTO"`, `"COVER"`, `"FIT"`. Default: depends on the setting in Ecwid Control Panel – category name position. `"COVER"` if category name is shown on image, `"AUTO"` for other values
 product_list_show_on_sale_label | boolean | Show or hide the **"ON SALE" label** in product listing (category pages). Label will be displayed only when product has "compare to" price set. Possible values: `true`, `false`. Default: `true`. If both "SOLD OUT" and "ON SALE" labels are enabled, the "SOLD OUT" label will be shown only.

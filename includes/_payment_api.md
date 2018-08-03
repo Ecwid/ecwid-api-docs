@@ -843,7 +843,7 @@ When a customer is finished making their payment for an order, your app needs to
 
 After user is directed to that page, Ecwid will check that order and depending on its status, the action will be different: 
 
-- If the order is in `PAID` or `QUEUED` payment status, customer's cart will be cleared and they will see 'Thank you for your order' page
+- If the order is in `PAID` payment status, customer's cart will be cleared and they will see 'Thank you for your order' page
 - If the order is in `INCOMPLETE` payment status, customer will see the cart page of Ecwid storefront with the same items
 - If the order is in `CANCELLED` payment status, Ecwid will show the 'Payment error' page
 
