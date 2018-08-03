@@ -26,51 +26,7 @@ Ecwid integration code provides a number of modifications to the store layout. S
 
 #### Add new element for each product in product grid
 
-> Add button below each product in product grid
-
-```js
-Ecwid.OnPageLoaded.add(function (page) {
-        // Apply changes only to category pages
-        if (page.type == 'CATEGORY') {
-
-          // Remove any previously added elements when new page changes 
-          // If you change class name here, make sure to update it below too
-          var removingButtons = document.getElementsByClassName('custom_app_button');
-          for (i = removingButtons.length - 1; i >= 0; i--) {
-            removingButtons[i].parentNode.removeChild(removingButtons[i]);
-          }
-
-          // Loop to add new element to each product in product listing
-          for (i = 0; i < document.querySelectorAll('.grid-product').length; i++) {
-            var elem = document.querySelector('.grid-product:nth-child(' + (i + 1) + ') .grid-product__wrap-inner');
-
-            // Create our custom element
-            var container = document.createElement("div");
-
-            // Set custom class to locate our new element
-            // If you change class name here, make sure to update it above too
-            container.setAttribute('class', 'custom_app_button'); 
-
-            // Change vertical order position of new element using 'order' value. Bigger = lower; smaller = higher
-            container.setAttribute('style', 'order: 6; padding:0;');
-
-            // Set the content of our new element
-            container.innerHTML = '<div><div class="label label--flag label--success"><div class="label__text">Sale 2018</div></div></div>';
-
-            // (OPTIONAL) Show alert when user clicks on new container
-            container.addEventListener("click", function (event) {
-              event.stopImmediatePropagation();
-              alert('SALE MESSAGE');
-            });
-
-            // Add new element to products
-            elem.appendChild(container);
-          }
-        }
-});
-```
-
-The latest version of product grid requires specific approach to adding new elements. Check out the example on the right. 
+The latest version of product grid requires specific approach to adding new elements. Check out the example[https://gist.github.com/riq363/13730a82dbee20bb464daf0713ca1997](https://gist.github.com/riq363/13730a82dbee20bb464daf0713ca1997)
 
 [How to enable latest version of product listing in your test store](https://developers.ecwid.com/api-documentation/customize-appearance#product-listing)
 
@@ -82,15 +38,6 @@ The latest version of product grid requires specific approach to adding new elem
 <div> 
   <script type='text/javascript' src='https://app.ecwid.com/script.js?1003'></script>
   <script type='text/javascript'> xProductBrowser("defaultCategoryId=20671017"); </script> 
-</div>
-```
-
-> Open "PYZEL Amigo 6'2 Surfboard" product in Ecwid Demo store by default
-
-```html
-<div> 
-  <script type='text/javascript' src='https://app.ecwid.com/script.js?1003'></script> 
-  <script type='text/javascript'> xProductBrowser("defaultProductId=70178249"); </script> 
 </div>
 ```
 
@@ -108,7 +55,7 @@ The example codes are available on the right.
 
 #### Show or hide storefront elements
 
-> Apply new storefront configuration
+> Apply new storefront configuration template
 
 ```html
 <script>
@@ -199,354 +146,75 @@ Check this page for code example: [Add new element to products in category pages
 
 ##### Control display of elements in product grid
 
-###### Control display mode of product title in product listing
-
-> Control display mode of product title in product listing
+> Apply new storefront configuration template
 
 ```html
 <script>
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_title_behavior = "SHOW_ON_HOVER"; // show product title on hover
+  window.ec.storefront.CONFIG_NAME = VALUE; 
 </script>
 ```
 
-Control the way **product title** is displayed in product listing (category pages). 
-
-Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`. 
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Control display mode of SKUs in product listing
-
-> Control display mode of SKUs in product listing 
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.window.ec.storefront.product_list_sku_behavior = "HIDE"; // hide product SKU in product listing
-</script>
-```
-
-Control the way **product SKU** is displayed in product listing (category pages). 
-
-Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Control display mode of prices in product listing
-
-> Control display mode of prices in product listing
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_price_behavior = "HIDE"; // hide product SKU in product listing
-</script>
-```
-
-Control the way **product price** is displayed in product listing (category pages). 
-
-Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Control display mode of 'Buy now' buttons in product listing
-
-> Control display mode of 'Buy now' buttons in product listing
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_buybutton_behavior = "HIDE"; // hide product SKU in product listing
-</script>
-```
-
-Control the way **'Buy now' buttons** are displayed in product listing (category pages). 
-
-Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
-
-**Important: the 'Buy now' button must first be enabled in the Ecwid Control Panel > Settings > General > Cart > Show "Buy now" buttons on products list pages**
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Show frame / border for products in product listing 
-
-> Show frame / border for products in product listing 
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_show_frame = true; // show frame / border for products
-</script>
-```
-
-Show or hide the **frame / border for products** in product listing (category pages). 
-
-Possible values: `true`, `false`.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Set align of SKU, price, name in product listing 
-
-> Set align of SKU, price, name in product listing 
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_product_info_layout = "LEFT"; // align name/sku/price to the left
-</script>
-```
-
-Set **align of sku/price/name** section in product listing (category pages). Works for name/sku/price shown below the image. **Doesn't apply to name/sku/price shown on hover.**
-
-Possible values: `"CENTER"`, `"LEFT"`, `"JUSTIFY"`, `"RIGHT"`.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Set custom breadcrumbs separator in product listing 
-
-> Set custom breadcrumbs separator in product listing 
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.breadcrumbs_separator = "/"; // set breadcrumbs separator as '/', so it will look like: Store / Shoes / Children
-</script>
-```
-
-Set **custom breadcrumbs separator** in product listing (category pages). For example: `Store / SubCategory / SubSubCategory` or `Store -> SubCategory -> SubSubCategory` or any other custom string.
-
-Possible values: any string, e.g. `"/"`, `"*"`, `"->"`, etc.
+Config name | Type | Description
+------------|------|------------
+product_list_title_behavior | string | Control display mode of **product title** in product listing (category pages). Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`
+product_list_sku_behavior | string | Control display mode of **product SKU**  in product listing (category pages). Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`
+product_list_price_behavior | string | Control display mode of **product price** in product listing (category pages). Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`
+product_list_price_behavior | string | Control the way **product price** is displayed in product listing (category pages). Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`
+product_list_buybutton_behavior | string | Control the way **'Buy now' buttons** are displayed in product listing (category pages). Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`. **Important**: the 'Buy now' button must first be enabled in the Ecwid Control Panel > Settings > General > Cart > Show "Buy now" buttons on products list pages
+product_list_show_frame | boolean | Show or hide the **frame / border for products** in product listing (category pages). Possible values: `true`, `false`
+product_list_product_info_layout | string | Set **align of sku/price/name** section in product listing (category pages). Works for name/sku/price shown below the image. **Doesn't apply to name/sku/price shown on hover.**. Possible values: `"CENTER"`, `"LEFT"`, `"JUSTIFY"`, `"RIGHT"`
+breadcrumbs_separator | string | Set **custom breadcrumbs separator** in product listing (category pages). For example: `Store / SubCategory / SubSubCategory` or `Store -> SubCategory -> SubSubCategory` or any other custom string. Possible values: any string, e.g. `"/"`, `"*"`, `"->"`, etc
+product_list_category_title_behavior | string | Control the way **category names** are displayed in product listing (category pages). Possible values: `"SHOW_ON_IMAGE"` – default, `"SHOW_BELOW_IMAGE"`, `"HIDE"`, `"SHOW_ON_HOVER"`
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
 ##### Customize images in product listing
 
-###### Control the size of images in product listing 
-
-> Control the size of images in product listing 
+> Apply new storefront configuration template
 
 ```html
 <script>
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_image_size = "LARGE"; // set large product image size in product listing 
+  window.ec.storefront.CONFIG_NAME = VALUE; 
 </script>
 ```
 
-Control the **size of product image** in product listing (category pages). 
-
-Possible values: `"SMALL"`, `"MEDIUM"`, `"LARGE"`. 
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Control the aspect ratio of images in product listing 
-
-> Control the aspect ratio of images in product listing 
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_image_aspect_ratio = "PORTRAIT_075"; // set portrait aspect ratio for images in product listing 
-</script>
-```
-
-Control the **aspect ratio of product image** in product listing (category pages). 
-
-Possible values: `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Apply shadow effect for images in product listing 
-
-> Apply shadow effect for images in product listing 
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_image_has_shadow = false; // hide shadow effect for product images
-</script>
-```
-
-Show or hide the **shadow effect for product images** in product listing (category pages). If `true`, it also makes images slightly darker to make them stand out against the white background. 
-
-Possible values: `true`, `false`.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Show additional image on hover in product listing
-
-> Show additional image on hover in product listing
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_show_additional_image_on_hover = true; // show additional image on hover
-</script>
-```
-
-Show or hide the **additional image on hover** in product listing (category pages). 
-
-Possible values: `true`, `false`.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Set product image display mode in product list
-
-> Set product image display mode to fit the block in product list
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_image_position = "FIT"; // Set product image display mode to fit the block in product list
-</script>
-```
-
-Set **product image display mode** in product listing (category pages). 
-
-**COVER**: product image is set as block background proportionally to remove any empty spaces. 
-
-**FIT**: product image is set to fit into block. Any empty space is filled with an image background color.
-
-**AUTO**: Ecwid fits the image based on its parameters.
-
-Possible values: `"AUTO"`, `"COVER"`, `"FIT"`
-Default: `"AUTO"`
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Set category image display mode in product list
-
-> Set category list image display mode to fit the block
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_category_image_position = "FIT"; // Set category image display mode to fit the block in product list
-</script>
-```
-
-Set **category image display mode** in product listing (category pages). 
-
-**COVER**: category image is set as block background proportionally to remove any empty spaces. 
-
-**FIT**: category image is set to fit into block. Any empty space is filled with an image background color.
-
-**AUTO**: Ecwid fits the image based on its parameters.
-
-Possible values: `"AUTO"`, `"COVER"`, `"FIT"`
-
-Default: depends on the setting in Ecwid Control Panel – category name position. `"COVER"` if category name is shown on image, `"AUTO"` for other values.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Show "ON SALE" label on product image
-
-> Show "ON SALE" label on product image in product listing
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_show_on_sale_label = true; // show "ON SALE" label on product image in product listing
-</script>
-```
-
-Show or hide the **"ON SALE" label** in product listing (category pages). Label will be displayed only when product has "compare to" price set.
-
-Possible values: `true`, `false`.
-Default: `true`
-
-If both "SOLD OUT" and "ON SALE" labels are enabled, the "SOLD OUT" label will be shown only.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Show "SOLD OUT" label on product image
-
-> Show "SOLD OUT" label on product image in product listing
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_show_sold_out_label  = true; // show "SOLD OUT" label on product image in product listing
-</script>
-```
-
-Show or hide the **"SOLD OUT" label** in product listing (category pages). Label will be displayed only when product is out of stock.
-
-Possible values: `true`, `false`.
-Default: `true`.
-
-If both "SOLD OUT" and "ON SALE" labels are enabled, the "SOLD OUT" label will be shown only.
+Config name | Type | Description
+------------|------|------------
+product_list_image_size | string | Control the **size of product image** in product listing (category pages). Possible values: `"SMALL"`, `"MEDIUM"`, `"LARGE"`
+product_list_image_aspect_ratio | string | Control the **aspect ratio of product image** in product listing (category pages). Possible values: `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`
+product_list_image_has_shadow | boolean | Show or hide the **shadow effect for product images** in product listing (category pages). If `true`, it also makes images slightly darker to make them stand out against the white background. Possible values: `true`, `false`
+product_list_show_additional_image_on_hover | boolean | Show or hide the **additional image on hover** in product listing (category pages). Possible values: `true`, `false`
+product_list_image_position | string | Set **product image display mode** in product listing (category pages). <ul><li>**COVER**: product image is set as block background proportionally to remove any empty spaces.</li>
+<li>**FIT**: product image is set to fit into block. Any empty space is filled with an image background color.</li>
+<li>**AUTO**: Ecwid fits the image based on its parameters.</li></ul>Possible values: `"AUTO"`, `"COVER"`, `"FIT"`. Default: `"AUTO"`
+product_list_category_image_position | string | Set **category image display mode** in product listing (category pages). <ul><li>**COVER**: category image is set as block background proportionally to remove any empty spaces.</li>
+<li>**FIT**: category image is set to fit into block. Any empty space is filled with an image background color.</li>
+<li>**AUTO**: Ecwid fits the image based on its parameters.</li></ul>Possible values: `"AUTO"`, `"COVER"`, `"FIT"`. Default: depends on the setting in Ecwid Control Panel – category name position. `"COVER"` if category name is shown on image, `"AUTO"` for other values
+product_list_show_on_sale_label | boolean | Show or hide the **"ON SALE" label** in product listing (category pages). Label will be displayed only when product has "compare to" price set. Possible values: `true`, `false`. Default: `true`. If both "SOLD OUT" and "ON SALE" labels are enabled, the "SOLD OUT" label will be shown only.
+product_list_show_sold_out_label | boolean | Show or hide the **"SOLD OUT" label** in product listing (category pages). Label will be displayed only when product is out of stock. Possible values: `true`, `false`. Default: `true`. If both "SOLD OUT" and "ON SALE" labels are enabled, the "SOLD OUT" label will be shown only
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
 ##### Set custom spacing between grid elements
 
-###### Set spacing between categories in product listing 
-
-> Set spacing between categories in product listing 
+> Apply new storefront configuration template
 
 ```html
 <script>
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_category_cell_spacing = 20; // set custom spacing between categories in product listing in pixels
+  window.ec.storefront.CONFIG_NAME = VALUE; 
 </script>
 ```
 
-Set your custom spacing between categories in product listing (category pages) in pixels. If applied, categories will become smaller to allow for the set spacing. 
-
-Possible values: integer numbers. Default: not set.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-###### Set spacing between products in product listing 
-
-> Set spacing between products in product listing 
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_cell_spacing = 20; // set custom spacing between categories in product listing in pixels 
-</script>
-```
-
-Set your custom spacing between products in product listing (category pages) in pixels. If applied, products will become smaller to allow for the set spacing. 
-
-Possible values: integer numbers. Default: not set.
-
-If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
-
-##### Control display mode of category names in product listing
-
-> Control display mode of category names in product listing
-
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.product_list_category_title_behavior = "HIDE"; // hide category name in product listing
-</script>
-```
-
-Control the way **category names** are displayed in product listing (category pages). 
-
-Possible values: `"SHOW_ON_IMAGE"` – default, `"SHOW_BELOW_IMAGE"`, `"HIDE"`, `"SHOW_ON_HOVER"`.
+Config name | Type | Description
+------------|------|------------
+product_list_category_cell_spacing | integer | Set your custom spacing between categories in product listing (category pages) in pixels. If applied, categories will become smaller to allow for the set spacing. Default: not set.
+product_list_cell_spacing | integer | Set your custom spacing between products in product listing (category pages) in pixels. If applied, products will become smaller to allow for the set spacing. Default: not set
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 

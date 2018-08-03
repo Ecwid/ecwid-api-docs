@@ -8,6 +8,17 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## August 3, 2018
+
+Added sale price settings and sale price data for products to the Ecwid REST API. 
+
+Now you can read and change sale price settings of a store and read sale price discount values (abs and percent) when getting product information. 
+
+Learn more: 
+
+- [https://developers.ecwid.com/api-documentation/store-information](https://developers.ecwid.com/api-documentation/store-information)
+- [https://developers.ecwid.com/api-documentation/products](https://developers.ecwid.com/api-documentation/products)
+
 ## July 30, 2018
 
 Added `storeCoverButton` and `storeLocationAddressSubtitle` fields to the Starter Site endpoint in the Ecwid REST API. 

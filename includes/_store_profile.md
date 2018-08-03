@@ -58,6 +58,11 @@ Name | Type    | Description
         "defaultProductSortOrder": "DEFINED_BY_STORE_OWNER",
         "abandonedSales": {
           "autoAbandonedSalesRecovery": true
+        },
+        "salePrice": {
+          "displayOnProductList": true,
+          "oldPriceLabel": "was",
+          "displayDiscount": "PERCENT"
         }
     },
     "mailNotifications": {
@@ -928,6 +933,7 @@ askCompanyName | boolean | `true` if "Ask for the company name" in checkout sett
 favoritesEnabled | boolean | `true` if favorites feature is enabled for storefront, `false` otherwise
 defaultProductSortOrder | string | Default products sort order setting from *Settings > Cart & Checkout*. Possible values: `"DEFINED_BY_STORE_OWNER"`, `"ADDED_TIME_DESC"`, `"PRICE_ASC"`, `"PRICE_DESC"`, `"NAME_ASC"`, `"NAME_DESC"`
 abandonedSales | \<*AbandonedSalesSettings*\> | Abandoned sales settings
+salePrice | \<*SalePriceSettings*\ | Sale (compare to) price settings 
 
 #### MailNotifications
 Field | Type | Description
@@ -1225,6 +1231,13 @@ Field | Type | Description
 ----- | ---- | -----------
 autoAbandonedSalesRecovery | boolean | `true` if abandoned sale recovery emails are sent automatically, `false` otherwise
 
+#### SalePriceSettings
+
+Field | Type | Description
+----- | ---- | -----------
+displayOnProductList | boolean | `true` if sale price is displayed on product list and product details page. `false` if sale price is displayed on product details page only
+oldPriceLabel | string | Text label for sale price name
+displayDiscount | string | Show discount in three modes: `"NONE"`, `"ABS"` and `"PERCENT`
 
 #### Errors
 
@@ -1274,6 +1287,11 @@ Cache-Control: no-cache
         "favoritesEnabled": false,
         "abandonedSales": {
           "autoAbandonedSalesRecovery": true
+        },
+        "salePrice": {
+          "displayOnProductList": true,
+          "oldPriceLabel": "was",
+          "displayDiscount": "PERCENT"
         }
     },
     "company": {
@@ -1388,6 +1406,7 @@ hideOutOfStockProductsInStorefront | boolean | `true` if out of stock products a
 askCompanyName | boolean | `true` if "Ask for the company name" in checkout settings is enabled, `false` otherwise
 favoritesEnabled | boolean | `true` if favorites feature is enabled for storefront, `false` otherwise
 abandonedSales | \<*AbandonedSalesSettings*\> | Abandoned sales settings
+salePrice | \<*SalePriceSettings*\ | Sale (compare to) price settings 
 
 #### MailNotifications
 Field | Type | Description
@@ -1538,6 +1557,14 @@ DESIGN_CONFIG_FIELD_NAME | string or boolean | Store design settings as seen in 
 Field | Type | Description
 ----- | ---- | -----------
 autoAbandonedSalesRecovery | boolean | `true` if abandoned sale recovery emails are sent automatically, `false` otherwise
+
+#### SalePriceSettings
+
+Field | Type | Description
+----- | ---- | -----------
+displayOnProductList | boolean | `true` if sale price is displayed on product list and product details page. `false` if sale price is displayed on product details page only
+oldPriceLabel | string | Text label for sale price name
+displayDiscount | string | Show discount in three modes: `"NONE"`, `"ABS"` and `"PERCENT`
 
 #### Response
 

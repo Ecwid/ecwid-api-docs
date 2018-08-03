@@ -108,6 +108,10 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           ],
           "compareToPrice": 23,
           "compareToPriceFormatted": "$23.00",
+          "compareToPriceDiscount": 13,
+          "compareToPriceDiscountFormatted": "$13",
+          "compareToPriceDiscountPercent": 56,
+          "compareToPriceDiscountPercentFormatted": "56%",          
           "isShippingRequired": true,
           "weight": 0,
           "url": "http://app.ecwid.com#!/Orange/p/37208339",
@@ -260,6 +264,10 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             ],
             "compareToPrice": 1.34,
             "compareToPriceFormatted": "$1.34",
+            "compareToPriceDiscount": 0.19,
+            "compareToPriceDiscountFormatted": "$0.19",
+            "compareToPriceDiscountPercent": 14,
+            "compareToPriceDiscountPercentFormatted": "14%",
             "isShippingRequired": true,
             "weight": 0.31,
             "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208339",
@@ -348,7 +356,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
               }
             ],
             "seoTitle": "Radish",
-            "seoDescription": "It's an awesome radish just for you!",            
+            "seoDescription": "It's an awesome radish just for you!",
             "defaultCategoryId": 9691095,
             "attributes": [
                 {
@@ -534,6 +542,10 @@ Cache-Control: no-cache
           ],
           "compareToPrice": 23,
           "compareToPriceFormatted": "$23.00",
+          "compareToPriceDiscount": 13,
+          "compareToPriceDiscountFormatted": "$13",
+          "compareToPriceDiscountPercent": 56,
+          "compareToPriceDiscountPercentFormatted": "56%",          
           "isShippingRequired": true,
           "weight": 0,
           "url": "http://app.ecwid.com#!/Orange/p/37208339",
@@ -693,6 +705,10 @@ tax | \<*TaxInfo*\> | Detailed information about product's taxes
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 compareToPriceFormatted | string | Formatted display of `compareToPrice` in the store's formatting for prices
+compareToPriceDiscount | number | Sale price discount amount
+compareToPriceDiscountFormatted | string | Sale price formatted discount amount (with store currency)
+compareToPriceDiscountPercent | number | Sale price discount percent
+compareToPriceDiscountPercentFormatted | string |  Sale price discount percent (with percent sign)
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store. [Learn more](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
@@ -1003,6 +1019,10 @@ Parameters in <strong>bold</strong> are mandatory
     ],
     "compareToPrice": 1.34,
     "compareToPriceFormatted": "$1.34",
+    "compareToPriceDiscount": 0.19,
+    "compareToPriceDiscountFormatted": "$0.19",
+    "compareToPriceDiscountPercent": 14,
+    "compareToPriceDiscountPercentFormatted": "14%",    
     "isShippingRequired": true,
     "weight": 0.31,
     "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208339",
@@ -1260,6 +1280,10 @@ tax | \<*TaxInfo*\> | Detailed information about product's taxes
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of wholesale price tiers (quantity limit and price pairs)
 compareToPrice |  number | Product's sale price displayed strike-out in the customer frontend *Omitted if empty*
 compareToPriceFormatted | string | Formatted display of `compareToPrice` in the store's formatting for prices
+compareToPriceDiscount | number | Sale price discount amount
+compareToPriceDiscountFormatted | string | Sale price formatted discount amount (with store currency)
+compareToPriceDiscountPercent | number | Sale price discount percent
+compareToPriceDiscountPercentFormatted | string |  Sale price discount percent (with percent sign)
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
 url | string |  URL of the product's details page in the store. [Learn more](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
