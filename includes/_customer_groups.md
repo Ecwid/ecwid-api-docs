@@ -1,8 +1,12 @@
 ## Customer groups
 
-In Ecwid stores merchants assign customers to specific groups in order to treat them differently. For example, for some group of people, that purchased a membership in their store, they would like to provide a discount based on subtotal at all times. Another way of using customer groups is to to show them a hidden content of a store, in case if these customers are wholesalers.
+Merchants can assign customers to specific groups in order to treat them differently. 
 
-To manage customer groups in Ecwid stores, use this endpoint described below and to find out more about customer groups in Ecwid stores, check out [this page](https://help.ecwid.com/customer/en/portal/articles/1345509-customer-groups)
+For example, for some group of people, that purchased a membership in their store, they would like to provide a discount based on subtotal at all times. 
+
+Other merchants can choose to show them a hidden content of a store, in case if these customers are wholesalers.
+
+To manage customer groups in Ecwid stores, use the endpoint described below. To find out more about customer groups in Ecwid stores, check out [Ecwid Help Center](https://help.ecwid.com/customer/en/portal/articles/1345509-customer-groups)
 
 ### Get all customer groups
 
