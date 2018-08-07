@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## August 7, 2018
+
+Added new read-only field for getting product information in Ecwid REST API – `isSampleProduct`. It indicates whether a product was created automatically when Ecwid store was created (`true`), or manually by a merchant or via API (`false`). [Learn more](https://developers.ecwid.com/api-documentation/products)
+
 ## August 3, 2018
 
 Added sale price settings and sale price data for products to the Ecwid REST API. 

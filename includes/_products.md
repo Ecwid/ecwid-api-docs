@@ -238,7 +238,8 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "width": 0,
             "height": 0
           },
-          "showOnFrontpage": 1
+          "showOnFrontpage": 1,
+          "isSampleProduct": false
         },
         {
             "id": 37208340,
@@ -489,7 +490,8 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "length": 14,
             "width": 6,
             "height": 3
-          }
+          },
+          "isSampleProduct": false          
         }
     ]
 }
@@ -667,7 +669,8 @@ Cache-Control: no-cache
             }
           },
           "combinations": [],
-          "dimensions": {}
+          "dimensions": {},
+          "isSampleProduct": false          
         },
         {
             "id": 37208339,
@@ -743,6 +746,7 @@ relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" produc
 combinations | Array\<*Variation*\> | List of the product variations
 dimensions | \<*ProductDimensions*\> | Product dimensions info
 showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A missing field means the product is not shown in the store front page (for private tokens)
+isSampleProduct | boolean | `true` if this product is a sample one (sample product when Ecwid store is initially created). `false` otherwise. Read only
 
 #### FavoritesStats
 Field | Type  | Description
@@ -1240,7 +1244,8 @@ Parameters in <strong>bold</strong> are mandatory
       "width": 0,
       "height": 0
     },
-    "showOnFrontpage": 2
+    "showOnFrontpage": 2,
+    "isSampleProduct": false      
 }
 ```
 
@@ -1318,6 +1323,7 @@ relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" produc
 combinations | Array\<*Variation*\> | List of the product variations
 dimensions | \<*ProductDimensions*\> | Product dimensions info
 showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A missing field means the product is not shown in the store front page (for private tokens)
+isSampleProduct | boolean | `true` if this product is a sample one (sample product when Ecwid store is initially created). `false` otherwise. Read only
 
 #### FavoritesStats
 Field | Type  | Description

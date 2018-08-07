@@ -421,7 +421,8 @@ function aes_128_decrypt($key, $data) {
 
 // Get payload from the GET and process it
 $ecwid_payload = $_GET['payload'];
-$client_secret = "0123abcd4567efgh1234567890"; // this is a dummy value. Please place your app secret key here
+$client_secret = "0123abcd4567efgh1234567890"; // This is a dummy value. Place your client_secret key here. You received it from Ecwid team in email when registering the app 
+
 $result = getEcwidPayload($client_secret, $ecwid_payload);
 
 // Get store info from the payload

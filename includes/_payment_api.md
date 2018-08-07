@@ -289,7 +289,7 @@ function aes_128_decrypt($key, $data) {
 
 // Get payload from the POST and process it
 $ecwid_payload = $_POST['data'];
-$client_secret = "payment-app-secret-key"; // this is a dummy value. Please place your app secret key here
+$client_secret = "payment-app-secret-key"; // This is a dummy value. Place your client_secret key here. You received it from Ecwid team in email when registering the app 
 
 // The resulting JSON array will be in $result variable
 $result = getEcwidPayload($client_secret, $ecwid_payload);
