@@ -26,7 +26,7 @@ Ecwid integration code provides a number of modifications to the store layout. S
 
 #### Add new element for each product in product grid
 
-The latest version of product grid requires specific approach to adding new elements. Check out the example[https://gist.github.com/riq363/13730a82dbee20bb464daf0713ca1997](https://gist.github.com/riq363/13730a82dbee20bb464daf0713ca1997)
+The latest version of product grid requires specific approach to adding new elements. Check out the example: [https://gist.github.com/riq363/13730a82dbee20bb464daf0713ca1997](https://gist.github.com/riq363/13730a82dbee20bb464daf0713ca1997)
 
 [How to enable latest version of product listing in your test store](https://developers.ecwid.com/api-documentation/customize-appearance#product-listing)
 
@@ -369,6 +369,17 @@ If you apply the change after storefront has loaded, you can update its look on 
 
 #### Control the layout of product details page
 
+> Apply new storefront configuration template
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.CONFIG_NAME = VALUE; 
+</script>
+```
+
+{#wide-table-cs}
 Config name | Type | Description
 ------------|------|------------
 product_details_show_product_name_always_first_on_mobile | boolean | Defines the **position of the product name** on mobile. If `true`, the product name always shows on top on the mobile version. Possible values: `true`, `false`. Defalut value: `false`
@@ -382,6 +393,16 @@ product_details_thumbnails_aspect_ratio | string | Set the **image aspect ratio 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
 #### Control position of elements on product details pages
+
+> Apply new storefront configuration template
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.CONFIG_NAME = VALUE; 
+</script>
+```
 
 Config name | Type | Description
 ------------|------|------------
