@@ -346,41 +346,55 @@ If you apply the change after storefront has loaded, you can update its look on 
 Config name | Type | Description
 ------------|------|------------
 product_details_show_product_name | boolean | Show or hide **product name**. Defines the visibility of the product name on product pages. Possible values: `true`, `false`. Defalut value: `true`
-product_details_position_product_name | number | Defines the **position of the product name**. The less number, the higher the element on the page. Defalut value: `100`
-product_details_show_product_name_always_first_on_mobile | boolean | Defines the **position of the product name** on mobile. If `true`, the product name always shows on top on the mobile version. Possible values: `true`, `false`. Defalut value: `false`
 product_details_show_breadcrumbs | boolean | Defines the **visibility of breadcrumbs on product page**. Possible values: `true`, `false`. Defalut value: `true`
-product_details_position_breadcrumbs | number | Defines the **position of the breadcrumbs within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `200`
 product_details_show_product_sku | boolean | Defines the **visibility of SKU on product page**. Possible values: `true`, `false`. Defalut value: `true`
-product_details_position_product_sku | number | Defines the **position of the SKU within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `300`
 product_details_show_product_price | boolean | Defines the **visibility of price on product page**. Possible values: `true`, `false`. Defalut value: `true`
-product_details_position_product_price | number | Defines the **position of the SKU within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `400`
 product_details_show_sale_price | boolean | Defines the **visibility of sale price on product page**. Possible values: `true`, `false`. Defalut value: `true`
 product_details_show_price_per_unit | boolean | Defines the **visibility of price per unit on product page**. Possible values: `true`, `false`. Defalut value: `true`
 product_details_show_tax | boolean | Defines the **visibility of tax on product page**. Possible values: `true`, `false`. Defalut value: `true`
 product_details_show_product_options | boolean | Defines the **visibility of product options on product page**. Possible values: `true`, `false`. Defalut value: `true`
-product_details_position_product_options | number | Defines the **position of the product options within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `500`
 product_options.hide_price_modifiers | boolean | Defines the **visibility of price modifiers on product page**. Possible values: `true`, `false`. Defalut value: `false`
 product_details_show_buy_button | boolean | Defines the **visibility of buy button block on product page**. Possible values: `true`, `false`. Defalut value: `true`
-product_details_position_product_options | number | Defines the **position of the buy button block within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `600`
 product_details_show_qty | boolean | Defines the **visibility of 'Qty' on product page**. Possible values: `true`, `false`. Defalut value: `false`
 product_details_show_number_of_items_in_stock | boolean | Defines the **visibility of number of items in stock on product page**. Possible values: `true`, `false`. Defalut value: `true`
 product_details_show_in_stock_label | boolean | Defines the **visibility of 'In stock' label on product page**. Possible values: `true`, `false`. Defalut value: `true`
 product_details_show_wholesale_prices | boolean | Defines the **visibility of wholesale prices on product page**. Possible values: `true`, `false`. Defalut value: `true`
-product_details_position_wholesale_prices | number | Defines the **position of the wholesale pricing table within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `700`
 product_details_show_product_description | boolean | Defines the **visibility of product description on product page**. Possible values: `true`, `false`. Defalut value: `true`
-product_details_position_product_description | number | Defines the **position of the product description within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `800`
+product_details_show_save_for_later | boolean | Defines the **visibility of 'Save for Later' block on product page**. Possible values: `true`, `false`. Defalut value: `true`
+product_details_show_share_buttons | boolean | Defines the **visibility of share buttons on product page**. Possible values: `true`, `false`. Defalut value: `true`
+product_details_additional_images_has_shadow | boolean | Defines the **shadow visibility for gallery images**. If "true", adds shadow to gallery thumbnails. Makes the thumbnails slightly darker to make them stand out against the white background. Possible values: `true`, `false`. Defalut value: `false`
+product_details_image_carousel | boolean | Defines the **shadow visibility for gallery images**. If `true`, adds the ability to scroll product images without opening full-screen image viewer. Possible values: `true`, `false`. Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+#### Control the layout of product details page
+
+Config name | Type | Description
+------------|------|------------
+product_details_show_product_name_always_first_on_mobile | boolean | Defines the **position of the product name** on mobile. If `true`, the product name always shows on top on the mobile version. Possible values: `true`, `false`. Defalut value: `false`
 product_details_cut_product_description_in_sidebar | boolean | If `true`, cuts long product description and displays only one paragraph and "Show more" link to see full info. If `false`, the description shows as is no matter its size. Possible values: `true`, `false`. Defalut value: `true`
 product_details_two_columns_with_right_sidebar_show_product_description_on_sidebar | boolean | If `true`, the product description shows in sidebar according to its position. Otherwise it shows below product image. For two column layout with sidebar on the right only. See [product page layout](#set-layout-of-product-pages). Possible values: `true`, `false`. Defalut value: `false`
 product_details_two_columns_with_left_sidebar_show_product_description_on_sidebar | boolean | If `true`, the product description shows in sidebar according to its position. Otherwise it shows below product image. For two column layout with sidebar on the left only. See [product page layout](#set-layout-of-product-pages). Possible values: `true`, `false`. Defalut value: `false`
-product_details_show_save_for_later | boolean | Defines the **visibility of 'Save for Later' block on product page**. Possible values: `true`, `false`. Defalut value: `true`
-product_details_position_save_for_later | number | Defines the **position of the 'Save for Later' block within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `900`
-product_details_show_share_buttons | boolean | Defines the **visibility of share buttons on product page**. Possible values: `true`, `false`. Defalut value: `true`
-product_details_position_share_buttons | number | Defines the **position of the share buttons within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `1000`
 product_details_gallery_layout | string | Set different **layout of gallery on product pages**. <ul><li>`"THUMBNAILS_HORIZONTAL"` shows them below image in a classic way with small thumbnails next to each other.</li><li>`"THUMBNAILS_VERTICAL"` shows additional product images on the left from the main image.</li><li>`"FEED"` shows the them as feed with large detaied images.</li></ul>Defalut value: `"IMAGE_SINGLE_THUMBNAILS_HORIZONTAL"`
-product_details_additional_images_preview_on_click | boolean | Defines the **gallery behaviour on image click**. If `true`, shows the additional product image in the place of main product image when clicking on gallery thumbnail. If `false`, the image viewer opens when clicking on image thumbnails. **Not relevant if 'product_details_gallery_layout==FEED'**. Possible values: `true`, `false`. Defalut value: `true`
-product_details_additional_images_has_shadow | boolean | Defines the **shadow visibility for gallery images**. If "true", adds shadow to gallery thumbnails. Makes the thumbnails slightly darker to make them stand out against the white background. Possible values: `true`, `false`. Defalut value: `false`
+product_details_additional_images_preview_on_click | boolean | Defines the **gallery behaviour on image click**. If `true`, shows the additional product image in the place of main product image when clicking on gallery thumbnail. If `false`, the image viewer opens when clicking on image thumbnails. Not relevant if `product_details_gallery_layout`==`FEED`. Possible values: `true`, `false`. Defalut value: `true`
 product_details_thumbnails_aspect_ratio | string | Set the **image aspect ratio for gallery tumbnails**. If `"AUTO"` each tumbnails has the ratio that closest to its actual proportions. Hovever you can force different ratio to all tumbnails. Possible values: `"AUTO"`, `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`. Defalut value: `"AUTO"`
-product_details_image_carousel | boolean | Defines the **shadow visibility for gallery images**. If `true`, adds the ability to scroll product images without opening full-screen image viewer. Possible values: `true`, `false`. Defalut value: `true`
+
+If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+#### Control position of elements on product details pages
+
+Config name | Type | Description
+------------|------|------------
+product_details_position_product_name | number | Defines the **position of the product name**. The less number, the higher the element on the page. Defalut value: `100`
+product_details_position_breadcrumbs | number | Defines the **position of the breadcrumbs within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `200`
+product_details_position_product_sku | number | Defines the **position of the SKU within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `300`
+product_details_position_product_price | number | Defines the **position of the SKU within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `400`
+product_details_position_product_options | number | Defines the **position of the product options within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `500`
+product_details_position_product_options | number | Defines the **position of the buy button block within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `600`
+product_details_position_wholesale_prices | number | Defines the **position of the wholesale pricing table within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `700`
+product_details_position_product_description | number | Defines the **position of the product description within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `800`
+product_details_position_save_for_later | number | Defines the **position of the 'Save for Later' block within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `900`
+product_details_position_share_buttons | number | Defines the **position of the share buttons within the sidebar**. The less the number is, the higher the element on the page. Defalut value: `1000`
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
