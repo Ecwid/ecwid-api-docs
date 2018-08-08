@@ -379,7 +379,6 @@ If you apply the change after storefront has loaded, you can update its look on 
 </script>
 ```
 
-{#wide-table-cs}
 Config name | Type | Description
 ------------|------|------------
 product_details_show_product_name_always_first_on_mobile | boolean | Defines the **position of the product name** on mobile. If `true`, the product name always shows on top on the mobile version. Possible values: `true`, `false`. Defalut value: `false`
@@ -388,7 +387,8 @@ product_details_two_columns_with_right_sidebar_show_product_description_on_sideb
 product_details_two_columns_with_left_sidebar_show_product_description_on_sidebar | boolean | If `true`, the product description shows in sidebar according to its position. Otherwise it shows below product image. For two column layout with sidebar on the left only. See [product page layout](#set-layout-of-product-pages). Possible values: `true`, `false`. Defalut value: `false`
 product_details_gallery_layout | string | Set different **layout of gallery on product pages**. <ul><li>`"THUMBNAILS_HORIZONTAL"` shows them below image in a classic way with small thumbnails next to each other.</li><li>`"THUMBNAILS_VERTICAL"` shows additional product images on the left from the main image.</li><li>`"FEED"` shows the them as feed with large detaied images.</li></ul>Defalut value: `"IMAGE_SINGLE_THUMBNAILS_HORIZONTAL"`
 product_details_additional_images_preview_on_click | boolean | Defines the **gallery behaviour on image click**. If `true`, shows the additional product image in the place of main product image when clicking on gallery thumbnail. If `false`, the image viewer opens when clicking on image thumbnails. Not relevant if `product_details_gallery_layout`==`FEED`. Possible values: `true`, `false`. Defalut value: `true`
-product_details_thumbnails_aspect_ratio | string | Set the **image aspect ratio for gallery tumbnails**. If `"AUTO"` each tumbnails has the ratio that closest to its actual proportions. Hovever you can force different ratio to all tumbnails. Possible values: `"AUTO"`, `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`. Defalut value: `"AUTO"`
+product_details_thumbnails_aspect_ratio | string | Set the **image aspect ratio for gallery tumbnails**. If `"AUTO"` each tumbnails has the ratio that closest to its actual proportions. Hovever you can force different ratio to all tumbnails. Possible values: `"AUTO"`, `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`. Defalut value: `"AUTO"` 
+{#wide-table-cs}
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
