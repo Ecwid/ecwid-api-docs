@@ -84,9 +84,8 @@ Config name | Type | Description
 show_signin_link | boolean | Hide the sign in link for customers in a store. Possible values: `true` to show the sign in link, and `false` to hide it
 show_breadcrumbs | boolean | Hide the storefront breadcrumbs for customers in a store. Possible values: `true` to show the breadcrumbs, and `false` to hide them
 product_list_show_sort_viewas_options | boolean | Hide the options to 'View as' and 'Sort by' products for customers in a store. Possible values: `true` to show the 'View as' and 'Sort by' options, and `false` to hide them
-product_details_show_qty | boolean | Hide the 'Qty' section for customers in product details pages. Possible values: `true` to show the 'Qty' section, and `false` to hide it
-product_details_show_in_stock_label | boolean | Hide the 'In stock' label for customers in product details pages. Possible values: `true` to show the 'In stock' label, and `false` to hide it
-product_details_show_number_of_items_in_stock | boolean | Hide the number if items in stock for customers in product details pages. Possible values: `true` to show the number of items in stock, and `false` to hide it
+show_footer_menu | boolean | Hide or show footer menu with the Bag / Sign in / Favs links is shown in the new storefront
+show_sku | boolean | Hide or show the product SKU in the catalog (product list and product details page). Has less priority than 'product_list_sku_behavior'
 
 #### Center popups in iframe storefronts
 
@@ -115,7 +114,7 @@ P.S. this solution also works for the popups in the Ecwid Control Panel embedded
 
 The product listing allows for more customization and better looking storefronts across all Ecwid stores. Check out the available customization options below.
 
-<div class="note">
+<div class="notice">
 To ensure you have the latest version enabled, check <strong>Ecwid Control Panel > Settings > What's new</strong> for new available features.
 </div>
 
@@ -232,7 +231,7 @@ If you apply the change after storefront has loaded, you can update its look on 
 
 The product pages allow for more customization and better looking storefronts across all Ecwid stores. Check the available customization options below. 
 
-<div class="note">
+<div class="notice">
 To ensure you have the latest version enabled, check <strong>Ecwid Control Panel > Settings > What's new</strong> for new available features.
 </div>
 
@@ -352,6 +351,10 @@ product_details_show_save_for_later | boolean | Defines the **visibility of 'Sav
 product_details_show_share_buttons | boolean | Defines the **visibility of share buttons on product page**. Possible values: `true`, `false`. Defalut value: `true`
 product_details_additional_images_has_shadow | boolean | Defines the **shadow visibility for gallery images**. If "true", adds shadow to gallery thumbnails. Makes the thumbnails slightly darker to make them stand out against the white background. Possible values: `true`, `false`. Defalut value: `false`
 product_details_image_carousel | boolean | Defines the **shadow visibility for gallery images**. If `true`, adds the ability to scroll product images without opening full-screen image viewer. Possible values: `true`, `false`. Defalut value: `true`
+product_details_show_qty | boolean | Hide the 'Qty' section for customers in product details pages. Possible values: `true` to show the 'Qty' section, and `false` to hide it
+product_details_show_in_stock_label | boolean | Hide the 'In stock' label for customers in product details pages. Possible values: `true` to show the 'In stock' label, and `false` to hide it
+product_details_show_number_of_items_in_stock | boolean | Hide the number if items in stock for customers in product details pages. Possible values: `true` to show the number of items in stock, and `false` to hide it
+show_sku | boolean | Hide or show the product SKU in the catalog (product list and product details page). Has less priority than `product_list_sku_behavior`
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
