@@ -113,17 +113,11 @@ P.S. this solution also works for the popups in the Ecwid Control Panel embedded
 
 ### Product listing
 
-> Enable latest product listing
+The product listing allows for more customization and better looking storefronts across all Ecwid stores. Check out the available customization options below.
 
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.enable_new_product_list = true;
-</script>
-```
-
-The recent version of product listing allows for more customization and better looking storefronts across all Ecwid stores. You can enable it in your Ecwid store using the example code on the right. 
+<div class="note">
+To ensure you have the latest version enabled, check <strong>Ecwid Control Panel > Settings > What's new</strong> for new available features.
+</div>
 
 #### Customizing product listing
 
@@ -140,7 +134,7 @@ If you apply any of the changes below after storefront has loaded, you can updat
 
 ##### Adding new elements to product grid 
 
-Ecwid's latest version of product listing (category pages) works in a different way, which requires different approach to adding new elements to a page.
+The product listing (category pages) works in a specific way, which requires different approach to adding new elements to a page.
 
 Check this page for code example: [Add new element to products in category pages](https://developers.ecwid.com/api-documentation/customize-appearance#add-new-element-for-each-product-in-product-grid)
 
@@ -236,17 +230,11 @@ If you apply the change after storefront has loaded, you can update its look on 
 
 ### Product pages
 
-> Enable latest design of product pages
+The product pages allow for more customization and better looking storefronts across all Ecwid stores. Check the available customization options below. 
 
-```html
-<script>
-  window.ec = window.ec || Object();
-  window.ec.storefront = window.ec.storefront || Object();
-  window.ec.storefront.enable_new_product_details = true;
-</script>
-```
-
-The most recent version of product pages allows for more customization and better looking storefronts across all Ecwid stores. You can enable it in your Ecwid store using the example code on the right.
+<div class="note">
+To ensure you have the latest version enabled, check <strong>Ecwid Control Panel > Settings > What's new</strong> for new available features.
+</div>
 
 #### Customizing product pages
 
@@ -383,12 +371,11 @@ Config name | Type | Description
 ------------|------|------------
 product_details_show_product_name_always_first_on_mobile | boolean | Defines the **position of the product name** on mobile. If `true`, the product name always shows on top on the mobile version. Possible values: `true`, `false`. Defalut value: `false`
 product_details_cut_product_description_in_sidebar | boolean | If `true`, cuts long product description and displays only one paragraph and "Show more" link to see full info. If `false`, the description shows as is no matter its size. Possible values: `true`, `false`. Defalut value: `true`
-product_details_two_columns_with_right_sidebar_show_product_description_on_sidebar | boolean | If `true`, the product description shows in sidebar according to its position. Otherwise it shows below product image. For two column layout with sidebar on the right only. See [product page layout](#set-layout-of-product-pages). Possible values: `true`, `false`. Defalut value: `false`
-product_details_two_columns_with_left_sidebar_show_product_description_on_sidebar | boolean | If `true`, the product description shows in sidebar according to its position. Otherwise it shows below product image. For two column layout with sidebar on the left only. See [product page layout](#set-layout-of-product-pages). Possible values: `true`, `false`. Defalut value: `false`
+product_details_two_columns_with_right_sidebar_show_product_description_on_sidebar | boolean | If `true`, the product description shows in sidebar according to its position. Otherwise it shows below product image. For two column layout with sidebar on the right only. See [product page layout](https://developers.ecwid.com/api-documentation/customize-appearance#set-layout-of-product-pages). Possible values: `true`, `false`. Defalut value: `false`
+product_details_two_columns_with_left_sidebar_show_product_description_on_sidebar | boolean | If `true`, the product description shows in sidebar according to its position. Otherwise it shows below product image. For two column layout with sidebar on the left only. See [product page layout](https://developers.ecwid.com/api-documentation/customize-appearance#set-layout-of-product-pages). Possible values: `true`, `false`. Defalut value: `false`
 product_details_gallery_layout | string | Set different **layout of gallery on product pages**. <ul><li>`"THUMBNAILS_HORIZONTAL"` shows them below image in a classic way with small thumbnails next to each other.</li><li>`"THUMBNAILS_VERTICAL"` shows additional product images on the left from the main image.</li><li>`"FEED"` shows the them as feed with large detaied images.</li></ul>Defalut value: `"IMAGE_SINGLE_THUMBNAILS_HORIZONTAL"`
 product_details_additional_images_preview_on_click | boolean | Defines the **gallery behaviour on image click**. If `true`, shows the additional product image in the place of main product image when clicking on gallery thumbnail. If `false`, the image viewer opens when clicking on image thumbnails. Not relevant if `product_details_gallery_layout`==`FEED`. Possible values: `true`, `false`. Defalut value: `true`
 product_details_thumbnails_aspect_ratio | string | Set the **image aspect ratio for gallery tumbnails**. If `"AUTO"` each tumbnails has the ratio that closest to its actual proportions. Hovever you can force different ratio to all tumbnails. Possible values: `"AUTO"`, `"PORTRAIT_0667"`, `"PORTRAIT_075"`, `"SQUARE_1"`, `"LANDSCAPE_1333"`, `"LANDSCAPE_15"`. Defalut value: `"AUTO"` 
-{#wide-table-cs}
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 
