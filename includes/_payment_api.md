@@ -2,7 +2,7 @@
 
 > Your custom payment integration in payment settings of the Ecwid Control Panel
 
-> ![Custom payment integration example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/appStorage-1468406476.png)
+> ![Custom payment integration example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/custom-payment-1534763893.png)
 
 With the Custom Payment API you can integrate a new payment method for customers of Ecwid stores to choose from. This functionality will work in the form of an application that users install from the Ecwid App Market.
 
