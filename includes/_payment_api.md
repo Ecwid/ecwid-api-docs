@@ -1,5 +1,9 @@
 # Add Payment Method
 
+> Your custom payment integration in payment settings of the Ecwid Control Panel
+
+> ![Custom payment integration example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/appStorage-1468406476.png)
+
 With the Custom Payment API you can integrate a new payment method for customers of Ecwid stores to choose from. This functionality will work in the form of an application that users install from the Ecwid App Market.
 
 <aside class="notice">
@@ -195,13 +199,17 @@ Your application can require merchants to specify their account details in your 
 
 > Merchant settings example
 
-> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/paymentSettings-1468408208.png)
+> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/custom-payment-settings-1534763988.png)
 
 Set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more information.
 
 When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#javascript-storage-api) (client-side) or [Ecwid REST API](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#rest-storage-api) (server-side).
 
 ### Edit payment method
+
+> Editing custom payment gateway example
+
+> ![Edit custom gateway example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/custom-payment-edit-1534764167.png)
 
 When your app is installed in merchant's store, merchants are able to change its name, position and description just like any other payment method. 
 
