@@ -197,7 +197,8 @@ Parameters in bold are mandatory
                             "value": 7,
                             "total": 1.79,
                             "taxOnDiscountedSubtotal": 1.79,
-                            "taxOnShipping": 0
+                            "taxOnShipping": 0,
+                            "includeInPrice": false
                         }
                     ],
                     "dimensions": {
@@ -381,6 +382,7 @@ value | number | Tax value in percent
 total | number | Tax amount for the item
 taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
 taxOnShipping | number | Tax on item shipping
+includeInPrice | boolean | `true` if the tax rate is included in product prices. More details: [Taxes in Ecwid](http://help.ecwid.com/customer/portal/articles/1182159-taxes)
 
 #### OrderItemProductFile
 Field | Type | Description
@@ -725,7 +727,8 @@ Parameters in bold are mandatory
                             "value": 7,
                             "total": 1.79,
                             "taxOnDiscountedSubtotal": 1.79,
-                            "taxOnShipping": 0
+                            "taxOnShipping": 0,
+                            "includeInPrice": false
                         }
                     ],
                     "dimensions": {
@@ -900,6 +903,7 @@ value | number | Tax value in percent
 total | number | Tax amount for the item
 taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
 taxOnShipping | number | Tax on item shipping
+includeInPrice | boolean | `true` if the tax rate is included in product prices. More details: [Taxes in Ecwid](http://help.ecwid.com/customer/portal/articles/1182159-taxes)
 
 #### OrderItemProductFile
 Field | Type | Description
@@ -1291,6 +1295,7 @@ value | number | Tax value in percent
 total | number | Tax amount for the item
 taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
 taxOnShipping | number | Tax on item shipping
+includeInPrice | boolean | `true` if the tax rate is included in product prices. More details: [Taxes in Ecwid](http://help.ecwid.com/customer/portal/articles/1182159-taxes)
 
 #### OrderItemOption
 Field | Type |  Description
@@ -1669,6 +1674,7 @@ value | number | Tax value in percent
 total | number | Tax amount for the item
 taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
 taxOnShipping | number | Tax on item shipping
+includeInPrice | boolean | `true` if the tax rate is included in product prices. More details: [Taxes in Ecwid](http://help.ecwid.com/customer/portal/articles/1182159-taxes)
 
 #### ProductDimensions
 Field | Type  | Description

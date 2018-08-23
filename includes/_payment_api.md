@@ -655,6 +655,12 @@ token | string | Access token of the Ecwid store. Use it to update order status 
 Name | Type    | Description
 ---- | ------- | --------------
 currency | string | Code of the currency currently enabled in the store
+order | \<*OrderDetails*\> | Order details for this payment request
+
+#### OrderDetails 
+
+Name | Type    | Description
+---- | ------- | --------------
 subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order
 referenceTransactionId | string | Unique transaction identification. Used to update order status after payment is processed. See [Updating order status](https://developers.ecwid.com/api-documentation/processing-payment-request#updating-order-status)
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.

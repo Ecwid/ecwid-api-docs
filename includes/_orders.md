@@ -177,14 +177,16 @@ Parameters in bold are mandatory
                             "value": 12,
                             "total": 124.13,
                             "taxOnDiscountedSubtotal": 124.13,
-                            "taxOnShipping": 0
+                            "taxOnShipping": 0,
+                            "includeInPrice": false
                         },
                         {
                             "name": "TVA",
                             "value": 20,
                             "total": 206.88,
                             "taxOnDiscountedSubtotal": 206.88,
-                            "taxOnShipping": 0
+                            "taxOnShipping": 0,
+                            "includeInPrice": true
                         }
                     ],
                     "dimensions": {
@@ -282,14 +284,16 @@ Parameters in bold are mandatory
                             "value": 12,
                             "total": 59.05,
                             "taxOnDiscountedSubtotal": 1.95,
-                            "taxOnShipping": 57.1
+                            "taxOnShipping": 57.1,
+                            "includeInPrice": false
                         },
                         {
                             "name": "TVA",
                             "value": 20,
                             "total": 98.42,
                             "taxOnDiscountedSubtotal": 3.25,
-                            "taxOnShipping": 95.17
+                            "taxOnShipping": 95.17,
+                            "includeInPrice": true
                         }
                     ],
                     "dimensions": {
@@ -507,6 +511,7 @@ value | number | Tax value in percent
 total | number | Tax amount for the item
 taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
 taxOnShipping | number | Tax on item shipping
+includeInPrice | boolean | `true` if the tax rate is included in product prices. More details: [Taxes in Ecwid](http://help.ecwid.com/customer/portal/articles/1182159-taxes)
 
 #### OrderItemProductFile
 Field | Type | Description
@@ -847,14 +852,16 @@ Parameters in bold are mandatory
                     "value": 12,
                     "total": 124.13,
                     "taxOnDiscountedSubtotal": 124.13,
-                    "taxOnShipping": 0
+                    "taxOnShipping": 0,
+                    "includeInPrice": false
                 },
                 {
                     "name": "TVA",
                     "value": 20,
                     "total": 206.88,
                     "taxOnDiscountedSubtotal": 206.88,
-                    "taxOnShipping": 0
+                    "taxOnShipping": 0,
+                    "includeInPrice": true
                 }
             ],
             "dimensions": {
@@ -952,14 +959,16 @@ Parameters in bold are mandatory
                     "value": 12,
                     "total": 59.05,
                     "taxOnDiscountedSubtotal": 1.95,
-                    "taxOnShipping": 57.1
+                    "taxOnShipping": 57.1,
+                    "includeInPrice": false
                 },
                 {
                     "name": "TVA",
                     "value": 20,
                     "total": 98.42,
                     "taxOnDiscountedSubtotal": 3.25,
-                    "taxOnShipping": 95.17
+                    "taxOnShipping": 95.17,
+                    "includeInPrice": true
                 }
             ],
             "dimensions": {
@@ -1165,6 +1174,7 @@ value | number | Tax value in percent
 total | number | Tax amount for the item
 taxOnDiscountedSubtotal | number |  Tax on item subtotal (after applying discounts)
 taxOnShipping | number | Tax on item shipping
+includeInPrice | boolean | `true` if the tax rate is included in product prices. More details: [Taxes in Ecwid](http://help.ecwid.com/customer/portal/articles/1182159-taxes)
 
 #### OrderItemProductFile
 Field | Type | Description
@@ -1937,7 +1947,8 @@ Cache-Control: no-cache
                     {
                         "name": "Tax Y",
                         "value": 7,
-                        "total": 4.79
+                        "total": 4.79,
+                        "includeInPrice": false
                     }
                 ],
                 "dimensions": {
@@ -2049,6 +2060,7 @@ Field | Type |  Description
 name |  string | Tax name
 value | number | Tax value in percent
 total | number | Tax amount for the item
+includeInPrice | boolean | `true` if the tax rate is included in product prices. More details: [Taxes in Ecwid](http://help.ecwid.com/customer/portal/articles/1182159-taxes)
 
 #### OrderItemOption
 Field | Type |  Description
@@ -2426,6 +2438,7 @@ Field | Type | Description
 name |  string | Tax name
 value | number | Tax value in percent
 total | number | Tax amount for the item
+includeInPrice | boolean | `true` if the tax rate is included in product prices. More details: [Taxes in Ecwid](http://help.ecwid.com/customer/portal/articles/1182159-taxes)
 
 #### OrderItemOption
 Field | Type | Description

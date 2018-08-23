@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## August 23, 2018
+
+Added `includeInPrice` field for order and cart items in the Ecwid REST API. 
+
+This allows you to know whether the specific tax applied to item was included in the product's price or not. The field can be read, updated or used when creating a new order / cart. [Learn more](https://developers.ecwid.com/api-documentation/rest-api-reference)
+
 ## August 7, 2018
 
 Added new read-only field for getting product information in Ecwid REST API – `isSampleProduct`. It indicates whether a product was created automatically when Ecwid store was created (`true`), or manually by a merchant or via API (`false`). [Learn more](https://developers.ecwid.com/api-documentation/products)
