@@ -42,7 +42,7 @@ In a nutshell, webhooks in Ecwid work this way:
 * Then your app processes the webhook request and performs further steps to handle the event
 
 <aside class="notice">
-Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/webhooks#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
 ### Supported events

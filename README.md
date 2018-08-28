@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## August 28, 2018
+
+Added PHP template for creating payment integrations: [https://github.com/Ecwid/payment-gateway-template](https://github.com/Ecwid/payment-gateway-template)
+
+Add payment method to Ecwid store docs: [https://developers.ecwid.com/api-documentation/add-payment-method](https://developers.ecwid.com/api-documentation/add-payment-method)
+
 ## August 23, 2018
 
 Added `includeInPrice` field for order and cart items in the Ecwid REST API. 

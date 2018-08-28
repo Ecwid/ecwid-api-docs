@@ -133,7 +133,7 @@ Field | Type | Description
 #### Profile
 Field | Type  | Description
 ----- | ----- | -----------
-email | string |  Customer email
+**email** | string |  Customer email
 billingPerson | \<*Person*\> | Customer's billing name/address
 shippingAddresses | Array\<*Person*\> | Customer address book items
 registered | number (UNIX timestamp) | Registration date
