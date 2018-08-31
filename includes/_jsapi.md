@@ -291,7 +291,7 @@ To open a page with parameters, you must specify them in the object in second ar
 
 For product details pages, the first argument of `Ecwid.openPage` function will be `'product'`. 
 
-Additional parameters include: `'id'` and `'name'`. 
+Additional parameters include: `'id'`, `'name'`, `'variation'` and `'options'` 
 
 `'id'` is a required parameter, which helps Ecwid identify which exact product page to open in storefront. If it is not specified, the function call will be ignored. 
 
@@ -306,6 +306,28 @@ Ecwid.OnAPILoaded.add(function() {
 `'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original product name set by store owner.
 
 The example on the right opens product details page of a specific product and uses a custom name we set for it in [Ecwid demo store](https://www.ecwid.com/demo/). As a result, the URL will look like: `https://www.ecwid.com/demo/Apple-p72585497`
+
+> Open variation with ID 16351010 of a product with ID 72585497 
+
+```js
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('product', {'id': 72585497, 'name': "Rip Curl Channel Island", 'variation': 16351010});
+});
+```
+
+`'variation'` is an optional parameter, used to select a specific product variation when opening product details page. If it is not specified, Ecwid will use the default set of product options for that product page. 
+
+> Open a product with ID 72585497 with options: Size - Medium, Color - Dark grey
+
+```js
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('product', {'id': 72585497, 'name': "Rip Curl Channel Island", 'options': [2,2]});
+});
+```
+
+`'options'` is an optional parameter, used to select specific product option selections. It supports dropdown and radio button product options. 
+
+If it is not specified, Ecwid will use the default set of product options for that product page. 
 
 **Category**
 

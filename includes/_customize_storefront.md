@@ -760,7 +760,19 @@ When opening a product that has options or variations, it can be useful to open 
 
 For example: `https://www.ecwid.com/demo/Rip-Curl-Channel-Island-p72585497`
 
-2) Add a query parameter `variation` to the URL with a value of desired variation ID. You can [retrieve the variation ID](https://developers.ecwid.com/api-documentation/product-variations) via the Ecwid REST API
+2) Use `Ecwid.openPage()` method to open that product page with specific variation ID. See example on the right.
+
+> Open variation with ID 16351010 of a product with ID 72585497 
+
+```js
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('product', {'id': 72585497, 'name': "Rip Curl Channel Island", 'variation': 16351010});
+});
+```
+
+*Alternative way*
+
+Add a query parameter `variation` to the URL with a value of desired variation ID. You can [retrieve the variation ID](https://developers.ecwid.com/api-documentation/product-variations) via the Ecwid REST API
 
 Resulting URL: `https://www.ecwid.com/demo/Rip-Curl-Channel-Island-p72585497?variation=16351010`
 
@@ -774,7 +786,19 @@ If your product doesn't have product variations but has product options, you can
 
 For example: `https://www.ecwid.com/demo/Rip-Curl-Channel-Island-p72585497`
 
-2) Add a query parameter `options` to the URL with values of product options separated by comma: `?options=A,B,C`
+2) Use `Ecwid.openPage()` method to open that product page with specific options selected. See example on the right.
+
+> Open a product "Rip Curl Channel Island" with options: Size - Medium, Color - Dark grey
+
+```js
+Ecwid.OnAPILoaded.add(function() {
+  Ecwid.openPage('product', {'id': 72585497, 'name': "Rip Curl Channel Island", 'options': [2,2]});
+});
+```
+
+*Alternative way* 
+
+Add a query parameter `options` to the URL with values of product options separated by comma: `?options=A,B,C`
 
 Each value will be assigned to product options depending on its index in the list of available selections. The index starts at `1`. **This method supports drop down and radio button product options only**
 

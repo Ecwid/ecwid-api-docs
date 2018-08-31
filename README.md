@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## August 31, 2018
+
+Added new parameters for opening product details pages with `Ecwid.openPage()` method: `'variation'` and `'options'`. 
+
+Now you can open a specific variation when opening a product details page or just a specific set of product options (dropdown and radio buttons supported only). [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#open-specific-product-variation)
+
 ## August 28, 2018
 
 Added PHP template for creating payment integrations: [https://github.com/Ecwid/payment-gateway-template](https://github.com/Ecwid/payment-gateway-template)
