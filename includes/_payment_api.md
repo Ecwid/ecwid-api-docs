@@ -206,9 +206,9 @@ Your application can require merchants to specify their account details in your 
 
 Set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more information.
 
-<div class="notice">
+<aside class="notice">
 Get started quicker with our <a href="https://github.com/Ecwid/payment-gateway-template" target="_BLANK">payment integration template</a>.
-</div>
+</aside>
 
 When merchant is in the settings tab of your app, your code can create and modify the merchant settings using the **Application storage** feature. It's a simple `key:value` storage, which can serve you as an app database. For your convenience, you can access it [via Javascript](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#javascript-storage-api) (client-side) or [Ecwid REST API](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#rest-storage-api) (server-side).
 
@@ -315,9 +315,9 @@ When customer tries to pay with your payment method, Ecwid will send a POST requ
 
 The value of the `data` input is encoded with a **AES-128** mechanism, where the first 16 characters is the `client_secret` of your application, which serves as a key to the decoding process. To find out more on how to decode the value, see the example code in **Step #1** of [Server-side Native Apps](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#enhanced-security-user-auth) section.
 
-<div class="notice">
+<aside class="notice">
 Get started quicker with our <a href="https://github.com/Ecwid/payment-gateway-template" target="_BLANK">payment integration template</a>.
-</div>
+</aside>
 
 **If you are using C# language**
 
