@@ -175,11 +175,6 @@ POST https://mycoolapp.com/integration HTTP/1.1
                 "membershipId": 0
             }
         ],
-        "handlingFee": {
-            "name": "Handling Fee",
-            "value": 0,
-            "description": ""
-        },
         "items": [
             {  
                 "weight":0.25,
@@ -320,7 +315,6 @@ discountCoupon | \<*DiscountCouponInfo*\> | Information about applied coupon
 discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (coupons are not included)
 customerGroupId | number | Customer group ID
 customerGroup | string | The name of group (membership) the customer belongs to
-handlingFee | \<*HandlingFeeInfo*\> | Handling fee details
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 items | Array\<*OrderItems*\> | Array of customer's order items with basic details. **Only includes items that that require shipping and have shipping set as [global or global + fixed rate per item](https://support.ecwid.com/hc/en-us/articles/115005899725-Setting-up-shipping-rates#Shippingfreightnbsp)**
 weight | number | Total weight of the order

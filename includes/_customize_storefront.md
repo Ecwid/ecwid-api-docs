@@ -114,9 +114,9 @@ P.S. this solution also works for the popups in the Ecwid Control Panel embedded
 
 The product listing allows for more customization and better looking storefronts across all Ecwid stores. Check out the available customization options below.
 
-<div class="notice">
+<aside class="notice">
 To ensure you have the latest version enabled, check <strong>Ecwid Control Panel > Settings > What's new</strong> for new available features.
-</div>
+</aside>
 
 #### Customizing product listing
 
