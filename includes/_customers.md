@@ -2,6 +2,10 @@
 
 It is possible to place orders without creating an account in a store – it depends on the store settings. Using the methods below you can get information about registered customers and modify them.
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ### Search customers
 
 Search for customers by a keyword or basic filters: number of orders made, name, email, customer group and more.

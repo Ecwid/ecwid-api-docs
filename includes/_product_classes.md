@@ -1,6 +1,14 @@
 ## Product types
 
-Product types (or product classes) are groups of products which share the same attributes. Product attributes contain additional product information, e.g. ISBN, UPC, Brand, which is displayed in storefront and included in product feeds when exporting to marketplaces like Google Shopping, eBay, Amazon ads etc. Learn more about product types and attributes in [Ecwid Help center](http://help.ecwid.com/customer/portal/articles/1167365-product-types).
+Product types (or product classes) are groups of products which share the same attributes. 
+
+Product attributes contain additional product information, e.g. ISBN, UPC, Brand, which is displayed in storefront and included in product feeds when exporting to marketplaces like Google Shopping, eBay, Amazon ads etc. 
+
+Learn more about product types and attributes in [Ecwid Help center](http://help.ecwid.com/customer/portal/articles/1167365-product-types).
+
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
 
 ### Get product types
 

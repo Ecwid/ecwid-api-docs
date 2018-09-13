@@ -1,6 +1,12 @@
 ## Application
 
-This endpoint allows you to get the status of the app in a specific Ecwid store. It's now only identifying the billing state (subscription status) of the application. We will be adding more information to this endpoint in the future.
+This endpoint allows you to get the status of the app in a specific Ecwid store. 
+
+It returns the billing status (subscription status) of the application. We will be adding more information to this endpoint in the future.
+
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
 
 ### Get application status 
 

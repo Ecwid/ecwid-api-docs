@@ -4,6 +4,10 @@ Ecwid API features several endpoints to control the presentation of Starter site
 
 <aside class="note">Access scope required: <strong>update_store_profile</strong></aside>
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ### Get starter site content details
 
 Get starter site content details of an Ecwid store.

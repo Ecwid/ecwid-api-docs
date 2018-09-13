@@ -10,12 +10,16 @@ This storage allows you to create complex client-side (JavaScript) apps and skip
 
 [Learn more about Application Storage benefits](https://developers.ecwid.com/api-documentation/benefits-of-application-storage)
 
+<aside class="note">
+  <strong>Important</strong>: the storage of each app is isolated from other apps, so user data of your application is not available to other apps and vice versa.
+</aside>
+
 Each data entry is stored as a pair: a key and its value. You can get a specific value right away by checking a corresponding key. It is available for both embeddable and storefront apps. 
 
 [Using application storage in your app](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api)
 
 <aside class="note">
-  <strong>Important</strong>: the storage of each app is isolated from other apps, so user data of your application is not available to other apps and vice versa.
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
 </aside>
 
 You can also retrieve public app configuration (user preferences, etc.) saved in the application storage when your app works in storefront. [Learn more](https://developers.ecwid.com/api-documentation/public-application-config)

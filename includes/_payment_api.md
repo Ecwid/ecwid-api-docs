@@ -7,7 +7,7 @@
 With the Custom Payment API you can integrate a new payment method for customers of Ecwid stores to choose from. This functionality will work in the form of an application that users install from the Ecwid App Market.
 
 <aside class="notice">
-Access scope required: <strong>add_payment_method, read_orders, update_orders</strong> (see <a href="#access-scopes">Access scopes</a>)
+Access scope required: <strong>add_payment_method, read_orders, update_orders</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
 </aside>
 
 **Table of contents**: 
@@ -20,6 +20,10 @@ Access scope required: <strong>add_payment_method, read_orders, update_orders</s
 
 You can find existing payment processor integrations on this page: [Payment Gateways](https://www.ecwid.com/apps/paymentgateways)
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ## How payment method works
 
 ### Payment overview
@@ -27,6 +31,12 @@ You can find existing payment processor integrations on this page: [Payment Gate
 > Checkout flow for payment apps
 > 
 > ![Checkout flow for payment apps](https://don16obqbay2c.cloudfront.net/wp-content/uploads/Payment-Method-Diagram-1511788692.png)
+
+#### 0. Merchant installs your app
+
+Merchant will need to install your app in order for your payment method and settings to be shown. 
+
+Make sure you have a registered app with Ecwid with access to add a new shipping method. Get started with your app here: [Begin development](/begin-development)
 
 #### 1. User configures app settings in settings tab
 

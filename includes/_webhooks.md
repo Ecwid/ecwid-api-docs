@@ -1,11 +1,34 @@
 # Webhooks
 
-A webhook is an HTTP POST request that occurs when something happens. In other words, it’s a simple event notification via HTTP POST. Ecwid uses webhooks to notify your application in real time about events in the merchant store.
+A webhook is an HTTP POST request that occurs when something happens. 
+
+In other words, it’s a simple event notification via HTTP POST. Ecwid uses webhooks to notify your application in real time about events in the merchant store.
+
+**Table of contents**
+
+Use these links to quickly get started with webhooks: 
+
+- [Set up webhooks for your app](https://developers.ecwid.com/api-documentation/set-up-webhooks)
+- [Troubleshooting webhooks](https://developers.ecwid.com/api-documentation/processing-webhooks#troubleshooting-webhooks)
+- [Webhook structure](https://developers.ecwid.com/api-documentation/webhook-structure)
+- [Webhooks best practices](https://developers.ecwid.com/api-documentation/webhooks-best-practices)
+
+<aside class="notice">
+Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/webhooks#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+</aside>
+
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
+**How to use webhooks**
 
 This is how your application can use webhooks:
 
 * Receive a request from Ecwid every time a new product is created or an existing product is changed so you can synchronize the store catalog with your local database. Get the updated product data from Ecwid REST API and make your app in sync in one HTTP request instead of downloading the whole catalog.
 * Get notified about every new order in the store so you can send a custom email or text message, generate a custom receipt, or subscribe the customer to your newsletter. Once webhook is received, get order details from Ecwid REST API and continue your app flow
+
+**What entities are supported**
 
 You can receive webhooks about these store entities: 
 
@@ -18,16 +41,6 @@ You can receive webhooks about these store entities:
 - Application (installed, subscription status updated, uninstalled)
 
 [Learn more about webhooks and supported events](https://developers.ecwid.com/api-documentation/webhooks-overview)
-
-Use these links to quickly get started with webhooks: 
-
-- [Set up webhooks for your app](https://developers.ecwid.com/api-documentation/set-up-webhooks)
-- [Troubleshooting webhooks](https://developers.ecwid.com/api-documentation/processing-webhooks#troubleshooting-webhooks)
-- [Webhooks best practices](https://developers.ecwid.com/api-documentation/webhooks-best-practices)
-
-<aside class="notice">
-Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/webhooks#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
-</aside>
 
 ## Webhooks overview
 

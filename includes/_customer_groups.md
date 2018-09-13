@@ -8,6 +8,10 @@ Other merchants can choose to show them a hidden content of a store, in case if 
 
 To manage customer groups in Ecwid stores, use the endpoint described below. To find out more about customer groups in Ecwid stores, check out [Ecwid Help Center](https://help.ecwid.com/customer/en/portal/articles/1345509-customer-groups)
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ### Get all customer groups
 
 Get information about all customer groups in an Ecwid store.

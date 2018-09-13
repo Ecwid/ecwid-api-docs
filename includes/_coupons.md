@@ -4,6 +4,10 @@ Discount coupons allow customers to get discounts on their orders in the checkou
 
 Learn more about discount coupons in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207806525-Discount-Coupons).
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ### Search coupons
 
 Search or filter discount coupons in an Ecwid store. Filters include: discount coupon code, type, availability.

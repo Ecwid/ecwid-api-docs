@@ -3,7 +3,7 @@
 Using the Custom Shipping API, you can integrate a new shipping carrier to provide real-time shipping methods with different rates for the Ecwid store customers. This functionality will work in the form of an application that users install from the Ecwid App Market.
 
 <aside class="notice">
-Access scope required: <strong>add_shipping_method</strong> (see <a href="#access-scopes">Access scopes</a>)
+Access scope required: <strong>add_shipping_method</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
 </aside>
 
 **Table of contents**: 
@@ -14,11 +14,21 @@ Access scope required: <strong>add_shipping_method</strong> (see <a href="#acces
 - [Shipping request from Ecwid – Details](https://developers.ecwid.com/api-documentation/shipping-request-and-response)
 - [Troubleshooting](https://developers.ecwid.com/api-documentation/troubleshooting-shipping)
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ## How shipping method works
 
 > Checkout flow for shipping apps
 > 
 > ![Checkout flow for shipping apps](https://don16obqbay2c.cloudfront.net/wp-content/uploads/Shipping-Method-Diagram-n-1512473753.png)
+
+#### 0. Merchant installs your app
+
+Merchant will need to install your app in order for your shipping rules and settings to be shown. 
+
+Make sure you have a registered app with Ecwid with access to add a new shipping method. Get started with your app here: [Begin development](/begin-development)
 
 #### 1. User configures app settings in settings tab
 

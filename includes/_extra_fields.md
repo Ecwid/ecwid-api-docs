@@ -41,6 +41,10 @@ For example, if you need to save a cookie into an order or if you need to ask a 
 - [Customize extra fields](https://developers.ecwid.com/api-documentation/customize-extra-fields)
 - [Limits and examples](https://developers.ecwid.com/api-documentation/more-about-extra-fields)
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ## Add new fields to checkout
 
 With order extra fields you can also request additional information from a customer in storefront and show user responses in order details.

@@ -2,6 +2,10 @@
 
 Using the endpoints below you can get and update basic Ecwid store information like store name, merchant's email, company address, logos and more. 
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ### Get store profile
 
 Get basic information about an Ecwid store: settings, store location, email, etc. This request is available with any access token.

@@ -2,6 +2,10 @@
 
 Using the methods below you can search/get/update/delete categories in an Ecwid store. It is possible to change the category name, its products, image and more. 
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store. <a href="/begin-development">Learn more</a>
+</aside>
+
 ### Get categories
 
 Search or filter categories in a store catalog. The response provides basic details of found categories. 

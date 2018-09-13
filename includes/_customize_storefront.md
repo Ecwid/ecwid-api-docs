@@ -232,9 +232,9 @@ If you apply the change after storefront has loaded, you can update its look on 
 
 The product pages allow for more customization and better looking storefronts across all Ecwid stores. Check the available customization options below. 
 
-<div class="notice">
+<aside class="notice">
 To ensure you have the latest version enabled, check <strong>Ecwid Control Panel > Settings > What's new</strong> for new available features.
-</div>
+</aside>
 
 #### Customizing product pages
 

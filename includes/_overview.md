@@ -3,7 +3,7 @@
 The documentation below describes various ways to interact with the Ecwid store by using the API. 
 
 <aside class="note">
-To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store. <a href="/begin-development">Learn more</a>
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
 </aside>
 
 In each section you can find a detailed description, as well as code examples for managing store data that will help you create your own application.

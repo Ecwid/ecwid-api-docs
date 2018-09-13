@@ -6,6 +6,10 @@ Using the methods below you can get/update/delete variations and their details i
 Product Variations are available on the Ecwid's <a href='https://www.ecwid.com/pricing'>Business plan and higher</a>.
 </aside>
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ### Get all product variations
 
 Get all variations of a specific product in an Ecwid store.

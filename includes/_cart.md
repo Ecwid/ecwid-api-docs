@@ -6,6 +6,10 @@ The methods below describe how you can search for abandoned carts, place them as
 
 You can also calculate the order total and available shipping methods using the [special endpoint](https://developers.ecwid.com/api-documentation/carts#calculate-order-details) in the Ecwid API. It is useful for storefronts with a custom checkout process.
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ### Search abandoned carts
 
 Search for abandoned carts in an Ecwid stores and filter the results by create/update date, customer, order total.

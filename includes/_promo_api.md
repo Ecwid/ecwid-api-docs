@@ -3,7 +3,7 @@
 With the Custom Discount API you can apply custom discounts to the order total when the customer is at the checkout.
 
 <aside class="notice">
-Access scope required: <strong>customize_cart_calculation</strong> (see <a href="#access-scopes">Access scopes</a>)
+Access scope required: <strong>customize_cart_calculation</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
 </aside>
 
 **Table of contents**: 
@@ -12,6 +12,10 @@ Access scope required: <strong>customize_cart_calculation</strong> (see <a href=
 - [Set up custom discounts](https://developers.ecwid.com/api-documentation/set-up-custom-discount)
 - [Saving merchant settings](https://developers.ecwid.com/api-documentation/user-interface-for-discount-rules)
 - [Discount request from Ecwid – Details](https://developers.ecwid.com/api-documentation/request-for-discount-and-response)
+
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
 
 #### Discount types examples
 
@@ -32,6 +36,12 @@ Examples:
 > Checkout flow for discount apps
 
 > ![Checkout flow for discount apps](https://don16obqbay2c.cloudfront.net/wp-content/uploads/Custom-Discount-Diagram-1515505409.png)
+
+#### 0. Merchant installs your app
+
+Merchant will need to install your app in order for your custom discounts and settings to be shown. 
+
+Make sure you have a registered app with Ecwid with access to add a new shipping method. Get started with your app here: [Begin development](/begin-development)
 
 #### 1. Ecwid sends cart data to app request URL
 

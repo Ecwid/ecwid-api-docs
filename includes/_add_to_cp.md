@@ -23,6 +23,10 @@ Although this approach is not necessary and you can use the Ecwid API without em
 - [Ecwid JavaScript SDK for Native Apps](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk)
 - [Troubleshooting issues with Native apps](https://developers.ecwid.com/api-documentation/troubleshooting)
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ## Building a native app
 
 ### Set up your application

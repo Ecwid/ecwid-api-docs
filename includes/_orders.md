@@ -2,6 +2,10 @@
 
 The endpoints below allow you to search/create/update/delete orders in an Ecwid store. Learn more about orders in Ecwid in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207806235-Orders).
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 ### Search orders
 
 Search or filter orders in an Ecwid store. The response provides full details of the found orders.

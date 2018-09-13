@@ -2,6 +2,10 @@
 
 Ecwid REST API allows your application to manage Ecwid store on behalf of an Ecwid user. Create products, update orders, delete a customer and many many more.
 
+<aside class="note">
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+</aside>
+
 **List of available endpoints**:
 
 - [Store information](https://developers.ecwid.com/api-documentation/store-information)
