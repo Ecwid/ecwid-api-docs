@@ -281,7 +281,25 @@ Product details pages can have different product options for customers to choose
 **How to set value for product option**: 
 
 1. Change the value of the input in DOM
-2. Send 'change' event to Ecwid that value was changed
+2. Send an event to Ecwid that value was changed
+
+**Changing values for different product option types**
+
+*Radio button*
+
+Emulate `click()` event on the text label of a radio button
+
+*Text inputs*
+
+Update `.value` of text field, send `'input'` event
+
+*Checkboxes*
+
+Update the `.checked` property of a checkbox, send `'input'` event
+
+*Drop-downs*
+
+Update `.value` of a `<select>` element, send `'change'` event
 
 **Example**
 

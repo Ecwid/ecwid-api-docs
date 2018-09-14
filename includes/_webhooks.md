@@ -141,7 +141,7 @@ Learn more about setting up webhooks below.
 
 ### Set webhook URL
 
-After you [registered your application](/register) with Ecwid, please contact us and provide a single webhook URL. 
+After you [registered your application](/register) with Ecwid, please contact us and provide a **single webhook URL** for all events your app subscribed to.
 
 Ecwid will send a request to this URL each time a supported event occurs. To enable or modify webhooks for existing application, please contact us as well.
 
