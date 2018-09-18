@@ -78,7 +78,8 @@ Parameters in bold are mandatory
   "allowSearchEnginesIndexing": true,
   "customHeaderHtmlCode": "<meta name='keywords' content='HTML,CSS,XML,JavaScript'>",
   "storeLocationAddressSubtitle": "Find us here!",
-  "storeCoverButton": "SHOP_NOW"
+  "storeCoverButton": "SHOP_NOW",
+  "coverButtonText": "Go Shopping!"
 }
 ```
 
@@ -143,7 +144,8 @@ storeName | string | Store name
 allowSearchEnginesIndexing | boolean | `true` if search engines are allowed to index starter site. `false` otherwise
 customHeaderHtmlCode | string | Custom HTML added to HEAD tag in starter site. When updating the field, read the current value first and append the new code below. **This field not preprocessed in any way and executed 'as is'. Use caution**
 storeLocationAddressSubtitle | string | Custom location address subtitle to show above the address
-storeCoverButton | string | One of `"SHOP_NOW"` or `"HIDE_BUTTON"`
+storeCoverButton | string | Controls visibility of the "Shop now" button. One of `"SHOP_NOW"` or `"HIDE_BUTTON"`
+coverButtonText | string | Set your custom text for the "Shop now" button
 
 #### LocationHoursInfo
 
@@ -268,7 +270,8 @@ Parameters in bold are mandatory
   "allowSearchEnginesIndexing": true,
   "customHeaderHtmlCode": "<meta name='keywords' content='HTML,CSS,XML,JavaScript'>",
   "storeLocationAddressSubtitle": "Find us here!",
-  "storeCoverButton": "SHOP_NOW"  
+  "storeCoverButton": "SHOP_NOW",
+  "coverButtonText": "Go Shopping!"
 }
 ```
 
@@ -331,7 +334,8 @@ storeName | string | Store name
 allowSearchEnginesIndexing | boolean | `true` if search engines are allowed to index starter site. `false` otherwise
 customHeaderHtmlCode | string | Custom HTML added to HEAD tag in starter site. When updating the field, read the current value first and append the new code below. **This field not preprocessed in any way and executed 'as is'. Use caution**
 storeLocationAddressSubtitle | string | Custom location address subtitle to show above the address
-storeCoverButton | string | One of `"SHOP_NOW"` or `"HIDE_BUTTON"`
+storeCoverButton | string | Controls visibility of the "Shop now" button. One of `"SHOP_NOW"` or `"HIDE_BUTTON"`
+coverButtonText | string | Set your custom text for the "Shop now" button
 
 #### LocationHoursInfo
 

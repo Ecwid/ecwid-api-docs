@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## September 18, 2018
+
+Added `coverButtonText` field to starter site endpoint in the Ecwid REST API. It allows you to set custom text for the "Shop now" button in the cover area of a starter site. [Learn more](https://developers.ecwid.com/api-documentation/starter-site)
+
 ## August 31, 2018
 
 Added new parameters for opening product details pages with `Ecwid.openPage()` method: `'variation'` and `'options'`. 
