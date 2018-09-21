@@ -8,6 +8,17 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## September 21, 2018
+
+Added UPC attribute and "Compare to" price support for product variations. 
+
+Now you can set specific UPC attribute values as well as "Compare to" prices for a specific product variation in Ecwid Control Panel and Ecwid REST API. 
+
+The changes are available in these API features: 
+[Products endpoint](https://developers.ecwid.com/api-documentation/products)
+[Product Variations endpoint](https://developers.ecwid.com/api-documentation/product-variations)
+[Custom Shipping methoc](https://developers.ecwid.com/api-documentation/shipping-request-and-response)
+
 ## September 18, 2018
 
 Added `coverButtonText` field to starter site endpoint in the Ecwid REST API. It allows you to set custom text for the "Shop now" button in the cover area of a starter site. [Learn more](https://developers.ecwid.com/api-documentation/starter-site)

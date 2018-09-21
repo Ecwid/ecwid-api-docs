@@ -246,7 +246,119 @@ POST https://mycoolapp.com/integration HTTP/1.1
                       "productCount":1
                    }
                 },
-                "combinations":[],
+                "combinations":[
+                  {
+                    "id":7084071,
+                    "combinationNumber":6,
+                    "options":[
+                      {
+                        "name":"Size",
+                        "value":"Large"
+                      },
+                      {
+                        "name":"Color",
+                        "value":"White"
+                      }
+                    ],
+                    "sku":"000076",
+                    "smallThumbnailUrl":"http://images-cdn.ecwid.com/images/4870020/249912079.jpg",
+                    "hdThumbnailUrl": "https://images-cdn.ecwid.com/images/4870020/397690841.jpg",
+                    "thumbnailUrl":"http://images-cdn.ecwid.com/images/4870020/249912077.jpg",
+                    "imageUrl":"http://images-cdn.ecwid.com/images/4870020/249912061.jpg",
+                    "originalImageUrl":"http://images-cdn.ecwid.com/images/4870020/249912061.jpg",
+                    "quantity":21,
+                    "unlimited":false,
+                    "price":1.45,
+                    "wholesalePrices":[
+                      {
+                        "quantity":10,
+                        "price":1.05
+                      }
+                    ],
+                    "warningLimit":1,
+                    "compareToPrice": 2,
+                    "attributes": [
+                        {
+                            "id": 9998010,
+                            "name": "UPC",
+                            "value": "0435943543594395",
+                            "show": "DESCR",
+                            "type": "UPC"
+                        }
+                    ]
+                  },
+                  {
+                    "id":7084072,
+                    "combinationNumber":5,
+                    "options":[
+                      {
+                        "name":"Color",
+                        "value":"Red"
+                      },
+                      {
+                        "name":"Size",
+                        "value":"Large"
+                      }
+                    ],
+                    "sku":"000075",
+                    "quantity":0,
+                    "unlimited":false,
+                    "warningLimit":0
+                  },
+                  {
+                    "id":7084075,
+                    "combinationNumber":2,
+                    "options":[
+                      {
+                        "name":"Size",
+                        "value":"Small"
+                      },
+                      {
+                        "name":"Color",
+                        "value":"White"
+                      }
+                    ],
+                    "sku":"000072",
+                    "smallThumbnailUrl":"http://images-cdn.ecwid.com/images/4870020/249912078.jpg",
+                    "hdThumbnailUrl": "https://images-cdn.ecwid.com/images/4870020/397690841.jpg",
+                    "thumbnailUrl":"http://images-cdn.ecwid.com/images/4870020/249912076.jpg",
+                    "imageUrl":"http://images-cdn.ecwid.com/images/4870020/249912060.jpg",
+                    "originalImageUrl":"http://images-cdn.ecwid.com/images/4870020/249912060.jpg",
+                    "quantity":62,
+                    "unlimited":false,
+                    "price":1.45,
+                    "compareToPrice": 2.22,
+                    "wholesalePrices":[
+                      {
+                        "quantity":10,
+                        "price":1.35
+                      },
+                      {
+                        "quantity":20,
+                        "price":1.25
+                      }
+                    ],
+                    "warningLimit":10
+                  },
+                  {
+                    "id":7084076,
+                    "combinationNumber":1,
+                    "options":[
+                      {
+                        "name":"Size",
+                        "value":"Small"
+                      },
+                      {
+                        "name":"Color",
+                        "value":"Red"
+                      }
+                    ],
+                    "sku":"000071",
+                    "quantity":61,
+                    "unlimited":false,
+                    "warningLimit":0
+                  }
+                ],
                 "showOnFrontpage":1
              }
         ],
@@ -505,6 +617,8 @@ price | number | Variation price. Omitted if the variation inherits the base pro
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
 warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
+attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
+compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
 Field | Type  | Description

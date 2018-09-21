@@ -66,7 +66,17 @@ Name | Type | Description
         "price":1.05
       }
     ],
-    "warningLimit":1
+    "warningLimit":1,
+    "compareToPrice": 2,
+    "attributes": [
+        {
+            "id": 9998010,
+            "name": "UPC",
+            "value": "0435943543594395",
+            "show": "DESCR",
+            "type": "UPC"
+        }
+    ]
   },
   {
     "id":7084072,
@@ -108,6 +118,7 @@ Name | Type | Description
     "quantity":62,
     "unlimited":false,
     "price":1.45,
+    "compareToPrice": 2.22,
     "wholesalePrices":[
       {
         "quantity":10,
@@ -160,7 +171,9 @@ unlimited | boolean | `true` if the variation has unlimited stock (that is, neve
 price | number | Variation price. Omitted if the variation inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings
+attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
+compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
 Field | Type | Description
@@ -173,6 +186,15 @@ Field | Type  | Description
 ----- | ----- | -----------
 quantity |  number |  Number of product items on this wholesale tier
 price | number |  Product price on the tier
+
+#### AttributeValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
+name |  string |  Attribute displayed name
+value | string  | Attribute value
+type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit’ attributes. The 'type’ field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
+show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` 
 
 #### Errors
 
@@ -245,6 +267,7 @@ Name | Type | Description
     "quantity": 62,
     "unlimited": false,
     "price": 1.45,
+    "compareToPrice": 2.22,
     "wholesalePrices": [
         {
             "quantity": 10,
@@ -278,7 +301,9 @@ unlimited | boolean | `true` if the variation has unlimited stock (that is, neve
 price | number | Variation price. Omitted if the variation inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings
+attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
+compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
 Field | Type | Description
@@ -291,6 +316,15 @@ Field | Type  | Description
 ----- | ----- | -----------
 quantity |  number |  Number of product items on this wholesale tier
 price | number |  Product price on the tier
+
+#### AttributeValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
+name |  string |  Attribute displayed name
+value | string  | Attribute value
+type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit’ attributes. The 'type’ field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
+show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` 
 
 #### Errors
 
@@ -326,7 +360,9 @@ You can create a new product variation using this method. If the options you spe
 POST /api/v3/4870020/products/8392837/combinations?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
+```
 
+```json
 {
     "options": [
         {
@@ -341,7 +377,17 @@ Content-Type: application/json;charset=utf-8
     "price": 10,
     "quantity": 4,
     "weight": 0.5,
-    "sku": "combination-sku"
+    "compareToPrice": 15,
+    "sku": "combination-sku",
+    "attributes": [
+        {
+            "id": 9998010,
+            "name": "UPC",
+            "value": "0435943543594395",
+            "show": "DESCR",
+            "type": "UPC"
+        }
+    ]
 }
 ```
 
@@ -367,7 +413,9 @@ unlimited | boolean | `true` if the variation has unlimited stock (that is, neve
 price | number | Variation price. Omitted if the variation inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings
+attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
+compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
 Field | Type | Description
@@ -380,6 +428,15 @@ Field | Type  | Description
 ----- | ----- | -----------
 **quantity** |  number |  Number of product items on this wholesale tier
 **price** | number |  Product price on the tier
+
+#### AttributeValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
+name |  string |  Attribute displayed name
+value | string  | Attribute value
+type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit’ attributes. The 'type’ field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
+show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` 
 
 #### Response
 
@@ -434,12 +491,24 @@ Update a specific product variation details referring to its ID.
 PUT /api/v3/4870020/products/8392837/combinations/7728288?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
+```
 
+```json
 {
     "price": 10,
     "quantity": 4,
     "weight": 0.5,
-    "sku": "combination-new-sku"
+    "sku": "combination-new-sku",
+    "compareToPrice": 15,
+    "attributes": [
+        {
+            "id": 9998010,
+            "name": "UPC",
+            "value": "0435943543594395",
+            "show": "DESCR",
+            "type": "UPC"
+        }
+    ]
 }
 ```
 
@@ -467,7 +536,9 @@ unlimited | boolean | `true` if the variation has unlimited stock (that is, neve
 price | number | Variation price. Omitted if the variation inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings
+attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
+compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
 Field | Type | Description
@@ -481,10 +552,16 @@ Field | Type  | Description
 **quantity** |  number |  Number of product items on this wholesale tier
 **price** | number |  Product price on the tier
 
-
+#### AttributeValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
+name |  string |  Attribute displayed name
+value | string  | Attribute value
+type | string | Attribute type. There are user-defined attributes, general attributes and special 'price per unit’ attributes. The 'type’ field contains one of the following: `CUSTOM`, `UPC`, `BRAND`, `GENDER`, `AGE_GROUP`, `COLOR`, `SIZE`, `PRICE_PER_UNIT`, `UNITS_IN_PRODUCT`
+show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` 
 
 #### Response
-
 
 > Response example
 
@@ -660,7 +737,9 @@ PUT /api/v3/4870020/products/8392837/combinations/7728288/inventory?token=123456
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+```
 
+```json
 {
     "quantityDelta": -10
 }

@@ -377,6 +377,13 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                     "value": "Secret Value",
                     "type": "CUSTOM",
                     "show": "NOTSHOW"
+                },
+                {
+                  "id": 9998010,
+                  "name": "UPC",
+                  "value": "04359435435940000",
+                  "show": "DESCR",
+                  "type": "UPC"
                 }
             ],
             "files": [
@@ -423,8 +430,18 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                     "quantity": 1,
                     "unlimited": false,
                     "price": 1,
+                    "compareToPrice": 2,
                     "weight": 0.41,
-                    "warningLimit": 1
+                    "warningLimit": 1,
+                    "attributes": [
+                      {
+                        "id": 9998010,
+                        "name": "UPC",
+                        "value": "0435943543594395",
+                        "show": "DESCR",
+                        "type": "UPC"
+                      }
+                    ]
                 },
                 {
                     "id": 7084072,
@@ -463,6 +480,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                     "quantity": 67,
                     "unlimited": true,
                     "price": 1.11,
+                    "compareToPrice": 2.22,
                     "warningLimit": 0
                 },
                 {
@@ -850,7 +868,9 @@ unlimited | boolean | `true` if the variation has unlimited stock (that is, neve
 price | number | Variation price. Omitted if the variation inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings
+attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
+compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
 Field | Type  | Description
@@ -1135,7 +1155,14 @@ Parameters in <strong>bold</strong> are mandatory
             "value": "Secret Value",
             "type": "CUSTOM",
             "show": "NOTSHOW"
-        }
+        },
+        {
+          "id": 9998010,
+          "name": "UPC",
+          "value": "04359435435940000",
+          "show": "DESCR",
+          "type": "UPC"
+        }        
     ],
     "files": [
         {
@@ -1181,8 +1208,18 @@ Parameters in <strong>bold</strong> are mandatory
             "quantity": 1,
             "unlimited": false,
             "price": 1.4,
+            "compareToPrice": 2,
             "weight": 0.41,
-            "warningLimit": 1
+            "warningLimit": 1,
+            "attributes": [
+              {
+                  "id": 9998010,
+                  "name": "UPC",
+                  "value": "0435943543594395",
+                  "show": "DESCR",
+                  "type": "UPC"
+              }
+            ]
         },
         {
             "id": 7084072,
@@ -1221,6 +1258,7 @@ Parameters in <strong>bold</strong> are mandatory
             "quantity": 67,
             "unlimited": true,
             "price": 1.2,
+            "compareToPrice": 2.22,
             "warningLimit": 0
         },
         {
@@ -1427,7 +1465,9 @@ unlimited | boolean | `true` if the variation has unlimited stock (that is, neve
 price | number | Variation price. Omitted if the variation inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
-warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings.
+warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings
+attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
+compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
 Field | Type  | Description
@@ -1857,7 +1897,6 @@ choices | Array\<*ProductOptionChoice*\> | All possible option selections for th
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is mandatory, `false` otherwise. Default is `false`
 
-
 #### AttributeValue
 Field | Type  | Description
 -------------- | -------------- | --------------
@@ -1872,7 +1911,6 @@ Field | Type  | Description
 -------------- | -------------- | --------------
 **productIds** | Array\<*number*\>  | IDs of the related products, sort order is taken into the account
 relatedCategory | *RelatedCategory* | Describes the "N random related products from a category" option
-
 
 #### RelatedCategory
 Field | Type  | Description
