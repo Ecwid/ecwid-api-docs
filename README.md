@@ -17,7 +17,7 @@ Now you can set specific UPC attribute values as well as "Compare to" prices for
 The changes are available in these API features: 
 [Products endpoint](https://developers.ecwid.com/api-documentation/products)
 [Product Variations endpoint](https://developers.ecwid.com/api-documentation/product-variations)
-[Custom Shipping methoc](https://developers.ecwid.com/api-documentation/shipping-request-and-response)
+[Custom Shipping method](https://developers.ecwid.com/api-documentation/shipping-request-and-response)
 
 ## September 18, 2018
 
