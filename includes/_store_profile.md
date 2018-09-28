@@ -1944,6 +1944,176 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
+
+
+### Upload email logo
+
+Upload store logo displayed in order emails. The logo itself is to be placed in the request body. Maximum allowed file size is 20Mb.
+
+> Request example
+
+```http
+POST /api/v3/4870020/profile/emaillogo?token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: image/jpeg
+Cache-Control: no-cache
+
+binary data
+```
+
+> PHP Example
+
+```php
+$file = file_get_contents('image.jpg');
+$url = 'https://app.ecwid.com/api/v3/1003/profile/emaillogo?token=abcdefg123456';
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_POST,1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $file);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: image/jpeg;'));
+
+$result = curl_exec($ch);
+curl_close ($ch);
+```
+
+> Python Example
+
+```python
+import requests
+
+request_url = "https://app.ecwid.com/api/v3/1003/profile/emaillogo?token=abcdefg123456"
+
+image_file_data = open('image.jpg', 'rb').read()
+
+result = requests.post(request_url,data=image_file_data)
+
+print(result.status_code)
+```
+
+`POST https://app.ecwid.com/api/v3/{storeId}/profile/emaillogo?token={token}&externalUrl={externalUrl}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**token** |  string |  oAuth token
+externalUrl | string | External file URL available for public download. If specified, Ecwid will ignore any binary file data sent in a request
+
+When uploading an email logo, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+
+Alternatively, you can specify an `externalURL` to your file as a request parameter and Ecwid will download it from there.
+
+#### Response
+
+> Response example
+
+```json
+{
+    "id": 240198557
+}
+```
+
+A JSON object of type 'UploadStatus' with the following fields:
+
+#### UploadStatus
+Field | Type |  Description
+----- | -----| ------------
+id | number | Internal image ID
+
+#### Errors
+
+> Error response example 
+
+```http
+HTTP/1.1 500 Server Error
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+**HTTP Status** | Description
+--------- | -----------| -----------
+400 | Request parameters are malformed
+415 | Unsupported content-type: expected `application/octet-stream`
+422 | The uploaded file is not an image
+413 | The image file is too large. Maximum allowed file size is 20Mb.
+500 | Uploading of the image file failed or there was an internal server error while processing a file
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+
+
+
+### Remove email logo
+
+Remove store logo, which is displayed on order invoices
+
+> Request example
+
+```http
+DELETE /api/v3/4870020/profile/emaillogo?token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json
+```
+
+`DELETE https://app.ecwid.com/api/v3/{storeId}/profile/emaillogo?token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**token** |  string |  oAuth token
+
+#### Response
+
+> Response example
+
+```json
+{
+    "deleteCount": 1,
+    "success": true
+}
+```
+
+A JSON object of type 'DeleteStatus' with the following fields:
+
+#### DeleteStatus
+Field | Type |  Description
+----- | ---- | --------------
+deleteCount | number | The number of deleted images (`1` or `0` depending on whether the request was successful)
+success | boolean | `true` if the image has been deleted, `false` otherwise
+
+#### Errors
+
+> Error response example 
+
+```http
+HTTP/1.1 500 Server Error
+Content-Type application/json; charset=utf-8
+```
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+**HTTP Status** | Description
+--------- | -----------| -----------
+400 | Request parameters are malformed
+500 | Uploading of the image file failed or there was an internal server error while processing a file
+
+#### Error response body (optional)
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+
+
+
+
+
 ### Get store update statistics
 
 This method provides simple 'Latest updates' statistics about store profile, products, orders, categories and discount coupons. Use it to check whether something was changed in an Ecwid store. This could be helpful to keep data in your application up-to-date and avoid abusing API to get and parse large amounts of data to check its state.
