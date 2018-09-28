@@ -193,6 +193,11 @@ For example, If you have a customer `customer@example.com` from Facebook, you ca
 
 SSO workflow can be tailored to specifics of merchant's website. Check out the available customizations below.
 
+<aside class="notice">
+Important: these customizations will work only when Ecwid is in SSO mode. That is, when the global variable <em><strong>ecwid_sso_profile</strong></em> is also defined at least as an empty string "".
+</aside>
+
+
 ### Add log in link to the store in SSO mode
 
 > Enable Sign in / Sign out links
@@ -256,9 +261,6 @@ Field | Type  | Description
 **canSignOut** | function returning true or false | Set it to return `true` if you need to show 'Sign out' link inside your store
 **signOut** | function | This function is called when `canSignOut` returns true and the customer clicks the 'Sign out' link inside the store widget
 
-<aside class="notice">
-<em><strong>Ecwid.setSsoProfile</strong></em> works only when Ecwid is in SSO mode, that is, when the global variable <em><strong>ecwid_sso_profile</strong></em> is also defined.
-</aside>
 
 ## SSO flow examples
 

@@ -675,8 +675,8 @@ The app can determine the current language of storefront using the JS API method
 
 To translate the app in storefront, use these steps: 
 
-1/ [Determine storefront language](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getstorefrontlang) before initializing the app
-2. Set/load the required translated text labels for app interface
+1) [Determine storefront language](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getstorefrontlang) before initializing the app
+2) Set/load the required translated text labels for app interface
 
 If the current language is not supported, use the fallback labels. For example, load English texts if user is Spanish and you don't have Spanish translations yet. 
 
