@@ -47,6 +47,14 @@ Date/time values returned by Ecwid API are in UTC.
 **API Version**
 This document describes *Ecwid REST API v.3* 
 
+**Date/Time formats**
+
+Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+
+Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is `2015-04-22 00:00:00 UTC`)</li></ul>
+
+For ease of understanding and access, only UNIX timestamp format is described in the endpoint documentation. 
+
 **API calls limits**
 
 Ecwid REST API has the following limits: 

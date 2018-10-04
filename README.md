@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## October 4, 2018
+
+Available date formats for the REST API were changed in the documentation to only include UNIX Timestamp format – for ease of access and understanding. 
+
+**The old formats still work and are available – no need to update your custom solutions / public applications.**
+
+This change is only for the documentation and we do not plan to change the date format support in the REST API itself in the future.
+
 ## September 21, 2018
 
 Added UPC attribute and "Compare to" price support for product variations. 

@@ -33,10 +33,10 @@ limit | number | Maximum number of returned items in one batch. Maximum allowed 
 code | string | Coupon code
 discount_type | string | Comma separated list of discount types. Supported values: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 availability |  string | Comma separated list of coupon states. Supported values: `ACTIVE`, `PAUSED`, `EXPIRED`, `USEDUP`
-createdFrom | string | Coupon creation date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
-createdTo | string | Coupon creation date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
-updatedFrom | string | Coupon last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
-updatedTo | string | Coupon last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+createdFrom | string | Coupon creation date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul> Examples: <ul><li>`1447804800`</li> </ul>
+createdTo | string | Coupon creation date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
+updatedFrom | string | Coupon last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
+updatedTo | string | Coupon last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
 
 <aside class="notice">
 If no filters are set in the URL, API will return all discount coupons

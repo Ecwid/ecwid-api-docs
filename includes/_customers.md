@@ -33,10 +33,10 @@ email | string | Customer email
 groupId | number | Customer group ID
 minOrderCount |  number | Minimum number of order a customer placed
 maxOrderCount | number | Maximum number of order a customer placed
-createdFrom | string | Customer register date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul> Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`2015-04-22` (this is 2015-04-22 00:00:00 UTC)</li></ul>
-createdTo | string | Customer register date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
-updatedFrom | string | Customer last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
-updatedTo | string | Customer last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> <li>*yyyy-MM-dd HH:mm:ss Z*</li> <li>*yyyy-MM-dd HH:mm:ss*</li> <li>*yyyy-MM-dd*</li> </ul>
+createdFrom | string | Customer register date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li></ul> Examples: <ul><li>`1447804800`</li></ul>
+createdTo | string | Customer register date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
+updatedFrom | string | Customer last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
+updatedTo | string | Customer last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
 sortBy |  string | Sort order. Supported values: <ul><li>`NAME_ASC` *default*</li> <li>`NAME_DESC`</li> <li>`EMAIL_ASC`</li> <li>`EMAIL_DESC`</li> <li>`ORDER_COUNT_ASC`</li> <li>`ORDER_COUNT_DESC`</li><li>`REGISTERED_DATE_DESC`</li><li>`REGISTERED_DATE_ASC`</li><li>`UPDATED_DATE_DESC`</li><li>`UPDATED_DATE_ASC`</li></ul>
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
