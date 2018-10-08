@@ -13,8 +13,8 @@ Use these links to quickly get started with webhooks:
 - [Webhook structure](https://developers.ecwid.com/api-documentation/webhook-structure)
 - [Webhooks best practices](https://developers.ecwid.com/api-documentation/webhooks-best-practices)
 
-<aside class="notice">
-Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/webhooks#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+<aside class="note">
+Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
 <aside class="note">
@@ -25,7 +25,7 @@ To access the Ecwid API Platform features, make sure you have a registered appli
 
 This is how your application can use webhooks:
 
-* Receive a request from Ecwid every time a new product is created or an existing product is changed so you can synchronize the store catalog with your local database. Get the updated product data from Ecwid REST API and make your app in sync in one HTTP request instead of downloading the whole catalog.
+* Receive a request from Ecwid every time a new product is created or an existing product is changed; so you can synchronize the store catalog with your local database. Decide if you need to update your database. If yes, get the updated product data from Ecwid REST API and make your app in sync in one HTTP request instead of downloading the whole catalog.
 * Get notified about every new order in the store so you can send a custom email or text message, generate a custom receipt, or subscribe the customer to your newsletter. Once webhook is received, get order details from Ecwid REST API and continue your app flow
 
 **What entities are supported**
@@ -49,13 +49,13 @@ You can receive webhooks about these store entities:
 In a nutshell, webhooks in Ecwid work this way:
 
 * Ecwid will use the `Webhook URL` from your application details to send any available webhooks to that single URL
-* When a user (merchant) installs your application, the webhooks for this store are automatically enabled
+* When a merchant installs your application, the webhooks for this store are automatically enabled
 * Each supported event in the store (e.g. new order is placed) triggers an HTTP POST request to the URL your specified
 * Your application receives the requests and replies with `200 OK` to identify that it's received
 * Then your app processes the webhook request and performs further steps to handle the event
 
 <aside class="notice">
-Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+Don’t use webhooks as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
 ### Supported events
@@ -86,7 +86,7 @@ Access scope required: <strong>read_orders</strong> (see <a href="https://develo
 `product.updated` events are triggered when any part of a product is updated: quantity, categories assigned, product options, variations, attributes, images, pricing, etc. [Products endpoint](#products) allows you to control and get information about products in a store. 
 
 <aside class="notice">
-Access scope required: <strong>read_products</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
+Access scope required: <strong>read_catalog</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
 </aside>
 
 #### Categories
@@ -487,10 +487,12 @@ Fields sent with all webhook requests are highlighted in <strong>bold</strong>.
 </aside>
 
 <aside class="notice">
-Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/webhook-structure#processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
-The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventtype=product.updated`, and avoid further processing. 
+The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. 
+
+For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventtype=product.updated`, and avoid further processing. 
 
 #### Event types
 * `unfinished_order.created` Unfinished order is created
@@ -514,7 +516,7 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 * `customer.updated` Customer is updated
 * `customer.deleted` Customer is deleted
 
-All order-related webhooks require `read_orders` access scope, all product- and category-related webhooks require `read_catalog` access scope, all customer-related webhooks require `read_customers` [access scope](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) to be requested from the store
+All order-related webhooks require `read_orders` access scope, all product- and category-related webhooks require `read_catalog` access scope, all customer-related webhooks require `read_customers` [access scope](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) to be requested from the store.
 
 #### Q: What is an unfinished order and how it works? 
 
@@ -532,16 +534,19 @@ There is a separate tab in Ecwid control panel > My Sales > Abandoned carts wher
 
 `unfinished_order.*` webhook event types are providing timely updates about unfinished orders in Ecwid store. 
 
-For newer stores, the `entityId` field contains `-1` value as the order number hasn't been assigned yet. For older stores, the `entityId` field contains actual order number that your app can reference the order with. 
+<aside class="note">For newer stores, the `entityId` field contains `-1` value as the order number hasn't been assigned yet. For older stores, the `entityId` field contains actual order number that your app can reference the order with. 
+</aside>
 
 Here's how the process works in technical terms:
  
 - when customer goes to payment processor, `unfinished_order.created` webhook is sent
-(if customer was able to pay for an order within **1 second** of that,`order.created` is sent instead)
+(if customer was able to pay for an order within **1 second** of that, `order.created` is sent instead)
 
 - if customer paid later for their order, Ecwid sends `order.created` webhook after it happens
 
 Webhooks about unfinished orders can be a great help for applications, which goal is track cart abandonment and get back those lost sales. 
+
+**Recommendations**
 
 We recommend the following workflow: 
 
@@ -562,7 +567,7 @@ Webhooks in Ecwid have a specific field for that: `data`. This field provides in
 
 Contents of `data` field also lets you know the details about old status (before the changes) and the new one (after the changes) at all times. For example, your application can send a note to your warehouse if it received a webhook about order payment status changes from `Awaiting payment` to `Paid`.
 
-#### Q: How can I know the current subscription status of a store?
+#### Q: How can I know the current app subscription status of a store?
 
 Once you received `application.subscriptionStatusChanged` webhook, you can make a request to [Application endpoint](https://developers.ecwid.com/api-documentation/application#get-application-status) to get the current subscription status of your app in that store.
 
@@ -594,12 +599,16 @@ To setup custom HTTP headers for your app webhooks, please [contact us](/contact
 
 Webhooks are a way to get notified about events in an Ecwid store. So they shouldn't be used as actionable items. See processing flow examples below.
 
+<aside class='note'>
+Webhooks are sent on any update of an order/product. Even if one field has changed. So make sure to check the details of order/product before processing it further.
+</aside>
+
 `product.updated` webhook processing flow example:
 
 - Receive a webhook from Ecwid
 - Respond with 200OK HTTP status
 - Parse the request information: identify `productId` from `entityId`, make sure the `eventType` is correct and get `storeId` value
-- Get up-to-date information about the product from Ecwid via [the Ecwid REST API](#rest-api-reference)
+- Get up-to-date information about the product from Ecwid via [the Ecwid REST API](https://developers.ecwid.com/api-documentation/rest-api-reference)
 - Update your local database with latest stock quantity of that product
 
 `order.updated` webhook processing flow example: 
@@ -607,11 +616,12 @@ Webhooks are a way to get notified about events in an Ecwid store. So they shoul
 - Receive a webhook from Ecwid
 - Respond with 200OK HTTP status
 - Parse the request information: identify `orderNumber` from `entityId`, make sure the `eventType` is correct and get `storeId` value, check if `newPaymentStatus` value is "PAID"
-- Get order details from Ecwid via [the Ecwid REST API](#rest-api-reference)
+- Get order details from Ecwid via [the Ecwid REST API](https://developers.ecwid.com/api-documentation/rest-api-reference)
+- Check if the order has changed compared to current info you have
 - Send order details to a fulfillment center
 - Set order fulfillment status as "PROCESSING" via [the Ecwid REST API](#rest-api-reference)
 
-See also [the webhooks best practices](#webhooks-best-practices) on webhooks security and processing examples.
+See also [the webhooks best practices](https://developers.ecwid.com/api-documentation/webhooks-best-practices) on webhooks security and processing examples.
 
 ### Responding to webhooks
 
@@ -752,6 +762,11 @@ foreach (getallheaders() as $name => $value) {
 }
 
 // Handle the event
+// 
+// Update events can be sent about one entity (product/order) multiple times. 
+//
+// Make sure the changed entity meets your requirements first, before processing further. 
+// 
 // ...
 
 ?>
