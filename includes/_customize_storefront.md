@@ -928,7 +928,7 @@ You can also add your storefront page to preload and prerender in the background
 
 Feel free to learn more about these techniques in [https://css-tricks.com/prefetching-preloading-prebrowsing/](https://css-tricks.com/prefetching-preloading-prebrowsing/)
 
-### Static store pages
+### Static snapshots of store pages
 
 The stores load from Ecwid servers and dynamically change the page to display the storefront functionality. In some cases it takes much time. 
 

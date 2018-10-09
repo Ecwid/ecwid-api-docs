@@ -4,11 +4,11 @@ Static store page endpoints allow you to generate an HTML snapshot of Ecwid stor
 
 You can use that snapshot to display a lightweight starting page for the site visitors, while loading a full-functioning Ecwid store in background. This significantly speeds up store loading.
 
-Learn more about these endpoints: [Static store pages](/https://developers.ecwid.com/api-documentation/customize-behaviour#static-store-pages)
+Learn more about these endpoints: [Static store pages](/https://developers.ecwid.com/api-documentation/customize-behaviour#static-snapshots-of-store-pages)
 
 ### Get store home page
 
-Get store home page's static HTML to utilize fast load of store home page on your website pages. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#static-store-pages)
+Get store home page's static HTML to utilize fast load of store home page on your website pages. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#static-snapshots-of-store-pages)
 
 > Request example
 
@@ -54,6 +54,8 @@ A JSON object of type 'Page' with the following fields:
 
 #### Page
 
+Name | Type    | Description
+---- | ------- | --------------
 cssFiles | Array of strings | List of CSS URLs for the page design to display properly
 htmlCode | string | HTML code for the static page
 metaDescriptionHtml | string | HTML code for the meta title and description
@@ -63,7 +65,7 @@ jsonLDHtml | string | HTML code for JSON-LD product description
 
 ### Get category page
 
-Get static page contents for specific category in your store to utilize fast load of store pages on your website. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#static-store-pages)
+Get static page contents for specific category in your store to utilize fast load of store pages on your website. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#static-snapshots-of-store-pages)
 
 > Request example
 
@@ -110,6 +112,8 @@ A JSON object of type 'Page' with the following fields:
 
 #### Page
 
+Name | Type    | Description
+---- | ------- | --------------
 cssFiles | Array of strings | List of CSS URLs for the page design to display properly
 htmlCode | string | HTML code for the static page
 metaDescriptionHtml | string | HTML code for the meta title and description
@@ -119,7 +123,7 @@ jsonLDHtml | string | HTML code for JSON-LD product description
 
 ### Get product page
 
-Get static page contents for product category in your store to utilize fast load of store pages on your website. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#static-store-pages)
+Get static page contents for product category in your store to utilize fast load of store pages on your website. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#static-snapshots-of-store-pages)
 
 > Request example
 
@@ -166,6 +170,8 @@ A JSON object of type 'Page' with the following fields:
 
 #### Page
 
+Name | Type    | Description
+---- | ------- | --------------
 cssFiles | Array of strings | List of CSS URLs for the page design to display properly
 htmlCode | string | HTML code for the static page
 metaDescriptionHtml | string | HTML code for the meta title and description
