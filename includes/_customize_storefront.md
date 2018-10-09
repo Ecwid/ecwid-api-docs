@@ -928,6 +928,44 @@ You can also add your storefront page to preload and prerender in the background
 
 Feel free to learn more about these techniques in [https://css-tricks.com/prefetching-preloading-prebrowsing/](https://css-tricks.com/prefetching-preloading-prebrowsing/)
 
+### Static store pages
+
+The stores load from Ecwid servers and dynamically change the page to display the storefront functionality. In some cases it takes much time. 
+
+Static store page endpoints allow you to generate an HTML snapshot of Ecwid store home page or specific category/product pages.
+
+You can use that snapshot to display a lightweight starting page for the site visitors, while loading a full-functioning Ecwid store in background. This significantly speeds up store loading.
+
+**How to use**
+
+- When a visitor opens your store page, request a prerendered version of the home page from storefront.ecwid.com endpoint.
+- In response, you will get a link to the CSS file and the HTML code of the rendered store home page
+- Display the prerendered version right away so that the visitor can see your store Home page and featured products
+- Start loading Ecwid product browser in a hidden div on the same page, so you will have two blocks: static sotrefront and dynamic storefront
+- Include JS file that will handle all clicks and replace the HTML snapshot with a regular storefront when needed
+
+<aside class='note'>
+Endpoints documentation: <a href="https://developers.ecwid.com/api-documentation/static-store-pages">Static store pages</a>
+</aside>
+
+**Example**
+
+See it in action and see source code here: [https://djqizrxa6f10j.cloudfront.net/apps/ecwid-static-pages/examples/static-page-demo.htm](https://djqizrxa6f10j.cloudfront.net/apps/ecwid-static-pages/examples/static-page-demo.htm)
+
+**Hints and best practices**
+
+Preload the store home page HTML snapshot in advance. 
+
+For example, when a visitor opens the site home page (before they navigate to the store page). This way, the store home page will apear instantly.
+
+See [Increase widget loading speed](https://developers.ecwid.com/api-documentation/customize-behaviour#increase-widget-loading-speed) for more info.
+
+**Limitations**
+
+Public applications and customizations may not work on the snapshot version of store pages. For heavily customized stores it make sense to disable prerendering and always display regular Ecwid storefront.
+
+The examples above should be considered as alpha version. We will make the JS code cleaner in the future so it will be easier to handle snapshot/storefront switch in real usecases.
+
 ### Add custom JavaScript code
 
 > Example of custom JavaScript to modify storefront
