@@ -21,6 +21,7 @@ GET /api/v3/4870020/products/8383237/combinations?token=1234567890qwqeertt HTTP/
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+Accept-Encoding: gzip
 ```
 
 `GET https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations?token={token}`

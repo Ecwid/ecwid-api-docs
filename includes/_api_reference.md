@@ -41,6 +41,14 @@ Ecwid API works with UTF-8 encoded data. Please make sure everything you send ov
 **Content Type**
 All data received from API and submitted to API is JSON, so the content type should be: `application/json;charset=utf-8`
 
+**Accept Encoding**
+
+You can use optional header `Accept-Encoding: gzip` to get responses from the Ecwid REST API quicker. 
+
+This header tells Ecwid to provide compressed version of the response, thus it improves the speed of the responses. 
+
+Use it to make 'heavy' requests like getting all products or orders from a store.
+
 **UTC**
 Date/time values returned by Ecwid API are in UTC.
 

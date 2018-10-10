@@ -19,6 +19,7 @@ GET /api/v3/4870020/customers?email=johnsmith@example.com&token=1234567890qwqeer
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+Accept-Encoding: gzip
 ```
 
 `GET https://app.ecwid.com/api/v3/{storeId}/customers?keyword={keyword}&name={name}&email={email}&customerGroup={groupId}&minOrderCount={minOrderCount}&maxOrderCount={maxOrderCount}&sortBy={sortBy}&offset={offset}&limit={limit}&token={token}`

@@ -20,6 +20,7 @@ Search or filter discount coupons in an Ecwid store. Filters include: discount c
 GET /api/v3/4870020/discount_coupons?discount_type=ABS%2CPERCENT&availability=ACTIVE%2CEXPIRED&token=123abcd HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
+Accept-Encoding: gzip
 ```
 
 `GET https://app.ecwid.com/api/v3/{storeId}/discount_coupons?code={code}&discount_type={discount_type}&availability={availability}&limit={limit}&offset={offset}&token={token}`

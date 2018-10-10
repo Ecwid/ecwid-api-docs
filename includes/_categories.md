@@ -20,6 +20,7 @@ The order of categories in response sometimes does not represent their order in 
 GET /api/v3/4870020/categories?hidden_categories=true&token=123abcd HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
+Accept-Encoding: gzip
 ```
 
 `GET https://app.ecwid.com/api/v3/{storeId}/categories?parent={parent}&hidden_categories={hidden_categories}&offset={offset}&limit={limit}&productIds={productIds}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&token={token}`

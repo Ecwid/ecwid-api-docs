@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## October 10, 2018
+
+Added `Accept-Encoding: gzip` header support for the Ecwid REST API requests.
+
+You can use this optional header to get responses from the Ecwid REST API quicker. This header tells Ecwid to provide compressed version of the response, thus it improves the speed of the responses. 
+
+Use it to make 'heavy' requests like getting all products or orders from a store. 
+
 ## October 4, 2018
 
 Available date formats for the REST API were changed in the documentation to only include UNIX Timestamp format – for ease of access and understanding. 

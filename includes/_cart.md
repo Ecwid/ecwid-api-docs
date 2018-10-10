@@ -21,6 +21,7 @@ GET /api/v3/4870020/carts?customer=johnsmith@example.com&token=1234567890qwqeert
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+Accept-Encoding: gzip
 ```
 
 `GET https://app.ecwid.com/api/v3/{storeId}/carts?showHidden={showHidden}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&customer={customer}&offset={offset}&limit={limit}&token={token}`

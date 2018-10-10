@@ -22,6 +22,7 @@ Get all product types present in an Ecwid store.
 GET /api/v3/4870020/classes?token=123abcd HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
+Accept-Encoding: gzip
 ```
 
 `GET https://app.ecwid.com/api/v3/{storeId}/classes?token={token}`

@@ -25,6 +25,7 @@ GET /api/v3/4870020/customer_groups?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+Accept-Encoding: gzip
 ```
 
 `GET https://app.ecwid.com/api/v3/{storeId}/customer_groups?offset={offset}&limit={limit}&token={token}`

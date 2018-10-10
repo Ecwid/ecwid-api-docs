@@ -25,8 +25,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 lang | string | Set the languages for text labels. If absent, the default store languages are used
 clean_urls | boolean | Enable/disable [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) format in the product links
-base_url | string | Sets the base URL for clean URLs.
-Pass it if you set `cleanUrls` as `true`
+base_url | string | Sets the base URL for clean URLs. Pass it if you set `cleanUrls` as `true`
 tplvar_* | varied | Use this to pass any `ec.storefront.*` appearance option so that the storefront will be generated according to your design settings. [Learn more](https://developers.ecwid.com/api-documentation/customize-appearance)
 
 <aside class="notice">
@@ -83,8 +82,7 @@ Name | Type    | Description
 **categoryId** | number | Category ID
 lang | string | Set the languages for text labels. If absent, the default store languages are used
 clean_urls | boolean | Enable/disable [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) format in the product links
-base_url | string | Sets the base URL for clean URLs.
-Pass it if you set `cleanUrls` as `true`
+base_url | string | Sets the base URL for clean URLs. Pass it if you set `cleanUrls` as `true`
 tplvar_* | varied | Use this to pass any `ec.storefront.*` appearance option so that the storefront will be generated according to your design settings. [Learn more](https://developers.ecwid.com/api-documentation/customize-appearance)
 
 <aside class="notice">
@@ -141,8 +139,7 @@ Name | Type    | Description
 **productId** | number | Product ID
 lang | string | Set the languages for text labels. If absent, the default store languages are used
 clean_urls | boolean | Enable/disable [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) format in the product links
-base_url | string | Sets the base URL for clean URLs.
-Pass it if you set `cleanUrls` as `true`
+base_url | string | Sets the base URL for clean URLs. Pass it if you set `cleanUrls` as `true`
 tplvar_* | varied | Use this to pass any `ec.storefront.*` appearance option so that the storefront will be generated according to your design settings. [Learn more](https://developers.ecwid.com/api-documentation/customize-appearance)
 
 <aside class="notice">
