@@ -28,7 +28,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-keyword |  string | Search term that Ecwid looks for in all customer fields
+keyword |  string | Search term that Ecwid looks for in all customer fields. If your keywords contain special characters, it may make sense to URL encode them before making a request
 name | string | Customer name
 email | string | Customer email
 groupId | number | Customer group ID

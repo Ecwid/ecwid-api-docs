@@ -41,7 +41,7 @@ Name | Type | Description
 ---- | ---- | -----------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-keyword |  string | Search term. Use quotes to search for exact match. Ecwid searches products over multiple fields: <ul><li>title</li><li>description</li><li>SKU</li><li>product options</li><li>category name</li><li>gallery image descriptions</li><li>attribute values (except for hidden attributes)
+keyword |  string | Search term. Use quotes to search for exact match. Ecwid searches products over multiple fields: <ul><li>title</li><li>description</li><li>SKU</li><li>product options</li><li>category name</li><li>gallery image descriptions</li><li>attribute values (except for hidden attributes). If your keywords contain special characters, it may make sense to URL encode them before making a request
 priceFrom |  number | Minimum product price
 priceTo | number | Maximum product price
 category | number | Category ID. To get Store Front Page products, specify `&category=0` in the request
