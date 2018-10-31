@@ -420,7 +420,7 @@ product_details_position_breadcrumbs | number | Defines the **position of the br
 product_details_position_product_sku | number | Defines the **position of the SKU within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `300`
 product_details_position_product_price | number | Defines the **position of the SKU within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `400`
 product_details_position_product_options | number | Defines the **position of the product options within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `500`
-product_details_position_product_options | number | Defines the **position of the buy button block within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `600`
+product_details_position_buy_button | number | Defines the **position of the buy button block within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `600`
 product_details_position_wholesale_prices | number | Defines the **position of the wholesale pricing table within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `700`
 product_details_position_product_description | number | Defines the **position of the product description within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `800`
 product_details_position_save_for_later | number | Defines the **position of the 'Save for Later' block within the sidebar**. The less the number is, the higher the element on the page**. Defalut value: `900`

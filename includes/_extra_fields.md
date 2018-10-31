@@ -15,6 +15,8 @@ ec.order.extraFields.how_you_found_us = {
     'type': 'text',
     'checkoutDisplaySection': 'order_comments'
 };
+
+Ecwid.refreshConfig();
 ```
 
 > Find your saved information in order details via REST API
@@ -69,6 +71,8 @@ ec.order.extraFields.wrapping_box_signature = {
     'required': false,
     'checkoutDisplaySection': 'shipping_address'
 };
+
+Ecwid.refreshConfig();
 ```
 
 The extra fields you add to checkout will be saved into a config object used by Ecwid: `ec.order` and `ec.order.extraFields`. Start by initializing the objects using the code on the right. 
@@ -82,7 +86,7 @@ The codes for extra fields need to be added to the source code of your website o
 </aside>
 
 <aside class='note'>
-    Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-order">show the extra field</a> to customer and merchant in the order details. 
+Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-order">show the extra field</a> to customer and merchant in the order details. 
 </aside>
 
 ### Extra field attributes
@@ -132,7 +136,7 @@ You can add an extra field for customers in several parts of the checkout:
 If `checkoutDisplaySection` contains an unsupported value, the field will not be shown to a customer. If the corresponding form is not shown to customer (order comments are disabled, etc.) then the field will be ignored too, **even if it's required**.
 
 <aside class='note'>
-    Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-order">show the extra field</a> to customer and merchant in the order details. 
+Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-order">show the extra field</a> to customer and merchant in the order details. 
 </aside>
 
 ### Examples of other field types
@@ -152,6 +156,8 @@ ec.order.extraFields.how_did_you_find_us = {
     'checkoutDisplaySection': 'order_comments'
 };
 
+Ecwid.refreshConfig();
+
 // Add pickup time selection for customer
 ec.order.extraFields.ecwid_pickup_time = {
     'title': '_msg_ShippingDetails.pickup.customer_header',
@@ -161,10 +167,14 @@ ec.order.extraFields.ecwid_pickup_time = {
     'orderDetailsDisplaySection': 'order_comments',
 }
 
+Ecwid.refreshConfig();
+
 // Hidden field, which is not shown at checkout
 ec.order.extraFields.my_custom_field = {
     'value': 'abcd12345'
 };
+
+Ecwid.refreshConfig();
 ```
 
 If your code executed successfully, these fields will be saved when a customer places their order in an Ecwid store. See [Get extra fields in REST API](https://developers.ecwid.com/api-documentation/get-extra-fields-in-rest-api) section to access them afterwards. 
@@ -189,10 +199,14 @@ ec.order.extraFields.platform = {
     'value': 'adobe_muse'
 }
 
+Ecwid.refreshConfig();
+
 // Save another value for 'affiliate' field
 ec.order.extraFields.affiliate = {
     'value': "Nick's warehouse"
 }
+
+Ecwid.refreshConfig();
 ```
 
 Your hidden data will be saved into a config object used by Ecwid: `ec.order` and `ec.order.extraFields`. But in order to use it, you need to initialize it on a page. See the example code on the right.
@@ -220,7 +234,7 @@ GET /api/v3/4870020/orders/20?token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
-``` 
+```
 
 > Response
 
@@ -240,7 +254,7 @@ After customer placed their order, you can get the saved information using the E
 The information you saved earlier is available in the `extraFields` field in the order details. You can get order details via Ecwid REST API with [searching for orders](https://developers.ecwid.com/api-documentation/orders#search-orders) or [getting a specific order details](https://developers.ecwid.com/api-documentation/orders#get-order-details) methods. 
 
 <aside class='note'>
-    Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-order">show the extra field</a> to customer and merchant in the order details. 
+Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-order">show the extra field</a> to customer and merchant in the order details. 
 </aside>
 
 ## Show extra fields in an order
@@ -261,6 +275,8 @@ ec.order.extraFields.how_you_found_us = {
     'checkoutDisplaySection': 'order_comments', // show new field in order comments block
     'orderDetailsDisplaySection': 'order_comments' // show saved data in order comments block in order details to merchant and customer
 };
+
+Ecwid.refreshConfig();
 ```
 
 You can show your saved extra field title and value in order details. It will be displayed to both merchant and customer who placed that order. 
@@ -268,7 +284,7 @@ You can show your saved extra field title and value in order details. It will be
 It is possible to customize the position of this information with `orderDetailsDisplaySection` field. Possible values for it include: `shipping_info`, `billing_info`, `customer_info`, `order_comments`.
 
 <aside class='note'>
-    <strong>For customer in storefront</strong>, the saved data will <strong>always be displayed below order comments section</strong>, regardless of the value set for 'orderDetailsDisplaySection' (except for if that value is not supported).
+<strong>For customer in storefront</strong>, the saved data will <strong>always be displayed below order comments section</strong>, regardless of the value set for 'orderDetailsDisplaySection' (except for if that value is not supported).
 </aside>
 
 Check a basic example on the right. 
@@ -335,7 +351,9 @@ ec.order.extraFields.shipping_type = {
             }
         }
     ]
-}
+};
+
+Ecwid.refreshConfig();
 ```
 
 You can change the attributes of an extra field based on a shipping method selected by customer. This is done by adding overriding rules to the existing extra field attributes – `overrides` array of conditions. 
@@ -463,6 +481,8 @@ At the moment you are able to use the selected shipping method name as a conditi
             }
         ]
     };
+
+Ecwid.refreshConfig();    
 ```
 
 You are also able to customize the date picker: what hours are available, what is the minimum time to choose, show or hide time selection and more. 
