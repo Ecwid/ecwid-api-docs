@@ -49,8 +49,8 @@ If you already have a registered app and want to make it native, you can [contac
 
 ### App page template
 
-> Native app source code example: [https://github.com/Ecwid/custom-thank-you-page-app](https://github.com/Ecwid/custom-thank-you-page-app)
-> 
+> Native app source code example: [https://github.com/Ecwid/sample-native-app](https://github.com/Ecwid/sample-native-app)
+
 > Skeleton of an application embedded into Ecwid Control panel
 
 ```html
@@ -87,14 +87,14 @@ If you already have a registered app and want to make it native, you can [contac
   </script>
 
   <!-- Include Ecwid CSS Framework -->
-  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.2/ecwid-app-ui.css"/>  
+  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.3/ecwid-app-ui.css"/>  
 </head>
 
 <body class='normalized'>
   <div>Show something</div>
 
 <!-- JS for CSS Framework components -->
-  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.2/ecwid-app-ui.min.js"></script>
+  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.3/ecwid-app-ui.min.js"></script>
 </body>
 
 </html>
@@ -108,8 +108,6 @@ Here you can find a starter template that you can use as a skeleton of your own 
 * The `EcwidApp.getPayload()` method allows you to get the Store ID and REST API access token. See details in the further sections
 * Ecwid will load your app's *Iframe URL* with a payload to help identify the merchant's store. To find out more about the store authentication process in the app tab, see the [Authentication section](#authentication-in-embedded-apps).
 * See the detailed description of the `init()` and `getPayload()` functions here: [Ecwid JS SDK](#ecwid-javascript-sdk).
-
-Full native application source code example for Custom URL for "Thank you" page app from [the Ecwid App Market](https://www.ecwid.com/apps/customizestorefront/custom-thank-you) is available here: [https://github.com/Ecwid/custom-thank-you-page-app](https://github.com/Ecwid/custom-thank-you-page-app)
 
 A sample native application with examples of how to access Ecwid REST API, save data to application storage and how to design the app is available here: [https://github.com/Ecwid/sample-native-app](https://github.com/Ecwid/sample-native-app)
 
@@ -538,22 +536,22 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 
 ```html
 <head>
-  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.2/ecwid-app-ui.css"/>
+  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.3/ecwid-app-ui.css"/>
 </head>
 
 <body>
   
   <div>Some content</div>
 
-  <script type="text/javascript" src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.2/ecwid-app-ui.min.js"></script>
+  <script type="text/javascript" src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.3/ecwid-app-ui.min.js"></script>
 </body>
 ```
 
 1) Add this CSS file to your native app: 
-`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.2/ecwid-app-ui.css`
+`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.3/ecwid-app-ui.css`
 
 2) Add this JS file at before closing the BODY tag: 
-`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.2/ecwid-app-ui.min.js`
+`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.3/ecwid-app-ui.min.js`
 
 3) Use this guide to find the elements and CSS classes you need: [http://developers.ecwid.com/ecwid-css-framework/](/ecwid-css-framework)
 

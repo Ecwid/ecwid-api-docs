@@ -8,6 +8,23 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## November 1, 2018
+
+Updated the [Ecwid CSS Framework](https://developers.ecwid.com/ecwid-css-framework) to `1.3.3` version. 
+
+**File URLs** 
+
+- `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.3/ecwid-app-ui.css`
+- `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.3/ecwid-app-ui.min.js`
+
+**Changelog**
+
+- Added colors for `warning` and `info ` states
+- Updated `font-size` and `line-height` for some headers
+- Updated `border-radius` from `3px` to `5px` for all base components
+- Updated components: *a-card*, *draggable-item*, *named-area*, *placeholder-titles*, *status-block*, *iconable-block*, *vertical-filters*, *fieldset* 
+- Added new components: *a-card-stack*, *collapsible*, *draggable-area*, *gallery*, *gallery-icon*, *gallery-image*, *inline-alert*, *payment-method*, *list-element*
+
 ## October 10, 2018
 
 Added `Accept-Encoding: gzip` header support for the Ecwid REST API requests.
