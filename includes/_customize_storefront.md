@@ -1015,7 +1015,9 @@ var color = Ecwid.getAppPublicConfig(appId);
 // ...
 ```
 
-As soon as your script is loaded on the page with Ecwid storefront, you can access the page DOM and do pretty much everything you want by means of native JavaScript or whatever framework you want. If you use a JS framework, please make sure it's already loaded on the page by the moment you start using it. 
+As soon as your script is loaded on the page with Ecwid storefront, you can access the page DOM and do pretty much everything you want by means of native JavaScript or whatever framework you want. 
+
+If you use a JS framework, please make sure it's already loaded on the page by the moment you start using it. 
 
 In addition, Ecwid provides a [JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api) that you can use to retrieve store information and track Ecwid events on the page. For example:
 
@@ -1025,6 +1027,14 @@ In addition, Ecwid provides a [JavaScript API](https://developers.ecwid.com/api-
 * `EcwidApp.getAppPublicConfig` will return store-specific data from application storage
 
 More details: [Ecwid JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api)
+
+**Table of contents**
+
+- [How to load custom JavaScript anytime storefront is loaded](https://developers.ecwid.com/api-documentation/customize-behaviour#how-to-load-custom-javascript-anytime-storefront-is-loaded)
+- [Access merchant in-app preferences](https://developers.ecwid.com/api-documentation/customize-behaviour#access-merchant-in-app-preferences)
+- [Store-specific custom JavaScript](https://developers.ecwid.com/api-documentation/customize-behaviour#store-specific-custom-javascript)
+- [Caching JavaScript file contents](https://developers.ecwid.com/api-documentation/customize-behaviour#caching-javascript-file-contents)
+- [Using jQuery on store pages](https://developers.ecwid.com/api-documentation/customize-behaviour#using-jquery-on-store-pages)
 
 #### How to load custom JavaScript anytime storefront is loaded
 

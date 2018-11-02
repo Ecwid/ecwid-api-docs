@@ -53,6 +53,7 @@ Name | Type    | Description
         "emailLogoUrl": "https://dpbfm6h358sh7.cloudfront.net/images/4870020/298177033.jpg",
         "googleRemarketingEnabled": true,
         "googleAnalyticsId": "UA-123456-1",
+        "fbPixelId": "12305215151521",
         "orderCommentsEnabled": false,
         "orderCommentsCaption": "Order comments",
         "orderCommentsRequired": false,
@@ -658,7 +659,8 @@ Cache-Control: no-cache
     "closed": false,
     "storeName": "Awesome store",
     "storeDescription": "<p>Welcome to my store! Check out the latest and coolest products below. </p>",
-    "googleAnalyticsId": ""
+    "googleAnalyticsId": "",
+    "fbPixelId": "12305215151521"
   },
   "mailNotifications": {
     "customerNotificationFromEmail": "info@example.com"
@@ -929,6 +931,7 @@ invoiceLogoUrl | string | Company logo displayed on the invoice
 emailLogoUrl | string | Company logo displayed in the store email notifications
 googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
 googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/customer/en/portal/articles/1170264-google-analytics) connected to a store
+fbPixelId | string | Your Facebook Pixel ID. [Learn more](https://support.ecwid.com/hc/en-us/articles/115004303345-Step-2-Implement-Facebook-pixel)
 orderCommentsEnabled | boolean | `true` if order comments feature is enabled, `false` otherwise
 orderCommentsCaption | string | Caption for order comments field in storefront
 orderCommentsRequired | boolean | `true` if order comments are required to be filled, `false` otherwise
@@ -1286,6 +1289,7 @@ Cache-Control: no-cache
         "storeDescription": "<p>Welcome to my store!</p>",
         "googleRemarketingEnabled": false,
         "googleAnalyticsId": "UA-654321-1",
+        "fbPixelId": "12305215151521",
         "hideOutOfStockProductsInStorefront": false,
         "askCompanyName": true,
         "favoritesEnabled": false,
@@ -1403,6 +1407,7 @@ storeName | string | The store name displayed in Starter Site
 storeDescription | string | HTML description for the main store page – Store Front page
 googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
 googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/customer/en/portal/articles/1170264-google-analytics) connected to a store
+fbPixelId | string | Your Facebook Pixel ID. [Learn more](https://support.ecwid.com/hc/en-us/articles/115004303345-Step-2-Implement-Facebook-pixel)
 orderCommentsEnabled | boolean | Use `true` to enable order comments feature, `false` otherwise
 orderCommentsCaption | string | Caption for order comments field in storefront. If the value is empty, the default 'Order comments' caption will be used
 orderCommentsRequired | boolean | Use `true` to require order comments to be filled, `false` otherwise

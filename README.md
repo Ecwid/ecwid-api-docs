@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## November 2, 2018
+
+Added Facebook Pixel ID value support for Ecwid REST API. The new field is `fbPixelId` and it is available in the store information endpoint.
+
+[Learn more](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+
 ## November 1, 2018
 
 Updated the [Ecwid CSS Framework](https://developers.ecwid.com/ecwid-css-framework) to `1.3.3` version. 
