@@ -931,7 +931,7 @@ invoiceLogoUrl | string | Company logo displayed on the invoice
 emailLogoUrl | string | Company logo displayed in the store email notifications
 googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
 googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/customer/en/portal/articles/1170264-google-analytics) connected to a store
-fbPixelId | string | Your Facebook Pixel ID. [Learn more](https://support.ecwid.com/hc/en-us/articles/115004303345-Step-2-Implement-Facebook-pixel)
+fbPixelId | string | Your Facebook Pixel ID. This field is not returned if it is empty in the Ecwid Control Panel. [Learn more](https://support.ecwid.com/hc/en-us/articles/115004303345-Step-2-Implement-Facebook-pixel)
 orderCommentsEnabled | boolean | `true` if order comments feature is enabled, `false` otherwise
 orderCommentsCaption | string | Caption for order comments field in storefront
 orderCommentsRequired | boolean | `true` if order comments are required to be filled, `false` otherwise
@@ -1407,7 +1407,7 @@ storeName | string | The store name displayed in Starter Site
 storeDescription | string | HTML description for the main store page – Store Front page
 googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
 googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/customer/en/portal/articles/1170264-google-analytics) connected to a store
-fbPixelId | string | Your Facebook Pixel ID. [Learn more](https://support.ecwid.com/hc/en-us/articles/115004303345-Step-2-Implement-Facebook-pixel)
+fbPixelId | string | Your Facebook Pixel ID. This field is not returned if it is empty in the Ecwid Control Panel. [Learn more](https://support.ecwid.com/hc/en-us/articles/115004303345-Step-2-Implement-Facebook-pixel)
 orderCommentsEnabled | boolean | Use `true` to enable order comments feature, `false` otherwise
 orderCommentsCaption | string | Caption for order comments field in storefront. If the value is empty, the default 'Order comments' caption will be used
 orderCommentsRequired | boolean | Use `true` to require order comments to be filled, `false` otherwise
