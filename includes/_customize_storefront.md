@@ -647,9 +647,10 @@ Ecwid API allows you to do the same in more convenient way: you simply specify t
 
 In more details: 
 
-1. After your app is registered, [contact us](/contact) and provide the https URL of the `.css` and file you’d like to load in the user storefront.
-2. When asking a user to install your app, Ecwid will request the `customize_storefront` permission from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the OAuth process.*)
-3. The next time merchant's storefront is loaded in any browser or website, your external CSS file will be automatically appended, loaded, and executed on that page.
+1. [Register your app](https://developers.ecwid.com/register) with Ecwid that customizes storefront.
+2. [Contact us](/contact) and provide the https URL of the `.css` and file you’d like to load in the user storefront.
+3. When asking a user to install your app, Ecwid will request the `customize_storefront` permission from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the OAuth process.*)
+4. The next time merchant's storefront is loaded in any browser or website, your external CSS file will be automatically appended, loaded, and executed on that page.
 
 <aside class="notice">
 Permission required: <strong>customize_storefront</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
