@@ -8,6 +8,21 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## November 6, 2018
+
+Added new feature toggles for Ecwid stores to JS API and REST API: 
+
+- Login by link for customers
+- Latest version of the cart page
+- Latest version of the checkout process
+
+See the features available to the store in: 
+
+- [JS API](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getfeaturetoggles)
+- [REST API](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+
+As always, you can see new features in the *Ecwid Control Panel -> Settings -> What's new*.
+
 ## November 2, 2018
 
 Added Facebook Pixel ID value support for Ecwid REST API. The new field is `fbPixelId` and it is available in the store information endpoint.

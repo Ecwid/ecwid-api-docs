@@ -560,18 +560,8 @@ Name | Type    | Description
             "enabled": true
         },
         {
-            "name": "NEW_DASHBOARD",
-            "visible": false,
-            "enabled": true
-        },
-        {
             "name": "NEW_SALES_LIST",
             "visible": true,
-            "enabled": true
-        },
-        {
-            "name": "VERTICAL_CP_MENU",
-            "visible": false,
             "enabled": true
         },
         {
@@ -590,14 +580,19 @@ Name | Type    | Description
             "enabled": true
         },
         {
+            "name": "NEW_SHOPPING_CART_PAGE",
+            "visible": false,
+            "enabled": true
+        },
+        {
+            "name": "NEW_CHECKOUT_PAGE",
+            "visible": true,
+            "enabled": true
+        },
+        {
             "name": "NEW_FB_SHOPS_INTEGRATION",
             "visible": true,
             "enabled": false
-        },
-        {
-            "name": "NEW_CATALOG_CP_PAGE",
-            "visible": false,
-            "enabled": true
         }
     ],
     "designSettings": {

@@ -6,7 +6,7 @@
 
 ```javascript
 Ecwid.OnPageLoad.add(function(page) {
-        alert("My page load handler: " + page.type);
+  alert("My page load handler: " + page.type);
 });
 ```
 
@@ -187,8 +187,11 @@ var ecwidFeatureTogglesInfo = Ecwid.getFeatureToggles();
 console.log(ecwidFeatureTogglesInfo);
 
 // {
-//  newProductList: false, 
-//  newDetailsPage: false
+//  newProductList: true, 
+//  newDetailsPage: true,
+//  customerLoginByLink: true,
+//  newCartPage: true,
+//  newCheckoutPage: true
 // }
 ```
 
@@ -199,7 +202,10 @@ console.log(ecwidFeatureTogglesInfo);
 Name | Type | Description
 ---- | ---- | -----------
 newProductList | boolean | `true` if [new product listing](https://developers.ecwid.com/api-documentation/look-and-design#new-product-listing) is enabled in a store. `false` otherwise
-newDetailsPage | boolean | `true` if new product details page is enabled in a store. `false` otherwise
+newDetailsPage | boolean | `true` if new product details page is enabled in a store. `false` otherwise. [Learn more](https://www.ecwid.com/blog/ecwid-features-digest-spring-2018.html#newstorefront)
+customerLoginByLink | boolean | `true` if customers log in to store by link. `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/115003429065-Managing-customers#customerlogin)
+newCartPage | boolean | `true` if latest version of the cart page is enabled for store. Is always `true` when `newCheckoutPage` is also `true`. `false` otherwise. [Learn more](https://www.ecwid.com/blog/whats-new-in-your-ecwid-store-summer-18.html#cp)
+newCheckoutPage | boolean | `true` if latest version of the checkout process is enabled in a store. `false` otherwise
 
 ### Get opened page info
 
