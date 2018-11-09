@@ -87,7 +87,6 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
         {
           "id": 37208339,
           "sku": "00099",
-          "thumbnailUrl": "http://app.ecwid.com/default-store/00011-232-sq.jpg",
           "quantity": 11,
           "unlimited": false,
           "inStock": true,
@@ -131,46 +130,47 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           "fixedShippingRateOnly": true,
           "fixedShippingRate": 0,
           "defaultCombinationId": 0,
-          "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
-          "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341234.jpg",
-          "smallThumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341232.jpg",
-          "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/461717703.jpg",
-          "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124125.jpg",
-          "originalImage": {
-              "url": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124125.jpg",
-              "width": 123,
-              "height": 456
-          },
           "description": "<p>It's a tasty fruit!</p>",
-          "galleryImages": [
+          "media": [
             {
-              "id": 18481471,
-              "alt": "AdditionalImage",
-              "url": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/312058848.jpg",
-              "thumbnail": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/351433814.jpg",
-              "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690771.jpg",
-              "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412312.jpg",
-              "smallThumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341235.jpg",
-              "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/461717705.jpg",
-              "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124121.jpg",
-              "width": 473,
-              "height": 545,
-              "orderBy": 0
+              "id": "4234234324",
+              "type": "IMAGE",
+              "isMain": true,
+              "orderBy": 0,
+              "imageData": {
+                "image160pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178861.jpg",
+                "image400pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178859.jpg",
+                "image800pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178863.jpg",
+                "image1500pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313255.jpg",
+                "imageOriginalUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313254.jpg"
+              }
             },
             {
-              "id": 18481472,
-              "alt": "AdditionalImage",
-              "url": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/312058850.jpg",
-              "thumbnail": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/351433815.jpg",
-              "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
-              "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412311.jpg",
-              "smallThumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341238.jpg",
-              "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/4617177879.jpg",
-              "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124179.jpg",
-              "width": 247,
-              "height": 545,
-              "orderBy": 1
-            }
+              "id": "18481471",
+              "type": "IMAGE",
+              "isMain": false,
+              "orderBy": 10,
+              "imageData": {
+                "image160pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178861.jpg",
+                "image400pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178859.jpg",
+                "image800pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178863.jpg",
+                "image1500pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313255.jpg",
+                "imageOriginalUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313254.jpg"
+              }
+            },
+            {
+              "id": "18481472",
+              "type": "IMAGE",
+              "isMain": false,
+              "orderBy": 20,
+              "imageData": {
+                "image160pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341238.jpg",
+                "image400pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412311.jpg",
+                "image800pxUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
+                "image1500pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/4617177879.jpg",
+                "imageOriginalUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124179.jpg"
+              }
+            }            
           ],
           "categoryIds": [
             19563207,
@@ -249,7 +249,6 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
         {
             "id": 37208340,
             "sku": "00007",
-            "thumbnailUrl": "http://app.ecwid.com/default-store/00007-230-sq.jpg",
             "quantity": 67,
             "inStock": true,
             "name": "Radish",
@@ -325,32 +324,34 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "fixedShippingRateOnly": false,
             "fixedShippingRate": 0,
             "defaultCombinationId": 7084076,
-            "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/3976907712.jpg",
-            "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412311.jpg",
-            "smallThumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341239.jpg",
-            "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/4617177031.jpg",
-            "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124114.jpg",
-            "originalImage": {
-              "url": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124114.jpg",
-              "width": 123,
-              "height": 456
-            },
             "description": "<h5>Radish</h5>\n<p>The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in Europe in pre-Roman times. They are grown and consumed throughout the world. Radishes have numerous varieties, varying in size, color and duration of required cultivation time. There are some radishes that are grown for their seeds; oilseed radishes are grown, as the name implies, for oil production.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
-            "galleryImages": [
-                {
-                    "id": 18276483,
-                    "alt": "Radish with friends",
-                    "url": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124118.jpg",
-                    "thumbnail": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341231.jpg",
-                    "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/3976907714.jpg",
-                    "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412315.jpg",
-                    "smallThumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341231.jpg",
-                    "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/4617177035.jpg",
-                    "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124118.jpg",
-                    "width": 220,
-                    "height": 293,
-                    "orderby": 10
+            "media": [
+              {
+                "id": "4234234324",
+                "type": "IMAGE",
+                "isMain": true,
+                "orderBy": 0,
+                "imageData": {
+                  "image160pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178861.jpg",
+                  "image400pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178859.jpg",
+                  "image800pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178863.jpg",
+                  "image1500pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313255.jpg",
+                  "imageOriginalUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313254.jpg"
                 }
+              },
+              {
+                "id": "18276483",
+                "type": "IMAGE",
+                "isMain": false,
+                "orderBy": 10,
+                "imageData": {
+                  "image160pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178861.jpg",
+                  "image400pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178859.jpg",
+                  "image800pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178863.jpg",
+                  "image1500pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313255.jpg",
+                  "imageOriginalUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313254.jpg"
+                }
+              }
             ],
             "categoryIds": [
                 9691095
@@ -541,7 +542,6 @@ Cache-Control: no-cache
         {
           "id": 37208339,
           "sku": "00099",
-          "thumbnailUrl": "http://app.ecwid.com/default-store/00011-232-sq.jpg",
           "quantity": 11,
           "unlimited": false,
           "inStock": true,
@@ -585,46 +585,34 @@ Cache-Control: no-cache
           "fixedShippingRateOnly": true,
           "fixedShippingRate": 0,
           "defaultCombinationId": 0,
-          "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
-          "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341234.jpg",
-          "smallThumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341232.jpg",
-          "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/461717703.jpg",
-          "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124125.jpg",
-          "originalImage": {
-              "url": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124125.jpg",
-              "width": 123,
-              "height": 456
-          },
           "description": "<p>It's a tasty fruit!</p>",
-          "galleryImages": [
+          "media": [
             {
-              "id": 18481471,
-              "alt": "AdditionalImage",
-              "url": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/312058848.jpg",
-              "thumbnail": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/351433814.jpg",
-              "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690771.jpg",
-              "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412312.jpg",
-              "smallThumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341235.jpg",
-              "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/461717705.jpg",
-              "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124121.jpg",
-              "width": 473,
-              "height": 545,
-              "orderBy": 0
+              "id": "4234234324",
+              "type": "IMAGE",
+              "isMain": true,
+              "orderBy": 0,
+              "imageData": {
+                "image160pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178861.jpg",
+                "image400pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178859.jpg",
+                "image800pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178863.jpg",
+                "image1500pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313255.jpg",
+                "imageOriginalUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313254.jpg"
+              }
             },
             {
-              "id": 18481472,
-              "alt": "AdditionalImage",
-              "url": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/312058850.jpg",
-              "thumbnail": "https://dpbfm6h358sh7.cloudfront.net/images/5035009/351433815.jpg",
-              "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
-              "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412311.jpg",
-              "smallThumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341238.jpg",
-              "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/4617177879.jpg",
-              "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124179.jpg",
-              "width": 247,
-              "height": 545,
-              "orderBy": 1
-            }
+              "id": "42342587324",
+              "type": "IMAGE",
+              "isMain": false,
+              "orderBy": 10,
+              "imageData": {
+                "image160pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178861.jpg",
+                "image400pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178859.jpg",
+                "image800pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178863.jpg",
+                "image1500pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313255.jpg",
+                "imageOriginalUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313254.jpg"
+              }
+            }            
           ],
           "categoryIds": [
             19563207,
@@ -749,14 +737,8 @@ warningLimit | number | The minimum 'warning' amount of the product items in sto
 fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 defaultCombinationId |  number |  Identifier of the default product variation, which is defined by the default values of product options.
-thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of the biggest dimension is 400px. *The original uploaded product image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The original uploaded product image is available in the `originalImageUrl` field.*
-smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 160x160px. *The original uploaded product image is available in the `originalImageUrl` field.*
-hdThumbnailUrl | string  | Product HD thumbnail URL resized to fit 800x800px
-originalImageUrl |  string  | URL of the original not resized product image
-originalImage | \<*ImageDetails*\> | Details of the product image
 description | string  | Product description *in HTML*
-galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
+media | Array\<*ProductMedia*\> | List of the product images: main image and gallery images, if any are available
 categoryIds | Array\<*number*\> | **Private token**: List of the categories, which the product belongs to. **Public token**: List of the *enabled* categories the product belongs to. **Any token**: If no categories provided, product is displayed on the store front page, see `showOnFrontpage` field, or all categories of that product are disabled 
 categories | Array\<*CategoriesInfo*\> | List of the categories the product belongs to with brief details (*for any access token*). If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
@@ -792,28 +774,22 @@ choices | Array\<*ProductOptionChoice*\> | All possible option selections for th
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
 
-#### ImageDetails 
+#### ProductMedia
 Field | Type  | Description
 ----- | ----- | -----------
-url | string | Image URL
-width | integer | Image width
-height | integer | Image height
+id | number | Internal image ID
+orderBy |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
+isMain | boolean | `true` if this is a main product image. `false` if gallery image
+type | string | Is always `"IMAGE"`
+imageData | \<*ProductMediaURLs*\> | List of URLs to product's images
 
-#### GalleryImage
-Field | Type  | Description
------ | ----- | -----------
-id | number | Internal gallery image ID
-alt | string |  Image description, displayed in the image tag's *alt* attribute
-url | string |  **Deprecated**. Original image URL. Equals `originalImageUrl`
-thumbnail | string  | **Deprecated**. Image thumbnail URL resized to fit 160x160px. Equals `smallThumbnailUrl`
-thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of the biggest dimension is 400px. *The original uploaded product image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The original uploaded product image is available in the `originalImageUrl` field.*
-smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 160x160px. *The original uploaded product image is available in the `originalImageUrl` field.*
-hdThumbnailUrl | string  | Product HD thumbnail URL resized to fit 800x800px
-originalImageUrl |  string  | URL of the original not resized product image
-width | number |  Image width
-height |  number |  Image height
-orderby |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
+#### ProductMediaURLs
+
+image160pxUrl | string  | URL of the product thumbnail resized to fit 160x160px
+image400pxUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of the biggest dimension is 400px
+image800pxUrl | string  | Product HD thumbnail URL resized to fit 800x800px
+image1500pxUrl |  string  | URL of the product image resized to fit 1500x1500px
+imageOriginalUrl | string | URL of the image in its original resolution
 
 #### CategoriesInfo
 Field | Type  | Description
@@ -1027,7 +1003,6 @@ Parameters in <strong>bold</strong> are mandatory
 {
     "id": 37208339,
     "sku": "00007",
-    "thumbnailUrl": "http://app.ecwid.com/default-store/00007-230-sq.jpg",
     "quantity": 67,
     "inStock": true,
     "name": "Radish",
@@ -1103,31 +1078,20 @@ Parameters in <strong>bold</strong> are mandatory
     "fixedShippingRateOnly": false,
     "fixedShippingRate": 0,
     "defaultCombinationId": 7084076,
-    "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/3976907712.jpg",
-    "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412311.jpg",
-    "smallThumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341239.jpg",
-    "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/4617177031.jpg",
-    "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124114.jpg",
-    "originalImage": {
-      "url": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124114.jpg",
-      "width": 123,
-      "height": 456
-    },
     "description": "<h5>Radish</h5>\n<p>The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in Europe in pre-Roman times. They are grown and consumed throughout the world. Radishes have numerous varieties, varying in size, color and duration of required cultivation time. There are some radishes that are grown for their seeds; oilseed radishes are grown, as the name implies, for oil production.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
-    "galleryImages": [
+    "media": [
       {
-        "id": 18276483,
-        "alt": "Radish with friends",
-        "url": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124118.jpg",
-        "thumbnail": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341231.jpg",
-        "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/3976907714.jpg",
-        "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412315.jpg",
-        "smallThumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341231.jpg",
-        "imageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/1003/4617177035.jpg",
-        "originalImageUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124118.jpg",
-        "width": 220,
-        "height": 293,
-        "orderby": 10
+        "id": "4234234324",
+        "type": "IMAGE",
+        "isMain": true,
+        "orderBy": 0,
+        "imageData": {
+          "image160pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178861.jpg",
+          "image400pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178859.jpg",
+          "image800pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/533178863.jpg",
+          "image1500pxUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313255.jpg",
+          "imageOriginalUrl": "https://dqzrr9k4bjpzk.cloudfront.net/images/5035009/429313254.jpg"
+        }
       }
     ],
     "categoryIds": [
@@ -1346,14 +1310,7 @@ warningLimit | number | The minimum 'warning' amount of the product items in sto
 fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
 fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 defaultCombinationId |  number |  Identifier of the default product variation, which is defined by the default values of product options.
-thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. *The original uploaded product image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The original uploaded product image is available in the `originalImageUrl` field.*
-smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 160x160px. *The original uploaded product image is available in the `originalImageUrl` field.*
-hdThumbnailUrl | string  | Product HD thumbnail URL resized to fit 800x800px
-originalImageUrl |  string  | URL of the original not resized product image
-originalImage | \<*ImageDetails*\> | Details of the product image
-description | string  | Product description *in HTML*
-galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
+media | Array\<*ProductMedia*\> | List of the product images: main image and gallery images, if any are available
 categoryIds | Array\<*number*\> | **Private token**: List of the categories, which the product belongs to. **Public token**: List of the **enabled** categories the product belongs to. **Any access token**: If no categories provided, product is displayed on the store front page, see `showOnFrontpage` field, or all categories of that product are disabled 
 categories | Array\<*CategoriesInfo*\> | List of the categories the product belongs to with brief details (*for any access token*). If no categories provided, product belogs to store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
@@ -1389,28 +1346,22 @@ choices | Array\<*ProductOptionChoice*\> | All possible option selections for th
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
 
-#### ImageDetails 
+#### ProductMedia
 Field | Type  | Description
 ----- | ----- | -----------
-url | string | Image URL
-width | integer | Image width
-height | integer | Image height
+id | number | Internal image ID
+orderBy |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
+isMain | boolean | `true` if this is a main product image. `false` if gallery image
+type | string | Is always `"IMAGE"`
+imageData | \<*ProductMediaURLs*\> | List of URLs to product's images
 
-#### GalleryImage
-Field | Type  | Description
------ | ----- | -----------
-id | number | Internal gallery image ID
-alt | string |  Image description, displayed in the image tag's *alt* attribute
-url | string |  **Deprecated**. Original image URL. Equals `originalImageUrl`
-thumbnail | string  | **Deprecated**. Image thumbnail URL resized to fit 160x160px. Equals `smallThumbnailUrl`
-thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. *The original uploaded product image is available in the `originalImageUrl` field.*
-imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The original uploaded product image is available in the `originalImageUrl` field.*
-smallThumbnailUrl | string  | URL of the product thumbnail resized to fit 160x160px. *The original uploaded product image is available in the `originalImageUrl` field.*
-hdThumbnailUrl | string  | Product HD thumbnail URL resized to fit 800x800px
-originalImageUrl |  string  | URL of the original not resized product image
-width | number |  Image width
-height |  number |  Image height
-orderby |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
+#### ProductMediaURLs
+
+image160pxUrl | string  | URL of the product thumbnail resized to fit 160x160px
+image400pxUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of the biggest dimension is 400px
+image800pxUrl | string  | Product HD thumbnail URL resized to fit 800x800px
+image1500pxUrl |  string  | URL of the product image resized to fit 1500x1500px
+imageOriginalUrl | string | URL of the image in its original resolution
 
 #### CategoriesInfo
 Field | Type  | Description
@@ -1829,6 +1780,18 @@ Cache-Control: no-cache
       "value": "Apple",
       "show": "DESCR"
     }
+  ],
+  "media": [
+    {
+      "id": "4234234324",
+      "isMain": false,
+      "orderBy": 10,
+    },
+    {
+      "id": "4234231232",
+      "isMain": true,
+      "orderBy": 0,
+    }
   ]
 }
 ```
@@ -1873,7 +1836,7 @@ seoDescription | string | Page description to be displayed in search results on 
 defaultCategoryId | number  | Default category ID of the product. If value is `0`, then product does not have a default category and is not shown anywhere in storefront
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
-galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images (for updating alt tags and sort order)
+media | Array\<*ProductMedia*\> | List of the product images: main image and gallery images, if any are available
 dimensions | \<*ProductDimensions*\> | Product dimensions info
 showOnFrontpage | number | A positive number indicates the position (index) of a product in the store front page – the smaller the number, the higher the product is displayed on a page. A negative value means the product is not shown in the store front page
 
@@ -1934,12 +1897,12 @@ Field | Type  | Description
 priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
 priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
 
-#### GalleryImage
+#### ProductMedia
 Field | Type  | Description
 ----- | ----- | -----------
-id | number | Internal gallery image ID
-alt | string |  Image description, displayed in the image tag's *alt* attribute
-orderby |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
+id | number | Internal image ID
+orderBy |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
+isMain | boolean | `true` if this is a main product image. `false` if gallery image. Has bigger priority than `orderBy`
 
 #### ProductDimensions
 Field | Type  | Description
