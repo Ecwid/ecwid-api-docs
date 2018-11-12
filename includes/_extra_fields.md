@@ -13,7 +13,7 @@ ec.order.extraFields = ec.order.extraFields || {};
 ec.order.extraFields.how_you_found_us = {
     'title': 'How did you find us?',
     'type': 'text',
-    'checkoutDisplaySection': 'order_comments'
+    'checkoutDisplaySection': 'payment_details'
 };
 
 Ecwid.refreshConfig();
@@ -124,14 +124,17 @@ There are three types of fields: `text`, `select`, `datetime`
 
 - `datetime` is a date picker element. It can be customized – more on that below
 
+- `label` is a plain text element. It cannot be shown in the order details
+
 #### Checkout display section
 
 You can add an extra field for customers in several parts of the checkout: 
 
 - `shipping_address` form at checkout (shipping select step). A new field will be added below the fields in the address form
 - `pickup_details` form at checkout (shipping select step). If customer selects in-store pickup shipping method, a new field will be added below the fields in pickup details form
-- `billing_address` form at checkout (payment select step). A new field will be added below the fields in the address form
-- `order_comments` form at checkout (payment select step). A new field will be added below the order comments field 
+- `shipping_methods` page at the checkout process. A new field will be displayed below the available shipping methods for customer
+- `pickup_methods` page at the checkout process. A new field will be displayed below the selected pickup method information
+- `payment_details` form at checkout (payment select step). A new field will be added below the order comments block or billing address
 
 If `checkoutDisplaySection` contains an unsupported value, the field will not be shown to a customer. If the corresponding form is not shown to customer (order comments are disabled, etc.) then the field will be ignored too, **even if it's required**.
 
@@ -153,7 +156,7 @@ ec.order.extraFields.how_did_you_find_us = {
     'required': false,
     'selectOptions': ['Google Ads', 'Friend told me', 'TV show', 'Other'],
     'value': 'TV show', // Default value
-    'checkoutDisplaySection': 'order_comments'
+    'checkoutDisplaySection': 'payment_details'
 };
 
 Ecwid.refreshConfig();
@@ -164,7 +167,7 @@ ec.order.extraFields.ecwid_pickup_time = {
     'required': true,
     'type': 'datetime',
     'checkoutDisplaySection': 'pickup_details',
-    'orderDetailsDisplaySection': 'order_comments',
+    'orderDetailsDisplaySection': 'payment_details',
 }
 
 Ecwid.refreshConfig();
@@ -272,8 +275,8 @@ ec.order.extraFields.how_you_found_us = {
     'textPlaceholder': 'Describe here please!',
     'type': 'text',
     'required': false,
-    'checkoutDisplaySection': 'order_comments', // show new field in order comments block
-    'orderDetailsDisplaySection': 'order_comments' // show saved data in order comments block in order details to merchant and customer
+    'checkoutDisplaySection': 'payment_details', // show new field in order comments block
+    'orderDetailsDisplaySection': 'payment_details' // show saved data in order comments block in order details to merchant and customer
 };
 
 Ecwid.refreshConfig();
@@ -326,40 +329,6 @@ Extra fields provide some options for customization. Let's see them in more deta
 The codes for extra fields need to be added to the source code of your website or via an app for Ecwid, that <a href="https://developers.ecwid.com/api-documentation/customize-behaviour#add-custom-javascript-code">customizes the storefront</a>. 
 </aside>
 
-### Change extra field based on shipping method
-
-> Save different hidden data based on selected shipping method
-
-```js
-// Initialize extra fields
-ec.order = ec.order || {};
-ec.order.extraFields = ec.order.extraFields || {};
-
-// Save type of shipping selected to order as hidden data
-ec.order.extraFields.shipping_type = {
-    // We save 'flat rate' value by default
-    'value': 'flat rate',
-    'overrides' : [
-    // We can use multiple conditions / shipping methods 
-        {
-            'conditions': {
-                'shippingMethod' : 'In-store Pickup'
-            },
-            'fieldsToOverride': {
-                // If selected shipping is 'In-store Pickup', we save 'pickup'
-                'value': 'pickup' 
-            }
-        }
-    ]
-};
-
-Ecwid.refreshConfig();
-```
-
-You can change the attributes of an extra field based on a shipping method selected by customer. This is done by adding overriding rules to the existing extra field attributes – `overrides` array of conditions. 
-
-At the moment you are able to use the selected shipping method name as a condition only. However, you can add several `conditions` to a single extra field, so you can use different override rules for different shipping methods selected. 
-
 ### Advanced settings for date picker
 
 > Customize date and time selection in datepicker
@@ -407,79 +376,7 @@ At the moment you are able to use the selected shipping method name as a conditi
                 // Custom dates (some interval has been reserved by other customer)
                 ['2017-04-26 08:30', '2017-04-26 10:00']
             ]
-        },
-
-        // Change datepicker settings based on selected shipping method
-        'overrides': [
-            {
-                'conditions': {
-                    'shippingMethod': 'Pickup from 5th Avenue'
-                },
-                'fieldsToOverride': {
-                    'datePickerOptions': {
-                        'minDate': new Date(new Date().getTime() + 2*60*60*1000), // Order is prepared for 2 hours minimum. Hiding 2 hours from the current time. Default is 0
-                        'maxDate': new Date(2020, 12, 31),
-                        'showTime': true,
-                        'autoClose': false,
-                        'use24hour': true,
-                        'incrementMinuteBy': 30,
-                        'limitAvailableHoursWeekly': {
-                            'MON': [
-                                ['08:30', '13:30'],
-                                ['14:00', '17:30']
-                            ],
-                            'TUE': [
-                                ['14:00', '17:30']
-                            ]
-                        },
-
-                        // disallow specific dates
-                        'disallowDates': [
-                            // Same-day pickup can start from 3PM only
-                            ['2017-04-25 15:00:00', '2017-04-25 23:59:59'],
-
-                            // Custom dates (some interval has been reserved by other customer)
-                            ['2017-04-26 08:30', '2017-04-26 10:00']
-                        ]
-                    }
-                }
-            },
-
-            {
-                'conditions': {
-                    'shippingMethod': 'Pickup from Times Square'
-                },
-                'fieldsToOverride': {
-                    'datePickerOptions': {
-                        'minDate': new Date(new Date().getTime() + 2*60*60*1000), // Order is prepared for 2 hours minimum. Hiding 2 hours from the current time. Default is 0
-                        'maxDate': new Date(2020, 12, 31),
-                        'showTime': true,
-                        'autoClose': false,
-                        'use24hour': true,
-                        'incrementMinuteBy': 30,
-                        // Limiting working hours for weekends
-                        'limitAvailableHoursWeekly': {
-                            'SAT': [
-                                ['08:30', '13:30'],
-                                ['14:00', '17:30']
-                            ],
-                            'SUN': [
-                                ['14:00', '17:30']
-                            ]
-                        }
-                    }
-                }
-            },
-
-            {
-                'conditions': {
-                    'shippingMethod': 'Pickup from Empire State Building'
-                },
-                'fieldsToOverride': {
-                    'available': false // Hide datepicker if shipping method is a 'Pickup from Empire State Building'
-                }
-            }
-        ]
+        }
     };
 
 Ecwid.refreshConfig();    
