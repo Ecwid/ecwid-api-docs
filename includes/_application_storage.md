@@ -97,7 +97,7 @@ To retrieve all data from storage, use `EcwidApp.setAppStorage` with a callback 
 EcwidApp.getAppStorage('color', function(value){
   //prints 'red' 
   console.log(value);
-});
+})
 ```
 
 To retrieve data for a specific key, use `EcwidApp.setAppStorage` and specify the key as first parameter and callback function as the second one. It will return a value of the key you requested in a form of a string.
@@ -108,7 +108,7 @@ To retrieve data for a specific key, use `EcwidApp.setAppStorage` and specify th
 EcwidApp.getAppStorage('public', function(value){
   //prints '1234' 
   console.log(value);
-});
+})
 ```
 
 Public application config is a part of application storage: data that you save there is kept in `public` key of the storage. In case if you need to check the value you saved to public app config, use `EcwidApp.getAppStorage` and specify the `public` key as first parameter and a callback function as a second one. 
@@ -126,7 +126,7 @@ Retrieves all stored data for the given store ID. Public application config can 
 > Request example
 
 ```http
-GET /api/v3/1003/storage?token=secret_asdasASDkjlasdnmaDSoihASa HTTP/1.1
+GET /api/v3/1003/storage?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -181,7 +181,7 @@ Retrieves the stored data for the given store ID by the given key. Public applic
 > Request example
 
 ```http
-GET /api/v3/1003/storage/birth_date?token=secret_asdasASDkjlasdnmaDSoihASa HTTP/1.1
+GET /api/v3/1003/storage/birth_date?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -190,7 +190,7 @@ Cache-Control: no-cache
 > Get public app config example
 
 ```http
-GET /api/v3/1003/storage/public?token=secret_asdasASDkjlasdnmaDSoihASa HTTP/1.1
+GET /api/v3/1003/storage/public?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -266,7 +266,7 @@ Use this method to put a new data into the storage. If the key you specify in th
 > Request example
 
 ```http
-POST /api/v3/1003/storage/my_key?token=secret_asdasASDkjlasdnmaDSoihASa HTTP/1.1
+POST /api/v3/1003/storage/my_key?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -320,7 +320,7 @@ Use this method to update data in the storage. If the key you specify in the req
 > Request example
 
 ```http
-PUT /api/v3/1003/storage/my_key?token=secret_asdasASDkjlasdnmaDSoihASa HTTP/1.1
+PUT /api/v3/1003/storage/my_key?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -375,7 +375,7 @@ Use this method to delete data in the storage by key.
 > Request example
 
 ```http
-DELETE /api/v3/1003/storage/my_key?token=secret_asdasASDkjlasdnmaDSoihASa HTTP/1.1
+DELETE /api/v3/1003/storage/my_key?token=487487437834aasdfd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
@@ -433,7 +433,7 @@ Let’s say that you plan to build an app, that customizes a storefront, by disp
 > Get public application config data in storefront example
 
 ```js
-Ecwid.getAppPublicConfig('my-cool-app');
+Ecwid.getAppPublicConfig('my-cool-app')
 // "enabled"
 ```
 > See also: [App utilizing the app public config source code example](https://github.com/Ecwid/custom-thank-you-page-app)
@@ -504,7 +504,7 @@ Ecwid.OnPageLoaded.add(function(page){
   } else {
     return;
   }
-});
+})
 ```
 
 > Get app public config in your native app
@@ -523,7 +523,7 @@ EcwidApp.getAppPublicConfig(function(value){
   publicConfig = JSON.parse(publicConfig);
   console.log(publicConfig.color);
   // 'red'
-});
+})
 ```
 
 If your app customizes Ecwid storefront, you can get public config of your app using Ecwid JS API. 
@@ -563,7 +563,7 @@ Ecwid.OnPageLoaded.add(function(page){
   } else {
     return;
   }
-});
+})
 ```
 
 Using `EcwidApp.setAppPublicConfig` you can save a simple string to use in storefront. 
@@ -614,7 +614,7 @@ Ecwid.OnPageLoaded.add(function(page){
   else {
     return;
   }
-});
+})
 ```
 
 Sometimes applications require more user information in storefront and it's possible to access it as well as a simple value.

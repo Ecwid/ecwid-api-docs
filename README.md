@@ -8,16 +8,6 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
-## November 9, 2018
-
-Improved the flow of working with product images. Now all images (main image and gallery images) are contained within the same field – `media`. 
-
-You are able to get their URLs and sort them the way you need with appropriate fields. To set an existing image as main product image, update its `isMain` field to `true`.
-
-All existing fields (`galleryImages`, `imageUrl`, etc.) are still provided in the API, but they are now deprecated in the documentation. 
-
-[Learn more](https://developers.ecwid.com/api-documentation/products)
-
 ## November 6, 2018
 
 Added new feature toggles for Ecwid stores to JS API and REST API: 
@@ -79,10 +69,9 @@ Added UPC attribute and "Compare to" price support for product variations.
 Now you can set specific UPC attribute values as well as "Compare to" prices for a specific product variation in Ecwid Control Panel and Ecwid REST API. 
 
 The changes are available in these API features: 
-
-- [Products endpoint](https://developers.ecwid.com/api-documentation/products)
-- [Product Variations endpoint](https://developers.ecwid.com/api-documentation/product-variations)
-- [Custom Shipping method](https://developers.ecwid.com/api-documentation/shipping-request-and-response)
+[Products endpoint](https://developers.ecwid.com/api-documentation/products)
+[Product Variations endpoint](https://developers.ecwid.com/api-documentation/product-variations)
+[Custom Shipping method](https://developers.ecwid.com/api-documentation/shipping-request-and-response)
 
 ## September 18, 2018
 
