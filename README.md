@@ -69,9 +69,10 @@ Added UPC attribute and "Compare to" price support for product variations.
 Now you can set specific UPC attribute values as well as "Compare to" prices for a specific product variation in Ecwid Control Panel and Ecwid REST API. 
 
 The changes are available in these API features: 
-[Products endpoint](https://developers.ecwid.com/api-documentation/products)
-[Product Variations endpoint](https://developers.ecwid.com/api-documentation/product-variations)
-[Custom Shipping method](https://developers.ecwid.com/api-documentation/shipping-request-and-response)
+
+- [Products endpoint](https://developers.ecwid.com/api-documentation/products)
+- [Product Variations endpoint](https://developers.ecwid.com/api-documentation/product-variations)
+- [Custom Shipping method](https://developers.ecwid.com/api-documentation/shipping-request-and-response)
 
 ## September 18, 2018
 
