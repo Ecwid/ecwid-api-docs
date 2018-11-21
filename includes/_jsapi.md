@@ -1,7 +1,7 @@
 # Storefront JS API
 
 > Check out [Customize Storefront](#customize-storefront) section for general details on changing Ecwid's storefront.
->
+
 > Access Page object to find the current page type
 
 ```javascript
@@ -10,7 +10,6 @@ Ecwid.OnPageLoad.add(function(page) {
 });
 ```
 
-> 
 > See also: [App working in storefront source code example](https://github.com/Ecwid/custom-thank-you-page-app)
 
 Storefront JS API allows your app to integrate with storefront on a deeper level. It provides access to events (page changed, cart changed), entities (product, cart, order) and others. 
@@ -1446,7 +1445,21 @@ weight | number | Total weight of the items in cart
 paymentMethod | string | The name of the selected payment method (if any)
 shippingMethod | string | The name of the selected shipping method (if any)
 cartId | string | Cart ID you can use later in the [cart endpoint](https://developers.ecwid.com/api-documentation/carts) of Ecwid REST API
+shippingPerson | \<*Person*\> | Customer's shipping address
 
+**Person** fields:
+
+Name | Type | Description
+-----|------|------------
+name | string | Customer's name
+companyName | string | Customer's company name
+street | string | Customer's street address. Use `\n` to place text in Address Line 2
+city | string | Customer's city
+countryName | string | Customer's country name. `countryCode` can be used instead
+countryCode | string | Customer's country code. `countryName` can be used instead
+postalCode | string | Customer's zip code
+stateOrProvinceCode | string | Customer's state or provice code
+phone | string | Customer's phone number
 
 ### CartItem Object
 
