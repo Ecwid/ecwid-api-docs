@@ -130,6 +130,15 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           "warningLimit": 0,
           "fixedShippingRateOnly": true,
           "fixedShippingRate": 0,
+          "shipping": {
+            "type": "SELECTED_METHODS",
+            "methodMarkup": 0,
+            "flatRate": 0,
+            "disabledMethods": [
+              "1396442138-1534946367952"
+            ],
+            "enabledMethods": []
+          },
           "defaultCombinationId": 0,
           "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
           "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341234.jpg",
@@ -324,6 +333,13 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "warningLimit": 0,
             "fixedShippingRateOnly": false,
             "fixedShippingRate": 0,
+            "shipping": {
+              "type": "FLAT_RATE",
+              "methodMarkup": 0,
+              "flatRate": 12,
+              "disabledMethods": [],
+              "enabledMethods": []
+            },
             "defaultCombinationId": 7084076,
             "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/3976907712.jpg",
             "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412311.jpg",
@@ -584,6 +600,15 @@ Cache-Control: no-cache
           "warningLimit": 0,
           "fixedShippingRateOnly": true,
           "fixedShippingRate": 0,
+          "shipping": {
+            "type": "SELECTED_METHODS",
+            "methodMarkup": 0,
+            "flatRate": 0,
+            "disabledMethods": [
+                "1396442138-1534946367952"
+            ],
+            "enabledMethods": []
+          },
           "defaultCombinationId": 0,
           "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/397690775.jpg",
           "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/123412341234.jpg",
@@ -746,8 +771,9 @@ productClassId |  number | Id of the class (type) that this product belongs to. 
 enabled | boolean | `true` if product is enabled, `false` otherwise. Disabled products are not displayed in the store front.
 options | Array\<*ProductOption*\> | A list of the product options. Empty (`[]`) if no options are specified for the product. 
 warningLimit | number | The minimum 'warning' amount of the product items in stock, if set. When the product quantity reaches this level, the store administrator gets an email notification.
-fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
-fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
+fixedShippingRateOnly | boolean | **Legacy function** – see `shipping` field instead. `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
+fixedShippingRate | number | **Legacy function** – see `shipping` field instead. When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
+shipping | \<*ShippingSettings*\> | Shipping settings of this product
 defaultCombinationId |  number |  Identifier of the default product variation, which is defined by the default values of product options.
 thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of the biggest dimension is 400px. *The original uploaded product image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The original uploaded product image is available in the `originalImageUrl` field.*
@@ -791,6 +817,15 @@ name |  string |  Product option name, e.g. `Color`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
+
+#### ShippingSettings
+Field | Type  | Description
+----- | ----- | -----------
+type | string | One of: `"GLOBAL_METHODS"`, `"SELECTED_METHODS"`, `"FLAT_RATE"`, `"FREE_SHIPPING"`. `"GLOBAL_METHODS"` – all standard shipping methods set up in store settings; `"SELECTED_METHODS"` – Ecwid will use `enabledMethods` and `disabledMethods` list to make shipping calculations; `"FLAT_RATE"` – sets flat rate for product's shipping, see `flatRate` field. 
+methodMarkup | number | Additional cost for shipping methods set by merchant (global and selected)
+flatRate | number | Flat rate cost for shipping this product
+disabledMethods | Array of string | IDs of shipping methods that need to be excluded from calculation when this product is in cart. IDs can be retrieved in [store information endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+enabledMethods | Array of string | IDs of shipping methods which will only be shown when this product is in cart. No other shipping methods will be shown. IDs can be retrieved in [store information endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 
 #### ImageDetails 
 Field | Type  | Description
@@ -1102,6 +1137,15 @@ Parameters in <strong>bold</strong> are mandatory
     "warningLimit": 0,
     "fixedShippingRateOnly": false,
     "fixedShippingRate": 0,
+    "shipping": {
+      "type": "SELECTED_METHODS",
+      "methodMarkup": 0,
+      "flatRate": 0,
+      "disabledMethods": [
+          "1396442138-1534946367952"
+      ],
+      "enabledMethods": []
+    },
     "defaultCombinationId": 7084076,
     "hdThumbnailUrl": "https://dpbfm6h358sh7.cloudfront.net/images/1003/3976907712.jpg",
     "thumbnailUrl": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1234123412311.jpg",
@@ -1343,8 +1387,9 @@ productClassId |  number | Id of the class (type) that this product belongs to. 
 enabled | boolean | `true` if product is enabled, `false` otherwise. Disabled products are not displayed in the store front.
 options | Array\<*ProductOption*\> | A list of the product options. Empty (`[]`) if no options are specified for the product. 
 warningLimit | number | The minimum 'warning' amount of the product items in stock, if set. When the product quantity reaches this level, the store administrator gets an email notification.
-fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
-fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
+fixedShippingRateOnly | boolean | **Legacy function** – see `shipping` field instead. Is ignored if it is sent alongside `shipping` object. `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
+fixedShippingRate | number | **Legacy function** – see `shipping` field instead. Is ignored if it is sent alongside `shipping` object. When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
+shipping | \<*ShippingSettings*\> | Shipping settings of this product
 defaultCombinationId |  number |  Identifier of the default product variation, which is defined by the default values of product options.
 thumbnailUrl |  string | URL of the product thumbnail displayed on the product list pages. Thumbnails size is defined in the store settings. Default size of biggest dimension is 400px. *The original uploaded product image is available in the `originalImageUrl` field.*
 imageUrl |  string  | URL of the product image resized to fit 1500x1500px. *The original uploaded product image is available in the `originalImageUrl` field.*
@@ -1388,6 +1433,15 @@ name |  string |  Product option name, e.g. `Color`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
+
+#### ShippingSettings
+Field | Type  | Description
+----- | ----- | -----------
+type | string | One of: `"GLOBAL_METHODS"`, `"SELECTED_METHODS"`, `"FLAT_RATE"`, `"FREE_SHIPPING"`. `"GLOBAL_METHODS"` – all standard shipping methods set up in store settings; `"SELECTED_METHODS"` – Ecwid will use `enabledMethods` and `disabledMethods` list to make shipping calculations; `"FLAT_RATE"` – sets flat rate for product's shipping, see `flatRate` field. 
+methodMarkup | number | Additional cost for shipping methods set by merchant (global and selected)
+flatRate | number | Flat rate cost for shipping this product
+disabledMethods | Array of string | IDs of shipping methods that need to be excluded from calculation when this product is in cart. IDs can be retrieved in [store information endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+enabledMethods | Array of string | IDs of shipping methods which will only be shown when this product is in cart. No other shipping methods will be shown. IDs can be retrieved in [store information endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 
 #### ImageDetails 
 Field | Type  | Description
@@ -1635,7 +1689,16 @@ Cache-Control: no-cache
         "defaultChoice": 0,
         "required": false
     }
-  ]
+  ],
+  "shipping": {
+    "type": "SELECTED_METHODS",
+    "methodMarkup": 0,
+    "flatRate": 0,
+    "disabledMethods": [
+      "1396442138-1534946367952"
+    ],
+    "enabledMethods": []
+  }
 }
 ```
 
@@ -1674,8 +1737,9 @@ productClassId |  number | Id of the class (type) that this product belongs to. 
 enabled | boolean | `true` to make product enabled, `false` otherwise. Disabled products are not displayed in the store front.
 options | Array\<*ProductOption*\> | List of the product options. 
 warningLimit | number | The minimum 'warning' amount of the product items in stock, if set. When the product quantity reaches this level, the store administrator gets an email notification.
-fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
-fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
+fixedShippingRateOnly | boolean | **Legacy function** – see `shipping` field instead. Is ignored if it is sent alongside `shipping` object. `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
+fixedShippingRate | number | **Legacy function** – see `shipping` field instead. Is ignored if it is sent alongside `shipping` object. When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
+shipping | \<*ShippingSettings*\> | Shipping settings of this product
 description | string  | Product description *in HTML*
 categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
@@ -1701,6 +1765,15 @@ Field | Type  | Description
 **text** |  string | Option selection text, e.g. 'Green'.
 **priceModifier** | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
 **priceModifierType** | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
+
+#### ShippingSettings
+Field | Type  | Description
+----- | ----- | -----------
+type | string | One of: `"GLOBAL_METHODS"`, `"SELECTED_METHODS"`, `"FLAT_RATE"`, `"FREE_SHIPPING"`. `"GLOBAL_METHODS"` – all standard shipping methods set up in store settings; `"SELECTED_METHODS"` – Ecwid will use `enabledMethods` and `disabledMethods` list to make shipping calculations; `"FLAT_RATE"` – sets flat rate for product's shipping, see `flatRate` field. 
+methodMarkup | number | Additional cost for shipping methods set by merchant (global and selected)
+flatRate | number | Flat rate cost for shipping this product
+disabledMethods | Array of string | IDs of shipping methods that need to be excluded from calculation when this product is in cart. IDs can be retrieved in [store information endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+enabledMethods | Array of string | IDs of shipping methods which will only be shown when this product is in cart. No other shipping methods will be shown. IDs can be retrieved in [store information endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 
 #### WholesalePrice
 Field | Type  | Description
@@ -1829,7 +1902,16 @@ Cache-Control: no-cache
       "value": "Apple",
       "show": "DESCR"
     }
-  ]
+  ],
+  "shipping": {
+    "type": "SELECTED_METHODS",
+    "methodMarkup": 0,
+    "flatRate": 0,
+    "disabledMethods": [
+      "1396442138-1534946367952"
+    ],
+    "enabledMethods": []
+  }
 }
 ```
 
@@ -1864,8 +1946,9 @@ productClassId |  number | Id of the product type that this product belongs to. 
 enabled | boolean | `true` to make product enabled, `false` otherwise. Disabled products are not displayed in the store front.
 options | Array\<*ProductOption*\> | List of the product options. 
 warningLimit | number | The minimum 'warning' amount of the product items in stock, if set. When the product quantity reaches this level, the store administrator gets an email notification.
-fixedShippingRateOnly | boolean | `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
-fixedShippingRate | number |  When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
+fixedShippingRateOnly | boolean | **Legacy function** – see `shipping` field instead. Is ignored if it is sent alongside `shipping` object. `true` if shipping cost for this product is calculated as *'Fixed rate per item'* (managed under the "Tax and Shipping" section of the product management page in Ecwid Control panel). `false` otherwise. With this option on, the `fixedShippingRate` field specifies the shipping cost of the product
+fixedShippingRate | number | **Legacy function** – see `shipping` field instead. Is ignored if it is sent alongside `shipping` object. When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
+shipping | \<*ShippingSettings*\> | Shipping settings of this product
 description | string  | Product description *in HTML*
 categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
@@ -1880,7 +1963,6 @@ showOnFrontpage | number | A positive number indicates the position (index) of a
 <aside class="notice">
 All fields are optional
 </aside>
-
 
 #### WholesalePrice
 Field | Type  | Description
@@ -1897,6 +1979,15 @@ type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, 
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *Omit this field for product options with no selection (e.g. text, datepicker or upload file options)*
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is mandatory, `false` otherwise. Default is `false`
+
+#### ShippingSettings
+Field | Type  | Description
+----- | ----- | -----------
+type | string | One of: `"GLOBAL_METHODS"`, `"SELECTED_METHODS"`, `"FLAT_RATE"`, `"FREE_SHIPPING"`. `"GLOBAL_METHODS"` – all standard shipping methods set up in store settings; `"SELECTED_METHODS"` – Ecwid will use `enabledMethods` and `disabledMethods` list to make shipping calculations; `"FLAT_RATE"` – sets flat rate for product's shipping, see `flatRate` field. 
+methodMarkup | number | Additional cost for shipping methods set by merchant (global and selected)
+flatRate | number | Flat rate cost for shipping this product
+disabledMethods | Array of string | IDs of shipping methods that need to be excluded from calculation when this product is in cart. IDs can be retrieved in [store information endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+enabledMethods | Array of string | IDs of shipping methods which will only be shown when this product is in cart. No other shipping methods will be shown. IDs can be retrieved in [store information endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 
 #### AttributeValue
 Field | Type  | Description

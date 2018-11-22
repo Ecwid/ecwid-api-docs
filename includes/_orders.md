@@ -28,6 +28,20 @@ To get abandoned sale information, specify `INCOMPLETE` status for `paymentStatu
 
 Also, check the [carts endpoint](#carts) methods for accessing abandoned carts
 
+#### Q: How to get all orders from a store?
+
+Use the `offset` parameter to get all orders in a store. 
+
+For example, if a store has 452 orders, you would need to call the `/orders` endpoint 5 times with different `offset` parameter values: 
+
+- `offset=0` // 0-100 orders
+- `offset=100` // 100-200 orders
+- `offset=200` // 200-300 orders
+- `offset=300` // 300-400 orders
+- `offset=400` // 400-452 orders
+
+As a result, you will get all 452 orders after these 5 consecutive requests.
+
 <aside class="notice">
 If no filters are set in the URL, API will return all orders <strong>except for unfinished orders</strong>. To get unfinished orders, use <i>INCOMPLETE</i> value for <strong>paymentStatus</strong> parameter.
 </aside>

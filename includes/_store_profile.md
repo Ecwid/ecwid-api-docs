@@ -220,25 +220,79 @@ Name | Type    | Description
             },
             "fulfilmentType": "shipping",
             "ratesCalculationType": "carrier-calculated",
-            "carrierMethodsEnabled": [
-                    "UPS Expedited SM",
-                    "UPS Express Early A.M. SM",
-                    "UPS Express Plus",
-                    "UPS Next Day Air Saver®",
-                    "UPS Next Day Air®",
-                    "UPS Saver",
-                    "UPS Second Day Air A.M.®",
-                    "UPS Second Day Air®",
-                    "UPS Standard",
-                    "UPS Three-Day Select®",
-                    "UPS Today Dedicated Courrier SM",
-                    "UPS Today Express",
-                    "UPS Today Express Saver",
-                    "UPS Today Intercity",
-                    "UPS Today Standard SM",
-                    "UPS Worldwide Expedited SM",
-                    "UPS Worldwide Express Plus SM",
-                    "UPS Worldwide Express SM"
+            "carrierMethods": [
+              {
+                  "id": "7835-1442850313554:S1",
+                  "name": "UPS Next Day Air®",
+                  "enabled": true,
+                  "orderBy": 1240
+              },
+              {
+                  "id": "7835-1442850313554:S2",
+                  "name": "UPS Second Day Air®",
+                  "enabled": true,
+                  "orderBy": 1250
+              },
+              {
+                  "id": "7835-1442850313554:S3",
+                  "name": "UPS Ground",
+                  "enabled": false,
+                  "orderBy": 0
+              },
+              {
+                  "id": "7835-1442850313554:S4",
+                  "name": "UPS Worldwide Express SM",
+                  "enabled": true,
+                  "orderBy": 1120
+              },
+              {
+                  "id": "7835-1442850313554:S5",
+                  "name": "UPS Worldwide Expedited SM",
+                  "enabled": true,
+                  "orderBy": 1100
+              },
+              {
+                  "id": "7835-1442850313554:S6",
+                  "name": "UPS Standard",
+                  "enabled": true,
+                  "orderBy": 1030
+              },
+              {
+                  "id": "7835-1442850313554:S7",
+                  "name": "UPS Three-Day Select®",
+                  "enabled": true,
+                  "orderBy": 1040
+              },
+              {
+                  "id": "7835-1442850313554:S8",
+                  "name": "UPS Next Day Air Saver®",
+                  "enabled": true,
+                  "orderBy": 1000
+              },
+              {
+                  "id": "7835-1442850313554:S9",
+                  "name": "UPS Next Day Air® Early A.M. SM",
+                  "enabled": false,
+                  "orderBy": 0
+              },
+              {
+                  "id": "7835-1442850313554:S10",
+                  "name": "UPS Worldwide Express Plus SM",
+                  "enabled": true,
+                  "orderBy": 1110
+              },
+              {
+                  "id": "7835-1442850313554:S11",
+                  "name": "UPS Second Day Air A.M.®",
+                  "enabled": true,
+                  "orderBy": 1020
+              },
+              {
+                  "id": "7835-1442850313554:S12",
+                  "name": "UPS Saver",
+                  "enabled": false,
+                  "orderBy": 1010
+              }
             ],
             "shippingCostMarkup": 0,
             "carrierSettings": {
@@ -1034,7 +1088,7 @@ fulfilmentType | string | Fulfillment type. `"pickup"` for in-store pickup metho
 destinationZone | \<*Zone*\> | Destination zone set for shipping option. **Empty for public token**
 deliveryTimeDays | string | Estimated delivery time in days. Formats accepted: empty `""`, number `"5"`, several days estimate `"4-9"`
 carrier | string | Carrier used for shipping the order. Is provided for carrier-calculated shipping options
-carrierMethodsEnabled | Array of string | Carrier-calculated shipping methods available for this shipping option
+carrierMethods | Array \<*CarrierMethod*\> | Carrier-calculated shipping methods available for this shipping option
 carrierSettings | \<*CarrierSettings*\> | Carrier-calculated shipping option settings
 ratesCalculationType | string | Rates calculation type. One of `"carrier-calculated"`, `"table"`, `"flat"`, `"app"`
 shippingCostMarkup | number | Shipping cost markup for carrier-calculated methods
@@ -1045,6 +1099,14 @@ pickupInstruction | string | String of HTML code of instructions on in-store pic
 scheduledPickup | boolean | `true` if pickup time is scheduled, `false` otehrwise. (*Ask for Pickup Date and Time at Checkout* option in pickup settings)
 pickupPreparationTimeHours | number | Amount of time required for store to prepare pickup (*Order Fulfillment Time* setting)
 pickupBusinessHours | string \<*PickupBusinessHours*\> | Available and scheduled times to pickup orders
+
+#### CarrierMethod
+Field | Type | Description
+----- | ---- | -----------
+id | string | Carrier ID and specific method name
+name | string | Carrier method name
+enabled | boolean | `true` if enabled, `false` otherwise
+orderBy | number | Position of that carrier method
 
 #### CarrierSettings
 

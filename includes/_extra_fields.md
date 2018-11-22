@@ -310,7 +310,7 @@ If 'orderDetailsDisplaySection' contains an unsupported value, the extra field w
 
 ```
 <#list order.extraFields as extraField>
-    <#if extraField.title && extraField.orderDisplaySection?has_content>
+    <#if extraField.title?has_content && extraField.orderDisplaySection?has_content>
         ${extraField.title}: ${extraField.value}
     </#if>
 </#list>
