@@ -2748,7 +2748,7 @@ Upload a file to a product in an Ecwid store ([E-goods](https://support.ecwid.co
 ```http
 POST /api/v3/4870020/products/1234567/files?token=123456789abcd&fileName=photo+large.psd&description=Item+photo+in+psd+format HTTP/1.1
 Host: app.ecwid.com
-Content-Type: application/json;charset=utf-8
+Content-Type: image/psd
 Cache-Control: no-cache
 
 binary data
@@ -2864,7 +2864,7 @@ This request allows to edit the file description that is shown to customer when 
 ```http
 PUT /api/v3/4870020/products/1234567/files/4838228377?token=123456789abcd&fileName=photo+large.psd&description=Item+photo+in+psd+format HTTP/1.1
 Host: app.ecwid.com
-Content-Type: application/json;charset=utf-8
+Content-Type: image/psd
 Cache-Control: no-cache
 
 {

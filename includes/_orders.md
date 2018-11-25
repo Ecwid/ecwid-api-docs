@@ -2603,7 +2603,7 @@ Using this method, you can attach a file to an order item (implying that the ord
 ```http
 POST /api/v3/4870020/orders/20/items/987653/options/Attach+your+image?fileName=my_photo.jpg&token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
-Content-Type: application/json
+Content-Type: image/jpeg
 Cache-Control: no-cache
 
 binary data
