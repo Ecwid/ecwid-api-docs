@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## November 28, 2018
+
+Added option to disallow / allow specific shipping options for certain products. 
+
+You can read and change them for products in the [Ecwid REST API](https://developers.ecwid.com/api-documentation/products) by specifying method IDs in the `enabledMethods` and `disabledMethods` within the `shipping` field.
+
+To get the available shipping method IDs, see the [store profile endpoint](https://developers.ecwid.com/api-documentation/store-information) -> `shipping` field. 
+
 ## November 6, 2018
 
 Added new feature toggles for Ecwid stores to JS API and REST API: 
