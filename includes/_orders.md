@@ -53,16 +53,16 @@ Name | Type    | Description
 offset | number | Offset from the beginning of the returned items list (for paging)
 limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
 keywords |  string | Search term. Ecwid will look for this term in:  order number, external transaction id, vendor order number, customer billing and shipping address, customer email, shipping tracking code, item SKUs, item names, item selected options, affiliate Id, private admin notes. If your keywords contain special characters, it may make sense to URL encode them before making a request
-couponCode | number | The code of coupon applied to order
+couponCode | string | The code of coupon applied to order
 totalFrom |  number | Minimum product price
 totalTo | number | Maximum product price
 orderNumber | number | Order number(s) separated by a comma. If this field is not empty, other filters are ignored
 vendorOrderNumber | string | Order number with prefix/suffix defined by admin
 customer | string | Customer search term. Searches for customer details in order, **except for `customerId`**
-createdFrom | string | Order placement date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul> Examples: <ul><li>`1447804800`</li></ul>
-createdTo | string | Order placement date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
-updatedFrom | string | Order last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
-updatedTo | string | Order last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
+createdFrom | number | Order placement date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul> Examples: <ul><li>`1447804800`</li></ul>
+createdTo | number | Order placement date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
+updatedFrom | number | Order last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
+updatedTo | number | Order last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
 paymentMethod | string | Payment method used by customer
 shippingMethod | string | Shipping method chosen by customer
 paymentStatus | string | Comma separated list of order payment statuses to search. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
