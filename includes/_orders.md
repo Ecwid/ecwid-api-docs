@@ -133,7 +133,7 @@ Parameters in bold are mandatory
                 "discount": 22,
                 "launchDate": "2018-05-24 20:00:00 +0000",
                 "usesLimit": "UNLIMITED",
-                "repeatCustomerOnly": false,
+                "applicationLimit": "UNLIMITED",
                 "creationDate": "2018-05-31 15:08:33 +0000",
                 "updateDate": "2018-05-24 13:40:32 +0000",
                 "orderCount": 0
@@ -617,7 +617,7 @@ launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000
 expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0000`
 totalLimit | number| The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
-repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+applicationLimit | string | Application limit for discount coupons. Possible values: `"UNLIMITED"`, `"NEW_CUSTOMER_ONLY"`, `"REPEAT_CUSTOMER_ONLY"`
 creationDate |  string | Coupon creation date
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | Products and categories the coupon can be applied to
@@ -808,7 +808,7 @@ Parameters in bold are mandatory
         "discount": 22,
         "launchDate": "2018-05-24 20:00:00 +0000",
         "usesLimit": "UNLIMITED",
-        "repeatCustomerOnly": false,
+        "applicationLimit": "NEW_CUSTOMER_ONLY",
         "creationDate": "2018-05-31 15:08:33 +0000",
         "updateDate": "2018-05-24 13:40:32 +0000",
         "orderCount": 0
@@ -1280,7 +1280,7 @@ launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000
 expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0000`
 totalLimit | number| The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
-repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+applicationLimit | string | Application limit for discount coupons. Possible values: `"UNLIMITED"`, `"NEW_CUSTOMER_ONLY"`, `"REPEAT_CUSTOMER_ONLY"`
 creationDate |  string | Coupon creation date
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | Products and categories the coupon can be applied to
@@ -2135,7 +2135,7 @@ launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000
 expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0000`
 totalLimit | number| The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
-repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+applicationLimit | string | Application limit for discount coupons. Possible values: `"UNLIMITED"`, `"NEW_CUSTOMER_ONLY"`, `"REPEAT_CUSTOMER_ONLY"`
 creationDate |  string | Coupon creation date
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | Products and categories the coupon can be applied to
@@ -2506,7 +2506,7 @@ launchDate | string | The date of coupon launch, e.g. `2014-06-06 08:00:00 +0000
 expirationDate | string | Coupon expiration date, e.g. `2014-06-06 08:00:00 +0000`
 totalLimit | number| The minimum order subtotal the coupon applies to
 usesLimit | string | Number of uses limitation: `UNLIMITED`, `ONCEPERCUSTOMER`, `SINGLE`
-repeatCustomerOnly | boolean | Coupon usage limitation flag identifying whether the coupon works for all customers or only repeat customers
+applicationLimit | string | Application limit for discount coupons. Possible values: `"UNLIMITED"`, `"NEW_CUSTOMER_ONLY"`, `"REPEAT_CUSTOMER_ONLY"`
 creationDate |  string | Coupon creation date
 orderCount | number | Number of uses
 catalogLimit |  \<*DiscountCouponCatalogLimit*\> | Products and categories the coupon can be applied to
