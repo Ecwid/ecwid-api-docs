@@ -142,7 +142,6 @@ Parameters in bold are mandatory
                     "imageUrl": "http://app.ecwid.com/default-store/00006-sq.jpg",
                     "fixedShippingRate": 1,
                     "digital": true,
-                    "productAvailable": true,
                     "couponApplied": false,
                     "files": [
                         {
@@ -370,7 +369,6 @@ fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shippi
 imageUrl | string | Product image URL
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
-productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
@@ -672,7 +670,6 @@ Parameters in bold are mandatory
                     "imageUrl": "http://app.ecwid.com/default-store/00006-sq.jpg",
                     "fixedShippingRate": 1,
                     "digital": true,
-                    "productAvailable": true,
                     "couponApplied": false,
                     "files": [
                         {
@@ -891,7 +888,6 @@ fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shippi
 imageUrl | string | Product image URL
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
-productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
@@ -1285,7 +1281,6 @@ fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shippi
 imageUrl | string | Product image URL
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
-productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 dimensions | \<*OrderItemDimensions*\> | Product dimensions info
@@ -1436,7 +1431,6 @@ Parameters in bold are mandatory
           "fixedShippingRateOnly": false,
           "fixedShippingRate": 0,
           "digital": false,
-          "productAvailable": true,
           "couponApplied": false
         },
         {
@@ -1456,7 +1450,6 @@ Parameters in bold are mandatory
           "fixedShippingRateOnly": false,
           "fixedShippingRate": 0,
           "digital": false,
-          "productAvailable": true,
           "couponApplied": false
         }
     ],
@@ -1663,7 +1656,6 @@ fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shippi
 imageUrl | string | Product image URL
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
-productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item

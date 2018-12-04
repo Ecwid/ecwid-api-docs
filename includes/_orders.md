@@ -171,7 +171,6 @@ Parameters in bold are mandatory
                     "hdThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/650638293.jpg",
                     "fixedShippingRate": 0,
                     "digital": false,
-                    "productAvailable": true,
                     "couponApplied": true,
                     "selectedOptions": [
                         {
@@ -248,7 +247,6 @@ Parameters in bold are mandatory
                     "hdThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/408631478.jpg",
                     "fixedShippingRate": 0,
                     "digital": false,
-                    "productAvailable": true,
                     "couponApplied": true,
                     "selectedOptions": [
                         {
@@ -513,7 +511,6 @@ fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shippi
 imageUrl | string | Product image URL
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
-productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
@@ -846,7 +843,6 @@ Parameters in bold are mandatory
             "hdThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/650638293.jpg",
             "fixedShippingRate": 0,
             "digital": false,
-            "productAvailable": true,
             "couponApplied": true,
             "selectedOptions": [
                 {
@@ -923,7 +919,6 @@ Parameters in bold are mandatory
             "hdThumbnailUrl": "https://ecwid-images-ru.gcdn.co/images/5035009/408631478.jpg",
             "fixedShippingRate": 0,
             "digital": false,
-            "productAvailable": true,
             "couponApplied": true,
             "selectedOptions": [
                 {
@@ -1175,7 +1170,6 @@ fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shippi
 imageUrl | string | Product image URL
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
-productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
@@ -1942,7 +1936,6 @@ Cache-Control: no-cache
                 "name": "New name",
                 "isShippingRequired": true,
                 "fixedShippingRateOnly": false,
-                "productAvailable": true,
                 "selectedOptions": [
                     {
                         "name": "Size",
@@ -2068,7 +2061,6 @@ trackQuantity | boolean | `true`/`false`: shows whether the store admin set to t
 fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shipping rate is set for the product
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
-productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
@@ -2445,7 +2437,6 @@ trackQuantity | boolean | `true`/`false`: shows whether the store admin set to t
 fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shipping rate is set for the product
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
-productAvailable | boolean | `true`/`false`: shows whether the product is available in the store
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
 selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item

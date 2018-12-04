@@ -785,8 +785,8 @@ description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<*number*\> | **Private token**: List of the categories, which the product belongs to. **Public token**: List of the *enabled* categories the product belongs to. **Any token**: If no categories provided, product is displayed on the store front page, see `showOnFrontpage` field, or all categories of that product are disabled 
 categories | Array\<*CategoriesInfo*\> | List of the categories the product belongs to with brief details (*for any access token*). If no categories provided, product belogs to store front page, see `showOnFrontpage` field
-seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
-seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
+seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters. Is empty if value wasn't changed by merchant from the product itself
+seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters. Is empty if value wasn't changed by merchant from the product itself
 defaultCategoryId | number  | Default category ID of the product. If value is `0`, then product does not have a default category and is not shown anywhere in storefront
 favorites | \<*FavoritesStats*\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
@@ -1401,8 +1401,8 @@ description | string  | Product description *in HTML*
 galleryImages | Array\<*GalleryImage*\> |  List of the product gallery images
 categoryIds | Array\<*number*\> | **Private token**: List of the categories, which the product belongs to. **Public token**: List of the **enabled** categories the product belongs to. **Any access token**: If no categories provided, product is displayed on the store front page, see `showOnFrontpage` field, or all categories of that product are disabled 
 categories | Array\<*CategoriesInfo*\> | List of the categories the product belongs to with brief details (*for any access token*). If no categories provided, product belogs to store front page, see `showOnFrontpage` field
-seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
-seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
+seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters. Is empty if value wasn't changed by merchant from the product itself
+seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters. Is empty if value wasn't changed by merchant from the product itself
 defaultCategoryId | number  | Default category ID of the product. If value is `0`, then product does not have a default category and is not shown anywhere in storefront
 favorites | \<*FavoritesStats*\>  | Product favorites stats
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
@@ -1742,8 +1742,8 @@ fixedShippingRate | number | **Legacy function** – see `shipping` field instea
 shipping | \<*ShippingSettings*\> | Shipping settings of this product
 description | string  | Product description *in HTML*
 categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
-seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
-seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
+seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters. Is empty if value wasn't changed by merchant from the product itself
+seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters. Is empty if value wasn't changed by merchant from the product itself
 defaultCategoryId | number  | Default category ID of the product. If value is `0`, then product does not have a default category and is not shown anywhere in storefront
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product
@@ -1951,8 +1951,8 @@ fixedShippingRate | number | **Legacy function** – see `shipping` field instea
 shipping | \<*ShippingSettings*\> | Shipping settings of this product
 description | string  | Product description *in HTML*
 categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
-seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters
-seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters
+seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters. Is empty if value wasn't changed by merchant from the product itself
+seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters. Is empty if value wasn't changed by merchant from the product itself
 defaultCategoryId | number  | Default category ID of the product. If value is `0`, then product does not have a default category and is not shown anywhere in storefront
 attributes | Array\<*AttributeValue*\> | Product attributes and their values
 relatedProducts | \<*RelatedProducts*\>  | Related or "You may also like" products of the product

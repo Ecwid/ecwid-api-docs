@@ -8,6 +8,22 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## December 3, 2018
+
+Updated the [Ecwid CSS Framework](https://developers.ecwid.com/ecwid-css-framework) to `1.3.4` version. 
+
+**File URLs** 
+
+- `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.4/ecwid-app-ui.css`
+- `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.4/ecwid-app-ui.min.js`
+
+**Changelog**
+
+- Transparent colors are updated to `rgba(0,0,0,0)`
+- Added easy loader animcation for buttons – you can just add the `.btn-loading` class for it to become a `progress-button`
+- Added the components `.rowable`, `.iconic-dropdown-menu`, `.numeric`
+- Updated the components `.horizontal-icolink`, `.iconable-block`, `.gallery`, `.feature-element`
+
 ## November 28, 2018
 
 Added option to disallow / allow specific shipping options for certain products. 
