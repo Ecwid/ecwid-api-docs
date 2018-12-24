@@ -1442,7 +1442,6 @@ productsQuantity | integer | Total number of product varieties in cart
 orderId | integer | Unique internal order ID for this order (available after order is created)
 couponName | string | The name of the coupon (if any) applied to the cart. If no coupon was applied, will contain undefined. Does not contain the actual code of coupon, just the name.
 weight | number | Total weight of the items in cart
-paymentMethod | string | The name of the selected payment method (if any)
 shippingMethod | string | The name of the selected shipping method (if any)
 cartId | string | Cart ID you can use later in the [cart endpoint](https://developers.ecwid.com/api-documentation/carts) of Ecwid REST API
 shippingPerson | \<*Person*\> | Customer's shipping address

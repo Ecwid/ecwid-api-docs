@@ -20,7 +20,7 @@ Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&customer={customer}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&offset={offset}&limit={limit}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&email={email}&customerId={customerId}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&offset={offset}&limit={limit}&token={token}`
 
 #### Q: How to get info about abandoned sales? 
 
@@ -58,7 +58,8 @@ totalFrom |  number | Minimum product price
 totalTo | number | Maximum product price
 orderNumber | number | Order number(s) separated by a comma. If this field is not empty, other filters are ignored
 vendorOrderNumber | string | Order number with prefix/suffix defined by admin
-customer | string | Customer search term. Searches for customer details in order, **except for `customerId`**
+email | string | Customer email used to place the order
+customerId | number | Customer ID used to place the order
 createdFrom | number | Order placement date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul> Examples: <ul><li>`1447804800`</li></ul>
 createdTo | number | Order placement date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
 updatedFrom | number | Order last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>

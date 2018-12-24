@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## December 24, 2018
+
+We updated the order search filters in the [Ecwid REST API](https://developers.ecwid.com/api-documentation/orders#search-orders) in regards to customer details. 
+
+We added two new fields: `email` and `customerId`. They return orders accordingly – for the email or customer ID used to place an order. 
+
+The `customer` field has been deprecated from docs, but it still works in the API itself for now. In your solutions, make sure to use the new fields instead. 
+
 ## December 3, 2018
 
 Updated the [Ecwid CSS Framework](https://developers.ecwid.com/ecwid-css-framework) to `1.3.4` version. 

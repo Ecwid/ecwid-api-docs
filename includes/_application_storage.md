@@ -89,7 +89,7 @@ EcwidApp.getAppStorage(function(allKeys) {
 });
 ```
 
-To retrieve all data from storage, use `EcwidApp.setAppStorage` with a callback function as a parameter. It will return an array of objects, containing all keys and their values in your app storage. You can save that response in a variable and access it in your app later.
+To retrieve all data from storage, use `EcwidApp.getAppStorage` with a callback function as a parameter. It will return an array of objects, containing all keys and their values in your app storage. You can save that response in a variable and access it in your app later.
 
 > Get data from application storage by key
 
@@ -100,7 +100,7 @@ EcwidApp.getAppStorage('color', function(value){
 });
 ```
 
-To retrieve data for a specific key, use `EcwidApp.setAppStorage` and specify the key as first parameter and callback function as the second one. It will return a value of the key you requested in a form of a string.
+To retrieve data for a specific key, use `EcwidApp.getAppStorage` and specify the key as first parameter and callback function as the second one. It will return a value of the key you requested in a form of a string.
 
 > Get public app config
 
