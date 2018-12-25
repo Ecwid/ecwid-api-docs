@@ -45,7 +45,8 @@ Parameters in <strong>bold</strong> are mandatory
     "metaDescriptionHtml": "<title>Ecwid Demo Store</title>\n",
     "canonicalUrl": "",
     "ogTagsHtml": "",
-    "jsonLDHtml": ""
+    "jsonLDHtml": "",
+    "lastUpdated": 1545726821356
 }
 ```
 
@@ -61,6 +62,7 @@ metaDescriptionHtml | string | HTML code for the meta title and description
 canonicalUrl | string | Canonical URL for this page
 ogTagsHtml | string | HTML code for Open Graph tags
 jsonLDHtml | string | HTML code for JSON-LD product description
+lastUpdated | number | UNIX timestamp for when the page was generated
 
 ### Get category page
 
@@ -102,7 +104,8 @@ Parameters in <strong>bold</strong> are mandatory
     "metaDescriptionHtml": "        <title>Surfboards</title>\n",
     "canonicalUrl": "https://mdemo.ecwid.com/Surfboards-c20671017",
     "ogTagsHtml": "    <meta property=\"og:title\" content=\"Surfboards\" />\n    <meta property=\"og:url\" content=\"https://mdemo.ecwid.com/Surfboards-c20671017\" />\n    <meta property=\"og:image\" content='https://dqzrr9k4bjpzk.cloudfront.net/images/1003/850496617.jpg' />\n    <meta property=\"og:site_name\" content=\"Ecwid Demo Store\" />\n    <meta property=\"og:description\" content=\"&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/category/1003/20671017/1472057318778604431600/Surfboard_Header__1__jpg&quot;&gt;&lt;/p&gt;\" />\n    <meta property=\"og:type\" content=\"website\" />\n\n    <meta name=\"twitter:card\" content=\"summary_large_image\">\n    <meta name=\"twitter:title\" content=\"Surfboards\">\n        <meta name=\"twitter:description\" content=\"&lt;p&gt;&lt;img src=&quot;https://s3.amazonaws.com/images.ecwid.com/images/wysiwyg/category/1003/20671017/1472057318778604431600/Surfboard_Header__1__jpg&quot;&gt;&lt;/p&gt;\">\n    <meta name=\"twitter:image\" content=\"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/850496617.jpg\">\n",
-    "jsonLDHtml": ""
+    "jsonLDHtml": "",
+    "lastUpdated": 1545726821356
 }
 ```
 
@@ -118,6 +121,7 @@ metaDescriptionHtml | string | HTML code for the meta title and description
 canonicalUrl | string | Canonical URL for this page
 ogTagsHtml | string | HTML code for Open Graph tags
 jsonLDHtml | string | HTML code for JSON-LD product description
+lastUpdated | number | UNIX timestamp for when the page was generated
 
 ### Get product page
 
@@ -159,7 +163,8 @@ Parameters in <strong>bold</strong> are mandatory
     "metaDescriptionHtml": "        <title>PYZEL Amigo 6'2 Surfboard</title>\n        <meta name=\"description\" content=\"About PYZEL Amigo 6'2 Surfboard - AMGO-16404 in Poly/Sand/Color &quot;We made the Amigo to fit somewhere right between the Pyzalien and the Flash, as either a chunky shortboard, or a streamlined stubbie. The heart of this board is a very fast, very user friendly rocker that not only gains speed easily, but has a loose, snappy feel in all kinds of waves. The outline is full, with a nice hip leading into\" />\n",
     "canonicalUrl": "https://mdemo.ecwid.com/PYZEL-Amigo-62-Surfboard-p70178249",
     "ogTagsHtml": "    <meta property=\"og:title\" content=\"PYZEL Amigo 6'2 Surfboard\" />\n    <meta property=\"og:url\" content=\"https://mdemo.ecwid.com/PYZEL-Amigo-62-Surfboard-p70178249\" />\n    <meta property=\"og:image\" content='https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476268.jpg' />\n    <meta property=\"og:site_name\" content=\"Ecwid Demo Store\" />\n    <meta property=\"og:description\" content=\"About PYZEL Amigo 6'2 Surfboard - AMGO-16404 in Poly/Sand/Color &quot;We made the Amigo to fit somewhere right between the Pyzalien and the Flash, as either a chunky shortboard, or a streamlined stubbie. The heart of this board is a very fast, very user friendly rocker that not only gains speed easily, but has a loose, snappy feel in all kinds of waves. The outline is full, with a nice hip leading into\" />\n    <meta property=\"og:type\" content=\"website\" />\n\n    <meta name=\"twitter:card\" content=\"summary_large_image\">\n    <meta name=\"twitter:title\" content=\"PYZEL Amigo 6'2 Surfboard\">\n        <meta name=\"twitter:description\" content=\"About PYZEL Amigo 6'2 Surfboard - AMGO-16404 in Poly/Sand/Color &quot;We made the Amigo to fit somewhere right between the Pyzalien and the Flash, as either a chunky shortboard, or a streamlined stubbie. The heart of this board is a very fast, very user friendly rocker that not only gains speed easily, but has a loose, snappy feel in all kinds of waves. The outline is full, with a nice hip leading into\">\n    <meta name=\"twitter:image\" content=\"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476268.jpg\">\n",
-    "jsonLDHtml": "    <script type=\"application/ld+json\">\n    {\n      \"@context\": \"http://schema.org/\",\n      \"@type\": \"Product\",\n      \"name\": \"PYZEL Amigo 6'2 Surfboard\",\n      \"image\": [\n\t\t\t    \"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476268.jpg\",\n\t\t\t    \"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476274.jpg\",\n\t\t\t    \"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476302.jpg\"\n\t  ]\n        \"description\": \"About PYZEL Amigo 6'2 Surfboard - AMGO-16404 in Poly/Sand/Color &quot;We made the Amigo to fit somewhere right between the Pyzalien and the Flash, as either a chunky shortboard, or a streamlined stubbie. The heart of this board is a very fast, very user friendly rocker that not only gains speed easily, but has a loose, snappy feel in all kinds of waves. The outline is full, with a nice hip leading into\",\n      \"sku\": \"AMGO-16404\",\n      \"offers\": {\n        \"@type\": \"Offer\",\n        \"priceCurrency\": \"USD\",\n        \"price\": \"650\",\n        \"url\": \"https://mdemo.ecwid.com/PYZEL-Amigo-62-Surfboard-p70178249\",\n        \"availability\": \"http://schema.org/InStock\",\n        \"seller\": {\n          \"@type\": \"Organization\",\n          \"name\": \"Ecwid Demo Store\"\n        }\n      }\n    }\n    </script>\n"
+    "jsonLDHtml": "    <script type=\"application/ld+json\">\n    {\n      \"@context\": \"http://schema.org/\",\n      \"@type\": \"Product\",\n      \"name\": \"PYZEL Amigo 6'2 Surfboard\",\n      \"image\": [\n\t\t\t    \"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476268.jpg\",\n\t\t\t    \"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476274.jpg\",\n\t\t\t    \"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476302.jpg\"\n\t  ]\n        \"description\": \"About PYZEL Amigo 6'2 Surfboard - AMGO-16404 in Poly/Sand/Color &quot;We made the Amigo to fit somewhere right between the Pyzalien and the Flash, as either a chunky shortboard, or a streamlined stubbie. The heart of this board is a very fast, very user friendly rocker that not only gains speed easily, but has a loose, snappy feel in all kinds of waves. The outline is full, with a nice hip leading into\",\n      \"sku\": \"AMGO-16404\",\n      \"offers\": {\n        \"@type\": \"Offer\",\n        \"priceCurrency\": \"USD\",\n        \"price\": \"650\",\n        \"url\": \"https://mdemo.ecwid.com/PYZEL-Amigo-62-Surfboard-p70178249\",\n        \"availability\": \"http://schema.org/InStock\",\n        \"seller\": {\n          \"@type\": \"Organization\",\n          \"name\": \"Ecwid Demo Store\"\n        }\n      }\n    }\n    </script>\n",
+        "lastUpdated": 1545726821356
 }
 ```
 
@@ -175,3 +180,4 @@ metaDescriptionHtml | string | HTML code for the meta title and description
 canonicalUrl | string | Canonical URL for this page
 ogTagsHtml | string | HTML code for Open Graph tags
 jsonLDHtml | string | HTML code for JSON-LD product description
+lastUpdated | number | UNIX timestamp for when the page was generated

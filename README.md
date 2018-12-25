@@ -10,13 +10,17 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ## December 25, 2018
 
-Improved the flow of working with product images. Now all images (main image and gallery images) are contained within the same field – `media`. 
+1) Improved the flow of working with product images. Now all images (main image and gallery images) are contained within the same field – `media`. 
 
 You are able to get their URLs and sort them the way you need with appropriate fields. To set an existing image as main product image, update its `isMain` field to `true`.
 
 All existing fields (`galleryImages`, `imageUrl`, etc.) are still provided in the API, but they are now deprecated in the documentation. 
 
 [Learn more](https://developers.ecwid.com/api-documentation/products)
+
+2) Added `lastUpdated` field to static pages endpoint response. It represents a UNIX timestamp of when the response data was generated. 
+
+[Learn more](https://developers.ecwid.com/api-documentation/static-store-pages)
 
 ## December 24, 2018
 
