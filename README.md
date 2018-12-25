@@ -8,6 +8,16 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## December 25, 2018
+
+Improved the flow of working with product images. Now all images (main image and gallery images) are contained within the same field – `media`. 
+
+You are able to get their URLs and sort them the way you need with appropriate fields. To set an existing image as main product image, update its `isMain` field to `true`.
+
+All existing fields (`galleryImages`, `imageUrl`, etc.) are still provided in the API, but they are now deprecated in the documentation. 
+
+[Learn more](https://developers.ecwid.com/api-documentation/products)
+
 ## December 24, 2018
 
 We updated the order search filters in the [Ecwid REST API](https://developers.ecwid.com/api-documentation/orders#search-orders) in regards to customer details. 
