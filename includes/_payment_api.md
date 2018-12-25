@@ -105,7 +105,9 @@ If you need to remove the payment method completely, go to: *Ecwid Control Panel
 
 ## Set up payment method
 
-After you [registered a new application](/register) for Ecwid, [send your payment URL](/contact) to the Ecwid team.
+Make sure you have a [registered application](/register) for Ecwid. Specify that you need to add new payment method and interface within Ecwid Control Panel (Native app).
+
+[Send your payment URL](/contact) to the Ecwid team to update it. Install your registered app to your test Ecwid store.
 
 Ecwid will be sending order details requests to payment URL endpoint and expect the order status to be changed after the payment is complete.
 
@@ -211,8 +213,8 @@ Your application can require merchants to specify their account details in your 
 ### Merchant account settings
 
 > Merchant settings example
-
-> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/custom-payment-settings-1534763988.png)
+> 
+> ![Merchant settings example](https://don16obqbay2c.cloudfront.net/wp-content/uploads/payment-template-1545742999.png)
 
 Set up a new tab in Ecwid Control Panel, which will serve as a settings page for your users. This tab will load a page from your server in an iframe in a separate tab of Ecwid Control Panel. See [Native Applications](#native-applications) for more information.
 

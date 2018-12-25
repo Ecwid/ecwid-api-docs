@@ -181,7 +181,7 @@ Receiving and processing the externally called app state depends on the type of 
 GET https://www.example.com/my-app-iframe-page#53035362c226163636573735f746f6b656e223a22776d6
 ```
 
-```js
+```json
 {
   "store_id": 1003,
   "lang": "en",
@@ -906,16 +906,64 @@ Features list is available in the [Store profile endpoint](https://developers.ec
 #### A new tab inside Ecwid Control Panel is not appearing
 You created an app and installed it on your test store, but the new tab is not appearing when you open your store. There are several possible reasons:
 
-* **The application is not configured properly** to be displayed inside Control Panel. E.g. during registration, you forgot to mention that your app will embed itself into Control Panel, or did not choose exact section inside Control Panel where Ecwid needs to display your app. See ["Set up your application"](https://developers.ecwid.com/api-documentation/building-a-native-app#set-up-your-application) for the details.
-* **You didn't include the `add_to_cp` access scope** to the list of requested scopes while authorizing the app. While creating an oauth URL, make sure it incudes the "add_to_cp" scope in the list of requested permissions. 
-* **You're testing it in an Ecwid store which is on Free plan**. Ecwid API functionality including embedding apps is available on paid Ecwid plans only. Please upgrade your account.
+**The application is misconfigured** to be displayed inside Control Panel.
+
+*How to check*
+
+See ["Set up your application"](https://developers.ecwid.com/api-documentation/building-a-native-app#set-up-your-application) and make sure you've provided those details to the Ecwid team.
+
+**The app doesn't have the `add_to_cp` access scope**. While creating an oauth URL, make sure it incudes the "add_to_cp" scope in the list of requested permissions. 
+
+*How to check*
+
+Go to Ecwid Control Panel -> Apps -> My apps and check the permissions of your app provided by the store. If it misses the `add_to_cp` permission, contact Ecwid team to add it. 
+
+**You're testing it in an Ecwid store which is on Free plan**. Ecwid API functionality including embedding apps is available on paid Ecwid plans only. Please upgrade your account.
+
+*How to check*
+
+Go to Ecwid Control Panel -> My Profile -> Billing and Plans and check your current plan status. 
+
+If you need a store for testing and development only, Ecwid provide a free upgrade for you. Contact Ecwid team with Store ID and app details to get it.
 
 #### The application tab appears in Ecwid Control Panel, but it doesn't load the app content
-You created an app and installed it on your test store. The new tab appears in your Control Panel but the new tab content is not loaded and displaing the "Something went wrong" error message instead. Possible reasons:
 
-* **Ecwid cannot reach the iframe URL** that you set up for your application either because it's unavailable or because it has restricted access.
-* **The URL for the app was not set**. If you just recently registered your app, the iframe URL is not set for it yet. Thus, you can see an error when trying to open the app tab in your Ecwid Control Panel. [Contact us](/contact) and provide the URL for your app to fix this.
-* **Browser blocks the document in iframe** because it loads over HTTP while the Control Panel is working over HTTPS (the ["mixed content"](https://developer.mozilla.org/en-US/docs/Security/MixedContent) issue). Please make sure you set an HTTPS URL as the iframe URL in the app settings.
-* **Ecwid Control Panel is restricted to load your app in iframe** because your app server responds with the "SAMEORIGIN" value in [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) header. 
-* **The application in the tab is not initialized**. Make sure you initialized the app with the proper namespace using the .init() method of [Ecwid JS SDK](#ecwid-javascript-sdk). 
-* **The iframe URL performs a redirect**. When loading application in Ecwid Control Panel, Ecwid checks for the iframe page to have the same address as specified in the application. Make sure that your page initializes the app before making a redirect.
+You created an app and installed it on your test store. The new tab appears in your Control Panel but the new tab content is not loaded and displaing the "Something went wrong" error message instead. 
+
+Possible reasons:
+
+**The application in the tab is not initialized**. To display your app, it must first be initialized via Ecwid JS SDK with a correct namespace.
+
+*How to check*
+
+Make sure you initialize the app in your code with the proper namespace using the `.init()` method of [Ecwid JS SDK](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk). 
+
+**The iframe URL performs a redirect**. When loading application in Ecwid Control Panel, Ecwid checks for the iframe page to have the same address as specified in the application. 
+
+*How to check*
+
+Open Development tools in your browser. Find your iframe URL in the Ecwid Control Panel DOM.
+
+Open that URL to check if it does any redirects when opened. Make sure that your page initializes the app via JS SDK **before making a redirect**.
+
+**Browser cannot reach the iframe URL** that you set up for your application either because it's unavailable or because it has restricted access.
+
+*How to check*
+
+Open Development tools in your browser. Find your iframe URL in the Ecwid Control Panel DOM. 
+
+Open that URL to check if it opens for you successfully. 
+
+**Browser blocks the document in iframe** because it loads over HTTP while the Control Panel is working over HTTPS (the ["mixed content"](https://developer.mozilla.org/en-US/docs/Security/MixedContent) issue). 
+
+*How to check*
+
+When this happens, you should see a browser prompt at the top about some content being blocked on a page. 
+
+To fix this, you can either explicitly allow it to load, or provide Ecwid team with a HTTPS iframe URL for your app. 
+
+**Ecwid Control Panel is restricted to load your app in iframe** because your app server responds with the "SAMEORIGIN" value in [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) header. 
+
+*How to check*
+
+This usually is recorded in the browser's console in Developer tools. You can also open your iframe URL directly and check the headers it sends. 

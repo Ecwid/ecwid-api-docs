@@ -897,7 +897,10 @@ Please note that **this method allows to embed the storefront widget only**. If 
 
 ```html
 <div id="my-store-1003"></div>
-<div id="productBrowser"></div>
+<div id="my-categories-1003"></div>
+<div id="my-search-1003"></div>
+<div class="ec-cart-widget"></div>
+
 <script>
   window.ecwid_script_defer = true;
   
@@ -911,7 +914,7 @@ Please note that **this method allows to embed the storefront widget only**. If 
   window._xnext_initialization_scripts = [
       // Storefront widget
       { 
-        widgetType: 'ProductBrowser', id: 'productBrowser', arg: [
+        widgetType: 'ProductBrowser', id: 'my-store-1003', arg: [
           'id=my-store-1003'
         ] 
       },
@@ -932,6 +935,11 @@ Please note that **this method allows to embed the storefront widget only**. If 
         widgetType: 'Product', id: 'Product-1'
       }
   ];
+
+// Initialize Minicart Widget. A div with class '.ec-cart-widget' must be present on a page  
+  
+  Ecwid.init();
+
 </script>
 ```
 
@@ -1072,13 +1080,19 @@ More details: [Ecwid JavaScript API](https://developers.ecwid.com/api-documentat
 
 #### How to load custom JavaScript anytime storefront is loaded
 
-Ecwid API allows you to do the same in more convenient way: you simply specify the URL of file with your custom JavaScript code and Ecwid automatically loads that code in the user storefront. So you don't need to put the JS on merchant site manually or ask them to do that. 
+Ecwid will load a JS file if your app is installed there, and it has the `customize_storefront` permissions, and the URL to your files are set by Ecwid team. 
 
-In more details: 
+Requirements: 
 
-1. After your app is registered, [contact us](/contact) and provide the https URL of the `.css` and/or `.js` file you’d like to load in the user storefront.
-2. When asking a user to install your app, Ecwid will request the `customize_storefront` permission from them. (*If your app is for a specific store, make sure to add `customize_storefront` scope in the OAuth process.*)
-3. The next time the user storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
+- A [registered app](https://developers.ecwid.com/register) with `customize_storefront` access scope
+- Ready or dummy JS file uploaded to your server
+- Ecwid store on a paid plan
+
+Required actions: 
+
+1. After your app is registered, [contact us](/contact) and provide **HTTPS URL** of `.js` and/or `.css` file you’d like to load in the user storefront.
+2. Install your app into the target Ecwid store using instructions provided in registration email.
+3. The next time storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
 
 <aside class="notice">
 Permission required: <strong>customize_storefront</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)

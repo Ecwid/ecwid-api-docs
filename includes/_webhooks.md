@@ -597,7 +597,15 @@ To setup custom HTTP headers for your app webhooks, please [contact us](/contact
 
 ## Processing webhooks
 
-Webhooks are a way to get notified about events in an Ecwid store. So they shouldn't be used as actionable items. See processing flow examples below.
+Webhooks are a way to get notified about events in an Ecwid store. They are not sent in any particular order. So you shouldn't use them as actionable items.
+
+A rough description of webhook processing looks like this: 
+
+- Receive a webhook from Ecwid
+- Check the entity that changed with the event in REST API (product, order, etc.)
+- Stop the further procedures or continue, depending on previous step results and your goal
+
+See some processing flow examples below.
 
 <aside class='note'>
 Webhooks are sent on any update of an order/product. Even if one field has changed. So make sure to check the details of order/product before processing it further.

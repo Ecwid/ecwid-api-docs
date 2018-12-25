@@ -1411,6 +1411,51 @@ Cache-Control: no-cache
 }
 ```
 
+> Request example -- create new taxes
+
+```http
+PUT /api/v3/4870020/profile?token=123abcd HTTP/1.1
+Host: app.ecwid.com
+Cache-Control: no-cache
+```
+
+```json
+{
+  "taxSettings": {
+      "taxes": [
+        // existing taxes
+          {
+                "id": 1646689471,
+                "name": "TVA",
+                "enabled": false,
+                "includeInPrice": false,
+                "useShippingAddress": true,
+                "taxShipping": true,
+                "appliedByDefault": true,
+                "defaultTax": 20,
+                "rules": []
+          },
+        // new tax
+          {
+                "name": "tax from API",
+                "enabled": true,
+                "includeInPrice": true,
+                "useShippingAddress": true,
+                "taxShipping": true,
+                "appliedByDefault": true,
+                "defaultTax": 33,
+                "rules": [
+                    {
+                        "zoneId": "7715-1423477610739",
+                        "tax": 9
+                    }
+                ]
+          }
+      ]
+  }
+}
+```
+
 `PUT https://app.ecwid.com/api/v3/{storeId}/profile?token={token}`
 
 Name | Type    | Description
@@ -1547,7 +1592,7 @@ description | string | Handling fee description for customer
 Field | Type | Description
 ----- | ---- | -----------
 automaticTaxEnabled | boolean | `true` if taxes are calculated automatically, `else` otherwise
-taxes | Array\<*Taxes*\> | Manual tax settings for a store
+taxes | Array\<*Taxes*\> | Manual tax settings for a store. To create a new tax, send all existing taxes and add a new one to the array, without `id` field
 
 #### Taxes
 Field | Type | Description
