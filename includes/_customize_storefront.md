@@ -495,6 +495,8 @@ window.ec.config = window.ec.config || Object();
 window.ec.config.chameleon = window.ec.config.chameleon || Object();
 window.ec.config.chameleon.font = 'auto';
 window.ec.config.chameleon.colors = 'auto';
+
+Ecwid.refreshConfig();
 </script>
 ```
 
@@ -510,6 +512,8 @@ window.ec = window.ec || Object();
 window.ec.config = window.ec.config || Object();
 window.ec.config.chameleon = window.ec.config.chameleon || Object();
 window.ec.config.chameleon.colors = 'auto';
+
+Ecwid.refreshConfig();
 </script>
 ```
 
@@ -527,6 +531,8 @@ window.ec.config.chameleon.colors = {
   'color-button':'#4EA3F0',
   'color-price':'#FF0606'
 }
+
+Ecwid.refreshConfig();
 </script>
 ```
 
@@ -546,6 +552,8 @@ window.ec.config.chameleon = {
     'font-family': 'arial,sans-serif'
   }
 }
+
+Ecwid.refreshConfig();
 </script>
 ```
 
@@ -573,6 +581,8 @@ window.ec = window.ec || Object();
 window.ec.config = window.ec.config || Object();
 window.ec.config.chameleon = window.ec.config.chameleon || Object();
 window.ec.config.chameleon.font = 'auto';
+
+Ecwid.refreshConfig();
 </script>
 ```
 
@@ -586,6 +596,8 @@ window.ec.config.chameleon = window.ec.config.chameleon || Object();
 window.ec.config.chameleon.font = {
   'font-family': 'arial,sans-serif'
 }
+
+Ecwid.refreshConfig();
 </script>
 ```
 
@@ -602,6 +614,8 @@ window.ec.config.chameleon = {
       'font-family': 'arial,sans-serif'
     }
   }
+
+Ecwid.refreshConfig();
 </script>
 ```
 
@@ -895,16 +909,35 @@ Please note that **this method allows to embed the storefront widget only**. If 
   document.getElementById('my-store-1003').appendChild(script);
 
   window._xnext_initialization_scripts = [
-      { widgetType: 'ProductBrowser', id: 'productBrowser', arg: [
-          '"id=productBrowser"'
-      ] }
+      // Storefront widget
+      { 
+        widgetType: 'ProductBrowser', id: 'productBrowser', arg: [
+          'id=my-store-1003'
+        ] 
+      },
+      // Horizontal categories widget
+      { 
+        widgetType: 'CategoriesV2', id: 'id=my-categories-1003', arg: [
+          'id=my-categories-1003'
+        ] 
+      },
+      // Search widget
+      { 
+        widgetType: 'SearchWidget', id: 'my-search-1003', arg: [
+          '"id=my-search-1003"'
+        ] 
+      },
+      // 'Buy now' button for product
+      { 
+        widgetType: 'Product', id: 'Product-1'
+      }
   ];
 </script>
 ```
 
 Sometimes it is necessary to delay widget initialization while the website page finishes the initialization procedures. This is useful when the website is built dynamically using libraries such as **ReactJs**.
 
-See the example of delayed initialization of Ecwid widget on the right.
+See the example of delayed initialization of different Ecwid widgets on the right.
 
 ### Increase widget loading speed
 
