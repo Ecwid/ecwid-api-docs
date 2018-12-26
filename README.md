@@ -8,6 +8,16 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## December 26, 2018
+
+Shipping apps can now provide custom description for their shipping methods displayed at checkout. 
+
+Use the new field `description` when returning shipping rates back to Ecwid when customer is at checkout. 
+
+**Important**: for new Ecwid accounts, we do not use the `transitDays` field. So make sure to update your app to provide `description` field as well as `transitDays` so both old and new users can see the estimates.
+
+[Add Shipping Method Documentation](https://developers.ecwid.com/api-documentation/add-shipping-method)
+
 ## December 25, 2018
 
 1) Improved the flow of working with product images. Now all images (main image and gallery images) are contained within the same field – `media`. 

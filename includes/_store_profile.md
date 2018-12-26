@@ -346,6 +346,7 @@ Name | Type    | Description
               ]
             },
             "deliveryTimeDays": "1-2",
+            "description": "1-2",
             "carrier": ""
           },
           // In-store pickup method
@@ -870,6 +871,7 @@ Cache-Control: no-cache
             "ratesCalculationType": "table",
             "ratesTable": {},
               "deliveryTimeDays": "1-2",
+              "description": "1-2",
               "carrier": ""
           },
           {
@@ -1087,6 +1089,7 @@ orderby | number | Sort position or shipping option at checkout and in store set
 fulfilmentType | string | Fulfillment type. `"pickup"` for in-store pickup methods, `"shipping"` for everything else
 destinationZone | \<*Zone*\> | Destination zone set for shipping option. **Empty for public token**
 deliveryTimeDays | string | Estimated delivery time in days. Formats accepted: empty `""`, number `"5"`, several days estimate `"4-9"`
+description | string | Shipping method description. Currently is equal to `deliveryTimeDays`
 carrier | string | Carrier used for shipping the order. Is provided for carrier-calculated shipping options
 carrierMethods | Array \<*CarrierMethod*\> | Carrier-calculated shipping methods available for this shipping option
 carrierSettings | \<*CarrierSettings*\> | Carrier-calculated shipping option settings

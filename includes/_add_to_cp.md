@@ -906,19 +906,19 @@ Features list is available in the [Store profile endpoint](https://developers.ec
 #### A new tab inside Ecwid Control Panel is not appearing
 You created an app and installed it on your test store, but the new tab is not appearing when you open your store. There are several possible reasons:
 
-**The application is misconfigured** to be displayed inside Control Panel.
+**1. The application is misconfigured** to be displayed inside Control Panel.
 
 *How to check*
 
 See ["Set up your application"](https://developers.ecwid.com/api-documentation/building-a-native-app#set-up-your-application) and make sure you've provided those details to the Ecwid team.
 
-**The app doesn't have the `add_to_cp` access scope**. While creating an oauth URL, make sure it incudes the "add_to_cp" scope in the list of requested permissions. 
+**2. The app doesn't have the `add_to_cp` access scope**. While creating an oauth URL, make sure it incudes the "add_to_cp" scope in the list of requested permissions. 
 
 *How to check*
 
 Go to Ecwid Control Panel -> Apps -> My apps and check the permissions of your app provided by the store. If it misses the `add_to_cp` permission, contact Ecwid team to add it. 
 
-**You're testing it in an Ecwid store which is on Free plan**. Ecwid API functionality including embedding apps is available on paid Ecwid plans only. Please upgrade your account.
+**3. You're testing it in an Ecwid store which is on Free plan**. Ecwid API functionality including embedding apps is available on paid Ecwid plans only. Please upgrade your account.
 
 *How to check*
 
@@ -932,13 +932,13 @@ You created an app and installed it on your test store. The new tab appears in y
 
 Possible reasons:
 
-**The application in the tab is not initialized**. To display your app, it must first be initialized via Ecwid JS SDK with a correct namespace.
+**1. The application in the tab is not initialized**. To display your app, it must first be initialized via Ecwid JS SDK with a correct namespace.
 
 *How to check*
 
 Make sure you initialize the app in your code with the proper namespace using the `.init()` method of [Ecwid JS SDK](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk). 
 
-**The iframe URL performs a redirect**. When loading application in Ecwid Control Panel, Ecwid checks for the iframe page to have the same address as specified in the application. 
+**2. The iframe URL performs a redirect**. When loading application in Ecwid Control Panel, Ecwid checks for the iframe page to have the same address as specified in the application. 
 
 *How to check*
 
@@ -946,7 +946,7 @@ Open Development tools in your browser. Find your iframe URL in the Ecwid Contro
 
 Open that URL to check if it does any redirects when opened. Make sure that your page initializes the app via JS SDK **before making a redirect**.
 
-**Browser cannot reach the iframe URL** that you set up for your application either because it's unavailable or because it has restricted access.
+**3. Browser cannot reach the iframe URL** that you set up for your application either because it's unavailable or because it has restricted access.
 
 *How to check*
 
@@ -954,7 +954,7 @@ Open Development tools in your browser. Find your iframe URL in the Ecwid Contro
 
 Open that URL to check if it opens for you successfully. 
 
-**Browser blocks the document in iframe** because it loads over HTTP while the Control Panel is working over HTTPS (the ["mixed content"](https://developer.mozilla.org/en-US/docs/Security/MixedContent) issue). 
+**4. Browser blocks the document in iframe** because it loads over HTTP while the Control Panel is working over HTTPS (the ["mixed content"](https://developer.mozilla.org/en-US/docs/Security/MixedContent) issue). 
 
 *How to check*
 
@@ -962,7 +962,7 @@ When this happens, you should see a browser prompt at the top about some content
 
 To fix this, you can either explicitly allow it to load, or provide Ecwid team with a HTTPS iframe URL for your app. 
 
-**Ecwid Control Panel is restricted to load your app in iframe** because your app server responds with the "SAMEORIGIN" value in [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) header. 
+**5. Ecwid Control Panel is restricted to load your app in iframe** because your app server responds with the "SAMEORIGIN" value in [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) header. 
 
 *How to check*
 

@@ -710,11 +710,13 @@ description | string | Handling fee description for customer
     "shippingOptions": [{
         "title": "SuperMail First Class",
         "rate": 10.31,
-        "transitDays": "2-7"
+        "transitDays": "1",
+        "description": "Courier will come tomorrow between 10AM-12PM."
     }, {
         "title": "SuperMail Regular Delivery",
         "rate": 5.01,
-        "transitDays": "5"
+        "transitDays": "5",
+        "description": "This method provides tracking number."
     }]
 }
 ```
@@ -728,6 +730,10 @@ Name | Type    | Description
 **title** | string | Shipping method name
 **rate** | number | Shipping rate amount
 **transitDays** | string | Estimated delivery time. Formats accepted: empty `""`, number `"5"`, several days estimate `"4-9"`
+**description** | string | Shipping method description. Plain text only, HTML is not allowed.
+
+<aside class="notice"><strong>Important:</strong> for new Ecwid accounts, we do not use the 'transitDays' field. <br/><br/>So make sure to update your app to provide 'description' field as well as 'transitDays' so both old and new users can see the estimates.
+</aside>
 
 <aside class="notice">
 Response parameters in <strong>bold</strong> are mandatory
