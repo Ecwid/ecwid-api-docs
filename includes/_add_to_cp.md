@@ -962,7 +962,7 @@ When this happens, you should see a browser prompt at the top about some content
 
 To fix this, you can either explicitly allow it to load, or provide Ecwid team with a HTTPS iframe URL for your app. 
 
-**5. Ecwid Control Panel is restricted to load your app in iframe** because your app server responds with the "SAMEORIGIN" value in [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) header. 
+**5. Ecwid Control Panel is restricted to load your app in iframe** because your app server responds with the `"SAMEORIGIN"` value in [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) header. 
 
 *How to check*
 
