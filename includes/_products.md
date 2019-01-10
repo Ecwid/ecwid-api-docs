@@ -876,7 +876,7 @@ height | number | Height of a product
 Field | Type  | Description
 -------------- | -------------- | --------------
 defaultLocationIncludedTaxRate | number | Default tax rate (%) for including into product price. Is a sum of all enabled taxes included in product price for the store location. Read only
-enabledManualTaxes | Array\<*TaxId*\> | Array of tax IDs, as listed in (store information)[https://developers.ecwid.com/api-documentation/store-information#get-store-profile]. Empty array if no manual taxes are enabled or automatic taxes are enabled
+enabledManualTaxes | Array\<*number*\> | Array of internal Ecwid tax IDs, as listed in [store information](https://developers.ecwid.com/api-documentation/store-information#get-store-profile). Empty array if no manual taxes are enabled or automatic taxes are enabled
 
 #### Errors
 
@@ -1468,7 +1468,7 @@ height | number | Height of a product
 Field | Type  | Description
 -------------- | -------------- | --------------
 defaultLocationIncludedTaxRate | number | Default tax rate (%) for including into product price. Is a sum of all enabled taxes included in product price for the store location. Read only
-enabledManualTaxes | Array\<*TaxId*\> | Array of tax IDs, as listed in (store information)[https://developers.ecwid.com/api-documentation/store-information#get-store-profile]. Empty array if no manual taxes are enabled or automatic taxes are enabled
+enabledManualTaxes | Array\<*number*\> | Array of internal Ecwid tax IDs, as listed in [store information](https://developers.ecwid.com/api-documentation/store-information#get-store-profile). Empty array if no manual taxes are enabled or automatic taxes are enabled
 
 #### Errors
 
@@ -1731,7 +1731,7 @@ height | number | Height of a product
 #### TaxInfo
 Field | Type  | Description
 -------------- | -------------- | --------------
-enabledManualTaxes | Array\<*TaxId*\> | Array of tax IDs, as listed in (store information)[https://developers.ecwid.com/api-documentation/store-information#get-store-profile]. Empty array if no manual taxes are enabled or automatic taxes are enabled
+enabledManualTaxes | Array\<*number*\> | Array of internal Ecwid tax IDs, as listed in [store information](https://developers.ecwid.com/api-documentation/store-information#get-store-profile). Empty array if no manual taxes are enabled or automatic taxes are enabled
 
 #### Response
 
@@ -1981,7 +1981,7 @@ height | number | Height of a product
 #### TaxInfo
 Field | Type  | Description
 -------------- | -------------- | --------------
-enabledManualTaxes | Array\<*TaxId*\> | Array of tax IDs, as listed in (store information)[https://developers.ecwid.com/api-documentation/store-information#get-store-profile]. Empty array if no manual taxes are enabled or automatic taxes are enabled
+enabledManualTaxes | Array\<*TaxId*\> | Array of internal Ecwid tax IDs, as listed in [store information](https://developers.ecwid.com/api-documentation/store-information#get-store-profile). Empty array if no manual taxes are enabled or automatic taxes are enabled
 
 #### Response
 

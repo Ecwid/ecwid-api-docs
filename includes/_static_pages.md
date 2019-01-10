@@ -4,7 +4,7 @@ Static store page endpoints allow you to generate an HTML snapshot of Ecwid stor
 
 You can use that snapshot to display a lightweight starting page for the site visitors, while loading a full-functioning Ecwid store in background. This significantly speeds up store loading.
 
-Learn more about these endpoints: [Static store pages](/https://developers.ecwid.com/api-documentation/customize-behaviour#static-snapshots-of-store-pages)
+Learn more about these endpoints: [Static store pages](https://developers.ecwid.com/api-documentation/customize-behaviour#static-snapshots-of-store-pages)
 
 ### Get store home page
 
