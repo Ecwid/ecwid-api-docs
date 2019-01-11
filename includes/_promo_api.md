@@ -3,7 +3,7 @@
 With the Custom Discount API you can apply custom discounts to the order total when the customer is at the checkout.
 
 <aside class="notice">
-Access scope required: <strong>customize_cart_calculation</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
+Access scope required: <strong>customize_cart_calculation</strong> (see <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">Access scopes</a>)
 </aside>
 
 **Table of contents**: 

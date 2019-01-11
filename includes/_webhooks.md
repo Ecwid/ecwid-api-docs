@@ -74,7 +74,7 @@ The following events are supported:
 `order.updated` and `unfinished_order.updated` events are triggered when any changes are made to an unfinished or completed order. [Orders endpoint](#orders) allows you to control and get information about unfinished and completed orders in a store. 
 
 <aside class="notice">
-Access scope required: <strong>read_orders</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
+Access scope required: <strong>read_orders</strong> (see <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">Access scopes</a>)
 </aside>
 
 #### Products
@@ -86,7 +86,7 @@ Access scope required: <strong>read_orders</strong> (see <a href="https://develo
 `product.updated` events are triggered when any part of a product is updated: quantity, categories assigned, product options, variations, attributes, images, pricing, etc. [Products endpoint](#products) allows you to control and get information about products in a store. 
 
 <aside class="notice">
-Access scope required: <strong>read_catalog</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
+Access scope required: <strong>read_catalog</strong> (see <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">Access scopes</a>)
 </aside>
 
 #### Categories
@@ -98,7 +98,7 @@ Access scope required: <strong>read_catalog</strong> (see <a href="https://devel
 `category.updated` events are triggered when any [part of category](https://developers.ecwid.com/api-documentation/categories#get-category) is updated: parentId, order by index, category image, name, product list, description, enabled status. [Category endpoint](https://developers.ecwid.com/api-documentation/categories) allows you to control and get category information in a store.
 
 <aside class="notice">
-Access scope required: <strong>read_catalog</strong> OR <strong>create_catalog</strong> OR <strong>update_catalog</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>).
+Access scope required: <strong>read_catalog</strong> OR <strong>create_catalog</strong> OR <strong>update_catalog</strong> (see <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">Access scopes</a>).
 </aside>
 
 #### Application
@@ -125,7 +125,7 @@ Access scope required: <strong>read_catalog</strong> OR <strong>create_catalog</
 [Customers endpoint](#customers) allows you to get and update customer information.
 
 <aside class="notice">
-Access scope required: <strong>read_customers</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
+Access scope required: <strong>read_customers</strong> (see <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">Access scopes</a>)
 </aside>
 
 ## Set up webhooks
@@ -516,7 +516,7 @@ For example, if you only need to listen to order updates, you can just reply `20
 * `customer.updated` Customer is updated
 * `customer.deleted` Customer is deleted
 
-All order-related webhooks require `read_orders` access scope, all product- and category-related webhooks require `read_catalog` access scope, all customer-related webhooks require `read_customers` [access scope](https://developers.ecwid.com/api-documentation/external-applications#access-scopes) to be requested from the store.
+All order-related webhooks require `read_orders` access scope, all product- and category-related webhooks require `read_catalog` access scope, all customer-related webhooks require `read_customers` [access scope](https://developers.ecwid.com/api-documentation/access-tokens#access-scopes) to be requested from the store.
 
 #### Q: What is an unfinished order and how it works? 
 

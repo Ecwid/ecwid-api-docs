@@ -6,7 +6,7 @@ If a merchant already has a customer base on their website, customers may find i
 
 Ecwid’s Single Sign-On feature allows those customers to sign into a merchant’s website and use the entire Ecwid store without having to log in again. 
 
-<aside class="notice">Access scope required: <strong>create_customers</strong>. See more information in <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">access scopes section</a></aside>
+<aside class="notice">Access scope required: <strong>create_customers</strong>. See more information in <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">access scopes section</a></aside>
 
 **Table of contents**
 

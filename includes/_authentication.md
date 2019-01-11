@@ -126,35 +126,6 @@ public_token | [Public authorization token](#access-tokens). Provided if request
 For security reasons, a temporary code can be exchanged to an access token only once. In case of second attempt, the previously provided access token is automatically disabled.
 </aside>
 
-### Access scopes
-
-Scopes are permissions that identifies the scope of access your application requests from the user. Below you can see the names of access scopes that exist in Ecwid API and their description.
-
-Each application has their specified set of access scopes which are required for this applicaiton. If you specify additional scopes, that excess the specified ones for the app in Ecwid, you will see an error message. So if you need to add more access scopes - please [contact us](/contact) to update your app.
-
-Access scope | Notes
------------- | -----
-read_store_profile | Get store name and general settings, get store admin email, get updates statistics etc. *Requested in all cases even if not specified*
-update_store_profile | Set taxes, update invoice logo, change Starter Site domain, close store for maintenance etc.
-read_catalog | Search products, get product options/variations etc. Also allows to receive push updates (webhooks) about changes in store products.
-update_catalog | Update product prices, upload images and e-goods, modify product attributes, delete products and categories, etc.
-create_catalog | Create new products
-read_orders | Get sales for a given period, retrieve order details etc. Also allows to receive push updates (webhooks) about changes in store orders.
-update_orders | Change order totals, switch order status, cancel orders, delete orders, etc. Requires `read_orders` scope to function
-create_orders | Place a new order in the store
-read_customers | Search customers or retrieve some particular customer data
-update_customers | Change customer profile data, add items to the customer address book, delete customers, etc.
-create_customers | Add a new customer to the store's Customers list
-read_discount_coupons | Get the list of discount coupons or retrieve some particular coupon details
-update_discount_coupons | Change the coupon expiration date or limit its number of use, update coupon code, delete coupon codes, etc.
-create_discount_coupons | Add a new discount coupon
-customize_storefront | Attach a custom JS/CSS to the storefront on the fly to modify its look and feel (see [Customizing storefront](#customize-storefront))
-add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
-add_shipping_method | Add a new shipping method to the store (see [Custom Shipping API](#add-shipping-method))
-add_payment_method | Add a new payment method to the store (see [Add Payment Method](#add-payment-method))
-public_storefront | Get public store details with public access token
-customize_cart_calculation | Apply custom discounts to orders in real time
-
 ### Complete oAuth flow
 
 This method of getting access token is meant for apps that are installed outside of the Ecwid App Market, for example: apps that work on a device, apps for mobile devices, CMS plugins, etc. 
@@ -343,6 +314,35 @@ With public access token you can use several REST API endpoints from anywhere (c
 - [Get deleted products statistics](https://developers.ecwid.com/api-documentation/store-information#get-deleted-items-statistics)
 - [Create new orders](https://developers.ecwid.com/api-documentation/orders#create-order)
 - [Calculate order details](https://developers.ecwid.com/api-documentation/carts#calculate-order-details)
+
+### Access scopes
+
+Scopes are permissions that identifies the scope of access your application requests from the user. Below you can see the names of access scopes that exist in Ecwid API and their description.
+
+Each application has their specified set of access scopes which are required for this applicaiton. If you specify additional scopes, that excess the specified ones for the app in Ecwid, you will see an error message. So if you need to add more access scopes - please [contact us](/contact) to update your app.
+
+Access scope | Notes
+------------ | -----
+read_store_profile | Get store name and general settings, get store admin email, get updates statistics etc. *Requested in all cases even if not specified*
+update_store_profile | Set taxes, update invoice logo, change Starter Site domain, close store for maintenance etc.
+read_catalog | Search products, get product options/variations etc. Also allows to receive push updates (webhooks) about changes in store products.
+update_catalog | Update product prices, upload images and e-goods, modify product attributes, delete products and categories, etc.
+create_catalog | Create new products
+read_orders | Get sales for a given period, retrieve order details etc. Also allows to receive push updates (webhooks) about changes in store orders.
+update_orders | Change order totals, switch order status, cancel orders, delete orders, etc. Requires `read_orders` scope to function
+create_orders | Place a new order in the store
+read_customers | Search customers or retrieve some particular customer data
+update_customers | Change customer profile data, add items to the customer address book, delete customers, etc.
+create_customers | Add a new customer to the store's Customers list
+read_discount_coupons | Get the list of discount coupons or retrieve some particular coupon details
+update_discount_coupons | Change the coupon expiration date or limit its number of use, update coupon code, delete coupon codes, etc.
+create_discount_coupons | Add a new discount coupon
+customize_storefront | Attach a custom JS/CSS to the storefront on the fly to modify its look and feel (see [Customizing storefront](#customize-storefront))
+add_to_cp | Add a new tab to merchant control panel (see [Embedding apps](#embedded-apps))
+add_shipping_method | Add a new shipping method to the store (see [Custom Shipping API](#add-shipping-method))
+add_payment_method | Add a new payment method to the store (see [Add Payment Method](#add-payment-method))
+public_storefront | Get public store details with public access token
+customize_cart_calculation | Apply custom discounts to orders in real time
 
 ## App details page
 

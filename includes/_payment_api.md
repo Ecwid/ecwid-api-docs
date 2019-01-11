@@ -7,7 +7,7 @@
 With the Custom Payment API you can integrate a new payment method for customers of Ecwid stores to choose from. This functionality will work in the form of an application that users install from the Ecwid App Market.
 
 <aside class="notice">
-Access scope required: <strong>add_payment_method, read_orders, update_orders</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
+Access scope required: <strong>add_payment_method, read_orders, update_orders</strong> (see <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">Access scopes</a>)
 </aside>
 
 **Table of contents**: 

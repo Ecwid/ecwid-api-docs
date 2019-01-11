@@ -3,7 +3,7 @@
 Using the Custom Shipping API, you can integrate a new shipping carrier to provide real-time shipping methods with different rates for the Ecwid store customers. This functionality will work in the form of an application that users install from the Ecwid App Market.
 
 <aside class="notice">
-Access scope required: <strong>add_shipping_method</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
+Access scope required: <strong>add_shipping_method</strong> (see <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">Access scopes</a>)
 </aside>
 
 **Table of contents**: 
@@ -759,7 +759,7 @@ Gram is the main weight unit, from which other units are converted. Merchants ca
 
 You created an app and installed it on your test store, but a new shipping method, returned by your resource, is not appearing when you open your store. There are several possible reasons for this:
 
-* **The application is not configured properly** to add a shipping method at checkout. E.g. during registration, you haven't provided a link for Ecwid to send the requests to when customer is at checkout or the URL is incorrect. See [How to set uo](https://developers.ecwid.com/api-documentation/set-up-shipping-method) for the details.
+* **The application is not configured properly** to add a shipping method at checkout. E.g. during registration, you haven't provided a link for Ecwid to send the requests to when customer is at checkout or the URL is incorrect. See [How to set up](https://developers.ecwid.com/api-documentation/set-up-shipping-method) for the details.
 * **`add_shipping_method` access scope** is missing in the list of requested scopes while installing the app. While creating an oAuth URL or installing your app from an app details page, make sure it incudes the `add_to_cp` scope in the list of requested permissions. 
 * **The response format from your resource is incorrect**. Ecwid accepts response from shipping applications in [a strict format](https://developers.ecwid.com/api-documentation/shipping-request-and-response), so please make sure your endpoint is responding correctly back to Ecwid with the correct shipping methods. 
 * **The response from your resource has exceeded 10 second timeout**. When Ecwid sends a request for additional shipping methods to external resources, it expects to get a response within the 10 second timeout period. Make sure that your service is able to provide response in that time period.

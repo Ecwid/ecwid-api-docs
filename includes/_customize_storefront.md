@@ -667,7 +667,7 @@ In more details:
 4. The next time merchant's storefront is loaded in any browser or website, your external CSS file will be automatically appended, loaded, and executed on that page.
 
 <aside class="notice">
-Permission required: <strong>customize_storefront</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
+Permission required: <strong>customize_storefront</strong> (see <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">Access scopes</a>)
 </aside>
 
 #### Q: Can I create new themes as apps?
@@ -1095,7 +1095,7 @@ Required actions:
 3. The next time storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
 
 <aside class="notice">
-Permission required: <strong>customize_storefront</strong> (see <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">Access scopes</a>)
+Permission required: <strong>customize_storefront</strong> (see <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">Access scopes</a>)
 </aside>
 
 #### Q: How to know what Ecwid widgets are on a page?
