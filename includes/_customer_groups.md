@@ -180,6 +180,10 @@ errorMessage | string | Error message
 
 Create a brand new customer group in an Ecwid store.
 
+<aside class="notice">
+You can create only one customer group per API request. To create several customer groups, send several separate requests for each coupon.
+</aside>
+
 #### Request
 
 > Request body

@@ -1,64 +1,47 @@
 # Overview
 
-The documentation below describes various ways to interact with the Ecwid store by using the API. 
+The documentation below describes various ways to interact with an Ecwid store by using various API features. Platform introduction: [https://developers.ecwid.com/intro](https://developers.ecwid.com/intro)
 
 <aside class="note">
 To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
 </aside>
 
-In each section you can find a detailed description, as well as code examples for managing store data that will help you create your own application.
+Each section has a detailed description as well as code examples to help you create a public app or customize your own store.
 
 **Shortcuts:**
 
-- [Platform Intro](/intro)
-- [Get started](/begin-development)
-- [Manage your app](/develop-your-app)
-- [Best Practices](/guidelines)
-
-**Table of contents**:
-
-- [Overview](https://developers.ecwid.com/api-documentation/overview)
-- [Authentication](https://developers.ecwid.com/api-documentation/authentication)
-- [REST API Reference](https://developers.ecwid.com/api-documentation/rest-api-reference)
-- [Order Extra Fields](https://developers.ecwid.com/api-documentation/order-extra-fields)
-- [Webhooks](https://developers.ecwid.com/api-documentation/webhooks)
-- [Application Storage](https://developers.ecwid.com/api-documentation/application-storage)
-- [Native Apps](https://developers.ecwid.com/api-documentation/embedded-apps)
-- [Add Shipping Method](https://developers.ecwid.com/api-documentation/add-shipping-method)
-- [Add Payment Method](https://developers.ecwid.com/api-documentation/add-payment-method)
-- [Add Custom Discount](https://developers.ecwid.com/api-documentation/add-custom-discount)
-- [Customize Storefront](https://developers.ecwid.com/api-documentation/customize-storefront)
-- [Storefront JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api)
-- [Single Sign-On](https://developers.ecwid.com/api-documentation/single-signon)
-- [Examples and Libraries](https://developers.ecwid.com/api-documentation/examples-and-libraries)
+- [Get started with API](https://developers.ecwid.com/begin-development)
+- [Manage your app](https://developers.ecwid.com/develop-your-app)
+- [Best practices for public apps](https://developers.ecwid.com/guidelines)
+- [API features](https://developers.ecwid.com/api-documentation/api-features)
 
 ## API features
 
-**REST API**
+#### REST API
 
 Ecwid REST API allows your application to manage Ecwid store on behalf of an Ecwid user. Create products, update orders, delete a customer and many many more.
 
 Check out all available methods: [REST API](https://developers.ecwid.com/api-documentation/rest-api-reference)
 
-**Native Apps**
+#### Native Apps
 
 Will your app have a settings page for a user to update them quickly? Place it right in Ecwid Control Panel! It is a great way to put your app up front to the users and let them use if more often.
 
 More information: [Native applications](https://developers.ecwid.com/api-documentation/native-applications)
 
-**Webhooks**
+#### Webhooks
 
 Webhooks allow you to get an instant notification after an event ocurred in an Ecwid store. Send information to accounting right after an order was placed, send a note after a product was updated - it's totally up to you.
 
 More information: [Webhooks](https://developers.ecwid.com/api-documentation/webhooks)
 
-**Order Extra Fields**
+#### Order Extra Fields
 
 Save technical information about an order in its details or add new fields to the store checkout process with Order Extra Fields. 
 
 More information: [Order Extra Fields](https://developers.ecwid.com/api-documentation/order-extra-fields)
 
-**Add Shipping Methods**
+#### Add Shipping Methods
 
 Custom Shipping API allows you to add new shipping methods in an Ecwid store as if they were available out of the box. Merchant can configure the integration in Ecwid Control Panel and new shipping methods will be displayed at checkout for store customers.
 
@@ -68,31 +51,31 @@ More information: [Custom Shipping API](https://developers.ecwid.com/api-documen
 
 > [https://developers.ecwid.com/intro](https://developers.ecwid.com/intro)
 
-**Add Payment Method**
+#### Add Payment Method
 
 Custom Payment API allows you to add new payment methods to an Ecwid store. Merchant will install your app, set it up and they will be able to accept payments through your payment system for orders in their store.
 
 More information: [Custom Payment API](https://developers.ecwid.com/api-documentation/add-payment-method)
 
-**Apply Custom Discount**
+#### Apply Custom Discount
 
 Custom Discount API allows you to apply a custom discount amount to an order being placed at the moment. Merchant can configure the discount rules in their Ecwid Control Panel using the Native apps feature and customers will have discounts on their orders according to those rules at checkout.
 
 More information: [Custom Discount API](https://developers.ecwid.com/api-documentation/add-custom-discount)
 
-**Application Storage**
+#### Application Storage
 
 Application storage is a key/value storage that can serve as a database for your application and a way to send details to user's storefront. All data is kept on Ecwid servers, so you don't need to worry about keeping the data safe. 
 
 More information: [Application storage](https://developers.ecwid.com/api-documentation/application-storage)
 
-**Storefront customization**
+#### Storefront customization
 
 Ecwid has a beautifully designed storefront that is aimed to direct customers to make a purchase in a store. If you want to customize how it looks or its logic - you can do that too: attach an external Javascript file or adapt a store to make it stylish. 
 
 More information: [Customize Storefront](https://developers.ecwid.com/api-documentation/customize-storefront)
 
-**Storefront Single Sign-On**
+#### Storefront Single Sign-On
 
 Ecwid is a widget, that can be inserted to any website. Many websites have their own login functionality as well as Ecwid. To allow customers to sign in to their account in storefront automatically right after they sign in to merchant's website or service, use Single Sign-On feature. It will save customers' time and let them concentrate on shopping in the store.
 

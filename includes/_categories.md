@@ -444,6 +444,10 @@ It is possible to use the `cleanUrls` parameter together with the `baseUrl` para
 
 Create a new category in an Ecwid store catalog.
 
+<aside class="notice">
+You can create only one category per API request. To create several categories, send several separate requests for each coupon.
+</aside>
+
 #### Request
 
 > Request body

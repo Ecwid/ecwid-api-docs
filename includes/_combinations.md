@@ -353,8 +353,6 @@ HTTP Status | Meaning
 
 ### Create product variation
 
-You can create a new product variation using this method. If the options you specify in request don't exist, they will be created automatically with the type of dropdown. If you want to create options explicitly, use the [Update product](#update-a-product) call to create them. 
-
 > Request example
 
 ```http
@@ -391,6 +389,12 @@ Content-Type: application/json;charset=utf-8
     ]
 }
 ```
+
+You can create a new product variation using this method. If the options you specify in request don't exist, they will be created automatically with the type of dropdown. If you want to create options explicitly, use the [Update product](#update-a-product) call to create them. 
+
+<aside class="notice">
+You can create only one variation per API request. To create several variations, send several separate requests for each coupon.
+</aside>
 
 `POST https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations?token={token}`
 

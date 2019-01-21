@@ -309,7 +309,8 @@ function aes_128_decrypt($key, $data) {
 
   // Decrypt raw binary payload
   $json = openssl_decrypt($payload, "aes-128-cbc", $key, OPENSSL_RAW_DATA, $iv);
-  //$json = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $payload, MCRYPT_MODE_CBC, $iv); // You can use this instead of openssl_decrupt, if mcrypt is enabled in your system
+  // $json = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $payload, MCRYPT_MODE_CBC, $iv); 
+  // You can use this instead of openssl_decrypt, if mcrypt is enabled in your system
 
   return $json;
 }

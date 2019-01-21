@@ -83,16 +83,16 @@ In the next minute and during the whole time you get close to the limitation, we
 
 Once the request number gets lower, the burst request amount will return and you will be able to make 50 more requests per minute.
 
-When building your app, keep in mind the [usage policy](#usage-policy) for the best experience. 
+When building your app, keep in mind the [usage policy](https://developers.ecwid.com/api-documentation/rest-api-reference#usage-policy) for the best experience. 
 
 #### Usage policy
 
 To protect us and our users from abusing, we strongly advise that you optimize your app code to make fewer API requests. For example:
 
 - Cache store data locally if you need to use or display it many times in your app
-- If you need to synchronize store data with your database, use Webhooks to get timely updates about changes in a store. More details: [Webhooks](#webhooks)
-– To get multiple product details at once (knowing their `productId`s), specify them in a corresponding filter – `productId`. More details: [Searching Products](#search-products)
-- To get multiple order details at once (knowing their `orderNumber`s), specify them in a corresponding filter – `orderNumber`. More details: [Searching Orders](#search-orders)
+- If you need to synchronize store data with your database, use Webhooks to get timely updates about changes in a store. More details: [Webhooks](https://developers.ecwid.com/api-documentation/webhooks)
+- To get multiple product details at once (knowing their `productId`s), specify them in a corresponding filter – `productId`. More details: [Searching Products](https://developers.ecwid.com/api-documentation/products#search-products)
+- To get multiple order details at once (knowing their `orderNumber`s), specify them in a corresponding filter – `orderNumber`. More details: [Searching Orders](https://developers.ecwid.com/api-documentation/orders#search-orders)
 
 We constantly monitor API activity and servers load on our side to make sure every application uses API properly. In case an app abuses Ecwid API by generating huge amount of requests every day, we'll attempt to get in touch with the developer to talk about the issue. 
 

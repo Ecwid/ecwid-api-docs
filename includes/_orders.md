@@ -2362,7 +2362,11 @@ Field | Type | Description
 
 Create a new order in an Ecwid store. This can be useful for storefronts with a custom checkout process or manually creating orders for sales made earlier.
 
-<aside class="note">
+<aside class="notice">
+You can create only one order per API request. To create several orders, send several separate requests for each coupon.
+</aside>
+
+<aside class="notice">
     When making a request with <a href='#access-tokens'>public access token</a>, there are a few differences applied: 
     <ul><li>The <strong>paymentStatus</strong> can only be "AWAITING_PAYMENT" or "INCOMPLETE". Any other value is ignored.</li>
         <li>The <strong>fulfillmentStatus</strong> can only be "AWAITING_PROCESSING". Any other value is ignored.</li>

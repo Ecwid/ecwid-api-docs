@@ -1556,6 +1556,10 @@ It is possible to use the `cleanUrls` parameter together with the `baseUrl` para
 
 Create a new product in an Ecwid store. 
 
+<aside class="notice">
+You can create only one product per API request. To create several products, send several separate requests for each product.
+</aside>
+
 #### Request
 
 > Request body

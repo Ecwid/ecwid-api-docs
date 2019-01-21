@@ -264,6 +264,10 @@ HTTP Status | Meaning
 
 Create a new discount coupon in an Ecwid store.
 
+<aside class="notice">
+You can create only one coupon per API request. To create several coupons, send several separate requests for each coupon.
+</aside>
+
 #### Request
 
 > Request body
