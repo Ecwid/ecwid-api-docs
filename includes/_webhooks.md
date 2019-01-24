@@ -633,9 +633,13 @@ See also [the webhooks best practices](https://developers.ecwid.com/api-document
 
 ### Responding to webhooks
 
-When a webhook is sent to your URL, your app must return a `200 OK` HTTP status code in reply to a webhook. This acknowledges Ecwid that you received the webhook. 
+When a webhook is sent to your URL, your app must return a `200 OK` HTTP status code in reply to a webhook. This confirms that you received a webhook. 
 
-Any other response (e.g. `3xx`), will indicate that the webhook is not received. In this case, we will re-send a webhook every 15 minutes for 48 hours until the time is out or the resource responds with 200OK HTTP response code. Once the 48 hour limit is reached, the webhook will be removed from the queue and will not be sent again.
+**Any other response (e.g. `3xx`), will indicate to Ecwid that the webhook was not received**. In this case, Ecwid will re-send a webhook every 15 minutes for 4 more tries. 
+
+If Ecwid still can't deliver the webhook after that, it will try sending webhooks every hour until 24 hour limit is reached. 
+
+Once the 24 hour limit is reached, the webhook will be removed from the queue and will not be sent again.
 
 ### Troubleshooting webhooks
 

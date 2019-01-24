@@ -8,6 +8,18 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Jan 24, 2019
+
+We updated our webhook retry policy. 
+
+Earlier, if Ecwid couldn't deliver a webhook to an app's URL, it would retry sending it every 15 minutes for 48 hours. 
+
+Now, if webhook delivery fails 1st time, Ecwid will re-send a webhook every 15 minutes for 4 more tries. 
+
+If Ecwid still can't deliver the webhook after that, it will try sending webhooks every 60 minutes until 24 hour limit is reached. 
+
+Once the 24 hour limit is reached, the webhook will be removed from the queue and will not be sent again.
+
 ## December 26, 2018
 
 Shipping apps can now provide custom description for their shipping methods displayed at checkout. 
