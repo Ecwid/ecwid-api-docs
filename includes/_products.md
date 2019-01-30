@@ -1799,6 +1799,10 @@ errorCode | string | Error code
 
 Update an existing product in an Ecwid store referring to its ID.
 
+<aside class="notice">
+You can update only one product at a time. To update multiple products, send your requests consecutively: new one should go out only after you got a response for the previous one. 
+</aside>
+
 > Request example
 
 ```http

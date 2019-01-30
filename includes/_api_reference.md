@@ -68,7 +68,7 @@ Examples: <ul><li>`1447804800`</li> <li>`2015-04-22 18:48:38 -0500`</li> <li>`20
 
 For ease of understanding and access, only UNIX timestamp format is described in the endpoint documentation. 
 
-**API calls limits**
+#### API calls limits
 
 Ecwid REST API has the following limits: 
 
@@ -84,6 +84,10 @@ In the next minute and during the whole time you get close to the limitation, we
 Once the request number gets lower, the burst request amount will return and you will be able to make 50 more requests per minute.
 
 When building your app, keep in mind the [usage policy](https://developers.ecwid.com/api-documentation/rest-api-reference#usage-policy) for the best experience. 
+
+<aside class="notice">
+You can update/create only one product at a time. To update/create multiple products, send your requests consecutively: new one should go out only after you got a response for the previous one. 
+</aside>
 
 #### Usage policy
 

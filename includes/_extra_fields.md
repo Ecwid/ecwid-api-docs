@@ -81,11 +81,11 @@ Now that we've initialized the extra fields object, we can create a new text inp
 
 After an order gets placed, you will be able to get that field in the `extraFields` field when getting order details. Also, it will be visible to customer and merchant when viewing order details. 
 
-<aside class="note">
-The codes for extra fields need to be added to the source code of your website or via an app for Ecwid, that <a href="https://developers.ecwid.com/api-documentation/customize-behaviour#add-custom-javascript-code">customizes the storefront</a>. 
+<aside class="notice">
+The codes for extra fields need to be added to the source code of your website or via an app for Ecwid, that <a href="https://developers.ecwid.com/api-documentation/customize-behaviour#how-to-load-custom-javascript-anytime-storefront-is-loaded">customizes the storefront</a>. 
 </aside>
 
-<aside class='note'>
+<aside class='notice'>
 Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-order">show the extra field</a> to customer and merchant in the order details. 
 </aside>
 
@@ -218,12 +218,12 @@ Now that we've initialized the extra fields object, we can save some value into 
 
 If your code executed successfully, these fields will be saved when a customer places their order in an Ecwid store. See [Get extra fields in REST API](https://developers.ecwid.com/api-documentation/get-extra-fields-in-rest-api) section to access them afterwards. 
 
-<aside class="note">
-The codes for extra fields need to be added to the source code of your website or via an app for Ecwid, that <a href="https://developers.ecwid.com/api-documentation/customize-behaviour#add-custom-javascript-code">customizes the storefront</a>. 
+<aside class="notice">
+The codes for extra fields need to be added to the source code of your website or via an app for Ecwid, that <a href="https://developers.ecwid.com/api-documentation/customize-behaviour#how-to-load-custom-javascript-anytime-storefront-is-loaded">customizes the storefront</a>. 
 </aside>
 
-<aside class='note'>
-    Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-order">show the extra field</a> to customer and merchant in the order details. 
+<aside class='notice'>
+Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-order">show the extra field</a> to customer and merchant in the order details. 
 </aside>
 
 ## Get extra fields in REST API
