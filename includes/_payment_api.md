@@ -105,7 +105,9 @@ If you need to remove the payment method completely, go to: *Ecwid Control Panel
 
 ## Set up payment method
 
-Make sure you have a [registered application](/register) for Ecwid. Specify that you need to add new payment method and interface within Ecwid Control Panel (Native app).
+Make sure you have a [registered application](/register) for Ecwid. 
+
+Let Ecwid team know that you need to add new payment method and an interface within Ecwid Control Panel (Native app).
 
 [Send your payment URL](/contact) to the Ecwid team to update it. Install your registered app to your test Ecwid store.
 

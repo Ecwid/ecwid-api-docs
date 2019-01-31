@@ -83,15 +83,15 @@ More information: [Storefront Single Sign-On](https://developers.ecwid.com/api-d
 
 ## Access Ecwid API Platform
 
+> Check out app examples
+
+> [https://developers.ecwid.com/examples](https://developers.ecwid.com/examples)
+
 **All modifications** to Ecwid stores, incl. REST API, Webhooks, Payment and Shipping methods and others, **are done by applications**. [Register](/register) your app to get started. 
 
 There are two types of apps for Ecwid: **Native** and **External**. Learn about each of them below. 
 
 Both app types are hosted on external services and Ecwid only stores URLs to corresponding pages: for webhooks, for payment and shipping requests and others.
-
-> Check out app examples
-
-> [https://developers.ecwid.com/examples](https://developers.ecwid.com/examples)
 
 ### Native apps
 
@@ -184,11 +184,9 @@ Learn more on how to create a theme for Ecwid: [https://developers.ecwid.com/how
 
 ## API availability on Ecwid plans
 
-[Ecwid pricing](http://www.ecwid.com/pricing) includes four tiers: Free, Venture, Business, Unlimited. The API is available on **paid** Ecwid plans, i.e. on Venture, Business and Unlimited. Merchants on Free plans cannot use Ecwid API. This means that, if the user is on Free plan, all API functions will fail including requests to read or update store data, embedding of the app interfaces into Ecwid Control Panel and customizing storefront. 
+[Ecwid pricing](http://www.ecwid.com/pricing) includes four tiers: Free, Venture, Business, Unlimited. The API is available on **paid** Ecwid plans, i.e. on Venture, Business and Unlimited. 
 
-> Find out more about what you need to get started with Ecwid API
-
-> [https://developers.ecwid.com/developing-your-app](https://developers.ecwid.com/developing-your-app)
+Merchants on Free plans cannot use Ecwid API. This means that, if the user is on Free plan, all API functions will fail including requests to read or update store data, embedding of the app interfaces into Ecwid Control Panel and customizing storefront. 
 
 ### Q: I need to start developing my app. How can I get a paid account?
 

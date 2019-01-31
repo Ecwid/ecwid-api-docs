@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Jan 31, 2019
+
+We updated behaviour of `url` field for getting products via REST API. 
+
+Now, if Ecwid knows that this store uses [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls), then the API will return URLs in that format by default. 
+
+If it doesn't happen for your store, you can still get product URLs in a clean URL format. See the [getting product URLs](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products) section.
+
 ## Jan 24, 2019
 
 We updated our webhook retry policy. 

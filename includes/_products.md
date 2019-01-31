@@ -119,7 +119,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           "compareToPriceDiscountPercentFormatted": "56%",          
           "isShippingRequired": true,
           "weight": 0,
-          "url": "http://app.ecwid.com#!/Orange/p/37208339",
+          "url": "https://mdemo.ecwid.com/Orange-p37208339,
           "created": "2015-10-05 07:26:14 +0000",
           "updated": "2016-02-03 10:01:02 +0000",
           "createTimestamp": 1444029974,
@@ -269,7 +269,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "compareToPriceDiscountPercentFormatted": "14%",
             "isShippingRequired": true,
             "weight": 0.31,
-            "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208339",
+            "url": "https://mdemo.ecwid.com/Radish-p37208340",
             "created": "2009-07-23 17:22:37 +0000",
             "updated": "2014-07-30 10:32:37 +0000",
             "createTimestamp": 1248340746,
@@ -561,7 +561,7 @@ Cache-Control: no-cache
           "compareToPriceDiscountPercentFormatted": "56%",          
           "isShippingRequired": true,
           "weight": 0,
-          "url": "http://app.ecwid.com#!/Orange/p/37208339",
+          "url": "https://mdemo.ecwid.com/Orange-p37208339",
           "created": "2015-10-05 07:26:14 +0000",
           "updated": "2016-02-03 10:01:02 +0000",
           "createTimestamp": 1444029974,
@@ -718,7 +718,7 @@ compareToPriceDiscountPercent | number | Sale price discount percent
 compareToPriceDiscountPercentFormatted | string |  Sale price discount percent (with percent sign)
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
-url | string |  URL of the product's details page in the store. [Learn more](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
+url | string | URL of product details page in the storefront. Clean URLs are provided if Ecwid knows the store uses them. [More on getting product URLs](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
 updated |  string | Product last update date/time
 createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`
@@ -1033,7 +1033,7 @@ Parameters in <strong>bold</strong> are mandatory
     "compareToPriceDiscountPercentFormatted": "14%",    
     "isShippingRequired": true,
     "weight": 0.31,
-    "url": "http://app.ecwid.com/store/4870020#!/~/product/id=37208339",
+    "url": "https://mdemo.ecwid.com/Radish-p37208340",
     "created": "2009-07-23 17:22:37 +0000",
     "updated": "2014-07-30 10:32:37 +0000",
     "createTimestamp": 1248340746,
@@ -1310,7 +1310,7 @@ compareToPriceDiscountPercent | number | Sale price discount percent
 compareToPriceDiscountPercentFormatted | string |  Sale price discount percent (with percent sign)
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
-url | string |  URL of the product's details page in the store. [Learn more](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
+url | string | URL of product details page in the storefront. Clean URLs are provided if Ecwid knows the store uses them. [More on getting product URLs](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
 updated |  string | Product last update date/time
 createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`
