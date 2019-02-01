@@ -1,19 +1,16 @@
 # Overview
 
-The documentation below describes various ways to interact with an Ecwid store by using various API features. Platform introduction: [https://developers.ecwid.com/intro](https://developers.ecwid.com/intro)
-
-<aside class="note">
-To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
-</aside>
+This documentation describes various ways to customize Ecwid stores by using the Ecwid API Platform. 
 
 Each section has a detailed description as well as code examples to help you create a public app or customize your own store.
 
-**Shortcuts:**
+**Customize your Ecwid store**
 
-- [Get started with API](https://developers.ecwid.com/begin-development)
-- [Manage your app](https://developers.ecwid.com/develop-your-app)
-- [Best practices for public apps](https://developers.ecwid.com/guidelines)
-- [API features](https://developers.ecwid.com/api-documentation/api-features)
+There are many ways to customize a store with the Ecwid API. Check this page to get started: [Customizing your Ecwid store](https://developers.ecwid.com/customize-your-ecwid-store)
+
+**Create a public app**
+
+You can use Ecwid API to create apps which help Ecwid merchants and earn money from it. Check this page to get started: [Creating an app for the Ecwid App Market](https://developers.ecwid.com/create-a-public-app)
 
 ## API features
 
