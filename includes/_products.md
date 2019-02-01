@@ -718,7 +718,7 @@ compareToPriceDiscountPercent | number | Sale price discount percent
 compareToPriceDiscountPercentFormatted | string |  Sale price discount percent (with percent sign)
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
-url | string | URL of product details page in the storefront. Clean URLs are provided if Ecwid knows the store uses them. [More on getting product URLs](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
+url | string | URL of product details page in the storefront. URL will be provided in SEO-friendly format if Ecwid knows the store uses them. [More on getting product URLs](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
 updated |  string | Product last update date/time
 createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`
@@ -909,7 +909,9 @@ errorMessage | string | Error message
 
 Direct URL for each product is always available in the `url` field once you make a request to the Ecwid REST API. 
 
-In any Ecwid store there is a [storefront URL](#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide product URLs in the REST API and other connected services.
+In any Ecwid store there is a [storefront URL](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) field, where store owners can specify their storefront location. 
+
+In case if it's empty, Ecwid will use their starter site URL to provide product URLs in the REST API and other connected services.
 
 **When a store is embedded into multiple websites**
 
@@ -937,15 +939,21 @@ It is possible to use the `baseUrl` parameter together with the `cleanUrls` para
 
 **Receiving SEO-friendly (clean) URLs from the Ecwid REST API**
 
-By default, Ecwid's product URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
+If Ecwid knows that the store uses SEO-friendly URLs format, the `url` field in API responses will be using it: `"https://mdemo.ecwid.com/apple-p70445445"`
 
-<aside>
-  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls">SEO-friendly URLs section</a>.
+Alternatively, you will get URLs in a hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. 
+
+If your website supports the [SEO-friendly (clean) URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
+
+<aside class="notice">
+In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls">SEO-friendly URLs section</a>.
 </aside>
 
-Let's see how it works: 
+Let's see how it works.
 
-If `cleanUrls` request parameter is set to `true`, then `url` field will have the SEO-friendly format in the response (clean URL, no hash "#").
+If `cleanUrls` parameter is set in a request URL to `true`, then `url` field will have the SEO-friendly format in a response (clean URL, no hash "#"): 
+
+API Request format example: `GET https://app.ecwid.com/api/v3/1003/products?token=secret_1234567890qwqeertt&cleanUrls=true`
 
 **Examples**
 
@@ -1310,7 +1318,7 @@ compareToPriceDiscountPercent | number | Sale price discount percent
 compareToPriceDiscountPercentFormatted | string |  Sale price discount percent (with percent sign)
 isShippingRequired | boolean | `true` if product requires shipping, `false` otherwise
 weight |  number | Product weight in the units defined in store settings. *Omitted for intangible products*
-url | string | URL of product details page in the storefront. Clean URLs are provided if Ecwid knows the store uses them. [More on getting product URLs](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
+url | string | URL of product details page in the storefront. URL will be provided in SEO-friendly format if Ecwid knows the store uses them. [More on getting product URLs](https://developers.ecwid.com/api-documentation/products#q-how-to-get-urls-for-products)
 created | string | Date and time of the product creation. Example: `2014-07-30 10:32:37 +0000`
 updated |  string | Product last update date/time
 createTimestamp | number | The date of product creation in UNIX Timestamp format, e.g `1427268654`
@@ -1498,7 +1506,9 @@ errorMessage | string | Error message
 
 Direct URL for each product is always available in the `url` field once you make a request to the Ecwid REST API. 
 
-In any Ecwid store there is a [storefront URL](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) field, where store owners can specify their storefront location. In case if it's empty, Ecwid will use their starter site URL to provide product URLs in the REST API and other connected services.
+In any Ecwid store there is a [storefront URL](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) field, where store owners can specify their storefront location. 
+
+In case if it's empty, Ecwid will use their starter site URL to provide product URLs in the REST API and other connected services.
 
 **When a store is embedded into multiple websites**
 
@@ -1526,15 +1536,21 @@ It is possible to use the `baseUrl` parameter together with the `cleanUrls` para
 
 **Receiving SEO-friendly (clean) URLs from the Ecwid REST API**
 
-By default, Ecwid's product URLs use hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. In case if a website supports the [SEO-friendly (clean) URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
+If Ecwid knows that the store uses SEO-friendly URLs format, the `url` field in API responses will be using it: `"https://mdemo.ecwid.com/apple-p70445445"`
 
-<aside>
-  In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls">SEO-friendly URLs section</a>.
+Alternatively, you will get URLs in a hash-based format: `"https://mdemo.ecwid.com#!/apple/p/70445445"`. 
+
+If your website supports the [SEO-friendly (clean) URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls), you will need to use the `cleanUrls` request parameter in order to get URLs in that format.
+
+<aside class="notice">
+In order for SEO-friendly (clean) URLs to be enabled on your website, please follow the instructions in the <a href="https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls">SEO-friendly URLs section</a>.
 </aside>
 
-Let's see how it works: 
+Let's see how it works.
 
-If `cleanUrls` request parameter is set to `true`, then `url` field will have the SEO-friendly format in the response (clean URL, no hash "#").
+If `cleanUrls` parameter is set in a request URL to `true`, then `url` field will have the SEO-friendly format in a response (clean URL, no hash "#"): 
+
+API Request format example: `GET https://app.ecwid.com/api/v3/1003/products/123456?token=secret_1234567890qwqeertt&cleanUrls=true`
 
 **Examples**
 
