@@ -867,7 +867,9 @@ For Ecwid to find out the result of the payment, your application must update th
 
 To update order status, you will need these details: **reference transaction id**, **store ID** and **access token**. 
 
-All of these details are provided in a request to your application's payment URL in corresponding fields: 
+All of these details are provided [in a request](https://developers.ecwid.com/api-documentation/processing-payment-request#request-details) to your application's payment URL once you decrypt it. 
+
+Fields: 
 
 - `referenceTransactionId` field in the `cart` object of a request body
 - `storeId` field in the request body

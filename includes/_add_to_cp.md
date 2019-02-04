@@ -574,8 +574,6 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 
 3) Use this guide to find the elements and CSS classes you need: [http://developers.ecwid.com/ecwid-css-framework/](/ecwid-css-framework)
 
-<aside class="note">If some elements don't apply correct styles, make sure to add <strong><em>.normalized</em></strong> class to the <em>body</em> or any other top DOM element of your application page in Ecwid Control Panel to fix this.</aside>
-
 <img src="https://dj925myfyz5v.cloudfront.net/wp-content/uploads/ecwid-buttons.png"></img>
 
 

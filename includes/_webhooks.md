@@ -171,12 +171,13 @@ To be notified of updates to products, make sure your app has `read_catalog` acc
 
 See [supported events](https://developers.ecwid.com/api-documentation/webhooks-overview#supported-events) for more details. 
 
-
-
 ## Webhook structure
 
+Webhook is a POST request sent to your app URL. Its body contains several fields, like: store ID, entity ID (product ID, order number, etc.), event type and more. 
 
-### Webhook request body
+Learn about getting webhook fields in [Webhooks best practices](https://developers.ecwid.com/api-documentation/webhooks-best-practices#webhook-processing-example)
+
+### Request headers
 
 > Webhook header example
 
@@ -188,6 +189,36 @@ Content-Length: 243
 Cache-Control: no-cache
 X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 ```
+
+Among the other headers, HTTP webhook request from Ecwid includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. 
+
+See more details in the [Webhooks security](https://developers.ecwid.com/api-documentation/webhooks-best-practices#webhooks-security).
+
+#### Custom HTTP Headers
+
+> Custom webhook headers example
+
+```http
+POST https://www.myapp.com/callback?eventtype=order.updated HTTP/1.1
+Host: www.myapp.com
+Content-Type: application/json; charset=UTF-8
+Content-Length: 243
+Cache-Control: no-cache
+X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
+Custom-Webhook-Header-Name: custom webhook header value
+```
+
+Webhooks also allow you to specify custom headers that Ecwid will use when sending a webhook to your endpoint. 
+
+For example, if you have only one endpoint and several applications sending webhooks to that endpoint, you may want to specify a custom HTTP header to know the application this webhook was sent to.
+
+The custom HTTP headers specified for webhooks will be **added** to the default list of headers Ecwid is sending. 
+
+In case if a custom webhook HTTP header is duplicating a default header, Ecwid will send **both the default and custom header** in a request.
+
+To setup custom HTTP headers for your app webhooks, please [contact us](/contact).
+
+### Webhook request body
 
 > Unfinished order created webhook body example
 
@@ -459,6 +490,10 @@ X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
 
 The request body is a JSON object with the following fields:
 
+<aside class='notice'>
+Fields sent with all webhook requests are highlighted in <strong>bold</strong>.
+</aside>
+
 Name | Type | Description
 ---- | -----| -----------
 **eventId** | number | Unique webhook ID
@@ -482,12 +517,8 @@ oldSubscriptionStatus | string | Previous **application** subscription status be
 newSubscriptionStatus | string | New **application** subscription status after changes occurred
 customerEmail | string | Email of a **customer**
 
-<aside class='note'>
-Fields sent with all webhook requests are highlighted in <strong>bold</strong>.
-</aside>
-
 <aside class="notice">
-Don’t use webhooks themselves as actionable items – please see the <a href="https://developers.ecwid.com/api-documentation/processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
+Don’t use webhooks themselves as actionable items – see the <a href="https://developers.ecwid.com/api-documentation/processing-webhooks">Processing Webhooks</a> notes below for details on working with webhooks.
 </aside>
 
 The `eventType` field is also duplicated in the request GET parameters. This allows you to filter our the webhooks you don't want to handle. 
@@ -495,6 +526,7 @@ The `eventType` field is also duplicated in the request GET parameters. This all
 For example, if you only need to listen to order updates, you can just reply `200 OK` to every request containing products updates, e.g.  `https://www.myapp.com/callback?eventtype=product.updated`, and avoid further processing. 
 
 #### Event types
+
 * `unfinished_order.created` Unfinished order is created
 * `unfinished_order.updated` Unfinished order is updated
 * `unfinished_order.deleted` Unfinished order is deleted
@@ -517,6 +549,8 @@ For example, if you only need to listen to order updates, you can just reply `20
 * `customer.deleted` Customer is deleted
 
 All order-related webhooks require `read_orders` access scope, all product- and category-related webhooks require `read_catalog` access scope, all customer-related webhooks require `read_customers` [access scope](https://developers.ecwid.com/api-documentation/access-tokens#access-scopes) to be requested from the store.
+
+### Webhooks' structure FAQ
 
 #### Q: What is an unfinished order and how it works? 
 
@@ -571,29 +605,6 @@ Contents of `data` field also lets you know the details about old status (before
 
 Once you received `application.subscriptionStatusChanged` webhook, you can make a request to [Application endpoint](https://developers.ecwid.com/api-documentation/application#get-application-status) to get the current subscription status of your app in that store.
 
-### Request headers
-
-Among the other headers, the webhook HTTP request includes the `X-Ecwid-Webhook-Signature` header that can be used to verify the webhook. See more details in the ["Webhooks security"](https://developers.ecwid.com/api-documentation/webhooks-best-practices#webhooks-security) below.
-
-#### Custom HTTP Headers
-
-> Custom webhook headers example
-
-```http
-POST https://www.myapp.com/callback?eventtype=order.updated HTTP/1.1
-Host: www.myapp.com
-Content-Type: application/json; charset=UTF-8
-Content-Length: 243
-Cache-Control: no-cache
-X-Ecwid-Webhook-Signature: MeV28XtFal4HCkYFvdilwckJinc6Dtp4ZWpPhm/pzd4=
-Custom-Webhook-Header-Name: custom webhook header value
-```
-
-Webhooks also allow you to specify custom headers that Ecwid will use when sending a webhook to your endpoint. For example, if you have only one endpoint and several applications sending webhooks to that endpoint, you may want to specify a custom HTTP header to know the application this webhook was sent to.
-
-The custom HTTP headers specified for webhooks will be **added** to the default list of headers Ecwid is sending. In case if a custom webhook HTTP header is duplicating a default header, Ecwid will send **both the default and custom header** in a request.
-
-To setup custom HTTP headers for your app webhooks, please [contact us](/contact).
 
 ## Processing webhooks
 

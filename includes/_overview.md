@@ -6,11 +6,15 @@ Each section has a detailed description as well as code examples to help you cre
 
 **Customize your Ecwid store**
 
-There are many ways to customize a store with the Ecwid API. Check this page to get started: [Customizing your Ecwid store](https://developers.ecwid.com/customize-your-ecwid-store)
+There are many ways to customize a store with the Ecwid API. 
+
+Check this page to get started: [Customizing your Ecwid store](https://developers.ecwid.com/customize-your-ecwid-store)
 
 **Create a public app**
 
-You can use Ecwid API to create apps which help Ecwid merchants and earn money from it. Check this page to get started: [Creating an app for the Ecwid App Market](https://developers.ecwid.com/create-a-public-app)
+You can use Ecwid API to create apps which help Ecwid merchants and earn money from it. 
+
+Check this page to get started: [Creating an app for the Ecwid App Market](https://developers.ecwid.com/create-a-public-app)
 
 ## API features
 
