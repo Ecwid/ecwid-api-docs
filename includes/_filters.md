@@ -1,16 +1,26 @@
 # Product filters
 
-When stores have more than 50-100 products customers can find it hard to find the right product. 
+> Product filters interface in storefront
 
-Use the product filters functionality to let your customers find products fast and easy.
+> ![Product filters interface](https://don16obqbay2c.cloudfront.net/wp-content/uploads/filters-1549440733.png)
+
+When stores have more than 50-100 products customers can find it hard to find the right product. Use the product filters functionality to let your customers find products fast and easy.
+
+For example, you can filter the search results or category products by: price, product options, product attributes, on sale status and stock availability and more. 
+
+**Table of contents**
+
+- [Manage store filters](https://developers.ecwid.com/api-documentation/manage-store-filters)
+- [Use filters in storefront](https://developers.ecwid.com/api-documentation/use-filters-in-storefront)
+- [Get store filters](https://developers.ecwid.com/api-documentation/get-store-filters)
 
 Learn more about product filters in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207807925). 
 
 ## Manage store filters
 
-Merchants can manage their store filters in the *Ecwid Control Panel > Settings > Product filters*. 
+Merchants can manage their store filters in the *Ecwid Control Panel → Settings → Product filters*. 
 
-There you can enabled the product filters feature and enable/disable specific filters, like: specific product options, attributes and more.
+There you can enable the product filters feature and enable/disable specific filters, like: specific product options, attributes and more.
 
 [Product filters in Ecwid Control Panel](https://my.ecwid.com/cp/#product-filters)
 
@@ -20,7 +30,7 @@ Product filters can be enabled when a store is on the **Ecwid Business plan** or
 
 **Check widget availability**
 
-You can check whether filters are enabled in storefront using the Store profile endpoint -> `productFiltersSettings`. [Get store profile endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+You can check whether filters are enabled in storefront using the Store profile endpoint → `productFiltersSettings`. [Get store profile endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 
 ### Change filters position
 
@@ -30,13 +40,15 @@ It is possible to set position for both the search page and all category pages i
 
 **Change position using REST API at any time**
 
-Use the [Store profile endpoint](https://developers.ecwid.com/api-documentation/store-information) to get and update position of filters widget. 
+Use the  `product_filters_position_search_page`,`product_filters_position_category_page` to get and update position of filters widget. See the `designSettings` field.
 
-See the `designSettings` field for more information. 
+[Store profile endpoint](https://developers.ecwid.com/api-documentation/store-information)
 
 **Change position using JS in storefront**
 
-When customizing appearance of your store, se `product_filters_position_category_page` and `product_filters_position_search_page` in Ecwid's storefront config to change their position on corresponding pages. [Customize appearance documentation](https://developers.ecwid.com/api-documentation/customize-appearance#control-display-of-elements-in-product-grid)
+Use `product_filters_position_category_page` and `product_filters_position_search_page` in Ecwid's storefront config to change their position on corresponding pages. 
+
+[Customize appearance documentation](https://developers.ecwid.com/api-documentation/customize-appearance#control-display-of-elements-in-product-grid)
 
 ## Use filters in storefront
 
@@ -114,7 +126,7 @@ Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products/filters?token={token}&filterFields={filterFields}&filterFacetLimit={filterFacetLimit}&filterParentCategoryId={filterParentCategoryId}&keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&categories={categories}&includeProductsFromSubcategories={includeProductsFromSubcategories}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inventory={inventory}&onsale={onsale}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products/filters?filterFields={filterFields}&filterFacetLimit={filterFacetLimit}&filterParentCategoryId={filterParentCategoryId}&keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&categories={categories}&includeProductsFromSubcategories={includeProductsFromSubcategories}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inventory={inventory}&onsale={onsale}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&option_{optionName}={optionValues}&attribute_{attributeName}={attributeValues}&token={token}`
 
 <aside class="notice">
 Parameters in <strong>bold</strong> are mandatory
@@ -126,7 +138,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**filterFields** | string | Comma-separated list of filters for Ecwid to return. Supported filters: `"price"`,`"inventory"`,`"onsale"`,`"categories"`, `"option_{optionName}"`, `"attribute_{attributeName}"`
+**filterFields** | string | Comma-separated list of filters for Ecwid to return. Supported filters: `"price"`,`"inventory"`,`"onsale"`,`"categories"`, `"option_{optionName}"`, `"attribute_{attributeName}"`. Example: `"price,inventory,option_Size,attribute_Brand,categories"`
 filterFacetLimit | string | Set the number of filter values in response. Individual limit example: `"onsale:all,attribute_Brand:50,option_Color:10"`. General limit example: `"10"`. Use `"all"` to return all facets. Default limit is 50
 filterParentCategoryId | string | Set the parent category ID for subcategories filter. `"0"` or `"home"` or empty value means there is no parent category
 
@@ -147,7 +159,7 @@ enabled | boolean | Use `true` if you need only enabled products. Use `false` if
 field{attributeName} | string | Filter by product attribute values. Format: `field{attributeName}=param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `fieldBrand=Apple&fieldCapacity=32GB,64GB` 
 field{attributeId} | string | Filter by product attribute values. Works the same as the filter by `field{attributeName}` but attribute IDs are used instead of attribute names. This way is insensitive to attributes renaming.
 option_{optionName} | string | Filter by product option values. Format: `option_{optionName}=param[,param]`, where `optionName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `option_Size=S,M,L&option_Color=Red,Black` 
-attribute_{attributeName} | string | Filter by product attribute values. Format: `attribute_{attributeName}=param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `attribute_Brand=Apple&attribute_Capacity=32GB,64GB` 
+attribute_{attributeName} | string | Filter by product attribute values. Format: `attribute_{attributeName}param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `attribute_Brand=Apple&attribute_Capacity=32GB,64GB` 
 inventory | string | Use `"instock"` to get in stock items only or `"outofstock"` for out of stock items. 
 onsale | string | Use `"onsale"` to get on sale items only or `"notonsale"` for items not currently on sale.
 
