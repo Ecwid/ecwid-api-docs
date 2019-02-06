@@ -20,6 +20,18 @@ The Ecwid API platform allows you to customize storefront in various ways:
 
 ## Customize appearance
 
+Ecwid storefront has many opportunities to customize the design and layout: control store colors and fonts, change layout of category and product pages, change store labels and more.
+
+**Table of contents**
+
+- [Change store layout](https://developers.ecwid.com/api-documentation/customize-appearance#change-store-layout)
+- [Customize product listing design](https://developers.ecwid.com/api-documentation/customize-appearance#product-listing)
+- [Customize product pages design](https://developers.ecwid.com/api-documentation/customize-appearance#product-pages)
+- [Change colors and fonts](https://developers.ecwid.com/api-documentation/customize-appearance#change-default-colors-and-fonts)
+- [Change storefront labels](https://developers.ecwid.com/api-documentation/customize-appearance#change-storefront-labels)
+- [Create custom themes](https://developers.ecwid.com/api-documentation/customize-appearance#custom-themes)
+- [Storefront translations](https://developers.ecwid.com/api-documentation/customize-appearance#storefront-interface-translations)
+
 ### Change store layout
 
 Ecwid integration code provides a number of modifications to the store layout. See the details below. 
@@ -699,6 +711,17 @@ If the current language is not supported, use the fallback labels. For example, 
 
 ## Customize behaviour
 
+Ecwid storefront is an embeddable widget and you can control many aspects of embedding process: add custom JS file, delay widget initialization, change page contents and more.
+
+**Table of contents**
+
+- [Add custom JavaScript code](https://developers.ecwid.com/api-documentation/customize-behaviour#add-custom-javascript-code)
+- [Open specific product variation](https://developers.ecwid.com/api-documentation/customize-behaviour#open-specific-product-variation)
+- [Embed or remove storefront on demand](https://developers.ecwid.com/api-documentation/customize-behaviour#embed-or-remove-storefront-on-demand)
+- [Delayed widget initialization](https://developers.ecwid.com/api-documentation/customize-behaviour#delayed-widget-initialization)
+- [Storefront JavaScript API](https://developers.ecwid.com/api-documentation/customize-behaviour#storefront-javascript-api)
+
+
 ### Add Ecwid to the site
 
 > Add Ecwid storefront to your website
@@ -713,7 +736,11 @@ To add an Ecwid store to the website, use the code example on the right. The `10
 
 ### Set main storefront URL for widgets
 
-When you add store widgets, like search, minicart, categories menu, to a site page separate from the storefront widget, the storefront will open in a pop-up. This pop-up contains the whole store and works just fine. But in some cases it is more convenient to open the store on another website page instead of the pop-up.
+You can add different store widgets, like search, minicart to a page separately from the storefront widget. 
+
+When you interact with them, the storefront area will open in a pop-up. This pop-up contains the whole store and works as usual. 
+
+But in some cases it is more convenient to open the storefront on another website page instead of the pop-up.
  
 You can do this with the help of the `window.ec.config.store_main_page_url` option.
 
@@ -781,6 +808,12 @@ If you need to scroll to a custom position when navigating the Ecwid store, use 
 
 ### Adapt storefront layout to container width
 
+> Adapt storefront layout to changed container width
+
+```js
+Ecwid.resizeProductBrowser();
+```
+
 By default, Ecwid is a responsive widget which adapts to the changing screen width. That's usually when the container for storefront changes its width also.
 
 However, if the screen width stays the same but the container for storefront changes its width, you will need to call the `Ecwid.resizeProductBrowser()` function to adapt Ecwid's layout to this change.
@@ -789,7 +822,7 @@ However, if the screen width stays the same but the container for storefront cha
 
 When opening a product that has options or variations, it can be useful to open them with preset values right away. This will save customer's time and improve the buying process. 
 
-**How to open a product variation**
+#### How to open a product variation
 
 1) Determine the product you want to open: get a direct URL to product details page you would need to use.
 
@@ -813,7 +846,7 @@ Resulting URL: `https://www.ecwid.com/demo/Rip-Curl-Channel-Island-p72585497?var
 
 It will open a product "Rip Curl Channel Island" with options: Size - Any, Color - Dark grey.
 
-**How to open a custom product variation**
+#### How to open a custom product variation
 
 If your product doesn't have product variations but has product options, you can still open details page with preset values (selections). Use `options` query parameter instead. 
 
@@ -980,7 +1013,7 @@ Static store page endpoints allow you to generate an HTML snapshot of Ecwid stor
 
 You can use that snapshot to display a lightweight starting page for the site visitors, while loading a full-functioning Ecwid store in background. This significantly speeds up store loading.
 
-**How to use**
+#### How to use static snapshots
 
 - When a visitor opens your store page, request a prerendered version of the home page from storefront.ecwid.com endpoint.
 - In response, you will get a link to the CSS file and the HTML code of the rendered store home page
@@ -988,7 +1021,7 @@ You can use that snapshot to display a lightweight starting page for the site vi
 - Start loading Ecwid product browser in a hidden div on the same page, so you will have two blocks: static sotrefront and dynamic storefront
 - Include JS file that will handle all clicks and replace the HTML snapshot with a regular storefront when needed
 
-<aside class='note'>
+<aside class='notice'>
 Endpoints documentation: <a href="https://developers.ecwid.com/api-documentation/static-store-pages">Static store pages</a>
 </aside>
 
@@ -996,7 +1029,7 @@ Endpoints documentation: <a href="https://developers.ecwid.com/api-documentation
 
 See it in action and see source code here: [https://djqizrxa6f10j.cloudfront.net/apps/ecwid-static-pages/examples/static-page-demo.htm](https://djqizrxa6f10j.cloudfront.net/apps/ecwid-static-pages/examples/static-page-demo.htm)
 
-**Hints and best practices**
+#### Hints and best practices
 
 Preload the store home page HTML snapshot in advance. 
 
@@ -1059,18 +1092,11 @@ var color = Ecwid.getAppPublicConfig(appId);
 // ...
 ```
 
-As soon as your script is loaded on the page with Ecwid storefront, you can access the page DOM and do pretty much everything you want by means of native JavaScript or whatever framework you want. 
+You can access the Ecwid storefront DOM and do pretty much everything you want by means of native JavaScript or whatever framework you want. 
 
 If you use a JS framework, please make sure it's already loaded on the page by the moment you start using it. 
 
-In addition, Ecwid provides a [JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api) that you can use to retrieve store information and track Ecwid events on the page. For example:
-
-* `Ecwid.getOwnerId()` returns the store ID. You may want to use it to identify which store your script is loaded in now
-* `Ecwid.OnPageLoad()` and `Ecwid.OnPageLoaded()` help you to track store page switch and identify which page is opened
-* `Ecwid.Cart` object and its methods allow to manage the customer cart
-* `EcwidApp.getAppPublicConfig` will return store-specific data from application storage
-
-More details: [Ecwid JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api)
+In addition, Ecwid provides a [JavaScript API](https://developers.ecwid.com/api-documentation/storefront-js-api) that you can use to retrieve store information and track Ecwid events on the page. 
 
 **Table of contents**
 
@@ -1082,7 +1108,7 @@ More details: [Ecwid JavaScript API](https://developers.ecwid.com/api-documentat
 
 #### How to load custom JavaScript anytime storefront is loaded
 
-Ecwid will load a JS file if your app is installed there, and it has the `customize_storefront` permissions, and the URL to your files are set by Ecwid team. 
+Ecwid can load and execute a JS file from your server when store loads on page automatically. 
 
 Requirements: 
 
@@ -1094,7 +1120,7 @@ Required actions:
 
 1. After your app is registered, [contact us](/contact) and provide **HTTPS URL** of `.js` and/or `.css` file you’d like to load in the user storefront.
 2. Install your app into the target Ecwid store using instructions provided in registration email.
-3. The next time storefront is loaded in any browser or website, the specified external JS/CSS files will be automatically appended, loaded, and executed on that page.
+3. The next time storefront is loaded in any browser or website, your JS/CSS files will be automatically appended, loaded, and executed on that page.
 
 <aside class="notice">
 Permission required: <strong>customize_storefront</strong> (see <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">Access scopes</a>)
@@ -1226,7 +1252,7 @@ First, check for jQuery object on current page. If no object is defined, load an
 
 When you are using advanced jQuery's features such as jQuery UI, version specific functions, etc. it will be hard to work with, if a website already has varuous jQuery versions on a page. To avoid any version conflicts with current page jQuery version, we suggest you use jQuery noconflict feature. Check out how it works: [https://api.jquery.com/jquery.noconflict/](https://api.jquery.com/jquery.noconflict/)
 
-<aside class='note'>
+<aside class='notice'>
 We recommend loading your jQuery from <a href='https://developers.google.com/speed/libraries/#jquery'>Google's CDN</a> to ensure it is available at all times.
 </aside>
 
@@ -1271,7 +1297,10 @@ Let's check out how this can be achieved:
 <script src="https://s3.amazonaws.com/ecwid-addons/apps/ecwid-cart-app/cart.js"></script>
 ```
 
-Add this code to the source code of the page, where your Ecwid storefront is displayed. Add the script **after** or below Ecwid integration code.
+Add the JS and CSS files below to the source code of the page, where your Ecwid storefront is displayed. Make sure to add the script below the Ecwid integration code.
+
+- `https://s3.amazonaws.com/ecwid-addons/apps/ecwid-cart-app/cartapp.css`
+- `https://s3.amazonaws.com/ecwid-addons/apps/ecwid-cart-app/cart.js`
 
 **Step 2: Generate your cart**
 
@@ -1344,7 +1373,9 @@ https://www.ecwid.com/demo#!/~/cart/create=%7B%22gotoCheckout%22%3Atrue%2C%22pro
 
 Now we need to fill in customer's cart when your custom link is opened. 
 
-First things first, let's determine where your Ecwid store is displayed and get a direct link to that page. For example, our demo store is located in: `https://www.ecwid.com/demo`
+First things first, let's determine where your Ecwid store is displayed and get a direct link to that page. 
+
+For example, our demo store is located in: `https://www.ecwid.com/demo`
 And to fill in customer's cart with items that you seleted earlier, we need to create a link to your storefront with the generated cart part. 
 
 **Example link**
@@ -1353,8 +1384,8 @@ Generated link with products added automatically to cart for Ecwid demo store wi
 
 `https://www.ecwid.com/demo#!/~/cart/create=%7B%22gotoCheckout%22%3Atrue%2C%22products%22%3A%5B%7B%22id%22%3A66821181%2C%22quantity%22%3A3%2C%22options%22%3A%7B%22Color%22%3A%22White%22%2C%22Size%22%3A%2211oz%22%7D%7D%2C%7B%22id%22%3A66722581%2C%22quantity%22%3A5%7D%5D%2C%22profile%22%3A%7B%22address%22%3A%7B%22name%22%3A%22john%20smith%22%2C%22companyName%22%3A%22general%20motors%22%2C%22street%22%3A%225th%20Ave%22%2C%22city%22%3A%22New%20York%22%2C%22countryCode%22%3A%22US%22%2C%22postalCode%22%3A%2210002%22%2C%22stateOrProvinceCode%22%3A%22NY%22%2C%22phone%22%3A%22%2B1%20234%20235%2022%2012%22%7D%2C%22billingAddress%22%3A%7B%22countryCode%22%3A%22US%22%2C%22stateOrProvinceCode%22%3A%22AL%22%7D%2C%22email%22%3A%22test%40test.com%22%2C%22orderComments%22%3A%22Comments!%22%7D%7D`
 
-<aside class='note'>
-Please note that this is an example link and it will not work in Ecwid's demo store. Please test this feature in your own website.
+<aside class='notice'>
+Please note that this is an example link and it will not work in Ecwid's demo store.
 </aside>
 
 ### Storefront JavaScript API
@@ -1374,12 +1405,7 @@ To find our more about it, plesae see the [Storefront JavsScript API Documentati
 
 ## SEO 
 
-Check out the tools to improve the store's SEO. 
-
-**Table of contents:**
-
-- [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
-- [Canonical URLs](https://developers.ecwid.com/api-documentation/seo#canonical-urls)
+Improve store SEO with these tools. 
 
 ### SEO-friendly URLs
 

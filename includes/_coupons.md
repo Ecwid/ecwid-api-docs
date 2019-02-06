@@ -25,12 +25,16 @@ Accept-Encoding: gzip
 
 `GET https://app.ecwid.com/api/v3/{storeId}/discount_coupons?code={code}&discount_type={discount_type}&availability={availability}&limit={limit}&offset={offset}&token={token}`
 
+<aside class="notice">
+Parameters in <strong>bold</strong> are mandatory
+</aside>
+
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 offset | number | Offset from the beginning of the returned items list (for paging)
-limit | number | Maximum number of returned items in one batch. Maximum allowed value: `100`. Default value: `10`
+limit | number | Maximum number of returned items in one batch. Maximum allowed value: `100`. Default value: `100`
 code | string | Coupon code
 discount_type | string | Comma separated list of discount types. Supported values: `ABS`, `PERCENT`, `SHIPPING`, `ABS_AND_SHIPPING`, `PERCENT_AND_SHIPPING`
 availability |  string | Comma separated list of coupon states. Supported values: `ACTIVE`, `PAUSED`, `EXPIRED`, `USEDUP`
@@ -41,10 +45,6 @@ updatedTo | string | Coupon last update date/time (upper bound). Supported forma
 
 <aside class="notice">
 If no filters are set in the URL, API will return all discount coupons
-</aside>
-
-<aside class="notice">
-Parameters in bold are mandatory
 </aside>
 
 #### Response
@@ -105,7 +105,7 @@ Field | Type | Description
 total | number | The total number of found items (might be more than the number of returned items)
 count | number | The number of returned items
 offset | number | Offset from the beginning of the returned items list (for paging)
-limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `10`
+limit | number | Maximum number of returned items. Maximum allowed value: `100`. Default value: `100`
 items | Array\<*CouponSearchEntry*\> | The items list
 
 #### CouponSearchEntry

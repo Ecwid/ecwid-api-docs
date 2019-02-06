@@ -10,7 +10,7 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 ## Feb 5, 2019
 
-We added new feature to Ecwid – **Product Filters**. It can help customers to find products easiler when there are many products to choose from. 
+We added new feature to Ecwid – **Product Filters**. It can help customers to find products easier when there are many products to choose from. 
 
 - [Product Filters in Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/207807925)
 - [Product filters in Ecwid API Documentation](https://developers.ecwid.com/api-documentation/product-filters)
