@@ -31,7 +31,7 @@ Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&sku={sku}&productId={productId}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&sku={sku}&productId={productId}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&onsale={onsale}&option_[optionName]={option_[optionName]}&attribute_[attributeName]={attribute_[attributeName]}&token={token}`
 
 <aside class="notice">
 Parameters in <strong>bold</strong> are mandatory
@@ -61,6 +61,9 @@ sku | string | Product or variation SKU. Ecwid will return details of a product 
 productId | number | Internal Ecwid product ID or multiple productIds separated by a comma. If this field is specified, other search parameters are ignored.
 baseUrl | string | Storefront URL for Ecwid to use when returning product URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](#get-store-profile)
 cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
+onsale | string | Use `"onsale"` to get on sale items only or `"notonsale"` for items not currently on sale.
+option_[optionName] | string | Filter by product option values. Format: `option_[optionName]=param[,param]`, where `optionName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `option_Size=S,M,L&option_Color=Red,Black` 
+attribute_[attributeName] | string | Filter by product attribute values. Format: `attribute_[attributeName]=param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `attribute_Brand=Apple&attribute_Capacity=32GB,64GB` 
 
 <aside class="notice">
 If no filters are set in the URL, API will return the first 100 products found in a store. 

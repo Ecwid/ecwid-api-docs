@@ -171,6 +171,8 @@ product_list_product_info_layout | string | Set **align of sku/price/name** sect
 breadcrumbs_separator | string | Set **custom breadcrumbs separator** in product listing (category pages). For example: `Store / SubCategory / SubSubCategory` or `Store -> SubCategory -> SubSubCategory` or any other custom string. Possible values: any string, e.g. `"/"`, `"*"`, `"->"`, etc
 product_list_category_title_behavior | string | Control the way **category names** are displayed in product listing (category pages). Possible values: `"SHOW_ON_IMAGE"` – default, `"SHOW_BELOW_IMAGE"`, `"HIDE"`, `"SHOW_ON_HOVER"`
 show_sku | boolean | Hide or show the product SKU in the catalog (product list and product details page). Has less priority than `product_list_sku_behavior`
+product_filters_position_category_page | string | Set **product filters position on category** pages. Possible values: `"RIGHT"` – default, `"LEFT"`.
+product_filters_position_search_page | string | Set **product filters position on search results** pages. Possible values: `"LEFT"` – default, `"RIGHT"`.
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 

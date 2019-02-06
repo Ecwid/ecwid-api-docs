@@ -665,6 +665,8 @@ Name | Type    | Description
         "show_footer_menu": true,
         "show_breadcrumbs": true,
         "product_list_show_sort_viewas_options": true,
+        "product_filters_position_search_page": "LEFT",
+        "product_filters_position_category_page": "RIGHT",        
         "product_details_show_product_sku": true,
         "product_details_layout": "TWO_COLUMNS_SIDEBAR_ON_THE_RIGHT",
         "product_details_two_columns_with_right_sidebar_show_product_description_on_sidebar": false,
@@ -683,7 +685,10 @@ Name | Type    | Description
         "product_details_show_in_stock_label": true,
         "product_details_show_number_of_items_in_stock": true,
         "product_details_gallery_layout": "IMAGE_SINGLE_THUMBNAILS_VERTICAL"
-    } 
+    },
+    "productFiltersSettings": {
+      "enabledInStorefront": true
+    }
 }
 ```
 
@@ -913,6 +918,8 @@ Cache-Control: no-cache
         "show_footer_menu": true,
         "show_breadcrumbs": true,
         "product_list_show_sort_viewas_options": true,
+        "product_filters_position_search_page": "LEFT",
+        "product_filters_position_category_page": "RIGHT",
         "product_details_show_product_sku": true,
         "product_details_layout": "TWO_COLUMNS_SIDEBAR_ON_THE_RIGHT",
         "product_details_two_columns_with_right_sidebar_show_product_description_on_sidebar": false,
@@ -955,6 +962,7 @@ legalPagesSettings | \<*LegalPagesSettingsDetails*\> | Legal pages settings for 
 payment | \<*PaymentInfo*\> | Store payment settings information
 featureToggles | \<*FeatureTogglesInfo*\> | Information about enabled/disabled new store features and their visibility in Ecwid Control Panel. Not provided via public token. Some of them are available in [Ecwid JS API](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getfeaturetoggles)
 designSettings | \<*DesignSettingsInfo*\> | Design settings of an Ecwid store. Can be overriden by [updating store profile](https://developers.ecwid.com/api-documentation/store-information#update-store-profile) or by [customizing design](https://developers.ecwid.com/api-documentation/customize-appearance) via JS config in storefront. 
+productFiltersSettings | \<*ProductFiltersSettings*\> | Settings for product filters in a store
 
 #### GeneralInfo
 Field | Type | Description
@@ -1291,6 +1299,12 @@ enabled | boolean | `true` if feature is enabled and active in store
 Field | Type | Description
 ----- | ---- | -----------
 DESIGN_CONFIG_FIELD_NAME | string or boolean | Store design settings as seen in [storefront design customization](https://developers.ecwid.com/api-documentation/customize-appearance). If a specific config field is not provided, it will not be changed
+
+#### ProductFiltersSettings
+
+Field | Type | Description
+----- | ---- | -----------
+enabledInStorefront | boolean | `true` if product filters are enabled in storefront. `false` otherwise. 
 
 #### AbandonedSalesSettings
 

@@ -25,6 +25,7 @@ includes:
   - startersite
   - static_pages
   - extra_fields
+  - filters
   - webhooks
   - application_storage
   - add_to_cp
