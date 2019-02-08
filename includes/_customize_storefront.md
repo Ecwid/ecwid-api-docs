@@ -373,7 +373,7 @@ product_details_show_sale_price | boolean | Defines the **visibility of sale pri
 product_details_show_price_per_unit | boolean | Defines the **visibility of price per unit on product page**. Possible values: `true`, `false`. Defalut value: `true`
 product_details_show_tax | boolean | Defines the **visibility of tax on product page**. Possible values: `true`, `false`. Defalut value: `true`
 product_details_show_product_options | boolean | Defines the **visibility of product options on product page**. Possible values: `true`, `false`. Defalut value: `true`
-product_options.hide_price_modifiers | boolean | Defines the **visibility of price modifiers on product page**. Possible values: `true`, `false`. Defalut value: `false`
+product_details_hide_price_modifiers | boolean | Defines the **visibility of price modifiers on product page**. Possible values: `true`, `false`. Defalut value: `false`. Price modifiers are available for product options. See: *Ecwid Control Panel > Catalog > Edit Product > Options tab > Price modifiers*.
 product_details_show_buy_button | boolean | Defines the **visibility of buy button block on product page**. Possible values: `true`, `false`. Defalut value: `true`
 product_details_show_qty | boolean | Defines the **visibility of 'Qty' on product page**. Possible values: `true`, `false`. Defalut value: `false`
 product_details_show_number_of_items_in_stock | boolean | Defines the **visibility of number of items in stock on product page**. Possible values: `true`, `false`. Defalut value: `true`

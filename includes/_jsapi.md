@@ -223,9 +223,12 @@ Ecwid.OnPageLoaded.add(function(page){
 Get basic information about a page user opened in storefront. 
 
 How to do it: 
+
 1. Subscribe to `Ecwid.OnPageLoad` or `Ecwid.OnPageLoaded` event
 2. Extract page information from `page` object with your code
 3. When event happens, your callback code is executed
+
+<aside class='notice'>If you need more information about a product or category, use <a href="https://developers.ecwid.com/api-documentation/access-tokens">Ecwid REST API</a>. Public access token can be used in the client-side code, and private token on the server-side.</aside>
 
 **Page object fields**:
 
@@ -334,6 +337,8 @@ Ecwid.OnAPILoaded.add(function() {
 
 If it is not specified, Ecwid will use the default set of product options for that product page. 
 
+<aside class='notice'>If you need more information about a product or category, use <a href="https://developers.ecwid.com/api-documentation/access-tokens">Ecwid REST API</a>. Public access token can be used in the client-side code, and private token on the server-side.</aside>
+
 **Category**
 
 For category pages, the first argument of `Ecwid.openPage` function will be `'category'`.
@@ -355,6 +360,8 @@ Ecwid.OnAPILoaded.add(function() {
 `'page'` is an optional parameter, used to open a specific page with products. If the page value is bigger than there are pages in category, Ecwid will open the last available page. If integer value is not passed, `'page'` parameter is ignored.
 
 The example on the right opens product details page of a specific product and uses a custom name we set for it in [Ecwid demo store](https://www.ecwid.com/demo/). As a result, the URL will look like: `https://www.ecwid.com/demo/Apple-p72585497`
+
+<aside class='notice'>If you need more information about a product or category, use <a href="https://developers.ecwid.com/api-documentation/access-tokens">Ecwid REST API</a>. Public access token can be used in the client-side code, and private token on the server-side.</aside>
 
 **Search**
 
@@ -475,9 +482,13 @@ Ecwid.OnPageLoaded.add(function(page) {
 });
 ```
 
-These events contain callbacks that get called on each page change inside the product browser. The difference between **OnPageLoad** and **OnPageLoaded** is that the former is called when the page is changed (e.g. a link is clicked), while the latter is called later when the corresponding page is loaded inside the product browser.
+These events contain callbacks that get called on each page change inside the product browser. 
+
+The difference between **OnPageLoad** and **OnPageLoaded** is that the former is called when the page is changed (e.g. a link is clicked), while the latter is called later when the corresponding page is loaded inside the product browser.
 
 The callback functions accept one parameter of type **Page** specifying which page is to be loaded (or has already been loaded). See **Page Object** details for more info.
+
+<aside class='notice'>If you need more information about a product or category, use <a href="https://developers.ecwid.com/api-documentation/access-tokens">Ecwid REST API</a>. Public access token can be used in the client-side code, and private token on the server-side.</aside>
 
 #### Page object
 
