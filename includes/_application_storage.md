@@ -416,19 +416,9 @@ HTTP Status | Meaning
 
 ## Public application config
 
-Application Storage allows to save public app config and easily access it in a storefront. 
-
-You can use this feature if your app changes the look, appearance or logic of storefronts – [Customize Storefront](#customize-storefront) feature.
-
-Public application config represents value of the `public` key in application storage and it is **always of a string type**. Application storage can be accessed from both Ecwid Javascript SDK and REST API. 
-
-This provides equal access to storage for native and external applications, which operate outside of the Ecwid Control Panel. To get the public config in storefront, use a simple Ecwid Javascript API function.
-
-See sections below for more details on how to work with app public config.
+Application Storage allows to save public app config and access it easily in a storefront later. Public config is aways stored in a `public` key of your application storage. 
 
 **Use case example**
-
-Let’s say that you plan to build an app, that customizes a storefront, by displaying custom text created by store owner on a cart page.
 
 > Get public application config data in storefront example
 
@@ -436,13 +426,22 @@ Let’s say that you plan to build an app, that customizes a storefront, by disp
 Ecwid.getAppPublicConfig('my-cool-app');
 // "enabled"
 ```
-> See also: [App utilizing the app public config source code example](https://github.com/Ecwid/custom-thank-you-page-app)
 
-Or you create a fully customizable widget, where merchant can input custom text, change its size, color, background and do other customizations. 
+> See also: [Utilizing the public app config example](https://github.com/Ecwid/custom-thank-you-page-app)
 
-To do all of the above, your app will need to request all these fields from a merchant first and then apply them in storefront pages. 
+You may plan to build an app that displays custom `text` on a cart page written by store owner.
 
-User preferences or unique data can be carried over to storefront using public app config. To do that, save necessary merchant settings in public configuration of your app and access them in storefront using Ecwid JS API.
+Or you want to create a fully customizable widget, where merchant can input custom `text`, change its `size`, `color`, `background` and do other customizations. 
+
+To do all of the above, your app will need to:
+
+1. Request all these fields from a merchant in your app interface
+2. [Save them to the public config](https://developers.ecwid.com/api-documentation/public-application-config#save-public-data)
+3. [Apply them in storefront pages](https://developers.ecwid.com/api-documentation/public-application-config#get-public-data).
+
+You may also want to [store multiple values](https://developers.ecwid.com/api-documentation/public-application-config#access-single-or-multiple-values) in a public app config. 
+
+See information on these steps in details below.
 
 ### Save public data
 
@@ -473,19 +472,19 @@ There are two ways to save user’s data to app public config:
 
 2. For external or server-side applications, use **REST API** for saving user data to `public` key of application storage 
 
-<aside class="note">
-Check out examples on how to save and get multiple fields in app public config: <a href="https://developers.ecwid.com/api-documentation/public-application-config#examples">https://developers.ecwid.com/api-documentation/public-application-config#examples</a>
+<aside class="notice">
+Check out examples on saving and getting multiple fields in public app config: <a href="https://developers.ecwid.com/api-documentation/public-application-config#access-single-or-multiple-values">https://developers.ecwid.com/api-documentation/public-application-config#access-single-or-multiple-values</a>
 </aside>
 
 **Important:**
 
-- App public config can accept any string with the size less than 64Kb. Please make sure to store the required data only.
+- App public config can accept any string with the size less than **64Kb**. Please make sure to store the required data only.
 
 - App public config can be accessed by any 3rd party in storefront, if they know your appId. 
 
 If any other 3rd party obtains your appId, they will have access to public user data of your application in storefront. Please make sure not to store any user sensitive data in app public config.
 
-Check out example on how to save data to app public config on the right. To find out more details on how to access app storage via REST API, please see [this page](#rest-storage-api). 
+[How to access app storage via REST API](https://developers.ecwid.com/api-documentation/storage-in-ecwid-api#rest-storage-api). 
 
 ### Get public data
 
@@ -530,12 +529,12 @@ If your app customizes Ecwid storefront, you can get public config of your app u
 
 In your Javascript file, which is executed when a storefront is loaded, you should get config using this API call: `Ecwid.getAppPublicConfig('appId')`. It will return a string value that you saved previously.
 
-To get the value, specify your `appId` (app `client_id`) as its parameter and store the result of this function in a variable. If you are not sure on what your appId is, please [contact us](http://developers.ecwid.com/contact).
+To get the value, specify your `appId` (app `client_id`) as its parameter and store the result of this function in a variable. If you are not sure on what your appId is, [contact us](http://developers.ecwid.com/contact).
 
 App public config is available to your app as soon as storefront starts to load. 
 
-<aside class="note">
-Check out examples on how to save and get multiple fields in app public config: <a href="https://developers.ecwid.com/api-documentation/public-application-config#examples">https://developers.ecwid.com/api-documentation/public-application-config#examples</a>
+<aside class="notice">
+Check out examples on saving and getting multiple fields in public app config: <a href="https://developers.ecwid.com/api-documentation/public-application-config#access-single-or-multiple-values">https://developers.ecwid.com/api-documentation/public-application-config#access-single-or-multiple-values</a>
 </aside>
 
 ### Access single or multiple values
@@ -545,13 +544,14 @@ Check out examples on how to save and get multiple fields in app public config: 
 > Check whether widget needs to be shown
 
 ```js
-// Save data to app public config in native app (default authentication)
+// Save data to app public config in a Native app (default authentication)
 
 var widget_enabled = 'true';
 
 EcwidApp.setAppPublicConfig(widget_enabled, function(){
   console.log('Public app config saved!');
 });
+
 
 // Get data from app public config in storefront 
 
@@ -619,8 +619,8 @@ Ecwid.OnPageLoaded.add(function(page){
 
 Sometimes applications require more user information in storefront and it's possible to access it as well as a simple value.
 
-To save more than one value and utilize it as a key : value storage within app public config, you can save your data in a JSON format in a single string using `EcwidApp.setAppPublicConfig`.
+To save more than one value and utilize it as a `key : value` storage within app public config, you can save your data in a JSON format in a single string using `EcwidApp.setAppPublicConfig`.
 
-After that, you can access this data in storefront using `Ecwid.getAppPublicConfig` and then parse it via standard Javascript function JSON.parse, which will present your data in a JavaScript object. Check out example on the right to find out how it works.
+After that, you can access this data in storefront using `Ecwid.getAppPublicConfig`. Then parse it via standard JavaScript function `JSON.parse()`, which will present your data in a JavaScript object. Check out example on the right to find out how it works.
 
 <aside class='notice'>App public config can accept any string with the size <strong>less than 64Kb</strong>. Please make sure to store the required data only.</aside>
