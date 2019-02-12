@@ -185,6 +185,7 @@ product_list_category_title_behavior | string | Control the way **category names
 show_sku | boolean | Hide or show the product SKU in the catalog (product list and product details page). Has less priority than `product_list_sku_behavior`
 product_filters_position_category_page | string | Set **product filters position on category** pages. Possible values: `"RIGHT"` – default, `"LEFT"`.
 product_filters_position_search_page | string | Set **product filters position on search results** pages. Possible values: `"LEFT"` – default, `"RIGHT"`.
+product_filters_opened_by_default_on_category_page | boolean | `true` to show product filters by default on category pages. `false` to hide them by default. 
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
 

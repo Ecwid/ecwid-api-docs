@@ -50,6 +50,14 @@ Use `product_filters_position_category_page` and `product_filters_position_searc
 
 [Customize appearance documentation](https://developers.ecwid.com/api-documentation/customize-appearance#control-display-of-elements-in-product-grid)
 
+### Display filters by default
+
+Product filters can be displayed right away when a customer opens a category page. 
+
+Use `product_filters_opened_by_default_on_category_page` in Ecwid's storefront config to display filters by default. 
+
+[Customize appearance documentation](https://developers.ecwid.com/api-documentation/customize-appearance#control-display-of-elements-in-product-grid)
+
 ## Use filters in storefront
 
 When enabled, product filters can be used by your customers in the storefront on search and categories pages. Look for "Refine by" block on those pages.

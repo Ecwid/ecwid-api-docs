@@ -920,6 +920,7 @@ Cache-Control: no-cache
         "product_list_show_sort_viewas_options": true,
         "product_filters_position_search_page": "LEFT",
         "product_filters_position_category_page": "RIGHT",
+        "product_filters_opened_by_default_on_category_page": false,
         "product_details_show_product_sku": true,
         "product_details_layout": "TWO_COLUMNS_SIDEBAR_ON_THE_RIGHT",
         "product_details_two_columns_with_right_sidebar_show_product_description_on_sidebar": false,
@@ -1400,6 +1401,7 @@ Cache-Control: no-cache
         "product_list_product_info_layout": "CENTER",
         "product_list_show_additional_image_on_hover": true,
         "product_list_title_behavior": "SHOW",
+        "product_filters_opened_by_default_on_category_page": true
     }
 }
 ```
