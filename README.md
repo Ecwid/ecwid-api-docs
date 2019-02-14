@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Feb 14, 2019
+
+Added `DEFINED_BY_STORE_OWNER` sort method for [searching products](https://developers.ecwid.com/api-documentation/products#search-products) in Ecwid REST API. 
+
+If request is applicable to a specific category (i.e. `category` is set), then `DEFINED_BY_STORE_OWNER` sort method is used. Otherwise, when results are not related to a specific category, `RELEVANCE` sort method is used.
+
 ## Feb 5, 2019
 
 We added new feature to Ecwid – **Product Filters**. It can help customers to find products easier when there are many products to choose from. 
