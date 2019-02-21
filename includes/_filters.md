@@ -10,115 +10,16 @@ For example, you can filter the search results or category products by: price, p
 
 **Table of contents**
 
-- [Manage store filters](https://developers.ecwid.com/api-documentation/manage-store-filters)
-- [Use filters in storefront](https://developers.ecwid.com/api-documentation/use-filters-in-storefront)
-- [Get store filters](https://developers.ecwid.com/api-documentation/get-store-filters)
+- [Get available product filters](https://developers.ecwid.com/api-documentation/get-store-filters)
+- [Find products using filters](https://developers.ecwid.com/api-documentation/find-products-using-filters)
 
-Learn more about product filters in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207807925). 
-
-## Manage store filters
-
-Merchants can manage their store filters in the *Ecwid Control Panel → Settings → Product filters*. 
-
-There you can enable the product filters feature and enable/disable specific filters, like: specific product options, attributes and more.
-
-[Product filters in Ecwid Control Panel](https://my.ecwid.com/cp/#product-filters)
-
-### Enabling filters
-
-Product filters can be enabled when a store is on the **Ecwid Business plan** or higher. [Enable product filters](https://my.ecwid.com/cp/#product-filters)
-
-**Check widget availability**
-
-You can check whether filters are enabled in storefront using the Store profile endpoint → `productFiltersSettings`. [Get store profile endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
-
-### Change filters position
-
-You can display product widgets on the left or right side of the storefront area. 
-
-It is possible to set position for both the search page and all category pages in a store. 
-
-**Change position using REST API at any time**
-
-Use the  `product_filters_position_search_page`,`product_filters_position_category_page` to get and update position of filters widget. See the `designSettings` field.
-
-[Store profile endpoint](https://developers.ecwid.com/api-documentation/store-information)
-
-**Change position using JS in storefront**
-
-Use `product_filters_position_category_page` and `product_filters_position_search_page` in Ecwid's storefront config to change their position on corresponding pages. 
-
-[Customize appearance documentation](https://developers.ecwid.com/api-documentation/customize-appearance#control-display-of-elements-in-product-grid)
-
-### Display filters by default
-
-Product filters can be displayed right away when a customer opens a category page. 
-
-Use `product_filters_opened_by_default_on_category_page` in Ecwid's storefront config to display filters by default. 
-
-[Customize appearance documentation](https://developers.ecwid.com/api-documentation/customize-appearance#control-display-of-elements-in-product-grid)
-
-## Use filters in storefront
-
-When enabled, product filters can be used by your customers in the storefront on search and categories pages. Look for "Refine by" block on those pages.
-
-See how to enable filters and manage them in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207807925).
-
-### Filters in query parameters
-
-> Filters in query parameters on search page example
-
-```http
-GET https://mdemo.ecwid.com/search?keyword=surfboard&inventory=instock
-```
-
-If you'd like to create your own custom filter widget and use Ecwid storefront widget, you can use query parameters in the storefront to filter products on a page. 
-
-Filters in query parameters are available for search and category pages. 
-
-**Query parameters for filters**
-
-Field | Type |  Description
---------- | ---------| -----------
-keyword | string | Search by a specific phrase
-priceFrom | number | Minimum product price
-priceTo | number | Maximum product price
-categories | string | Search within these categories. Supports IDs separated by comma and value `"home"` that refers to the Store Home Page
-includeProductsFromSubcategories | boolean | Defines whether Ecwd should search in subcategories too. Only makes sense when `categories` parameter is set
-createdFrom | string | Product create date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul> Example: <ul><li>`1447804800`</li> </ul>
-createdTo | string | Product last create date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
-updatedFrom | string | Product last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
-updatedTo | string | Product last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
-option_{optionName} | string | Filter by product option values. Format: `option_{optionName}=param[,param]`, where `optionName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `option_Size=S,M,L&option_Color=Red,Black` 
-attribute_{attributeName} | string | Filter by product attribute values. Format: `attribute_{attributeName}=param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `attribute_Brand=Apple&attribute_Capacity=32GB,64GB` 
-inventory | string | Search instock or out of stock products. Possible values: `"instock"`,`"outofstock"`
-onsale | string | Search on sale products. Possible values: `"onsale"`, `"notonsale"`
-
-### Filters in custom product listing
-
-Some developers create a whole entirely new and custom product listing for their stores. 
-
-Since the listing is retrieved from the API, you will need a way to get available filters and products to display. 
-
-**1. Get available filters**
-
-Check the [Filters in REST API](/api-documentation/get-store-filters#filters-in-rest-api) section on getting filters for your particular store. 
-
-**2. Get products according to filters**
-
-When you received all the needed filters from the Ecwid API, use those filters when [searching for products](https://developers.ecwid.com/api-documentation/products#search-products).
-
-As a result, you will have the list of products that follow your filters and you'll just need to display them in your custom product listing. 
+Learn more about product filters in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207807925).
 
 ## Get store filters
 
-Each store can have its own set of product filters: some will have pricing and stock availability; some will have specific product options, like Size and Color. 
+Each store can have its own set of product filters: some will have pricing and stock availability; some will have specific product options, like size and color. 
 
-Learn about adding more filters or disabling some of them in [Manage store filters](/api-documentation/manage-store-filters) section.
-
-### Filters in Ecwid REST API
-
-Get available store filters from Ecwid API. Filter out the results by specific product options, price, keywords, attributes and more. 
+You can get available store filter facets from the Ecwid API. Find filter facets for specific product options, price, keywords, attributes and more. 
 
 <aside class="notice">
 To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
@@ -164,8 +65,6 @@ createdTo | string | Product last create date/time (upper bound). Supported form
 updatedFrom | string | Product last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
 updatedTo | string | Product last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
 enabled | boolean | Use `true` if you need only enabled products. Use `false` if you need both enabled and disabled products
-field{attributeName} | string | Filter by product attribute values. Format: `field{attributeName}=param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `fieldBrand=Apple&fieldCapacity=32GB,64GB` 
-field{attributeId} | string | Filter by product attribute values. Works the same as the filter by `field{attributeName}` but attribute IDs are used instead of attribute names. This way is insensitive to attributes renaming.
 option_{optionName} | string | Filter by product option values. Format: `option_{optionName}=param[,param]`, where `optionName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `option_Size=S,M,L&option_Color=Red,Black` 
 attribute_{attributeName} | string | Filter by product attribute values. Format: `attribute_{attributeName}param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `attribute_Brand=Apple&attribute_Capacity=32GB,64GB` 
 inventory | string | Use `"instock"` to get in stock items only or `"outofstock"` for out of stock items. 
@@ -353,4 +252,58 @@ HTTP Status | Meaning | Code (optional)
 Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
+
+
+
+## Find products using filters
+
+You can find products according to your filter facets both in the Ecwid REST API and in merchant's storefront.
+
+### Find products in Ecwid REST API
+
+Find store products using Ecwid REST API in two steps: 
+
+**1. Get available filters**
+
+Get available filters [in the REST API](https://developers.ecwid.com/api-documentation/get-store-filters).
+
+**2. Get products according to filters**
+
+When you received all the needed filter facets from the Ecwid API, use them when [searching for products](https://developers.ecwid.com/api-documentation/products#search-products).
+
+As a result, you will have the list of products that follow your search rules and all of their details, like price, SKU, images and many others.
+
+### Find products in storefront
+
+> Filters in query parameters on search page example
+
+```http
+GET https://mdemo.ecwid.com/search?keyword=surfboard&inventory=instock&priceFrom=20
+```
+
+You can use query parameters of URL in the storefront to filter products on a page. Filters in query parameters are available for search and category pages. 
+
+<aside class="notice">
+You can also get selected filter facets using <a href="https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onpageload-ecwid-onpageloaded">Ecwid JS API</a> for "SEARCH" and "CATEGORY" page types.
+</aside>
+
+**Query parameters for filters**
+
+Field | Type |  Description
+--------- | ---------| -----------
+keyword | string | Search by a specific phrase
+priceFrom | number | Minimum product price
+priceTo | number | Maximum product price
+categories | string | Search within these categories. Supports IDs separated by comma and value `"home"` that refers to the Store Home Page
+includeProductsFromSubcategories | boolean | Defines whether Ecwd should search in subcategories too. Only makes sense when `categories` parameter is set
+createdFrom | string | Product create date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul> Example: <ul><li>`1447804800`</li> </ul>
+createdTo | string | Product last create date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
+updatedFrom | string | Product last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
+updatedTo | string | Product last update date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
+option_{optionName} | string | Filter by product option values. Format: `option_{optionName}=param[,param]`, where `optionName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `option_Size=S,M,L&option_Color=Red,Black` 
+attribute_{attributeName} | string | Filter by product attribute values. Format: `attribute_{attributeName}=param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `attribute_Brand=Apple&attribute_Capacity=32GB,64GB` 
+inventory | string | Search instock or out of stock products. Possible values: `"instock"`,`"outofstock"`
+onsale | string | Search on sale products. Possible values: `"onsale"`, `"notonsale"`
+
+
 

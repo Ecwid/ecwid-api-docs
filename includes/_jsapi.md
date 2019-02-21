@@ -403,7 +403,7 @@ Additional parameters include:
 
 - `'priceFrom'`: the minimum products’ price (base price). The decimal separator is dot. No currency symbol.
 - `'priceTo'`: the maximum products’ price (base price). The decimal separator is dot. No currency symbol. 
-- `'category'`: the category ID, to which products belong. This partially duplicates functions of the Categories widget and provides you with the more flexible results. For example, you can mix several parameters: to select all the products which cost less than $30 and belong to the ‘t-shirt’ category. Instructions: How to get category ID
+- `'category'`: the category ID, to which products belong. This partially duplicates functions of the Categories widget and provides you with the more flexible results. For example, you can mix several parameters: to select all the products which cost less than $30 and belong to the ‘t-shirt’ category
 - `'withSubcategory'`: whether to show products from subcategories, if the "category" parameter is indicated. Possible values: true, any other value is treated as false. 
 - `'field{Name}=param[,param]'`: search by product attributes. "Name" is the attribute name (spaces will work). "Param" is the attribute value. You can place several values separated by comma. In that case values will be connected through "OR", and if the product has at least one of them it will be shown. Important note: if you need to search for an exact attribute value you should enclose it in the quotation marks. For information about product attributes please refer to this article.
 - `'field{id}=param[,param]'`: it is the same parameter as `field[Name]` but attribute ID is used instead attribute name. In this case you need to get the attribute ID number through the API. It is more complex but resistant to attributes renaming.
@@ -526,6 +526,29 @@ orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the ord
 vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix)
 entryPage | boolean | `true` if current page is the first page opened by visitor. `false` otherwise
 hasPrevious | boolean | `true` if customer visited some previous pages earlier and current page is not the entry page. `false` if current page is entry page
+filterParams | \<*FilterParameters*\> | Filter parameters used in product search request. For `"CATEGORY"` and `"SEARCH"` pages only
+
+#### FilterParameters
+
+Name | Type | Description
+---- | ----- | -----------
+attributes | \<*SelectedAttributes*\> | Information about selected attributes and their values
+categories | Array of string | List of category IDs where customer searches in
+includeProductsFromSubcategories | boolean | `true` if the search needs to include products from subcategories. `false` otherwise
+keyword | string | The keyword customer used when searching for products
+options | \<*SelectedOptions*\> | Information about selected options and their values
+
+#### SelectedAttributes
+
+Name | Type | Description
+---- | ----- | -----------
+ATTRIBUTE_NAME | string | Attribute name is the field name and array of attribute value(s) is the value of this field
+
+#### SelectedOptions
+
+Name | Type | Description
+---- | ----- | -----------
+OPTION_NAME | string | Option name is the field name and array of option value(s) is the value of this field
 
 ### Ecwid.OnSetProfile
 
