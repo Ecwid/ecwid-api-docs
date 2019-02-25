@@ -118,9 +118,9 @@ Field | Description
 ----- | -----------
 access_token | Private authorization token. This is a key your app will use to access Ecwid API on behalf of the user. 
 token_type | `bearer` (it's always `bearer`)
-scope | List of permissions (API access scopes) given to the app, separated by space
+scope | List of permissions (API access scopes) given to the app, separated by space. See all possible values in [Access scopes](https://developers.ecwid.com/api-documentation/access-tokens#access-scopes) section
 store_id | Ecwid store ID (a unique Ecwid account identificator)
-public_token | [Public authorization token](#access-tokens). Provided if requested access scopes contain `public_storefront` scope.
+public_token | [Public authorization token](https://developers.ecwid.com/api-documentation/access-tokens#public-access-token). Provided if requested access scopes contain `public_storefront` scope.
 
 <aside class="notice">
 For security reasons, a temporary code can be exchanged to an access token only once. In case of second attempt, the previously provided access token is automatically disabled.
@@ -161,7 +161,7 @@ Parameter | Required | Description
 **client_id** | required | Application ID
 **redirect_uri** | required | URI in your app where users will be sent after authorization. It must match the domain/URL of the registered return_url specified in the app settings (contact us to change it). I.e. if the registered return_url is `http://www.example.com`, the redirect_uri in request might be `http://www.example.com/oauth/callback.php` , but not `http://www.example2.com/`
 **response_type** | required | `code` (must always be `code`)
-**scope** | required | Scope of access that your app requests from the user, separated by space. See all possible values in [Scopes](#access-scopes) section
+**scope** | required | Scope of access that your app requests from the user, separated by space. See all possible values in [Access scopes](https://developers.ecwid.com/api-documentation/access-tokens#access-scopes) section
 
 <aside class="notice">
 	Parameters in <strong>bold</strong> are mandatory.
@@ -232,10 +232,10 @@ Field | Description
 ----- | -----------
 access_token | Private authorization token. This is a key your app will use to access Ecwid API on behalf of the user. 
 token_type | `bearer` (it's always `bearer`)
-scope | List of permissions (API access levels) given to the app, separated by space
+scope | List of permissions (API access levels) given to the app, separated by space. See all possible values in [Access scopes](https://developers.ecwid.com/api-documentation/access-tokens#access-scopes) section
 store_id | Ecwid store ID (a unique Ecwid account identificator)
 email | Store owner's `accountEmail`, as provided in [store profile](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
-public_token | [Public authorization token](#access-tokens). Provided if requested access scopes contain `public_storefront` scope.
+public_token | [Public authorization token](https://developers.ecwid.com/api-documentation/access-tokens). Provided if requested access scopes contain `public_storefront` scope.
 
 <aside class="notice">
 For security reasons, a temporary code can be exchanged to an access token only once. In case of second attempt, the previously provided access token is automatically disabled.
@@ -297,7 +297,7 @@ You are able to retrieve public token in any part of your application:
 - [Storefront](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getapppublictoken)
 - [External app](https://developers.ecwid.com/api-documentation/external-applications#get-access-token)
 
-<aside class='note'>Public token will be available only if your app requests <strong>public_storefront</strong> <a href="https://developers.ecwid.com/api-documentation/external-applications#access-scopes">access scope</a> from a merchant.</aside>
+<aside class='note'>Public token will be available only if your app requests <strong>public_storefront</strong> <a href="https://developers.ecwid.com/api-documentation/access-tokens#access-scopes">access scope</a> from a merchant.</aside>
 
 With public access token you can use several REST API endpoints from anywhere (client-side JavaScript, widget integration codes, etc.). These methods are available for public token **regardless of the other access scope your requested** from a store – you only need the `public_storefront` scope to use them: 
 

@@ -286,10 +286,6 @@ You can show your saved extra field title and value in order details. It will be
 
 It is possible to customize the position of this information with `orderDetailsDisplaySection` field. Possible values for it include: `shipping_info`, `billing_info`, `customer_info`, `order_comments`.
 
-<aside class='note'>
-<strong>For customer in storefront</strong>, the saved data will <strong>always be displayed below order comments section</strong>, regardless of the value set for 'orderDetailsDisplaySection' (except for if that value is not supported).
-</aside>
-
 Check a basic example on the right. 
 
 ### Extra field display requirements
@@ -301,7 +297,7 @@ Extra fields will only be shown in order details to customer and store admin if 
 - `orderDetailsDisplaySection` contains supported value: `shipping_info`, `billing_info`, `customer_info`, `order_comments`
 
 <aside class='note'>
-If 'orderDetailsDisplaySection' contains an unsupported value, the extra field will still be saved to an order, but it will not be shown in order details to merchant and customer.
+If 'orderDetailsDisplaySection' contains an unsupported value, the extra field will still be saved to an order and displayed in the 'Additional information' section. 
 </aside>
 
 ### Order extra fields in invoices and emails
@@ -346,8 +342,6 @@ The codes for extra fields need to be added to the source code of your website o
             'minDate': new Date(new Date().getTime() + 2*60*60*1000), // Order is prepared for 2 hours minimum. Hiding 2 hours from the current time. Default is 0
             'maxDate': new Date(2020, 12, 31),
             'showTime': true,
-            'autoClose': false,
-            'use24hour': true,
             'incrementMinuteBy': 30,
             // limit available hours for each week day
             'limitAvailableHoursWeekly': {
@@ -367,15 +361,7 @@ The codes for extra fields need to be added to the source code of your website o
                 'FRI': [
                     ['14:00', '17:30']
                 ]
-            },
-            // disallow specific dates
-            'disallowDates': [
-                // Same-day pickup can start from 3PM only
-                ['2017-04-25 15:00:00', '2017-04-25 23:59:59'],
-
-                // Custom dates (some interval has been reserved by other customer)
-                ['2017-04-26 08:30', '2017-04-26 10:00']
-            ]
+            }
         }
     };
 
@@ -408,19 +394,12 @@ Field | Type |  Description
 minDate | Date | Min allowed date to select by customer
 maxDate | Date | Max allowed date to select by customer
 limitAvailableHoursWeekly | Array\<*LimitAvailableHoursWeekly*\> | Limit available hours for each day of the week. Values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`
-disallowDates | Array\<*DisallowDates*\> | Disallow several specific timeframes (from date - to date)
 showTime | boolean | Use `true` to show time picker, `false` to hide it
 incrementTimeBy | integer | Time intervals in minutes. If `30` is set, the times will be like: `12:30, 13:00, 13:30..`
-use24HourFormat | boolean | Use `true` to use 24-hour format, `false` to use 12-hour (AM/PM) format
-autoClose | boolean | Use `true` to close datepicker popup right after the day is selected (not time!). `false` to close popup only if customer clicks outside of it
 
 #### LimitAvailableHoursWeekly
 
 Specify time frames for each day of the week, multiple timeframes are available, see example on the right.
-
-#### DisallowDates
-
-Specify time frames which are not available to select, see example on the right.
 
 ## More about extra fields
 
