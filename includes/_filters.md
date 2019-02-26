@@ -1,25 +1,23 @@
 # Product filters
 
-> Product filters interface in storefront
+Product filters can help you find the products you need in a big catalog. 
 
-> ![Product filters interface](https://don16obqbay2c.cloudfront.net/wp-content/uploads/filters-1549440733.png)
-
-When stores have more than 50-100 products customers can find it hard to find the right product. Use the product filters functionality to let your customers find products fast and easy.
-
-For example, you can filter the search results or category products by: price, product options, product attributes, on sale status and stock availability and more. 
+Ecwid API allows you to get the available filter facets in a store and then use them to search for products in the REST API and in storefront. 
 
 **Table of contents**
 
-- [Get available product filters](https://developers.ecwid.com/api-documentation/get-store-filters)
-- [Find products using filters](https://developers.ecwid.com/api-documentation/find-products-using-filters)
+- [Get filter facets](https://developers.ecwid.com/api-documentation/get-store-filters)
+- [Find products](https://developers.ecwid.com/api-documentation/find-products-using-filters)
 
-Learn more about product filters in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207807925).
+There is a native product filters widget available for the Ecwid storefronts. Learn more about it in our [Help Center](https://support.ecwid.com/hc/en-us/articles/207807925).
 
 ## Get store filters
 
-Each store can have its own set of product filters: some will have pricing and stock availability; some will have specific product options, like size and color. 
+Each store has general set of filter facets enabled by default: filter by price, availability, availability in stock, whether it belongs to a specific category and whether it's on sale. 
 
-You can get available store filter facets from the Ecwid API. Find filter facets for specific product options, price, keywords, attributes and more. 
+Store owners can also choose their own set of product filters, for example: specific product options, like `Size` and `Color`, or attributes, like `Brand`.
+
+You can get these available store filter facets from the Ecwid API – find available values for specific product options, price, keywords, attributes and more. 
 
 <aside class="notice">
 To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
@@ -254,20 +252,35 @@ Field | Type |  Description
 errorMessage | string | Error message
 
 
-
 ## Find products using filters
 
-You can find products according to your filter facets both in the Ecwid REST API and in merchant's storefront.
+You can find products according to your filter facets both in the Ecwid REST API and in merchant's storefront. 
 
-### Find products in Ecwid REST API
+Filter facets help you find available values for the search process. For example, learn that a store has a `Red` value for `Color` product option and `Adidas` value for `Brand` attiribute. 
 
-Find store products using Ecwid REST API in two steps: 
-
-**1. Get available filters**
+**Step 1. Get filter facets**
 
 Get available filters [in the REST API](https://developers.ecwid.com/api-documentation/get-store-filters).
 
-**2. Get products according to filters**
+**Step 2. Get products according to filters**
+
+Once you have the required filter facets, start searching for products: 
+
+- [Find products in Ecwid REST API](https://developers.ecwid.com/api-documentation/find-products-using-filters#find-products-in-ecwid-rest-api)
+- [Find products in storefront](https://developers.ecwid.com/api-documentation/find-products-using-filters#find-products-in-storefront)
+
+### Find products in Ecwid REST API
+
+> Using filters in REST API example 
+
+```http
+GET https://app.ecwid.com/api/v3/api/v3/4870020/products?attribute_Brand=Adidas&option_Color=Red&priceTo=100&token=1234567890qwqeertt 
+HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+Accept-Encoding: gzip
+```
 
 When you received all the needed filter facets from the Ecwid API, use them when [searching for products](https://developers.ecwid.com/api-documentation/products#search-products).
 
@@ -281,7 +294,7 @@ As a result, you will have the list of products that follow your search rules an
 GET https://mdemo.ecwid.com/search?keyword=surfboard&inventory=instock&priceFrom=20
 ```
 
-You can use query parameters of URL in the storefront to filter products on a page. Filters in query parameters are available for search and category pages. 
+You can use query parameters of a URL in the storefront to filter products on a page. Filters in query parameters are available for search and category pages. 
 
 <aside class="notice">
 You can also get selected filter facets using <a href="https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onpageload-ecwid-onpageloaded">Ecwid JS API</a> for "SEARCH" and "CATEGORY" page types.
