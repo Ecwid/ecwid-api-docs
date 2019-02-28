@@ -2,7 +2,7 @@
 
 > Native app interface example
 
-> ![Edit orders interface](https://dj925myfyz5v.cloudfront.net/wp-content/uploads/nativeApp-1468407012-1485267123.png)
+> ![Edit orders interface](https://don16obqbay2c.cloudfront.net/wp-content/uploads/native-apps-1551262705.png)
 
 The Ecwid API allows your application to be embedded right into the user Control Panel and work like it is built into Ecwid. 
 
@@ -16,9 +16,9 @@ Although this approach is not necessary and you can use the Ecwid API without em
 
 **Links to get started quickly**: 
 
-- [Set your app to embed into Ecwid Control Panel](https://developers.ecwid.com/api-documentation/building-an-embedded-app#set-up-your-application)
-- [Build your app interface from a template](https://developers.ecwid.com/api-documentation/building-an-embedded-app#app-page-template)
-- [Available user authentication types](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#user-authentication)
+- [Set your app to embed into Ecwid Control Panel](https://developers.ecwid.com/api-documentation/building-a-native-app#set-up-your-application)
+- [Build your app interface from a template](https://developers.ecwid.com/api-documentation/building-a-native-app#app-page-template)
+- [Available user authentication types](https://developers.ecwid.com/api-documentation/authentication-in-native-apps#user-authentication)
 - [Ecwid CSS Framework for Native Apps](https://developers.ecwid.com/api-documentation/ecwid-css-framework)
 - [Ecwid JavaScript SDK for Native Apps](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk)
 - [Troubleshooting issues with Native apps](https://developers.ecwid.com/api-documentation/troubleshooting)
