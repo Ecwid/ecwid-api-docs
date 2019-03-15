@@ -120,7 +120,7 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           "compareToPriceDiscountPercentFormatted": "56%",          
           "isShippingRequired": true,
           "weight": 0,
-          "url": "https://mdemo.ecwid.com/Orange-p37208339,
+          "url": "https://mdemo.ecwid.com/Orange-p37208339",
           "created": "2015-10-05 07:26:14 +0000",
           "updated": "2016-02-03 10:01:02 +0000",
           "createTimestamp": 1444029974,
@@ -761,6 +761,7 @@ quantity |  number |  Number of product items on this wholesale tier
 price | number |  Product price on the tier
 
 #### ProductOption
+
 Field | Type  | Description
 ----- | ----- | -----------
 type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
@@ -770,6 +771,7 @@ defaultChoice | number  | The number, starting from `0`, of the option's default
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
 
 #### ShippingSettings
+
 Field | Type  | Description
 ----- | ----- | -----------
 type | string | One of: `"GLOBAL_METHODS"`, `"SELECTED_METHODS"`, `"FLAT_RATE"`, `"FREE_SHIPPING"`. `"GLOBAL_METHODS"` – all standard shipping methods set up in store settings; `"SELECTED_METHODS"` – Ecwid will use `enabledMethods` and `disabledMethods` list to make shipping calculations; `"FLAT_RATE"` – sets flat rate for product's shipping, see `flatRate` field. 
@@ -779,11 +781,13 @@ disabledMethods | Array of string | IDs of shipping methods that need to be excl
 enabledMethods | Array of string | IDs of shipping methods which will only be shown when this product is in cart. No other shipping methods will be shown. IDs can be retrieved in [store information endpoint](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 
 #### ProductMedia 
+
 Field | Type  | Description
 ----- | ----- | -----------
 images | Array \<*ProductImage*\> | Images of this product and their details
 
 #### ProductImage
+
 Field | Type  | Description
 ----- | ----- | -----------
 id | number | Internal image ID
@@ -796,12 +800,14 @@ image1500pxUrl |  string  | URL of the product image resized to fit 1500x1500px
 imageOriginalUrl | string | URL of the image in its original resolution
 
 #### CategoriesInfo
+
 Field | Type  | Description
 ----- | ----- | -----------
 id | number | Category ID
 enabled | boolean | `true` if category is enabled, `false` otherwise
 
 #### AttributeValue
+
 Field | Type  | Description
 -------------- | -------------- | --------------
 id |  number |  Unique attribute ID. See [Product Classes](#product-types) for the information on attribute IDs
@@ -811,6 +817,7 @@ type | string | Attribute type. There are user-defined attributes, general attri
 show | string | Defines where to display the product attribute value:. Supported values: `NOTSHOW`, `DESCR`, `PRICE` 
 
 #### ProductFile
+
 Field | Type  | Description
 -------------- | -------------- | --------------
 id |  number |  Internal ID of the file 
@@ -820,12 +827,14 @@ size |  number |  File size, bytes (64-bit integer)
 adminUrl | string | Direct link to the file. **Important**: to download the file, add your API token to this URL like this: `https://app.ecwid.com/api/v3/4870020/products/37208340/files/7215102?token=YOUR-API-TOKEN` 
 
 #### RelatedProducts
+
 Field | Type  | Description
 -------------- | -------------- | --------------
 productIds | Array\<*number*\>  | IDs of the related products
 relatedCategory | *RelatedCategory*  | Describes the "N random related products from a category" option
 
 #### RelatedCategory
+
 Field | Type  | Description
 -------------- | -------------- | --------------
 enabled | boolean | `true` if the "N random related products from a category" option is enabled. `false` otherwise
@@ -833,6 +842,7 @@ categoryId |  number |  Id of the related category. Zero value means "any catego
 productCount |  number |  Number of random products from the given category to be shown as related
 
 #### Variation
+
 Field | Type  | Description
 ------| ----- | -----------
 id |  number |  Variation ID
@@ -844,7 +854,7 @@ imageUrl |  string  | URL of the product variation image resized to fit 1500x150
 smallThumbnailUrl | string  | URL of the product variation thumbnail resized to fit 160x160px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
 hdThumbnailUrl | string  | Product variation HD thumbnail URL resized to fit 800x800px. Omitted if the variation inherits the base product's image.
 originalImageUrl |  string  | URL of the original not resized product variation image. Omitted if the variation inherits the base product's image.
-quantity | number | Amount of the variation items in stock. Omitted if the variation inherits the base product's quantity.
+quantity | number | Amount of the variation items in stock. If `sku` is omitted, then `quantity` of the variation is nested from base product. If `sku` is present, the variation has its own quantity value.
 unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
 price | number | Variation price. Omitted if the variation inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
@@ -1444,7 +1454,7 @@ imageUrl |  string  | URL of the product variation image resized to fit 1500x150
 smallThumbnailUrl | string  | URL of the product variation thumbnail resized to fit 160x160px. Omitted if the variation inherits the base product's image. *The original uploaded product image is available in the `originalImageUrl` field.*
 hdThumbnailUrl | string  | Product variation HD thumbnail URL resized to fit 800x800px. Omitted if the variation inherits the base product's image.
 originalImageUrl |  string  | URL of the original not resized product variation image. Omitted if the variation inherits the base product's image.
-quantity | number | Amount of the variation items in stock. Omitted if the variation inherits the base product's quantity.
+quantity | number | Amount of the variation items in stock. If `sku` is omitted, then `quantity` of the variation is nested from base product. If `sku` is present, the variation has its own quantity value.
 unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
 price | number | Variation price. Omitted if the variation inherits the base product's price.
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 

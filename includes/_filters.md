@@ -17,10 +17,12 @@ Each store has general set of filter facets enabled by default: filter by price,
 
 Store owners can also choose their own set of product filters, for example: specific product options, like `Size` and `Color`, or attributes, like `Brand`.
 
-You can get these available store filter facets from the Ecwid API – find available values for specific product options, price, keywords, attributes and more. 
+The product options and attribute names are available in the product details. So first you should learn what kind of options and attributes a merchant's store has by inspecting the catalog. 
+
+Afterwards, can get store filter facets from the Ecwid API – find available values for specific product options, price, keywords, attributes and more.
 
 <aside class="notice">
-To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
+To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan.
 </aside>
 
 > Request example

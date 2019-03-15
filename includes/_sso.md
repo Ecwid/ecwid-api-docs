@@ -12,7 +12,7 @@ Ecwidâ€™s Single Sign-On feature allows those customers to sign into a merchantâ
 
 - [Add Single Sign-On to a website](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website)
 - [Customize Single Sign-On flow](https://developers.ecwid.com/api-documentation/implement-sso-on-a-website#customize-sso-workflow)
-- [Single Sign-On implementation examples](https://developers.ecwid.com/api-documentation/sso-implementation-examples)
+- [Single Sign-On implementation examples](https://developers.ecwid.com/api-documentation/sso-flow-examples)
 
 <aside class="note">
 To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>

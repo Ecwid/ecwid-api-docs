@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Mar 15, 2019
+
+- [Public app config](https://developers.ecwid.com/api-documentation/public-application-config) size was increased from 64Kb to **256Kb**. 
+
+- Clarified how `quantity` field works when getting product variations from products and variations endpoints. If `sku` is omitted for variation, then `quantity` is nested from base product. If `sku` is present, the variation has its own quantity value.
+
 ## Feb 14, 2019
 
 Added `DEFINED_BY_STORE_OWNER` sort method for [searching products](https://developers.ecwid.com/api-documentation/products#search-products) in Ecwid REST API. 

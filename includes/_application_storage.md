@@ -478,7 +478,7 @@ Check out examples on saving and getting multiple fields in public app config: <
 
 **Important:**
 
-- App public config can accept any string with the size less than **64Kb**. Please make sure to store the required data only.
+- App public config can accept any string with the size less than **256Kb**. Please make sure to store the required data only.
 
 - App public config can be accessed by any 3rd party in storefront, if they know your appId. 
 
@@ -623,4 +623,4 @@ To save more than one value and utilize it as a `key : value` storage within app
 
 After that, you can access this data in storefront using `Ecwid.getAppPublicConfig`. Then parse it via standard JavaScript function `JSON.parse()`, which will present your data in a JavaScript object. Check out example on the right to find out how it works.
 
-<aside class='notice'>App public config can accept any string with the size <strong>less than 64Kb</strong>. Please make sure to store the required data only.</aside>
+<aside class='notice'>App public config can accept any string with the size <strong>less than 256Kb</strong>. Please make sure to store the required data only.</aside>
