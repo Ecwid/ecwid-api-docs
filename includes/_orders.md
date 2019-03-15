@@ -2226,7 +2226,7 @@ errorMessage | string | Error message
 
 ### Delete order
 
-Delete a specific order in an Ecwid store referrint to its ID.
+Delete a specific order in an Ecwid store
 
 > Request example
 
