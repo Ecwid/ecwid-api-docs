@@ -68,7 +68,11 @@ Name | Type    | Description
           "displayOnProductList": true,
           "oldPriceLabel": "was",
           "displayDiscount": "PERCENT"
-        }
+        },
+        "showAcceptMarketingCheckbox": true,
+        "acceptMarketingCheckboxDefaultValue": false,
+        "acceptMarketingCheckboxCustomText": "I accept to receive marketing offers to my email",
+        "askConsentToTrackInStorefront": false
     },
     "mailNotifications": {
         "adminNotificationEmails": [
@@ -715,7 +719,11 @@ Cache-Control: no-cache
     "storeName": "Awesome store",
     "storeDescription": "<p>Welcome to my store! Check out the latest and coolest products below. </p>",
     "googleAnalyticsId": "",
-    "fbPixelId": "12305215151521"
+    "fbPixelId": "12305215151521",
+    "showAcceptMarketingCheckbox": true,
+    "acceptMarketingCheckboxDefaultValue": false,
+    "acceptMarketingCheckboxCustomText": "I accept to receive marketing offers to my email",
+    "askConsentToTrackInStorefront": false
   },
   "mailNotifications": {
     "customerNotificationFromEmail": "info@example.com"
@@ -1001,6 +1009,10 @@ favoritesEnabled | boolean | `true` if favorites feature is enabled for storefro
 defaultProductSortOrder | string | Default products sort order setting from *Settings > Cart & Checkout*. Possible values: `"DEFINED_BY_STORE_OWNER"`, `"ADDED_TIME_DESC"`, `"PRICE_ASC"`, `"PRICE_DESC"`, `"NAME_ASC"`, `"NAME_DESC"`
 abandonedSales | \<*AbandonedSalesSettings*\> | Abandoned sales settings
 salePrice | \<*SalePriceSettings*\ | Sale (compare to) price settings 
+showAcceptMarketingCheckbox | boolean | `true` if merchant shows the checkbox to accept marketing. `false` otherwise
+acceptMarketingCheckboxDefaultValue | boolean | Default value for the checkbox at checkout to accept marketing
+acceptMarketingCheckboxCustomText | string | Custom text label for the checkbox to accept marketing at checkout
+askConsentToTrackInStorefront | boolean | `true` if merchant shows warning to accept cookies in storefront. `false` otherwise
 
 #### MailNotifications
 Field | Type | Description
@@ -1375,7 +1387,11 @@ Cache-Control: no-cache
           "displayOnProductList": true,
           "oldPriceLabel": "was",
           "displayDiscount": "PERCENT"
-        }
+        },
+        "showAcceptMarketingCheckbox": true,
+        "acceptMarketingCheckboxDefaultValue": false,
+        "acceptMarketingCheckboxCustomText": "I accept to receive marketing offers to my email",
+        "askConsentToTrackInStorefront": false
     },
     "company": {
       "companyName": "My Company, Inc",
@@ -1536,7 +1552,11 @@ hideOutOfStockProductsInStorefront | boolean | `true` if out of stock products a
 askCompanyName | boolean | `true` if "Ask for the company name" in checkout settings is enabled, `false` otherwise
 favoritesEnabled | boolean | `true` if favorites feature is enabled for storefront, `false` otherwise
 abandonedSales | \<*AbandonedSalesSettings*\> | Abandoned sales settings
-salePrice | \<*SalePriceSettings*\ | Sale (compare to) price settings 
+salePrice | \<*SalePriceSettings*\ | Sale (compare to) price settings
+showAcceptMarketingCheckbox | boolean | `true` if merchant shows the checkbox to accept marketing. `false` otherwise
+acceptMarketingCheckboxDefaultValue | boolean | Default value for the checkbox at checkout to accept marketing
+acceptMarketingCheckboxCustomText | string | Custom text label for the checkbox to accept marketing at checkout
+askConsentToTrackInStorefront | boolean | `true` if merchant shows warning to accept cookies in storefront. `false` otherwise
 
 #### MailNotifications
 Field | Type | Description
@@ -1566,13 +1586,13 @@ Field | Type | Description
 currency | string | 3-letters code of the store currency (ISO 4217). Examples: `USD`, `CAD`
 currencyPrefix | string |  Currency prefix (e.g. $)
 currencySuffix | string | Currency suffix
-currencyGroupSeparator | string | Price thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``.
+currencyGroupSeparator | string | Price thousands separator. Supported values: space `" "`, dot `"."`, comma `","`  or empty value `""`.
 currencyDecimalSeparator |  string | Price decimal separator. Possible values: `.` or `,` 
 currencyTruncateZeroFractional | boolean | Hide zero fractional part of the prices in storefront. `true` or `false` . 
 currencyRate | number | Currency rate in U.S. dollars, as set in the merchant control panel
 weightUnit |    string |    Weight unit. Supported values: `CARAT`, `GRAM`, `OUNCE`, `POUND`, `KILOGRAM`
 weightPrecision | number | Numbers of digits after decimal point in weights displayed in the store
-weightGroupSeparator | string | Weight thousands separator. Supported values: space ` `, dot `.`, comma `,`  or empty value ``
+weightGroupSeparator | string | Weight thousands separator. Supported values: space `" "`, dot `"."`, comma `","`  or empty value `""`
 weightDecimalSeparator | string | Weight decimal separator. Possible values: `.` or `,` 
 weightTruncateZeroFractional |  boolean | Hide zero fractional part of the weight values in storefront. `true` or `false` . 
 dateFormat | string | Date format. Only these formats are accepted: `"dd-MM-yyyy"`, `"dd/MM/yyyy"`, `"dd.MM.yyyy"`, `"MM-dd-yyyy"`, `"MM/dd/yyyy"`, `"yyyy/MM/dd"`, `"MMM d, yyyy"`, `"MMMM d, yyyy"`, `"EEE, MMM d, ''yy"`, `"EEE, MMMM d, yyyy"`

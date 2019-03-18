@@ -20,7 +20,7 @@ Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&email={email}&customerId={customerId}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&offset={offset}&limit={limit}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&email={email}&customerId={customerId}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&acceptMarketing={acceptMarketing}&offset={offset}&limit={limit}&token={token}`
 
 #### Q: How to get info about abandoned sales? 
 
@@ -41,6 +41,14 @@ For example, if a store has 452 orders, you would need to call the `/orders` end
 - `offset=400` // 400-452 orders
 
 As a result, you will get all 452 orders after these 5 consecutive requests.
+
+#### Q: How to find customer emails I can use for promotions?
+
+Use the `acceptMarketing` filter when searching for orders / customers or when getting order / customer details. 
+
+If it is set to `true` or `null`, you can use their email for promotions in your app or customization. 
+
+If it's set to `false` – you **cannot send promotional emails** to that person. 
 
 <aside class="notice">
 If no filters are set in the URL, API will return all orders <strong>except for unfinished orders</strong>. To get unfinished orders, use <i>INCOMPLETE</i> value for <strong>paymentStatus</strong> parameter.
@@ -68,6 +76,7 @@ paymentMethod | string | Payment method used by customer
 shippingMethod | string | Shipping method chosen by customer
 paymentStatus | string | Comma separated list of order payment statuses to search. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string | Comma separated list of order fulfilment statuses to search. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
+acceptMarketing | boolean | `true` if customer has accepted email marketing. `false` otherwise
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -415,7 +424,8 @@ Parameters in bold are mandatory
             "extraFields": {
                 "lang": "en",
                 "askHowYouFoundUsApp": "From a friend"
-            }
+            },
+            "acceptMarketing": true
         }
     ]
 }
@@ -488,7 +498,7 @@ refundedAmount | number | A sum of all refunds made to order (for [Ecwid Payment
 refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping 'as is'. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if order is updated later manually. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
-
+acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions (`null` too). If value is `false`, you can't use this email for promotions
 
 #### OrderItem
 Field | Type |  Description
@@ -1087,7 +1097,8 @@ Parameters in bold are mandatory
     "extraFields": {
         "lang": "en",
         "askHowYouFoundUsApp": "From a friend",
-    }
+    },
+    "acceptMarketing": true
 }
 ```
 
@@ -1148,6 +1159,7 @@ extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about orde
 refundedAmount | number | A sum of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
+acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions (`null` too). If value is `false`, you can't use this email for promotions
 
 #### OrderItem
 Field | Type |  Description
@@ -1874,7 +1886,6 @@ However, please mind that if you want to update the ordered items, you should su
 
 <aside class='note'>Access scopes required: <strong>read_orders</strong> and <strong>update_orders</strong></aside>
 
-
 > Request example
 
 ```http
@@ -1980,7 +1991,8 @@ Cache-Control: no-cache
                 "value": 20,
                 "total": 2.86
             }
-        ]
+        ],
+        "acceptMarketing": false
     }
 ```
 
@@ -2040,6 +2052,7 @@ creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if order is updated later manually. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
+acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
 
 #### OrderItem
 Field | Type |  Description
@@ -2349,7 +2362,8 @@ Cache-Control: no-cache
             "shippingRate": 10
         },
         "hidden": false,
-        "privateAdminNotes": "Must be delivered till Sunday."
+        "privateAdminNotes": "Must be delivered till Sunday.",
+        "acceptMarketing": false
     }
 ```
 
@@ -2421,6 +2435,7 @@ affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner. Ignored when creating orders with [public token](#access-tokens)
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
+acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
 
 #### OrderItem
 Field | Type | Description

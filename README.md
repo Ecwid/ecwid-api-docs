@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Mar 18, 2019
+
+Added new tools to track customers who agreed to receive email promotions. 
+
+`acceptMarketing` field: for the [Orders](https://developers.ecwid.com/api-documentation/orders) and [Customers](https://developers.ecwid.com/api-documentation/customers) REST API endpoints. If `false`, you cannot use email of this customer for promotions. `true` and `null` – otherwise
+
+`showAcceptMarketingCheckbox`, `acceptMarketingCheckboxDefaultValue`, `acceptMarketingCheckboxCustomText` for the [Store profile](https://developers.ecwid.com/api-documentation/store-information) REST API endpoint
+
 ## Mar 15, 2019
 
 - [Public app config](https://developers.ecwid.com/api-documentation/public-application-config) size was increased from 64Kb to **256Kb**. 

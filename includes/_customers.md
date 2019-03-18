@@ -10,6 +10,14 @@ To access the Ecwid API Platform features, make sure you have a registered appli
 
 Search for customers by a keyword or basic filters: number of orders made, name, email, customer group and more.
 
+#### Q: How to find customer emails I can use for promotions?
+
+Use the `acceptMarketing` filter when searching for orders / customers or when getting order / customer details. 
+
+If it is set to `true` or `null`, you can use their email for promotions in your app or customization. 
+
+If it's set to `false` – you **cannot send promotional emails** to that person. 
+
 #### Request
 
 > Request examples
@@ -22,7 +30,7 @@ Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/customers?keyword={keyword}&name={name}&email={email}&customerGroup={groupId}&minOrderCount={minOrderCount}&maxOrderCount={maxOrderCount}&sortBy={sortBy}&offset={offset}&limit={limit}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/customers?keyword={keyword}&name={name}&email={email}&customerGroup={groupId}&minOrderCount={minOrderCount}&maxOrderCount={maxOrderCount}&acceptMarketing={acceptMarketing}&sortBy={sortBy}&offset={offset}&limit={limit}&token={token}`
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -34,6 +42,7 @@ email | string | Customer email
 groupId | number | Customer group ID
 minOrderCount |  number | Minimum number of order a customer placed
 maxOrderCount | number | Maximum number of order a customer placed
+acceptMarketing | boolean | `true` if customer has accepted email marketing. `false` otherwise
 createdFrom | string | Customer register date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li></ul> Examples: <ul><li>`1447804800`</li></ul>
 createdTo | string | Customer register date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
 updatedFrom | string | Customer last update date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>
@@ -75,7 +84,8 @@ Parameters in bold are mandatory
             },
             "shippingAddresses": [],
             "taxExempt": false,
-            "taxIdValid": true
+            "taxIdValid": true,
+            "acceptMarketing": true
         },
         {
             "id": 14444116,
@@ -99,7 +109,8 @@ Parameters in bold are mandatory
             },
             "shippingAddresses": [],
             "taxExempt": false,
-            "taxIdValid": true
+            "taxIdValid": true,
+            "acceptMarketing": false
         },
         {
             "id": 24623047,
@@ -115,7 +126,8 @@ Parameters in bold are mandatory
             },
             "shippingAddresses": [],
             "taxExempt": false,
-            "taxIdValid": true
+            "taxIdValid": true,
+            "acceptMarketing": true
         },
         {
             "id": 24623053,
@@ -131,7 +143,8 @@ Parameters in bold are mandatory
             },
             "shippingAddresses": [],
             "taxExempt": false,
-            "taxIdValid": true
+            "taxIdValid": true,
+            "acceptMarketing": false
         },
     ]
 }
@@ -164,6 +177,7 @@ customerGroupName | string | Customer group name
 taxId | string | Customer tax ID
 taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
 taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
+acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
 
 #### Person
 Field | Type  | Description
@@ -231,6 +245,14 @@ errorMessage | string | Error message
 ### Get customer
 
 Get full customers details referring to their ID in an Ecwid store.
+
+#### Q: How to find customer emails I can use for promotions?
+
+Use the `acceptMarketing` filter when searching for orders / customers or when getting order / customer details. 
+
+If it is set to `true` or `null`, you can use their email for promotions in your app or customization. 
+
+If it's set to `false` – you **cannot send promotional emails** to that person. 
 
 #### Request
 
@@ -303,7 +325,8 @@ Name | Type    | Description
     ],
     "taxId": "GB999 9999 73",
     "taxExempt": true,
-    "taxIdValid": true
+    "taxIdValid": true,
+    "acceptMarketing": true
 }
 ```
 
@@ -324,6 +347,7 @@ customerGroupName | string | Customer group name
 taxId | string | Customer tax ID
 taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
 taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
+acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
 
 #### Person
 Field | Type  | Description
@@ -405,7 +429,9 @@ POST /api/v3/4870020/customers?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
+```
 
+```json
 {
     "email": "example@example.com",
     "password": "ecwidiscool",
@@ -434,7 +460,8 @@ Cache-Control: no-cache
       ],
     "taxId": "GB999 9999 73",
     "taxExempt": true,
-    "taxIdValid": true
+    "taxIdValid": true,
+    "acceptMarketing": true
 }
 ```
 
@@ -463,6 +490,7 @@ shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
 taxId | string | Customer tax ID
 taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
 taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
+acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
 
 #### Person
 Field | Type  | Description
@@ -553,7 +581,9 @@ PUT /api/v3/4870020/customers?10293737&token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json
 Cache-Control: no-cache
+```
 
+```json
 {
     "email": "new-email@example.com",
     "password":"newpassword",
@@ -582,7 +612,8 @@ Cache-Control: no-cache
       ],
     "taxId": "GB999 9999 73",
     "taxExempt": true,
-    "taxIdValid": true
+    "taxIdValid": true,
+    "acceptMarketing": false
 }
 ```
 
@@ -612,6 +643,7 @@ shippingAddresses | Array\<*ShippingAddress*\> | Customer address book items
 taxId | string | Customer tax ID
 taxIdValid | boolean | `true` if customer tax ID is valid, `false` otherwise
 taxExempt | boolean | `true` if customer is tax exempt, `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/213823045-How-to-handle-tax-exempt-customers-in-Ecwid)
+acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
 
 #### Person
 Field | Type  | Description
