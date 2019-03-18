@@ -14,7 +14,7 @@ Check this page to get started: [Customizing your Ecwid store](https://developer
 
 You can use Ecwid API to create apps which help Ecwid merchants and earn money from it. 
 
-Check this page to get started: [Creating an app for the Ecwid App Market](https://developers.ecwid.com/create-a-public-app)
+Check this page to get started: [Creating an app for the Ecwid App Market](https://developers.ecwid.com/)
 
 ## API features
 

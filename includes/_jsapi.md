@@ -234,7 +234,8 @@ How to do it:
 
 Name | Type | Description
 ---- | ----- | -----------
-type | string, one of the following: ‘ACCOUNT_SETTINGS’, ‘ADDRESS_BOOK’, ‘ORDERS’, ‘RESET_PASSWORD‘, ‘CATEGORY’, ‘CART’, ‘CHECKOUT_ADDRESS_BOOK’, ‘CHECKOUT_PAYMENT_DETAILS’, ‘CHECKOUT_PLACE_ORDER’, ‘CHECKOUT_SHIPPING_ADDRESS’, ‘ORDER_CONFIRMATION’, ‘ORDER_FAILURE’, ‘CHECKOUT_RESULT’, ‘DOWNLOAD_ERROR’, ‘PRODUCT’, ‘SEARCH’, 'FAVORITES', 'RESET_PASSWORD' | The type of the page. Some pages may have parameters like for example product id of the viewing product. Those parameters are described below.
+name | string | For types: `CATEGORY`, `PRODUCT`. Name of the opened category or product 
+type | string, one of the following: `ACCOUNT_SETTINGS`, `ADDRESS_BOOK`, `ORDERS`, `RESET_PASSWORD`, `CATEGORY`, `CART`, `CHECKOUT_ADDRESS_BOOK`, `CHECKOUT_PAYMENT_DETAILS`, `CHECKOUT_PLACE_ORDER`, `CHECKOUT_SHIPPING_ADDRESS`, `ORDER_CONFIRMATION`, `ORDER_FAILURE`, `CHECKOUT_RESULT`, `DOWNLOAD_ERROR`, `PRODUCT`, `SEARCH`, `FAVORITES`, `RESET_PASSWORD` | The type of the page. Some pages may have parameters, like: `productId` of the viewing product. Those parameters are described below.
 keywords | string, optional | for type==’ORDERS’: the keywords that are used to find orders in the customer account page. for type==’SEARCH’: the keywords that are used to find products on the product search page.
 from | integer timestamp, optional | for type==’ORDERS’: The timestamp of the start of the orders date range.
 to | integer timestamp, optional | for type==’ORDERS’: The timestamp of the end of the orders date range.
@@ -249,8 +250,32 @@ key | integer, optional | for type==’DOWNLOAD_ERROR’: the downloading file i
 productId | integer | for type==’PRODUCT’: the internal id of the displaying product (not to be confused with SKU).
 orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
 vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix)
-entryPage | boolean | `true` if current page is the first page opened by visitor. `false` otherwise
-hasPrevious | boolean | `true` if customer visited some previous pages earlier and current page is not the entry page. `false` if current page is entry page
+hasPrevious | boolean | `true` if customer visited some previous pages earlier and current page is not the entry page. `false` if current page is the first page of entry
+variationId | number | Variation ID if specified in the URL. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#open-specific-product-variation)
+filterParams | \<*FilterParameters*\> | Filter parameters used in product search request. For `"CATEGORY"` and `"SEARCH"` pages only
+
+#### FilterParameters
+
+Name | Type | Description
+---- | ----- | -----------
+attributes | \<*SelectedAttributes*\> | Information about selected attributes and their values
+categories | Array of string | List of category IDs where customer searches in
+includeProductsFromSubcategories | boolean | `true` if the search needs to include products from subcategories. `false` otherwise
+keyword | string | The keyword customer used when searching for products
+options | \<*SelectedOptions*\> | Information about selected options and their values
+
+#### SelectedAttributes
+
+Name | Type | Description
+---- | ----- | -----------
+ATTRIBUTE_NAME | string | Attribute name is the field name and array of attribute value(s) is the value of this field
+
+#### SelectedOptions
+
+Name | Type | Description
+---- | ----- | -----------
+OPTION_NAME | string | Option name is the field name and array of option value(s) is the value of this field
+
 
 ### Ecwid.setStorefrontBaseUrl 
 
@@ -509,7 +534,8 @@ Ecwid.OnPageLoaded.add(function(page){
 
 Name | Type | Description
 ---- | ----- | -----------
-type | string, one of the following: ‘ACCOUNT_SETTINGS’, ‘ADDRESS_BOOK’, ‘ORDERS’, ‘CATEGORY’, ‘CART’, ‘CHECKOUT_ADDRESS_BOOK’, ‘CHECKOUT_PAYMENT_DETAILS’, ‘CHECKOUT_PLACE_ORDER’, ‘CHECKOUT_SHIPPING_ADDRESS’, ‘ORDER_CONFIRMATION’, ‘ORDER_FAILURE’, ‘CHECKOUT_RESULT’, ‘DOWNLOAD_ERROR’, ‘PRODUCT’, ‘SEARCH’, 'FAVORITES' | The type of the page. Some pages may have parameters like for example product id of the viewing product. Those parameters are described below.
+name | string | For types: `CATEGORY`, `PRODUCT`. Name of the opened category or product 
+type | string, one of the following: `ACCOUNT_SETTINGS`, `ADDRESS_BOOK`, `ORDERS`, `RESET_PASSWORD`, `CATEGORY`, `CART`, `CHECKOUT_ADDRESS_BOOK`, `CHECKOUT_PAYMENT_DETAILS`, `CHECKOUT_PLACE_ORDER`, `CHECKOUT_SHIPPING_ADDRESS`, `ORDER_CONFIRMATION`, `ORDER_FAILURE`, `CHECKOUT_RESULT`, `DOWNLOAD_ERROR`, `PRODUCT`, `SEARCH`, `FAVORITES`, `RESET_PASSWORD` | The type of the page. Some pages may have parameters, like: `productId` of the viewing product. Those parameters are described below.
 keywords | string, optional | for type==’ORDERS’: the keywords that are used to find orders in the customer account page. for type==’SEARCH’: the keywords that are used to find products on the product search page.
 from | integer timestamp, optional | for type==’ORDERS’: The timestamp of the start of the orders date range.
 to | integer timestamp, optional | for type==’ORDERS’: The timestamp of the end of the orders date range.
@@ -524,8 +550,8 @@ key | integer, optional | for type==’DOWNLOAD_ERROR’: the downloading file i
 productId | integer | for type==’PRODUCT’: the internal id of the displaying product (not to be confused with SKU).
 orderNumber | integer | for type==’ORDER_CONFIRMATION’ the number of the order placed by customer(without prefix and suffix).
 vendorOrderNumber | string | for type==’CHECKOUT_RESULT’ and type==’ORDER_CONFIRMATION’ the number of the order placed by customer(with prefix and suffix)
-entryPage | boolean | `true` if current page is the first page opened by visitor. `false` otherwise
-hasPrevious | boolean | `true` if customer visited some previous pages earlier and current page is not the entry page. `false` if current page is entry page
+hasPrevious | boolean | `true` if customer visited some previous pages earlier and current page is not the entry page. `false` if current page is the first page of entry
+variationId | number | Variation ID if specified in the URL. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#open-specific-product-variation)
 filterParams | \<*FilterParameters*\> | Filter parameters used in product search request. For `"CATEGORY"` and `"SEARCH"` pages only
 
 #### FilterParameters
