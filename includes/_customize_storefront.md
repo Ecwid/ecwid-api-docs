@@ -806,6 +806,9 @@ Default value: `"IMMEDIATELY"`
 
 If you need to scroll to a custom position when navigating the Ecwid store, use the `"CUSTOM"` value and set your custom scrolling function in the `window.ec.config.custom_scroller` configuration. 
 
+<aside class="notice">
+If you use a sticky header on your website, you may want to offset the default storefront scroll position by X amount of pixels. <a href="https://developers.ecwid.com/api-documentation/customize-behaviour#offset-default-storefront-scroll-position">Learn more</a>
+</aside>
 
 ### Adapt storefront layout to container width
 
@@ -886,6 +889,32 @@ And so on.
 Resulting URL: `https://www.ecwid.com/demo/Rip-Curl-Channel-Island-p72585497?options=2,2`
 
 It will open a product "Rip Curl Channel Island" with options: Size - Medium, Color - Dark grey.
+
+### Offset default storefront scroll position
+
+> Move storefront widget scroll position up by 150px
+
+```html
+<script>
+  window.ec = window.ec || {};
+  window.ec.config = window.ec.config || {};
+  window.ec.config.scroll_indent = 150; 
+</script>
+```
+
+Some websites have sticky headers which stay in the same place as user scrolls the page down. 
+
+When navigating to a new page in Ecwid storefronts, it will scroll to the top of the store page area automatically.
+
+By default, Ecwid can detect the sticky headers and offset the scroll position so that both website header is visible as well as the top area of a store page.
+
+However, you can override this value with a custom one. See the example on the right. 
+
+**Important**: if store page title is clearly visible or there is little space between the page top and store area – the scroll indent will be disabled.
+
+<aside class="notice">
+If you are using <a href="https://developers.ecwid.com/api-documentation/customize-behaviour#disable-force-scrolling-to-storefront">a custom scroll position</a>, it will override the `scroll_indent` described here.
+</aside>
 
 ### Embed or remove storefront on demand
 

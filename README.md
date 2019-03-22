@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Mar 22, 2019
+
+- Added `Ecwid.getTrackingConsent()` JS API method for storefront. It provides information about customer's consent to be tracked on store pages. [Learn more](https://developers.ecwid.com/api-documentation/get-customer-details#ecwid-gettrackingconsent)
+
+- Added option to offset the default storefront scroll position by X amount of pixels. This can be useful if you use a sticky header on your website that stays displayed when users scroll down website pages. [Learn more](https://developers.ecwid.com/api-documentation/customize-behaviour#offset-default-storefront-scroll-position)
+
 ## Mar 18, 2019
 
 Added new tools to track customers who agreed to receive email promotions. 

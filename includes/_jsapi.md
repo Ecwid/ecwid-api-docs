@@ -764,9 +764,28 @@ email | string | Customer's email
 
 Find out more about customer that is currently logged in a store.
 
+### Ecwid.getTrackingConsent
+
+> Get status of customer's consent to be tracked
+
+```js
+Ecwid.getTrackingConsent();
+
+// {  userResponse: "ACCEPTED", askConsent: true }
+```
+
+`Ecwid.getTrackingConsent();` provides information about customer's consent to be tracked on store pages. 
+
+**Fields:**
+
+Name | Type | Description
+-----|------|------------
+userResponse | string | Customer's preferred choice for being tracked. Possible values: `"ACCEPTED"`, `"DECLINED"` or empty
+askConsent | boolean | `true` if store requests customer consent to be tracked. `false` otherwise
+
 ### Customer Object
 
-Customer object describes details of a customer in the store
+Customer object describes details of a logged in customer in a store.
 
 > Get customer email and billing country example
 
