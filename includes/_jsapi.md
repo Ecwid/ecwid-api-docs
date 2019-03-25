@@ -1365,11 +1365,15 @@ Let's check out how this can be achieved:
 > Script and CSS to load on your storefront page
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/ecwid-addons/apps/ecwid-cart-app/cartapp.css">
-<script src="https://s3.amazonaws.com/ecwid-addons/apps/ecwid-cart-app/cart.js"></script>
+<link rel="stylesheet" type="text/css" href="https://djqizrxa6f10j.cloudfront.net/apps/ecwid-cart-app/cartapp.css">
+<script src="https://djqizrxa6f10j.cloudfront.net/apps/ecwid-cart-app/1.0.0/cart.js"></script>
 ```
 
-Add this code to the source code of the page, where your Ecwid storefront is displayed. Add the script **after** or below Ecwid integration code.
+Add this code to the source code of the page, where your Ecwid storefront is displayed. 
+
+<aside class="notice">
+Make sure to add the script <strong>after or below</strong> Ecwid integration code.
+</aside>
 
 **Step 2: Generate your cart**
 
@@ -1411,14 +1415,13 @@ var cart = {
      }
  }
 
-cart = JSON.stringify(cart);
-cart = encodeURIComponent(cart);
+cart = encodeURIComponent(btoa(encodeURIComponent(JSON.stringify(cart))));
 
 console.log(cart);
 
 // prints the resulting string you need to use in step 3
 //
-// %7B%22gotoCheckout%22%3Atrue%2C%22products%22%3A%5B%7B%22id%22%3A66821181%2C%22quantity%22%3A3%2C%22options%22%3A%7B%22Color%22%3A%22White%22%2C%22Size%22%3A%2211oz%22%7D%7D%2C%7B%22id%22%3A66722581%2C%22quantity%22%3A5%7D%5D%2C%22profile%22%3A%7B%22address%22%3A%7B%22name%22%3A%22john%20smith%22%2C%22companyName%22%3A%22general%20motors%22%2C%22street%22%3A%225th%20Ave%22%2C%22city%22%3A%22New%20York%22%2C%22countryCode%22%3A%22US%22%2C%22postalCode%22%3A%2210002%22%2C%22stateOrProvinceCode%22%3A%22NY%22%2C%22phone%22%3A%22%2B1%20234%20235%2022%2012%22%7D%2C%22billingAddress%22%3A%7B%22countryCode%22%3A%22US%22%2C%22stateOrProvinceCode%22%3A%22AL%22%7D%2C%22email%22%3A%22test%40test.com%22%2C%22orderComments%22%3A%22Comments!%22%7D%7D
+// JTdCJTIyZ290b0NoZWNrb3V0JTIyJTNBdHJ1ZSUyQyUyMnByb2R1Y3RzJTIyJTNBJTVCJTdCJTIyaWQlMjIlM0E2NjgyMTE4MSUyQyUyMnF1YW50aXR5JTIyJTNBMyUyQyUyMm9wdGlvbnMlMjIlM0ElN0IlMjJDb2xvciUyMiUzQSUyMldoaXRlJTIyJTJDJTIyU2l6ZSUyMiUzQSUyMjExb3olMjIlN0QlN0QlMkMlN0IlMjJpZCUyMiUzQTY2NzIyNTgxJTJDJTIycXVhbnRpdHklMjIlM0E1JTdEJTVEJTJDJTIycHJvZmlsZSUyMiUzQSU3QiUyMmFkZHJlc3MlMjIlM0ElN0IlMjJuYW1lJTIyJTNBJTIyam9obiUyMHNtaXRoJTIyJTJDJTIyY29tcGFueU5hbWUlMjIlM0ElMjJnZW5lcmFsJTIwbW90b3JzJTIyJTJDJTIyc3RyZWV0JTIyJTNBJTIyNXRoJTIwQXZlJTIyJTJDJTIyY2l0eSUyMiUzQSUyMk5ldyUyMFlvcmslMjIlMkMlMjJjb3VudHJ5Q29kZSUyMiUzQSUyMlVTJTIyJTJDJTIycG9zdGFsQ29kZSUyMiUzQSUyMjEwMDAyJTIyJTJDJTIyc3RhdGVPclByb3ZpbmNlQ29kZSUyMiUzQSUyMk5ZJTIyJTJDJTIycGhvbmUlMjIlM0ElMjIlMkIxJTIwMjM0JTIwMjM1JTIwMjIlMjAxMiUyMiU3RCUyQyUyMmJpbGxpbmdBZGRyZXNzJTIyJTNBJTdCJTIyY291bnRyeUNvZGUlMjIlM0ElMjJVUyUyMiUyQyUyMnN0YXRlT3JQcm92aW5jZUNvZGUlMjIlM0ElMjJBTCUyMiU3RCUyQyUyMmVtYWlsJTIyJTNBJTIydGVzdCU0MHRlc3QuY29tJTIyJTJDJTIyb3JkZXJDb21tZW50cyUyMiUzQSUyMkNvbW1lbnRzISUyMiU3RCU3RA%3D%3D
 //
 ```
 
@@ -1437,21 +1440,22 @@ http://example.com/store#!/~/cart/create={generatedCartCode}
 > Final link to generated cart example
 
 ```
-https://www.ecwid.com/demo#!/~/cart/create=%7B%22gotoCheckout%22%3Atrue%2C%22products%22%3A%5B%7B%22id%22%3A66821181%2C%22quantity%22%3A3%2C%22options%22%3A%7B%22Color%22%3A%22White%22%2C%22Size%22%3A%2211oz%22%7D%7D%2C%7B%22id%22%3A66722581%2C%22quantity%22%3A5%7D%5D%2C%22profile%22%3A%7B%22address%22%3A%7B%22name%22%3A%22john%20smith%22%2C%22companyName%22%3A%22general%20motors%22%2C%22street%22%3A%225th%20Ave%22%2C%22city%22%3A%22New%20York%22%2C%22countryCode%22%3A%22US%22%2C%22postalCode%22%3A%2210002%22%2C%22stateOrProvinceCode%22%3A%22NY%22%2C%22phone%22%3A%22%2B1%20234%20235%2022%2012%22%7D%2C%22billingAddress%22%3A%7B%22countryCode%22%3A%22US%22%2C%22stateOrProvinceCode%22%3A%22AL%22%7D%2C%22email%22%3A%22test%40test.com%22%2C%22orderComments%22%3A%22Comments!%22%7D%7D
+https://www.ecwid.com/demo#!/~/cart/create=JTdCJTIyZ290b0NoZWNrb3V0JTIyJTNBdHJ1ZSUyQyUyMnByb2R1Y3RzJTIyJTNBJTVCJTdCJTIyaWQlMjIlM0E2NjgyMTE4MSUyQyUyMnF1YW50aXR5JTIyJTNBMyUyQyUyMm9wdGlvbnMlMjIlM0ElN0IlMjJDb2xvciUyMiUzQSUyMldoaXRlJTIyJTJDJTIyU2l6ZSUyMiUzQSUyMjExb3olMjIlN0QlN0QlMkMlN0IlMjJpZCUyMiUzQTY2NzIyNTgxJTJDJTIycXVhbnRpdHklMjIlM0E1JTdEJTVEJTJDJTIycHJvZmlsZSUyMiUzQSU3QiUyMmFkZHJlc3MlMjIlM0ElN0IlMjJuYW1lJTIyJTNBJTIyam9obiUyMHNtaXRoJTIyJTJDJTIyY29tcGFueU5hbWUlMjIlM0ElMjJnZW5lcmFsJTIwbW90b3JzJTIyJTJDJTIyc3RyZWV0JTIyJTNBJTIyNXRoJTIwQXZlJTIyJTJDJTIyY2l0eSUyMiUzQSUyMk5ldyUyMFlvcmslMjIlMkMlMjJjb3VudHJ5Q29kZSUyMiUzQSUyMlVTJTIyJTJDJTIycG9zdGFsQ29kZSUyMiUzQSUyMjEwMDAyJTIyJTJDJTIyc3RhdGVPclByb3ZpbmNlQ29kZSUyMiUzQSUyMk5ZJTIyJTJDJTIycGhvbmUlMjIlM0ElMjIlMkIxJTIwMjM0JTIwMjM1JTIwMjIlMjAxMiUyMiU3RCUyQyUyMmJpbGxpbmdBZGRyZXNzJTIyJTNBJTdCJTIyY291bnRyeUNvZGUlMjIlM0ElMjJVUyUyMiUyQyUyMnN0YXRlT3JQcm92aW5jZUNvZGUlMjIlM0ElMjJBTCUyMiU3RCUyQyUyMmVtYWlsJTIyJTNBJTIydGVzdCU0MHRlc3QuY29tJTIyJTJDJTIyb3JkZXJDb21tZW50cyUyMiUzQSUyMkNvbW1lbnRzISUyMiU3RCU3RA%3D%3D
 ```
 
 Now we need to fill in customer's cart when your custom link is opened. 
 
 First things first, let's determine where your Ecwid store is displayed and get a direct link to that page. For example, our demo store is located in: `https://www.ecwid.com/demo`
+
 And to fill in customer's cart with items that you seleted earlier, we need to create a link to your storefront with the generated cart part. 
 
 **Example link**
 
 Generated link with products added automatically to cart for Ecwid demo store will be: 
 
-`https://www.ecwid.com/demo#!/~/cart/create=%7B%22gotoCheckout%22%3Atrue%2C%22products%22%3A%5B%7B%22id%22%3A66821181%2C%22quantity%22%3A3%2C%22options%22%3A%7B%22Color%22%3A%22White%22%2C%22Size%22%3A%2211oz%22%7D%7D%2C%7B%22id%22%3A66722581%2C%22quantity%22%3A5%7D%5D%2C%22profile%22%3A%7B%22address%22%3A%7B%22name%22%3A%22john%20smith%22%2C%22companyName%22%3A%22general%20motors%22%2C%22street%22%3A%225th%20Ave%22%2C%22city%22%3A%22New%20York%22%2C%22countryCode%22%3A%22US%22%2C%22postalCode%22%3A%2210002%22%2C%22stateOrProvinceCode%22%3A%22NY%22%2C%22phone%22%3A%22%2B1%20234%20235%2022%2012%22%7D%2C%22billingAddress%22%3A%7B%22countryCode%22%3A%22US%22%2C%22stateOrProvinceCode%22%3A%22AL%22%7D%2C%22email%22%3A%22test%40test.com%22%2C%22orderComments%22%3A%22Comments!%22%7D%7D`
+`https://www.ecwid.com/demo#!/~/cart/create=JTdCJTIyZ290b0NoZWNrb3V0JTIyJTNBdHJ1ZSUyQyUyMnByb2R1Y3RzJTIyJTNBJTVCJTdCJTIyaWQlMjIlM0E2NjgyMTE4MSUyQyUyMnF1YW50aXR5JTIyJTNBMyUyQyUyMm9wdGlvbnMlMjIlM0ElN0IlMjJDb2xvciUyMiUzQSUyMldoaXRlJTIyJTJDJTIyU2l6ZSUyMiUzQSUyMjExb3olMjIlN0QlN0QlMkMlN0IlMjJpZCUyMiUzQTY2NzIyNTgxJTJDJTIycXVhbnRpdHklMjIlM0E1JTdEJTVEJTJDJTIycHJvZmlsZSUyMiUzQSU3QiUyMmFkZHJlc3MlMjIlM0ElN0IlMjJuYW1lJTIyJTNBJTIyam9obiUyMHNtaXRoJTIyJTJDJTIyY29tcGFueU5hbWUlMjIlM0ElMjJnZW5lcmFsJTIwbW90b3JzJTIyJTJDJTIyc3RyZWV0JTIyJTNBJTIyNXRoJTIwQXZlJTIyJTJDJTIyY2l0eSUyMiUzQSUyMk5ldyUyMFlvcmslMjIlMkMlMjJjb3VudHJ5Q29kZSUyMiUzQSUyMlVTJTIyJTJDJTIycG9zdGFsQ29kZSUyMiUzQSUyMjEwMDAyJTIyJTJDJTIyc3RhdGVPclByb3ZpbmNlQ29kZSUyMiUzQSUyMk5ZJTIyJTJDJTIycGhvbmUlMjIlM0ElMjIlMkIxJTIwMjM0JTIwMjM1JTIwMjIlMjAxMiUyMiU3RCUyQyUyMmJpbGxpbmdBZGRyZXNzJTIyJTNBJTdCJTIyY291bnRyeUNvZGUlMjIlM0ElMjJVUyUyMiUyQyUyMnN0YXRlT3JQcm92aW5jZUNvZGUlMjIlM0ElMjJBTCUyMiU3RCUyQyUyMmVtYWlsJTIyJTNBJTIydGVzdCU0MHRlc3QuY29tJTIyJTJDJTIyb3JkZXJDb21tZW50cyUyMiUzQSUyMkNvbW1lbnRzISUyMiU3RCU3RA%3D%3D`
 
-<aside class='note'>
+<aside class='notice'>
 Please note that this is an example link and it will not work in Ecwid's demo store. Please test this feature in your own website.
 </aside>
 
