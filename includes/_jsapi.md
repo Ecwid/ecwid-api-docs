@@ -47,6 +47,8 @@ console.log(StaticBaseUrl);
 
 Returns the base URL for static Ecwid files, like images and CSS, with the ’/’ at the end.
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 ### Ecwid.getOwnerId
 
 > Get store ID code example
@@ -61,6 +63,8 @@ console.log(storeId);
 ```
 
 Returns the store ID.
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 ### Ecwid.getInitializedWidgets
 
@@ -84,6 +88,8 @@ Returns array containing widget types present on a page. There are four types av
 * `SingleProduct` - Embedded product (old version)
 * `Product` - Embedded product (latest version)
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 ### Ecwid.formatCurrency
 
 > Format a number using currency format of a store
@@ -99,6 +105,8 @@ console.log(currencyFormat);
 
 Converts the given currency value to a human-readable string according to the store settings. It accepts both string and integer as arguments.
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 ### Ecwid.getStorefrontLang
 
 ```javascript
@@ -111,6 +119,8 @@ console.log(lang);
 ```
 
 Get current language of storefront. The function is available as soon as Ecwid store starts to load.
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 ### Ecwid.getAppPublicConfig
 
@@ -151,6 +161,8 @@ Name | Type | Description
 Data in public storage of your app must not exceed <strong>64Kb</strong>
 </aside>
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 ### Ecwid.getAppPublicToken 
 
 > Get app public config function usage
@@ -177,6 +189,8 @@ Returns public applicaiton token for an Ecwid store. In order for this function 
 Name | Type | Description
 ---- | ---- | -----------
 **appId** | String | Namespace of your application (as set in the application settings).
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 ### Ecwid.getFeatureToggles
 
@@ -205,6 +219,8 @@ newDetailsPage | boolean | `true` if new product details page is enabled in a st
 customerLoginByLink | boolean | `true` if customers log in to store by link. `false` otherwise. [Learn more](https://support.ecwid.com/hc/en-us/articles/115003429065-Managing-customers#customerlogin)
 newCartPage | boolean | `true` if latest version of the cart page is enabled for store. Is always `true` when `newCheckoutPage` is also `true`. `false` otherwise. [Learn more](https://www.ecwid.com/blog/whats-new-in-your-ecwid-store-summer-18.html#cp)
 newCheckoutPage | boolean | `true` if latest version of the checkout process is enabled in a store. `false` otherwise
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 ### Get opened page info
 
@@ -289,14 +305,14 @@ Dynamically updates storefront base URL.
 
 Typically is used for [SEO URLs feature](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) to preserve dynamically added query parameters in a page URL. Works similarly to `window.ec.config.baseUrl` method.
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 ## Open page in storefront
 
 > Open cart page in storefront
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('cart');
-});
+Ecwid.openPage('cart');
 ```
 
 When customer browses the store, Ecwid makes the navigation easy and fast due to the Ajax technology without any page reloads. However, sometimes you may need to open a specific page in storefront automatically or after a user clicks on a link. This is where `Ecwid.openPage` method can be useful. 
@@ -308,14 +324,14 @@ The pages in storefront can be of two types:
 
 For general pages, you can only specify the name of the page you want to open. However, for pages with parameters, it is necessary that you specify what page you want to open exactly. 
 
+<aside class="notice">Subscribe to the 'Ecwid.OnAPILoaded' <a href="https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded">JS API event></a> to ensure availability of this function.</aside>
+
 ### Pages with parameters
 
 > Open product details page of product with ID: 12345
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('product', {'id': 12345});
-});
+Ecwid.openPage('product', {'id': 12345});
 ```
 
 To open a page with parameters, you must specify them in the object in second argument of `Ecwid.openPage` function. See example on the right. 
@@ -331,9 +347,7 @@ Additional parameters include: `'id'`, `'name'`, `'variation'` and `'options'`
 > Open product page and set product name in page URL as 'Apple'
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('product', {'id': 72585497, 'name': "Apple"});
-});
+Ecwid.openPage('product', {'id': 72585497, 'name': "Apple"});
 ```
 
 `'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original product name set by store owner.
@@ -343,9 +357,7 @@ The example on the right opens product details page of a specific product and us
 > Open variation with ID 16351010 of a product with ID 72585497 
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('product', {'id': 72585497, 'name': "Rip Curl Channel Island", 'variation': 16351010});
-});
+Ecwid.openPage('product', {'id': 72585497, 'name': "Rip Curl Channel Island", 'variation': 16351010});
 ```
 
 `'variation'` is an optional parameter, used to select a specific product variation when opening product details page. If it is not specified, Ecwid will use the default set of product options for that product page. 
@@ -353,9 +365,7 @@ Ecwid.OnAPILoaded.add(function() {
 > Open a product with ID 72585497 with options: Size - Medium, Color - Dark grey
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('product', {'id': 72585497, 'name': "Rip Curl Channel Island", 'options': [2,2]});
-});
+Ecwid.openPage('product', {'id': 72585497, 'name': "Rip Curl Channel Island", 'options': [2,2]});
 ```
 
 `'options'` is an optional parameter, used to select specific product option selections. It supports dropdown and radio button product options. 
@@ -375,9 +385,7 @@ Additional parameters include: `'id'`, `'name'` and `'page'`
 > Open category page and set product name in URL as 'Fruit' 
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('category', {'id': 20671017, 'name': "Fruit", 'page': 3});
-});
+Ecwid.openPage('category', {'id': 20671017, 'name': "Fruit", 'page': 3});
 ```
 
 `'name'` is an optional parameter, used to set custom product name for the page URL. If it is not specified, Ecwid will use the original category name set by store owner.
@@ -393,24 +401,19 @@ The example on the right opens product details page of a specific product and us
 > Open search page and search for 'surfboard' products in a storefront
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('search', {'keywords': 'surfboard', 'page': 2});
-});
+Ecwid.openPage('search', {'keywords': 'surfboard', 'page': 2});
 ```
 
 > Open search page and search for products under $50
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('search', {'priceTo': '50'});
-});
+Ecwid.openPage('search', {'priceTo': '50'});
 ```
 
 > Open search page and search for in stock shoes that have Brand attribute equal 'Nike'
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage(
+Ecwid.openPage(
     'search', 
     {
       'keywords': 'shoes', 
@@ -419,7 +422,6 @@ Ecwid.OnAPILoaded.add(function() {
       'page': 5
     }
   );
-});
 ```
 
 For the search page, the first argument of `Ecwid.openPage` function will be `'search'`.
@@ -441,9 +443,7 @@ Additional parameters include:
 > Open sign in page and redirect user to a custom page on success
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('signin', {'returnurl': 'https://www.ecwid.com/demo/Surfboards-c20671017'});
-});
+Ecwid.openPage('signin', {'returnurl': 'https://www.ecwid.com/demo/Surfboards-c20671017'});
 ```
 
 For the sign in page, the first argument of `Ecwid.openPage` function will be `'signin'`.
@@ -457,9 +457,7 @@ Additional parameters include: `'returnurl'`
 > Open cart page in storefront 
 
 ```js
-Ecwid.OnAPILoaded.add(function() {
-  Ecwid.openPage('cart');
-});
+Ecwid.openPage('cart');
 ```
 
 Open the following pages by setting page name as first argument of `Ecwid.openPage` function. 
@@ -489,11 +487,11 @@ Find various useful events and execute your functions with them.
 
 ```javascript
 Ecwid.OnAPILoaded.add(function() {
-    console.log("API is loaded")
+    console.log("Ecwid storefront JS API has loaded");
 });
 ```
 
-This event contains callback functions that are called exactly when the Ecwid Javascript API loads and becomes available under the `window.Ecwid` top-level object. Functions attached to this event do not accept any parameters and do not require to return any value.
+Subscribe your code to this event so it is called called exactly when the Ecwid Javascript API is loaded and ready. 
 
 ### Ecwid.OnPageLoad/Ecwid.OnPageLoaded
 
@@ -783,6 +781,8 @@ Name | Type | Description
 userResponse | string | Customer's preferred choice for being tracked. Possible values: `"ACCEPTED"`, `"DECLINED"` or empty
 askConsent | boolean | `true` if store requests customer consent to be tracked. `false` otherwise
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 ### Customer Object
 
 Customer object describes details of a logged in customer in a store.
@@ -863,6 +863,8 @@ This function allows to add a product to shopping cart, modifying the cart on be
 
 There are 2 possible ways to call this function: adding products by product ID or adding products with extended options.
 
+<aside class="notice">Subscribe to the 'Ecwid.OnAPILoaded' <a href="https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded">JS API event></a> to ensure availability of this function.</aside>
+
 #### Adding by product ID
 
 > Add product function
@@ -884,6 +886,7 @@ callback | function | the callback function to be called once the operation is c
 var productId = 10;
 Ecwid.Cart.addProduct(productId); 
 ```
+
 The most simple call to `Ecwid.Cart.addProduct` only requires to pass the numeric product ID. See example code on the right. This code adds 1 item of the given product ID to cart.
 
 If this product contains variations and the base product is out of stock, the first variation that is in stock will be added to cart instead. If the product is out of stock (and there are no variations in stock for this product), nothing is added to cart.
@@ -992,6 +995,8 @@ Name | Type | Description
 ---- | ---- | -----------
 index | integer | index of a product in cart object you need to remove from customer's cart
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 ### Ecwid.Cart.clear
 
 > Clear cart contents
@@ -1001,6 +1006,8 @@ Ecwid.Cart.clear();
 ```
 
 Clears the cart contents.
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 ### Ecwid.Cart.get
 
@@ -1013,6 +1020,8 @@ Ecwid.Cart.get(function(cart) {
 ```
 
 Retrieves the cart contents asynchronously and passes it as an argument of type Cart to the callback.
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 ### Ecwid.Cart.calculateTotal
 
@@ -1032,6 +1041,8 @@ Calculates the cart asynchronously and passes the result as an argument of type 
 Cart calculation involves a request to server, so this method should be called only occasionally. Calling it frequently, e.g. from loops or by timer, is not acceptable.
 
 Since the calculation needs a server connection, it might fail due to network conditions. In this case, null is passed into the callback instead of **Order** object.
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 ### Ecwid.Cart.gotoCheckout
 
@@ -1053,6 +1064,8 @@ Ecwid.Cart.gotoCheckout(function(){
 
 You can also execute a callback function if a customer was successfully sent to the first step of the checkout process in a store. See example code on the right.
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 ### Ecwid.Cart.canGotoCheckout
 
 > Check if possible to send customer to checkout
@@ -1071,6 +1084,8 @@ Name | Type | Description
 ---- | ---- | -----------
 callback | boolean | `true` if you can send customer to the checkout process, `false` otherwise
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 ### Ecwid.Cart.setCustomerEmail
 
 > Function description
@@ -1088,6 +1103,8 @@ Ecwid.Cart.setCustomerEmail('james@coolstore.com');
 `Ecwid.Cart.setCustomerEmail()` allows you to set customer's email in checkout process. Make sure to use it on pages, where the email is not shown so that it is always up-to-date.
 
 If a customer is logged in, your set email will overwrite the email for that customer's account (if possible).
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 **Fields:**
 
@@ -1142,6 +1159,8 @@ Ecwid.Cart.setOrderComments('Leave order at the door.',
 ```
 
 `Ecwid.Cart.setOrderComments` allows you to set the order comments field on the fly. It's quite useful to pass some additional information for an order, which will be provided in email notifications to customer and store admin as well as the order details in Ecwid Control Panel and Ecwid API.
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 **Fields:**
 
@@ -1219,6 +1238,8 @@ Ecwid.Cart.setAddress({
 If you specify some fields only (name, for example), then Ecwid will reset all other fields and they will become empty. So if you need to update only some fields, make sure to send them in your function call as well as the updated values.
 
 When function is called, Ecwid will set the 'My shipping address is the same as the billing address' flag to `true` automatically.
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 **Fields:**
 
@@ -1312,6 +1333,8 @@ If you specify some fields only (name, for example), then Ecwid will apply the c
 
 When function is called, Ecwid will set the 'My shipping address is the same as the billing address' flag to `false` automatically.
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 **Fields:**
 
 Name | Type | Description
@@ -1333,7 +1356,6 @@ countryCode | string | Customer's country code. `countryName` can be used instea
 postalCode | string | Customer's zip code
 stateOrProvinceCode | string | Customer's state or provice code
 phone | string | Customer's phone number
-
 
 <aside class='notice'>
 Parameters in bold are mandatory
@@ -1465,8 +1487,6 @@ Find out more about cart in its current state.
 
 ### Order Object
 
-Order object represents details of current customer's order.
-
 > Get order total example
 
 ```js
@@ -1477,6 +1497,10 @@ Ecwid.Cart.calculateTotal(function(order) {
 // prints
 // 13.25
 ```
+
+Order object represents details of current customer's order.
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 **Fields:**
 
@@ -1495,7 +1519,11 @@ volumeDiscount | integer | An absolute amount of a discount based on subtotal fo
 
 ### Cart Object
 
-Cart object is a snapshot of essential shopping cart properties, passed via various callbacks. Cart object does not provide direct memory access to the actual cart that Ecwid uses — i.e. changing this exact object will not alter the actual cart Ecwid uses for placing the order.
+Cart object is a snapshot of essential shopping cart properties, passed via various callbacks. 
+
+Cart object does not provide direct memory access to the actual cart that Ecwid uses — i.e. changing this exact object will not alter the actual cart Ecwid uses for placing the order.
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 > Get full cart details
 
@@ -1547,6 +1575,8 @@ phone | string | Customer's phone number
 
 CartItem represents a single item (product variety) in cart.
 
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
 > Get quantity of a product in cart example
 
 ```js
@@ -1568,7 +1598,9 @@ options | Object with option names and values | Map of the product options (opti
 
 ### Product Object
 
-Product object represents details of a specific product in cart
+Product object represents details of a specific product in cart.
+
+Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
 
 > Get product name and SKU in cart example
 
