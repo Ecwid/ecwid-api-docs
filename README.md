@@ -18,9 +18,11 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 Added new tools to track customers who agreed to receive email promotions. 
 
-`acceptMarketing` field: for the [Orders](https://developers.ecwid.com/api-documentation/orders) and [Customers](https://developers.ecwid.com/api-documentation/customers) REST API endpoints. If `false`, you cannot use email of this customer for promotions. `true` and `null` – otherwise
+`acceptMarketing` field: for the [Orders](https://developers.ecwid.com/api-documentation/orders) and [Customers](https://developers.ecwid.com/api-documentation/customers) REST API endpoints. 
 
-`showAcceptMarketingCheckbox`, `acceptMarketingCheckboxDefaultValue`, `acceptMarketingCheckboxCustomText` for the [Store profile](https://developers.ecwid.com/api-documentation/store-information) REST API endpoint
+If `acceptMarketing` is `false` – you can't use email of this customer for promotions. If `acceptMarketing` is `true` or `null` – you can send promotional emails to that customer. 
+
+`showAcceptMarketingCheckbox`, `acceptMarketingCheckboxDefaultValue`, `acceptMarketingCheckboxCustomText` for the [Store profile](https://developers.ecwid.com/api-documentation/store-information) REST API endpoint.
 
 ## Mar 15, 2019
 
