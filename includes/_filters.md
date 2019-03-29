@@ -49,7 +49,7 @@ Name | Type    | Description
 **token** |  string | oAuth token
 **filterFields** | string | Comma-separated list of filters for Ecwid to return. Supported filters: `"price"`,`"inventory"`,`"onsale"`,`"categories"`, `"option_{optionName}"`, `"attribute_{attributeName}"`. Example: `"price,inventory,option_Size,attribute_Brand,categories"`
 filterFacetLimit | string | Set the number of filter values in response. Individual limit example: `"onsale:all,attribute_Brand:50,option_Color:10"`. General limit example: `"10"`. Use `"all"` to return all facets. Default limit is 50
-filterParentCategoryId | string | Set the parent category ID for subcategories filter. `"0"` or `"home"` or empty value means there is no parent category
+filterParentCategoryId | string | Set parent category ID limit for `categories` filter field in response. `"0"` or `"home"` or empty value means there is no parent category. If you want to limit product results by categories, use `categories` product limit field below.
 
 **Product limits**
 
@@ -58,7 +58,7 @@ Name | Type    | Description
 keyword | string | Search term. Use quotes to search for exact match. Ecwid searches products over multiple fields: <ul><li>title</li><li>description</li><li>SKU</li><li>product options</li><li>category name</li><li>gallery image descriptions</li><li>attribute values (except for hidden attributes). If your keywords contain special characters, it may make sense to URL encode them before making a request
 priceFrom | number | Minimum product price
 priceTo | number | Maximum product price
-categories | string | Category IDs separated by a comma. Use `"home"` to get Store Home Page products. Example: `"18265,12324,home"`
+categories | string | Limit results by category IDs separated by a comma. Use `"home"` to get Store Home Page products. Example: `"18265,12324,home"`
 includeProductsFromSubcategories | boolean | Use `true` if you need to include products from subcategories. Use `false` otherwise. `false` is the default value
 createdFrom | string | Product create date/time (lower bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul> Example: <ul><li>`1447804800`</li> </ul>
 createdTo | string | Product last create date/time (upper bound). Supported formats: <ul><li>*UNIX timestamp*</li> </ul>

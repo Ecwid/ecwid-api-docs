@@ -417,7 +417,7 @@ errorMessage | string | Error message
 Create a new customer in an Ecwid store.
 
 <aside class="notice">
-You can create only one customer per API request. To create several customers, send several separate requests for each coupon.
+You can create only one customer per API request. To create several customers, send several separate requests for each one.
 </aside>
 
 #### Request
