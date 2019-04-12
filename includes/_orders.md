@@ -20,7 +20,7 @@ Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&email={email}&customerId={customerId}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&acceptMarketing={acceptMarketing}&offset={offset}&limit={limit}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&email={email}&customerId={customerId}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&acceptMarketing={acceptMarketing}&refererId={refererId}&offset={offset}&limit={limit}&token={token}`
 
 #### Q: How to get info about abandoned sales? 
 
@@ -77,6 +77,7 @@ shippingMethod | string | Shipping method chosen by customer
 paymentStatus | string | Comma separated list of order payment statuses to search. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string | Comma separated list of order fulfilment statuses to search. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
 acceptMarketing | boolean | `true` if customer has accepted email marketing. `false` otherwise
+refererId | string | Filter order results by `refererId` field in order details
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -425,7 +426,8 @@ Parameters in bold are mandatory
                 "lang": "en",
                 "askHowYouFoundUsApp": "From a friend"
             },
-            "acceptMarketing": true
+            "acceptMarketing": true,
+            "refererId": "Amazon"
         }
     ]
 }
@@ -499,6 +501,7 @@ refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping 'as is'. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if order is updated later manually. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions (`null` too). If value is `false`, you can't use this email for promotions
+refererId | string | Referer identifier. Can be set in storefront via JS or by creating / updating an order with REST API
 
 #### OrderItem
 Field | Type |  Description
@@ -1098,7 +1101,8 @@ Parameters in bold are mandatory
         "lang": "en",
         "askHowYouFoundUsApp": "From a friend",
     },
-    "acceptMarketing": true
+    "acceptMarketing": true,
+    "refererId": "Amazon"
 }
 ```
 
@@ -1160,6 +1164,7 @@ refundedAmount | number | A sum of all refunds made to order (for [Ecwid Payment
 refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions (`null` too). If value is `false`, you can't use this email for promotions
+refererId | string | Referer identifier. Can be set in storefront via JS or by creating / updating an order with REST API
 
 #### OrderItem
 Field | Type |  Description
@@ -1992,7 +1997,8 @@ Cache-Control: no-cache
                 "total": 2.86
             }
         ],
-        "acceptMarketing": false
+        "acceptMarketing": false,
+        "refererId": "Amazon"
     }
 ```
 
@@ -2053,6 +2059,7 @@ privateAdminNotes | string | Private note about the order from store owner
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if order is updated later manually. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
+refererId | string | Referer identifier. Can be set in storefront via JS or by creating / updating an order with REST API
 
 #### OrderItem
 Field | Type |  Description

@@ -114,7 +114,7 @@ To specify that no user is logged in, pass an empty payload either to the `ecwid
     $timestamp = time();
     $hmac = hash_hmac('sha1', "$message $timestamp", $client_secret);
 
-    echo "<script> var ecwid_sso_profile = '$message $hmac $timestamp' </script>";
+    echo "<script> var ecwid_sso_profile = '$message $hmac $timestamp'; </script>";
 ?>
 ```
 

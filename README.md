@@ -8,6 +8,21 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## April 12, 2019
+
+1) Added support for several structured data fields for [static product pages](https://developers.ecwid.com/api-documentation/static-store-pages#get-product-page): 
+
+- Brand
+- MPN
+- SKU
+- Offer → URL
+- Offer → ItemCondition
+- Offer → Seller
+
+2) Added field for tracking referals for each order – `refererId`. 
+
+It is available for [REST API](https://developers.ecwid.com/api-documentation/orders), CSV order export, email notifications and invoices, and [in storefront](https://developers.ecwid.com/api-documentation/manage-customer-cart#set-order-referrer). 
+
 ## Mar 22, 2019
 
 - Added `Ecwid.getTrackingConsent()` JS API method for storefront. It provides information about customer's consent to be tracked on store pages. [Learn more](https://developers.ecwid.com/api-documentation/get-customer-details#ecwid-gettrackingconsent)

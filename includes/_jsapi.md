@@ -1481,6 +1481,19 @@ Generated link with products added automatically to cart for Ecwid demo store wi
 Please note that this is an example link and it will not work in Ecwid's demo store. Please test this feature in your own website.
 </aside>
 
+### Set order referrer
+
+> Set order referrer to 'Amazon'
+
+```js
+ec.order = ec.order || {};
+ec.order.referer_id = 'Amazon'
+```
+
+You can set a custom referrer for an order in storefront – use the `ec.order.referrer_id` field for your custom value. 
+
+Afterwards, this field will appear in order export via CSV, invoices and email notifications as a variable, and in the Ecwid REST API for orders. 
+
 ## Get cart details
 
 Find out more about cart in its current state.
