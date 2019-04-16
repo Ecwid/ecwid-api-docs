@@ -427,7 +427,8 @@ Parameters in bold are mandatory
                 "askHowYouFoundUsApp": "From a friend"
             },
             "acceptMarketing": true,
-            "refererId": "Amazon"
+            "refererId": "Amazon",
+            "disableAllCustomerNotifications": false
         }
     ]
 }
@@ -502,6 +503,7 @@ pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-1
 taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping 'as is'. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if order is updated later manually. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions (`null` too). If value is `false`, you can't use this email for promotions
 refererId | string | Referer identifier. Can be set in storefront via JS or by creating / updating an order with REST API
+disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications.
 
 #### OrderItem
 Field | Type |  Description
@@ -1102,7 +1104,8 @@ Parameters in bold are mandatory
         "askHowYouFoundUsApp": "From a friend",
     },
     "acceptMarketing": true,
-    "refererId": "Amazon"
+    "refererId": "Amazon",
+    "disableAllCustomerNotifications": false
 }
 ```
 
@@ -1165,6 +1168,7 @@ refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions (`null` too). If value is `false`, you can't use this email for promotions
 refererId | string | Referer identifier. Can be set in storefront via JS or by creating / updating an order with REST API
+disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications.
 
 #### OrderItem
 Field | Type |  Description
@@ -1998,7 +2002,8 @@ Cache-Control: no-cache
             }
         ],
         "acceptMarketing": false,
-        "refererId": "Amazon"
+        "refererId": "Amazon",
+        "disableAllCustomerNotifications": true
     }
 ```
 
@@ -2060,6 +2065,7 @@ pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-1
 taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if order is updated later manually. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
 refererId | string | Referer identifier. Can be set in storefront via JS or by creating / updating an order with REST API
+disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications.
 
 #### OrderItem
 Field | Type |  Description
@@ -2370,7 +2376,8 @@ Cache-Control: no-cache
         },
         "hidden": false,
         "privateAdminNotes": "Must be delivered till Sunday.",
-        "acceptMarketing": false
+        "acceptMarketing": false,
+        "disableAllCustomerNotifications": true
     }
 ```
 
@@ -2443,6 +2450,7 @@ creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner. Ignored when creating orders with [public token](#access-tokens)
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
+disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications.
 
 #### OrderItem
 Field | Type | Description

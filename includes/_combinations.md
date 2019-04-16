@@ -17,21 +17,21 @@ Get all variations of a specific product in an Ecwid store.
 > Request example
 
 ```http
-GET /api/v3/4870020/products/8383237/combinations?token=1234567890qwqeertt HTTP/1.1
+GET /api/v3/4870020/products/8383237/combinations?lang=en&token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations?token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations?lang={lang}&token={token}`
 
 Name | Type | Description
 ---- | ---- | -----------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 **productId** | number | Internal product ID
-
+lang | string | Preferred language for the product fields in search results. If a certain field does not have the translation available for the set language, the default language text will be used for that field
 
 #### Response
 
@@ -45,11 +45,23 @@ Name | Type | Description
     "options":[
       {
         "name":"Size",
-        "value":"Large"
+        "nameTranslated": {
+            "en": "Size"
+        },
+        "value":"Large",
+        "valueTranslated": {
+            "en": "Large"
+        }
       },
       {
         "name":"Color",
-        "value":"White"
+        "nameTranslated": {
+            "en": "Color"
+        },
+        "value":"White",
+        "valueTranslated": {
+            "en": "White"
+        }
       }
     ],
     "sku":"000076",
@@ -85,11 +97,23 @@ Name | Type | Description
     "options":[
       {
         "name":"Color",
-        "value":"Red"
+        "nameTranslated": {
+            "en": "Color"
+        },
+        "value":"Red",
+        "valueTranslated": {
+            "en": "Red"
+        }
       },
       {
         "name":"Size",
-        "value":"Large"
+        "nameTranslated": {
+            "en": "Size"
+        },
+        "value":"Large",
+        "valueTranslated": {
+            "en": "Large"
+        }
       }
     ],
     "sku":"000075",
@@ -103,11 +127,23 @@ Name | Type | Description
     "options":[
       {
         "name":"Size",
-        "value":"Small"
+        "nameTranslated": {
+            "en": "Size"
+        },
+        "value":"Small",
+        "valueTranslated": {
+            "en": "Small"
+        }
       },
       {
         "name":"Color",
-        "value":"White"
+        "nameTranslated": {
+            "en": "Color"
+        },
+        "value":"White",
+        "valueTranslated": {
+            "en": "White"
+        }
       }
     ],
     "sku":"000072",
@@ -138,11 +174,23 @@ Name | Type | Description
     "options":[
       {
         "name":"Size",
-        "value":"Small"
+        "nameTranslated": {
+            "en": "Size"
+        },
+        "value":"Small",
+        "valueTranslated": {
+            "en": "Small"
+        }
       },
       {
         "name":"Color",
-        "value":"Red"
+        "nameTranslated": {
+            "en": "Color"
+        },
+        "value":"Red",
+        "valueTranslated": {
+            "en": "Red"
+        }
       }
     ],
     "sku":"000071",
@@ -177,10 +225,17 @@ attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
 compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+name |  string |  Option name
+nameTranslated | \<*Translations*\> | Available translations for product option name
+value | string |  Option value
+valueTranslated | \<*Translations*\> | Available translations for product option value
+
+#### Translations 
 Field | Type | Description
------ | -----| -----------
-name |  string | Option name
-value | string | Option value
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### WholesalePrice
 Field | Type  | Description
@@ -217,7 +272,6 @@ HTTP Status | Meaning
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot get variations because of an error on the server
 
-
 ### Get product variation
 
 Get a specific product variation details referring to its ID.
@@ -225,13 +279,13 @@ Get a specific product variation details referring to its ID.
 > Request example
 
 ```http
-GET /api/v3/4870020/products/8392837/combinations/772828388?token=1234567890qwqeertt HTTP/1.1
+GET /api/v3/4870020/products/8392837/combinations/772828388?lang=en&token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}?token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products/{productId}/combinations/{combinationId}?lang={lang}&token={token}`
 
 Name | Type | Description
 ---- | ---- | -----------
@@ -239,7 +293,7 @@ Name | Type | Description
 **token** |  string | oAuth token
 **productId** | number | Internal product ID
 **combinationId** | number | Internal variation ID
-
+lang | string | Preferred language for the product fields in search results. If a certain field does not have the translation available for the set language, the default language text will be used for that field
 
 #### Response
 
@@ -249,15 +303,27 @@ Name | Type | Description
 {
     "id": 7084075,
     "combinationNumber": 2,
-    "options": [
-        {
-            "name": "Size",
-            "value": "Small"
+    "options":[
+      {
+        "name":"Size",
+        "nameTranslated": {
+            "en": "Size"
         },
-        {
-            "name": "Color",
-            "value": "White"
+        "value":"Small",
+        "valueTranslated": {
+            "en": "Small"
         }
+      },
+      {
+        "name":"Color",
+        "nameTranslated": {
+            "en": "Color"
+        },
+        "value":"White",
+        "valueTranslated": {
+            "en": "White"
+        }
+      }
     ],
     "sku": "000072",
     "smallThumbnailUrl": "http://images-cdn.ecwid.com/images/4870020/249919682.jpg",
@@ -307,10 +373,17 @@ attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
 compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+name |  string |  Option name
+nameTranslated | \<*Translations*\> | Available translations for product option name
+value | string |  Option value
+valueTranslated | \<*Translations*\> | Available translations for product option value
+
+#### Translations 
 Field | Type | Description
------ | -----| -----------
-name |  string | Option name
-value | string | Option value
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### WholesalePrice
 Field | Type  | Description
@@ -366,11 +439,23 @@ Content-Type: application/json;charset=utf-8
     "options": [
         {
             "name": "Size",
-            "value": "L"
+            "nameTranslated": {
+                "en": "Size"
+            },
+            "value": "L",
+            "valueTranslated": {
+                "en": "L"
+            }
         },
         {
             "name": "Color",
-            "value": "Red"
+            "nameTranslated": {
+                "en": "Color"
+            },
+            "value": "Red",
+            "valueTranslated": {
+                "en": "Red"
+            }
         }
     ],
     "price": 10,
@@ -423,10 +508,17 @@ attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
 compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+**name** |  string |  Option name
+nameTranslated | \<*Translations*\> | Available translations for product option name
+**value** | string |  Option value
+valueTranslated | \<*Translations*\> | Available translations for product option value
+
+#### Translations 
 Field | Type | Description
------ | -----| -----------
-**name** |  string | Option name
-**value** | string | Option value
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### WholesalePrice
 Field | Type  | Description
@@ -546,10 +638,17 @@ attributes | Array\<*AttributeValue*\> | Variation's UPC attribute and its value
 compareToPrice | number | Variation's sale price displayed strike-out in the customer frontend *Omitted if empty*
 
 #### OptionValue
+Field | Type  | Description
+-------------- | -------------- | --------------
+**name** |  string |  Option name
+nameTranslated | \<*Translations*\> | Available translations for product option name
+**value** | string |  Option value
+valueTranslated | \<*Translations*\> | Available translations for product option value
+
+#### Translations 
 Field | Type | Description
------ | -----| -----------
-**name** |  string | Option name
-**value** | string | Option value
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### WholesalePrice
 Field | Type  | Description

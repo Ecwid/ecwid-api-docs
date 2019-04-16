@@ -117,7 +117,8 @@ Name | Type    | Description
             "es",
             "pt"
         ],
-        "facebookPreferredLocale": "en_US"
+        "facebookPreferredLocale": "en_US",
+        "defaultLanguage": "en"
     },
     "shipping": {
         "handlingFee": {
@@ -809,7 +810,8 @@ Cache-Control: no-cache
       "zh",
       "zh_TW"
     ],
-    "facebookPreferredLocale": "en_US"
+    "facebookPreferredLocale": "en_US",
+    "defaultLanguage": "en"
   },
   "payment": {
       "paymentOptions": [
@@ -1066,6 +1068,7 @@ Field | Type | Description
 ----- | ---- | -----------
 enabledLanguages | Array\<*string*\> | A list of enabled languages in the storefront. First language code is the default language for the store.
 facebookPreferredLocale | string | Language automatically chosen be default in Facebook storefront (if any)
+defaultLanguage | string | ISO code of the default language in store
 
 #### Shipping
 *System Settings → Shipping*
@@ -1311,7 +1314,7 @@ enabled | boolean | `true` if feature is enabled and active in store
 
 Field | Type | Description
 ----- | ---- | -----------
-DESIGN_CONFIG_FIELD_NAME | string or boolean | Store design settings as seen in [storefront design customization](https://developers.ecwid.com/api-documentation/customize-appearance). If a specific config field is not provided, it will not be changed
+<DESIGN_CONFIG_FIELD_NAME> | string or boolean | Store design settings as seen in [storefront design customization](https://developers.ecwid.com/api-documentation/customize-appearance). If a specific config field is not provided, it will not be changed
 
 #### ProductFiltersSettings
 
@@ -1418,6 +1421,9 @@ Cache-Control: no-cache
         "product_list_show_additional_image_on_hover": true,
         "product_list_title_behavior": "SHOW",
         "product_filters_opened_by_default_on_category_page": true
+    },
+    "languages": {
+        "defaultLanguage": "es"
     }
 }
 ```
@@ -1608,6 +1614,7 @@ orderNumberSuffix | string | Order number suffix in a store
 Field | Type | Description
 ----- | ---- | -----------
 enabledLanguages | Array\<*string*\> | A list of enabled languages in the storefront. Use first item to set default storefront language
+defaultLanguage | string | ISO code of the default language in store
 
 #### Shipping
 *System Settings → Shipping*

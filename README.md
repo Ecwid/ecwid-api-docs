@@ -8,6 +8,21 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## April 16, 2019
+
+1) Added support to disable email notifications to customers for specific orders in REST API. See the `disableAllCustomerNotifications` field in [orders endpoint](https://developers.ecwid.com/api-documentation/orders).
+
+2) Added support for multilanguage catalogs. When getting and updating store catalog, you can work with translated versions of these fields: 
+
+- product names 
+- product descriptions
+- product option names
+- product option values (choices)
+- category name
+- category description
+
+The old fields remain the same, but the new ones have `Translated` suffix. I.e. `titleTranslated`, `descriptionTranslated` and so on. [Learn more](https://developers.ecwid.com/api-documentation/rest-api-reference)
+
 ## April 12, 2019
 
 1) Added support for several structured data fields for [static product pages](https://developers.ecwid.com/api-documentation/static-store-pages#get-product-page): 

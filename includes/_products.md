@@ -24,14 +24,14 @@ To get products from Store Front Page, specify <strong>&category=0</strong> in y
 > Request examples
 
 ```http
-GET /api/v3/4870020/products?limit=2&keyword=fruit&token=1234567890qwqeertt HTTP/1.1
+GET /api/v3/4870020/products?limit=2&keyword=fruit&lang=en&token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&sku={sku}&productId={productId}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&onsale={onsale}&option_{optionName}={optionValues}&attribute_{attributeName}={attributeValues}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products?keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&category={category}&withSubcategories={withSubcategories}&sortBy={sortBy}&offset={offset}&limit={limit}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inStock={inStock}&sku={sku}&productId={productId}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&onsale={onsale}&option_{optionName}={optionValues}&attribute_{attributeName}={attributeValues}&lang={lang}&token={token}`
 
 <aside class="notice">
 Parameters in <strong>bold</strong> are mandatory
@@ -61,7 +61,8 @@ baseUrl | string | Storefront URL for Ecwid to use when returning product URLs i
 cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
 onsale | string | Use `"onsale"` to get on sale items only or `"notonsale"` for items not currently on sale.
 option_{optionName} | string | Filter by product option values. Format: `option_{optionName}=param[,param]`, where `optionName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `option_Size=S,M,L&option_Color=Red,Black` 
-attribute_{attributeName} | string | Filter by product attribute values. Format: `attribute_{attributeName}=param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `attribute_Brand=Apple&attribute_Capacity=32GB,64GB` 
+attribute_{attributeName} | string | Filter by product attribute values. Format: `attribute_{attributeName}=param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `attribute_Brand=Apple&attribute_Capacity=32GB,64GB`
+lang | string | Preferred language for the product fields in search results. If a certain field does not have the translation available for the set language, the default language text will be used for that field.
 
 <aside class="notice">
 If no filters are set in the URL, API will return the first 100 products found in a store. 
@@ -93,6 +94,9 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           "unlimited": false,
           "inStock": true,
           "name": "Orange",
+          "nameTranslated": {
+            "en": "Orange"
+          },
           "price": 10,
           "defaultDisplayedPrice": 10,
           "defaultDisplayedPriceFormatted": "$10.00",
@@ -142,6 +146,9 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
           },
           "defaultCombinationId": 0,
           "description": "<p>It's a tasty fruit!</p>",
+          "descriptionTranslated": {
+            "en": "<p>It's a tasty fruit!</p>"
+          },
           "media": {
             "images": [
                 {
@@ -247,6 +254,9 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             "quantity": 67,
             "inStock": true,
             "name": "Radish",
+            "nameTranslated": {
+              "en": "Radish"
+            },
             "price": 1.15,
             "defaultDisplayedPrice": 1.15,
             "defaultDisplayedPriceFormatted": "$1.15",
@@ -281,14 +291,23 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                 {
                     "type": "RADIO",
                     "name": "Size",
+                    "nameTranslated": {
+                      "en": "Size"
+                    },
                     "choices": [
                         {
                             "text": "Small",
+                            "textTranslated": {
+                              "Small"
+                            },
                             "priceModifier": 0,
                             "priceModifierType": "ABSOLUTE"
                         },
                         {
                             "text": "Large",
+                            "textTranslated": {
+                              "en": "Large"
+                            },
                             "priceModifier": 0.5,
                             "priceModifierType": "ABSOLUTE"
                         }
@@ -299,14 +318,23 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                 {
                     "type": "SELECT",
                     "name": "Color",
+                    "nameTranslated": {
+                      "en": "Color"
+                    },
                     "choices": [
                         {
                             "text": "Red",
+                            "textTranslated": {
+                              "en": "Red"
+                            },
                             "priceModifier": 0,
                             "priceModifierType": "ABSOLUTE"
                         },
                         {
                             "text": "White",
+                            "textTranslated": {
+                              "en": "White"
+                            },
                             "priceModifier": 0,
                             "priceModifierType": "ABSOLUTE"
                         }
@@ -327,6 +355,9 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
             },
             "defaultCombinationId": 7084076,
             "description": "<h5>Radish</h5>\n<p>The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in Europe in pre-Roman times. They are grown and consumed throughout the world. Radishes have numerous varieties, varying in size, color and duration of required cultivation time. There are some radishes that are grown for their seeds; oilseed radishes are grown, as the name implies, for oil production.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
+            "descriptionTranslated": {
+              "en": "<h5>Radish</h5>\n<p>The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in Europe in pre-Roman times. They are grown and consumed throughout the world. Radishes have numerous varieties, varying in size, color and duration of required cultivation time. There are some radishes that are grown for their seeds; oilseed radishes are grown, as the name implies, for oil production.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>"
+            },
             "media": {
               "images": [
                   {
@@ -409,11 +440,23 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                     "options": [
                         {
                             "name": "Color",
-                            "value": "White"
+                            "nameTranslated": {
+                              "en": "Color"
+                            },
+                            "value": "White",
+                            "valueTranslated": {
+                              "en": "White"
+                            }
                         },
                         {
                             "name": "Size",
-                            "value": "Large"
+                            "nameTranslated": {
+                              "en": "Size"
+                            },
+                            "value": "Large",
+                            "valueTranslated": {
+                              "en": "Large"
+                            }
                         }
                     ],
                     "sku": "000076",
@@ -439,11 +482,23 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                     "options": [
                         {
                             "name": "Color",
-                            "value": "Red"
+                            "nameTranslated": {
+                              "en": "Color"
+                            },
+                            "value": "Red",
+                            "valueTranslated": {
+                              "en": "Red"
+                            }
                         },
                         {
                             "name": "Size",
-                            "value": "Large"
+                            "nameTranslated": {
+                              "en": "Size"
+                            },
+                            "value": "Large",
+                            "valueTranslated": {
+                              "en": "Large"
+                            }
                         }
                     ],
                     "sku": "000075",
@@ -459,11 +514,23 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                     "options": [
                         {
                             "name": "Size",
-                            "value": "Small"
+                            "nameTranslated": {
+                              "en": "Size"
+                            },
+                            "value": "Small",
+                            "valueTranslated": {
+                              "en": "Small"
+                            }
                         },
                         {
                             "name": "Color",
-                            "value": "White"
+                            "nameTranslated": {
+                              "en": "Color"
+                            },
+                            "value": "White",
+                            "valueTranslated": {
+                              "en": "White"
+                            }
                         }
                     ],
                     "sku": "000072",
@@ -479,11 +546,23 @@ To search for exact match, put the keyword in quotes like this: "ABC123". For ex
                     "options": [
                         {
                             "name": "Size",
-                            "value": "Small"
+                            "nameTranslated": {
+                              "en": "Size"
+                            },
+                            "value": "Small",
+                            "valueTranslated": {
+                              "en": "Small"
+                            }
                         },
                         {
                             "name": "Color",
-                            "value": "Red"
+                            "nameTranslated": {
+                              "en": "Color"
+                            },
+                            "value": "Red",
+                            "valueTranslated": {
+                              "en": "Red"
+                            }
                         }
                     ],
                     "sku": "000071",
@@ -535,6 +614,9 @@ Cache-Control: no-cache
           "unlimited": false,
           "inStock": true,
           "name": "Orange",
+          "nameTranslated": {
+            "en": "Orange"
+          },
           "price": 10,
           "defaultDisplayedPrice": 10,
           "defaultDisplayedPriceFormatted": "$10.00",
@@ -584,6 +666,9 @@ Cache-Control: no-cache
           },
           "defaultCombinationId": 0,
           "description": "<p>It's a tasty fruit!</p>",
+          "descriptionTranslated": {
+            "en": "<p>It's a tasty fruit!</p>"
+          },
           "media": {
             "images": [
                 {
@@ -706,6 +791,7 @@ quantity |  number | Amount of product items in stock. *This field is omitted fo
 unlimited | boolean | `true` if the product has unlimited stock
 inStock | boolean | `true` if the product or any of its variations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
+nameTranslated | \<*Translations*\> | Available translations for product name
 price | number |  Base product price
 defaultDisplayedPrice | number |  Product price displayed in a storefront for logged out customer for default location (store location). May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. It also includes taxes
 defaultDisplayedPriceFormatted | string | Formatted display of `defaultDisplayedPrice` in the store's formatting for prices
@@ -733,6 +819,7 @@ fixedShippingRate | number | **Legacy function** – see `shipping` field instea
 shipping | \<*ShippingSettings*\> | Shipping settings of this product
 defaultCombinationId |  number |  Identifier of the default product variation, which is defined by the default values of product options.
 description | string  | Product description *in HTML*
+descriptionTranslated | \<*Translations*\> | Available translations for product description
 media | \<*ProductMedia*\> | Media files for a product (images)
 categoryIds | Array\<*number*\> | **Private token**: List of the categories, which the product belongs to. **Public token**: List of the *enabled* categories the product belongs to. **Any token**: If no categories provided, product is displayed on the store front page, see `showOnFrontpage` field, or all categories of that product are disabled 
 categories | Array\<*CategoriesInfo*\> | List of the categories the product belongs to with brief details (*for any access token*). If no categories provided, product belogs to store front page, see `showOnFrontpage` field
@@ -766,6 +853,7 @@ Field | Type  | Description
 ----- | ----- | -----------
 type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
 name |  string |  Product option name, e.g. `Color`
+nameTranslated | \<*Translations*\> | Available translations for product option name
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
@@ -867,14 +955,22 @@ compareToPrice | number | Variation's sale price displayed strike-out in the cus
 Field | Type  | Description
 -------------- | -------------- | --------------
 name |  string |  Option name
+nameTranslated | \<*Translations*\> | Available translations for product option name
 value | string |  Option value
+valueTranslated | \<*Translations*\> | Available translations for product option value
 
 #### ProductOptionChoice
 Field | Type  | Description
 -------------- | -------------- | --------------
-text |  string | Option selection text, e.g. 'Green'.
+text |  string | Option selection text, e.g. 'Green'
+textTranslated | \<*Translations*\> | Available translations for product option selection text
 priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
 priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
+
+#### Translations 
+Field | Type | Description
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### ProductDimensions
 Field | Type  | Description
@@ -997,13 +1093,13 @@ This way your app will save some time as you will be performing less requests to
 > Request example
 
 ```http
-GET /api/v3/4870020/products/123123?token=123456789abcd HTTP/1.1
+GET /api/v3/4870020/products/123123?lang=en&token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products/{productId}?token={token}&baseUrl={baseUrl}&cleanUrls={cleanUrls}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products/{productId}?token={token}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&lang={lang}`
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -1012,6 +1108,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 baseUrl | string | Storefront URL for Ecwid to use when returning product URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](#seo-friendly-urls)
+lang | string | Preferred language for the product fields in search results. If a certain field does not have the translation available for the set language, the default language text will be used for that field.
 
 <aside class="notice">
 Parameters in <strong>bold</strong> are mandatory
@@ -1029,6 +1126,9 @@ Parameters in <strong>bold</strong> are mandatory
     "quantity": 67,
     "inStock": true,
     "name": "Radish",
+    "nameTranslated": {
+      "en": "Radish"
+    },
     "price": 1.15,
     "defaultDisplayedPrice": 1.15,
     "defaultDisplayedPriceFormatted": "$1.15",
@@ -1066,11 +1166,17 @@ Parameters in <strong>bold</strong> are mandatory
             "choices": [
                 {
                     "text": "Small",
+                    "textTranslated": {
+                      "en": "Small"
+                    },
                     "priceModifier": 0,
                     "priceModifierType": "ABSOLUTE"
                 },
                 {
                     "text": "Large",
+                    "textTranslated": {
+                      "en": "Large"
+                    },
                     "priceModifier": 0.5,
                     "priceModifierType": "ABSOLUTE"
                 }
@@ -1081,14 +1187,23 @@ Parameters in <strong>bold</strong> are mandatory
         {
             "type": "SELECT",
             "name": "Color",
+            "nameTranslated": {
+              "en": "Color"
+            }
             "choices": [
                 {
                     "text": "Red",
+                    "textTranslated": {
+                      "en": "Red"
+                    },
                     "priceModifier": 0,
                     "priceModifierType": "ABSOLUTE"
                 },
                 {
                     "text": "White",
+                    "textTranslated": {
+                      "en": "White"
+                    },
                     "priceModifier": 0,
                     "priceModifierType": "ABSOLUTE"
                 }
@@ -1111,6 +1226,9 @@ Parameters in <strong>bold</strong> are mandatory
     },
     "defaultCombinationId": 7084076,
     "description": "<h5>Radish</h5>\n<p>The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in Europe in pre-Roman times. They are grown and consumed throughout the world. Radishes have numerous varieties, varying in size, color and duration of required cultivation time. There are some radishes that are grown for their seeds; oilseed radishes are grown, as the name implies, for oil production.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>",
+    "descriptionTranslated": {
+      "en": "<h5>Radish</h5>\n<p>The radish (Raphanus sativus) is an edible root vegetable of the Brassicaceae family that was domesticated in Europe in pre-Roman times. They are grown and consumed throughout the world. Radishes have numerous varieties, varying in size, color and duration of required cultivation time. There are some radishes that are grown for their seeds; oilseed radishes are grown, as the name implies, for oil production.</p>\n<p> </p>\n<div style=\"padding: 24px 24px 24px 21px; display: block; background-color: #ececec;\">From <a style=\"color: #1e7ec8; text-decoration: underline;\" title=\"Wikipedia\" href=\"http://en.wikipedia.org\">Wikipedia</a>, the free encyclopedia</div>"
+    },
     "media": {
       "images": [
           {
@@ -1193,11 +1311,23 @@ Parameters in <strong>bold</strong> are mandatory
             "options": [
                 {
                     "name": "Color",
-                    "value": "White"
+                    "nameTranslated": {
+                      "en": "Color"
+                    },
+                    "value": "White",
+                    "valueTranslated": {
+                      "en": "White"
+                    }
                 },
                 {
                     "name": "Size",
-                    "value": "Large"
+                    "nameTranslated": {
+                      "en": "Size"
+                    },
+                    "value": "Large",
+                    "valueTranslated": {
+                      "en": "Large"
+                    }
                 }
             ],
             "sku": "000076",
@@ -1223,11 +1353,23 @@ Parameters in <strong>bold</strong> are mandatory
             "options": [
                 {
                     "name": "Color",
-                    "value": "Red"
+                    "nameTranslated": {
+                      "en": "Color"
+                    },
+                    "value": "Red",
+                    "valueTranslated": {
+                      "en": "Red"
+                    }
                 },
                 {
                     "name": "Size",
-                    "value": "Large"
+                    "nameTranslated": {
+                      "en": "Size"
+                    },
+                    "value": "Large",
+                    "valueTranslated": {
+                      "en": "Large"
+                    }
                 }
             ],
             "sku": "000075",
@@ -1243,11 +1385,23 @@ Parameters in <strong>bold</strong> are mandatory
             "options": [
                 {
                     "name": "Size",
-                    "value": "Small"
+                    "nameTranslated": {
+                      "en": "Size"
+                    }
+                    "value": "Small",
+                    "valueTranslated": {
+                      "en": "Small"
+                    }
                 },
                 {
                     "name": "Color",
-                    "value": "White"
+                    "nameTranslated": {
+                      "en": "Color"
+                    },
+                    "value": "White",
+                    "valueTranslated": {
+                      "en": "White"
+                    }
                 }
             ],
             "sku": "000072",
@@ -1263,11 +1417,23 @@ Parameters in <strong>bold</strong> are mandatory
             "options": [
                 {
                     "name": "Size",
-                    "value": "Small"
+                    "nameTranslated": {
+                      "en": "Size"
+                    },
+                    "value": "Small",
+                    "valueTranslated": {
+                      "en": "Small"
+                    }
                 },
                 {
                     "name": "Color",
-                    "value": "Red"
+                    "nameTranslated": {
+                      "en": "Color"
+                    }
+                    "value": "Red",
+                    "valueTranslated": {
+                      "en": "Red"
+                    }
                 }
             ],
             "sku": "000071",
@@ -1316,6 +1482,7 @@ quantity |  number | Amount of product items in stock. *This field is omitted fo
 unlimited | boolean | `true` if the product has unlimited stock
 inStock | boolean | `true` if the product or any of its variations is in stock (quantity is more than zero) or has unlimited quantity. `false` otherwise.
 name |  string |  Product title
+nameTranslated | \<*Translations*\> | Available translations for product name
 price | number |  Base product price
 defaultDisplayedPrice | number |  Product price displayed in a storefront for logged out customer for default location (store location). May differ from the *price* value when the product has options and variations and the default variation's price is different from the base product price. It also includes taxes
 defaultDisplayedPriceFormatted | string | Formatted display of `defaultDisplayedPrice` in the store's formatting for prices
@@ -1343,6 +1510,7 @@ fixedShippingRate | number | **Legacy function** – see `shipping` field instea
 shipping | \<*ShippingSettings*\> | Shipping settings of this product
 defaultCombinationId |  number |  Identifier of the default product variation, which is defined by the default values of product options.
 description | string  | Product description *in HTML*
+descriptionTranslated | \<*Translations*\> | Available translations for product description
 media | \<*ProductMedia*\> | Media files for a product (images)
 categoryIds | Array\<*number*\> | **Private token**: List of the categories, which the product belongs to. **Public token**: List of the **enabled** categories the product belongs to. **Any access token**: If no categories provided, product is displayed on the store front page, see `showOnFrontpage` field, or all categories of that product are disabled 
 categories | Array\<*CategoriesInfo*\> | List of the categories the product belongs to with brief details (*for any access token*). If no categories provided, product belogs to store front page, see `showOnFrontpage` field
@@ -1375,6 +1543,7 @@ Field | Type  | Description
 ----- | ----- | -----------
 type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
 name |  string |  Product option name, e.g. `Color`
+nameTranslated | \<*Translations*\> | Available translations for product option name
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *This field is omitted for the product option with no selection (e.g. text, datepicker or upload file options)*
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
@@ -1467,14 +1636,22 @@ compareToPrice | number | Variation's sale price displayed strike-out in the cus
 Field | Type  | Description
 -------------- | -------------- | --------------
 name |  string |  Option name
+nameTranslated | \<*Translations*\> | Available translations for product option name
 value | string |  Option value
+valueTranslated | \<*Translations*\> | Available translations for product option value
 
 #### ProductOptionChoice
 Field | Type  | Description
 -------------- | -------------- | --------------
-text |  string | Option selection text, e.g. 'Green'.
+text |  string | Option selection text, e.g. 'Green'
+textTranslated | \<*Translations*\> | Available translations for product option selection text
 priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
 priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
+
+#### Translations 
+Field | Type | Description
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### ProductDimensions
 Field | Type  | Description
@@ -1603,6 +1780,10 @@ Cache-Control: no-cache
   "sku": "000012199",
   "quantity": 10,
   "name": "New Product",
+  "nameTranslated": {
+    "en": "New Product",
+    "es": "Nuevo producto"
+  },
   "price": 20.99,
   "compareToPrice": 24.99,
   "isShippingRequired": false,
@@ -1625,14 +1806,26 @@ Cache-Control: no-cache
     {
       "type": "RADIO",
       "name": "Size",
+      "nameTranslated": {
+        "en": "Size",
+        "es": "Tamaño"
+      },
       "choices": [
         {
           "text": "Small",
+          "textTranslated": {
+            "en": "Small",
+            "es": "Pequeño"
+          },
           "priceModifier": 0,
           "priceModifierType": "ABSOLUTE"
         },
         {
           "text": "Large",
+          "textTranslated": {
+            "en": "Large",
+            "es": "Pequeño"
+          },
           "priceModifier": 0.5,
           "priceModifierType": "ABSOLUTE"
         }
@@ -1675,6 +1868,7 @@ Parameters in bold are mandatory
 Field | Type |  Description
 ------| ---- | ------------
 **name** |  string |  Product title
+nameTranslated | \<*Translations*\> | Available translations for product name
 sku | string |  Product SKU. If this field is empty, Ecwid will generate new unique SKU automatically.
 quantity |  number | Amount of product items in stock. 
 unlimited | boolean | Set as `true` to make Unlimited stock for the product and to not track product inventory. 
@@ -1692,6 +1886,7 @@ fixedShippingRateOnly | boolean | **Legacy function** – see `shipping` field i
 fixedShippingRate | number | **Legacy function** – see `shipping` field instead. Is ignored if it is sent alongside `shipping` object. When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 shipping | \<*ShippingSettings*\> | Shipping settings of this product
 description | string  | Product description *in HTML*
+descriptionTranslated | \<*Translations*\> | Available translations for product description
 categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters. Is empty if value wasn't changed by merchant from the product itself
 seoDescription | string | Page description to be displayed in search results on the web. Recommended length is under 160 characters. Is empty if value wasn't changed by merchant from the product itself
@@ -1706,6 +1901,7 @@ Field | Type  | Description
 -------------- | -------------- | --------------
 **type** |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
 **name** |  string |  Product option name, e.g. `Color`
+nameTranslated | \<*Translations*\> | Available translations for product option name
 **required** |  boolean | `true` if this option is required, `false` otherwise. Default is `false`
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *Omit this field for product options with no selection (e.g. text, datepicker or upload file options)*
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
@@ -1713,9 +1909,15 @@ defaultChoice | number  | The number, starting from `0`, of the option's default
 #### ProductOptionChoice
 Field | Type  | Description
 -------------- | -------------- | --------------
-**text** |  string | Option selection text, e.g. 'Green'.
+**text** |  string | Option selection text, e.g. 'Green'
+textTranslated | \<*Translations*\> | Available translations for product option selection text
 **priceModifier** | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
 **priceModifierType** | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
+
+#### Translations 
+Field | Type | Description
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### ShippingSettings
 Field | Type  | Description
@@ -1841,6 +2043,9 @@ Cache-Control: no-cache
 
 ```json
 {
+  "nameTranslated": {
+    "es": "Nuevo producto"
+  },
   "compareToPrice": 24.99,
   "categoryIds": [
     9691094
@@ -1903,6 +2108,7 @@ Field | Type |  Description
 ------| ---- | ------------
 sku | string |  Product SKU
 name |  string |  Product title
+nameTranslated | \<*Translations*\> | Available translations for product name
 quantity |  number | Amount of product items in stock.
 unlimited | boolean | Set as `true` to make Unlimited stock for the product and to not track product inventory. 
 price | number |  Base product price
@@ -1919,6 +2125,7 @@ fixedShippingRateOnly | boolean | **Legacy function** – see `shipping` field i
 fixedShippingRate | number | **Legacy function** – see `shipping` field instead. Is ignored if it is sent alongside `shipping` object. When `fixedShippingRateOnly` is `true`, this field sets the product fixed shipping cost per item. When `fixedShippingRateOnly` is `false`, the value in this field is treated as an extra shipping cost the product adds to the global calculated shipping
 shipping | \<*ShippingSettings*\> | Shipping settings of this product
 description | string  | Product description *in HTML*
+descriptionTranslated | \<*Translations*\> | Available translations for product description
 media | \<*ProductMedia*\> | Media files for a product (images)
 categoryIds | Array\<*number*\> | List of the categories, which the product belongs to. If no categories provided, product will be displayed on the store front page, see `showOnFrontpage` field
 seoTitle | string | Page title to be displayed in search results on the web. Recommended length is under 55 characters. Is empty if value wasn't changed by merchant from the product itself
@@ -1946,6 +2153,7 @@ Field | Type  | Description
 -------------- | -------------- | --------------
 type |  string | One of `SELECT`, `RADIO`, `CHECKBOX`, `TEXTFIELD`, `TEXTAREA`, `DATE`, `FILES`
 **name** |  string |  Product option name, e.g. `Color`
+nameTranslated | \<*Translations*\> | Available translations for product option name
 choices | Array\<*ProductOptionChoice*\> | All possible option selections for the types `SELECT`, `CHECKBOX` or `RADIO`. *Omit this field for product options with no selection (e.g. text, datepicker or upload file options)*
 defaultChoice | number  | The number, starting from `0`, of the option's default selection. Only presents if the type is `SELECT` or `RADIO`
 required |  boolean | `true` if this option is mandatory, `false` otherwise. Default is `false`
@@ -1985,12 +2193,15 @@ productCount |  number |  Number of random products from the given category to b
 Field | Type |  Description
 -------------- | -------------- | --------------
 **name** |  string |  Option name, as in Product.options[i].name
+nameTranslated | \<*Translations*\> | Available translations for product option name
 value | string |  Option value one of Product.options[i].choices[j].text
+valueTranslated | \<*Translations*\> | Available translations for product option value
 
 #### ProductOptionChoice
 Field | Type  | Description
 -------------- | -------------- | --------------
-**text** |  string | Option selection text, e.g. 'Green'.
+**text** |  string | Option selection text, e.g. 'Green'
+textTranslated | \<*Translations*\> | Available translations for product option selection text
 priceModifier | number | Percent or absolute value of the option's price markup. Positive, negative and zero values are allowed. Default is `0`
 priceModifierType | string | Option markup calculation type. `PERCENT` or `ABSOLUTE`. Default is `ABSOLUTE`.
 
@@ -2005,6 +2216,11 @@ Field | Type  | Description
 id | number | Internal image ID
 orderBy |  number |  The sort weight of the image in the gallery images list. The less the number, the closer the image to the beginning of the gallery
 isMain | boolean | `true` if this is a main product image. `false` if gallery image
+
+#### Translations 
+Field | Type | Description
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### ProductDimensions
 Field | Type  | Description

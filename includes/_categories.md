@@ -17,13 +17,13 @@ The order of categories in response sometimes does not represent their order in 
 > Request example
 
 ```http
-GET /api/v3/4870020/categories?hidden_categories=true&token=123abcd HTTP/1.1
+GET /api/v3/4870020/categories?hidden_categories=true&lang=en&token=123abcd HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/categories?parent={parent}&hidden_categories={hidden_categories}&offset={offset}&limit={limit}&productIds={productIds}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/categories?parent={parent}&hidden_categories={hidden_categories}&offset={offset}&limit={limit}&productIds={productIds}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&lang={lang}&token={token}`
 
 Query field | Type    | Description
 ----------- | ------- | --------------
@@ -36,6 +36,7 @@ hidden_categories | boolean | By default, Ecwid returns only enabled categories.
 productIds | boolean | Set to `true` if you want the results to contain a list of product IDs assigned to category. `false` is default
 baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
+lang | string | Preferred language for the category fields in search results. If a certain field does not have the translation available for the set language, the default language text will be used for that field.
 
 <aside class='notice'>
 To get a list of products in results for each category, set `productIds` parameter to `true` when making a request.
@@ -65,10 +66,16 @@ To get a list of products in results for each category, set `productIds` paramet
                 "height": 456
             },            
             "name": "Fruit",
+            "name": {
+                "en": "Fruit"
+            },
             "url": "http://app.ecwid.com/store/4870020#!/Fruit/c/9691094",
             "productCount": 6,
             "enabledProductCount": 5,
             "description": "",
+            "descriptionTranslated": {
+                "en": ""
+            }
             "enabled": true
         },
         {
@@ -84,6 +91,9 @@ To get a list of products in results for each category, set `productIds` paramet
                 "height": 456
             },
             "name": "Vegetables",
+            "nameTranslated": {
+                "en": "Vegetables"
+            },
             "url": "http://app.ecwid.com/store/4870020#!/Vegetables/c/9691095",
             "productCount": 4,
             "enabledProductCount": 3,
@@ -123,10 +133,16 @@ Cache-Control: no-cache
                 "height": 456
             },            
             "name": "Fruit",
+            "nameTranslated": {
+                "en": "Fruit"
+            },
             "url": "http://app.ecwid.com/store/4870020#!/Fruit/c/9691094",
             "productCount": 6,
             "enabledProductCount": 5,
             "description": "",
+            "descriptionTranslated": {
+                "en": ""
+            },
             "enabled": true
         },
         {
@@ -160,10 +176,12 @@ imageUrl | string | Category image URL. A resized original image to fit 1500x150
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<*ImageDetails*\> | Details of the category image
 name | string | Category name
+nameTranslated | \<*Translations*\> | Available translations for category name
 url | string |  URL of the category page in the store. [Learn more](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)
 productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
+descriptionTranslated | \<*Translations*\> | Available translations for category description
 enabled | boolean | `true` if the category is enabled, `false` otherwise. Use `hidden_categories` in request to get disabled categories
 productIds | Array\<*number*\>  | IDs of products assigned to the category as they appear in Ecwid Control Panel > Catalog > Categories. To make this field appear in a response, send `productIds=true` in a request. 
 
@@ -173,6 +191,11 @@ Field | Type  | Description
 url | string | Image URL
 width | integer | Image width
 height | integer | Image height
+
+#### Translations 
+Field | Type | Description
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### Errors
 
@@ -265,13 +288,13 @@ Get full category details from an Ecwid store referring to its ID.
 > Request example
 
 ```http
-GET /api/v3/4870020/categories/10861116?token=abcdn339900932 HTTP/1.1
+GET /api/v3/4870020/categories/10861116?lang=en&token=abcdn339900932 HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}?token={token}&baseUrl={baseUrl}&cleanUrls={cleanUrls}`
+`GET https://app.ecwid.com/api/v3/{storeId}/categories/{categoryId}?token={token}&baseUrl={baseUrl}&cleanUrls={cleanUrls}&lang={lang}`
 
 Query field | Type    | Description
 ----------- | ------- | --------------
@@ -280,6 +303,7 @@ Query field | Type    | Description
 **categoryId** | number | Internal category ID
 baseUrl | string | Storefront URL for Ecwid to use when returning category URLs in the `url` field. If not specified, Ecwid will use the storefront URL specified in the [store settings](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
 cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (without hash `'#'`) in the `url` field. If `false`, Ecwid will return URL in the old format (with hash `'#'`). We recommend using `true` value if merchant's website supports clean [SEO-friendly URL feature](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls)
+lang | string | Preferred language for the product fields in search results. If a certain field does not have the translation available for the set language, the default language text will be used for that field.
 
 #### Response
 
@@ -300,10 +324,16 @@ cleanUrls | boolean | If `true`, Ecwid will return the SEO-friendly clean URL (w
         "height": 456
     },
     "name": "Subfruit2",
+    "nameTranslated": {
+        "en": "Subfruit2"
+    },
     "url": "http://app.ecwid.com/store/4870020#!/Subfruit2/c/10861116",
     "productCount": 4,
     "enabledProductCount": 3,
     "description": "<p>arf34</p>",
+    "descriptionTranslated": {
+        "en": "<p>arf34</p>"
+    },
     "enabled": true,
     "productIds": [
         37208339,
@@ -347,10 +377,12 @@ imageUrl | string | Category image URL. A resized original image to fit 1500x150
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<*ImageDetails*\> | Details of the category image
 name | string | Category name
+nameTranslated | \<*Translations*\> | Available translations for category name
 url | string |  URL of the category page in the store. [Learn more](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)
 productCount | number | Number of products in the category and its subcategories
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
+descriptionTranslated | \<*Translations*\> | Available translations for category description
 enabled | boolean | `true` if the category is enabled, `false` otherwise.
 productIds | Array\<*number*\>  | IDs of products assigned to the category as they appear in Ecwid Control Panel > Catalog > Categories
 
@@ -360,6 +392,11 @@ Field | Type  | Description
 url | string | Image URL
 width | integer | Image width
 height | integer | Image height
+
+#### Translations 
+Field | Type | Description
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### Errors
 
@@ -457,10 +494,18 @@ POST /api/v3/4870020/categories?token=alads043043lk0ds0 HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+```
 
+```json
 {
     "name": "New Cool Category",
+    "nameTranslated": {
+        "en": "New Cool Category"
+    },
     "description": "Hey, this is my <b>new</b> category!",
+    "descriptionTranslated": {
+        "en": "Hey, this is my <b>new</b> category!"
+    },
     "enabled": true,
     "orderBy": 10,
     "parentId": 9691094
@@ -485,11 +530,18 @@ A JSON object of type 'Category' with the following fields:
 Field | Type | Description
 ----- | ---- | -----------
 **name** | string | Category name
+nameTranslated | \<*Translations*\> | Available translations for category name
 parentId | number  | ID of the parent category. Omit this field to add root category
 orderBy | number | Sort order of the category in the parent category subcategories list
 description | string  | The category description in HTML
+descriptionTranslated | \<*Translations*\> | Available translations for category name
 enabled | boolean | `true` to make category enabled, `false` otherwise. `true` is default
 productIds | Array\<*number*\>  | IDs of the products to assign to the category
+
+#### Translations 
+Field | Type | Description
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### Response
 
@@ -547,10 +599,18 @@ PUT /api/v3/4870020/categories/10869029?token=34534509340sdsreoiweurt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+```
 
+```json
 {
   "name": "Updated name",
+  "nameTranslated": {
+    "en": "Updated name"
+  },
   "description": "Updated <b>description</b>",
+  "descriptionTranslated": {
+    "en": "Updated <b>description</b>"
+  },
   "productIds": [
     37208339,
     37208345
@@ -577,11 +637,18 @@ A JSON object of type 'Category' with the following fields:
 Field | Type | Description
 ----- | ---- | -----------
 name | string | Category name
+nameTranslated | \<*Translations*\> | Available translations for category name
 parentId | number  | ID of the parent category
 orderBy | number | Sort order of the category in the parent category subcategories list
 description | string  | The category description in HTML
+descriptionTranslated | \<*Translations*\> | Available translations for category description
 enabled | boolean | `true` to make category enabled, `false` to disable it. `true` is default
 productIds | Array\<*number*\>  | IDs of the products to assign to the category
+
+#### Translations 
+Field | Type | Description
+-------|-------|-------------
+<ISO_LANG_CODE> | string | Translations for each available language. If no other translations are provided, the default language translations is returned. See available languages in store language settings
 
 #### Response
 
