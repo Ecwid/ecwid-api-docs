@@ -28,14 +28,14 @@ To access the Ecwid API Platform features, make sure you have a registered appli
 > Request example
 
 ```http
-GET /api/v3/4870020/products/filters?filterParentCategoryId=123532&inventory=instock&token=1234567890qwqeertt HTTP/1.1
+GET /api/v3/4870020/products/filters?filterParentCategoryId=123532&inventory=instock&lang=ru&token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/products/filters?filterFields={filterFields}&filterFacetLimit={filterFacetLimit}&filterParentCategoryId={filterParentCategoryId}&keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&categories={categories}&includeProductsFromSubcategories={includeProductsFromSubcategories}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inventory={inventory}&onsale={onsale}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&option_{optionName}={optionValues}&attribute_{attributeName}={attributeValues}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/products/filters?filterFields={filterFields}&filterFacetLimit={filterFacetLimit}&filterParentCategoryId={filterParentCategoryId}&keyword={keyword}&priceFrom={priceFrom}&priceTo={priceTo}&categories={categories}&includeProductsFromSubcategories={includeProductsFromSubcategories}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&enabled={enabled}&inventory={inventory}&onsale={onsale}&field{attributeName}={attributeValues}&field{attributeId}={attributeValues}&option_{optionName}={optionValues}&attribute_{attributeName}={attributeValues}&lang={lang}&token={token}`
 
 <aside class="notice">
 Parameters in <strong>bold</strong> are mandatory
@@ -49,7 +49,7 @@ Name | Type    | Description
 **token** |  string | oAuth token
 **filterFields** | string | Comma-separated list of filters for Ecwid to return. Supported filters: `"price"`,`"inventory"`,`"onsale"`,`"categories"`, `"option_{optionName}"`, `"attribute_{attributeName}"`. Example: `"price,inventory,option_Size,attribute_Brand,categories"`
 filterFacetLimit | string | Set the number of filter values in response. Individual limit example: `"onsale:all,attribute_Brand:50,option_Color:10"`. General limit example: `"10"`. Use `"all"` to return all facets. Default limit is 50
-filterParentCategoryId | string | Set parent category ID limit for `categories` filter field in response. `"0"` or `"home"` or empty value means there is no parent category. If you want to limit product results by categories, use `categories` product limit field below.
+filterParentCategoryId | string | Set parent category ID limit for `categories` filter field in response. `"0"` or `"home"` or empty value means there is no parent category. If you want to limit product results by categories, use `categories` product limit field below
 
 **Product limits**
 
@@ -68,7 +68,8 @@ enabled | boolean | Use `true` if you need only enabled products. Use `false` if
 option_{optionName} | string | Filter by product option values. Format: `option_{optionName}=param[,param]`, where `optionName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `option_Size=S,M,L&option_Color=Red,Black` 
 attribute_{attributeName} | string | Filter by product attribute values. Format: `attribute_{attributeName}param[,param]`, where `attributeName` is the attribute name and `param` is the attribute value. You can place several values separated by comma. In that case, values will be connected through logical "OR", and if the product has at least one of them it will get to the search results. Example:<br /> `attribute_Brand=Apple&attribute_Capacity=32GB,64GB` 
 inventory | string | Use `"instock"` to get in stock items only or `"outofstock"` for out of stock items. 
-onsale | string | Use `"onsale"` to get on sale items only or `"notonsale"` for items not currently on sale.
+onsale | string | Use `"onsale"` to get on sale items only or `"notonsale"` for items not currently on sale
+lang | string | Preferred language for the translated filter fields in search results. If a certain field does not have the translation available for the set language, the default language text will be used for that field
 
 
 #### Response
@@ -116,26 +117,31 @@ onsale | string | Use `"onsale"` to get on sale items only or `"notonsale"` for 
                 {
                     "id": 19563207,
                     "title": "Shorts",
+                    "titleTranslated": "Шорты",
                     "productCount": 5
                 },
                 {
                     "id": 21579001,
                     "title": "Hats",
+                    "titleTranslated": "Шляпы",
                     "productCount": 4
                 },
                 {
                     "id": 21898001,
                     "title": "Sale",
+                    "titleTranslated": "Распродажа",
                     "productCount": 2
                 },
                 {
                     "id": 22515002,
                     "title": "Accessories",
+                    "titleTranslated": "Аксессуары",
                     "productCount": 2
                 }
                 {
                     "id": 19976009,
                     "title": "Apparel",
+                    "titleTranslated": "Apparel",
                     "productCount": 2
                 }
             ]
@@ -153,37 +159,47 @@ onsale | string | Use `"onsale"` to get on sale items only or `"notonsale"` for 
             ]
         },
         "option_Size": {
+            "title": "Size",
+            "titleTranslated": "Размер",
             "values": [
                 {
                     "title": "S",
+                    "titleTranslated": "S",
                     "productCount": 7
                 },
                 {
                     "title": "L",
+                    "titleTranslated": "L",
                     "productCount": 6
                 },
                 {
                     "title": "M",
+                    "titleTranslated": "M",
                     "productCount": 6
                 },
                 {
                     "title": "Large",
+                    "titleTranslated": "Large",
                     "productCount": 4
                 },
                 {
                     "title": "Medium",
+                    "titleTranslated": "Medium",
                     "productCount": 4
                 },
                 {
                     "title": "Small",
+                    "titleTranslated": "Small",
                     "productCount": 4
                 },
                 {
                     "title": "XL",
+                    "titleTranslated": "XL",
                     "productCount": 4
                 },
                 {
                     "title": "2XL",
+                    "titleTranslated": "2XL",
                     "productCount": 3
                 }
             ]
@@ -224,7 +240,8 @@ maxValue | number | The maximum price found for these products
 Field | Type | Description
 ----- | ---- | -----------
 id | number/string | Filter value ID: category ID, `"onsale"`, `"outofstock"`
-**title** | string | Filter value name: option value, attribute value, "On sale", "Out of Stock", etc.  
+**title** | string | Filter value name: option value, attribute value, "On sale", "Out of Stock", etc.
+titleTranslated | string | Translated title for the current entity for the `lang` value provided in your request. If translation is not available, default langage translation is used
 **productCount** | number | Number of products found for this specific filter
 
 #### Errors
