@@ -8,6 +8,20 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## April 18, 2019
+
+Updated the [Ecwid CSS Framework](https://developers.ecwid.com/ecwid-css-framework) to `1.3.6` version. 
+
+**File URLs** 
+
+- `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.6/ecwid-app-ui.css`
+- `https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.6/ecwid-app-ui.min.js`
+
+**Changelog**
+
+- new components added: `.iconable-link`, `.iconable-link__icon--emoji`, `.dropdown-list-item`
+- updated components: `.draggable-item`,`.radio`
+
 ## April 16, 2019
 
 1) Added support to disable email notifications to customers for specific orders in REST API. See the `disableAllCustomerNotifications` field in [orders endpoint](https://developers.ecwid.com/api-documentation/orders).

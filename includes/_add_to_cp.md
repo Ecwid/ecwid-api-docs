@@ -87,14 +87,14 @@ If you already have a registered app and want to make it native, you can [contac
   </script>
 
   <!-- Include Ecwid CSS Framework -->
-  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.4/ecwid-app-ui.css"/>  
+  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.6/ecwid-app-ui.css"/>  
 </head>
 
 <body class='normalized'>
   <div>Show something</div>
 
 <!-- JS for CSS Framework components -->
-  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.4/ecwid-app-ui.min.js"></script>
+  <script src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.6/ecwid-app-ui.min.js"></script>
 </body>
 
 </html>
@@ -555,22 +555,22 @@ We provide a set of ready UI components in a form of CSS framework to help you e
 
 ```html
 <head>
-  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.4/ecwid-app-ui.css"/>
+  <link rel="stylesheet" href="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.6/ecwid-app-ui.css"/>
 </head>
 
 <body>
   
   <div>Some content</div>
 
-  <script type="text/javascript" src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.4/ecwid-app-ui.min.js"></script>
+  <script type="text/javascript" src="https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.6/ecwid-app-ui.min.js"></script>
 </body>
 ```
 
 1) Add this CSS file to your native app: 
-`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.4/ecwid-app-ui.css`
+`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.6/ecwid-app-ui.css`
 
 2) Add this JS file at before closing the BODY tag: 
-`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.4/ecwid-app-ui.min.js`
+`https://djqizrxa6f10j.cloudfront.net/ecwid-sdk/css/1.3.6/ecwid-app-ui.min.js`
 
 3) Use this guide to find the elements and CSS classes you need: [http://developers.ecwid.com/ecwid-css-framework/](/ecwid-css-framework)
 
