@@ -115,7 +115,7 @@ A sample native application with examples of how to access Ecwid REST API, save 
 If your app for public use, it is required to use <a href='https://github.com/Ecwid/sample-native-app'>Sample Native App</a> interface for its user interface. 
 </aside>
 
-Also, see the [set up your application](https://developers.ecwid.com/api-documentation/building-an-embedded-app#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
+Also, see the [set up your application](https://developers.ecwid.com/api-documentation/building-a-native-app#set-up-your-application) and [Native Apps Guideline](/native-applications) to find out how this page should work.
 
 
 #### Q: What is my app_id?
@@ -138,7 +138,7 @@ You are able to translate native application interface based on the language of 
 
 The current language of Ecwid Control Panel is provided in the authentication payload your application receives.
 
-[Authentication Payload](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#app-authentication) can be sent in two modes: 
+[Authentication Payload](https://developers.ecwid.com/api-documentation/authentication-in-native-apps#app-authentication) can be sent in two modes: 
 
 - client-side (via hash `#`)
 - server-side (URL query string: `?` and `&`)
@@ -151,7 +151,7 @@ The current language of Ecwid Control Panel is provided in the authentication pa
 
 If the current language is not supported, use the fallback labels. For example, load English texts if user is Spanish and you don't have Spanish translations yet. 
 
-More info on getting and parsing authentication payload: [https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#app-authentication](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#app-authentication)
+More info on getting and parsing authentication payload: [https://developers.ecwid.com/api-documentation/authentication-in-native-apps#app-authentication](https://developers.ecwid.com/api-documentation/authentication-in-native-apps#app-authentication)
 
 ## Deep linking
 
@@ -212,7 +212,7 @@ When using default user authentication, the app state will be delivered through 
 
 Once it's called, you can save the user details and app state into your client-side variables. See example on the right.
 
-Learn more about [Default User Authentication](https://developers.ecwid.com/api-documentation/authentication-in-embedded-apps#default-user-auth)
+Learn more about [Default User Authentication](https://developers.ecwid.com/api-documentation/authentication-in-native-apps#default-user-auth)
 
 **Enhanced security user authentication**
 

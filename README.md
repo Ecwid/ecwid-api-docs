@@ -37,6 +37,8 @@ Updated the [Ecwid CSS Framework](https://developers.ecwid.com/ecwid-css-framewo
 
 The old fields remain the same, but the new ones have `Translated` suffix. I.e. `titleTranslated`, `descriptionTranslated` and so on. [Learn more](https://developers.ecwid.com/api-documentation/rest-api-reference)
 
+P.S. if you can't see fields for translations, go to Ecwid Control Panel > Settings > What's new and make sure you've enabled the new feature for your store.
+
 ## April 12, 2019
 
 1) Added support for several structured data fields for [static product pages](https://developers.ecwid.com/api-documentation/static-store-pages#get-product-page): 
