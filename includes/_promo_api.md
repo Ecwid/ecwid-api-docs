@@ -440,7 +440,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 storeId |  number | Ecwid store ID
 merchantAppSettings | json | Merchant settings for your integration set up by your code. [More details](https://developers.ecwid.com/api-documentation/user-interface-for-discount-rules)
-cart | \<*CartDetails*\> | Offset from the beginning of the returned items list (for paging)
+cart | \<*CartDetails*\> | All available cart information when cart is recalculated at checkout
 
 #### CartDetails
 

@@ -673,7 +673,7 @@ Name | Type    | Description
 storeId |  number | Ecwid store ID
 returnurl | string | A URL to send customer to after the payment. [More details](https://developers.ecwid.com/api-documentation/processing-payment-request#returning-customer-to-storefront)
 merchantAppSettings | json | Merchant settings for your integration set up by your code. [More details](#merchant-settings-for-payment-method)
-cart | \<*CartDetails*\> | Offset from the beginning of the returned items list (for paging)
+cart | \<*CartDetails*\> | All available cart information after customer hit the Continue button for your payment method
 token | string | Access token of the Ecwid store. Use it to update order status after the payment
 
 #### CartDetails
