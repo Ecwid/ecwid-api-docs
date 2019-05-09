@@ -85,10 +85,6 @@ Once the request number gets lower, the burst request amount will return and you
 
 When building your app, keep in mind the [usage policy](https://developers.ecwid.com/api-documentation/rest-api-reference#usage-policy) for the best experience. 
 
-<aside class="notice">
-You can update/create only one product at a time. To update/create multiple products, send your requests consecutively: new one should go out only after you got a response for the previous one. 
-</aside>
-
 #### Usage policy
 
 To protect us and our users from abusing, we strongly advise that you optimize your app code to make fewer API requests. For example:

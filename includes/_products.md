@@ -1760,10 +1760,6 @@ It is possible to use the `cleanUrls` parameter together with the `baseUrl` para
 
 Create a new product in an Ecwid store. 
 
-<aside class="notice">
-You can create only one product per API request. To create several products, send several separate requests for each product.
-</aside>
-
 #### Request
 
 > Request body
@@ -2027,10 +2023,6 @@ errorCode | string | Error code
 ### Update a product
 
 Update an existing product in an Ecwid store referring to its ID.
-
-<aside class="notice">
-You can update only one product at a time. To update multiple products, send your requests consecutively: new one should go out only after you got a response for the previous one. 
-</aside>
 
 > Request example
 
@@ -2301,7 +2293,9 @@ PUT /api/v3/4870020/products/39766764/inventory?token=123456789abcd HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
+```
 
+```json
 {
     "quantityDelta": -10
 }

@@ -64,7 +64,12 @@ To get a list of products in results for each category, set `productIds` paramet
                 "url": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
                 "width": 123,
                 "height": 456
-            },            
+            },
+            "thumbnail": {
+                "url": "https://app.ecwid.com/default-store/fruit-400-sq.jpg",
+                "width": 100,
+                "height": 400    
+            },
             "name": "Fruit",
             "name": {
                 "en": "Fruit"
@@ -89,6 +94,11 @@ To get a list of products in results for each category, set `productIds` paramet
                 "url": "https://dqzrr9k4bjpzk.cloudfront.net/1003/124124124.jpg",
                 "width": 123,
                 "height": 456
+            },
+            "thumbnail": {
+                "url": "https://dqzrr9k4bjpzk.cloudfront.net/1003/1241222224.jpg",
+                "width": 100,
+                "height": 400    
             },
             "name": "Vegetables",
             "nameTranslated": {
@@ -131,7 +141,12 @@ Cache-Control: no-cache
                 "url": "https://app.ecwid.com/default-store/fruit-230-sq.jpg",
                 "width": 123,
                 "height": 456
-            },            
+            },           
+            "thumbnail": {
+                "url": "https://app.ecwid.com/default-store/fruit-400-sq.jpg",
+                "width": 100,
+                "height": 400
+            },
             "name": "Fruit",
             "nameTranslated": {
                 "en": "Fruit"
@@ -176,6 +191,7 @@ imageUrl | string | Category image URL. A resized original image to fit 1500x150
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<*ImageDetails*\> | Details of the category image
 name | string | Category name
+thumbnail | \<*ImageDetails*\> | Thumbnail image data. The thumbnail size is specified in the store settings. Resized to fit 400x400px by default
 nameTranslated | \<*Translations*\> | Available translations for category name
 url | string |  URL of the category page in the store. [Learn more](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)
 productCount | number | Number of products in the category and its subcategories
@@ -323,6 +339,11 @@ lang | string | Preferred language for the product fields in search results. If 
         "width": 123,
         "height": 456
     },
+    "thumbnail": {
+        "url": "https://app.ecwid.com/default-store/fruit-400-sq.jpg",
+        "width": 100,
+        "height": 400
+    },
     "name": "Subfruit2",
     "nameTranslated": {
         "en": "Subfruit2"
@@ -376,6 +397,7 @@ thumbnailUrl | string  | Category thumbnail URL. The thumbnail size is specified
 imageUrl | string | Category image URL. A resized original image to fit 1500x1500px
 originalImageUrl | string  | Link to the original (not resized) category image
 originalImage | \<*ImageDetails*\> | Details of the category image
+thumbnail | \<*ImageDetails*\> | Thumbnail image data. The thumbnail size is specified in the store settings. Resized to fit 400x400px by default
 name | string | Category name
 nameTranslated | \<*Translations*\> | Available translations for category name
 url | string |  URL of the category page in the store. [Learn more](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)

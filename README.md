@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## May 9, 2019 
+
+1) Improvements to category image quality for [static store pages](https://developers.ecwid.com/api-documentation/static-store-pages#get-category-page); added `thumbnail` image details for GET requests for category endpoint in [Ecwid REST API](https://developers.ecwid.com/api-documentation/categories).
+
+2) You can now send multiple requests at once to create or update products in [Ecwid REST API](https://developers.ecwid.com/api-documentation/products). Earlier, it was only possible to do it concecutively – one after another. However, you should still respect the [Ecwid REST API limits](https://developers.ecwid.com/api-documentation/rest-api-reference#api-calls-limits) when making your requests. 
+
 ## April 18, 2019
 
 Updated the [Ecwid CSS Framework](https://developers.ecwid.com/ecwid-css-framework) to `1.3.6` version. 
