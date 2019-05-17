@@ -13,12 +13,12 @@ Get store home page's static HTML to utilize fast load of store home page on you
 > Request example
 
 ```http
-GET https://storefront.ecwid.com/home-page/1003/static-code?lang=en&tplvar_ec.storefront.product_list_show_frame=true HTTP/1.1
+GET https://storefront.ecwid.com/home-page/1003/static-code?lang=en&tplvar_ec.storefront.product_list_show_frame=true&international_pages[ru]=https://site.com/ru/store HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
 ```
 
-`GET https://storefront.ecwid.com/home-page/{storeId}/static-code?lang={lang}&clean_urls={clean_urls}&base_url={base_url}&tplvar_*{tplvar_*}`
+`GET https://storefront.ecwid.com/home-page/{storeId}/static-code?lang={lang}&clean_urls={clean_urls}&base_url={base_url}&tplvar_*{tplvar_*}&international_pages[LANG]={international_pages}`
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -27,6 +27,7 @@ lang | string | Set the languages for text labels. If absent, the default store 
 clean_urls | boolean | Enable/disable [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) format in the product links
 base_url | string | Sets the base URL for clean URLs. Pass it if you set `cleanUrls` as `true`
 tplvar_* | varied | Use this to pass any `ec.storefront.*` appearance option so that the storefront will be generated according to your design settings. [Learn more](https://developers.ecwid.com/api-documentation/customize-appearance)
+international_pages | string | URL for alternative translated version of the website. Specify each language URL in a separate parameter. Set the language code in brackets, i.e.: `international_pages[ru]`. HTML is returned in `hrefLangHtml` field. [Google specification](https://support.google.com/webmasters/answer/189077?hl=en)
 
 <aside class="notice">
 Parameters in <strong>bold</strong> are mandatory
@@ -46,6 +47,7 @@ Parameters in <strong>bold</strong> are mandatory
     "canonicalUrl": "",
     "ogTagsHtml": "",
     "jsonLDHtml": "",
+    "hrefLangHtml": "<link rel='alternate' hreflang='ru' href='https://site.com/ru/store/' />",
     "lastUpdated": 1545726821356
 }
 ```
@@ -62,6 +64,7 @@ metaDescriptionHtml | string | HTML code for the meta title and description
 canonicalUrl | string | Canonical URL for this page
 ogTagsHtml | string | HTML code for Open Graph tags
 jsonLDHtml | string | HTML code for JSON-LD product description
+hrefLangHtml | string | `hreflang` HTML tag for translated versions of your website. Returned if `international_pages` request parameter is set. [Google specification](https://support.google.com/webmasters/answer/189077?hl=en)
 lastUpdated | number | UNIX timestamp for when the page was generated
 
 ### Get category page
@@ -86,6 +89,7 @@ lang | string | Set the languages for text labels. If absent, the default store 
 clean_urls | boolean | Enable/disable [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) format in the product links
 base_url | string | Sets the base URL for clean URLs. Pass it if you set `cleanUrls` as `true`
 tplvar_* | varied | Use this to pass any `ec.storefront.*` appearance option so that the storefront will be generated according to your design settings. [Learn more](https://developers.ecwid.com/api-documentation/customize-appearance)
+international_pages | string | URL for alternative translated version of the website. Specify each language URL in a separate parameter. Set the language code in brackets, i.e.: `international_pages[ru]`. HTML is returned in `hrefLangHtml` field. [Google specification](https://support.google.com/webmasters/answer/189077?hl=en)
 
 <aside class="notice">
 Parameters in <strong>bold</strong> are mandatory
@@ -106,6 +110,7 @@ Parameters in <strong>bold</strong> are mandatory
     "canonicalUrl": "https://www.ecwid.com/demo/Surfboards-c20671017",
     "ogTagsHtml": "    <meta property=\"og:title\" content=\"Surfboards\" />\n    <meta property=\"og:url\" content=\"https://www.ecwid.com/demo/Surfboards-c20671017\" />\n        <meta property=\"og:image\" content='https://dqzrr9k4bjpzk.cloudfront.net/images/1003/850496617.jpg' />\n    <meta property=\"og:site_name\" content=\"Ecwid Demo Store\" />\n    <meta property=\"og:type\" content=\"website\" />\n\n    <meta name=\"twitter:card\" content=\"summary_large_image\">\n    <meta name=\"twitter:title\" content=\"Surfboards\">\n        <meta name=\"twitter:description\" content=\"Surfboards\">\n        <meta name=\"twitter:image\" content=\"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/850496617.jpg\">\n",
     "jsonLDHtml": "",
+    "hrefLangHtml": "<link rel='alternate' hreflang='ru' href='https://site.com/ru/store/' />",
     "lastUpdated": 1549304740404
 }
 ```
@@ -123,6 +128,7 @@ metaDescriptionHtml | string | HTML code for the meta title and description
 canonicalUrl | string | Canonical URL for this page
 ogTagsHtml | string | HTML code for Open Graph tags
 jsonLDHtml | string | HTML code for JSON-LD product description
+hrefLangHtml | string | `hreflang` HTML tag for translated versions of your website. Returned if `international_pages` request parameter is set. [Google specification](https://support.google.com/webmasters/answer/189077?hl=en)
 lastUpdated | number | UNIX timestamp for when the page was generated
 
 ### Get product page
@@ -147,6 +153,7 @@ lang | string | Set the languages for text labels. If absent, the default store 
 clean_urls | boolean | Enable/disable [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) format in the product links
 base_url | string | Sets the base URL for clean URLs. Pass it if you set `cleanUrls` as `true`
 tplvar_* | varied | Use this to pass any `ec.storefront.*` appearance option so that the storefront will be generated according to your design settings. [Learn more](https://developers.ecwid.com/api-documentation/customize-appearance)
+international_pages | string | URL for alternative translated version of the website. Specify each language URL in a separate parameter. Set the language code in brackets, i.e.: `international_pages[ru]`. HTML is returned in `hrefLangHtml` field. [Google specification](https://support.google.com/webmasters/answer/189077?hl=en)
 
 <aside class="notice">
 Parameters in <strong>bold</strong> are mandatory
@@ -166,6 +173,7 @@ Parameters in <strong>bold</strong> are mandatory
     "canonicalUrl": "https://www.ecwid.com/demo/PYZEL-Amigo-62-Surfboard-p70178249",
     "ogTagsHtml": "    <meta property=\"og:title\" content=\"PYZEL Amigo 6'2 Surfboard\" />\n    <meta property=\"og:url\" content=\"https://www.ecwid.com/demo/PYZEL-Amigo-62-Surfboard-p70178249\" />\n        <meta property=\"og:image\" content='https://s3.amazonaws.com/images.ecwid.com/images/1003/414476268.jpg' />\n    <meta property=\"og:site_name\" content=\"Ecwid Demo Store\" />\n        <meta property=\"og:description\" content=\"About PYZEL Amigo 6'2 Surfboard - AMGO-16404 in Poly/Sand/Color &quot;We made the Amigo to fit somewhere right between the Pyzalien and the Flash, as either a chunky shortboard, or a streamlined stubbie. The heart of this board is a very fast, very user friendly rocker that not only gains speed easily, but has a loose, snappy feel in all kinds of waves. The outline is full, with a nice hip leading into\" />\n    <meta property=\"og:type\" content=\"website\" />\n\n    <meta name=\"twitter:card\" content=\"summary_large_image\">\n    <meta name=\"twitter:title\" content=\"PYZEL Amigo 6'2 Surfboard\">\n        <meta name=\"twitter:description\" content=\"About PYZEL Amigo 6'2 Surfboard - AMGO-16404 in Poly/Sand/Color &quot;We made the Amigo to fit somewhere right between the Pyzalien and the Flash, as either a chunky shortboard, or a streamlined stubbie. The heart of this board is a very fast, very user friendly rocker that not only gains speed easily, but has a loose, snappy feel in all kinds of waves. The outline is full, with a nice hip leading into\">\n        <meta name=\"twitter:image\" content=\"https://s3.amazonaws.com/images.ecwid.com/images/1003/414476268.jpg\">\n",
     "jsonLDHtml": "    <script type=\"application/ld+json\">\n    {\n      \"@context\": \"http://schema.org/\",\n      \"@type\": \"Product\",\n      \"name\": \"PYZEL Amigo 6'2 Surfboard\",\n      \"image\": [\n\t\t\t    \"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476268.jpg\",\n\t\t\t    \"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476274.jpg\",\n\t\t\t    \"https://dqzrr9k4bjpzk.cloudfront.net/images/1003/414476302.jpg\"\n\t  ],\n        \"description\": \"About PYZEL Amigo 6'2 Surfboard - AMGO-16404 in Poly/Sand/Color &quot;We made the Amigo to fit somewhere right between the Pyzalien and the Flash, as either a chunky shortboard, or a streamlined stubbie. The heart of this board is a very fast, very user friendly rocker that not only gains speed easily, but has a loose, snappy feel in all kinds of waves. The outline is full, with a nice hip leading into\",\n      \"sku\": \"AMGO-16404\",\n      \"offers\": {\n        \"@type\": \"Offer\",\n        \"priceCurrency\": \"USD\",\n        \"price\": \"650\",\n        \"url\": \"https://www.ecwid.com/demo/PYZEL-Amigo-62-Surfboard-p70178249\",\n          \"itemCondition\": \"http://schema.org/NewCondition\",\n\n        \"availability\": \"http://schema.org/InStock\",\n        \"seller\": {\n          \"@type\": \"Organization\",\n          \"name\": \"Ecwid Demo Store\"\n        }\n      }\n    }\n    </script>\n",
+    "hrefLangHtml": "<link rel='alternate' hreflang='ru' href='https://site.com/ru/store/' />",
     "lastUpdated": 1555051792050
 }
 ```
@@ -182,4 +190,5 @@ metaDescriptionHtml | string | HTML code for the meta title and description
 canonicalUrl | string | Canonical URL for this page
 ogTagsHtml | string | HTML code for Open Graph tags
 jsonLDHtml | string | HTML code for JSON-LD product description
+hrefLangHtml | string | `hreflang` HTML tag for translated versions of your website. Returned if `international_pages` request parameter is set. [Google specification](https://support.google.com/webmasters/answer/189077?hl=en)
 lastUpdated | number | UNIX timestamp for when the page was generated
