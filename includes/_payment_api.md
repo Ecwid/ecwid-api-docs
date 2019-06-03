@@ -633,7 +633,7 @@ For correct payload decryption, create additional padding to make the payload a 
          "paymentParams":{  
 
          },
-         "extraFields":{  
+         "extraFields": {  
             "lang":"en",
             "askHowYouFoundUsApp":"From a friend",
             "kliken_vid":"99aa74d7-75a4-4624-9ed6-87892f1c165e"

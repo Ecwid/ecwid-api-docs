@@ -396,17 +396,9 @@ POST https://mycoolapp.com/integration HTTP/1.1
             "description": "Silk paper wrapping"
         },
         "extraFields": {
-            "platform": {
-                "value": "adobe_muse"
-            },
-            "AFF_ID": {
-                "value": "fb-123"
-            },
-            "how_did_you_find_us": {
-                "title": "How you found us?",
-                "value": "TV show",
-                "order_details_display_section": "order_comments"
-            }
+            "platform": "adobe_muse"
+            "AFF_ID": "fb-123"
+            "how_did_you_find_us": "TV show"
         }
     }
 }
