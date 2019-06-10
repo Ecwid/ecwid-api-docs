@@ -284,11 +284,18 @@ Ecwid.refreshConfig();
 
 You can show your saved extra field title and value in order details. It will be displayed to both merchant and customer who placed that order. 
 
-It is possible to customize the position of this information with `orderDetailsDisplaySection` field. Possible values for it include: `shipping_info`, `billing_info`, `customer_info`, `order_comments`.
+It is possible to customize the position of this information with `orderDetailsDisplaySection` field. 
+
+Possible values for it include: 
+
+- `shipping_info`
+- `billing_info` 
+- `customer_info` 
+- `order_comments`
 
 Check a basic example on the right. 
 
-### Extra field display requirements
+**Extra field display requirements**
 
 Extra fields will only be shown in order details to customer and store admin if these conditions are met: 
 

@@ -448,7 +448,7 @@ items | Array\<*OrderEntry*\> | The items list
 #### OrderEntry
 Field | Type |  Description
 ------| -----| ------------
-orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
+orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`. Use `vendorOrderNumber` whenever you need to show order number in your interface
 vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
 subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order (item's `price` x `quantity`)
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
@@ -464,7 +464,7 @@ ipAddress | string  | Customer IP
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
-orderComments | string  | Order comments
+orderComments | string  | Customer's order comments, specified at checkout
 couponDiscount | number | Discount applied to order using a coupon
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 discount | number | The sum of all applied discounts **except for the coupon discount**. To get the total order discount, take the sum of `couponDiscount` and `discount` field values. Total order discount is a sum of all discounts applied to items (both regular discount and discount coupons) unless they were modified after order was placed
@@ -1114,7 +1114,7 @@ A JSON object of type 'Order' with the following fields:
 #### Order
 Field | Type |  Description
 ------| -----| ------------
-orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`
+orderNumber | number | Unique order number without prefixes/suffixes, e.g. `34`. Use `vendorOrderNumber` whenever you need to show order number in your interface
 vendorOrderNumber |  string | Order number with prefix and suffix defined by admin, e.g. `ABC34-q`
 subtotal |  number | Order subtotal. Includes the sum of all products' cost in the order (item's `price` x `quantity`)
 total | number | Order total cost. Includes shipping, taxes, discounts, etc.
@@ -1131,7 +1131,7 @@ couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
-orderComments | string  | Order comments
+orderComments | string  | Customer's order comments, specified at checkout
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
@@ -2037,7 +2037,7 @@ couponDiscount | number | Discount applied to order using a coupon
 paymentStatus | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li></ul>
 fulfillmentStatus | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
-orderComments | string  | Order comments
+orderComments | string  | Customer's order comments, specified at checkout
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
@@ -2423,7 +2423,7 @@ couponDiscount | number | Discount applied to order using a coupon
 **paymentStatus** | string |    Payment status. Supported values: <ul><li>`AWAITING_PAYMENT`</li> <li>`PAID`</li> <li>`CANCELLED`</li> <li>`REFUNDED`</li> <li>`PARTIALLY_REFUNDED`</li> <li>`INCOMPLETE`</li></ul>. Ignored when creating orders with [public token](#access-tokens)
 **fulfillmentStatus** | string |    Fulfilment status. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li> <li>`READY_FOR_PICKUP`</li> </ul>. Ignored when creating orders with [public token](#access-tokens)
 refererUrl | string | URL of the page when order was placed (without hash (#) part)
-orderComments | string  | Order comments
+orderComments | string  | Customer's order comments, specified at checkout
 volumeDiscount | number | Sum of discounts based on subtotal. Is included into the `discount` field
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
 hidden | boolean | Determines if the order is hidden (removed from the list). Applies to unfinished orders only.
