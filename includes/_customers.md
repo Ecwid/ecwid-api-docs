@@ -2,7 +2,7 @@
 
 It is possible to place orders without creating an account in a store – it depends on the store settings. Using the methods below you can get information about registered customers and modify them.
 
-<aside class="note">
+<aside class="notice">
 To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
 </aside>
 
@@ -17,6 +17,15 @@ Use the `acceptMarketing` filter when searching for orders / customers or when g
 If it is set to `true` or `null`, you can use their email for promotions in your app or customization. 
 
 If it's set to `false` – you **cannot send promotional emails** to that person. 
+
+#### Q: Some customers don't have billing and shipping info. Why?
+
+Ecwid saves data for registered customers only. 
+
+If a customer placed order without registration, it counts as a guest checkout. However, a basic account is created for them with no address information saved.
+
+If a customer has registered before, they will have a billing and/or shipping address specified in their account.
+
 
 #### Request
 
@@ -70,6 +79,7 @@ Parameters in bold are mandatory
     "limit": 100,
     "offset": 0,
     "items": [
+        // Customer went through guest checkout
         {
             "id": 24623050,
             "name": "Jane Roe",
@@ -87,6 +97,7 @@ Parameters in bold are mandatory
             "taxIdValid": true,
             "acceptMarketing": true
         },
+        // Customer is registered in a store 
         {
             "id": 14444116,
             "name": "John Darling [Sample]",
@@ -112,6 +123,7 @@ Parameters in bold are mandatory
             "taxIdValid": true,
             "acceptMarketing": false
         },
+        // Customer went through guest checkout
         {
             "id": 24623047,
             "name": "John Doe",
@@ -129,6 +141,7 @@ Parameters in bold are mandatory
             "taxIdValid": true,
             "acceptMarketing": true
         },
+        // Customer went through guest checkout
         {
             "id": 24623053,
             "name": "John Doe",
@@ -278,6 +291,7 @@ Name | Type    | Description
 > Response example (JSON)
 
 ```json
+// Customer is registered in a store 
 {
     "id": 15319410,
     "email": "johnsmith@example.com",
