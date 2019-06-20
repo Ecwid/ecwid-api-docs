@@ -713,6 +713,9 @@ description | string | Handling fee description for customer
 }
 ```
 
+<aside class="notice"><strong>Important:</strong> for new Ecwid accounts, Ecwid uses the 'description' field instead of 'transitDays'. <br/><br/>Make sure that your app provides 'description' field as well as 'transitDays', so both old and new users can see the estimates.
+</aside>
+
 An array of JSON data of type 'ShippingOptions' with the following fields:
 
 #### ShippingOptions
@@ -723,9 +726,6 @@ Name | Type    | Description
 **rate** | number | Shipping rate amount
 **transitDays** | string | Estimated delivery time. Formats accepted: empty `""`, number `"5"`, several days estimate `"4-9"`
 **description** | string | Shipping method description. Plain text only, HTML is not allowed.
-
-<aside class="notice"><strong>Important:</strong> for new Ecwid accounts, we do not use the 'transitDays' field. <br/><br/>So make sure to update your app to provide 'description' field as well as 'transitDays' so both old and new users can see the estimates.
-</aside>
 
 <aside class="notice">
 Response parameters in <strong>bold</strong> are mandatory
