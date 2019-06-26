@@ -282,7 +282,7 @@ ec.order.extraFields.how_you_found_us = {
 Ecwid.refreshConfig();
 ```
 
-You can show your saved extra field title and value in order details. It will be displayed to both merchant and customer who placed that order. 
+You can show your saved extra field title and value in order details. It will be displayed to merchant in store control panel.
 
 It is possible to customize the position of this information with `orderDetailsDisplaySection` field. 
 

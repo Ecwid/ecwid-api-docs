@@ -941,7 +941,7 @@ Go to Ecwid Control Panel -> Apps -> My apps and check the permissions of your a
 
 Go to Ecwid Control Panel -> My Profile -> Billing and Plans and check your current plan status. 
 
-If you need a store for testing and development only, Ecwid provide a free upgrade for you. Contact Ecwid team with Store ID and app details to get it.
+If you need a store for testing and development only, Ecwid can provide a free upgrade for you. [Contact Ecwid team](/contact) with Store ID and app details to get it.
 
 #### The application tab appears in Ecwid Control Panel, but it doesn't load the app content
 
