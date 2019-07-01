@@ -920,42 +920,23 @@ Features list is available in the [Store profile endpoint](https://developers.ec
 
 ## Troubleshooting
 
-#### A new tab inside Ecwid Control Panel is not appearing
-You created an app and installed it on your test store, but the new tab is not appearing when you open your store. There are several possible reasons:
+### "Something went wrong" error
 
-**1. The application is misconfigured** to be displayed inside Control Panel.
+You created an app and installed it on your test store. The new tab appears in your Control Panel. 
 
-*How to check*
+But the new tab content is not loaded and displaing the "Something went wrong" error message instead? Possible reasons:
 
-See ["Set up your application"](https://developers.ecwid.com/api-documentation/building-a-native-app#set-up-your-application) and make sure you've provided those details to the Ecwid team.
+#### The application in the tab is not initialized
 
-**2. The app doesn't have the `add_to_cp` access scope**. While creating an oauth URL, make sure it incudes the "add_to_cp" scope in the list of requested permissions. 
-
-*How to check*
-
-Go to Ecwid Control Panel -> Apps -> My apps and check the permissions of your app provided by the store. If it misses the `add_to_cp` permission, contact Ecwid team to add it. 
-
-**3. You're testing it in an Ecwid store which is on Free plan**. Ecwid API functionality including embedding apps is available on paid Ecwid plans only. Please upgrade your account.
-
-*How to check*
-
-Go to Ecwid Control Panel -> My Profile -> Billing and Plans and check your current plan status. 
-
-If you need a store for testing and development only, Ecwid can provide a free upgrade for you. [Contact Ecwid team](/contact) with Store ID and app details to get it.
-
-#### The application tab appears in Ecwid Control Panel, but it doesn't load the app content
-
-You created an app and installed it on your test store. The new tab appears in your Control Panel but the new tab content is not loaded and displaing the "Something went wrong" error message instead. 
-
-Possible reasons:
-
-**1. The application in the tab is not initialized**. To display your app, it must first be initialized via Ecwid JS SDK with a correct namespace.
+To display your app, it must first be initialized via Ecwid JS SDK with a correct namespace.
 
 *How to check*
 
 Make sure you initialize the app in your code with the proper namespace using the `.init()` method of [Ecwid JS SDK](https://developers.ecwid.com/api-documentation/ecwid-javascript-sdk). 
 
-**2. The iframe URL performs a redirect**. When loading application in Ecwid Control Panel, Ecwid checks for the iframe page to have the same address as specified in the application. 
+#### The iframe URL performs a redirect
+
+When loading application in Ecwid Control Panel, Ecwid checks for the iframe page to have the same address as specified in the application. 
 
 *How to check*
 
@@ -963,7 +944,9 @@ Open Development tools in your browser. Find your iframe URL in the Ecwid Contro
 
 Open that URL to check if it does any redirects when opened. Make sure that your page initializes the app via JS SDK **before making a redirect**.
 
-**3. Browser cannot reach the iframe URL** that you set up for your application either because it's unavailable or because it has restricted access.
+#### Browser cannot reach the iframe URL
+
+Your URL is unavailable or because it has restricted access.
 
 *How to check*
 
@@ -971,7 +954,9 @@ Open Development tools in your browser. Find your iframe URL in the Ecwid Contro
 
 Open that URL to check if it opens for you successfully. 
 
-**4. Browser blocks the document in iframe** because it loads over HTTP while the Control Panel is working over HTTPS (the ["mixed content"](https://developer.mozilla.org/en-US/docs/Security/MixedContent) issue). 
+#### Browser blocks the document in iframe
+
+The page loads content over HTTP while the Control Panel is working over HTTPS only - (the ["mixed content"](https://developer.mozilla.org/en-US/docs/Security/MixedContent) issue). 
 
 *How to check*
 
@@ -979,8 +964,40 @@ When this happens, you should see a browser prompt at the top about some content
 
 To fix this, you can either explicitly allow it to load, or provide Ecwid team with a HTTPS iframe URL for your app. 
 
-**5. Ecwid Control Panel is restricted to load your app in iframe** because your app server responds with the `"SAMEORIGIN"` value in [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) header. 
+#### Ecwid Control Panel is blocked from loading your app in iframe
+
+Your app server responds with the `"SAMEORIGIN"` value in [X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options) header. 
 
 *How to check*
 
 This usually is recorded in the browser's console in Developer tools. You can also open your iframe URL directly and check the headers it sends. 
+
+### App tab does not appear
+
+You created an app and installed it on your test store, but the new tab is not appearing when you open your store. There are several possible reasons:
+
+#### The application is misconfigured to be displayed inside Control Panel
+
+*How to check*
+
+See ["Set up your application"](https://developers.ecwid.com/api-documentation/building-a-native-app#set-up-your-application) and make sure you've provided those details to the Ecwid team.
+
+#### The app doesn't have the necessary access scope
+
+While creating an oauth URL, make sure it incudes the `"add_to_cp"` scope in the list of requested permissions. 
+
+*How to check*
+
+Go to Ecwid Control Panel -> Apps -> My apps and check the permissions of your app provided by the store. If it misses the `add_to_cp` permission, contact Ecwid team to add it. 
+
+#### You're testing it in an Ecwid store which is on Free plan 
+
+Ecwid API functionality including embedding apps is available on paid Ecwid plans only. Please upgrade your account.
+
+*How to check*
+
+Go to Ecwid Control Panel -> My Profile -> Billing and Plans and check your current plan status. 
+
+If you need a store for testing and development only, Ecwid can provide a free upgrade for you. [Contact Ecwid team](/contact) with Store ID and app details to get it.
+
+

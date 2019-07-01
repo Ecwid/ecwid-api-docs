@@ -47,7 +47,7 @@ Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
-**filterFields** | string | Comma-separated list of filters for Ecwid to return. Supported filters: `"price"`,`"inventory"`,`"onsale"`,`"categories"`, `"option_{optionName}"`, `"attribute_{attributeName}"`. Example: `"price,inventory,option_Size,attribute_Brand,categories"`
+**filterFields** | string | Comma-separated list of filters for Ecwid to return. Supported filters: `"price"`,`"inventory"`,`"onsale"`,`"categories"`, `"option_{optionName}"`, `"attribute_{attributeName}"`. Example: `"price,inventory,option_Size,attribute_Brand,categories"`. If option or attrubute has a comma or a backslash in its name, escape it with a backslash: `"\"`. I.e. option name `"Color, size"` will transform to `"option_Color\, size"` in your request URL
 filterFacetLimit | string | Set the number of filter values in response. Individual limit example: `"onsale:all,attribute_Brand:50,option_Color:10"`. General limit example: `"10"`. Use `"all"` to return all facets. Default limit is 50
 filterParentCategoryId | string | Set parent category ID limit for `categories` filter field in response. `"0"` or `"home"` or empty value means there is no parent category. If you want to limit product results by categories, use `categories` product limit field below
 

@@ -110,7 +110,7 @@ To specify that no user is logged in, pass an empty payload either to the `ecwid
 ```php
 <?php
     $client_secret = "A1Lu7ANIhKD6A1Lu7ANIhKD6ADsaSdsa"; // example value
-    $message = base64_encode("{appClientId: 'my-cool-app', userId:'234',profile:{email:'test@example.com'}}"); // example values
+    $message = base64_encode("{appClientId: 'my-cool-app', userId:'234', profile: { email:'test@example.com', billingPerson: { name: 'John Doe' } }}"); // example values
     $timestamp = time();
     $hmac = hash_hmac('sha1', "$message $timestamp", $client_secret);
 
