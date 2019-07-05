@@ -138,17 +138,18 @@ Get static page contents for product category in your store to utilize fast load
 > Request example
 
 ```http
-GET https://storefront.ecwid.com/product-page/1003/70178249/static-code?lang=en&tplvar_ec.storefront.product_list_show_frame=true HTTP/1.1
+GET https://storefront.ecwid.com/product-page/1003/70178249/static-code?variation=32432453&lang=en&tplvar_ec.storefront.product_list_show_frame=true HTTP/1.1
 Host: app.ecwid.com
 Cache-Control: no-cache
 ```
 
-`GET https://storefront.ecwid.com/product-page/{storeId}/{productId}/static-code?lang={lang}&clean_urls={clean_urls}&base_url={base_url}&tplvar_*{tplvar_*}`
+`GET https://storefront.ecwid.com/product-page/{storeId}/{productId}/static-code?variation={variation}&lang={lang}&clean_urls={clean_urls}&base_url={base_url}&tplvar_*{tplvar_*}`
 
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **productId** | number | Product ID
+variation | number | Product variation ID. Works the same way as [opening specific product variation in storefront](https://developers.ecwid.com/api-documentation/customize-behaviour#open-specific-product-variation)
 lang | string | Set the languages for text labels. If absent, the default store languages are used
 clean_urls | boolean | Enable/disable [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) format in the product links
 base_url | string | Sets the base URL for clean URLs. Pass it if you set `cleanUrls` as `true`

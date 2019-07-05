@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## July 5, 2019
+
+1) Added support for `variation` parameter for [static product pages](https://developers.ecwid.com/api-documentation/static-store-pages#get-product-page). Now you can get HTML code of a product using a specific variation ID. 
+
+2) Added endpoint to work with store shipping options – `/profile/shippingOptions`. You can get all store shipping options, create a new USPS shipping options or enable/disable any shipping method. [Learn more](https://developers.ecwid.com/api-documentation/store-information#get-shipping-options)
+
 ## May 9, 2019 
 
 1) Improvements to category image quality for [static store pages](https://developers.ecwid.com/api-documentation/static-store-pages#get-category-page); added `thumbnail` image details for GET requests for category endpoint in [Ecwid REST API](https://developers.ecwid.com/api-documentation/categories).

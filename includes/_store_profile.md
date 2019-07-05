@@ -1765,6 +1765,614 @@ HTTP Status | Meaning
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot retrieve the coupon info because of an error on the server
 
+
+### Get shipping options
+
+Get information about store shipping options: settings, availability, titles, etc. The same content is provided in `Get store profile -> Shipping -> ShippingOptions`
+
+#### Request
+
+> Request example -- get shipping options
+
+```http
+GET /api/v3/4870020/profile/shippingOptions?token=123abcd HTTP/1.1
+Host: app.ecwid.com
+Cache-Control: no-cache
+```
+
+`GET https://app.ecwid.com/api/v3/{storeId}/profile/shippingOptions?token={token}`
+
+<aside class="notice">
+Parameters in <strong>bold</strong> are mandatory
+</aside>
+
+Name | Type | Description
+---- | ---- | -----------
+**storeId** |  number | Ecwid store ID
+**token** |  string | oAuth token
+
+#### Response
+
+> Response example (JSON)
+
+```json
+[
+          // Flat rate shipping method
+          {
+            "id": "8329-1495610692625",
+            "title": "Flat rate",
+            "enabled": false,
+            "orderby": 170,
+            "destinationZone": {
+              "id": "7715-1423477610739",
+              "name": "US",
+              "countryCodes": [
+                "US"
+              ],
+              "stateOrProvinceCodes": [
+                "US-AL",
+                "US-AK",
+                "US-AZ",
+                "US-AR",
+                "US-AA",
+                "US-AE",
+                "US-AP",
+                "US-CA",
+                "US-CO",
+                "US-CT",
+                "US-DE",
+                "US-DC",
+                "US-FL",
+                "US-GA",
+                "US-GU",
+                "US-HI",
+                "US-ID",
+                "US-IL",
+                "US-IN",
+                "US-IA",
+                "US-KS",
+                "US-KY",
+                "US-LA",
+                "US-ME",
+                "US-MD",
+                "US-MA",
+                "US-MI",
+                "US-MN",
+                "US-MS",
+                "US-MO",
+                "US-MT",
+                "US-NE",
+                "US-NV",
+                "US-NH",
+                "US-NJ",
+                "US-NM",
+                "US-NY",
+                "US-NC",
+                "US-ND",
+                "US-PR",
+                "US-RI",
+                "US-SC",
+                "US-SD",
+                "US-TN",
+                "US-TX",
+                "US-UT",
+                "US-VT",
+                "US-VI",
+                "US-VA",
+                "US-WA",
+                "US-WV",
+                "US-WI",
+                "US-WY"
+              ]
+            },
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "flat",
+            "flatRate": {
+              "rateType": "ABSOLUTE",
+              "rate": 22
+            },
+            "carrier": ""
+          },
+          // Carrier-calculated rates
+          {
+            "id": "7835-1442850313554",
+            "title": "The World: UPS",
+            "enabled": true,
+            "orderby": 0,
+            "destinationZone": {
+              "id": "WORLD",
+              "name": "WORLD"
+            },
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "carrier-calculated",
+            "carrierMethods": [
+              {
+                  "id": "7835-1442850313554:S1",
+                  "name": "UPS Next Day Air®",
+                  "enabled": true,
+                  "orderBy": 1240
+              },
+              {
+                  "id": "7835-1442850313554:S2",
+                  "name": "UPS Second Day Air®",
+                  "enabled": true,
+                  "orderBy": 1250
+              },
+              {
+                  "id": "7835-1442850313554:S3",
+                  "name": "UPS Ground",
+                  "enabled": false,
+                  "orderBy": 0
+              },
+              {
+                  "id": "7835-1442850313554:S4",
+                  "name": "UPS Worldwide Express SM",
+                  "enabled": true,
+                  "orderBy": 1120
+              },
+              {
+                  "id": "7835-1442850313554:S5",
+                  "name": "UPS Worldwide Expedited SM",
+                  "enabled": true,
+                  "orderBy": 1100
+              },
+              {
+                  "id": "7835-1442850313554:S6",
+                  "name": "UPS Standard",
+                  "enabled": true,
+                  "orderBy": 1030
+              },
+              {
+                  "id": "7835-1442850313554:S7",
+                  "name": "UPS Three-Day Select®",
+                  "enabled": true,
+                  "orderBy": 1040
+              },
+              {
+                  "id": "7835-1442850313554:S8",
+                  "name": "UPS Next Day Air Saver®",
+                  "enabled": true,
+                  "orderBy": 1000
+              },
+              {
+                  "id": "7835-1442850313554:S9",
+                  "name": "UPS Next Day Air® Early A.M. SM",
+                  "enabled": false,
+                  "orderBy": 0
+              },
+              {
+                  "id": "7835-1442850313554:S10",
+                  "name": "UPS Worldwide Express Plus SM",
+                  "enabled": true,
+                  "orderBy": 1110
+              },
+              {
+                  "id": "7835-1442850313554:S11",
+                  "name": "UPS Second Day Air A.M.®",
+                  "enabled": true,
+                  "orderBy": 1020
+              },
+              {
+                  "id": "7835-1442850313554:S12",
+                  "name": "UPS Saver",
+                  "enabled": false,
+                  "orderBy": 1010
+              }
+            ],
+            "shippingCostMarkup": 0,
+            "carrierSettings": {
+              "defaultCarrierAccountEnabled": false,
+              "defaultPostageDimensions": {
+                "length": 0.0254,
+                "width": 0.0254,
+                "height": 0.0254
+              }
+            },
+            "carrier": "UPS"
+          },
+          // Custom table rates
+          {
+            "id": "9327-1430948461738",
+            "title": "Standard shipping",
+            "enabled": true,
+            "orderby": 1250,
+            "destinationZone": {
+              "id": "WORLD",
+              "name": "WORLD"
+            },
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "table",
+            "ratesTable": {
+              "tableBasedOn": "weight",
+              "rates": [
+                {
+                  "conditions": {
+                    "weightFrom": 0,
+                    "weightTo": 12
+                  },
+                  "rate": {
+                    "perOrder": 10,
+                    "percent": 2,
+                    "perItem": 3,
+                    "perWeight": 2
+                  }
+                },
+                {
+                  "conditions": {
+                    "weightFrom": 12.01
+                  },
+                  "rate": {
+                    "perOrder": 20,
+                    "percent": 3,
+                    "perItem": 4,
+                    "perWeight": 3
+                  }
+                }
+              ]
+            },
+            "deliveryTimeDays": "1-2",
+            "description": "1-2",
+            "carrier": ""
+          },
+          // In-store pickup method
+          {
+            "id": "6633-1504595502395",
+            "title": "In-store Pickup",
+            "enabled": true,
+            "orderby": 130,
+            "destinationZone": {
+              "id": "WORLD",
+              "name": "WORLD"
+            },
+            "fulfilmentType": "pickup",
+            "pickupInstruction": "<p><strong>Pickup location:</strong></p><p>    Cool Guys, 5th Avenue, Москва, Guam, 11950, United States</p><p>    <strong>Store hours:</strong></p><p>    9AM – 6PM Mon-Fri</p>",
+            "scheduledPickup": true,
+            "pickupPreparationTimeHours": 60,
+            "pickupBusinessHours": "{\"MON\":[[\"09:00\",\"18:00\"]], \"TUE\":[[\"09:00\",\"18:00\"]], \"THU\":[[\"09:00\",\"10:00\"]], \"FRI\":[[\"09:00\",\"18:00\"]], \"SAT\":[[\"09:00\",\"10:30\"]]}"
+          },
+          // Custom shipping app
+          {
+            "id": "1095449637-1519976902346",
+            "title": "Doba Drop Shipping",
+            "enabled": true,
+            "orderby": 10,
+            "destinationZone": {
+              "id": "WORLD",
+              "name": "WORLD"
+            },
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "app",
+            "appClientId": "doba-integration"
+          }
+]
+```
+
+
+> Public token request example
+
+```http
+GET /api/v3/4870020/profile/shippingOptions?token=public_bpFwyLBELRZa43vaFWVryxu199eYDaaz HTTP/1.1
+Host: app.ecwid.com
+Cache-Control: no-cache
+```
+
+> Public token response example
+
+```json
+[
+          {
+            "id": "7835-1442850313554",
+            "title": "The World: UPS",
+            "enabled": true,
+            "orderby": 0,
+            "destinationZone": {},
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "carrier-calculated",
+            "carrier": "UPS"
+          },
+          {
+            "id": "9327-1430948461738",
+            "title": "Standard shipping",
+            "enabled": true,
+            "orderby": 1250,
+            "destinationZone": {},
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "table",
+            "ratesTable": {},
+              "deliveryTimeDays": "1-2",
+              "description": "1-2",
+              "carrier": ""
+          },
+          {
+            "id": "6633-1504595502395",
+            "title": "In-store Pickup",
+            "enabled": true,
+            "orderby": 130,
+            "destinationZone": {},
+            "fulfilmentType": "pickup",
+            "pickupInstruction": "<p><strong>Pickup location:</strong></p><p>    Cool Guys, 5th Avenue, Москва, Guam, 11950, United States</p><p>    <strong>Store hours:</strong></p><p>    9AM – 6PM Mon-Fri</p>",
+            "scheduledPickup": true,
+            "pickupPreparationTimeHours": 60,
+            "pickupBusinessHours": "{\"MON\":[[\"09:00\",\"18:00\"]], \"TUE\":[[\"09:00\",\"18:00\"]], \"THU\":[[\"09:00\",\"10:00\"]], \"FRI\":[[\"09:00\",\"18:00\"]], \"SAT\":[[\"09:00\",\"10:30\"]]}"
+          },
+          {
+            "id": "1095449637-1519976902346",
+            "title": "Doba Drop Shipping",
+            "enabled": true,
+            "orderby": 10,
+            "destinationZone": {},
+            "fulfilmentType": "shipping",
+            "ratesCalculationType": "app",
+            "appClientId": "doba-integration"
+          }
+]
+```
+
+A JSON array with elements of type 'ShippingOption' with the following fields:
+
+#### ShippingOption
+
+Field | Type | Description
+----- | ---- | -----------
+id | string | Unique ID of shipping option
+title | string | Title of shipping option in store settings
+enabled | boolean | `true` if shipping option is used at checkout to calculate shipping. `false` otherwise
+orderby | number | Sort position or shipping option at checkout and in store settings. The smaller the number, the higher the position
+fulfilmentType | string | Fulfillment type. `"pickup"` for in-store pickup methods, `"shipping"` for everything else
+destinationZone | \<*Zone*\> | Destination zone set for shipping option. **Empty for public token**
+deliveryTimeDays | string | Estimated delivery time in days. Formats accepted: empty `""`, number `"5"`, several days estimate `"4-9"`
+description | string | Shipping method description. Currently is equal to `deliveryTimeDays`
+carrier | string | Carrier used for shipping the order. Is provided for carrier-calculated shipping options
+carrierMethods | Array \<*CarrierMethod*\> | Carrier-calculated shipping methods available for this shipping option
+carrierSettings | \<*CarrierSettings*\> | Carrier-calculated shipping option settings
+ratesCalculationType | string | Rates calculation type. One of `"carrier-calculated"`, `"table"`, `"flat"`, `"app"`
+shippingCostMarkup | number | Shipping cost markup for carrier-calculated methods
+flatRate | \<*FlatRate*\> | Flat rate details
+ratesTable | \<*TableRatesDetails*\> | Custom table rates details
+appClientId | string | `client_id` value of the app (for custom shipping apps only)
+pickupInstruction | string | String of HTML code of instructions on in-store pickup
+scheduledPickup | boolean | `true` if pickup time is scheduled, `false` otehrwise. (*Ask for Pickup Date and Time at Checkout* option in pickup settings)
+pickupPreparationTimeHours | number | Amount of time required for store to prepare pickup (*Order Fulfillment Time* setting)
+pickupBusinessHours | string \<*PickupBusinessHours*\> | Available and scheduled times to pickup orders
+
+#### CarrierMethod
+Field | Type | Description
+----- | ---- | -----------
+id | string | Carrier ID and specific method name
+name | string | Carrier method name
+enabled | boolean | `true` if enabled, `false` otherwise
+orderBy | number | Position of that carrier method
+
+#### CarrierSettings
+
+Field | Type | Description
+----- | ---- | -----------
+defaultCarrierAccountEnabled | boolean | `true` if default Ecwid account is enabled to calculate the rates. `false` otherwise
+defaultPostageDimensions | \<*DefaultPostageDimensions*\> | Default postage dimensions for this shipping option
+
+#### DefaultPostageDimensions
+Field | Type | Description
+----- | ---- | -----------
+length | number | Length of postage
+width | number | Width of postage
+height | number | Height of postage
+
+#### FlatRate
+
+Field | Type | Description
+----- | ---- | -----------
+rateType | string | One of `"ABSOLUTE"`, `"PERCENT"`
+rate | number | Shipping rate
+
+#### TableRatesDetails
+
+Field | Type | Description
+----- | ---- | -----------
+tableBasedOn | string | What is this table rate based on. Possible values: `"subtotal"`, `"discountedSubtotal"`, `"weight"`
+rates | Array \<*TableRate*\> | Details of table rate
+
+#### TableRate
+
+Field | Type | Description
+----- | ---- | -----------
+conditions | \<*TableRateConditions*\> | Conditions for this shipping rate in custom table
+rate | \<*TableRateDetails*\> | Table rate details
+
+#### TableRateConditions
+
+Field | Type | Description
+----- | ---- | -----------
+weightFrom | number | "Weight from" condition value
+weightTo | number | "Weight to" condition value
+subtotalFrom | number | "Subtotal from" condition value
+subtotalTo | number | "Subtotal to" condition value
+discountedSubtotalFrom | number | "Discounted subtotal from" condition value
+discountedSubtotalTo | number | "Discounted subtotal from" condition value
+
+#### TableRateDetails
+
+Field | Type | Description
+----- | ---- | -----------
+perOrderAbs | number | Absolute per order rate
+perOrderPercent | number | Percent per order rate
+perItem | number | Absolute per item rate
+perWeightUnitRate | number | Absolute per weight rate
+
+#### PickupBusinessHours
+
+Field | Type | Description
+----- | ---- | -----------
+MON | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+TUE | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+WED | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+THU | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+FRI | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+SAT | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+SUN | Array time range | Array of time ranges in format `["FROM TIME", "TO TIME"]`. Ex: `['08:30', '13:30'], ['13:30', '19:00']`
+
+
+### Add shipping option
+
+Add a new shipping option. **USPS carrier calculated option is supported only**.
+
+After creating a new USPS shipping option, Ecwid will set the default account settings for it, so it can start working right away. Change details to another account in the Ecwid Control Panel.
+
+#### Request
+
+> Request body
+
+```http
+POST /api/v3/4870020/profile/shippingOptions?token=123abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+```json
+{
+  "title": "USPS delivery",
+  "type": "carrier",
+  "carrier": "USPS", 
+  "enabled": true
+}
+```
+
+`POST https://app.ecwid.com/api/v3/{storeId}/profile/shippingOptions?token={token}`
+
+Name | Type    | Description
+---- | ------- | --------------
+**storeId** |  number | Ecwid store ID
+**token** |  string | oAuth token
+
+#### Request body
+
+A JSON object of type 'ShippingOption' with the following fields:
+
+<aside class="notice">
+Parameters in bold are mandatory
+</aside>
+
+Name | Type    | Description
+---- | ------- | --------------
+**title** | string | Shipping option title
+**type** | string | Must be always `"carrier"`
+**carrier** | string | Must always be `"USPS"`
+enabled | boolean | If `true`, enables shipping method for customers at checkout. `false` otherwise. If not passed, default is `true`
+
+#### Response
+
+> Response example (JSON)
+
+```json
+{
+    "id": "1815917023-1562311079943"
+}
+```
+
+A JSON object of type 'CreateStatus' with the following fields:
+
+#### CreateStatus
+
+Field | Type |  Description
+-------------- | -------------- | --------------
+id | string | ID of the created shipping option
+
+#### Errors
+
+```http
+HTTP/1.1 409 Conflict
+Content-Type application/json; charset=utf-8
+
+{
+ errorMessage: "A shipping option with this name already exists",
+ errorCode: "SHIPPING_OPTION_ALREADY_EXISTS"
+}
+```
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+HTTP Status | Description | Code (optional)
+-------------- | -------------- | ---------------
+400 | Request parameters are malformed | 
+400 | Only USPS can be added via API at this time | 
+400 | Shipping option title cannot be empty | `SHIPPING_OPTION_TITLE_REQUIRED`
+400 | Shipping carrier cannot be empty | `SHIPPING_CARRIER_NAME_REQUIRED`
+402 | The functionality/method is not available on the merchant plan | 
+403 | Access token doesn't have `update_store_profile` scope | 
+409 | A shipping option with this name already exists | `SHIPPING_OPTION_ALREADY_EXISTS`
+415 | Unsupported content-type: expected `application/json` or `text/json` | 
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+errorCode | string | Error code, optional
+
+### Update a shipping option
+
+Update an existing shipping option referring to its ID.
+
+> Request example
+
+```http
+PUT /api/v3/4870020/profile/shippingOptions/1815917023-1562311079943?token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+```
+
+```json
+{
+  "enabled": true
+}
+```
+
+`PUT https://app.ecwid.com/api/v3/{storeId}/profile/shippingOptions/{optionId}?token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**optionId** | number | Shipping option ID
+**token** |  string | oAuth token with access to `update_store_profile` scope
+
+#### Request body
+
+A JSON object of type 'ShippingOption' with the following fields:
+
+#### ShippingOption
+
+Field | Type |  Description
+------| ---- | ------------
+enabled | boolean | `true` to enable shipping option to customers at checkout. `false` otherwise
+
+#### Response
+
+Ecwid will respond with empty response and 200OK HTTP status if the changes were applied successfully.
+
+#### Errors
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+HTTP Status | Description | Code (optional)
+-------------- | -------------- | ---------------
+400 | Request parameters are malformed | 
+402 | The functionality/method is not available on the merchant plan | 
+403 | Access token doesn't have `update_store_profile` scope | 
+415 | Unsupported content-type: expected `application/json` or `text/json` | 
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+errorCode | string | Error code
+
+
 ### Upload store logo
 
 Upload store logo displayed on Starter Site. 

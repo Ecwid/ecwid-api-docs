@@ -1964,7 +1964,6 @@ enabledManualTaxes | Array\<*number*\> | Array of internal Ecwid tax IDs, as lis
 
 #### Response
 
-
 > Response example
 
 ```json
