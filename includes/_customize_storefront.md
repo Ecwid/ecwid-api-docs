@@ -1411,7 +1411,7 @@ Ecwid allows to change the store URLs accordingly, so that they look like this:
 Follow the steps below to enable SEO-friendly URLs in an Ecwid store.
 
 <aside class='note'>
-  If you have your Ecwid store installed on a platform or sitebuilder including Wordpress, Wix, Adobe Muse or Ecwid Starter Site, you should have the clean URLs enabled automatically (see the <a target="_blank" href='https://www.ecwid.com/blog/new-clean-seo-urls-in-ecwid.html'>blog post</a> for the details). 
+  If you have your Ecwid store installed on a platform or sitebuilder including Wordpress, Wix, Adobe Muse or Ecwid Instant Site, you should have the clean URLs enabled automatically (see the <a target="_blank" href='https://www.ecwid.com/blog/new-clean-seo-urls-in-ecwid.html'>blog post</a> for the details). 
 </aside>
 
 #### How to enable SEO-friendly URLs

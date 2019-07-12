@@ -1,6 +1,6 @@
-## Starter site
+## Instant site
 
-Ecwid API features several endpoints to control the presentation of Starter site. Learn more about the [Ecwid Starter site](https://support.ecwid.com/hc/en-us/articles/207100069-Starter-site)
+Ecwid API features several endpoints to control the presentation of Instant site. Learn more about the [Ecwid Instant site](https://support.ecwid.com/hc/en-us/articles/207100069-Instant-site)
 
 <aside class="note">Access scope required: <strong>update_store_profile</strong></aside>
 
@@ -8,9 +8,9 @@ Ecwid API features several endpoints to control the presentation of Starter site
 To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
 </aside>
 
-### Get starter site content details
+### Get instant site content details
 
-Get starter site content details of an Ecwid store.
+Get instant site content details of an Ecwid store.
 
 #### Request
 
@@ -83,15 +83,15 @@ Parameters in bold are mandatory
 }
 ```
 
-A JSON object of type 'StarterSiteInfo' with the following fields:
+A JSON object of type 'InstantSiteInfo' with the following fields:
 
-#### StarterSiteInfo
+#### InstantSiteInfo
 
 Field | Type | Description
 ----- | ---- | -----------
-coverImageUrl | string | URL to the main image, displayed in background when starter site is opened.
+coverImageUrl | string | URL to the main image, displayed in background when instant site is opened.
 coverImageThumbnail | base64 | Thumbnail cover image.
-coverImageMobileUrl | string | URL to the main image, displayed in background when starter site is opened on mobiles.
+coverImageMobileUrl | string | URL to the main image, displayed in background when instant site is opened on mobiles.
 coverImageMobileThumbnail | base64 | Thumbnail cover image for mobile devices
 coverTitle | string | The main title displayed on top of cover image
 coverSubtitle | string | Subtitle displayed under the `coverTitle`
@@ -141,8 +141,8 @@ showLocation | boolean | `true` if store location section is shown. `false` othe
 showContactus | boolean | `true` if "Contact Us" section is shown. `false` otherwise. Default is `true`
 cleanUrlsEnabled | boolean | `true` if [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) are enabled. `false` otherwise
 storeName | string | Store name
-allowSearchEnginesIndexing | boolean | `true` if search engines are allowed to index starter site. `false` otherwise
-customHeaderHtmlCode | string | Custom HTML added to HEAD tag in starter site. When updating the field, read the current value first and append the new code below. **This field not preprocessed in any way and executed 'as is'. Use caution**
+allowSearchEnginesIndexing | boolean | `true` if search engines are allowed to index instant site. `false` otherwise
+customHeaderHtmlCode | string | Custom HTML added to HEAD tag in instant site. When updating the field, read the current value first and append the new code below. **This field not preprocessed in any way and executed 'as is'. Use caution**
 storeLocationAddressSubtitle | string | Custom location address subtitle to show above the address
 storeCoverButton | string | Controls visibility of the "Shop now" button. One of `"SHOP_NOW"` or `"HIDE_BUTTON"`
 coverButtonText | string | Set your custom text for the "Shop now" button
@@ -202,9 +202,9 @@ Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
 
-### Create and update starter site content details
+### Create and update instant site content details
 
-Update information displayed on starter site of a store
+Update information displayed on instant site of a store
 
 #### Request
 
@@ -275,15 +275,15 @@ Parameters in bold are mandatory
 }
 ```
 
-A JSON object of type 'StarterSiteInfo' with the following fields:
+A JSON object of type 'InstantSiteInfo' with the following fields:
 
-#### StarterSiteInfo
+#### InstantSiteInfo
 
 Field | Type | Description
 ----- | ---- | -----------
-coverImageUrl | string | URL to the main image, displayed in background when starter site is opened.
+coverImageUrl | string | URL to the main image, displayed in background when instant site is opened.
 coverImageThumbnail | base64 | Thumbnail cover image.
-coverImageMobileUrl | string | URL to the main image, displayed in background when starter site is opened on mobiles.
+coverImageMobileUrl | string | URL to the main image, displayed in background when instant site is opened on mobiles.
 coverImageMobileThumbnail | base64 | Thumbnail cover image for mobile devices
 coverTitle | string | The main title displayed on top of cover image
 coverSubtitle | string | Subtitle displayed under the `coverTitle`
@@ -331,8 +331,8 @@ showLocation | boolean | Set to `false` to hide store location section. `true` o
 showContactus | boolean | Set to `false` to hide "Contact Us" section. `true` otherwise. Default is `true`
 cleanUrlsEnabled | boolean | `true` if [SEO-friendly URLs](https://developers.ecwid.com/api-documentation/seo#seo-friendly-urls) are enabled. `false` otherwise
 storeName | string | Store name
-allowSearchEnginesIndexing | boolean | `true` if search engines are allowed to index starter site. `false` otherwise
-customHeaderHtmlCode | string | Custom HTML added to HEAD tag in starter site. When updating the field, read the current value first and append the new code below. **This field not preprocessed in any way and executed 'as is'. Use caution**
+allowSearchEnginesIndexing | boolean | `true` if search engines are allowed to index instant site. `false` otherwise
+customHeaderHtmlCode | string | Custom HTML added to HEAD tag in instant site. When updating the field, read the current value first and append the new code below. **This field not preprocessed in any way and executed 'as is'. Use caution**
 storeLocationAddressSubtitle | string | Custom location address subtitle to show above the address
 storeCoverButton | string | Controls visibility of the "Shop now" button. One of `"SHOP_NOW"` or `"HIDE_BUTTON"`
 coverButtonText | string | Set your custom text for the "Shop now" button
@@ -413,9 +413,9 @@ errorMessage | string | Error message
 
 ### Upload cover image
 
-Upload image to prepare it for a starter site cover. 
+Upload image to prepare it for a instant site cover. 
 
-<aside class="note">Once you get a successful result, get the JSON response and send it via <a href="https://developers.ecwid.com/api-documentation/starter-site#create-and-update-starter-site-content-details">Update starter site content</a> request to update the starter site cover image.</aside>
+<aside class="note">Once you get a successful result, get the JSON response and send it via <a href="https://developers.ecwid.com/api-documentation/instant-site#create-and-update-instant-site-content-details">Update instant site content</a> request to update the instant site cover image.</aside>
 
 > Request example
 
@@ -466,7 +466,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 externalUrl | string | External file URL available for public download. If specified, Ecwid will ignore any binary file data sent in a request
 
-When uploading a starter site cover, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+When uploading a instant site cover, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
 Alternatively, you can specify an `externalURL` to your file as a request parameter and Ecwid will download it from there.
 
@@ -493,9 +493,9 @@ A JSON object of type 'UploadStatus' with the following fields:
 
 Field | Type |  Description
 ----- | -----| ------------
-coverImageUrl | string | URL to the main image, displayed in background when starter site is opened.
+coverImageUrl | string | URL to the main image, displayed in background when instant site is opened.
 coverImageThumbnail | base64 | Thumbnail cover image.
-coverImageMobileUrl | string | URL to the main image, displayed in background when starter site is opened on mobiles.
+coverImageMobileUrl | string | URL to the main image, displayed in background when instant site is opened on mobiles
 coverImageMobileThumbnail | base64 | Thumbnail cover image for mobile devices
 
 #### Errors
@@ -528,7 +528,7 @@ errorMessage | string | Error message
 
 Upload image to prepare it for an owner portrait. 
 
-<aside class="note">Once you get a successful result, get the JSON response and send it via <a href="https://developers.ecwid.com/api-documentation/starter-site#create-and-update-starter-site-content-details">Update starter site content</a> request to update the starter site owner portrait.
+<aside class="note">Once you get a successful result, get the JSON response and send it via <a href="https://developers.ecwid.com/api-documentation/instant-site#create-and-update-instant-site-content-details">Update instant site content</a> request to update the instant site owner portrait.
 </aside>
 
 > Request example
@@ -580,7 +580,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 externalUrl | string | External file URL available for public download. If specified, Ecwid will ignore any binary file data sent in a request
 
-When uploading a starter site owner portrait, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+When uploading a instant site owner portrait, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
 Alternatively, you can specify an `externalURL` to your file as a request parameter and Ecwid will download it from there.
 
@@ -635,9 +635,9 @@ errorMessage | string | Error message
 
 ### Upload quote person image
 
-Upload starter site quote person image to prepare it.
+Upload instant site quote person image to prepare it.
 
-<aside class="note">Once you get a successful result, get the JSON response and send it via <a href="https://developers.ecwid.com/api-documentation/starter-site#create-and-update-starter-site-content-details">Update starter site content</a> request to update the starter site quote person image.
+<aside class="note">Once you get a successful result, get the JSON response and send it via <a href="https://developers.ecwid.com/api-documentation/instant-site#create-and-update-instant-site-content-details">Update instant site content</a> request to update the instant site quote person image.
 </aside>
 
 > Request example
@@ -689,7 +689,7 @@ Name | Type    | Description
 **token** |  string |  oAuth token
 externalUrl | string | External file URL available for public download. If specified, Ecwid will ignore any binary file data sent in a request
 
-When uploading a starter site owner portrait, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
+When uploading a instant site owner portrait, the image itself needs to be sent in the body of your request in a form of binary data. The file that you wish to upload needs to be prepared for that format and then sent to Ecwid API endpoint. 
 
 Alternatively, you can specify an `externalURL` to your file as a request parameter and Ecwid will download it from there.
 

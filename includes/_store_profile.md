@@ -72,7 +72,8 @@ Name | Type    | Description
         "showAcceptMarketingCheckbox": true,
         "acceptMarketingCheckboxDefaultValue": false,
         "acceptMarketingCheckboxCustomText": "I accept to receive marketing offers to my email",
-        "askConsentToTrackInStorefront": false
+        "askConsentToTrackInStorefront": false,
+        "pinterestTagId": "1251515431215"
     },
     "mailNotifications": {
         "adminNotificationEmails": [
@@ -724,7 +725,8 @@ Cache-Control: no-cache
     "showAcceptMarketingCheckbox": true,
     "acceptMarketingCheckboxDefaultValue": false,
     "acceptMarketingCheckboxCustomText": "I accept to receive marketing offers to my email",
-    "askConsentToTrackInStorefront": false
+    "askConsentToTrackInStorefront": false,
+    "pinterestTagId": "1251515431215"
   },
   "mailNotifications": {
     "customerNotificationFromEmail": "info@example.com"
@@ -980,7 +982,7 @@ Field | Type | Description
 ----- | ---- | -----------
 storeId | number | Ecwid Store ID
 storeUrl | string | Storefront URL
-starterSite | \<*StarterSiteInfo*\> | Details of Ecwid starter site for account. Learn more about [Starter site](https://support.ecwid.com/hc/en-us/articles/207100069-Starter-site)
+starterSite | \<*InstantSiteInfo*\> | Details of Ecwid Instant site for account. Learn more about [Instant site](https://support.ecwid.com/hc/en-us/articles/207100069-Instant-site)
 
 #### Account
 Field | Type | Description
@@ -995,7 +997,7 @@ whiteLabel | boolean | `true` if Ecwid brand is not mentioned in merchant's inte
 Field | Type | Description
 ----- | ---- | -----------
 closed | boolean | `true` if the store is closed for maintenance, `false` otherwise
-storeName | string | The store name displayed in Starter Site
+storeName | string | The store name displayed in Instant Site
 storeDescription | string | HTML description for the main store page – Store Front page
 invoiceLogoUrl | string | Company logo displayed on the invoice
 emailLogoUrl | string | Company logo displayed in the store email notifications
@@ -1015,6 +1017,7 @@ showAcceptMarketingCheckbox | boolean | `true` if merchant shows the checkbox to
 acceptMarketingCheckboxDefaultValue | boolean | Default value for the checkbox at checkout to accept marketing
 acceptMarketingCheckboxCustomText | string | Custom text label for the checkbox to accept marketing at checkout
 askConsentToTrackInStorefront | boolean | `true` if merchant shows warning to accept cookies in storefront. `false` otherwise
+pinterestTagId | string | Pinterest Tag Id from your [Pinterest business account](https://ads.pinterest.com/)
 
 #### MailNotifications
 Field | Type | Description
@@ -1246,15 +1249,15 @@ Field | Type | Description
 name | string | ID name, e.g. `Vat ID`, `P.IVA`, `ABN` 
 value | string | ID value
 
-#### StarterSiteInfo
-*System Settings → General → Starter site*
+#### InstantSiteInfo
+*System Settings → General → Instant site*
 
 Field | Type | Description
 ----- | ---- | -----------
 ecwidSubdomain | string | Store subdomain on ecwid.com domain, e.g. `mysuperstore.ecwid.com`
-customDomain | string | Custom Starter site domain, e.g. `www.mysuperstore.com`
-generatedUrl | string | Starter Site generated URL, e.g. `http://mysuperstore.ecwid.com/`
-storeLogoUrl | string | Starter Site logo URL
+customDomain | string | Custom Instant site domain, e.g. `www.mysuperstore.com`
+generatedUrl | string | Instant Site generated URL, e.g. `http://mysuperstore.ecwid.com/`
+storeLogoUrl | string | Instant Site logo URL
 
 #### LegalPagesSettingsDetails
 *System Settings → General → Legal Pages*
@@ -1394,7 +1397,8 @@ Cache-Control: no-cache
         "showAcceptMarketingCheckbox": true,
         "acceptMarketingCheckboxDefaultValue": false,
         "acceptMarketingCheckboxCustomText": "I accept to receive marketing offers to my email",
-        "askConsentToTrackInStorefront": false
+        "askConsentToTrackInStorefront": false,
+        "pinterestTagId": "1251515431215"
     },
     "company": {
       "companyName": "My Company, Inc",
@@ -1532,8 +1536,8 @@ All fields are optional. Omitted field will not be affected
 #### GeneralInfo
 Field | Type | Description
 ----- | ---- | -----------
-storeUrl | string | Storefront URL. If this field is empty in the store settings and omitted in the request, it will be automatically copied from the current Starter Site URL. **When updating, make sure to add protocol to the URL (`http://` or `https://`)**.
-starterSite | \<*StarterSiteInfo*\> | Starter Site settings
+storeUrl | string | Storefront URL. If this field is empty in the store settings and omitted in the request, it will be automatically copied from the current Instant Site URL. **When updating, make sure to add protocol to the URL (`http://` or `https://`)**.
+starterSite | \<*InstantSiteInfo*\> | Instant Site settings
 
 #### Account
 Field | Type | Description
@@ -1546,7 +1550,7 @@ accountEmail | string | Store owner email
 Field | Type | Description
 ----- | ---- | -----------
 closed | string | `true` if the store is closed for maintenance, `false` otherwise
-storeName | string | The store name displayed in Starter Site
+storeName | string | The store name displayed in Instant Site
 storeDescription | string | HTML description for the main store page – Store Front page
 googleRemarketingEnabled | boolean | `true` if Remarketing with Google Analytics is enabled, `false` otherwise
 googleAnalyticsId | string | [Google Analytics ID](https://help.ecwid.com/customer/en/portal/articles/1170264-google-analytics) connected to a store
@@ -1563,6 +1567,7 @@ showAcceptMarketingCheckbox | boolean | `true` if merchant shows the checkbox to
 acceptMarketingCheckboxDefaultValue | boolean | Default value for the checkbox at checkout to accept marketing
 acceptMarketingCheckboxCustomText | string | Custom text label for the checkbox to accept marketing at checkout
 askConsentToTrackInStorefront | boolean | `true` if merchant shows warning to accept cookies in storefront. `false` otherwise
+pinterestTagId | string | Pinterest Tag Id from your [Pinterest business account](https://ads.pinterest.com/)
 
 #### MailNotifications
 Field | Type | Description
@@ -1676,13 +1681,13 @@ Field | Type | Description
 name | string | ID name, e.g. `Vat ID`, `P.IVA`, `ABN` 
 value | string | ID value
 
-#### StarterSiteInfo
-*System Settings → General → Starter site*
+#### InstantSiteInfo
+*System Settings → General → Instant site*
 
 Field | Type | Description
 ----- | ---- | -----------
 ecwidSubdomain | string | Store subdomain on ecwid.com domain, e.g. `mysuperstore.ecwid.com`
-customDomain | string | Custom Starter site domain, e.g. `www.mysuperstore.com`
+customDomain | string | Custom Instant site domain, e.g. `www.mysuperstore.com`
 
 #### LegalPagesSettingsDetails
 *System Settings → General → Legal Pages*
@@ -2375,7 +2380,7 @@ errorCode | string | Error code
 
 ### Upload store logo
 
-Upload store logo displayed on Starter Site. 
+Upload store logo displayed on Instant Site. 
 The logo itself is to be placed in the request body. Maximum allowed file size is 20Mb.
 
 > Request example
@@ -2479,7 +2484,7 @@ errorMessage | string | Error message
 
 ### Remove store logo
 
-Remove store logo, which is displayed on Starter site
+Remove store logo, which is displayed on Instant site
 
 > Request example
 

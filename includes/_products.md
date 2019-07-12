@@ -1018,7 +1018,7 @@ Direct URL for each product is always available in the `url` field once you make
 
 In any Ecwid store there is a [storefront URL](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) field, where store owners can specify their storefront location. 
 
-In case if it's empty, Ecwid will use their starter site URL to provide product URLs in the REST API and other connected services.
+In case if it's empty, Ecwid will use their Instant site URL to provide product URLs in the REST API and other connected services.
 
 **When a store is embedded into multiple websites**
 
@@ -1696,7 +1696,7 @@ Direct URL for each product is always available in the `url` field once you make
 
 In any Ecwid store there is a [storefront URL](https://developers.ecwid.com/api-documentation/store-information#get-store-profile) field, where store owners can specify their storefront location. 
 
-In case if it's empty, Ecwid will use their starter site URL to provide product URLs in the REST API and other connected services.
+In case if it's empty, Ecwid will use their Instant site URL to provide product URLs in the REST API and other connected services.
 
 **When a store is embedded into multiple websites**
 
