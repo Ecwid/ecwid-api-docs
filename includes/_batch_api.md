@@ -8,9 +8,11 @@ Instead, you can send just one request and Ecwid will do the heavy lifting for y
 
 ### Create new batch request
 
-You will need to send the URL, method and optional request body to Ecwid. The `https://app.ecwid.com/api/v3/{STORE_ID}/` part of the request URL will be added automatically. 
+You will need to send the URL, method and optional request body to Ecwid. 
 
-In response, Ecwid will start executing your requests and provide you with a unique **ticket ID** for your batch request. Use that ticket ID to check the status of your batch request.
+The `https://app.ecwid.com/api/v3/{STORE_ID}/` part of the request URL will be added automatically. 
+
+In response, Ecwid will start executing your requests and provide you with a unique **ticket ID** for your batch request. Use that ticket ID to [check the status of your batch request](https://developers.ecwid.com/api-documentation/batch-requests#get-batch-request-status).
 
 <aside class="notice">
 Max amount of API requests for one batch request is 500.
@@ -66,15 +68,15 @@ Accept-Encoding: gzip
 
 `POST https://app.ecwid.com/api/v3/{storeId}/batch&token={token}&stopOnFirstFailure={stopOnFirstFailure}`
 
-<aside class="notice">
-Parameters in bold are mandatory
-</aside>
-
 Name | Type    | Description
 ---- | ------- | --------------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 stopOnFirstFailure | boolean | If `true`, Ecwid will stop executing requests when it detects first error response for an API request. Set `false` to continue executing requests anyway. Default is `true`. [Learn more](https://developers.ecwid.com/api-documentation/batch-requests#handling-failed-requests)
+
+<aside class="notice">
+Parameters in bold are mandatory
+</aside>
 
 #### Request body
 
@@ -112,8 +114,14 @@ ticket | string | Ticket ID for your batch request. Use it to [Get batch request
 > Error response example
 
 ```http
-HTTP/1.1 400 Status QUEUED is deprecated, use AWAITING_PAYMENT instead
+HTTP/1.1 400 Bad request
 Content-Type application/json; charset=utf-8
+```
+
+```json
+{
+    "error_message": "Can't create batch. Batch request body is invalid. Path $[0].id contains bad value"
+}
 ```
 
 In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
@@ -123,7 +131,6 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 HTTP Status | Description
 ------------|--------
 400 | Request parameters are invalid
-404 | The token is not found
 415 | Unsupported content-type: expected `application/json` or `text/json`
 500 | Cannot update the order info because of an error on the server
 
@@ -147,7 +154,7 @@ Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/batch?token={token}&ticket={ticket}`
+`GET https://app.ecwid.com/api/v3/{storeId}/batch?token={token}&ticket={ticket}&escapedJson={escapedJson}`
 
 Name | Type    | Description
 ---- | ------- | --------------
@@ -174,8 +181,7 @@ Parameters in bold are mandatory
       "id": "{OPTIONAL_UNIQUE_ID}",
       "status": "{COMPLETED,FAILED,NOT_EXECUTED}",
       "http_body": "{API_V3_RESPONSE_BODY_AS_IS}",
-      // 'escaped_http_body' is returned instead of 'http_body' if 'escapedJson' request parameter is 'true'
-      "escaped_http_body": "{ESCAPED_JSON_OF_API_V3_RESPONSE_BODY}", 
+      "escaped_http_body": "{ESCAPED_JSON_OF_API_V3_RESPONSE_BODY}", // 'escaped_http_body' is returned instead of 'http_body' if 'escapedJson' request parameter is 'true'
       "http_status_line": "{HTTP_STATUS_LINE}",
       "http_code": "{HTTP_STATUS_CODE}"
     },
@@ -183,6 +189,7 @@ Parameters in bold are mandatory
       "id": "{OPTIONAL_UNIQUE_ID}",
       "status": "{COMPLETED,FAILED,NOT_EXECUTED}",
       "http_body": "{API_V3_RESPONSE_BODY_AS_IS}",
+      "escaped_http_body": "{ESCAPED_JSON_OF_API_V3_RESPONSE_BODY}", // 'escaped_http_body' is returned instead of 'http_body' if 'escapedJson' request parameter is 'true'      
       "http_status_line": "{HTTP_STATUS_LINE}",
       "http_code": "{HTTP_STATUS_CODE}"
     }
@@ -1276,7 +1283,7 @@ errorMessage | string | Error message
 
 When making requests to Ecwid API, you may run into errors like 400, 500 and so on. This can happen to your batch requests too. 
 
-So it's imoportant to know how Ecwid handles them and how you can control this. 
+So it's important to know how Ecwid handles them and how you can control this. 
 
 **Stopping on first failure**
 
@@ -1292,5 +1299,5 @@ Ecwid has two modes for working with failed requests when `stopOnFirstFailure` i
 
 1) If error code is `4XX`, Ecwid will move on to the next request
 
-2) If error code is `5XX` or it timed out, Ecwid will retry it 5 times with a 3 second interval
+2) If error code is `5XX` or request has timed out, Ecwid will retry 5 times with a 3 second interval
 
