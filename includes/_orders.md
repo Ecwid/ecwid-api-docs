@@ -13,7 +13,7 @@ Search or filter orders in an Ecwid store. The response provides full details of
 > Request example
 
 ```http
-GET /api/v3/4870020/orders?customer=johnsmith@example.com&paymentStatus=PAID,AWAITING_PAYMENT&token=1234567890qwqeertt HTTP/1.1
+GET /api/v3/4870020/orders?customer=mscott@gmail.com&paymentStatus=PAID,AWAITING_PAYMENT&token=1234567890qwqeertt HTTP/1.1
 Host: app.ecwid.com
 Content-Type: application/json;charset=utf-8
 Cache-Control: no-cache

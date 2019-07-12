@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## July 12, 2019
+
+Added batch API requests for REST API. Now you can send up to 500 requests to Ecwid API simultaneously in one request. [Learn more](https://developers.ecwid.com/api-documentation/batch-requests)
+
 ## July 5, 2019
 
 1) Added support for `variation` parameter for [static product pages](https://developers.ecwid.com/api-documentation/static-store-pages#get-product-page). Now you can get HTML code of a product using a specific variation ID. 

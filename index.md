@@ -11,6 +11,7 @@ includes:
   - overview
   - authentication
   - api_reference
+  - batch_api
   - store_profile
   - products
   - categories
