@@ -154,6 +154,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 **ticket** | number | Ticket ID you received from Ecwid when creating a batch request
+escapedJson | boolean | Set to `true` to get responses to each of your API requests as escaped JSON string in the `escaped_http_body` field. Set to `false` to get a JSON object in response for your API requests. Default: `false`
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -173,6 +174,8 @@ Parameters in bold are mandatory
       "id": "{OPTIONAL_UNIQUE_ID}",
       "status": "{COMPLETED,FAILED,NOT_EXECUTED}",
       "http_body": "{API_V3_RESPONSE_BODY_AS_IS}",
+      // 'escaped_http_body' is returned instead of 'http_body' if 'escapedJson' request parameter is 'true'
+      "escaped_http_body": "{ESCAPED_JSON_OF_API_V3_RESPONSE_BODY}", 
       "http_status_line": "{HTTP_STATUS_LINE}",
       "http_code": "{HTTP_STATUS_CODE}"
     },
@@ -1221,7 +1224,6 @@ Parameters in bold are mandatory
 }                
 ```
 
-
 A JSON object of type 'BatchRequestStatus' with the following fields:
 
 #### BatchRequestStatus
@@ -1239,7 +1241,8 @@ Field | Type | Description
 ----- | ---- | -----------
 id | string | Optional request ID you specified for each API request
 status | string | `"COMPLETED"` – All requests were completed; `"FAILED"` – if response HTTP code was not `200OK`; `"NOT_EXECUTED"` – request was not executed, because previous requests failed. See [Handling failed requests](https://developers.ecwid.com/api-documentation/batch-requests#handling-failed-requests) to learn more details
-http_body | string | Response body for your requests. For example: details of orders found, status of a discount coupon update, id of a product created, etc. Check examples for [each endpoint](https://developers.ecwid.com/api-documentation/rest-api-reference)
+http_body | json | Response body for your requests. `escaped_http_body` is returned instead if `escapedJson` parameter is `true` in your batch status request. For example: details of orders found, status of a discount coupon update, id of a product created, etc. Check examples for [each endpoint](https://developers.ecwid.com/api-documentation/rest-api-reference)
+escaped_http_body | string | Escaped JSON string of response body for each API request in a batch. Returned if `escapedJson` parameter is `true` in your batch status request
 http_status_code | number | HTTP status code from Ecwid API for a request
 http_status_line | string | HTTP status reason phrase
 
