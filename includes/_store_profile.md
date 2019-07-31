@@ -73,7 +73,10 @@ Name | Type    | Description
         "acceptMarketingCheckboxDefaultValue": false,
         "acceptMarketingCheckboxCustomText": "I accept to receive marketing offers to my email",
         "askConsentToTrackInStorefront": false,
-        "pinterestTagId": "1251515431215"
+        "snapPixelId": "47eb5b42-fc91-431e-b096-f13344fc0219",
+        "pinterestTagId": "1621052432415",
+        "googleTagId": "AW-521351352",
+        "googleEventId": "aASDhjdgfmnasdIOSsdl"
     },
     "mailNotifications": {
         "adminNotificationEmails": [
@@ -726,7 +729,10 @@ Cache-Control: no-cache
     "acceptMarketingCheckboxDefaultValue": false,
     "acceptMarketingCheckboxCustomText": "I accept to receive marketing offers to my email",
     "askConsentToTrackInStorefront": false,
-    "pinterestTagId": "1251515431215"
+    "snapPixelId": "47eb5b42-fc91-431e-b096-f13344fc0219",
+    "pinterestTagId": "1621052432415",
+    "googleTagId": "AW-521351352",
+    "googleEventId": "aASDhjdgfmnasdIOSsdl"
   },
   "mailNotifications": {
     "customerNotificationFromEmail": "info@example.com"
@@ -1017,7 +1023,10 @@ showAcceptMarketingCheckbox | boolean | `true` if merchant shows the checkbox to
 acceptMarketingCheckboxDefaultValue | boolean | Default value for the checkbox at checkout to accept marketing
 acceptMarketingCheckboxCustomText | string | Custom text label for the checkbox to accept marketing at checkout
 askConsentToTrackInStorefront | boolean | `true` if merchant shows warning to accept cookies in storefront. `false` otherwise
+snapPixelId | string | Snapchat pixel ID from your [Snapchat business account](https://ads.snapchat.com/)
 pinterestTagId | string | Pinterest Tag Id from your [Pinterest business account](https://ads.pinterest.com/)
+googleTagId | string | Global site tag from your [Google Ads account](https://ads.google.com/intl/en_US/home/)
+googleEventId | string | Event snippet from your [Google Ads account](https://ads.google.com/intl/en_US/home/)
 
 #### MailNotifications
 Field | Type | Description
@@ -1567,7 +1576,10 @@ showAcceptMarketingCheckbox | boolean | `true` if merchant shows the checkbox to
 acceptMarketingCheckboxDefaultValue | boolean | Default value for the checkbox at checkout to accept marketing
 acceptMarketingCheckboxCustomText | string | Custom text label for the checkbox to accept marketing at checkout
 askConsentToTrackInStorefront | boolean | `true` if merchant shows warning to accept cookies in storefront. `false` otherwise
+snapPixelId | string | Snapchat pixel ID from your [Snapchat business account](https://ads.snapchat.com/)
 pinterestTagId | string | Pinterest Tag Id from your [Pinterest business account](https://ads.pinterest.com/)
+googleTagId | string | Global site tag from your [Google Ads account](https://ads.google.com/intl/en_US/home/)
+googleEventId | string | Event snippet from your [Google Ads account](https://ads.google.com/intl/en_US/home/)
 
 #### MailNotifications
 Field | Type | Description

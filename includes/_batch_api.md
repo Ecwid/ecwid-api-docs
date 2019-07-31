@@ -161,7 +161,7 @@ Name | Type    | Description
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
 **ticket** | number | Ticket ID you received from Ecwid when creating a batch request
-escapedJson | boolean | Set to `true` to get responses to each of your API requests as escaped JSON string in the `escaped_http_body` field. Set to `false` to get a JSON object in response for your API requests. Default: `false`
+escapedJson | boolean | Set to `true` to get responses to each of your API requests as escaped JSON string in the `escapedHttpBody` field. Set to `false` to get a JSON object in response for your API requests. Default: `false`
 
 <aside class="notice">
 Parameters in bold are mandatory
@@ -174,24 +174,24 @@ Parameters in bold are mandatory
 ```json
 {
   "status": "{QUEUED,IN_PROGRESS,COMPLETED}",
-  "total_requests": "{TOTAL_NUMBER_OF_REQUESTS}",
-  "completed_requests": "{COMPLETED_NUMBER_OF_REQUESTS}",
+  "totalRequests": "{TOTAL_NUMBER_OF_REQUESTS}",
+  "completedRequests": "{COMPLETED_NUMBER_OF_REQUESTS}",
   "responses": [
     {
       "id": "{OPTIONAL_UNIQUE_ID}",
       "status": "{COMPLETED,FAILED,NOT_EXECUTED}",
-      "http_body": "{API_V3_RESPONSE_BODY_AS_IS}",
-      "escaped_http_body": "{ESCAPED_JSON_OF_API_V3_RESPONSE_BODY}", // 'escaped_http_body' is returned instead of 'http_body' if 'escapedJson' request parameter is 'true'
-      "http_status_line": "{HTTP_STATUS_LINE}",
-      "http_code": "{HTTP_STATUS_CODE}"
+      "httpBody": "{API_V3_RESPONSE_BODY_AS_IS}",
+      "escapedHttpBody": "{ESCAPED_JSON_OF_API_V3_RESPONSE_BODY}", // 'escapedHttpBody' is returned instead of 'httpBody' if 'escapedJson' request parameter is 'true'
+      "httpStatusLine": "{HTTP_STATUS_LINE}",
+      "httpCode": "{HTTP_STATUS_CODE}"
     },
     {
       "id": "{OPTIONAL_UNIQUE_ID}",
       "status": "{COMPLETED,FAILED,NOT_EXECUTED}",
-      "http_body": "{API_V3_RESPONSE_BODY_AS_IS}",
-      "escaped_http_body": "{ESCAPED_JSON_OF_API_V3_RESPONSE_BODY}", // 'escaped_http_body' is returned instead of 'http_body' if 'escapedJson' request parameter is 'true'      
-      "http_status_line": "{HTTP_STATUS_LINE}",
-      "http_code": "{HTTP_STATUS_CODE}"
+      "httpBody": "{API_V3_RESPONSE_BODY_AS_IS}",
+      "escapedHttpBody": "{ESCAPED_JSON_OF_API_V3_RESPONSE_BODY}", // 'escapedHttpBody' is returned instead of 'httpBody' if 'escapedJson' request parameter is 'true'      
+      "httpStatusLine": "{HTTP_STATUS_LINE}",
+      "httpCode": "{HTTP_STATUS_CODE}"
     }
   ]
 }
@@ -202,12 +202,12 @@ Parameters in bold are mandatory
 ```json
 {
     "status": "COMPLETED",
-    "total_requests": 2,
-    "completed_requests": 2,
+    "totalRequests": 2,
+    "completedRequests": 2,
     "responses": [
         {
             "id": "123456",
-            "http_body": {
+            "httpBody": {
                 "total": 134,
                 "count": 1,
                 "offset": 0,
@@ -551,13 +551,13 @@ Parameters in bold are mandatory
                     }
                 ]
             },
-            "http_status_code": 200,
-            "http_status_line": "OK",
+            "httpStatusCode": 200,
+            "httpStatusLine": "OK",
             "status": "COMPLETED"
         },                
         {
             "id": "1234567",
-            "http_body": {
+            "httpBody": {
                 "generalInfo": {
                     "storeId": 4870020,
                     "storeUrl": "http://www.example.com",
@@ -1223,8 +1223,8 @@ Parameters in bold are mandatory
                   "enabledInStorefront": true
                 }
             },
-            "http_status_code": 200,
-            "http_status_line": "OK",
+            "httpStatusCode": 200,
+            "httpStatusLine": "OK",
             "status": "COMPLETED"
         }
     ]
@@ -1238,8 +1238,8 @@ A JSON object of type 'BatchRequestStatus' with the following fields:
 Field | Type | Description
 ----- | ---- | -----------
 status | string | `"QUEUED"` – no requests were completed yet; `"IN_PROGRESS"` – there is at least one completed request; `"COMPLETED"` – All requests were completed
-total_requests | number | Total number of API requests
-completed_requests | number | Number of completed API requests
+totalRequests | number | Total number of API requests
+completedRequests | number | Number of completed API requests
 responses | Array /<*RequestDetails*/> | Details of requests made to Ecwid API
 
 #### RequestDetails 
@@ -1248,10 +1248,10 @@ Field | Type | Description
 ----- | ---- | -----------
 id | string | Optional request ID you specified for each API request
 status | string | `"COMPLETED"` – All requests were completed; `"FAILED"` – if response HTTP code was not `200OK`; `"NOT_EXECUTED"` – request was not executed, because previous requests failed. See [Handling failed requests](https://developers.ecwid.com/api-documentation/batch-requests#handling-failed-requests) to learn more details
-http_body | json | Response body for your requests. `escaped_http_body` is returned instead if `escapedJson` parameter is `true` in your batch status request. For example: details of orders found, status of a discount coupon update, id of a product created, etc. Check examples for [each endpoint](https://developers.ecwid.com/api-documentation/rest-api-reference)
-escaped_http_body | string | Escaped JSON string of response body for each API request in a batch. Returned if `escapedJson` parameter is `true` in your batch status request
-http_status_code | number | HTTP status code from Ecwid API for a request
-http_status_line | string | HTTP status reason phrase
+httpBody | json | Response body for your requests. `escapedHttpBody` is returned instead if `escapedJson` parameter is `true` in your batch status request. For example: details of orders found, status of a discount coupon update, id of a product created, etc. Check examples for [each endpoint](https://developers.ecwid.com/api-documentation/rest-api-reference)
+escapedHttpBody | string | Escaped JSON string of response body for each API request in a batch. Returned if `escapedJson` parameter is `true` in your batch status request
+httpStatusCode | number | HTTP status code from Ecwid API for a request
+httpStatusLine | string | HTTP status reason phrase
 
 #### Errors
 

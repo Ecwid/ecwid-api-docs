@@ -8,9 +8,17 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## July 31, 2019
+
+1) Changed response fields' names to camelCase format instead of snake_case in [Batch REST API](https://developers.ecwid.com/api-documentation/batch-requests)
+
+2) Added support for ad tracking in Snapchat, Pinterest and Google Ads. See the fields `snapPixelId`, `pinterestTagId`, `googleTagId`, and `googleEventId` in the [store information endpoint]().
+
 ## July 12, 2019
 
-Added batch API requests for REST API. Now you can send up to 500 requests to Ecwid API simultaneously in one request. [Learn more](https://developers.ecwid.com/api-documentation/batch-requests)
+Added batch API endpoint for Ecwid REST API. 
+
+Now you can send up to 500 requests to Ecwid API simultaneously in one request. [Learn more](https://developers.ecwid.com/api-documentation/batch-requests)
 
 ## July 5, 2019
 
