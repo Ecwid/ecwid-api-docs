@@ -20,7 +20,7 @@ Cache-Control: no-cache
 Accept-Encoding: gzip
 ```
 
-`GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&email={email}&customerId={customerId}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&acceptMarketing={acceptMarketing}&refererId={refererId}&offset={offset}&limit={limit}&token={token}`
+`GET https://app.ecwid.com/api/v3/{storeId}/orders?keywords={keywords}&totalFrom={totalFrom}&totalTo={totalTo}&createdFrom={createdFrom}&createdTo={createdTo}&updatedFrom={updatedFrom}&updatedTo={updatedTo}&couponCode={couponCode}&orderNumber={orderNumber}&vendorOrderNumber={vendorOrderNumber}&email={email}&customerId={customerId}&paymentMethod={paymentMethod}&shippingMethod={shippingMethod}&paymentStatus={paymentStatus}&fulfillmentStatus={fulfillmentStatus}&acceptMarketing={acceptMarketing}&refererId={refererId}&productId={productId}&offset={offset}&limit={limit}&token={token}`
 
 #### Q: How to get info about abandoned sales? 
 
@@ -78,6 +78,7 @@ paymentStatus | string | Comma separated list of order payment statuses to searc
 fulfillmentStatus | string | Comma separated list of order fulfilment statuses to search. Supported values: <ul><li>`AWAITING_PROCESSING`</li> <li>`PROCESSING`</li> <li>`SHIPPED`</li> <li>`DELIVERED`</li> <li>`WILL_NOT_DELIVER`</li> <li>`RETURNED`</li><li>`READY_FOR_PICKUP`</li></ul>
 acceptMarketing | boolean | `true` if customer has accepted email marketing. `false` otherwise
 refererId | string | Filter order results by `refererId` field in order details
+productId | number | Comma-separated list of productIds. Use it to find orders with specific products by their IDs
 
 <aside class="notice">
 Parameters in bold are mandatory

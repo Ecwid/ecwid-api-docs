@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Aug 6, 2019
+
+1) Added `productId` filter for [searching orders](https://developers.ecwid.com/api-documentation/orders#search-orders) in Ecwid REST API. Use it to find orders with specific product or products by their ID. 
+
+2) Added customization options docs for store checkout pages. [Learn more](https://developers.ecwid.com/api-documentation/customize-appearance#checkout-pages)
+
 ## July 31, 2019
 
 1) Changed response fields' names to camelCase format instead of snake_case in [Batch REST API](https://developers.ecwid.com/api-documentation/batch-requests)

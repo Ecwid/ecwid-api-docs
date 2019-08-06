@@ -86,7 +86,7 @@ The codes for extra fields need to be added to the source code of your website o
 </aside>
 
 <aside class='notice'>
-Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-order">show the extra field</a> to customer and merchant in the order details. 
+Learn how to <a href="https://developers.ecwid.com/api-documentation/show-extra-fields-in-an-order">show the extra field</a> to customer and merchant in the order details. 
 </aside>
 
 ### Extra field attributes

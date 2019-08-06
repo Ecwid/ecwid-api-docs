@@ -27,6 +27,7 @@ Ecwid storefront has many opportunities to customize the design and layout: cont
 - [Change store layout](https://developers.ecwid.com/api-documentation/customize-appearance#change-store-layout)
 - [Customize product listing design](https://developers.ecwid.com/api-documentation/customize-appearance#product-listing)
 - [Customize product pages design](https://developers.ecwid.com/api-documentation/customize-appearance#product-pages)
+- [Customize checkout pages design](https://developers.ecwid.com/api-documentation/customize-appearance#checkout-pages)
 - [Change colors and fonts](https://developers.ecwid.com/api-documentation/customize-appearance#change-default-colors-and-fonts)
 - [Change storefront labels](https://developers.ecwid.com/api-documentation/customize-appearance#change-storefront-labels)
 - [Create custom themes](https://developers.ecwid.com/api-documentation/customize-appearance#custom-themes)
@@ -74,6 +75,7 @@ The example codes are available on the right.
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.CONFIG_NAME = VALUE; 
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -84,6 +86,7 @@ The example codes are available on the right.
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.show_signin_link = false; // hides the sign in link
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -158,6 +161,7 @@ Check this page for code example: [Add new element to products in category pages
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.CONFIG_NAME = VALUE; 
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -168,11 +172,13 @@ Check this page for code example: [Add new element to products in category pages
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.product_list_sku_behavior = "SHOW_ON_HOVER"; // shows product SKU on hover in product list
+  Ecwid.refreshConfig();
 </script>
 ```
 
 Config name | Type | Description
 ------------|------|------------
+enable_catalog_on_one_page | boolean | `true` to display store catalog on a single page (list of multiple categories with products). `false` to display a list of categories and display one category at a time only
 product_list_title_behavior | string | Control display mode of **product title** in product listing (category pages). Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`
 product_list_sku_behavior | string | Control display mode of **product SKU**  in product listing (category pages). Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`
 product_list_price_behavior | string | Control display mode of **product price** in product listing (category pages). Possible values: `"SHOW"`, `"HIDE"`, `"SHOW_ON_HOVER"`
@@ -198,6 +204,7 @@ If you apply the change after storefront has loaded, you can update its look on 
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.CONFIG_NAME = VALUE; 
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -208,6 +215,7 @@ If you apply the change after storefront has loaded, you can update its look on 
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.product_list_image_has_shadow = true; // shows shadow for products in product list
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -233,6 +241,7 @@ If you apply the change after storefront has loaded, you can update its look on 
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.product_list_category_cell_spacing = 20; 
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -260,22 +269,13 @@ If you apply any of the changes below after storefront has loaded, you can updat
 **Table of contents:** 
 
 - [Setting values for product options](https://developers.ecwid.com/api-documentation/customize-appearance#setting-values-for-product-options)
-- [Set layout of product pages](https://developers.ecwid.com/api-documentation/customize-appearance#set-layout-of-product-pages)
-- [Product name](https://developers.ecwid.com/api-documentation/customize-appearance#product-name-on-product-pages)
-- [Breadcrumbs](https://developers.ecwid.com/api-documentation/customize-appearance#breadcrumbs-on-product-pages)
-- [SKU](https://developers.ecwid.com/api-documentation/customize-appearance#sku-on-product-pages)
-- [Price](https://developers.ecwid.com/api-documentation/customize-appearance#price-on-product-pages)
-- [Sale price](https://developers.ecwid.com/api-documentation/customize-appearance#sale-price-on-product-pages)
-- [Product options](https://developers.ecwid.com/api-documentation/customize-appearance#product-options-on-product-pages)
-- [Buy button block](https://developers.ecwid.com/api-documentation/customize-appearance#buy-button-block-on-product-pages)
-- ['Qty' block](https://developers.ecwid.com/api-documentation/customize-appearance#qty-block-on-product-pages)
-- ['In stock' label](https://developers.ecwid.com/api-documentation/customize-appearance#in-stock-label-on-product-pages)
-- [Wholesale pricing table](https://developers.ecwid.com/api-documentation/customize-appearance#wholesale-pricing-table-on-product-pages)
-- ['Save for later' block](https://developers.ecwid.com/api-documentation/customize-appearance#save-for-later-block-on-product-pages)
-- [Share buttons](https://developers.ecwid.com/api-documentation/customize-appearance#share-buttons-on-product-pages)
-- [Gallery](https://developers.ecwid.com/api-documentation/customize-appearance#gallery-on-product-pages)
+- [Set main layout of product pages](https://developers.ecwid.com/api-documentation/customize-appearance#set-main-layout-of-product-pages)
+- [Control visibility of elements in product details pages](https://developers.ecwid.com/api-documentation/customize-appearance#control-visibility-of-elements-in-product-details-pages)
+- [Control the layout of product details page](https://developers.ecwid.com/api-documentation/customize-appearance#control-the-layout-of-product-details-page)
+- [Control position of elements on product details pages](https://developers.ecwid.com/api-documentation/customize-appearance#control-position-of-elements-on-product-details-pages)
 
-##### Setting values for product options 
+
+#### Setting values for product options 
 
 > Set value for product options on product pages
 
@@ -320,9 +320,7 @@ Update `.value` of a `<select>` element, send `'change'` event
 
 Check out an example code on the right.
 
-
-
-##### Set layout of product pages
+#### Set main layout of product pages
 
 > Set layout of product pages
 
@@ -331,6 +329,7 @@ Check out an example code on the right.
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.product_details_layout = "THREE_COLUMNS_SIDEBAR_ON_THE_RIGHT"; // set product page layout
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -351,6 +350,7 @@ If you apply the change after storefront has loaded, you can update its look on 
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.CONFIG_NAME = VALUE; 
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -361,6 +361,7 @@ If you apply the change after storefront has loaded, you can update its look on 
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.product_details_show_product_name = false;
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -401,6 +402,7 @@ If you apply the change after storefront has loaded, you can update its look on 
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.CONFIG_NAME = VALUE; 
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -425,6 +427,7 @@ If you apply the change after storefront has loaded, you can update its look on 
   window.ec = window.ec || Object();
   window.ec.storefront = window.ec.storefront || Object();
   window.ec.storefront.CONFIG_NAME = VALUE; 
+  Ecwid.refreshConfig();
 </script>
 ```
 
@@ -442,6 +445,84 @@ product_details_position_save_for_later | number | Defines the **position of the
 product_details_position_share_buttons | number | Defines the **position of the share buttons within the sidebar**. The less the number is, the higher the element on the page. Defalut value: `1000`
 
 If you apply the change after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+
+### Checkout pages
+
+Checkout pages provide more customization and streamlined checkout experience for storefronts across all Ecwid stores. Check the available customization options below. 
+
+<aside class="notice">
+To ensure you have the latest version enabled, check <strong>Ecwid Control Panel > Settings > What's new</strong> for new available features.
+</aside>
+
+#### Customizing checkout pages
+
+Check out all the customization options for the cart page available out of the box below.
+
+If you apply any of the changes below after storefront has loaded, you can update its look on the fly using the `Ecwid.refreshConfig()` function.
+
+**Table of contents:** 
+
+- [Control visibility of elements on checkout pages](https://developers.ecwid.com/api-documentation/customize-appearance#control-visibility-of-elements-on-checkout-pages)
+- [Control layout of checkout pages](https://developers.ecwid.com/api-documentation/customize-appearance#control-layout-of-checkout-pages)
+- [Customize cart widget icon](https://developers.ecwid.com/api-documentation/customize-appearance#customize-cart-widget-icon)
+
+#### Control visibility of elements on checkout pages
+
+> Apply new storefront configuration template
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.CONFIG_NAME = VALUE;
+  Ecwid.refreshConfig();
+</script>
+```
+
+> Show item quantity input on cart page
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.shopping_cart_show_qty_inputs = true;
+  Ecwid.refreshConfig();
+</script>
+```
+
+Config name | Type | Description
+------------|------|------------
+shopping_cart_show_qty_inputs | boolean | If `true`, the QTY controls will be shown as input boxes on mobile instead of dropdowns on cart page. Possible values: `true`, `false`. Defalut value: `false`
+shopping_cart_show_sku | boolean | Show or hide **item SKU** on cart page. Possible values: `true`, `false`. Defalut value: `false`
+shopping_cart_show_weight | boolean | Show or hide **item weight** on cart page. Possible values: `true`, `false`. Defalut value: `false`
+checkout_show_state_input | boolean | Show or hide **state input** in address forms. If `true`, state/region field is shown even if it is not required for this country. This option is ignored if state field is required for selected country. Possible values: `true`, `false`. Defalut value: `false`
+checkout_show_address_line_2 | boolean | Show or hide **address line 2** in address forms. Possible values: `true`, `false`. Defalut value: `false`
+
+#### Control layout of checkout pages
+
+> Apply new storefront configuration template
+
+```html
+<script>
+  window.ec = window.ec || Object();
+  window.ec.storefront = window.ec.storefront || Object();
+  window.ec.storefront.CONFIG_NAME = VALUE; 
+  Ecwid.refreshConfig();
+</script>
+```
+
+Config name | Type | Description
+------------|------|------------
+shopping_cart_products_collapsed_on_desktop | boolean | If `true`, cart items list is shown in collapsed view on desktop when more than 4 products added. Possible values: `true`, `false`. Default value: `true`
+shopping_cart_products_collapsed_on_mobile | boolean | If `true`, cart items list is shown in collapsed view on mobile. Possible values: `true`, `false`. Default value: `true`
+
+#### Customize cart widget icon
+
+You can change the look and feel of the Shopping Bag icon, define its position on the page, apply the redirect to a custom page or animated effects by means of special parameters that are added to the integration code.
+
+Check out our article in Help Center for more information: [https://support.ecwid.com/hc/en-us/articles/360000013659-Customizing-Shopping-Bag-icon-style](https://support.ecwid.com/hc/en-us/articles/360000013659-Customizing-Shopping-Bag-icon-style)
+
 
 ### Change storefront labels
 
@@ -643,27 +724,27 @@ Using the global Ecwid config object `window.ec.config` you can control the font
 > Example of custom CSS to modify storefront
 
 ```css
-/*
- * Change Ecwid buttons style 
- */
-button.gwt-Button, #wrapper button.gwt-Button { 
-  border-radius: 13px; 
-  -moz-border-radius: 13px; 
-  -webkit-border-radius: 13px; 
-  height: 28px; 
-  background-color: #e4e4e4; 
-  padding: 0 15px; 
-}  
- 
-button.gwt-Button:active,
-#wrapper button.gwt-Button:active { 
-  background-color: #999999; 
-}  
- 
-div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-backgroundedPanel {
-  min-width:185px; 
-  width:auto; 
-}
+  /*
+   * Change Ecwid buttons style 
+   */
+  button.gwt-Button, #wrapper button.gwt-Button { 
+    border-radius: 13px; 
+    -moz-border-radius: 13px; 
+    -webkit-border-radius: 13px; 
+    height: 28px; 
+    background-color: #e4e4e4; 
+    padding: 0 15px; 
+  }  
+   
+  button.gwt-Button:active,
+  #wrapper button.gwt-Button:active { 
+    background-color: #999999; 
+  }  
+   
+  div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-backgroundedPanel {
+    min-width:185px; 
+    width:auto; 
+  }
 ```
 
 **Add custom CSS theme in Ecwid Control Panel (for a single store)**
