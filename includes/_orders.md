@@ -429,7 +429,8 @@ Parameters in bold are mandatory
             },
             "acceptMarketing": true,
             "refererId": "Amazon",
-            "disableAllCustomerNotifications": false
+            "disableAllCustomerNotifications": false,
+            "externalFulfillment": false
         }
     ]
 }
@@ -505,6 +506,8 @@ taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping 'as is'. 
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions (`null` too). If value is `false`, you can't use this email for promotions
 refererId | string | Referer identifier. Can be set in storefront via JS or by creating / updating an order with REST API
 disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications.
+externalFulfillment | boolean | Set `true` if order is fulfilled in an external system; Ecwid will hide fulfillment status change feature and ability to set tracking number within Ecwid Control Panel in order details. Set `false` to manage order fulfillment within Ecwid Control Panel
+externalOrderId | string | Corresponding order number in an external system where order is fulfilled. Use together with the `externalFulfillment` field
 
 #### OrderItem
 Field | Type |  Description
@@ -1106,7 +1109,8 @@ Parameters in bold are mandatory
     },
     "acceptMarketing": true,
     "refererId": "Amazon",
-    "disableAllCustomerNotifications": false
+    "disableAllCustomerNotifications": false,
+    "externalFulfillment": true
 }
 ```
 
@@ -1169,7 +1173,9 @@ refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions (`null` too). If value is `false`, you can't use this email for promotions
 refererId | string | Referer identifier. Can be set in storefront via JS or by creating / updating an order with REST API
-disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications.
+disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications
+externalFulfillment | boolean | Set `true` if order is fulfilled in an external system; Ecwid will hide fulfillment status change feature and ability to set tracking number within Ecwid Control Panel in order details. Set `false` to manage order fulfillment within Ecwid Control Panel
+externalOrderId | string | Corresponding order number in an external system where order is fulfilled. Use together with the `externalFulfillment` field
 
 #### OrderItem
 Field | Type |  Description
@@ -2004,7 +2010,9 @@ Cache-Control: no-cache
         ],
         "acceptMarketing": false,
         "refererId": "Amazon",
-        "disableAllCustomerNotifications": true
+        "disableAllCustomerNotifications": true,
+        "externalFulfillment": true,
+        "externalOrderId": "2"
     }
 ```
 
@@ -2066,7 +2074,9 @@ pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-1
 taxesOnShipping | Array\<*TaxOnShipping*\> | Taxes applied to shipping. `null` for old orders, `[]` for orders with taxes applied to subtotal only. Are not recalculated if order is updated later manually. Is calculated like: `(shippingRate + handlingFee)*(taxValue/100)`
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
 refererId | string | Referer identifier. Can be set in storefront via JS or by creating / updating an order with REST API
-disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications.
+disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications
+externalFulfillment | boolean | Set `true` if order is fulfilled in an external system; Ecwid will hide fulfillment status change feature and ability to set tracking number within Ecwid Control Panel in order details. Set `false` to manage order fulfillment within Ecwid Control Panel
+externalOrderId | string | Corresponding order number in an external system where order is fulfilled. Use together with the `externalFulfillment` field
 
 #### OrderItem
 Field | Type |  Description
@@ -2378,7 +2388,9 @@ Cache-Control: no-cache
         "hidden": false,
         "privateAdminNotes": "Must be delivered till Sunday.",
         "acceptMarketing": false,
-        "disableAllCustomerNotifications": true
+        "disableAllCustomerNotifications": true,
+        "externalFulfillment": true,
+        "externalOrderId": "2"
     }
 ```
 
@@ -2396,7 +2408,7 @@ You can create only one order per API request. To create several orders, send se
 </aside>
 
 <aside class="notice">
-    When making a request with <a href='#access-tokens'>public access token</a>, there are a few differences applied: 
+    When making a request with <a href='https://developers.ecwid.com/api-documentation/access-tokens#access-scopes'>public access token</a>, there are a few differences applied: 
     <ul><li>The <strong>paymentStatus</strong> can only be "AWAITING_PAYMENT" or "INCOMPLETE". Any other value is ignored.</li>
         <li>The <strong>fulfillmentStatus</strong> can only be "AWAITING_PROCESSING". Any other value is ignored.</li>
         <li><strong>privateAdminNotes</strong> field is always ignored.</li></ul>
@@ -2451,7 +2463,9 @@ creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner. Ignored when creating orders with [public token](#access-tokens)
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
 acceptMarketing | boolean | `true` if customer has accepted email marketing and you can use their email for promotions. If value is `false`, you can't use this email for promotions
-disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications.
+disableAllCustomerNotifications | boolean | `true` if no email notifications are sent to customer. If `false` or empty, then email notifications are sent to customer according to store mail notification settings. This field does not influence admin email notifications
+externalFulfillment | boolean | Set `true` if order is fulfilled in an external system; Ecwid will hide fulfillment status change feature and ability to set tracking number within Ecwid Control Panel in order details. Set `false` to manage order fulfillment within Ecwid Control Panel
+externalOrderId | string | Corresponding order number in an external system where order is fulfilled. Use together with the `externalFulfillment` field
 
 #### OrderItem
 Field | Type | Description

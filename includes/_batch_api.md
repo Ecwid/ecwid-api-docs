@@ -66,7 +66,7 @@ Accept-Encoding: gzip
 ]
 ```
 
-`POST https://app.ecwid.com/api/v3/{storeId}/batch&token={token}&stopOnFirstFailure={stopOnFirstFailure}`
+`POST https://app.ecwid.com/api/v3/{storeId}/batch?token={token}&stopOnFirstFailure={stopOnFirstFailure}`
 
 Name | Type    | Description
 ---- | ------- | --------------

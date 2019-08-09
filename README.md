@@ -8,6 +8,12 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Aug 9, 2019
+
+Added `externalFulfillment` and `externalOrderId` fields for orders in Ecwid REST API. 
+
+They are useful when orders are fulfilled in some other external system. When `externalFulfillment` is set to `true`, Ecwid will hide fulfillment status controls and ability to ship / set tracking number for an order. [Learn more](https://developers.ecwid.com/api-documentation/orders)
+
 ## Aug 6, 2019
 
 1) Added `productId` filter for [searching orders](https://developers.ecwid.com/api-documentation/orders#search-orders) in Ecwid REST API. Use it to find orders with specific product or products by their ID. 
