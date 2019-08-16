@@ -276,7 +276,7 @@ ec.order.extraFields.how_you_found_us = {
     'type': 'text',
     'required': false,
     'checkoutDisplaySection': 'payment_details', // show new field in order comments block
-    'orderDetailsDisplaySection': 'payment_details' // show saved data in order comments block in order details to merchant and customer
+    'orderDetailsDisplaySection': 'order_comments' // show saved data in order comments block in order details to merchant and customer
 };
 
 Ecwid.refreshConfig();
