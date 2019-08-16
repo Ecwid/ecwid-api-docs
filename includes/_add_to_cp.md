@@ -365,9 +365,9 @@ In some cases you may need additional security for authenticating users: server-
 
 That's when you should enable the Enhanced Security User Auth type for your Native app.
 
-<aside class="notice">All Native applications are registered with the [Default User Auth](https://developers.ecwid.com/api-documentation/authentication-in-native-apps#default-user-auth), so you can start working on your application's tab right away without using server side. <br/><br/>
+<aside class="notice">All Native applications are registered with the <a href = "https://developers.ecwid.com/api-documentation/authentication-in-native-apps#default-user-auth">Default User Auth</a>, so you can start working on your application's tab right away without using server side. <br/><br/>
 
-If you need your app to be switched to Enhanced Security User Auth (server-side), please [contact us](/contact) and we will update your app.
+If you need your app to be switched to Enhanced Security User Auth (server-side), please <a href = "/contact">contact us</a> and we will update your app.
 </aside>
 
 The workflow of such applications can be divided into several steps: 
