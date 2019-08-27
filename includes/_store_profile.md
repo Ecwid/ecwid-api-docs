@@ -1326,7 +1326,7 @@ enabled | boolean | `true` if feature is enabled and active in store
 
 Field | Type | Description
 ----- | ---- | -----------
-<DESIGN_CONFIG_FIELD_NAME> | string or boolean | Store design settings as seen in [storefront design customization](https://developers.ecwid.com/api-documentation/customize-appearance). If a specific config field is not provided, it will not be changed
+DESIGN_CONFIG_FIELD_NAME | string or boolean | Store design settings as seen in [storefront design customization](https://developers.ecwid.com/api-documentation/customize-appearance). If a specific config field is not provided, it will not be changed
 
 #### ProductFiltersSettings
 

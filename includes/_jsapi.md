@@ -1387,8 +1387,8 @@ Let's check out how this can be achieved:
 > Script and CSS to load on your storefront page
 
 ```html
-<link rel="stylesheet" type="text/css" href="https://djqizrxa6f10j.cloudfront.net/apps/ecwid-cart-app/cartapp.css">
-<script src="https://djqizrxa6f10j.cloudfront.net/apps/ecwid-cart-app/1.0.0/cart.js"></script>
+<link rel="stylesheet" type="text/css" href="https://d35z3p2poghz10.cloudfront.net/apps/ecwid-cart-app/cartapp.css">
+<script src="https://d35z3p2poghz10.cloudfront.net/apps/ecwid-cart-app/1.0.0/cart.js"></script>
 ```
 
 Add this code to the source code of the page, where your Ecwid storefront is displayed. 

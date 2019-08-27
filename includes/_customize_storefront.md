@@ -1590,7 +1590,7 @@ Endpoints documentation: <a href="https://developers.ecwid.com/api-documentation
 
 **Example**
 
-See it in action and see source code here: [https://djqizrxa6f10j.cloudfront.net/apps/ecwid-static-pages/examples/static-page-demo.htm](https://djqizrxa6f10j.cloudfront.net/apps/ecwid-static-pages/examples/static-page-demo.htm)
+See it in action and see source code here: [https://d35z3p2poghz10.cloudfront.net/apps/ecwid-static-pages/examples/static-page-demo.htm](https://d35z3p2poghz10.cloudfront.net/apps/ecwid-static-pages/examples/static-page-demo.htm)
 
 #### Hints and best practices
 
