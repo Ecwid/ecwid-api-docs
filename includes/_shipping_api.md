@@ -38,7 +38,7 @@ After the installation, user would need a page where they can configure it: prov
 
 The request to your app URL can be triggered by a customer in storefront or by an API request to order details calculation [endpoint](https://developers.ecwid.com/api-documentation/carts#calculate-order-details).
 
-To show new shipping methods in storefront, Ecwid will send a **POST request** to your endpoint with order details: items that require shipping and have shipping set as [global or global + fixed rate per item](https://support.ecwid.com/hc/en-us/articles/115005899725-Setting-up-shipping-rates#Shippingfreightnbsp), customer address, merchant app settings, etc. That endpoint must respond to the request with the shipping rates for this configuration.
+To show new shipping methods in storefront, Ecwid will send a **POST request** to your endpoint with order details: items that require shipping and have shipping set as [global or global + fixed rate per item](https://support.ecwid.com/hc/en-us/articles/360000025300-Product-specific-shipping-rates#use-global-rates-default-option--0-0), customer address, merchant app settings, etc. That endpoint must respond to the request with the shipping rates for this configuration.
 
 In the case of an API request for calculating order details, the products and cart information itself can be different from what the store has:  
 
@@ -430,7 +430,7 @@ discountInfo | Array\<*DiscountInfo*\> | Information about applied discounts (co
 customerGroupId | number | Customer group ID
 customerGroup | string | The name of group (membership) the customer belongs to
 customerId | number  | Unique customer internal ID (if the order is placed by a registered user)
-items | Array\<*OrderItems*\> | Array of customer's order items with basic details. **Only includes items that that require shipping and have shipping set as [global or global + fixed rate per item](https://support.ecwid.com/hc/en-us/articles/115005899725-Setting-up-shipping-rates#Shippingfreightnbsp)**
+items | Array\<*OrderItems*\> | Array of customer's order items with basic details. **Only includes items that that require shipping and have shipping set as [global or global + fixed rate per item](https://support.ecwid.com/hc/en-us/articles/360000025300-Product-specific-shipping-rates#use-global-rates-default-option--0-0)**
 weight | number | Total weight of the order
 weightUnit | string | Active weight units in the store at the moment of the request. [Formats and units](https://developers.ecwid.com/api-documentation/shipping-request-and-response#weight-units)
 currency | string | Active currency in the store at the moment of the request

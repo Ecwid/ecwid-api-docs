@@ -23,7 +23,6 @@ includes:
   - customer_groups
   - coupons
   - application
-  - startersite
   - static_pages
   - extra_fields
   - filters

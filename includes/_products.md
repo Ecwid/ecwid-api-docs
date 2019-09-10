@@ -1,6 +1,6 @@
 ## Products
 
-Using the methods below you can search/create/modify/delete products in an Ecwid store. In the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/208078855-Products) you can learn more about the products in Ecwid.
+Using the methods below you can search/create/modify/delete products in an Ecwid store. In the [Ecwid Help Center](https://support.ecwid.com/hc/en-us/articles/115005902569-Adding-updating-and-deleting-products) you can learn more about the products in Ecwid.
 
 <aside class="note">
 To access the Ecwid API Platform features, make sure you have a registered application and a test Ecwid store on a paid plan. <a href="/begin-development">Learn more</a>
