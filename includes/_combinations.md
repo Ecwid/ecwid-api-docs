@@ -72,6 +72,7 @@ lang | string | Preferred language for the product fields in search results. If 
     "originalImageUrl":"http://images-cdn.ecwid.com/images/4870020/249912061.jpg",
     "quantity":21,
     "unlimited":false,
+    "isShippingRequired": false,
     "price":1.45,
     "wholesalePrices":[
       {
@@ -118,6 +119,7 @@ lang | string | Preferred language for the product fields in search results. If 
     ],
     "sku":"000075",
     "quantity":0,
+    "isShippingRequired": false,
     "unlimited":false,
     "warningLimit":0
   },
@@ -155,6 +157,7 @@ lang | string | Preferred language for the product fields in search results. If 
     "quantity":62,
     "unlimited":false,
     "price":1.45,
+    "isShippingRequired": false,
     "compareToPrice": 2.22,
     "wholesalePrices":[
       {
@@ -217,7 +220,8 @@ hdThumbnailUrl | string  | Product variation HD thumbnail URL resized to fit 800
 originalImageUrl |  string  | URL of the original not resized product variation image. Omitted if the variation inherits the base product's image.
 quantity | number | Amount of the variation items in stock. If `sku` is omitted, then `quantity` of the variation is nested from base product. If `sku` is present, the variation has its own quantity value.
 unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
-price | number | Variation price. Omitted if the variation inherits the base product's price.
+price | number | Variation price. Omitted if the variation inherits the base product's price
+isShippingRequired | boolean | `true` if variation requires shipping, `false` otherwise
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
 warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings
@@ -334,6 +338,7 @@ lang | string | Preferred language for the product fields in search results. If 
     "quantity": 62,
     "unlimited": false,
     "price": 1.45,
+    "isShippingRequired": false,
     "compareToPrice": 2.22,
     "wholesalePrices": [
         {
@@ -365,7 +370,8 @@ hdThumbnailUrl | string  | Product variation HD thumbnail URL resized to fit 800
 originalImageUrl |  string  | URL of the original not resized product variation image. Omitted if the variation inherits the base product's image.
 quantity | number | Amount of the variation items in stock. If `sku` is omitted, then `quantity` of the variation is nested from base product. If `sku` is present, the variation has its own quantity value.
 unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
-price | number | Variation price. Omitted if the variation inherits the base product's price.
+price | number | Variation price. Omitted if the variation inherits the base product's price
+isShippingRequired | boolean | `true` if variation requires shipping, `false` otherwise
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
 warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings
@@ -471,7 +477,8 @@ Content-Type: application/json;charset=utf-8
             "show": "DESCR",
             "type": "UPC"
         }
-    ]
+    ],
+    "isShippingRequired": true
 }
 ```
 
@@ -500,7 +507,8 @@ options | Array\<*OptionValue*\> | Set of options that identifies this variation
 sku | string  | Variation SKU. Omitted if the variation inherits the base product's SKU
 quantity | number | Amount of the variation items in stock
 unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
-price | number | Variation price. Omitted if the variation inherits the base product's price.
+price | number | Variation price. Omitted if the variation inherits the base product's price
+isShippingRequired | boolean | `true` if variation requires shipping, `false` otherwise
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
 warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings
@@ -605,7 +613,8 @@ Content-Type: application/json;charset=utf-8
             "show": "DESCR",
             "type": "UPC"
         }
-    ]
+    ],
+    "isShippingRequired": true
 }
 ```
 
@@ -630,7 +639,8 @@ options | Array\<*OptionValue*\> | Set of options that identifies this variation
 sku | string  | Variation SKU. Omitted if the variation inherits the base product's SKU
 quantity | number | Amount of the variation items in stock
 unlimited | boolean | `true` if the variation has unlimited stock (that is, never runs out)
-price | number | Variation price. Omitted if the variation inherits the base product's price.
+price | number | Variation price. Omitted if the variation inherits the base product's price
+isShippingRequired | boolean | `true` if variation requires shipping, `false` otherwise
 wholesalePrices | Array\<*WholesalePrice*\> |  Sorted array of the variation's wholesale price tiers (quantity limit and price). Omitted if the variation inherits the base product's tiered price settings. 
 weight | number | Variation weight in the units defined in store settings. Omitted if the variation inherits the base product's weight.
 warningLimit | number | The minimum 'warning' amount of the product items in stock for this variation, if set. When the variation in stock amount reaches this level, the store administrator gets an email notification. Omitted if the variation inherits the base product's settings
