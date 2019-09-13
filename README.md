@@ -8,6 +8,10 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Sep 13, 2019
+
+Added **read only** Facebook Messenger connection settings to store information endpoint in the Ecwid REST API. [Learn more](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)
+
 ## Aug 9, 2019
 
 Added `externalFulfillment` and `externalOrderId` fields for orders in Ecwid REST API. 

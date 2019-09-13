@@ -697,6 +697,12 @@ Name | Type    | Description
     },
     "productFiltersSettings": {
       "enabledInStorefront": true
+    },
+    "fbMessengerSettings": {
+      "enabled": true,
+      "fbMessengerPageId": "205845539462539",
+      "fbMessengerThemeColor": "",
+      "fbMessengerMessageUsButtonColor": "WHITE"
     }
 }
 ```
@@ -982,6 +988,7 @@ payment | \<*PaymentInfo*\> | Store payment settings information
 featureToggles | \<*FeatureTogglesInfo*\> | Information about enabled/disabled new store features and their visibility in Ecwid Control Panel. Not provided via public token. Some of them are available in [Ecwid JS API](https://developers.ecwid.com/api-documentation/get-storefront-details#ecwid-getfeaturetoggles)
 designSettings | \<*DesignSettingsInfo*\> | Design settings of an Ecwid store. Can be overriden by [updating store profile](https://developers.ecwid.com/api-documentation/store-information#update-store-profile) or by [customizing design](https://developers.ecwid.com/api-documentation/customize-appearance) via JS config in storefront. 
 productFiltersSettings | \<*ProductFiltersSettings*\> | Settings for product filters in a store
+fbMessengerSettings | \<*FBMessengerSettings*\> | Store settings for FB Messenger feature. **Read only**
 
 #### GeneralInfo
 Field | Type | Description
@@ -1347,6 +1354,15 @@ Field | Type | Description
 displayOnProductList | boolean | `true` if sale price is displayed on product list and product details page. `false` if sale price is displayed on product details page only
 oldPriceLabel | string | Text label for sale price name
 displayDiscount | string | Show discount in three modes: `"NONE"`, `"ABS"` and `"PERCENT`
+
+#### FBMessengerSettings 
+
+Field | Type | Description
+----- | ---- | -----------
+enabled | boolean | `true` if enabled, `false` otherwise
+fbMessengerPageId | string | Page ID of the connected page on Facebook
+fbMessengerThemeColor | string | Chat color theme for FB Messenger
+fbMessengerMessageUsButtonColor | string | Color for the FB Messenger button in storefront
 
 #### Errors
 
