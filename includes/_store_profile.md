@@ -2405,6 +2405,338 @@ Field | Type |  Description
 errorMessage | string | Error message
 errorCode | string | Error code
 
+### Get payment options
+
+Get information about store payment options: settings, availability, titles, etc. The same content is provided in `Get store profile -> Payment -> paymentOptions`
+
+#### Request
+
+> Request example -- get payment options
+
+```http
+GET /api/v3/4870020/profile/paymentOptions?token=123abcd HTTP/1.1
+Host: app.ecwid.com
+Cache-Control: no-cache
+```
+
+`GET https://app.ecwid.com/api/v3/{storeId}/profile/paymentOptions?token={token}`
+
+<aside class="notice">
+Parameters in <strong>bold</strong> are mandatory
+</aside>
+
+Name | Type | Description
+---- | ---- | -----------
+**storeId** |  number | Ecwid store ID
+**token** |  string | oAuth token
+
+#### Response
+
+> Response example (JSON)
+
+```json
+[
+        {
+          "id": "1794210895-1490949002653",
+          "enabled": true,
+          "checkoutTitle": "Stripe",
+          "checkoutDescription": "Pay with credit card",
+          "paymentProcessorId": "stripe",
+          "paymentProcessorTitle": "Stripe",
+          "orderBy": 0,
+          "appClientId": "",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via Stripe",
+            "instructions": "<p>Here are the instructions on how to pay with Stripe</p>"
+          }
+        },
+        {
+          "id":"1794210895-1490949002653",
+          "enabled":false,
+          "checkoutTitle": "Phone Order", 
+          "checkoutDescription": "", 
+          "paymentProcessorId": "offline", 
+          "paymentProcessorTitle": "",
+          "orderBy": 10,
+          "appClientId": "",
+          "instructionsForCustomer":{
+            "instructionsTitle": "Phone Order payment instructions",
+            "instructions": "<p>Some instructions.</p>" 
+          }
+        },        
+        {
+          "id": "1570107140-1510749490171",
+          "enabled": true,
+          "checkoutTitle": "Credit or debit card (PayU Latam)",
+          "checkoutDescription": "",
+          "paymentProcessorId": "customPaymentApp",
+          "paymentProcessorTitle": "CUSTOM_PAYMENT_APP-payu-latam-integration",
+          "orderBy": 20,
+          "appClientId": "payu-latam-integration",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via PayU Latam",
+            "instructions": "<p>Here are the instructions on how to pay with PayU Latam</p>"
+          }
+        },
+        {
+          "id": "1794210895-1490949002653",
+          "enabled": true,
+          "checkoutTitle": "Credit or Debit Card",
+          "checkoutDescription": "",
+          "paymentProcessorId": "ecwidPayments",
+          "paymentProcessorTitle": "Ecwid Payments",
+          "orderBy": 30,
+          "appClientId": "",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via PayU Latam",
+            "instructions": "<p>Here are the instructions on how to pay with PayU Latam</p>"
+          }
+        }
+]
+```
+
+> Public token request example
+
+```http
+GET /api/v3/4870020/profile/paymentOptions?token=public_bpFwyLBELRZa43vaFWVryxu199eYDaaz HTTP/1.1
+Host: app.ecwid.com
+Cache-Control: no-cache
+```
+
+> Public token response example
+
+```json
+[
+        {
+          "id": "1794210895-1490949002653",
+          "enabled": true,
+          "checkoutTitle": "Stripe",
+          "checkoutDescription": "Pay with credit card",
+          "paymentProcessorId": "stripe",
+          "paymentProcessorTitle": "Stripe",
+          "orderBy": 0,
+          "appClientId": "",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via Stripe",
+            "instructions": "<p>Here are the instructions on how to pay with Stripe</p>"
+          }
+        },
+        {
+          "id": "1570107140-1510749490171",
+          "enabled": true,
+          "checkoutTitle": "Credit or debit card (PayU Latam)",
+          "checkoutDescription": "",
+          "paymentProcessorId": "customPaymentApp",
+          "paymentProcessorTitle": "CUSTOM_PAYMENT_APP-payu-latam-integration",
+          "orderBy": 20,
+          "appClientId": "payu-latam-integration",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via PayU Latam",
+            "instructions": "<p>Here are the instructions on how to pay with PayU Latam</p>"
+          }
+        },        
+        {
+          "id": "1794210895-1490949002653",
+          "enabled": true,
+          "checkoutTitle": "Credit or Debit Card",
+          "checkoutDescription": "",
+          "paymentProcessorId": "ecwidPayments",
+          "paymentProcessorTitle": "Ecwid Payments",
+          "orderBy": 30,
+          "appClientId": "",
+          "instructionsForCustomer": {
+            "instructionsTitle": "How to pay via Credit Card",
+            "instructions": "<p>Here are the instructions on how to pay with Credit Card</p>"
+          }
+        }
+]
+```
+
+A JSON array with elements of type 'PaymentOptionInfo' with the following fields:
+
+#### PaymentOptionInfo
+
+Field | Type | Description
+----- | ---- | -----------
+id | string | Payment method ID in a store
+enabled | boolean | `true` if payment method is enabled and shown in storefront, `false` otherwise
+checkoutTitle | string | Payment method title at checkout 
+checkoutDescription | string | Payment method description at checkout (subtitle)
+paymentProcessorId | string | Payment processor ID in Ecwid
+paymentProcessorTitle | string | Payment processor title. The same as `paymentModule` in order details in REST API
+orderBy | number | Payment method position at checkout and in Ecwid Control Panel. The smaller the number, the higher the position is
+appClientId | 'string' | client_id value of payment application. `""` if not an application 
+instructionsForCustomer | \<*InstructionsForCustomerInfo*\> | Customer instructions details
+
+#### InstructionsForCustomerInfo
+
+Field | Type | Description
+----- | ---- | -----------
+instructionsTitle | string | Payment instructions title
+instructions | string | Payment instructions content. Can contain HTML tags
+
+### Add payment option
+
+Add a new payment option. **Only the PayPal Checkout method is supported**.
+
+#### Request
+
+> Request body
+
+```http
+POST /api/v3/4870020/profile/paymentOptions?token=123abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json
+Cache-Control: no-cache
+```
+
+```json
+{
+          "enabled": true,
+          "checkoutTitle": "PayPal",
+          "checkoutDescription": "",
+          "paymentProcessorId": "paypal",
+          "payPalEmail": "example@example.com",
+          "orderBy": 0,
+          "instructionsForCustomer": {
+            "instructionsTitle": "",
+            "instructions": ""
+          }
+}
+```
+
+`POST https://app.ecwid.com/api/v3/{storeId}/profile/paymentOptions?token={token}`
+
+Name | Type    | Description
+---- | ------- | --------------
+**storeId** |  number | Ecwid store ID
+**token** |  string | oAuth token
+
+#### Request body
+
+A JSON object of type 'ShippingOption' with the following fields:
+
+<aside class="notice">
+Parameters in bold are mandatory
+</aside>
+
+Name | Type    | Description
+---- | ------- | --------------
+**title** | string | Shipping option title
+**paymentProcessorId** | string | Must be always `"paypal"`
+**carrier** | string | Must always be `"USPS"`
+enabled | boolean | If `true`, enables shipping method for customers at checkout. `false` otherwise. If not passed, default is `true`
+
+#### Response
+
+> Response example (JSON)
+
+```json
+{
+    "id": "1794210895-1490949002653"
+}
+```
+
+A JSON object of type 'CreateStatus' with the following fields:
+
+#### CreateStatus
+
+Field | Type |  Description
+-------------- | -------------- | --------------
+id | string | ID of the created shipping option
+
+#### Errors
+
+```http
+HTTP/1.1 400 Bad request
+{
+ errorMessage: "Payment option title cannot be empty",
+ errorCode: "PAYMENT_OPTION_TITLE_REQUIRED"
+}
+```
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+HTTP Status | Description | Code (optional)
+-------------- | -------------- | ---------------
+400 | Request parameters are malformed | 
+400 | Only PayPal can be added via API at this time | 
+400 | Payment option title cannot be empty | `PAYMENT_OPTION_TITLE_REQUIRED`
+400 | Payment gateway ID cannot be empty | `PAYMENT_CARRIER_NAME_REQUIRED`
+402 | The functionality/method is not available on the merchant plan | 
+403 | Access token doesn't have `update_store_profile` scope | 
+415 | Unsupported content-type: expected `application/json` or `text/json` | 
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+errorCode | string | Error code, optional
+
+### Update a payment option
+
+Update an existing payment option referring to its ID.
+
+> Request example
+
+```http
+PUT /api/v3/4870020/profile/paymentOptions/1815917023-1562311079943?token=123456789abcd HTTP/1.1
+Host: app.ecwid.com
+Content-Type: application/json;charset=utf-8
+Cache-Control: no-cache
+```
+
+```json
+{
+  "enabled": false
+}
+```
+
+`PUT https://app.ecwid.com/api/v3/{storeId}/profile/paymentOptions/{optionId}?token={token}`
+
+Name | Type    | Description
+---- | ------- | -----------
+**storeId** |  number | Ecwid store ID
+**optionId** | number | Payment option ID
+**token** |  string | oAuth token with access to `update_store_profile` scope
+
+#### Request body
+
+A JSON object of type 'PaymentOption' with the following fields:
+
+#### PaymentOption
+
+Field | Type |  Description
+------| ---- | ------------
+enabled | boolean | `true` to enable shipping option to customers at checkout. `false` otherwise
+
+#### Response
+
+Ecwid will respond with empty response and 200OK HTTP status if the changes were applied successfully.
+
+#### Errors
+
+In case of error, Ecwid responds with an error HTTP status code and, optionally, JSON-formatted body containing error description
+
+#### HTTP codes
+
+HTTP Status | Description | Code (optional)
+-------------- | -------------- | ---------------
+400 | Request parameters are malformed | 
+402 | The functionality/method is not available on the merchant plan | 
+403 | Access token doesn't have `update_store_profile` scope | 
+415 | Unsupported content-type: expected `application/json` or `text/json` | 
+
+#### Error response body (optional)
+
+Field | Type |  Description
+--------- | ---------| -----------
+errorMessage | string | Error message
+errorCode | string | Error code
+
 
 ### Upload store logo
 
@@ -2903,10 +3235,6 @@ In case of error, Ecwid responds with an error HTTP status code and, optionally,
 Field | Type |  Description
 --------- | ---------| -----------
 errorMessage | string | Error message
-
-
-
-
 
 ### Get store update statistics
 

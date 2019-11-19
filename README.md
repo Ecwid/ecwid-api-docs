@@ -8,6 +8,17 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Nov 19, 2019
+
+Added `/profile/paymentOptions` endpoint to manage payment options in a store. 
+
+You can: 
+- get information of added payment options
+- create a new PayPal Checkout payment option 
+- update availability of any payment option (enable/disable)
+
+Learn more – [https://developers.ecwid.com/api-documentation/store-information#get-payment-options](https://developers.ecwid.com/api-documentation/store-information#get-payment-options)
+
 ## Sep 13, 2019
 
 Added **read only** Facebook Messenger connection settings to store information endpoint in the Ecwid REST API. [Learn more](https://developers.ecwid.com/api-documentation/store-information#get-store-profile)

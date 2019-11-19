@@ -194,7 +194,7 @@ name | string | Category name
 thumbnail | \<*ImageDetails*\> | Thumbnail image data. The thumbnail size is specified in the store settings. Resized to fit 400x400px by default
 nameTranslated | \<*Translations*\> | Available translations for category name
 url | string |  URL of the category page in the store. [Learn more](https://developers.ecwid.com/api-documentation/categories#q-how-to-get-urls-for-categories)
-productCount | number | Number of products in the category and its subcategories
+productCount | number | Number of products in the category and its subcategories. **Important**: this value takes several minutes to update. 
 enabledProductCount | number | Number of enabled products in the category (excluding its subcategories)
 description | string  | The category description in HTML
 descriptionTranslated | \<*Translations*\> | Available translations for category description
