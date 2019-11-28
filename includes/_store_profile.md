@@ -2421,14 +2421,14 @@ Cache-Control: no-cache
 
 `GET https://app.ecwid.com/api/v3/{storeId}/profile/paymentOptions?token={token}`
 
-<aside class="notice">
-Parameters in <strong>bold</strong> are mandatory
-</aside>
-
 Name | Type | Description
 ---- | ---- | -----------
 **storeId** |  number | Ecwid store ID
 **token** |  string | oAuth token
+
+<aside class="notice">
+Parameters in <strong>bold</strong> are mandatory
+</aside>
 
 #### Response
 
@@ -2614,18 +2614,20 @@ Name | Type    | Description
 
 #### Request body
 
-A JSON object of type 'ShippingOption' with the following fields:
+A JSON object of type 'PaymentOption' with the following fields:
+
+#### PaymentOption
+
+Name | Type    | Description
+---- | ------- | --------------
+**paymentProcessorId** | string | Must be always `"paypal"`
+**payPalEmail** | string | PayPal email address
+checkoutTitle | string | Payment option title
+enabled | boolean | If `true`, enables payment method for customers at checkout. `false` otherwise. If not passed, default is `true`
 
 <aside class="notice">
 Parameters in bold are mandatory
 </aside>
-
-Name | Type    | Description
----- | ------- | --------------
-**title** | string | Shipping option title
-**paymentProcessorId** | string | Must be always `"paypal"`
-**carrier** | string | Must always be `"USPS"`
-enabled | boolean | If `true`, enables shipping method for customers at checkout. `false` otherwise. If not passed, default is `true`
 
 #### Response
 
@@ -2643,7 +2645,7 @@ A JSON object of type 'CreateStatus' with the following fields:
 
 Field | Type |  Description
 -------------- | -------------- | --------------
-id | string | ID of the created shipping option
+id | string | ID of the created payment option
 
 #### Errors
 
