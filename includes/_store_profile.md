@@ -2713,7 +2713,7 @@ A JSON object of type 'PaymentOption' with the following fields:
 
 Field | Type |  Description
 ------| ---- | ------------
-enabled | boolean | `true` to enable shipping option to customers at checkout. `false` otherwise
+enabled | boolean | `true` to enable payment option to customers at checkout. `false` otherwise
 
 #### Response
 

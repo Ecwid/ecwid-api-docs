@@ -423,10 +423,24 @@ Parameters in bold are mandatory
                 "google_customer_id": "2008512504.1526280224"
             },
             "paymentParams": {},
-            "extraFields": {
-                "lang": "en",
-                "askHowYouFoundUsApp": "From a friend"
-            },
+            "orderExtraFields": [
+                {
+                    "id": "lang",
+                    "value": "en",
+                    "customerInputType": "",
+                    "title": "",
+                    "orderDetailsDisplaySection": "",
+                    "orderBy": "1"                    
+                },
+                {
+                    "id": "askHowYouFoundUsApp",
+                    "value": "From a friend",
+                    "customerInputType": "SELECT",
+                    "title": "How did you hear about us?",
+                    "orderDetailsDisplaySection": "order_comments",
+                    "orderBy": "2"
+                }
+            ],
             "acceptMarketing": true,
             "refererId": "Amazon",
             "disableAllCustomerNotifications": false,
@@ -498,7 +512,7 @@ externalTransactionId | string | Transaction ID / invoice number of the order in
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner
-extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
+orderExtraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
 refundedAmount | number | A sum of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
@@ -689,7 +703,12 @@ cvvMessage | string  | Credit card verification status returned by the payment s
 #### ExtraFieldsInfo
 Field | Type | Description
 ----- | ---- | -----------
-YOUR_FIELD_NAME | string | Your custom name saved for the order extra field. The value length cannot exceed 255 characters
+id | string | Your custom name saved for the order extra field
+value | string | Extra field value. Length cannot exceed 255 characters
+customerInputType | string | One of: `""`,`"TEXT"`, `"SELECT"`, `"DATETIME"`
+title | string | Extra field title. Displayed for customer at checkout if field is visible
+orderDetailsDisplaySection | string | : `""`, `shipping_address`, `pickup_details`, `shipping_methods`, `pickup_methods`, `payment_details`
+orderBy | string | Extra field position. Use it to sort fields within the same `orderDetailsDisplaySection`
 
 #### RefundsInfo
 Field | Type | Description
@@ -1103,10 +1122,24 @@ Parameters in bold are mandatory
         "google_customer_id": "2008512504.1526280224"
     },
     "paymentParams": {},
-    "extraFields": {
-        "lang": "en",
-        "askHowYouFoundUsApp": "From a friend",
-    },
+    "orderExtraFields": [
+        {
+            "id": "lang",
+            "value": "en",
+            "customerInputType": "",
+            "title": "",
+            "orderDetailsDisplaySection": "",
+            "orderBy": "1"                    
+        },
+        {
+            "id": "askHowYouFoundUsApp",
+            "value": "From a friend",
+            "customerInputType": "SELECT",
+            "title": "How did you hear about us?",
+            "orderDetailsDisplaySection": "order_comments",
+            "orderBy": "2"
+        }
+    ],
     "acceptMarketing": true,
     "refererId": "Amazon",
     "disableAllCustomerNotifications": false,
@@ -1167,7 +1200,7 @@ externalTransactionId | string | Transaction ID / invoice number of the order in
 affiliateId |   string  | Affiliate ID
 creditCardStatus | \<*CreditCardStatus*\> | The status of credit card payment
 privateAdminNotes | string | Private note about the order from store owner
-extraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
+orderExtraFields | \<*ExtraFieldsInfo*\> | Additional optional information about order. Total storage of extra fields cannot exceed 8Kb. See [Order extra fields](#order-extra-fields)
 refundedAmount | number | A sum of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 refunds | Array\<*RefundsInfo*\> | Description of all refunds made to order (for [Ecwid Payments only](https://support.ecwid.com/hc/en-us/articles/211954289-Ecwid-Payments-US-Canada-and-UK-))
 pickupTime | string | Order pickup time in the store date format, e.g.: `"2017-10-17 05:00:00 +0000"`
@@ -1358,7 +1391,12 @@ cvvMessage | string  | Credit card verification status returned by the payment s
 #### ExtraFieldsInfo
 Field | Type | Description
 ----- | ---- | -----------
-YOUR_FIELD_NAME | string | Your custom name saved for the order extra field. The value length cannot exceed 255 characters
+id | string | Your custom name saved for the order extra field
+value | string | Extra field value. Length cannot exceed 255 characters
+customerInputType | string | One of: `""`,`"TEXT"`, `"SELECT"`, `"DATETIME"`
+title | string | Extra field title. Displayed for customer at checkout if field is visible
+orderDetailsDisplaySection | string | : `""`, `shipping_address`, `pickup_details`, `shipping_methods`, `pickup_methods`, `payment_details`
+orderBy | string | Extra field position. Use it to sort fields within the same `orderDetailsDisplaySection`
 
 #### RefundsInfo
 Field | Type | Description

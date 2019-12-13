@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Dec 13, 2019
+
+Added `orderExtraFields` field to `/orders` REST API endpoint. 
+
+It contains more information about extra fields compared to `extraFields` field provided earlier. The `extraFields` field is still available in API responses.
+
+Learn more – [https://developers.ecwid.com/api-documentation/orders](https://developers.ecwid.com/api-documentation/orders)
+
 ## Nov 19, 2019
 
 Added `/profile/paymentOptions` endpoint to manage payment options in a store. 
