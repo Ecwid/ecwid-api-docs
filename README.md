@@ -8,6 +8,14 @@ The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.
 
 # Changelog
 
+## Dec 17, 2019
+
+Added `ec.config.tracking.ask_consent` and `ec.config.tracking.user_response` to storefront JS API. 
+
+They allow you to set visitor's response about tracking on store pages and whether Ecwid needs to ask for tracking confirmation.
+
+Learn more – [https://developers.ecwid.com/api-documentation/get-customer-details#set-tracking-consent](https://developers.ecwid.com/api-documentation/get-customer-details#set-tracking-consent)
+
 ## Dec 13, 2019
 
 Added `orderExtraFields` field to `/orders` REST API endpoint. 

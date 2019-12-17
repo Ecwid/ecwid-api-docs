@@ -762,7 +762,7 @@ email | string | Customer's email
 
 Find out more about customer that is currently logged in a store.
 
-### Ecwid.getTrackingConsent
+### Get tracking consent
 
 > Get status of customer's consent to be tracked
 
@@ -782,6 +782,21 @@ userResponse | string | Customer's preferred choice for being tracked. Possible 
 askConsent | boolean | `true` if store requests customer consent to be tracked. `false` otherwise
 
 Subscribe to the `Ecwid.OnAPILoaded` [JS API event](https://developers.ecwid.com/api-documentation/subscribe-to-events#ecwid-onapiloaded) to ensure availability of this function.
+
+### Set tracking consent
+
+> Set status of customer's consent to be tracked
+
+```js
+ec.config.tracking.ask_consent = false;
+ec.config.tracking.user_response = "ACCEPTED";
+```
+
+If your website already asks user for consent, you can provide that information to Ecwid, so that visitors don't have to do this again on store pages.
+
+First, set the value for the boolean variable `ec.config.tracking.ask_consent`: `true` – if Ecwid needs to ask for consent, `false` otherwise.
+
+Next, provide visitor's response to Ecwid in the `ec.config.tracking.user_response` variable with one of these values: `"ACCEPTED"`, `"DECLINED"` or `""` if you don't know the response yet. 
 
 ### Customer Object
 
