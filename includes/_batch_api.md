@@ -12,10 +12,14 @@ You will need to send the URL, method and optional request body to Ecwid.
 
 The `https://app.ecwid.com/api/v3/{STORE_ID}/` part of the request URL will be added automatically. 
 
-In response, Ecwid will start executing your requests and provide you with a unique **ticket ID** for your batch request. Use that ticket ID to [check the status of your batch request](https://developers.ecwid.com/api-documentation/batch-requests#get-batch-request-status).
-
 <aside class="notice">
 Max amount of API requests for one batch request is 500.
+</aside>
+
+In response, Ecwid will start executing your requests and provide you with a unique **ticket ID** for your batch request. Use that ticket ID to [check the status of your batch request](https://developers.ecwid.com/api-documentation/batch-requests#get-batch-request-status).
+
+<aside>
+You can use this endpoint to upload files or images. However, they must be provided as a URL in the `externalUrl` parameter, instead binary data in request body.
 </aside>
 
 > Request example

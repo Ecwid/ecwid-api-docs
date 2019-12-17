@@ -2515,7 +2515,7 @@ categoryId |  number  | ID of the category this product belongs to. If the produ
 price | number | Price of ordered item in the cart
 productPrice | number | Basic product price without options markups, wholesale discounts etc.
 weight |  number | Product weight
-sku |   string | Product SKU
+sku | string | Product or variation SKU. If you specified variation SKU, you must set `selectedOptions` field as well
 shortDescription | string | Product description truncated to 120 characters
 tax | number | Tax amount applied to the item
 shipping | number| Order item shipping cost 
@@ -2526,7 +2526,7 @@ fixedShippingRateOnly | boolean | `true`/`false`: shows whether the fixed shippi
 fixedShippingRate | number| Fixed shipping rate for the product
 digital | boolean | `true`/`false`: shows whether the item has downloadable files attached
 couponApplied | boolean | `true`/`false`: shows whether a discount coupon is applied for this item
-selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer
+selectedOptions | Array\<*OrderItemOption*\> | Product options values selected by the customer. Must be provided if you specify the `sku` field
 taxes |  Array\<*OrderItemTax*\> | Taxes applied to this order item
 dimensions | \<*ProductDimensions*\> | Product dimensions info
 
