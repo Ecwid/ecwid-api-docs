@@ -1,12 +1,16 @@
 ecwid-api-docs
 ==============
 
-Ecwid REST API documentation ([https://developers.ecwid.com/api-documentation](https://developers.ecwid.com/api-documentation))
+Ecwid REST API documentation ([https://api-docs.ecwid.com/reference/overview](https://api-docs.ecwid.com/reference/overview))
 
 The docs use Markdown syntax. Syntax reference: [Slate markdown](https://github.com/tripit/slate/wiki/Markdown-Syntax)
 
 
 # Changelog
+
+## Jun 11, 2020
+
+The API Docs are now located at [https://api-docs.ecwid.com/](https://api-docs.ecwid.com/reference/overview)
 
 ## Dec 17, 2019
 
